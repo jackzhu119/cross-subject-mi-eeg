@@ -72,3 +72,36 @@ Subject 1 真实结构检查（已有结果在 `outputs/P1-E001/`）：
 5. 未真实运行的数据、图表和指标不得写成实验结果。
 
 详细计划见 [ROADMAP.md](ROADMAP.md)，第一课见 [docs/lessons/01_eeg_data_structure.md](docs/lessons/01_eeg_data_structure.md)。
+
+## Q5 EEGNet 更新（2026-09-23）
+
+Q5-E001 已在 NVIDIA RTX 5090 云端完成。
+
+- 数据集：BNCI2014_001
+- 9 人 LOSO
+- 4 个 inner fits / fold
+- 3 个 final seeds / subject
+- 共 36 次 inner fits
+- 共 27 个 final fits
+- Q5 status: complete
+- 独立 validator: passed
+
+三个 seed 的 LOSO mean balanced accuracy：
+
+- 20260924: 0.331597
+- 20260925: 0.336227
+- 20260926: 0.343750
+
+整体 seed-level mean BA 约为 0.3372。
+
+结果目录：
+
+`results/Q5-E001/`
+
+后续科研应优先分析：
+1. subject-wise 泛化差异
+2. seed 稳定性
+3. confusion matrix
+4. epoch selection
+5. 与 CSP+LDA/SVM baseline 的比较
+6. spatial-spectral / cross-subject deep learning 改进
