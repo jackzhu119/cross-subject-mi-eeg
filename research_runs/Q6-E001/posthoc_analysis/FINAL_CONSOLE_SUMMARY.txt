@@ -1,0 +1,66 @@
+Q6 COMPLETE POST-HOC ANALYSIS
+========================================
+Q5 mean BA: 0.3372
+Q6 mean BA: 0.3793
+Mean delta: +4.21 pp
+Median delta: +0.23 pp
+Improved/worsened: 6/3
+Wilcoxon p: 0.203125
+Paired t p: 0.374301
+Sign-test p: 0.507812
+Cohen dz: 0.3136
+Bootstrap mean-delta 95% CI: [-1.12, +13.49] pp
+
+PER-SUBJECT DELTAS
+S1: 0.5700 -> 0.5689 (-0.12 pp), seed improvements 1/3
+S2: 0.2448 -> 0.2471 (+0.23 pp), seed improvements 2/3
+S3: 0.2610 -> 0.6586 (+39.76 pp), seed improvements 3/3
+S4: 0.3692 -> 0.3738 (+0.46 pp), seed improvements 2/3
+S5: 0.2413 -> 0.2465 (+0.52 pp), seed improvements 2/3
+S6: 0.2836 -> 0.2830 (-0.06 pp), seed improvements 1/3
+S7: 0.2847 -> 0.2865 (+0.17 pp), seed improvements 2/3
+S8: 0.2969 -> 0.2529 (-4.40 pp), seed improvements 0/3
+S9: 0.4832 -> 0.4965 (+1.33 pp), seed improvements 3/3
+
+S3 / S8 FOCUS
+S3 delta: +39.76 pp
+S8 delta: -4.40 pp
+Q5 S3 dominant-share=0.9416, entropy=0.1304
+Q6 S3 dominant-share=0.4387, entropy=0.9037
+Q5 S8 dominant-share=0.5978, entropy=0.6480
+Q6 S8 dominant-share=0.8646, entropy=0.2627
+
+DISTRIBUTION MISMATCH
+S3 combined mismatch: 0.0512
+S8 combined mismatch: 0.2459
+
+MISMATCH CORRELATIONS
+all_S1-S9: n=9, Pearson r=-0.5325, p=0.1399; Spearman rho=0.1333, p=0.7324
+excluding_S3: n=8, Pearson r=0.2618, p=0.5311; Spearman rho=0.6190, p=0.1017
+excluding_S8: n=8, Pearson r=-0.5553, p=0.1530; Spearman rho=0.0952, p=0.8225
+excluding_S3_and_S8: n=7, Pearson r=0.5745, p=0.1773; Spearman rho=0.6429, p=0.1194
+
+LEAVE-ONE-SUBJECT SENSITIVITY
+omit S1: mean delta=+4.75 pp, Wilcoxon p=0.1953
+omit S2: mean delta=+4.71 pp, Wilcoxon p=0.3125
+omit S3: mean delta=-0.23 pp, Wilcoxon p=0.3828
+omit S4: mean delta=+4.68 pp, Wilcoxon p=0.3125
+omit S5: mean delta=+4.67 pp, Wilcoxon p=0.3125
+omit S6: mean delta=+4.75 pp, Wilcoxon p=0.1953
+omit S7: mean delta=+4.72 pp, Wilcoxon p=0.3125
+omit S8: mean delta=+5.29 pp, Wilcoxon p=0.0391
+omit S9: mean delta=+4.57 pp, Wilcoxon p=0.3125
+
+SELECTED EPOCHS
+S1: Q5=27, Q6=27, delta=+0
+S2: Q5=1, Q6=1, delta=+0
+S3: Q5=2, Q6=16, delta=+14
+S4: Q5=10, Q6=10, delta=+0
+S5: Q5=13, Q6=12, delta=-1
+S6: Q5=7, Q6=7, delta=+0
+S7: Q5=6, Q6=6, delta=+0
+S8: Q5=1, Q6=1, delta=+0
+S9: Q5=7, Q6=7, delta=+0
+
+FILES SAVED TO:
+/workspace/Q5_EEGNet_Cloud_Ready/research_runs/Q6-E001/posthoc_analysis
