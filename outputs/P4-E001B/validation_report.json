@@ -1,0 +1,17 @@
+{
+  "status": "validated",
+  "n_subjects": 9,
+  "n_predictions": 5184,
+  "n_frozen_coefficient_values": 594,
+  "n_source_files_hash_verified": 18,
+  "uncorrected_predictions_identical_to_p3": true,
+  "checks": [
+    "protocol copy integrity",
+    "EEG/EOG aligned trial-count audit",
+    "identical test IDs and labels across correction conditions",
+    "independent per-subject and summary score recomputation",
+    "paired contrast recomputation",
+    "finite source-fitted coefficient and descriptive QC tables",
+    "source file size and SHA-256 integrity"
+  ]
+}

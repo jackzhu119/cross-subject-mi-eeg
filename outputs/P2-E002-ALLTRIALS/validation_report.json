@@ -1,0 +1,18 @@
+{
+  "status": "validated",
+  "n_subjects": 9,
+  "n_clean_trials": 2592,
+  "n_excluded_left_right_trials": 0,
+  "n_folds": 9,
+  "n_predictions": 5184,
+  "n_source_files_hash_verified": 18,
+  "checks": [
+    "trial counts and epoch dimensions",
+    "unique sample identifiers",
+    "train/test disjointness and unit-specific split boundaries",
+    "prediction coverage per fold and model",
+    "independent balanced-accuracy recomputation",
+    "subject-equal summary recomputation",
+    "source file size and SHA-256 integrity"
+  ]
+}

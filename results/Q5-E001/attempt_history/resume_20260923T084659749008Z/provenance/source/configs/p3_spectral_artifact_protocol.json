@@ -1,0 +1,59 @@
+{
+  "experiment_id": "P3-E001",
+  "protocol_status": "frozen_before_P3_model_fitting; exploratory_extension_after_P2_results",
+  "dataset": "BNCI2014_001",
+  "subjects": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+  "classes": {"left_hand": 1, "right_hand": 2},
+  "input": {
+    "channels": "22 EEG only; EOG used only in official artifact annotation",
+    "sampling_rate_hz": 250,
+    "run_filter": "8-30 Hz fourth-order Butterworth IIR, forward-backward zero-phase",
+    "epoch_trial_relative_s": [2.5, 5.5],
+    "epoch_cue_relative_s": [0.5, 3.5],
+    "n_samples": 750,
+    "no_rereference": true
+  },
+  "fft_features": {
+    "method": "SciPy Welch power spectral density",
+    "nperseg": 250,
+    "noverlap": 125,
+    "nfft": 250,
+    "window": "hann",
+    "detrend": "constant",
+    "bands_hz_half_open_except_last": [[8, 12], [12, 16], [16, 20], [20, 30]],
+    "feature": "log10 integrated PSD within band per EEG channel; fixed 88 dimensions",
+    "log_floor": 1e-20
+  },
+  "candidate_models": [
+    "CSP4+shrinkageLDA",
+    "WelchPSD88+shrinkageLDA",
+    "CSP4+WelchPSD88+shrinkageLDA"
+  ],
+  "csp": {"n_components": 4, "cov_est": "concat", "reg": null, "log": true},
+  "classifier": "LinearDiscriminantAnalysis(solver='lsqr', shrinkage='auto')",
+  "normalization": "StandardScaler fit on source-subject training trials only",
+  "primary_split": "9-fold leave-one-subject-out; both target sessions held out",
+  "training_artifact_policies": ["expert_clean_only", "all_trials"],
+  "test_population": "same expert-clean held-out subject trials for both training policies",
+  "additional_test_strata": ["expert_clean", "expert_flagged"],
+  "primary_metric": "per-held-out-subject balanced accuracy on fixed clean test population",
+  "secondary_metrics": ["accuracy", "macro_f1", "cohen_kappa", "coverage", "flagged_trial_balanced_accuracy_if_both_classes_present"],
+  "contrasts": [
+    "WelchPSD88 minus CSP4 under clean training",
+    "Fusion92 minus CSP4 under clean training",
+    "all-trial training minus clean training for each fixed model on identical clean test IDs"
+  ],
+  "statistical_unit": "held-out subject (n=9)",
+  "inference": "descriptive paired differences and percentile bootstrap 95% intervals, exploratory; no claim of superiority from post-hoc winner",
+  "seed": 20260921,
+  "hypotheses": [
+    "Fourier-derived bandpower may complement CSP spatial variance under subject shift, but could also underperform.",
+    "Including expert-flagged source training trials may change clean-target accuracy; direction is unknown."
+  ],
+  "limitations": [
+    "This is a protocol frozen after inspecting P2 baseline results, not an independent preregistration.",
+    "Official expert artifact flags are not an automatic artifact-removal algorithm.",
+    "Zero-phase filtering and expert-clean target testing are offline-only conditions.",
+    "No target EEG or labels are used to fit CSP, scaling, or classifier."
+  ]
+}

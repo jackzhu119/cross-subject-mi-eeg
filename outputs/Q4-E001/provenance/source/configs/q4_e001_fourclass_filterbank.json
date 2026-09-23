@@ -1,0 +1,54 @@
+{
+  "experiment_id": "Q4-E001",
+  "analysis_status": "exploratory fixed local protocol; not public preregistration",
+  "research_question": "Does a fixed filter bank improve source-only four-class LOSO decoding relative to broadband multiclass CSP?",
+  "hypothesis": "Frequency-specific spatial filters may outperform one broadband spatial transform; improvement is not assumed.",
+  "dataset": "BNCI2014_001",
+  "subjects": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+  "class_ids": {"left_hand": 1, "right_hand": 2, "feet": 3, "tongue": 4},
+  "seed": 20260922,
+  "preprocessing": {
+    "sampling_rate_hz": 250,
+    "bands": {
+      "broad": [4, 40],
+      "fb04_08": [4, 8], "fb08_12": [8, 12], "fb12_16": [12, 16],
+      "fb16_20": [16, 20], "fb20_24": [20, 24], "fb24_28": [24, 28],
+      "fb28_32": [28, 32], "fb32_36": [32, 36], "fb36_40": [36, 40]
+    },
+    "filter": {"order": 4, "ftype": "butter", "phase": "zero"},
+    "trial_start_s": 2.5,
+    "trial_stop_exclusive_s": 5.5,
+    "artifact_policy": "include_all",
+    "baseline": null
+  },
+  "csp": {
+    "n_components": 8, "reg": "oas", "log": true, "cov_est": "concat",
+    "transform_into": "average_power", "norm_trace": false,
+    "rank": "full", "component_order": "mutual_info"
+  },
+  "models": [
+    {"name": "BroadCSP_LDA", "bands": ["broad"], "classifier": "lda", "select_k": null},
+    {"name": "BroadCSP_SVM", "bands": ["broad"], "classifier": "svm", "select_k": null},
+    {"name": "FBCSP_LDA", "bands": ["fb04_08", "fb08_12", "fb12_16", "fb16_20", "fb20_24", "fb24_28", "fb28_32", "fb32_36", "fb36_40"], "classifier": "lda", "select_k": null},
+    {"name": "FBCSP_MI8_LDA", "bands": ["fb04_08", "fb08_12", "fb12_16", "fb16_20", "fb20_24", "fb24_28", "fb28_32", "fb32_36", "fb36_40"], "classifier": "lda", "select_k": 8}
+  ],
+  "lda": {"solver": "lsqr", "shrinkage": "auto"},
+  "svm": {"kernel": "linear", "C": 1.0},
+  "mi_selection": {"discrete_features": false, "n_neighbors": 3},
+  "evaluation": {
+    "split": "LOSO both sessions held out",
+    "target_information": "No target-subject parameter estimation or model selection; per-trial fixed transform only",
+    "tuning": "none; all options fixed before running this experiment",
+    "primary_population": "all trials including expert artifact flags",
+    "secondary_strata": ["unflagged", "flagged"],
+    "primary_metric": "balanced_accuracy",
+    "aggregation": "subject-equal mean and sample SD; descriptive contrasts only"
+  },
+  "runtime": {"blas_threads": 2, "transform_batch_size": 128},
+  "limitations": [
+    "Not an exact reproduction of Ang 2012 FBCSP: MNE multiclass joint diagonalization, Butterworth zero-phase filtering, LDA and no paired MI feature retention.",
+    "MI8 is a dimension-reduction sensitivity, not a perfect capacity-matched comparison.",
+    "Offline zero-phase run filtering is not a causal online pipeline.",
+    "BNCI2014_001 has already informed pilot exploration; these are not independent confirmatory results."
+  ]
+}

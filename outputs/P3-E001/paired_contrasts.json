@@ -1,0 +1,112 @@
+{
+  "PSD_minus_CSP_clean_training": {
+    "unit": "held-out subject",
+    "n_subjects": 9,
+    "mean_paired_difference_ba": -0.04655190556359125,
+    "sd_paired_difference_ba": 0.09987929031828442,
+    "bootstrap_percentile_95_ci": [
+      -0.11040350807573833,
+      0.011977351145538401
+    ],
+    "per_subject_differences": {
+      "1": 0.10894141829393633,
+      "2": -0.03172877846790889,
+      "3": -0.05402813299232745,
+      "4": -0.03828978938949612,
+      "5": -0.03618779773862135,
+      "6": 0.03542758846657923,
+      "7": -0.014653784219001653,
+      "8": -0.23795793758480333,
+      "9": -0.15048993644067798
+    },
+    "note": "Exploratory nine-subject inference; interval does not establish broad generalization."
+  },
+  "Fusion_minus_CSP_clean_training": {
+    "unit": "held-out subject",
+    "n_subjects": 9,
+    "mean_paired_difference_ba": 0.01782884032425179,
+    "sd_paired_difference_ba": 0.04957591917320806,
+    "bootstrap_percentile_95_ci": [
+      -0.012558506064886383,
+      0.048046281576392326
+    ],
+    "per_subject_differences": {
+      "1": 0.09750770811921894,
+      "2": 0.03245341614906827,
+      "3": 0.05759803921568618,
+      "4": -0.006231671554252305,
+      "5": -0.0012053033346726139,
+      "6": 0.03743446920052418,
+      "7": 0.044041867954911385,
+      "8": -0.04194934418815022,
+      "9": -0.05918961864406769
+    },
+    "note": "Exploratory nine-subject inference; interval does not establish broad generalization."
+  },
+  "all_minus_clean_training__CSP4+shrinkageLDA": {
+    "unit": "held-out subject",
+    "n_subjects": 9,
+    "mean_paired_difference_ba": -0.009285974500847585,
+    "sd_paired_difference_ba": 0.01650409582827563,
+    "bootstrap_percentile_95_ci": [
+      -0.019802419124330967,
+      0.000521751192532239
+    ],
+    "per_subject_differences": {
+      "1": -0.0035714285714285587,
+      "2": 0.017753623188405787,
+      "3": -0.04347826086956519,
+      "4": 0.0008997600639829573,
+      "5": -0.007805773976927055,
+      "6": -0.013761467889908285,
+      "7": -0.018679549114331673,
+      "8": -0.011024423337856248,
+      "9": -0.00390625
+    },
+    "note": "Exploratory nine-subject inference; interval does not establish broad generalization."
+  },
+  "all_minus_clean_training__WelchPSD88+shrinkageLDA": {
+    "unit": "held-out subject",
+    "n_subjects": 9,
+    "mean_paired_difference_ba": 0.003587440092946481,
+    "sd_paired_difference_ba": 0.012028488028608817,
+    "bootstrap_percentile_95_ci": [
+      -0.0035027440991669354,
+      0.011333118659870745
+    ],
+    "per_subject_differences": {
+      "1": -0.0035457348406988665,
+      "2": 0.01407867494824011,
+      "3": 0.011135976129582392,
+      "4": -0.0006998133830978803,
+      "5": 5.73953968891483e-05,
+      "6": 0.0267857142857143,
+      "7": -0.014814814814814725,
+      "8": 0.00028267752148347647,
+      "9": -0.0009931144067796271
+    },
+    "note": "Exploratory nine-subject inference; interval does not establish broad generalization."
+  },
+  "all_minus_clean_training__CSP4+WelchPSD88+shrinkageLDA": {
+    "unit": "held-out subject",
+    "n_subjects": 9,
+    "mean_paired_difference_ba": -0.005347845373683293,
+    "sd_paired_difference_ba": 0.023697814375814155,
+    "bootstrap_percentile_95_ci": [
+      -0.018912220225159964,
+      0.010398301621452702
+    ],
+    "per_subject_differences": {
+      "1": 0.007219938335046194,
+      "2": -0.01097308488612836,
+      "3": -0.03985507246376807,
+      "4": -0.012796587576646146,
+      "5": -0.01908396946564883,
+      "6": -0.00917431192660545,
+      "7": -0.01851851851851838,
+      "8": 0.011420171867932982,
+      "9": 0.04363082627118642
+    },
+    "note": "Exploratory nine-subject inference; interval does not establish broad generalization."
+  }
+}

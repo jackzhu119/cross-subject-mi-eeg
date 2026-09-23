@@ -1,0 +1,19 @@
+{
+  "status": "validated",
+  "n_subjects": 9,
+  "n_trials": 2592,
+  "n_expert_flagged": 246,
+  "n_predictions": 15552,
+  "n_model_fits": 54,
+  "n_source_files_hash_verified": 18,
+  "checks": [
+    "protocol copy integrity",
+    "FFT feature shape and trial alignment",
+    "identical clean held-out test IDs across training policies",
+    "subject-disjoint LOSO source training",
+    "complete per-model prediction coverage",
+    "independent per-subject and summary balanced-accuracy recalculation",
+    "paired contrast recalculation",
+    "source file size and SHA-256 integrity"
+  ]
+}

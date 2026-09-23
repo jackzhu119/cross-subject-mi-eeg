@@ -1,0 +1,38 @@
+{
+  "experiment_id": "Q4-A001",
+  "parent_experiment_id": "Q4-E001",
+  "analysis_status": "post-Q4 exploratory capacity ablation; selected after observing Q4 failure of MI8; not confirmatory",
+  "research_question": "Does source-only MI feature-retention count account for poor four-class FBCSP_MI8 performance?",
+  "subjects": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "class_ids": {
+    "left_hand": 1,
+    "right_hand": 2,
+    "feet": 3,
+    "tongue": 4
+  },
+  "feature_counts": [
+    8,
+    16,
+    32,
+    72
+  ],
+  "seed": 20260922,
+  "evaluation": {
+    "split": "Reuse exact Q4-E001 nine source-only LOSO folds and per-fold source-fitted CSP features",
+    "selection": "MI scores fit only on eight source subjects in each outer fold; no target-based k choice",
+    "primary_metric": "balanced_accuracy",
+    "population": "all 5184 four-class target trials",
+    "aggregation": "subject-equal mean and sample SD; exploratory descriptive only"
+  },
+  "limitation": "This grid was designed after inspecting Q4-E001 results. A winner from this grid is not independently confirmed. Inner-source subject validation and external dataset remain future work."
+}

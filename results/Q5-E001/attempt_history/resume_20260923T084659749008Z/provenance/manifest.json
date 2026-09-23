@@ -1,0 +1,284 @@
+{
+  "captured_at_utc": "2026-09-23T08:44:12.393642+00:00",
+  "command": [
+    "scripts/run_eegnet.py",
+    "--config",
+    "configs/q5_e001_eegnet.json",
+    "--data-dir",
+    "data/raw",
+    "--output-dir",
+    "results/Q5-E001",
+    "--device",
+    "cuda",
+    "--resume"
+  ],
+  "python": "3.12.11 | packaged by Anaconda, Inc. | (main, Jun  5 2025, 13:09:17) [GCC 11.2.0]",
+  "platform": "Linux-6.12.101-compshare-x86_64-with-glibc2.35",
+  "versions": {
+    "mne": "1.13.2",
+    "moabb": "1.7.2",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "pandas": "3.0.6",
+    "scikit-learn": "1.9.1",
+    "matplotlib": "3.11.2",
+    "threadpoolctl": "3.7.0",
+    "torch": "2.14.0+cu132",
+    "torchaudio": "2.11.0+cu132",
+    "braindecode": "1.5.1",
+    "skorch": "1.4.0"
+  },
+  "source_files": [
+    {
+      "path": "pyproject.toml",
+      "sha256": "27978f0562ea7c1649824f25d7965a3e808e63d2ab6920cb523ce72dc3e57dc2",
+      "bytes": 766
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "da9b3083e6a7ee0ade6ae2cd0e04e1ba47897d08519b8791536fefe14d1f6352",
+      "bytes": 912609
+    },
+    {
+      "path": "requirements-cloud.txt",
+      "sha256": "99baf6eb002293186d9bf9359cfbfd8a9ca124e61f5d14c8d8a4bb5942ff72e4",
+      "bytes": 250
+    },
+    {
+      "path": "README_CLOUD.md",
+      "sha256": "bce61f071d52cfa9746eef9ec1b1e11b8f551a011e9ff8bc81786791e5e028c0",
+      "bytes": 4291
+    },
+    {
+      "path": "check_gpu.py",
+      "sha256": "2dcf6981cfbd989cf972ab29c20d874edc8fa7a8e903903314d130459ad2bc55",
+      "bytes": 1254
+    },
+    {
+      "path": "setup_gpu.sh",
+      "sha256": "80c6f729719cc6ec14cac546900408f29261c0304767b465ea5a3ed87c6b79a3",
+      "bytes": 747
+    },
+    {
+      "path": "run_gpu.sh",
+      "sha256": "5c149a58a93a758876142270c7735244ad96a55764668bb01c7594000083b227",
+      "bytes": 799
+    },
+    {
+      "path": "scripts/benchmark_eegnet.py",
+      "sha256": "fcf700e819be2c674e69d91d113e5c4c9e55c6ea31867f0f1f371299e5bb72c4",
+      "bytes": 2287
+    },
+    {
+      "path": "scripts/build_cloud_bundle.py",
+      "sha256": "6c0557c8720f82580beef949bc512236c5201952346420a3621786aae00f5c2d",
+      "bytes": 3456
+    },
+    {
+      "path": "scripts/inspect_bnci2014_001.py",
+      "sha256": "ea6db8a4fb4e5fdaaed8790387ea7e5ec43d130045031e0cb28dfe7d4ec99e1f",
+      "bytes": 4986
+    },
+    {
+      "path": "scripts/plot_fourclass_results.py",
+      "sha256": "15deb8fb82fa4f6c1758d7eeb5a08af34646ec85798e632b8cd2912b9eeb7270",
+      "bytes": 4432
+    },
+    {
+      "path": "scripts/plot_welch_context.py",
+      "sha256": "f9f0374573983b209f241621e71881e062abe0563de7d6027ddf6619dd1bc43d",
+      "bytes": 3040
+    },
+    {
+      "path": "scripts/run_csp_baselines.py",
+      "sha256": "8f273bb3cfb35541c6231a617f28ddc06a1ce52b6f197b7935bfc9a66beb2865",
+      "bytes": 24828
+    },
+    {
+      "path": "scripts/run_eegnet.py",
+      "sha256": "999ad0139cc318f5d469b0511f5dbb384873ff7b85b48dc1b8572cc5489bef1b",
+      "bytes": 23101
+    },
+    {
+      "path": "scripts/run_eog_regression_study.py",
+      "sha256": "c4913625baef1209ddbad8e4e8c314d28933fbd14659dd58d231f631cdcf156a",
+      "bytes": 14244
+    },
+    {
+      "path": "scripts/run_fourclass_filterbank.py",
+      "sha256": "35e1fbb8329d1b358ebcea16c5904295a1360e14c722aa5bacba2e15847fc693",
+      "bytes": 13467
+    },
+    {
+      "path": "scripts/run_mi_capacity_ablation.py",
+      "sha256": "10bcf12d030030e341358c3b17d5ed3e686789aac1f5d4336f88e97ce2b45f13",
+      "bytes": 10410
+    },
+    {
+      "path": "scripts/run_spectral_artifact_study.py",
+      "sha256": "a8bffc71f828dbb6b69c6839866b3cd716c37f0be65bc1fab24095d2893aa847",
+      "bytes": 17934
+    },
+    {
+      "path": "scripts/validate_csp_run.py",
+      "sha256": "030b1def5cac55bb05d65cb5eddd01cee0f22f4104674974097c4379d00b7501",
+      "bytes": 5869
+    },
+    {
+      "path": "scripts/validate_eegnet_run.py",
+      "sha256": "bc515a5e465454681e5b4f7f317740da4350825a19254cbbf2f4bb91edd13cb7",
+      "bytes": 21940
+    },
+    {
+      "path": "scripts/validate_eog_regression_study.py",
+      "sha256": "8d17c1bc7d61b7f6ce4baa6031ac4b158930b756fa28471c40210bc2816d4612",
+      "bytes": 6199
+    },
+    {
+      "path": "scripts/validate_fourclass_filterbank.py",
+      "sha256": "9b710f778d507b8ebc91e93b874f62d12a05cc192b06f0a173e38d25e5d93740",
+      "bytes": 15039
+    },
+    {
+      "path": "scripts/validate_mi_capacity_ablation.py",
+      "sha256": "a8be962dbdc6306f3074892421a7f8f7749761e12441aa2d41aeab61e0c000ad",
+      "bytes": 8082
+    },
+    {
+      "path": "scripts/validate_spectral_artifact_study.py",
+      "sha256": "bece3d8de8548592aaa663bdd04b3f52e45afb53225f2810c19c2c8d15155688",
+      "bytes": 8005
+    },
+    {
+      "path": "src/mi_eeg/__init__.py",
+      "sha256": "5eaa4a1b42019d5773aebb3a60316809c0b609b7df024a04cb1b85c1194a4103",
+      "bytes": 92
+    },
+    {
+      "path": "src/mi_eeg/data/__init__.py",
+      "sha256": "fd8877e2abe3bbbe40eb080f066e7d73abcf73b09e2efa2d12de11784c621d10",
+      "bytes": 49
+    },
+    {
+      "path": "src/mi_eeg/data/bnci_epochs.py",
+      "sha256": "3162b3cea6735464fb3e5e60b69d0f0b9c53aeb09338b847f15201660b6e6f5e",
+      "bytes": 13005
+    },
+    {
+      "path": "src/mi_eeg/evaluation/__init__.py",
+      "sha256": "0359b68e4b427840fb6fe28ae63eea1c0fa0e8179a8b78f0bb260e8d23b44f08",
+      "bytes": 67
+    },
+    {
+      "path": "src/mi_eeg/evaluation/splits.py",
+      "sha256": "812022764d44a1f14d02d1dce481f97ec37839dd7c746c7e8977b4a25c5e34a1",
+      "bytes": 3031
+    },
+    {
+      "path": "src/mi_eeg/features/__init__.py",
+      "sha256": "d1586e367a5e5108667b03236d2fc963b418837c5ec30a23ce03cd1b5cc5fe91",
+      "bytes": 56
+    },
+    {
+      "path": "src/mi_eeg/models/__init__.py",
+      "sha256": "f97bb9bb753649abbcbd8b4a9fdd1c815502c290cfcf72b2cef2ad96b9644a97",
+      "bytes": 53
+    },
+    {
+      "path": "src/mi_eeg/models/eegnet_training.py",
+      "sha256": "aac95c28de4ccf0d5018c4837b3cfb0848b1626ef16fe6c11b7cb96b8b8e7d3d",
+      "bytes": 4067
+    },
+    {
+      "path": "src/mi_eeg/preprocessing/__init__.py",
+      "sha256": "9d81df353e9593ffa0348bb3ff3d4c2bbf5275c06ee6be44282f34972094b8b5",
+      "bytes": 75
+    },
+    {
+      "path": "src/mi_eeg/preprocessing/eog_regression.py",
+      "sha256": "f21e1020beca5d5e3beb9e44186c51e2298ef545bd3a410cc397a35ca3596d7e",
+      "bytes": 3305
+    },
+    {
+      "path": "src/mi_eeg/provenance.py",
+      "sha256": "d0cdabfb88c538dc0dc3b9e911f1ec0766a20cfd7989d2de188b31f3692bfc2a",
+      "bytes": 3528
+    },
+    {
+      "path": "src/mi_eeg/reproducibility.py",
+      "sha256": "d9c2e20e8dd75369ab1f569c16e9e3482802dd1ff5b81dad56b29c7562b583fc",
+      "bytes": 599
+    },
+    {
+      "path": "src/mi_eeg/visualization/__init__.py",
+      "sha256": "5371b32f7e2fbd5c703ee1128a98ef1b68f2cb99df9b91827822cc3e28d84392",
+      "bytes": 47
+    },
+    {
+      "path": "tests/test_eog_regression.py",
+      "sha256": "371c545234332e14319390891c9c22c95489549774ab7cddcc03330aaa372096",
+      "bytes": 1232
+    },
+    {
+      "path": "tests/test_fourclass_filterbank.py",
+      "sha256": "afd6e1d9ba8a150ed41cf6d49ce2b7e87b61c6a8ae9d113f9715df26f9ccc47a",
+      "bytes": 1692
+    },
+    {
+      "path": "tests/test_provenance.py",
+      "sha256": "bfa64ac6b26f5fce4520bf880469974e44a2858b0ddd23f57fee0d968e049be4",
+      "bytes": 760
+    },
+    {
+      "path": "tests/test_spectral_features.py",
+      "sha256": "eb70d232926751d00585553ebef667f7505d364b727d33ca1a4f8e780b04d450",
+      "bytes": 1306
+    },
+    {
+      "path": "tests/test_splits.py",
+      "sha256": "5ff702a535f97f4f5e2879a5198d1f7a01b2c7dafb32868926a8747af23c055f",
+      "bytes": 1811
+    },
+    {
+      "path": "tests/test_validate_eegnet_run.py",
+      "sha256": "c2b4913d0f611f068104ec080a67547da0188510f5cc314199b3ae66f1c54650",
+      "bytes": 7663
+    },
+    {
+      "path": "configs/p2_csp_baselines.json",
+      "sha256": "9e487ba226e00fa6dff8af175c2456b65e74ea94620a466d393ba5036906aeea",
+      "bytes": 2097
+    },
+    {
+      "path": "configs/p3_spectral_artifact_protocol.json",
+      "sha256": "11cc40dc383b426e2e7ee75f07eefdb77711f43c01ed47fe7bb390b9594e5ca9",
+      "bytes": 2921
+    },
+    {
+      "path": "configs/p4_eog_regression_protocol.json",
+      "sha256": "f39299a885bed1ee71fd4b72dd08829b24bdce81358427c3ea696688cb94b2a2",
+      "bytes": 1921
+    },
+    {
+      "path": "configs/phase1_inspection.json",
+      "sha256": "031ef1cb425d0479c6729ace4c31a9b8d7463fd0f0b72b6d0dce94837e0743e1",
+      "bytes": 434
+    },
+    {
+      "path": "configs/q4_a001_mi_capacity.json",
+      "sha256": "cb1ef5be6a7552594ef780e3372b940bacda0d76773cddf73ed0d07dbf1ed129",
+      "bytes": 1112
+    },
+    {
+      "path": "configs/q4_e001_fourclass_filterbank.json",
+      "sha256": "8163096a3437f1539c687b98084bc7cde8255de879e8fa15b239da7729e7dfc2",
+      "bytes": 2970
+    },
+    {
+      "path": "configs/q5_e001_eegnet.json",
+      "sha256": "5fcf2536e3d8ea508bc0c81abefae7da9b8789ecf48b1974e7a0ef39a13513f3",
+      "bytes": 3024
+    }
+  ],
+  "scope": "Files on disk at this run startup; not a retrospective record for earlier experiments"
+}

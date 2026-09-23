@@ -1,0 +1,663 @@
+{
+  "created_at_utc": "2026-09-21T10:35:05.967276+00:00",
+  "dataset": "BNCI2014_001",
+  "subject": 1,
+  "software": {
+    "moabb": "1.7.2",
+    "mne": "1.13.2"
+  },
+  "artifact_handling": "annotate_bad",
+  "data_cache_root": "C:\\Users\\zhu\\.codex\\.chatgpt-projects\\g-p-6a98f09545348191af652d67a74ebb49\\data\\raw",
+  "sessions": {
+    "0train": {
+      "0": {
+        "n_channels": 26,
+        "n_times": 96735,
+        "duration_seconds": 386.936,
+        "sampling_rate_hz": 250.0,
+        "channel_names": [
+          "Fz",
+          "FC3",
+          "FC1",
+          "FCz",
+          "FC2",
+          "FC4",
+          "C5",
+          "C3",
+          "C1",
+          "Cz",
+          "C2",
+          "C4",
+          "C6",
+          "CP3",
+          "CP1",
+          "CPz",
+          "CP2",
+          "CP4",
+          "P1",
+          "Pz",
+          "P2",
+          "POz",
+          "EOG1",
+          "EOG2",
+          "EOG3",
+          "STI"
+        ],
+        "channel_type_counts": {
+          "eeg": 22,
+          "eog": 3,
+          "stim": 1
+        },
+        "bad_channels": [],
+        "annotation_counts": {
+          "BAD_artifact": 2,
+          "feet": 12,
+          "left_hand": 12,
+          "right_hand": 12,
+          "tongue": 12
+        },
+        "event_counts": {
+          "1": 12,
+          "2": 12,
+          "3": 12,
+          "4": 12
+        },
+        "event_anchor": "MOABB MAT stim channel marks trial start; cue occurs 2 s later"
+      },
+      "1": {
+        "n_channels": 26,
+        "n_times": 96735,
+        "duration_seconds": 386.936,
+        "sampling_rate_hz": 250.0,
+        "channel_names": [
+          "Fz",
+          "FC3",
+          "FC1",
+          "FCz",
+          "FC2",
+          "FC4",
+          "C5",
+          "C3",
+          "C1",
+          "Cz",
+          "C2",
+          "C4",
+          "C6",
+          "CP3",
+          "CP1",
+          "CPz",
+          "CP2",
+          "CP4",
+          "P1",
+          "Pz",
+          "P2",
+          "POz",
+          "EOG1",
+          "EOG2",
+          "EOG3",
+          "STI"
+        ],
+        "channel_type_counts": {
+          "eeg": 22,
+          "eog": 3,
+          "stim": 1
+        },
+        "bad_channels": [],
+        "annotation_counts": {
+          "BAD_artifact": 4,
+          "feet": 12,
+          "left_hand": 12,
+          "right_hand": 12,
+          "tongue": 12
+        },
+        "event_counts": {
+          "1": 12,
+          "2": 12,
+          "3": 12,
+          "4": 12
+        },
+        "event_anchor": "MOABB MAT stim channel marks trial start; cue occurs 2 s later"
+      },
+      "2": {
+        "n_channels": 26,
+        "n_times": 96735,
+        "duration_seconds": 386.936,
+        "sampling_rate_hz": 250.0,
+        "channel_names": [
+          "Fz",
+          "FC3",
+          "FC1",
+          "FCz",
+          "FC2",
+          "FC4",
+          "C5",
+          "C3",
+          "C1",
+          "Cz",
+          "C2",
+          "C4",
+          "C6",
+          "CP3",
+          "CP1",
+          "CPz",
+          "CP2",
+          "CP4",
+          "P1",
+          "Pz",
+          "P2",
+          "POz",
+          "EOG1",
+          "EOG2",
+          "EOG3",
+          "STI"
+        ],
+        "channel_type_counts": {
+          "eeg": 22,
+          "eog": 3,
+          "stim": 1
+        },
+        "bad_channels": [],
+        "annotation_counts": {
+          "BAD_artifact": 3,
+          "feet": 12,
+          "left_hand": 12,
+          "right_hand": 12,
+          "tongue": 12
+        },
+        "event_counts": {
+          "1": 12,
+          "2": 12,
+          "3": 12,
+          "4": 12
+        },
+        "event_anchor": "MOABB MAT stim channel marks trial start; cue occurs 2 s later"
+      },
+      "3": {
+        "n_channels": 26,
+        "n_times": 96735,
+        "duration_seconds": 386.936,
+        "sampling_rate_hz": 250.0,
+        "channel_names": [
+          "Fz",
+          "FC3",
+          "FC1",
+          "FCz",
+          "FC2",
+          "FC4",
+          "C5",
+          "C3",
+          "C1",
+          "Cz",
+          "C2",
+          "C4",
+          "C6",
+          "CP3",
+          "CP1",
+          "CPz",
+          "CP2",
+          "CP4",
+          "P1",
+          "Pz",
+          "P2",
+          "POz",
+          "EOG1",
+          "EOG2",
+          "EOG3",
+          "STI"
+        ],
+        "channel_type_counts": {
+          "eeg": 22,
+          "eog": 3,
+          "stim": 1
+        },
+        "bad_channels": [],
+        "annotation_counts": {
+          "BAD_artifact": 1,
+          "feet": 12,
+          "left_hand": 12,
+          "right_hand": 12,
+          "tongue": 12
+        },
+        "event_counts": {
+          "1": 12,
+          "2": 12,
+          "3": 12,
+          "4": 12
+        },
+        "event_anchor": "MOABB MAT stim channel marks trial start; cue occurs 2 s later"
+      },
+      "4": {
+        "n_channels": 26,
+        "n_times": 96735,
+        "duration_seconds": 386.936,
+        "sampling_rate_hz": 250.0,
+        "channel_names": [
+          "Fz",
+          "FC3",
+          "FC1",
+          "FCz",
+          "FC2",
+          "FC4",
+          "C5",
+          "C3",
+          "C1",
+          "Cz",
+          "C2",
+          "C4",
+          "C6",
+          "CP3",
+          "CP1",
+          "CPz",
+          "CP2",
+          "CP4",
+          "P1",
+          "Pz",
+          "P2",
+          "POz",
+          "EOG1",
+          "EOG2",
+          "EOG3",
+          "STI"
+        ],
+        "channel_type_counts": {
+          "eeg": 22,
+          "eog": 3,
+          "stim": 1
+        },
+        "bad_channels": [],
+        "annotation_counts": {
+          "BAD_artifact": 2,
+          "feet": 12,
+          "left_hand": 12,
+          "right_hand": 12,
+          "tongue": 12
+        },
+        "event_counts": {
+          "1": 12,
+          "2": 12,
+          "3": 12,
+          "4": 12
+        },
+        "event_anchor": "MOABB MAT stim channel marks trial start; cue occurs 2 s later"
+      },
+      "5": {
+        "n_channels": 26,
+        "n_times": 96735,
+        "duration_seconds": 386.936,
+        "sampling_rate_hz": 250.0,
+        "channel_names": [
+          "Fz",
+          "FC3",
+          "FC1",
+          "FCz",
+          "FC2",
+          "FC4",
+          "C5",
+          "C3",
+          "C1",
+          "Cz",
+          "C2",
+          "C4",
+          "C6",
+          "CP3",
+          "CP1",
+          "CPz",
+          "CP2",
+          "CP4",
+          "P1",
+          "Pz",
+          "P2",
+          "POz",
+          "EOG1",
+          "EOG2",
+          "EOG3",
+          "STI"
+        ],
+        "channel_type_counts": {
+          "eeg": 22,
+          "eog": 3,
+          "stim": 1
+        },
+        "bad_channels": [],
+        "annotation_counts": {
+          "BAD_artifact": 3,
+          "feet": 12,
+          "left_hand": 12,
+          "right_hand": 12,
+          "tongue": 12
+        },
+        "event_counts": {
+          "1": 12,
+          "2": 12,
+          "3": 12,
+          "4": 12
+        },
+        "event_anchor": "MOABB MAT stim channel marks trial start; cue occurs 2 s later"
+      }
+    },
+    "1test": {
+      "0": {
+        "n_channels": 26,
+        "n_times": 96735,
+        "duration_seconds": 386.936,
+        "sampling_rate_hz": 250.0,
+        "channel_names": [
+          "Fz",
+          "FC3",
+          "FC1",
+          "FCz",
+          "FC2",
+          "FC4",
+          "C5",
+          "C3",
+          "C1",
+          "Cz",
+          "C2",
+          "C4",
+          "C6",
+          "CP3",
+          "CP1",
+          "CPz",
+          "CP2",
+          "CP4",
+          "P1",
+          "Pz",
+          "P2",
+          "POz",
+          "EOG1",
+          "EOG2",
+          "EOG3",
+          "STI"
+        ],
+        "channel_type_counts": {
+          "eeg": 22,
+          "eog": 3,
+          "stim": 1
+        },
+        "bad_channels": [],
+        "annotation_counts": {
+          "BAD_artifact": 3,
+          "feet": 12,
+          "left_hand": 12,
+          "right_hand": 12,
+          "tongue": 12
+        },
+        "event_counts": {
+          "1": 12,
+          "2": 12,
+          "3": 12,
+          "4": 12
+        },
+        "event_anchor": "MOABB MAT stim channel marks trial start; cue occurs 2 s later"
+      },
+      "1": {
+        "n_channels": 26,
+        "n_times": 96735,
+        "duration_seconds": 386.936,
+        "sampling_rate_hz": 250.0,
+        "channel_names": [
+          "Fz",
+          "FC3",
+          "FC1",
+          "FCz",
+          "FC2",
+          "FC4",
+          "C5",
+          "C3",
+          "C1",
+          "Cz",
+          "C2",
+          "C4",
+          "C6",
+          "CP3",
+          "CP1",
+          "CPz",
+          "CP2",
+          "CP4",
+          "P1",
+          "Pz",
+          "P2",
+          "POz",
+          "EOG1",
+          "EOG2",
+          "EOG3",
+          "STI"
+        ],
+        "channel_type_counts": {
+          "eeg": 22,
+          "eog": 3,
+          "stim": 1
+        },
+        "bad_channels": [],
+        "annotation_counts": {
+          "BAD_artifact": 2,
+          "feet": 12,
+          "left_hand": 12,
+          "right_hand": 12,
+          "tongue": 12
+        },
+        "event_counts": {
+          "1": 12,
+          "2": 12,
+          "3": 12,
+          "4": 12
+        },
+        "event_anchor": "MOABB MAT stim channel marks trial start; cue occurs 2 s later"
+      },
+      "2": {
+        "n_channels": 26,
+        "n_times": 96735,
+        "duration_seconds": 386.936,
+        "sampling_rate_hz": 250.0,
+        "channel_names": [
+          "Fz",
+          "FC3",
+          "FC1",
+          "FCz",
+          "FC2",
+          "FC4",
+          "C5",
+          "C3",
+          "C1",
+          "Cz",
+          "C2",
+          "C4",
+          "C6",
+          "CP3",
+          "CP1",
+          "CPz",
+          "CP2",
+          "CP4",
+          "P1",
+          "Pz",
+          "P2",
+          "POz",
+          "EOG1",
+          "EOG2",
+          "EOG3",
+          "STI"
+        ],
+        "channel_type_counts": {
+          "eeg": 22,
+          "eog": 3,
+          "stim": 1
+        },
+        "bad_channels": [],
+        "annotation_counts": {
+          "BAD_artifact": 1,
+          "feet": 12,
+          "left_hand": 12,
+          "right_hand": 12,
+          "tongue": 12
+        },
+        "event_counts": {
+          "1": 12,
+          "2": 12,
+          "3": 12,
+          "4": 12
+        },
+        "event_anchor": "MOABB MAT stim channel marks trial start; cue occurs 2 s later"
+      },
+      "3": {
+        "n_channels": 26,
+        "n_times": 96735,
+        "duration_seconds": 386.936,
+        "sampling_rate_hz": 250.0,
+        "channel_names": [
+          "Fz",
+          "FC3",
+          "FC1",
+          "FCz",
+          "FC2",
+          "FC4",
+          "C5",
+          "C3",
+          "C1",
+          "Cz",
+          "C2",
+          "C4",
+          "C6",
+          "CP3",
+          "CP1",
+          "CPz",
+          "CP2",
+          "CP4",
+          "P1",
+          "Pz",
+          "P2",
+          "POz",
+          "EOG1",
+          "EOG2",
+          "EOG3",
+          "STI"
+        ],
+        "channel_type_counts": {
+          "eeg": 22,
+          "eog": 3,
+          "stim": 1
+        },
+        "bad_channels": [],
+        "annotation_counts": {
+          "BAD_artifact": 1,
+          "feet": 12,
+          "left_hand": 12,
+          "right_hand": 12,
+          "tongue": 12
+        },
+        "event_counts": {
+          "1": 12,
+          "2": 12,
+          "3": 12,
+          "4": 12
+        },
+        "event_anchor": "MOABB MAT stim channel marks trial start; cue occurs 2 s later"
+      },
+      "4": {
+        "n_channels": 26,
+        "n_times": 96735,
+        "duration_seconds": 386.936,
+        "sampling_rate_hz": 250.0,
+        "channel_names": [
+          "Fz",
+          "FC3",
+          "FC1",
+          "FCz",
+          "FC2",
+          "FC4",
+          "C5",
+          "C3",
+          "C1",
+          "Cz",
+          "C2",
+          "C4",
+          "C6",
+          "CP3",
+          "CP1",
+          "CPz",
+          "CP2",
+          "CP4",
+          "P1",
+          "Pz",
+          "P2",
+          "POz",
+          "EOG1",
+          "EOG2",
+          "EOG3",
+          "STI"
+        ],
+        "channel_type_counts": {
+          "eeg": 22,
+          "eog": 3,
+          "stim": 1
+        },
+        "bad_channels": [],
+        "annotation_counts": {
+          "feet": 12,
+          "left_hand": 12,
+          "right_hand": 12,
+          "tongue": 12
+        },
+        "event_counts": {
+          "1": 12,
+          "2": 12,
+          "3": 12,
+          "4": 12
+        },
+        "event_anchor": "MOABB MAT stim channel marks trial start; cue occurs 2 s later"
+      },
+      "5": {
+        "n_channels": 26,
+        "n_times": 96735,
+        "duration_seconds": 386.936,
+        "sampling_rate_hz": 250.0,
+        "channel_names": [
+          "Fz",
+          "FC3",
+          "FC1",
+          "FCz",
+          "FC2",
+          "FC4",
+          "C5",
+          "C3",
+          "C1",
+          "Cz",
+          "C2",
+          "C4",
+          "C6",
+          "CP3",
+          "CP1",
+          "CPz",
+          "CP2",
+          "CP4",
+          "P1",
+          "Pz",
+          "P2",
+          "POz",
+          "EOG1",
+          "EOG2",
+          "EOG3",
+          "STI"
+        ],
+        "channel_type_counts": {
+          "eeg": 22,
+          "eog": 3,
+          "stim": 1
+        },
+        "bad_channels": [],
+        "annotation_counts": {
+          "feet": 12,
+          "left_hand": 12,
+          "right_hand": 12,
+          "tongue": 12
+        },
+        "event_counts": {
+          "1": 12,
+          "2": 12,
+          "3": 12,
+          "4": 12
+        },
+        "event_anchor": "MOABB MAT stim channel marks trial start; cue occurs 2 s later"
+      }
+    }
+  }
+}

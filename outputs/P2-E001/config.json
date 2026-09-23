@@ -1,0 +1,96 @@
+{
+  "experiment_id": "P2-E001",
+  "analysis_status": "preregistered_before_model_fitting",
+  "dataset": "BNCI2014_001",
+  "subjects": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "sessions": [
+    "0train",
+    "1test"
+  ],
+  "classes": {
+    "left_hand": 1,
+    "right_hand": 2
+  },
+  "channels": "all_22_eeg_only",
+  "artifact_handling": "annotate_bad_and_reject_overlapping_epochs",
+  "acquisition_filter": "0.5-100 Hz band-pass and 50 Hz notch, per official description",
+  "additional_filter": {
+    "band_hz": [
+      8.0,
+      30.0
+    ],
+    "type": "4th_order_butterworth_iir",
+    "phase": "zero_phase_offline",
+    "unit": "each_run_independently"
+  },
+  "epoch": {
+    "moabb_mat_event_anchor": "trial_start",
+    "cue_offset_from_trial_start_s": 2.0,
+    "cue_relative_start_s": 0.5,
+    "cue_relative_stop_exclusive_s": 3.5,
+    "trial_relative_start_s": 2.5,
+    "trial_relative_stop_exclusive_s": 5.5,
+    "baseline": null,
+    "expected_samples_at_250_hz": 750
+  },
+  "models": {
+    "CSP+LDA": {
+      "csp_components": 4,
+      "csp_cov_est": "concat",
+      "csp_reg": null,
+      "scaler": "StandardScaler fit on training fold",
+      "classifier": "LinearDiscriminantAnalysis(solver='svd')"
+    },
+    "CSP+linearSVM": {
+      "csp_components": 4,
+      "csp_cov_est": "concat",
+      "csp_reg": null,
+      "scaler": "StandardScaler fit on training fold",
+      "classifier": "SVC(kernel='linear', C=1.0)"
+    }
+  },
+  "model_selection": "none; all hyperparameters fixed a priori",
+  "evaluation": {
+    "within_session": "leave_one_run_out, separately for each subject and session",
+    "cross_session": "0train to 1test, separately for each subject",
+    "cross_subject": "leave_one_subject_out, both sessions of held-out subject"
+  },
+  "primary_metric": "balanced_accuracy",
+  "secondary_metrics": [
+    "accuracy",
+    "macro_f1",
+    "cohen_kappa",
+    "confusion_matrix"
+  ],
+  "statistical_unit": "subject",
+  "seed": 20260921,
+  "scope_note": "Fixed classical baselines only. EEGNet and filter-bank/PSD ablations are not part of this run. Offline zero-phase filtering is not an online or original-competition submission.",
+  "effective_subjects": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "effective_modes": [
+    "within_session",
+    "cross_session",
+    "cross_subject"
+  ],
+  "data_cache_root": "C:\\Users\\zhu\\.codex\\.chatgpt-projects\\g-p-6a98f09545348191af652d67a74ebb49\\data\\raw",
+  "started_at_utc": "2026-09-21T10:41:37.671263+00:00"
+}

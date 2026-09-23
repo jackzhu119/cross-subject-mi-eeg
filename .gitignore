@@ -1,0 +1,32 @@
+# Python environments / cache
+.venv-cloud/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Raw EEG datasets - do NOT push
+data/raw/
+data/MNE-*/
+*.mat
+
+# Temporary/download/cache
+.cache/
+tmp/
+temp/
+
+# Large backup archives
+*.tar.gz
+*.zip
+
+# OS/editor
+.DS_Store
+.vscode/
+.idea/
+
+# Credentials / secrets
+.env
+*.pem
+*.key
+*.egg-info/

@@ -1,0 +1,22 @@
+{
+  "comparison": "source_train_fitted_EOG_regression minus uncorrected",
+  "test_population": "same expert-clean target trial IDs",
+  "unit": "held-out subject",
+  "mean_paired_difference_ba": -0.00280695118979013,
+  "bootstrap_percentile_95_ci": [
+    -0.010915897170621976,
+    0.005936689774660276
+  ],
+  "per_subject_differences": {
+    "1": 0.0,
+    "2": -0.003209109730848869,
+    "3": -0.01449275362318836,
+    "4": -0.0032324713409757067,
+    "5": 0.02086322676921315,
+    "6": -0.01834862385321101,
+    "7": -0.01851851851851849,
+    "8": -0.0036182722749886764,
+    "9": 0.015293961864406791
+  },
+  "note": "Exploratory nine-subject follow-up; EOG-assisted pipeline needs three extra sensors."
+}
