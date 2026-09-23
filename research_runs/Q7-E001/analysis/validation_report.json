@@ -1,0 +1,39 @@
+{
+  "status": "passed",
+  "experiment_id": "Q7-E001",
+  "target_subject": 3,
+  "new_conditions": [
+    "B",
+    "C"
+  ],
+  "reused_conditions": [
+    "A",
+    "D"
+  ],
+  "n_new_final_fits": 6,
+  "n_new_predictions": 3456,
+  "seeds": [
+    20260924,
+    20260925,
+    20260926
+  ],
+  "condition_B_epochs": 2,
+  "condition_B_normalization": true,
+  "condition_C_epochs": 16,
+  "condition_C_normalization": false,
+  "condition_B_target_fitted_transform": false,
+  "condition_B_source_subjects": [
+    1,
+    2,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "condition_B_scaler_train_trials": 4608,
+  "metrics_recomputed_from_predictions": true,
+  "checkpoint_hashes_verified": true,
+  "interpretation_boundary": "Q7-E001 is a mechanistic S3 ablation. S3 is one held-out person; seed fits are not independent subjects. This experiment tests mechanism and does not establish population-level generalization."
+}

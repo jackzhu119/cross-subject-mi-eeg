@@ -1,0 +1,40 @@
+{
+  "experiment_id": "Q7-E001",
+  "type": "mechanistic_factorial_ablation",
+  "target_subject": 3,
+  "parent_experiments": [
+    "Q5-E001",
+    "Q6-E001"
+  ],
+  "factor_1": "source_channel_normalization",
+  "factor_2": "fixed_training_duration",
+  "existing_cells": {
+    "A": {
+      "normalization": false,
+      "epochs": 2,
+      "source": "Q5-E001"
+    },
+    "D": {
+      "normalization": true,
+      "epochs": 16,
+      "source": "Q6-E001"
+    }
+  },
+  "new_cells": {
+    "B": {
+      "normalization": true,
+      "epochs": 2
+    },
+    "C": {
+      "normalization": false,
+      "epochs": 16
+    }
+  },
+  "seeds": [
+    20260924,
+    20260925,
+    20260926
+  ],
+  "target_information_used_for_training": false,
+  "note": "Q7 tests a predeclared mechanistic 2x2 factorial reconstruction for S3. Q5/Q6 test outcomes are not used to tune B or C."
+}

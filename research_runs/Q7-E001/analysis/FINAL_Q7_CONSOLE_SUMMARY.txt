@@ -1,0 +1,64 @@
+
+============================================================
+ Q7-E001 FINAL FOUR-CELL RESULTS
+============================================================
+
+condition  normalization  fixed_epochs  BA_mean  BA_seed_std  macroF1_mean  kappa_mean  entropy_mean  dominant_share_mean
+        A          False             2   0.2610       0.0160        0.1254      0.0147        0.1304               0.9416
+        B           True             2   0.2569       0.0060        0.1172      0.0093        0.0827               0.9751
+        C          False            16   0.6771       0.0539        0.6715      0.5694        0.9561               0.3669
+        D           True            16   0.6586       0.0972        0.6502      0.5448        0.9037               0.4387
+
+===== FACTORIAL CONTRASTS =====
+A_raw_2: +0.260995
+B_norm_2: +0.256944
+C_raw_16: +0.677083
+D_norm_16: +0.658565
+normalization_effect_at_2_epochs_B_minus_A: -0.004051
+training_duration_effect_without_norm_C_minus_A: +0.416088
+training_duration_effect_with_norm_D_minus_B: +0.401620
+normalization_effect_at_16_epochs_D_minus_C: -0.018519
+factorial_interaction_D_minus_C_minus_B_plus_A: -0.014468
+
+===== VALIDATION =====
+{
+  "status": "passed",
+  "experiment_id": "Q7-E001",
+  "target_subject": 3,
+  "new_conditions": [
+    "B",
+    "C"
+  ],
+  "reused_conditions": [
+    "A",
+    "D"
+  ],
+  "n_new_final_fits": 6,
+  "n_new_predictions": 3456,
+  "seeds": [
+    20260924,
+    20260925,
+    20260926
+  ],
+  "condition_B_epochs": 2,
+  "condition_B_normalization": true,
+  "condition_C_epochs": 16,
+  "condition_C_normalization": false,
+  "condition_B_target_fitted_transform": false,
+  "condition_B_source_subjects": [
+    1,
+    2,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "condition_B_scaler_train_trials": 4608,
+  "metrics_recomputed_from_predictions": true,
+  "checkpoint_hashes_verified": true,
+  "interpretation_boundary": "Q7-E001 is a mechanistic S3 ablation. S3 is one held-out person; seed fits are not independent subjects. This experiment tests mechanism and does not establish population-level generalization."
+}
+
+Q7 VALIDATION PASSED
