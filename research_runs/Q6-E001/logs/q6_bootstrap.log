@@ -1,0 +1,74 @@
+[2026-09-23T11:26:50+00:00] Q6-E001 startup in /workspace/Q6_EEGNet_SourceNorm
+Python: /workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/bin/python; data: /workspace/Q5_EEGNet_Cloud_Ready/data/raw; output: /workspace/Q6_EEGNet_SourceNorm/results/Q6-E001
+Wed Sep 23 11:26:50 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 610.57.04              KMD Version: 610.57.04     CUDA UMD Version: 13.3     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 5090        On  |   00000001:94:00.0 Off |                  N/A |
+|  0%   25C    P8             11W /  575W |       4MiB /  32607MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/braindecode/models/eegpt.py:497: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
+  montage = mne.channels.make_standard_montage("standard_1020")
+CUDA preflight OK; torch 2.14.0+cu132 braindecode 1.5.1
+pytest is absent from the preserved cloud venv; local full suite passed 23/23.
+Running dependency/import and syntax smoke checks without changing the cloud venv.
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/braindecode/models/eegpt.py:497: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
+  montage = mne.channels.make_standard_montage("standard_1020")
+Q6 Python import smoke passed
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/braindecode/models/eegpt.py:497: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
+  montage = mne.channels.make_standard_montage("standard_1020")
+Loading configured epochs for subject 1 ...
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+Loading configured epochs for subject 2 ...
+This is nemar-py 0.3.0.
+Preparing to download nm000139 from https://data.nemar.org/
+Retrieving 6 of 769 manifest files (16 concurrent downloads).
+S3:   0%|          | 0.00/83.2M [00:00<?, ?B/s]S3:   1%|          | 1.00M/83.2M [01:04<1:28:23, 16.3kB/s]S3:   2%|▏         | 2.00M/83.2M [01:09<39:52, 35.6kB/s]  S3:   2%|▏         | 2.00M/83.2M [01:20<39:52, 35.6kB/s]S3:   4%|▎         | 3.00M/83.2M [02:09<57:55, 24.2kB/s]S3:   5%|▍         | 4.00M/83.2M [02:11<35:46, 38.7kB/s]S3:   5%|▍         | 4.00M/83.2M [02:30<35:46, 38.7kB/s]S3:   6%|▌         | 5.00M/83.2M [03:14<52:19, 26.1kB/s]S3:   7%|▋         | 6.00M/83.2M [03:19<36:12, 37.3kB/s]S3:   7%|▋         | 6.00M/83.2M [03:30<36:12, 37.3kB/s]S3:   8%|▊         | 7.00M/83.2M [04:25<51:24, 25.9kB/s]S3:  10%|▉         | 8.00M/83.2M [04:31<37:11, 35.4kB/s]Terminated

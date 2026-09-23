@@ -1,0 +1,38 @@
+{
+  "shape": [
+    5184,
+    22,
+    750
+  ],
+  "labels": {
+    "source": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "torch": [
+      0,
+      1,
+      2,
+      3
+    ]
+  },
+  "fixed_scale": 1000000.0,
+  "normalization": {
+    "kind": "per_channel_source_train_zscore",
+    "fit_axes": [
+      "trials",
+      "time"
+    ],
+    "variance_ddof": 0,
+    "statistics_dtype": "float64",
+    "application_dtype": "float32",
+    "min_std_microvolts": 1e-06,
+    "zero_variance_policy": "raise"
+  },
+  "q4_trial_identity": "exact row-wise match passed",
+  "target_fitted_transform": false,
+  "signal_min_microvolts": -92.34989929199219,
+  "signal_max_microvolts": 111.32979583740234
+}

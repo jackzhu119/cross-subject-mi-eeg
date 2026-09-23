@@ -1,0 +1,33 @@
+{
+  "experiment_id": "P4-E001",
+  "protocol_status": "frozen_after_P3_results; exploratory follow-up, not independent preregistration",
+  "dataset": "BNCI2014_001",
+  "subjects": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+  "classification": "left hand versus right hand",
+  "analysis_band_hz": [8, 30],
+  "filter": "same fourth-order Butterworth zero-phase run-level filter on 22 EEG and 3 EOG channels",
+  "epoch_cue_relative_s": [0.5, 3.5],
+  "eog_correction": {
+    "type": "pooled linear regression from 3 EOG channels to 22 EEG channels",
+    "training_data": "only expert-clean epochs from eight source subjects, per LOSO fold",
+    "trial_centering": true,
+    "ridge_fraction_of_mean_eog_energy": 0.0001,
+    "target_use": "apply frozen coefficients to synchronous target EOG, no target fit or labels"
+  },
+  "classifier": "4-component CSP, StandardScaler, LDA(solver='lsqr', shrinkage='auto')",
+  "conditions": ["uncorrected", "source_train_fitted_EOG_regression"],
+  "training_artifact_policy": "expert-clean only",
+  "primary_test_population": "identical expert-clean trial IDs for both conditions",
+  "secondary_test_population": "expert-flagged trial IDs, descriptive only",
+  "split": "9-fold LOSO, both target sessions held out",
+  "primary_metric": "per-target-subject balanced accuracy; corrected minus uncorrected paired difference",
+  "secondary_qc": "source and target EEG-EOG absolute cross-correlation and correction RMS ratio",
+  "seed": 20260921,
+  "limitations": [
+    "The corrected pipeline requires three EOG sensors and is not pure EEG-only.",
+    "Reduced EOG correlation does not prove that only ocular interference was removed; neural signal can also be attenuated.",
+    "Official expert artifact flags do not label artifact types.",
+    "Zero-phase filtering and expert-clean test condition are offline-only.",
+    "No target-subject observations are used to estimate correction coefficients."
+  ]
+}

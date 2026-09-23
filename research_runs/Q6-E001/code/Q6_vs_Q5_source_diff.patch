@@ -1,0 +1,1190 @@
+===== CONFIG DIFF =====
+diff -ruN /workspace/Q5_EEGNet_Cloud_Ready/configs/q6_e001_source_channel_zscore.json /workspace/Q6_EEGNet_SourceNorm/configs/q6_e001_source_channel_zscore.json
+--- /workspace/Q5_EEGNet_Cloud_Ready/configs/q6_e001_source_channel_zscore.json	1970-01-01 00:00:00.000000000 +0000
++++ /workspace/Q6_EEGNet_SourceNorm/configs/q6_e001_source_channel_zscore.json	2026-09-23 11:16:47.000000000 +0000
+@@ -0,0 +1,85 @@
++{
++  "experiment_id": "Q6-E001",
++  "analysis_status": "exploratory fixed local protocol; not public preregistration",
++  "research_question": "Does source-train-only per-channel standardization improve four-class source-only EEGNet LOSO generalization relative to Q5-E001?",
++  "hypothesis": "Source-derived channel scaling may mitigate cross-subject amplitude differences and class collapse, but benefit is not assumed.",
++  "parent_experiment": "Q5-E001",
++  "dataset": "BNCI2014_001",
++  "subjects": [1, 2, 3, 4, 5, 6, 7, 8, 9],
++  "class_ids": {"left_hand": 1, "right_hand": 2, "feet": 3, "tongue": 4},
++  "preprocessing": {
++    "sampling_rate_hz": 250,
++    "bands": {"broad": [4, 40]},
++    "filter": {"order": 4, "ftype": "butter", "phase": "zero"},
++    "trial_start_s": 2.5,
++    "trial_stop_exclusive_s": 5.5,
++    "artifact_policy": "include_all",
++    "baseline": null
++  },
++  "input": {
++    "shape": [22, 750],
++    "volts_to_microvolts": 1000000.0,
++    "target_derived_normalization": false,
++    "normalization": {
++      "kind": "per_channel_source_train_zscore",
++      "fit_axes": ["trials", "time"],
++      "variance_ddof": 0,
++      "statistics_dtype": "float64",
++      "application_dtype": "float32",
++      "min_std_microvolts": 0.000001,
++      "zero_variance_policy": "raise"
++    }
++  },
++  "architecture": {
++    "library": "braindecode",
++    "model": "EEGNet",
++    "n_chans": 22,
++    "n_outputs": 4,
++    "n_times": 750,
++    "F1": 8,
++    "D": 2,
++    "F2": 16,
++    "kernel_length": 64,
++    "drop_prob": 0.25
++  },
++  "training": {
++    "device": "cpu",
++    "torch_threads": 4,
++    "deterministic_algorithms": true,
++    "selection_seed": 20260923,
++    "final_seeds": [20260924, 20260925, 20260926],
++    "inner_validation_rule": "consecutive_pairs_of_sorted_eight_source_subjects",
++    "inner_folds": 4,
++    "batch_size": 64,
++    "max_epochs": 40,
++    "optimizer": "Adam",
++    "learning_rate": 0.001,
++    "weight_decay": 0.0,
++    "loss": "cross_entropy",
++    "epoch_selection": "earliest epoch minimizing equal-inner-fold mean validation CE",
++    "scheduler": "none",
++    "augmentation": "none"
++  },
++  "evaluation": {
++    "split": "LOSO both sessions held out",
++    "target_information": "No target-subject fit, normalization, early stopping, seed choice, or hyperparameter tuning",
++    "primary_population": "all trials including expert artifact flags",
++    "secondary_strata": ["unflagged", "flagged"],
++    "primary_metric": "subject-level balanced_accuracy, then equal-subject mean of three-seed means",
++    "parent_comparator": "Q5-E001 EEGNet frozen microvolt-only baseline",
++    "inference": "exploratory paired subject contrasts; no 27-independent-observation test"
++  },
++  "resource_benchmark": {
++    "synthetic_train_trials": 3456,
++    "synthetic_validation_trials": 1152,
++    "four_thread_batch64_train_seconds": 5.347,
++    "four_thread_batch64_validation_seconds": 0.516,
++    "note": "Inherited Q5 synthetic shape-matched CPU benchmark only, not a Q6 runtime measurement."
++  },
++  "limitations": [
++    "Q5/Q4 target outcomes and this experiment idea were already seen; Q6 is exploratory, not independent confirmation.",
++    "Forty-epoch cap and source-only CE selection are fixed to Q5; a selected boundary epoch may indicate undertraining.",
++    "Offline zero-phase run filtering is not a causal online pipeline.",
++    "No target-subject statistics are fitted, including unlabeled target signals."
++  ]
++}
+
+===== SCRIPT DIFF =====
+diff -ruN '--exclude=__pycache__' /workspace/Q5_EEGNet_Cloud_Ready/scripts/run_q6_e001.py /workspace/Q6_EEGNet_SourceNorm/scripts/run_q6_e001.py
+--- /workspace/Q5_EEGNet_Cloud_Ready/scripts/run_q6_e001.py	1970-01-01 00:00:00.000000000 +0000
++++ /workspace/Q6_EEGNet_SourceNorm/scripts/run_q6_e001.py	2026-09-23 11:19:00.000000000 +0000
+@@ -0,0 +1,442 @@
++"""Run Q6-E001: Q5 EEGNet plus source-train-only channel standardization.
++
++The only experimental change from Q5 is the input transform.  Each of four
++inner fits learns its own scaler from six source subjects; the three final
++fits share one scaler learned from all eight source subjects.  The held-out
++target never contributes fitted statistics.
++"""
++
++from __future__ import annotations
++
++import argparse
++import copy
++import json
++import math
++import shutil
++import time
++import traceback
++from datetime import UTC, datetime
++from pathlib import Path
++
++import mne
++import numpy as np
++import pandas as pd
++import torch
++from threadpoolctl import threadpool_limits
++
++from mi_eeg.data.bnci_epochs import load_configured_epochs
++from mi_eeg.evaluation.splits import iter_loso
++from mi_eeg.preprocessing.source_normalization import (
++    ChannelStandardizer,
++    apply_channel_standardizer,
++    fit_source_channel_standardizer,
++)
++from mi_eeg.provenance import capture_startup_provenance
++from scripts.run_eegnet import (
++    METRIC_COLUMNS,
++    cpu_state,
++    fit_for_epochs,
++    score_predictions,
++    seed_manifest,
++    sha256_file,
++    source_files,
++    verify_q4_identity,
++    write_json,
++)
++
++ROOT = Path(__file__).resolve().parents[1]
++CONFIG = ROOT / "configs/q6_e001_source_channel_zscore.json"
++Q5_CONFIG = ROOT / "configs/q5_e001_eegnet.json"
++RESULTS_DIR = ROOT / "results/Q6-E001"
++EXPECTED_RECEIPTS_PER_FOLD = 5
++
++
++def assert_single_factor_protocol(config: dict, parent: dict) -> None:
++    """Reject experimental drift disguised as the normalization ablation."""
++    if config.get("experiment_id") != "Q6-E001" or parent.get("experiment_id") != "Q5-E001":
++        raise ValueError("Q6-E001 and Q5-E001 experiment IDs are mandatory")
++    for key in ("dataset", "subjects", "class_ids", "preprocessing", "architecture", "training"):
++        if config.get(key) != parent.get(key):
++            raise ValueError(f"Q6 {key} differs from frozen Q5 protocol")
++    q6_input = copy.deepcopy(config.get("input", {}))
++    normalization = q6_input.pop("normalization", None)
++    if q6_input != parent.get("input"):
++        raise ValueError("Q6 input changed beyond declared channel standardization")
++    expected_normalization = {
++        "kind": "per_channel_source_train_zscore",
++        "fit_axes": ["trials", "time"],
++        "variance_ddof": 0,
++        "statistics_dtype": "float64",
++        "application_dtype": "float32",
++        "min_std_microvolts": 1e-6,
++        "zero_variance_policy": "raise",
++    }
++    if normalization != expected_normalization:
++        raise ValueError("Q6 normalization declaration differs from implemented transform")
++    for key in ("split", "primary_population", "secondary_strata", "primary_metric"):
++        if config.get("evaluation", {}).get(key) != parent.get("evaluation", {}).get(key):
++            raise ValueError(f"Q6 evaluation.{key} differs from Q5")
++    if config["evaluation"].get("parent_comparator") != "Q5-E001 EEGNet frozen microvolt-only baseline":
++        raise ValueError("Q6 parent comparator is not the frozen Q5 baseline")
++
++
++def _expected_fold_files(config: dict) -> list[str]:
++    files = [
++        "status.json", "learning_curves.csv", "fit_manifest.csv", "selection.csv",
++        "predictions.csv", "per_subject_metrics.csv", "confusion_matrices.csv",
++        "normalization/inner_1.json", "normalization/inner_2.json",
++        "normalization/inner_3.json", "normalization/inner_4.json",
++        "normalization/full.json",
++    ]
++    files.extend(f"inner_{i}.pt" for i in range(1, 5))
++    files.extend(f"seed_{seed}.pt" for seed in config["training"]["final_seeds"])
++    return files
++
++
++def _complete_fold_dir(output: Path, fold: str, config: dict) -> Path | None:
++    candidates = sorted((output / "folds").glob(f"{fold}*"))
++    completed = []
++    for path in candidates:
++        status_path = path / "status.json"
++        if not status_path.is_file():
++            continue
++        status = json.loads(status_path.read_text(encoding="utf-8"))
++        if status.get("status") == "complete":
++            missing = [name for name in _expected_fold_files(config) if not (path / name).is_file()]
++            if missing:
++                raise AssertionError(f"Completed fold {path} is missing artifacts: {missing}")
++            completed.append(path)
++    if len(completed) > 1:
++        raise AssertionError(f"More than one completed checkpoint exists for {fold}")
++    return completed[0] if completed else None
++
++
++def _save_normalizer(
++    attempt: Path, fitted: ChannelStandardizer, *, fold: str, stage: str, inner_fold: int | None
++) -> str:
++    name = f"inner_{inner_fold}.json" if stage == "inner" else "full.json"
++    path = attempt / "normalization" / name
++    write_json(path, fitted.receipt(fold=fold, stage=stage, inner_fold=inner_fold))
++    return sha256_file(path)
++
++
++def aggregate_complete_folds(output: Path, config: dict) -> None:
++    completed = [
++        path for s in config["subjects"]
++        if (path := _complete_fold_dir(output, f"loso_s{s}", config)) is not None
++    ]
++    if not completed:
++        return
++    names = (
++        "fit_manifest", "learning_curves", "selection", "predictions",
++        "per_subject_metrics", "confusion_matrices",
++    )
++    collections = {name: [] for name in names}
++    receipts = []
++    for directory in completed:
++        for name, frames in collections.items():
++            frames.append(pd.read_csv(directory / f"{name}.csv"))
++        for name in ("inner_1", "inner_2", "inner_3", "inner_4", "full"):
++            receipts.append(json.loads((directory / "normalization" / f"{name}.json").read_text(encoding="utf-8")))
++    for name, frames in collections.items():
++        pd.concat(frames, ignore_index=True).to_csv(output / f"{name}.csv", index=False)
++    write_json(output / "normalization_receipts.json", receipts)
++    frame = pd.concat(collections["per_subject_metrics"], ignore_index=True)
++    summary = frame[frame.stratum == "all"].groupby("seed")[METRIC_COLUMNS].agg(["mean", "std"])
++    summary.columns = [f"{metric}_{stat}" for metric, stat in summary.columns]
++    summary.reset_index().to_csv(output / "summary_by_seed.csv", index=False)
++    subject_seed = frame[frame.stratum == "all"].pivot(
++        index=["subject", "seed"], columns="model", values="balanced_accuracy"
++    ).reset_index()
++    subject_seed.to_csv(output / "subject_seed_metrics.csv", index=False)
++    status = json.loads((output / "status.json").read_text(encoding="utf-8"))
++    status["completed_folds"] = len(completed)
++    status["completed_inner_fits"] = len(completed) * config["training"]["inner_folds"]
++    status["completed_final_fits"] = len(completed) * len(config["training"]["final_seeds"])
++    status["q6_complete"] = len(completed) == len(config["subjects"])
++    write_json(output / "status.json", status)
++
++
++def run_fold(
++    output: Path,
++    fold: str,
++    train: np.ndarray,
++    test: np.ndarray,
++    signal_microvolts: np.ndarray,
++    raw_x: torch.Tensor,
++    y: torch.Tensor,
++    meta: pd.DataFrame,
++    config: dict,
++    device: torch.device,
++) -> Path:
++    target = int(meta.iloc[test].subject.unique().item())
++    source_subjects = sorted(int(s) for s in meta.iloc[train].subject.unique())
++    if len(source_subjects) != 8 or target in source_subjects:
++        raise AssertionError("LOSO must provide eight source subjects and one untouched target")
++    complete = _complete_fold_dir(output, fold, config)
++    if complete is not None:
++        return complete
++    training = config["training"]
++    fold_root = output / "folds"
++    attempt = fold_root / fold
++    retry = 0
++    while attempt.exists():
++        retry += 1
++        attempt = fold_root / f"{fold}_retry{retry}"
++    attempt.mkdir(parents=True)
++    started = time.perf_counter()
++    write_json(attempt / "status.json", {"status": "running", "fold": fold, "target_subject": target})
++    curve_rows: list[dict] = []
++    manifest_rows: list[dict] = []
++    validation_losses: list[np.ndarray] = []
++    try:
++        pair_size = len(source_subjects) // training["inner_folds"]
++        if pair_size != 2 or len(source_subjects) % training["inner_folds"]:
++            raise AssertionError("Eight source subjects must split into four sorted pairs")
++        for inner_fold in range(1, training["inner_folds"] + 1):
++            validation_subjects = source_subjects[(inner_fold - 1) * pair_size : inner_fold * pair_size]
++            train_subjects = [s for s in source_subjects if s not in validation_subjects]
++            inner_train = np.flatnonzero(meta.subject.isin(train_subjects).to_numpy())
++            inner_validation = np.flatnonzero(meta.subject.isin(validation_subjects).to_numpy())
++            if len(inner_train) != 3456 or len(inner_validation) != 1152:
++                raise AssertionError("Unexpected source-train/validation trial counts")
++            fitted = fit_source_channel_standardizer(
++                signal_microvolts, meta, inner_train, train_subjects,
++                min_std_microvolts=config["input"]["normalization"]["min_std_microvolts"],
++            )
++            receipt_sha = _save_normalizer(
++                attempt, fitted, fold=fold, stage="inner", inner_fold=inner_fold
++            )
++            normalized_x = apply_channel_standardizer(raw_x, fitted)
++            model, curve = fit_for_epochs(
++                normalized_x, y, inner_train, inner_validation,
++                training["selection_seed"], training["max_epochs"], config, device,
++            )
++            validation_losses.append(np.array([row["val_ce"] for row in curve]))
++            curve_rows.extend(
++                {"fold": fold, "stage": "inner", "inner_fold": inner_fold,
++                 "seed": training["selection_seed"], **row} for row in curve
++            )
++            manifest_rows.extend(
++                seed_manifest(fold, "inner", inner_fold, training["selection_seed"],
++                              train_subjects, target, validation_subjects, training["max_epochs"])
++            )
++            torch.save(
++                {"fold": fold, "stage": "inner", "inner_fold": inner_fold,
++                 "seed": training["selection_seed"], "model_state": cpu_state(model),
++                 "normalization_receipt_sha256": receipt_sha},
++                attempt / f"inner_{inner_fold}.pt",
++            )
++            print(f"{fold} inner {inner_fold}/4: completed {training['max_epochs']} epochs", flush=True)
++            del model, normalized_x
++        mean_validation_loss = np.mean(np.stack(validation_losses, axis=0), axis=0)
++        selected_epochs = int(np.argmin(mean_validation_loss) + 1)
++        selection = {
++            "fold": fold, "selected_epochs": selected_epochs,
++            "validation_ce": float(mean_validation_loss[selected_epochs - 1]),
++        }
++        fitted_final = fit_source_channel_standardizer(
++            signal_microvolts, meta, train, source_subjects,
++            min_std_microvolts=config["input"]["normalization"]["min_std_microvolts"],
++        )
++        if fitted_final.n_trials != 4608:
++            raise AssertionError("Final standardizer must fit all eight source subjects")
++        receipt_sha = _save_normalizer(
++            attempt, fitted_final, fold=fold, stage="full", inner_fold=None
++        )
++        normalized_x = apply_channel_standardizer(raw_x, fitted_final)
++        for seed in training["final_seeds"]:
++            model, curve = fit_for_epochs(
++                normalized_x, y, train, None, seed, selected_epochs, config, device
++            )
++            curve_rows.extend(
++                {"fold": fold, "stage": "full", "inner_fold": math.nan,
++                 "seed": seed, **row} for row in curve
++            )
++            manifest_rows.extend(
++                seed_manifest(fold, "full", None, seed, source_subjects,
++                              target, None, selected_epochs)
++            )
++            torch.save(
++                {"fold": fold, "stage": "full", "seed": seed,
++                 "selected_epochs": selected_epochs, "model_state": cpu_state(model),
++                 "normalization_receipt_sha256": receipt_sha},
++                attempt / f"seed_{seed}.pt",
++            )
++            from mi_eeg.models.eegnet_training import predict_probabilities
++
++            probabilities = predict_probabilities(
++                model, normalized_x, test, training["batch_size"]
++            )
++            part = meta.iloc[test].copy().reset_index(drop=True)
++            part["fold"] = fold
++            part["seed"] = seed
++            part["y_true"] = part.label.astype(int)
++            part["y_pred"] = probabilities.argmax(axis=1).astype(int) + 1
++            for index, label in enumerate(sorted(config["class_ids"].values())):
++                part[f"p_class_{label}"] = probabilities[:, index]
++            part.to_csv(attempt / f"predictions_seed_{seed}.csv", index=False)
++            metric_rows, confusion_rows = score_predictions(
++                part, [1, 2, 3, 4], fold, seed, len(train)
++            )
++            # Q5's historic writer omitted this required confusion identifier.
++            # Q6 emits it both per seed and in its aggregate from the start.
++            for row in confusion_rows:
++                row["model"] = "EEGNet"
++            pd.DataFrame(metric_rows).to_csv(attempt / f"metrics_seed_{seed}.csv", index=False)
++            pd.DataFrame(confusion_rows).to_csv(attempt / f"confusion_seed_{seed}.csv", index=False)
++            print(
++                f"{fold} seed {seed}: target BA={metric_rows[0]['balanced_accuracy']:.4f} "
++                f"(source-selected {selected_epochs} epochs)", flush=True,
++            )
++            del model
++        del normalized_x
++        pd.DataFrame(curve_rows).to_csv(attempt / "learning_curves.csv", index=False)
++        pd.DataFrame(manifest_rows).to_csv(attempt / "fit_manifest.csv", index=False)
++        pd.DataFrame([selection]).to_csv(attempt / "selection.csv", index=False)
++        for name, pattern in (
++            ("predictions", "predictions_seed_{}.csv"),
++            ("per_subject_metrics", "metrics_seed_{}.csv"),
++            ("confusion_matrices", "confusion_seed_{}.csv"),
++        ):
++            pd.concat(
++                [pd.read_csv(attempt / pattern.format(seed)) for seed in training["final_seeds"]],
++                ignore_index=True,
++            ).to_csv(attempt / f"{name}.csv", index=False)
++        write_json(
++            attempt / "status.json",
++            {"status": "complete", "fold": fold, "target_subject": target,
++             "selected_epochs": selected_epochs,
++             "elapsed_seconds": time.perf_counter() - started},
++        )
++        return attempt
++    except Exception:
++        write_json(
++            attempt / "failure.json",
++            {"traceback": traceback.format_exc(), "elapsed_seconds": time.perf_counter() - started},
++        )
++        write_json(attempt / "status.json", {"status": "failed", "fold": fold})
++        raise
++
++
++def main() -> None:
++    parser = argparse.ArgumentParser(description=__doc__)
++    parser.add_argument("--config", type=Path, default=CONFIG)
++    parser.add_argument("--output-dir", type=Path, default=RESULTS_DIR)
++    parser.add_argument("--data-dir", type=Path, default=ROOT / "data/raw")
++    parser.add_argument("--device", choices=("cpu", "cuda"))
++    parser.add_argument("--resume", action="store_true", help="Reuse completed Q6 folds; keep failed attempts")
++    args = parser.parse_args()
++    config = json.loads(args.config.read_text(encoding="utf-8"))
++    parent = json.loads(Q5_CONFIG.read_text(encoding="utf-8"))
++    assert_single_factor_protocol(config, parent)
++    output = args.output_dir.resolve()
++    if output == (ROOT / "results/Q5-E001").resolve() or "Q5-E001" in output.parts:
++        raise ValueError("Q6 output cannot be placed in the immutable Q5-E001 results directory")
++    device_name = args.device or config["training"]["device"]
++    if device_name == "cuda" and not torch.cuda.is_available():
++        raise RuntimeError("CUDA was requested but is unavailable")
++    device = torch.device(device_name)
++    if args.resume:
++        if not output.is_dir() or not (output / "config.json").is_file():
++            raise FileNotFoundError(f"Cannot resume without saved Q6 config: {output}")
++        previous = json.loads((output / "config.json").read_text(encoding="utf-8"))
++        if previous != config:
++            raise ValueError("Resume config differs from saved Q6 experiment config")
++        stamp = datetime.now(UTC).strftime("%Y%m%dT%H%M%S%fZ")
++        history = output / "attempt_history" / f"resume_{stamp}"
++        for old in (output / "provenance", output / "failure.json", output / "runtime.json", output / "status.json"):
++            if old.exists():
++                history.mkdir(parents=True, exist_ok=True)
++                shutil.move(str(old), str(history / old.name))
++        capture_startup_provenance(ROOT, output)
++    else:
++        if output.exists() and any(output.iterdir()):
++            raise FileExistsError(f"Refusing to overwrite existing Q6 run: {output}")
++        output.mkdir(parents=True, exist_ok=True)
++        write_json(output / "config.json", config)
++        capture_startup_provenance(ROOT, output)
++    started = time.perf_counter()
++    try:
++        torch.set_num_threads(config["training"]["torch_threads"])
++        torch.set_num_interop_threads(1)
++        mne.set_log_level("ERROR")
++        write_json(
++            output / "runtime.json",
++            {"started_at_utc": datetime.now(UTC).isoformat(), "device": str(device),
++             "torch_version": torch.__version__, "cuda_available": torch.cuda.is_available()},
++        )
++        write_json(
++            output / "status.json",
++            {"status": "loading", "completed_folds": 0, "completed_inner_fits": 0,
++             "completed_final_fits": 0, "q6_complete": False},
++        )
++        with threadpool_limits(limits=2):
++            bands, meta, audit = load_configured_epochs(
++                config["subjects"], args.data_dir.resolve(),
++                config["preprocessing"], config["class_ids"],
++            )
++        records = source_files(args.data_dir.resolve(), config["subjects"])
++        if args.resume and (output / "source_files.json").is_file():
++            previous = json.loads((output / "source_files.json").read_text(encoding="utf-8"))
++            if [(r["bytes"], r["sha256"]) for r in previous] != [
++                (r["bytes"], r["sha256"]) for r in records
++            ]:
++                raise ValueError("Resume source MAT hashes differ from saved Q6 run")
++        write_json(output / "source_files.json", records)
++        q4_meta = pd.read_csv(ROOT / "outputs/Q4-E001/trial_metadata.csv")
++        verify_q4_identity(meta, q4_meta)
++        if len(meta) != 5184 or int(meta.artifact_flagged.sum()) != 488:
++            raise AssertionError("Q6 trial population differs from Q4/Q5")
++        if args.resume and (output / "trial_metadata.csv").is_file():
++            verify_q4_identity(meta, pd.read_csv(output / "trial_metadata.csv"))
++        meta.to_csv(output / "trial_metadata.csv", index=False)
++        audit.to_csv(output / "data_audit.csv", index=False)
++        signal = bands["broad"]
++        if signal.shape != (5184, 22, 750):
++            raise AssertionError(f"Unexpected EEG array shape: {signal.shape}")
++        signal *= np.float32(config["input"]["volts_to_microvolts"])
++        if not np.isfinite(signal).all():
++            raise AssertionError("Non-finite microvolt EEG before source-only scaling")
++        raw_x = torch.from_numpy(signal).to(device)
++        y = torch.as_tensor(meta.label.to_numpy(dtype=np.int64) - 1, dtype=torch.long, device=device)
++        write_json(
++            output / "data_contract.json",
++            {"shape": list(signal.shape), "labels": {"source": [1, 2, 3, 4], "torch": [0, 1, 2, 3]},
++             "fixed_scale": config["input"]["volts_to_microvolts"],
++             "normalization": config["input"]["normalization"],
++             "q4_trial_identity": "exact row-wise match passed",
++             "target_fitted_transform": False,
++             "signal_min_microvolts": float(signal.min()),
++             "signal_max_microvolts": float(signal.max())},
++        )
++        write_json(
++            output / "status.json",
++            {"status": "running", "completed_folds": 0, "completed_inner_fits": 0,
++             "completed_final_fits": 0, "q6_complete": False,
++             "started_at_utc": datetime.now(UTC).isoformat()},
++        )
++        for fold, train, test in iter_loso(meta):
++            if _complete_fold_dir(output, fold, config) is None:
++                run_fold(output, fold, train, test, signal, raw_x, y, meta, config, device)
++            aggregate_complete_folds(output, config)
++        aggregate_complete_folds(output, config)
++        final_status = json.loads((output / "status.json").read_text(encoding="utf-8"))
++        final_status.update(
++            {"status": "complete", "q6_complete": True,
++             "elapsed_seconds_this_invocation": time.perf_counter() - started,
++             "finished_at_utc": datetime.now(UTC).isoformat()},
++        )
++        write_json(output / "status.json", final_status)
++    except Exception:
++        write_json(
++            output / "failure.json",
++            {"traceback": traceback.format_exc(),
++             "elapsed_seconds_this_invocation": time.perf_counter() - started},
++        )
++        write_json(output / "status.json", {"status": "failed", "q6_complete": False})
++        raise
++
++
++if __name__ == "__main__":
++    main()
+diff -ruN '--exclude=__pycache__' /workspace/Q5_EEGNet_Cloud_Ready/scripts/validate_q6_e001.py /workspace/Q6_EEGNet_SourceNorm/scripts/validate_q6_e001.py
+--- /workspace/Q5_EEGNet_Cloud_Ready/scripts/validate_q6_e001.py	1970-01-01 00:00:00.000000000 +0000
++++ /workspace/Q6_EEGNet_SourceNorm/scripts/validate_q6_e001.py	2026-09-23 11:20:14.000000000 +0000
+@@ -0,0 +1,222 @@
++"""Independently validate Q6-E001 receipts, including source-only scalers.
++
++This reruns preprocessing and recomputes every scaler from its declared
++source-train trial IDs.  It does not retrain EEGNet or claim to prove hidden
++GPU execution beyond the saved code, checkpoints, logs and predictions.
++"""
++
++from __future__ import annotations
++
++import argparse
++import json
++from pathlib import Path
++
++import mne
++import numpy as np
++import pandas as pd
++import torch
++from threadpoolctl import threadpool_limits
++
++from mi_eeg.data.bnci_epochs import load_configured_epochs
++from mi_eeg.preprocessing.source_normalization import fit_source_channel_standardizer
++from scripts.run_eegnet import sha256_file, write_json
++from scripts.run_q6_e001 import (
++    CONFIG,
++    Q5_CONFIG,
++    ROOT,
++    _complete_fold_dir,
++    assert_single_factor_protocol,
++)
++from scripts.validate_eegnet_run import (
++    _check_confusions,
++    _check_hashes,
++    _check_manifest,
++    _check_metadata,
++    _check_metrics,
++    _check_predictions,
++    _check_selection_and_curves,
++)
++
++
++def _check_aggregate_files(output: Path, config: dict) -> None:
++    for name in (
++        "fit_manifest", "learning_curves", "selection", "predictions",
++        "per_subject_metrics", "confusion_matrices",
++    ):
++        expected = pd.concat(
++            [
++                pd.read_csv(_complete_fold_dir(output, f"loso_s{s}", config) / f"{name}.csv")
++                for s in config["subjects"]
++            ],
++            ignore_index=True,
++        )
++        observed = pd.read_csv(output / f"{name}.csv")
++        pd.testing.assert_frame_equal(
++            observed, expected, check_dtype=False, check_exact=False,
++            rtol=1e-10, atol=1e-12,
++        )
++
++
++def _check_raw_hashes_match_q5(output: Path) -> None:
++    current = json.loads((output / "source_files.json").read_text(encoding="utf-8"))
++    q5 = json.loads((ROOT / "results/Q5-E001/source_files.json").read_text(encoding="utf-8"))
++    def inventory(records: list[dict]) -> dict[str, str]:
++        return {Path(row["path"].replace("\\", "/")).name: row["sha256"] for row in records}
++    if len(current) != 18 or len(q5) != 18 or inventory(current) != inventory(q5):
++        raise AssertionError("Q6 raw MAT filenames/hashes differ from Q5")
++
++
++def _check_scalers(
++    output: Path,
++    config: dict,
++    meta: pd.DataFrame,
++    signal_microvolts: np.ndarray,
++) -> int:
++    receipts = json.loads((output / "normalization_receipts.json").read_text(encoding="utf-8"))
++    if len(receipts) != 9 * 5:
++        raise AssertionError("Expected four inner and one full Q6 scaler per target")
++    expected_receipts = []
++    checked = 0
++    for target in config["subjects"]:
++        fold = f"loso_s{target}"
++        directory = _complete_fold_dir(output, fold, config)
++        if directory is None:
++            raise AssertionError(f"Incomplete outer fold {fold}")
++        sources = sorted(s for s in config["subjects"] if s != target)
++        for inner_fold in (1, 2, 3, 4, None):
++            stage = "full" if inner_fold is None else "inner"
++            name = "full" if inner_fold is None else f"inner_{inner_fold}"
++            path = directory / "normalization" / f"{name}.json"
++            saved = json.loads(path.read_text(encoding="utf-8"))
++            expected_receipts.append(saved)
++            validation = [] if inner_fold is None else sources[(inner_fold - 1) * 2 : inner_fold * 2]
++            train_subjects = [s for s in sources if s not in validation]
++            if saved.get("train_subjects") != train_subjects:
++                raise AssertionError(f"Scaler included validation/target subject: {fold}/{name}")
++            indices = np.flatnonzero(meta.subject.isin(train_subjects).to_numpy())
++            fitted = fit_source_channel_standardizer(
++                signal_microvolts, meta, indices, train_subjects,
++                min_std_microvolts=config["input"]["normalization"]["min_std_microvolts"],
++            )
++            expected = fitted.receipt(fold=fold, stage=stage, inner_fold=inner_fold)
++            for key in expected:
++                if key in ("channel_mean_microvolts", "channel_std_microvolts"):
++                    actual_values = np.asarray(saved.get(key), dtype=np.float64)
++                    expected_values = np.asarray(expected[key], dtype=np.float64)
++                    if actual_values.shape != (22,) or not np.allclose(
++                        actual_values, expected_values, rtol=1e-12, atol=1e-12
++                    ):
++                        raise AssertionError(f"Source-only {key} differs: {fold}/{name}")
++                    checked += 22
++                elif saved.get(key) != expected[key]:
++                    raise AssertionError(f"Scaler receipt {key} differs: {fold}/{name}")
++            if set(saved) != set(expected):
++                raise AssertionError(f"Unexpected or missing scaler receipt fields: {fold}/{name}")
++            if len(indices) != (4608 if inner_fold is None else 3456):
++                raise AssertionError("Q6 scaler train count changed")
++            checkpoint_files = (
++                [directory / f"seed_{seed}.pt" for seed in config["training"]["final_seeds"]]
++                if inner_fold is None else [directory / f"inner_{inner_fold}.pt"]
++            )
++            receipt_sha = sha256_file(path)
++            for checkpoint_file in checkpoint_files:
++                checkpoint = torch.load(checkpoint_file, map_location="cpu", weights_only=True)
++                if checkpoint.get("normalization_receipt_sha256") != receipt_sha:
++                    raise AssertionError(f"Checkpoint/scaler mismatch: {checkpoint_file}")
++                if checkpoint.get("fold") != fold or checkpoint.get("stage") != stage:
++                    raise AssertionError(f"Checkpoint/fold identity mismatch: {checkpoint_file}")
++                if inner_fold is not None and checkpoint.get("inner_fold") != inner_fold:
++                    raise AssertionError(f"Checkpoint/inner-fold mismatch: {checkpoint_file}")
++                checked += 1
++    if receipts != expected_receipts:
++        raise AssertionError("Aggregate Q6 scaler receipts differ from per-fold receipts")
++    return checked
++
++
++def verify(
++    output: Path,
++    *,
++    data_dir: Path,
++    reference: Path = ROOT / "outputs/Q4-E001",
++) -> dict:
++    config = json.loads((output / "config.json").read_text(encoding="utf-8"))
++    q5 = json.loads(Q5_CONFIG.read_text(encoding="utf-8"))
++    assert_single_factor_protocol(config, q5)
++    status = json.loads((output / "status.json").read_text(encoding="utf-8"))
++    if status.get("status") != "complete" or not status.get("q6_complete"):
++        raise AssertionError("Q6 run has not finished all outer folds")
++    if status.get("completed_folds") != 9 or status.get("completed_inner_fits") != 36 or status.get("completed_final_fits") != 27:
++        raise AssertionError("Q6 fit/fold counts differ from fixed protocol")
++    subjects = sorted(config["subjects"])
++    seeds = config["training"]["final_seeds"]
++    meta = pd.read_csv(output / "trial_metadata.csv")
++    reference_meta = pd.read_csv(reference / "trial_metadata.csv")
++    _check_metadata(meta, reference_meta, subjects)
++    _check_aggregate_files(output, config)
++    selection = pd.read_csv(output / "selection.csv")
++    curves = pd.read_csv(output / "learning_curves.csv")
++    chosen = _check_selection_and_curves(
++        selection, curves, subjects, config["training"]["selection_seed"],
++        seeds, config["training"]["max_epochs"],
++    )
++    n_inner, n_final = _check_manifest(
++        pd.read_csv(output / "fit_manifest.csv"), subjects,
++        config["training"]["selection_seed"], seeds,
++        config["training"]["max_epochs"], chosen,
++    )
++    predictions = pd.read_csv(output / "predictions.csv")
++    _check_predictions(predictions, meta, subjects, seeds)
++    n_metric_checks = _check_metrics(
++        predictions, pd.read_csv(output / "per_subject_metrics.csv"), subjects, seeds
++    )
++    n_confusion_checks = _check_confusions(
++        predictions, pd.read_csv(output / "confusion_matrices.csv"), subjects, seeds
++    )
++    n_mat, n_snapshot = _check_hashes(output, reference, len(subjects))
++    _check_raw_hashes_match_q5(output)
++    mne.set_log_level("ERROR")
++    with threadpool_limits(limits=2):
++        bands, loaded_meta, _ = load_configured_epochs(
++            subjects, data_dir.resolve(), config["preprocessing"], config["class_ids"]
++        )
++    _check_metadata(loaded_meta, meta, subjects)
++    signal = bands["broad"]
++    if signal.shape != (5184, 22, 750):
++        raise AssertionError("Q6 raw scaler recheck EEG shape differs")
++    signal *= np.float32(config["input"]["volts_to_microvolts"])
++    n_scaler_checks = _check_scalers(output, config, meta, signal)
++    return {
++        "status": "passed",
++        "experiment_id": "Q6-E001",
++        "n_subjects": len(subjects),
++        "n_trials": len(meta),
++        "n_inner_fits": n_inner,
++        "n_final_fits": n_final,
++        "n_predictions": len(predictions),
++        "n_source_only_scalers": 45,
++        "n_scaler_scalar_or_checkpoint_checks": n_scaler_checks,
++        "n_metric_scalar_checks": n_metric_checks,
++        "n_confusion_cell_checks": n_confusion_checks,
++        "n_raw_mat_hashes": n_mat,
++        "n_snapshot_source_hashes": n_snapshot,
++        "interpretation_boundary": (
++            "Q6 is a post-Q5 exploratory ablation. Nine people, not 27 seed fits, "
++            "are the units for subject-level inference. Receipts and raw scaler "
++            "recomputation do not prove unlogged GPU behavior or external generalization."
++        ),
++    }
++
++
++def main() -> None:
++    parser = argparse.ArgumentParser(description=__doc__)
++    parser.add_argument("output", type=Path, nargs="?", default=ROOT / "results/Q6-E001")
++    parser.add_argument("--data-dir", type=Path, default=ROOT / "data/raw")
++    parser.add_argument("--reference", type=Path, default=ROOT / "outputs/Q4-E001")
++    args = parser.parse_args()
++    report = verify(args.output, data_dir=args.data_dir, reference=args.reference)
++    write_json(args.output / "validation_report.json", report)
++    print(json.dumps(report, indent=2, ensure_ascii=False))
++
++
++if __name__ == "__main__":
++    main()
+
+===== SRC DIFF =====
+diff -ruN '--exclude=__pycache__' /workspace/Q5_EEGNet_Cloud_Ready/src/cross_subject_mi_eeg.egg-info/PKG-INFO /workspace/Q6_EEGNet_SourceNorm/src/cross_subject_mi_eeg.egg-info/PKG-INFO
+--- /workspace/Q5_EEGNet_Cloud_Ready/src/cross_subject_mi_eeg.egg-info/PKG-INFO	2026-09-23 08:46:51.522579561 +0000
++++ /workspace/Q6_EEGNet_SourceNorm/src/cross_subject_mi_eeg.egg-info/PKG-INFO	1970-01-01 00:00:00.000000000 +0000
+@@ -1,95 +0,0 @@
+-Metadata-Version: 2.4
+-Name: cross-subject-mi-eeg
+-Version: 0.1.0
+-Summary: Reproducible research project for cross-subject motor imagery EEG decoding
+-Requires-Python: >=3.11
+-Description-Content-Type: text/markdown
+-Requires-Dist: matplotlib<4,>=3.9
+-Requires-Dist: mne<2,>=1.10
+-Requires-Dist: moabb<2,>=1.4
+-Requires-Dist: numpy<3,>=2
+-Requires-Dist: pandas<4,>=2.2
+-Requires-Dist: scikit-learn<2,>=1.6
+-Requires-Dist: scipy<2,>=1.13
+-Provides-Extra: deep
+-Requires-Dist: braindecode==1.5.1; extra == "deep"
+-Requires-Dist: torch<3,>=2.6; extra == "deep"
+-Provides-Extra: dev
+-Requires-Dist: jupyterlab<5,>=4; extra == "dev"
+-Requires-Dist: pytest<10,>=8; extra == "dev"
+-Requires-Dist: ruff<1,>=0.11; extra == "dev"
+-
+-# Cross-Subject Motor Imagery EEG Decoding
+-
+-中文题目：**基于空频特征与深度学习的跨被试运动想象脑电解码研究**
+-
+-## 核心科研问题
+-
+-如何在严格避免数据泄漏的前提下，提高运动想象 EEG 在不同受试者之间的泛化能力？
+-
+-## 当前状态
+-
+-- 更新时间：2026-09-23。已完成真实二分类传统基线、探索性空频/眼电实验、完整四分类九人 LOSO 传统对照与后续特征维数探索；Q4-E001 和 Q4-A001 均通过独立验证，详见 [四分类结果](docs/q4_e001_results.md) 与 [维数消融](docs/q4_a001_capacity_results.md)。
+-- 已完成：独立 Python 3.12 环境、18 个源 MAT 文件、Subject 1 结构审计、9 人 CSP+LDA/SVM、within-session / cross-session / LOSO、Welch PSD 空频消融、源拟合 EOG 回归、预测与源文件哈希核验。
+-- 当前边界：四分类已有一个真实的传统基线，但九频带方法平均没有超过宽频 LDA；没有确认创新性、没有 EEGNet 结果、没有外部数据集验证，也未达到投稿就绪。
+-- 权威进度入口：[Research Progress](docs/research_progress.md)、[文献矩阵](references/literature_matrix.md) 与 [研究定位](docs/research_gap_and_next_experiments.md)。现有两份论文样例保留为历史工作稿；正式写作入口改为 [paper outline](paper/outline.md)。
+-- 下一模型阶段已有 [EEGNet 源端验证协议草案](docs/q5_eegnet_protocol_draft.md)，尚未训练或产生分数。
+-
+-## 目录导航
+-
+-```text
+-configs/                 固定实验参数；每次运行复制到对应输出目录
+-data/                    数据说明；原始数据和处理中间物不提交版本库
+-docs/                    路线图、课程和实验协议
+-experiments/             全项目实验登记表
+-logs/                    Research Log
+-notebooks/               只做探索；稳定逻辑迁移到 src/
+-outputs/<experiment_id>/ 每次实验的参数、指标、预测、图和日志
+-references/              官方资料和论文索引
+-scripts/                 可直接运行的入口脚本
+-src/mi_eeg/              可复用研究代码
+-tests/                   数据形状、切分和泄漏防护测试
+-sources/                 ChatGPT 项目同步资料，只读
+-```
+-
+-## 可复现环境
+-
+-本项目已使用独立 Python 3.12 环境和 `uv.lock`。恢复同一依赖版本：
+-
+-```powershell
+-uv sync --locked --python 3.12 --extra dev
+-.\.venv\Scripts\python.exe -m pytest -q
+-```
+-
+-元数据检查：
+-
+-```powershell
+-.\.venv\Scripts\python.exe scripts\inspect_bnci2014_001.py
+-```
+-
+-Subject 1 真实结构检查（已有结果在 `outputs/P1-E001/`）：
+-
+-```powershell
+-.\.venv\Scripts\python.exe scripts\inspect_bnci2014_001.py --load-data --subject 1
+-```
+-
+-本机数据缓存位于 `data/raw/`，18 个 MAT 合计约 780 MB。重复实验请指定新的输出目录；不要覆盖既有结果。
+-
+-完整四分类的固定实验配置和方法解释见 [Q4 配置](configs/q4_e001_fourclass_filterbank.json) 与 [傅里叶及滤波器组说明](docs/fourier_filterbank_lesson.md)。程序入口：
+-
+-```powershell
+-.\.venv\Scripts\python.exe scripts\run_fourclass_filterbank.py --output-dir outputs\NEW-RUN-ID
+-.\.venv\Scripts\python.exe scripts\validate_fourclass_filterbank.py outputs\NEW-RUN-ID
+-```
+-
+-`NEW-RUN-ID` 必须是一个尚无内容的新目录；实际运行的配置、代码快照与文件哈希保存在该输出目录。
+-
+-## 科研底线
+-
+-1. 先固定 research question、数据划分和主指标，再比较模型。
+-2. 受试者级测试集在建模全程不可见。
+-3. 标准化、CSP、特征选择和超参数搜索只能在训练数据内拟合。
+-4. 保存每个受试者的结果、均值、标准差和失败运行，不只保存最好结果。
+-5. 未真实运行的数据、图表和指标不得写成实验结果。
+-
+-详细计划见 [ROADMAP.md](ROADMAP.md)，第一课见 [docs/lessons/01_eeg_data_structure.md](docs/lessons/01_eeg_data_structure.md)。
+diff -ruN '--exclude=__pycache__' /workspace/Q5_EEGNet_Cloud_Ready/src/cross_subject_mi_eeg.egg-info/SOURCES.txt /workspace/Q6_EEGNet_SourceNorm/src/cross_subject_mi_eeg.egg-info/SOURCES.txt
+--- /workspace/Q5_EEGNet_Cloud_Ready/src/cross_subject_mi_eeg.egg-info/SOURCES.txt	2026-09-23 08:46:51.530579582 +0000
++++ /workspace/Q6_EEGNet_SourceNorm/src/cross_subject_mi_eeg.egg-info/SOURCES.txt	1970-01-01 00:00:00.000000000 +0000
+@@ -1,26 +0,0 @@
+-README.md
+-pyproject.toml
+-src/cross_subject_mi_eeg.egg-info/PKG-INFO
+-src/cross_subject_mi_eeg.egg-info/SOURCES.txt
+-src/cross_subject_mi_eeg.egg-info/dependency_links.txt
+-src/cross_subject_mi_eeg.egg-info/requires.txt
+-src/cross_subject_mi_eeg.egg-info/top_level.txt
+-src/mi_eeg/__init__.py
+-src/mi_eeg/provenance.py
+-src/mi_eeg/reproducibility.py
+-src/mi_eeg/data/__init__.py
+-src/mi_eeg/data/bnci_epochs.py
+-src/mi_eeg/evaluation/__init__.py
+-src/mi_eeg/evaluation/splits.py
+-src/mi_eeg/features/__init__.py
+-src/mi_eeg/models/__init__.py
+-src/mi_eeg/models/eegnet_training.py
+-src/mi_eeg/preprocessing/__init__.py
+-src/mi_eeg/preprocessing/eog_regression.py
+-src/mi_eeg/visualization/__init__.py
+-tests/test_eog_regression.py
+-tests/test_fourclass_filterbank.py
+-tests/test_provenance.py
+-tests/test_spectral_features.py
+-tests/test_splits.py
+-tests/test_validate_eegnet_run.py
+\ No newline at end of file
+diff -ruN '--exclude=__pycache__' /workspace/Q5_EEGNet_Cloud_Ready/src/cross_subject_mi_eeg.egg-info/dependency_links.txt /workspace/Q6_EEGNet_SourceNorm/src/cross_subject_mi_eeg.egg-info/dependency_links.txt
+--- /workspace/Q5_EEGNet_Cloud_Ready/src/cross_subject_mi_eeg.egg-info/dependency_links.txt	2026-09-23 08:46:51.522579561 +0000
++++ /workspace/Q6_EEGNet_SourceNorm/src/cross_subject_mi_eeg.egg-info/dependency_links.txt	1970-01-01 00:00:00.000000000 +0000
+@@ -1 +0,0 @@
+-
+diff -ruN '--exclude=__pycache__' /workspace/Q5_EEGNet_Cloud_Ready/src/cross_subject_mi_eeg.egg-info/requires.txt /workspace/Q6_EEGNet_SourceNorm/src/cross_subject_mi_eeg.egg-info/requires.txt
+--- /workspace/Q5_EEGNet_Cloud_Ready/src/cross_subject_mi_eeg.egg-info/requires.txt	2026-09-23 08:46:51.523579564 +0000
++++ /workspace/Q6_EEGNet_SourceNorm/src/cross_subject_mi_eeg.egg-info/requires.txt	1970-01-01 00:00:00.000000000 +0000
+@@ -1,16 +0,0 @@
+-matplotlib<4,>=3.9
+-mne<2,>=1.10
+-moabb<2,>=1.4
+-numpy<3,>=2
+-pandas<4,>=2.2
+-scikit-learn<2,>=1.6
+-scipy<2,>=1.13
+-
+-[deep]
+-braindecode==1.5.1
+-torch<3,>=2.6
+-
+-[dev]
+-jupyterlab<5,>=4
+-pytest<10,>=8
+-ruff<1,>=0.11
+diff -ruN '--exclude=__pycache__' /workspace/Q5_EEGNet_Cloud_Ready/src/cross_subject_mi_eeg.egg-info/top_level.txt /workspace/Q6_EEGNet_SourceNorm/src/cross_subject_mi_eeg.egg-info/top_level.txt
+--- /workspace/Q5_EEGNet_Cloud_Ready/src/cross_subject_mi_eeg.egg-info/top_level.txt	2026-09-23 08:46:51.523579564 +0000
++++ /workspace/Q6_EEGNet_SourceNorm/src/cross_subject_mi_eeg.egg-info/top_level.txt	1970-01-01 00:00:00.000000000 +0000
+@@ -1 +0,0 @@
+-mi_eeg
+diff -ruN '--exclude=__pycache__' /workspace/Q5_EEGNet_Cloud_Ready/src/mi_eeg/preprocessing/source_normalization.py /workspace/Q6_EEGNet_SourceNorm/src/mi_eeg/preprocessing/source_normalization.py
+--- /workspace/Q5_EEGNet_Cloud_Ready/src/mi_eeg/preprocessing/source_normalization.py	1970-01-01 00:00:00.000000000 +0000
++++ /workspace/Q6_EEGNet_SourceNorm/src/mi_eeg/preprocessing/source_normalization.py	2026-09-23 11:16:22.000000000 +0000
+@@ -0,0 +1,123 @@
++"""Source-only per-channel scaling for the Q6-E001 EEGNet ablation.
++
++The caller supplies explicit training trial indices.  Statistics are computed
++over those trials and their time samples, independently for each EEG channel;
++validation and target trials are never used to fit the transform.
++"""
++
++from __future__ import annotations
++
++import hashlib
++from dataclasses import dataclass
++
++import numpy as np
++import pandas as pd
++import torch
++
++
++@dataclass(frozen=True)
++class ChannelStandardizer:
++    mean_microvolts: np.ndarray
++    std_microvolts: np.ndarray
++    n_trials: int
++    n_time_samples: int
++    train_subjects: tuple[int, ...]
++    sample_ids_sha256: str
++
++    def receipt(self, *, fold: str, stage: str, inner_fold: int | None) -> dict:
++        return {
++            "fold": fold,
++            "stage": stage,
++            "inner_fold": inner_fold,
++            "method": "per_channel_source_train_zscore",
++            "fit_axes": ["trials", "time"],
++            "variance_ddof": 0,
++            "statistics_dtype": "float64",
++            "application_dtype": "float32",
++            "zero_variance_policy": "raise_if_std_below_1e-6_microvolts",
++            "n_train_trials": self.n_trials,
++            "n_time_samples_per_trial": self.n_time_samples,
++            "n_samples_per_channel": self.n_trials * self.n_time_samples,
++            "train_subjects": list(self.train_subjects),
++            "ordered_train_sample_ids_sha256": self.sample_ids_sha256,
++            "channel_mean_microvolts": self.mean_microvolts.tolist(),
++            "channel_std_microvolts": self.std_microvolts.tolist(),
++            "target_fitted_transform": False,
++        }
++
++
++def _ordered_sample_ids_hash(ids: list[str]) -> str:
++    # Length-prefixing makes the serialization unambiguous even if an ID
++    # unexpectedly contains a delimiter.
++    digest = hashlib.sha256()
++    for sample_id in ids:
++        encoded = sample_id.encode("utf-8")
++        digest.update(len(encoded).to_bytes(4, "big"))
++        digest.update(encoded)
++    return digest.hexdigest()
++
++
++def fit_source_channel_standardizer(
++    signal_microvolts: np.ndarray,
++    metadata: pd.DataFrame,
++    train_indices: np.ndarray,
++    expected_train_subjects: list[int],
++    *,
++    min_std_microvolts: float = 1e-6,
++) -> ChannelStandardizer:
++    """Fit 22 channel moments from the specified source-train trials only."""
++    signal = np.asarray(signal_microvolts)
++    if signal.ndim != 3 or signal.shape[1:] != (22, 750):
++        raise ValueError(f"Expected (trials, 22, 750) EEG, got {signal.shape}")
++    if len(metadata) != len(signal) or not {"subject", "sample_id"}.issubset(metadata):
++        raise ValueError("Metadata must align with signal and contain subject/sample_id")
++    indices = np.asarray(train_indices)
++    if indices.ndim != 1 or not np.issubdtype(indices.dtype, np.integer) or not len(indices):
++        raise ValueError("Training indices must be a nonempty one-dimensional integer array")
++    if len(np.unique(indices)) != len(indices) or indices.min() < 0 or indices.max() >= len(signal):
++        raise ValueError("Training indices must be unique and in range")
++    expected = tuple(sorted(expected_train_subjects))
++    if not expected or len(set(expected)) != len(expected):
++        raise ValueError("Expected source subjects must be unique and nonempty")
++    fit_meta = metadata.iloc[indices]
++    observed = tuple(sorted(int(s) for s in fit_meta.subject.unique()))
++    if observed != expected:
++        raise ValueError(f"Fitted subjects {observed} differ from source-train set {expected}")
++    # Require all, and only, trials from those train subjects.  A partial or
++    # hand-picked fit population would silently change the protocol.
++    required = np.flatnonzero(metadata.subject.isin(expected).to_numpy())
++    if not np.array_equal(np.sort(indices), required):
++        raise ValueError("Training indices are not the complete source-train population")
++    if fit_meta.sample_id.duplicated().any():
++        raise ValueError("Duplicate source trial IDs in standardizer fit")
++    selected = signal[indices]
++    if not np.isfinite(selected).all():
++        raise ValueError("Non-finite source training EEG")
++    means = selected.mean(axis=(0, 2), dtype=np.float64)
++    stds = selected.std(axis=(0, 2), dtype=np.float64, ddof=0)
++    if not np.isfinite(means).all() or not np.isfinite(stds).all():
++        raise ValueError("Non-finite source-only channel statistics")
++    if not np.isfinite(min_std_microvolts) or min_std_microvolts <= 0:
++        raise ValueError("Minimum standard deviation must be finite and positive")
++    if np.any(stds < min_std_microvolts):
++        raise ValueError("A source EEG channel has near-zero variance")
++    return ChannelStandardizer(
++        mean_microvolts=means,
++        std_microvolts=stds,
++        n_trials=len(indices),
++        n_time_samples=signal.shape[2],
++        train_subjects=observed,
++        sample_ids_sha256=_ordered_sample_ids_hash(fit_meta.sample_id.astype(str).tolist()),
++    )
++
++
++def apply_channel_standardizer(signal_microvolts: torch.Tensor, fitted: ChannelStandardizer) -> torch.Tensor:
++    """Apply fixed source statistics; never estimate moments on input trials."""
++    if signal_microvolts.ndim != 3 or tuple(signal_microvolts.shape[1:]) != (22, 750):
++        raise ValueError(f"Expected (trials, 22, 750) EEG, got {tuple(signal_microvolts.shape)}")
++    center = torch.as_tensor(fitted.mean_microvolts, device=signal_microvolts.device, dtype=signal_microvolts.dtype)
++    scale = torch.as_tensor(fitted.std_microvolts, device=signal_microvolts.device, dtype=signal_microvolts.dtype)
++    transformed = (signal_microvolts - center[None, :, None]) / scale[None, :, None]
++    if not torch.isfinite(transformed).all():
++        raise FloatingPointError("Non-finite source-standardized EEG")
++    return transformed
+
+===== TEST DIFF =====
+diff -ruN '--exclude=__pycache__' '--exclude=.pytest_cache' /workspace/Q5_EEGNet_Cloud_Ready/tests/test_q6_e001.py /workspace/Q6_EEGNet_SourceNorm/tests/test_q6_e001.py
+--- /workspace/Q5_EEGNet_Cloud_Ready/tests/test_q6_e001.py	1970-01-01 00:00:00.000000000 +0000
++++ /workspace/Q6_EEGNet_SourceNorm/tests/test_q6_e001.py	2026-09-23 11:21:36.000000000 +0000
+@@ -0,0 +1,47 @@
++"""Q6 protocol drift and completed-fold checkpoint safety tests."""
++
++from __future__ import annotations
++
++import json
++
++import pytest
++
++from scripts.run_q6_e001 import (
++    CONFIG,
++    Q5_CONFIG,
++    _complete_fold_dir,
++    _expected_fold_files,
++    assert_single_factor_protocol,
++)
++
++
++def test_q6_changes_only_declared_normalization() -> None:
++    q6 = json.loads(CONFIG.read_text(encoding="utf-8"))
++    q5 = json.loads(Q5_CONFIG.read_text(encoding="utf-8"))
++    assert_single_factor_protocol(q6, q5)
++    q6["training"]["final_seeds"] = [1, 2, 3]
++    with pytest.raises(ValueError, match="training differs"):
++        assert_single_factor_protocol(q6, q5)
++
++
++def test_completed_fold_must_have_all_receipts(tmp_path) -> None:
++    config = json.loads(CONFIG.read_text(encoding="utf-8"))
++    directory = tmp_path / "folds/loso_s1"
++    directory.mkdir(parents=True)
++    (directory / "status.json").write_text('{"status": "complete"}', encoding="utf-8")
++    with pytest.raises(AssertionError, match="missing artifacts"):
++        _complete_fold_dir(tmp_path, "loso_s1", config)
++    for name in _expected_fold_files(config):
++        path = directory / name
++        path.parent.mkdir(parents=True, exist_ok=True)
++        if not path.exists():
++            path.touch()
++    assert _complete_fold_dir(tmp_path, "loso_s1", config) == directory
++
++
++def test_failed_attempt_is_preserved_on_retry(tmp_path) -> None:
++    config = json.loads(CONFIG.read_text(encoding="utf-8"))
++    directory = tmp_path / "folds/loso_s1"
++    directory.mkdir(parents=True)
++    (directory / "status.json").write_text('{"status": "failed"}', encoding="utf-8")
++    assert _complete_fold_dir(tmp_path, "loso_s1", config) is None
+diff -ruN '--exclude=__pycache__' '--exclude=.pytest_cache' /workspace/Q5_EEGNet_Cloud_Ready/tests/test_source_normalization.py /workspace/Q6_EEGNet_SourceNorm/tests/test_source_normalization.py
+--- /workspace/Q5_EEGNet_Cloud_Ready/tests/test_source_normalization.py	1970-01-01 00:00:00.000000000 +0000
++++ /workspace/Q6_EEGNet_SourceNorm/tests/test_source_normalization.py	2026-09-23 11:21:36.000000000 +0000
+@@ -0,0 +1,80 @@
++"""Synthetic evidence that Q6 scaling is fitted only on source-train EEG."""
++
++from __future__ import annotations
++
++import numpy as np
++import pandas as pd
++import pytest
++import torch
++
++from mi_eeg.preprocessing.source_normalization import (
++    apply_channel_standardizer,
++    fit_source_channel_standardizer,
++)
++
++
++@pytest.fixture
++def synthetic_eeg() -> tuple[np.ndarray, pd.DataFrame]:
++    rng = np.random.default_rng(901)
++    metadata = pd.DataFrame(
++        [{"subject": subject, "sample_id": f"s{subject}_t{trial}"}
++         for subject in range(1, 10) for trial in range(2)]
++    )
++    eeg = rng.normal(size=(18, 22, 750)).astype(np.float32)
++    eeg *= np.arange(1, 23, dtype=np.float32)[None, :, None]
++    eeg += metadata.subject.to_numpy(dtype=np.float32)[:, None, None]
++    return eeg, metadata
++
++
++def _indices(meta: pd.DataFrame, subjects: list[int]) -> np.ndarray:
++    return np.flatnonzero(meta.subject.isin(subjects).to_numpy())
++
++
++def test_inner_fit_ignores_validation_and_target_perturbations(synthetic_eeg) -> None:
++    signal, meta = synthetic_eeg
++    train_subjects = [2, 3, 4, 5, 6, 7]
++    indices = _indices(meta, train_subjects)
++    original = fit_source_channel_standardizer(signal, meta, indices, train_subjects)
++    changed = signal.copy()
++    changed[_indices(meta, [1, 8, 9])] += 100_000.0
++    again = fit_source_channel_standardizer(changed, meta, indices, train_subjects)
++    np.testing.assert_array_equal(original.mean_microvolts, again.mean_microvolts)
++    np.testing.assert_array_equal(original.std_microvolts, again.std_microvolts)
++    assert original.n_trials == 12
++    assert original.train_subjects == tuple(train_subjects)
++    assert original.sample_ids_sha256 == again.sample_ids_sha256
++
++
++def test_final_fit_ignores_target_and_normalizes_source_channels(synthetic_eeg) -> None:
++    signal, meta = synthetic_eeg
++    sources = list(range(1, 9))
++    indices = _indices(meta, sources)
++    fitted = fit_source_channel_standardizer(signal, meta, indices, sources)
++    changed = signal.copy()
++    changed[_indices(meta, [9])] *= -999.0
++    recomputed = fit_source_channel_standardizer(changed, meta, indices, sources)
++    np.testing.assert_array_equal(fitted.mean_microvolts, recomputed.mean_microvolts)
++    np.testing.assert_array_equal(fitted.std_microvolts, recomputed.std_microvolts)
++    transformed = apply_channel_standardizer(torch.from_numpy(signal), fitted).numpy()
++    np.testing.assert_allclose(transformed[indices].mean(axis=(0, 2)), 0, atol=2e-6)
++    np.testing.assert_allclose(transformed[indices].std(axis=(0, 2)), 1, atol=2e-6)
++    # Applying a source-fitted transform need not zero-center target trials.
++    assert np.max(np.abs(transformed[_indices(meta, [9])].mean(axis=(0, 2)))) > 0.01
++
++
++def test_partial_or_wrong_subject_fit_is_rejected(synthetic_eeg) -> None:
++    signal, meta = synthetic_eeg
++    with pytest.raises(ValueError, match="complete source-train population"):
++        fit_source_channel_standardizer(signal, meta, _indices(meta, [1, 2])[:-1], [1, 2])
++    with pytest.raises(ValueError, match="differ from source-train"):
++        fit_source_channel_standardizer(signal, meta, _indices(meta, [1, 2]), [2, 3])
++    with pytest.raises(ValueError, match="unique and in range"):
++        fit_source_channel_standardizer(signal, meta, np.array([0, 0]), [1])
++
++
++def test_zero_variance_channel_raises(synthetic_eeg) -> None:
++    signal, meta = synthetic_eeg
++    signal = signal.copy()
++    signal[:, 3, :] = 0
++    with pytest.raises(ValueError, match="near-zero variance"):
++        fit_source_channel_standardizer(signal, meta, _indices(meta, [1, 2]), [1, 2])

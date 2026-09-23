@@ -1,0 +1,848 @@
+[2026-09-23T11:26:50+00:00] Q6-E001 startup in /workspace/Q6_EEGNet_SourceNorm
+Python: /workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/bin/python; data: /workspace/Q5_EEGNet_Cloud_Ready/data/raw; output: /workspace/Q6_EEGNet_SourceNorm/results/Q6-E001
+Wed Sep 23 11:26:50 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 610.57.04              KMD Version: 610.57.04     CUDA UMD Version: 13.3     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 5090        On  |   00000001:94:00.0 Off |                  N/A |
+|  0%   25C    P8             11W /  575W |       4MiB /  32607MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/braindecode/models/eegpt.py:497: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
+  montage = mne.channels.make_standard_montage("standard_1020")
+CUDA preflight OK; torch 2.14.0+cu132 braindecode 1.5.1
+pytest is absent from the preserved cloud venv; local full suite passed 23/23.
+Running dependency/import and syntax smoke checks without changing the cloud venv.
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/braindecode/models/eegpt.py:497: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
+  montage = mne.channels.make_standard_montage("standard_1020")
+Q6 Python import smoke passed
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/braindecode/models/eegpt.py:497: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
+  montage = mne.channels.make_standard_montage("standard_1020")
+Loading configured epochs for subject 1 ...
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+Loading configured epochs for subject 2 ...
+This is nemar-py 0.3.0.
+Preparing to download nm000139 from https://data.nemar.org/
+Retrieving 6 of 769 manifest files (16 concurrent downloads).
+S3:   0%|          | 0.00/83.2M [00:00<?, ?B/s]S3:   1%|          | 1.00M/83.2M [01:04<1:28:23, 16.3kB/s]S3:   2%|▏         | 2.00M/83.2M [01:09<39:52, 35.6kB/s]  S3:   2%|▏         | 2.00M/83.2M [01:20<39:52, 35.6kB/s]S3:   4%|▎         | 3.00M/83.2M [02:09<57:55, 24.2kB/s]S3:   5%|▍         | 4.00M/83.2M [02:11<35:46, 38.7kB/s]S3:   5%|▍         | 4.00M/83.2M [02:30<35:46, 38.7kB/s]S3:   6%|▌         | 5.00M/83.2M [03:14<52:19, 26.1kB/s]S3:   7%|▋         | 6.00M/83.2M [03:19<36:12, 37.3kB/s]S3:   7%|▋         | 6.00M/83.2M [03:30<36:12, 37.3kB/s]S3:   8%|▊         | 7.00M/83.2M [04:25<51:24, 25.9kB/s]S3:  10%|▉         | 8.00M/83.2M [04:31<37:11, 35.4kB/s]Terminated
+[2026-09-23T11:32:21+00:00] Q6-E001 startup in /workspace/Q6_EEGNet_SourceNorm
+Python: /workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/bin/python; data: /workspace/Q5_EEGNet_Cloud_Ready/data/raw; output: /workspace/Q6_EEGNet_SourceNorm/results/Q6-E001
+Wed Sep 23 11:32:21 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 610.57.04              KMD Version: 610.57.04     CUDA UMD Version: 13.3     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 5090        On  |   00000001:94:00.0 Off |                  N/A |
+|  0%   25C    P8             12W /  575W |       4MiB /  32607MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/braindecode/models/eegpt.py:497: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
+  montage = mne.channels.make_standard_montage("standard_1020")
+CUDA preflight OK; torch 2.14.0+cu132 braindecode 1.5.1
+pytest is absent from the preserved cloud venv; local full suite passed 23/23.
+Running dependency/import and syntax smoke checks without changing the cloud venv.
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/braindecode/models/eegpt.py:497: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
+  montage = mne.channels.make_standard_montage("standard_1020")
+Q6 Python import smoke passed
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/braindecode/models/eegpt.py:497: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
+  montage = mne.channels.make_standard_montage("standard_1020")
+Loading configured epochs for subject 1 ...
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+Loading configured epochs for subject 2 ...
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+Loading configured epochs for subject 3 ...
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+Loading configured epochs for subject 4 ...
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+Loading configured epochs for subject 5 ...
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+Loading configured epochs for subject 6 ...
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+Loading configured epochs for subject 7 ...
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+Loading configured epochs for subject 8 ...
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+Loading configured epochs for subject 9 ...
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+loso_s1 inner 1/4: completed 40 epochs
+loso_s1 inner 2/4: completed 40 epochs
+loso_s1 inner 3/4: completed 40 epochs
+loso_s1 inner 4/4: completed 40 epochs
+/workspace/Q6_EEGNet_SourceNorm/scripts/run_eegnet.py:161: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/utils/tensor_numpy.cpp:213.)
+  train_tensor = torch.as_tensor(train_idx, dtype=torch.long, device=device)
+loso_s1 seed 20260924: target BA=0.5174 (source-selected 27 epochs)
+loso_s1 seed 20260925: target BA=0.5851 (source-selected 27 epochs)
+loso_s1 seed 20260926: target BA=0.6042 (source-selected 27 epochs)
+loso_s2 inner 1/4: completed 40 epochs
+loso_s2 inner 2/4: completed 40 epochs
+loso_s2 inner 3/4: completed 40 epochs
+loso_s2 inner 4/4: completed 40 epochs
+loso_s2 seed 20260924: target BA=0.2413 (source-selected 1 epochs)
+loso_s2 seed 20260925: target BA=0.2500 (source-selected 1 epochs)
+loso_s2 seed 20260926: target BA=0.2500 (source-selected 1 epochs)
+loso_s3 inner 1/4: completed 40 epochs
+loso_s3 inner 2/4: completed 40 epochs
+loso_s3 inner 3/4: completed 40 epochs
+loso_s3 inner 4/4: completed 40 epochs
+loso_s3 seed 20260924: target BA=0.6441 (source-selected 16 epochs)
+loso_s3 seed 20260925: target BA=0.5694 (source-selected 16 epochs)
+loso_s3 seed 20260926: target BA=0.7622 (source-selected 16 epochs)
+loso_s4 inner 1/4: completed 40 epochs
+loso_s4 inner 2/4: completed 40 epochs
+loso_s4 inner 3/4: completed 40 epochs
+loso_s4 inner 4/4: completed 40 epochs
+loso_s4 seed 20260924: target BA=0.3733 (source-selected 10 epochs)
+loso_s4 seed 20260925: target BA=0.3559 (source-selected 10 epochs)
+loso_s4 seed 20260926: target BA=0.3924 (source-selected 10 epochs)
+loso_s5 inner 1/4: completed 40 epochs
+loso_s5 inner 2/4: completed 40 epochs
+loso_s5 inner 3/4: completed 40 epochs
+loso_s5 inner 4/4: completed 40 epochs
+loso_s5 seed 20260924: target BA=0.2413 (source-selected 12 epochs)
+loso_s5 seed 20260925: target BA=0.2396 (source-selected 12 epochs)
+loso_s5 seed 20260926: target BA=0.2587 (source-selected 12 epochs)
+loso_s6 inner 1/4: completed 40 epochs
+loso_s6 inner 2/4: completed 40 epochs
+loso_s6 inner 3/4: completed 40 epochs
+loso_s6 inner 4/4: completed 40 epochs
+loso_s6 seed 20260924: target BA=0.2795 (source-selected 7 epochs)
+loso_s6 seed 20260925: target BA=0.2969 (source-selected 7 epochs)
+loso_s6 seed 20260926: target BA=0.2726 (source-selected 7 epochs)
+loso_s7 inner 1/4: completed 40 epochs
+loso_s7 inner 2/4: completed 40 epochs
+loso_s7 inner 3/4: completed 40 epochs
+loso_s7 inner 4/4: completed 40 epochs
+loso_s7 seed 20260924: target BA=0.2986 (source-selected 6 epochs)
+loso_s7 seed 20260925: target BA=0.2795 (source-selected 6 epochs)
+loso_s7 seed 20260926: target BA=0.2812 (source-selected 6 epochs)
+loso_s8 inner 1/4: completed 40 epochs
+loso_s8 inner 2/4: completed 40 epochs
+loso_s8 inner 3/4: completed 40 epochs
+loso_s8 inner 4/4: completed 40 epochs
+loso_s8 seed 20260924: target BA=0.2569 (source-selected 1 epochs)
+loso_s8 seed 20260925: target BA=0.2552 (source-selected 1 epochs)
+loso_s8 seed 20260926: target BA=0.2465 (source-selected 1 epochs)
+loso_s9 inner 1/4: completed 40 epochs
+loso_s9 inner 2/4: completed 40 epochs
+loso_s9 inner 3/4: completed 40 epochs
+loso_s9 inner 4/4: completed 40 epochs
+loso_s9 seed 20260924: target BA=0.4965 (source-selected 7 epochs)
+loso_s9 seed 20260925: target BA=0.5069 (source-selected 7 epochs)
+loso_s9 seed 20260926: target BA=0.4861 (source-selected 7 epochs)
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/braindecode/models/eegpt.py:497: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
+  montage = mne.channels.make_standard_montage("standard_1020")
+Loading configured epochs for subject 1 ...
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+Loading configured epochs for subject 2 ...
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+Loading configured epochs for subject 3 ...
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+Loading configured epochs for subject 4 ...
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+Loading configured epochs for subject 5 ...
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+Loading configured epochs for subject 6 ...
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+Loading configured epochs for subject 7 ...
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+Loading configured epochs for subject 8 ...
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+Loading configured epochs for subject 9 ...
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/workspace/Q5_EEGNet_Cloud_Ready/.venv-cloud/lib/python3.12/site-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+{
+  "status": "passed",
+  "experiment_id": "Q6-E001",
+  "n_subjects": 9,
+  "n_trials": 5184,
+  "n_inner_fits": 36,
+  "n_final_fits": 27,
+  "n_predictions": 15552,
+  "n_source_only_scalers": 45,
+  "n_scaler_scalar_or_checkpoint_checks": 2043,
+  "n_metric_scalar_checks": 486,
+  "n_confusion_cell_checks": 1296,
+  "n_raw_mat_hashes": 18,
+  "n_snapshot_source_hashes": 56,
+  "interpretation_boundary": "Q6 is a post-Q5 exploratory ablation. Nine people, not 27 seed fits, are the units for subject-level inference. Receipts and raw scaler recomputation do not prove unlogged GPU behavior or external generalization."
+}
+[2026-09-23T11:54:20+00:00] Q6-E001 training and raw-statistics validation finished.

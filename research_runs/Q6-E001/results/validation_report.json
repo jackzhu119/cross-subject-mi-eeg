@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "experiment_id": "Q6-E001",
+  "n_subjects": 9,
+  "n_trials": 5184,
+  "n_inner_fits": 36,
+  "n_final_fits": 27,
+  "n_predictions": 15552,
+  "n_source_only_scalers": 45,
+  "n_scaler_scalar_or_checkpoint_checks": 2043,
+  "n_metric_scalar_checks": 486,
+  "n_confusion_cell_checks": 1296,
+  "n_raw_mat_hashes": 18,
+  "n_snapshot_source_hashes": 56,
+  "interpretation_boundary": "Q6 is a post-Q5 exploratory ablation. Nine people, not 27 seed fits, are the units for subject-level inference. Receipts and raw scaler recomputation do not prove unlogged GPU behavior or external generalization."
+}

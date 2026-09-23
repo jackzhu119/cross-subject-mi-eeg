@@ -1,0 +1,16 @@
+{
+  "experiment_id": "P1-E001",
+  "seed": 20260920,
+  "dataset": "BNCI2014_001",
+  "subjects": [1],
+  "sessions": "all",
+  "classes": ["left_hand", "right_hand", "feet", "tongue"],
+  "load_mode": "metadata_first",
+  "preprocessing": {
+    "additional_filter": null,
+    "resample_hz": null,
+    "artifact_policy": "audit_before_decision"
+  },
+  "notes": "Phase 1 structural inspection; no classification and no performance claim."
+}
+
