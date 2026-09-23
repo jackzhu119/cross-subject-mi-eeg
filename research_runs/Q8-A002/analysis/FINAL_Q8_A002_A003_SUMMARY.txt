@@ -1,0 +1,83 @@
+Input structural checks: PASSED
+
+============================================================
+ Q8-A002 FINAL INNER-FOLD INFLUENCE
+============================================================
+
+experiment  target_subject  original_selected_epoch  LOIFO_epoch_range  mean_absolute_shift  max_absolute_shift most_influential_validation_pair  most_influential_shift
+        Q5               1                       27                 26                15.00                  26                            S8+S9                     -26
+        Q5               2                        1                 12                 5.00                  12                            S6+S7                      12
+        Q5               3                        2                 18                 4.50                  17                            S4+S5                      17
+        Q5               4                       10                  0                 0.00                   0                            S1+S2                       0
+        Q5               5                       13                 12                 3.25                   6                            S1+S2                      -6
+        Q5               6                        7                  5                 1.25                   5                            S3+S4                      -5
+        Q5               7                        6                 11                 2.75                  10                            S5+S6                      10
+        Q5               8                        1                 22                 5.75                  22                            S5+S6                      22
+        Q5               9                        7                  6                 1.50                   6                            S5+S6                       6
+        Q6               1                       27                 26                15.25                  26                            S2+S3                     -26
+        Q6               2                        1                 18                 7.50                  18                            S6+S7                      18
+        Q6               3                       16                 18                 8.25                  15                            S1+S2                     -15
+        Q6               4                       10                  6                 1.50                   6                            S8+S9                       6
+        Q6               5                       12                  6                 1.50                   5                            S1+S2                      -5
+        Q6               6                        7                 34                 8.50                  28                            S8+S9                      28
+        Q6               7                        6                 10                 2.50                  10                            S5+S6                      10
+        Q6               8                        1                 22                 5.50                  22                            S5+S6                      22
+        Q6               9                        7                  6                 1.50                   6                            S5+S6                       6
+
+===== CRITICAL S2 / S3 / S8 =====
+
+experiment  target_subject omitted_validation_pair  original_selected_epoch  selected_epoch_after_omission  epoch_shift
+        Q5               2                   S1+S3                        1                              1            0
+        Q5               2                   S4+S5                        1                              9            8
+        Q5               2                   S6+S7                        1                             13           12
+        Q5               2                   S8+S9                        1                              1            0
+        Q5               3                   S1+S2                        2                              2            0
+        Q5               3                   S4+S5                        2                             19           17
+        Q5               3                   S6+S7                        2                              2            0
+        Q5               3                   S8+S9                        2                              1           -1
+        Q5               8                   S1+S2                        1                              1            0
+        Q5               8                   S3+S4                        1                              2            1
+        Q5               8                   S5+S6                        1                             23           22
+        Q5               8                   S7+S9                        1                              1            0
+        Q6               2                   S1+S3                        1                              1            0
+        Q6               2                   S4+S5                        1                             13           12
+        Q6               2                   S6+S7                        1                             19           18
+        Q6               2                   S8+S9                        1                              1            0
+        Q6               3                   S1+S2                       16                              1          -15
+        Q6               3                   S4+S5                       16                             19            3
+        Q6               3                   S6+S7                       16                             16            0
+        Q6               3                   S8+S9                       16                              1          -15
+        Q6               8                   S1+S2                        1                              1            0
+        Q6               8                   S3+S4                        1                              1            0
+        Q6               8                   S5+S6                        1                             23           22
+        Q6               8                   S7+S9                        1                              1            0
+
+============================================================
+ Q8-A003 SOURCE-ONLY RULE STABILITY
+============================================================
+
+experiment            rule  mean_selected_epoch  median_selected_epoch  mean_LOIFO_epoch_range  median_LOIFO_epoch_range  mean_LOIFO_absolute_shift  max_LOIFO_absolute_shift  mean_LOIFO_unique_selections
+        Q5         mean_ce                 8.22                   7.00                   12.44                     12.00                       4.33                        26                          2.78
+        Q5       mean_rank                15.56                  15.00                   10.56                      8.00                       3.81                        21                          2.67
+        Q5       median_ce                12.22                  11.00                   11.56                      9.00                       5.25                        24                          2.44
+        Q5     median_rank                13.11                  13.00                   14.11                     12.00                       5.61                        21                          2.67
+        Q5 trimmed_mean_ce                12.22                  11.00                   11.56                      9.00                       5.25                        24                          2.44
+        Q5   worst_fold_ce                 1.00                   1.00                   11.00                     11.00                       2.83                        25                          2.11
+        Q6         mean_ce                 9.67                   7.00                   16.22                     18.00                       5.78                        28                          2.56
+        Q6       mean_rank                16.67                  16.00                   11.00                      9.00                       3.42                        23                          2.89
+        Q6       median_ce                12.78                  12.00                   12.22                      9.00                       6.03                        25                          2.56
+        Q6     median_rank                14.89                  16.00                   12.11                     11.00                       5.58                        18                          2.33
+        Q6 trimmed_mean_ce                12.78                  12.00                   12.22                      9.00                       6.03                        25                          2.56
+        Q6   worst_fold_ce                 1.00                   1.00                   11.33                     11.00                       2.94                        25                          2.11
+
+===== Q5 vs Q6 RULE CONSISTENCY =====
+
+           rule  mean_absolute_Q5_Q6_difference  median_absolute_Q5_Q6_difference  max_absolute_Q5_Q6_difference  subjects_same_epoch
+        mean_ce                            1.67                              0.00                             14                    7
+      mean_rank                            1.33                              0.00                              6                    5
+      median_ce                            1.00                              0.00                              7                    7
+    median_rank                            3.11                              3.00                              7                    2
+trimmed_mean_ce                            1.00                              0.00                              7                    7
+  worst_fold_ce                            0.00                              0.00                              0                    9
+
+NO MODEL TRAINING WAS PERFORMED.

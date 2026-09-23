@@ -1,0 +1,14 @@
+{
+  "analysis_id": "Q8-A003",
+  "status": "analysis_only",
+  "target_performance_used_to_choose_rule": false,
+  "rules": {
+    "mean_ce": "Current Q5/Q6 rule: minimum mean validation CE across four source-validation folds.",
+    "median_ce": "Minimum median validation CE across folds.",
+    "trimmed_mean_ce": "At each epoch remove highest and lowest fold CE and average the middle values.",
+    "worst_fold_ce": "Minimize the largest validation CE across folds (minimax).",
+    "mean_rank": "Rank epochs separately within each fold and minimize mean rank.",
+    "median_rank": "Rank epochs separately within each fold and minimize median rank."
+  },
+  "interpretation_boundary": "These are retrospective source-only sensitivity analyses. A future rule must be frozen before new target evaluation. Target BA must not be used to select among these rules."
+}
