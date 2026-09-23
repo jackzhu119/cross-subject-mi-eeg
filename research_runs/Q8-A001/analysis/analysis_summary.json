@@ -1,0 +1,24 @@
+{
+  "analysis_id": "Q8-A001",
+  "analysis_type": "source-only epoch-selection stability audit; no model fitting",
+  "input_experiments": [
+    "Q5-E001",
+    "Q6-E001",
+    "Q7-E001"
+  ],
+  "subjects": 9,
+  "inner_folds_per_subject": 4,
+  "epochs_per_inner_fit": 40,
+  "primary_question": "How stable is the source-only earliest-minimum epoch-selection procedure, and why did S3 move from epoch 2 in Q5 to epoch 16 in Q6?",
+  "s3": {
+    "Q5_selected_epoch": 2,
+    "Q6_selected_epoch": 16,
+    "Q5_inner_optimum_epoch_range": 19,
+    "Q6_inner_optimum_epoch_range": 23,
+    "Q5_near_min_005_count": 2,
+    "Q6_near_min_005_count": 4,
+    "Q5_CE16_minus_selected": 0.026094066600005128,
+    "Q6_CE2_minus_selected": 0.0024176678723759615
+  },
+  "interpretation_boundary": "Q8-A001 is post-hoc analysis of source-validation curves already observed after Q5-Q7. It may identify selection instability and generate hypotheses, but it must not be used to retroactively claim a confirmatory optimal epoch-selection rule."
+}

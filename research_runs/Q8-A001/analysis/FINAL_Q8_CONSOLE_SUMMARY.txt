@@ -1,0 +1,45 @@
+Structural validation of Q5/Q6 learning curves: PASSED
+
+============================================================
+ Q8-A001 FINAL SELECTION AUDIT
+============================================================
+
+ subject  selected_epoch_Q5  selected_epoch_Q6  selected_epoch_delta  inner_optimum_epoch_range_Q5  inner_optimum_epoch_range_Q6  near_min_005_count_Q5  near_min_005_count_Q6  Q5_BA  Q6_BA  BA_delta_pp
+       1                 27                 27                     0                            29                            26                      1                      1 0.5700 0.5689      -0.1157
+       2                  1                  1                     0                            23                            23                      1                      1 0.2448 0.2471       0.2315
+       3                  2                 16                    14                            19                            23                      2                      4 0.2610 0.6586      39.7569
+       4                 10                 10                     0                            30                            29                      1                      1 0.3692 0.3738       0.4630
+       5                 13                 12                    -1                            35                            35                      1                      1 0.2413 0.2465       0.5208
+       6                  7                  7                     0                            15                            27                      1                      1 0.2836 0.2830      -0.0579
+       7                  6                  6                     0                            34                            22                      2                      2 0.2847 0.2865       0.1736
+       8                  1                  1                     0                            25                            27                      2                      1 0.2969 0.2529      -4.3981
+       9                  7                  7                     0                            22                            22                      1                      1 0.4832 0.4965       1.3310
+
+===== CRITICAL SUBJECTS S2 / S3 / S8 =====
+
+ subject experiment  selected_epoch  selected_mean_val_ce  margin_to_second_best inner_optimum_epochs  inner_optimum_epoch_range  inner_optimum_epoch_std  near_min_001_count  near_min_005_count  near_min_005_earliest  near_min_005_latest  near_min_005_span  CE_epoch_1  CE_epoch_2  CE_epoch_8  CE_epoch_16  CE_epoch_24  CE_epoch_40  CE16_minus_selected  CE40_minus_selected
+       2         Q5               1              1.378028               0.008571             24,1,5,9                         23                10.045729                   1                   1                      1                    1                  0    1.378028    1.386599    1.533697     1.450233     1.579204     1.757676             0.072204             0.379648
+       2         Q6               1              1.386081               0.012357             24,1,5,9                         23                10.045729                   1                   1                      1                    1                  0    1.386081    1.401252    1.523035     1.432567     1.550930     1.687077             0.046486             0.300996
+       3         Q5               2              1.380523               0.002220            12,1,6,20                         19                 8.180261                   1                   2                      1                    2                  1    1.382743    1.380523    1.429316     1.406617     1.468263     1.552280             0.026094             0.171756
+       3         Q6              16              1.385887               0.000732            24,1,6,19                         23                10.785793                   2                   4                      1                   16                 15    1.386618    1.388304    1.441050     1.385887     1.431345     1.530154             0.000000             0.144267
+       8         Q5               1              1.381023               0.000457           22,24,1,26                         25                11.615363                   2                   2                      1                    2                  1    1.381023    1.381480    1.435709     1.491902     1.607062     1.634985             0.110879             0.253962
+       8         Q6               1              1.386213               0.006776           17,28,1,26                         27                12.301761                   1                   1                      1                    1                  0    1.386213    1.392989    1.440417     1.495979     1.591196     1.641187             0.109767             0.254974
+
+===== SELECTION DELTA vs PERFORMANCE =====
+
+      subset                          x              y  n  pearson_r  pearson_p  spearman_rho  spearman_p
+   all_S1-S9 Q6_minus_Q5_selected_epoch Q6_minus_Q5_BA  9     0.9887     0.0000        0.1826      0.6382
+excluding_S3 Q6_minus_Q5_selected_epoch Q6_minus_Q5_BA  8    -0.1744     0.6796       -0.4124      0.3100
+
+===== Q7 MECHANISTIC REFERENCE =====
+
+condition  normalization  fixed_epochs  BA_mean  entropy_mean  dominant_share_mean
+        A          False             2   0.2610        0.1304               0.9416
+        B           True             2   0.2569        0.0827               0.9751
+        C          False            16   0.6771        0.9561               0.3669
+        D           True            16   0.6586        0.9037               0.4387
+
+Analysis completed. NO MODEL TRAINING was performed.
+
+Report:
+/workspace/Q5_EEGNet_Cloud_Ready/research_runs/Q8-A001/analysis/Q8_SELECTION_AUDIT_REPORT.md
