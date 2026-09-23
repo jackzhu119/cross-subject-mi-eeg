@@ -178,3 +178,46 @@ choose a model-selection rule and then describe that choice as
 independent confirmation.
 
 Any future rule should be frozen before new evaluation.
+
+---
+
+# Q8-E001
+
+Q8-E001 is the first new final-model experiment following the
+source-only model-selection stability analyses.
+
+Intervention:
+
+**mean within-fold validation rank epoch selection**
+
+Comparator:
+
+**Q5 mean validation CE selection**
+
+Q8-E001 preserves:
+
+- BNCI2014_001;
+- all nine LOSO subjects;
+- four-class task;
+- Q5 raw EEG preprocessing;
+- EEGNet architecture;
+- optimizer;
+- seeds;
+- 40-epoch inner candidate range;
+- exact Q5 inner source-validation curves.
+
+The 36 inner fits are reused rather than retrained.
+
+Only 27 new final models are trained.
+
+The mean-rank selection file is frozen before Q8 target evaluation.
+
+Important limitation:
+
+the rule itself was motivated by retrospective Q5-Q8 analyses on
+BNCI2014_001, so this remains exploratory rather than independent
+external confirmation.
+
+See:
+
+`research_runs/Q8-E001/analysis/Q8_E001_FINAL_REPORT.md`

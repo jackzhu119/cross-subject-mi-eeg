@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "experiment_id": "Q8-E001",
+  "parent_experiment": "Q5-E001",
+  "selection_rule": "mean_rank",
+  "selection_recomputed_independently": true,
+  "selection_file_sha_verified": true,
+  "inner_fits_retrained": false,
+  "reused_inner_curve_experiment": "Q5-E001",
+  "n_subjects": 9,
+  "n_final_fits": 27,
+  "n_predictions": 15552,
+  "n_metric_scalar_checks": 81,
+  "n_checkpoint_hashes_verified": 27,
+  "q5_trial_identity_match": true,
+  "target_training_leakage_detected": false,
+  "target_derived_normalization": false,
+  "interpretation_boundary": "Q8-E001 freezes mean-rank selection before its new final-model evaluation, but the rule itself was motivated after exploratory analyses on BNCI2014_001. Nine subjects, not 27 seed fits, are the units for subject-level inference. This is not independent external confirmation."
+}

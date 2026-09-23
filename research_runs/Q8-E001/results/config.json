@@ -1,0 +1,114 @@
+{
+  "experiment_id": "Q8-E001",
+  "analysis_status": "exploratory follow-up; epoch-selection rule frozen before Q8-E001 target evaluation, but developed after prior Q5-Q8 exploration on BNCI2014_001",
+  "research_question": "Does source-only mean-rank aggregation of the frozen Q5 inner validation trajectories provide a more robust training-duration selection procedure than Q5 mean validation CE?",
+  "hypothesis": "Mean within-fold epoch ranks reduce sensitivity to validation-subject CE scale heterogeneity; target-performance improvement is not assumed.",
+  "parent_experiment": "Q5-E001",
+  "dataset": "BNCI2014_001",
+  "subjects": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "class_ids": {
+    "left_hand": 1,
+    "right_hand": 2,
+    "feet": 3,
+    "tongue": 4
+  },
+  "preprocessing": {
+    "sampling_rate_hz": 250,
+    "bands": {
+      "broad": [
+        4,
+        40
+      ]
+    },
+    "filter": {
+      "order": 4,
+      "ftype": "butter",
+      "phase": "zero"
+    },
+    "trial_start_s": 2.5,
+    "trial_stop_exclusive_s": 5.5,
+    "artifact_policy": "include_all",
+    "baseline": null
+  },
+  "input": {
+    "shape": [
+      22,
+      750
+    ],
+    "volts_to_microvolts": 1000000.0,
+    "target_derived_normalization": false
+  },
+  "architecture": {
+    "library": "braindecode",
+    "model": "EEGNet",
+    "n_chans": 22,
+    "n_outputs": 4,
+    "n_times": 750,
+    "F1": 8,
+    "D": 2,
+    "F2": 16,
+    "kernel_length": 64,
+    "drop_prob": 0.25
+  },
+  "training": {
+    "device": "cpu",
+    "torch_threads": 4,
+    "deterministic_algorithms": true,
+    "selection_seed": 20260923,
+    "final_seeds": [
+      20260924,
+      20260925,
+      20260926
+    ],
+    "inner_validation_rule": "consecutive_pairs_of_sorted_eight_source_subjects",
+    "inner_folds": 4,
+    "batch_size": 64,
+    "max_epochs": 40,
+    "optimizer": "Adam",
+    "learning_rate": 0.001,
+    "weight_decay": 0.0,
+    "loss": "cross_entropy",
+    "epoch_selection": "earliest epoch minimizing equal-inner-fold mean within-fold validation-CE rank, using frozen Q5 inner learning curves",
+    "scheduler": "none",
+    "augmentation": "none",
+    "inner_curve_source": "Q5-E001",
+    "inner_fits_retrained": false
+  },
+  "evaluation": {
+    "split": "LOSO both sessions held out",
+    "target_information": "No target-subject fit, normalization, early stopping, seed choice, or hyperparameter tuning",
+    "primary_population": "all trials including expert artifact flags",
+    "secondary_strata": [
+      "unflagged",
+      "flagged"
+    ],
+    "primary_metric": "subject-level balanced_accuracy, then equal-subject mean of three-seed means",
+    "parent_comparator": "Q5-E001 frozen raw-EEG mean-validation-CE EEGNet baseline",
+    "inference": "exploratory paired subject contrasts; nine held-out subjects are the inference units; seed fits are not independent subjects"
+  },
+  "resource_benchmark": {
+    "synthetic_train_trials": 3456,
+    "synthetic_validation_trials": 1152,
+    "four_thread_batch64_train_seconds": 5.347,
+    "four_thread_batch64_validation_seconds": 0.516,
+    "note": "Synthetic shape-matched CPU benchmark only, not EEG classification or model selection."
+  },
+  "limitations": [
+    "BNCI data and Q4 comparator were previously explored; this is not an independent confirmatory study.",
+    "Forty-epoch cap is compute-bounded; a selected boundary epoch indicates possible undertraining.",
+    "Offline zero-phase run filtering is not a causal online pipeline.",
+    "Braindecode EEGNet here is not the original paper's exact preprocessing or split reproduction.",
+    "The mean-rank rule was motivated by post-Q5/Q6/Q7/Q8-A001-A003 analyses on the same dataset; Q8-E001 is therefore not independent external confirmation.",
+    "Q8-E001 reuses frozen Q5 source-validation curves and trains only new final models at the pre-frozen mean-rank epochs."
+  ]
+}

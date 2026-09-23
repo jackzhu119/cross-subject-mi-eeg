@@ -1,0 +1,62 @@
+
+============================================================
+ Q8-E001 FINAL RESULTS
+============================================================
+
+         Q5_meanCE_epoch  Q8_meanRank_epoch  epoch_delta  Q5_BA  Q8_BA  delta_BA_pp
+subject                                                                            
+1                     27                 27            0 0.5700 0.5700       0.0000
+2                      1                 13           12 0.2448 0.2784       3.3565
+3                      2                 10            8 0.2610 0.6088      34.7801
+4                     10                 10            0 0.3692 0.3692       0.0000
+5                     13                 17            4 0.2413 0.2506       0.9259
+6                      7                 15            8 0.2836 0.2853       0.1736
+7                      6                 16           10 0.2847 0.3032       1.8519
+8                      1                 23           22 0.2969 0.6545      35.7639
+9                      7                  9            2 0.4832 0.5203       3.7037
+
+===== PAIRED SUBJECT STATISTICS =====
+
+{
+  "n_subjects": 9,
+  "Q5_mean_BA": 0.33719135802469136,
+  "Q8_mean_BA": 0.42669753086419754,
+  "mean_delta_pp": 8.950617283950614,
+  "median_delta_pp": 1.8518518518518434,
+  "subjects_improved": 7,
+  "subjects_worsened": 0,
+  "wilcoxon_statistic": 0.0,
+  "wilcoxon_p": 0.015625,
+  "paired_t_statistic": 1.7916226443358454,
+  "paired_t_p": 0.11096421112491674,
+  "sign_test_p": 0.1796875,
+  "paired_cohen_dz": 0.5972075481119485,
+  "bootstrap_mean_delta_95CI_pp": [
+    1.0480967078189296,
+    19.95884773662551
+  ]
+}
+
+===== VALIDATION =====
+
+{
+  "status": "passed",
+  "experiment_id": "Q8-E001",
+  "parent_experiment": "Q5-E001",
+  "selection_rule": "mean_rank",
+  "selection_recomputed_independently": true,
+  "selection_file_sha_verified": true,
+  "inner_fits_retrained": false,
+  "reused_inner_curve_experiment": "Q5-E001",
+  "n_subjects": 9,
+  "n_final_fits": 27,
+  "n_predictions": 15552,
+  "n_metric_scalar_checks": 81,
+  "n_checkpoint_hashes_verified": 27,
+  "q5_trial_identity_match": true,
+  "target_training_leakage_detected": false,
+  "target_derived_normalization": false,
+  "interpretation_boundary": "Q8-E001 freezes mean-rank selection before its new final-model evaluation, but the rule itself was motivated after exploratory analyses on BNCI2014_001. Nine subjects, not 27 seed fits, are the units for subject-level inference. This is not independent external confirmation."
+}
+
+Q8-E001 VALIDATION PASSED

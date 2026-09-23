@@ -1,0 +1,18 @@
+{
+  "experiment_id": "Q8-E001",
+  "selection_status": "frozen_before_Q8_target_evaluation",
+  "selection_rule": "earliest epoch minimizing mean within-fold validation-CE rank",
+  "source_learning_curves": "/workspace/Q5_EEGNet_Cloud_Ready/results/Q5-E001/learning_curves.csv",
+  "source_learning_curves_sha256": "1b01e920764af3d5c0dafdfd4b20fdd6c17776963ba33fb156fd7aed6a3b13da",
+  "source_q5_config": "/workspace/Q5_EEGNet_Cloud_Ready/configs/q5_e001_eegnet.json",
+  "source_q5_config_sha256": "5fcf2536e3d8ea508bc0c81abefae7da9b8789ecf48b1974e7a0ef39a13513f3",
+  "predeclared_selection_sha256": "bd9ea80e9f8379ce888fa45e9da92481a1d24fa0a89dbf2f51641d67488dee8d",
+  "target_results_read_by_freeze_script": false,
+  "inner_fits_retrained": false,
+  "n_subjects": 9,
+  "n_inner_folds": 4,
+  "candidate_epochs": [
+    1,
+    40
+  ]
+}
