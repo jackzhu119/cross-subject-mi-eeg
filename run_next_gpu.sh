@@ -12,6 +12,10 @@ if [[ ! -x "$Q10_PYTHON" && -x "$PROJECT_ROOT/.venv-cloud/bin/python" ]]; then
   Q10_PYTHON="$PROJECT_ROOT/.venv-cloud/bin/python"
 fi
 Q10_DATA_DIR="${Q10_DATA_DIR:-/root/autodl-tmp/data/raw}"
+# MOABB 1.7 defaults to a NEMAR mirror even when the original BNCI MAT cache
+# is already present. The frozen Q8/Q9 source hashes refer to that local MAT
+# cache; prefer it and fail on any hash mismatch instead of redownloading.
+export MOABB_DOWNLOAD_PROVIDER=upstream
 QUEUE_DIR="$PROJECT_ROOT/results/Q10-QUEUE"
 MODE="${1:-start}"
 
