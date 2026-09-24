@@ -1,0 +1,19 @@
+{
+  "audit_id": "Q14-V001",
+  "audit_scope": "public_documentation_and_frozen_BNCI_metadata_only",
+  "external_signal_or_label_loaded": false,
+  "external_performance_inspected": false,
+  "bnci_channel_reference": "research_runs/Q8-E001/results/data_audit.csv:first_run.eeg_channel_names",
+  "bnci_eeg_channel_count": 22,
+  "physionet_official_montage_url": "https://physionet.org/files/eegmmidb/1.0.0/64_channel_sharbrough.pdf",
+  "physionet_official_montage_verified_common_channels": ["Fz","FC3","FC1","FCz","FC2","FC4","C5","C3","C1","Cz","C2","C4","C6","CP3","CP1","CPz","CP2","CP4","P1","Pz","P2","POz"],
+  "physionet_dataset_description_url": "https://physionet.org/content/eegmmidb/1.0.0/",
+  "mne_run_definition_url": "https://mne.tools/stable/generated/mne.datasets.eegbci.load_data.html",
+  "eligible_unilateral_imagery_runs": [4,8,12],
+  "eligible_run_event_semantics": {"T1":"left_hand_imagery","T2":"right_hand_imagery"},
+  "physionet_documented_sampling_rate_hz": 160,
+  "physionet_documented_subjects": 109,
+  "physionet_documented_eeg_channels": 64,
+  "runtime_confirmation_required": "Assert exact channel names, EEG type, sampling rate, event labels, complete epoch windows, EDF SHA256 and all 109 subjects before accepting results.",
+  "scientific_caveat": "Montage/name overlap is not equivalence of acquisition reference, amplifier, cue design or cohort; matched binary accuracy is not directly comparable to four-class Q5-Q9 BA."
+}
