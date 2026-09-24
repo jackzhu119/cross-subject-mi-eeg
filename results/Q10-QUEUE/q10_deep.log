@@ -5,3 +5,36 @@
 2.8.0+cu128 2.8.0+cu128 NVIDIA GeForce RTX 4080 SUPER
 [start] Q10-E001_MU_BETA_CSP8_EEGNET_selection (2026-09-24T13:22:42.835132+00:00)
 {"status": "pushed_with_skipped_files", "result_commit": "9af3482b03c5374f1aa13a85032e364be8620eb2", "reason": null}
+
+===== ATTEMPT 2 2026-09-24T13:33:36.122755+00:00 =====
+/root/autodl-tmp/q9-venv/lib/python3.12/site-packages/braindecode/models/eegpt.py:497: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
+  montage = mne.channels.make_standard_montage("standard_1020")
+2.8.0+cu128 2.8.0+cu128 NVIDIA GeForce RTX 4080 SUPER
+[start] Q10-E001_MU_BETA_CSP8_EEGNET_selection (2026-09-24T13:33:41.696712+00:00)
+[complete] Q10-E001_MU_BETA_CSP8_EEGNET_selection
+[start] Q10-E001_MU_BETA_CSP8_EEGNET_final (2026-09-24T13:51:25.167601+00:00)
+[complete] Q10-E001_MU_BETA_CSP8_EEGNET_final
+[start] Q10-E001_MU_BETA_PCA8_EEGNET_selection (2026-09-24T14:02:08.339487+00:00)
+[complete] Q10-E001_MU_BETA_PCA8_EEGNET_selection
+[start] Q10-E001_MU_BETA_PCA8_EEGNET_final (2026-09-24T14:14:59.685406+00:00)
+[complete] Q10-E001_MU_BETA_PCA8_EEGNET_final
+{
+  "status": "passed_scientific_checks",
+  "conditions": [
+    "MU_BETA_CSP8_EEGNET",
+    "MU_BETA_PCA8_EEGNET"
+  ],
+  "final_fits": 54,
+  "inner_fits": 72,
+  "target_trials_per_fit": 576,
+  "checked_source_only_spatial_receipts": 126,
+  "checked_independent_epoch_selections": 18,
+  "comparison_scope": "exploratory_same_dataset_not_external_confirmation",
+  "analysis_files": [
+    "analysis/subject_seed_metrics.csv",
+    "analysis/subject_metrics.csv",
+    "analysis/paired_contrasts.json"
+  ],
+  "errors": []
+}
+{"status": "pushed_with_skipped_files", "result_commit": "9cc087b4cbe49990f54e6acc509b184acbeef49e", "reason": null}

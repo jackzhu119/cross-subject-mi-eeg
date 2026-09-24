@@ -1,0 +1,15 @@
+
+===== ATTEMPT 1 2026-09-24T14:21:23.769518+00:00 =====
+Traceback (most recent call last):
+  File "/root/autodl-tmp/cross-subject-mi-eeg/scripts/q10_geometry.py", line 654, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/root/autodl-tmp/cross-subject-mi-eeg/scripts/q10_geometry.py", line 647, in main
+    result = (run_experiment(args.data_dir, args.output_dir, resume=args.resume)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/cross-subject-mi-eeg/scripts/q10_geometry.py", line 587, in run_experiment
+    q8 = read_q8_metadata(config)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/cross-subject-mi-eeg/scripts/q10_geometry.py", line 124, in read_q8_metadata
+    raise AssertionError("Frozen Q8 trial metadata SHA256 mismatch")
+AssertionError: Frozen Q8 trial metadata SHA256 mismatch

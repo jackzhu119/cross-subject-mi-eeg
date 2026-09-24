@@ -1,0 +1,23 @@
+{
+  "status": "failed",
+  "stage": "q10_geometry",
+  "attempt": 1,
+  "started_at_utc": "2026-09-24T14:21:23.769518+00:00",
+  "finished_at_utc": "2026-09-24T14:21:25.073880+00:00",
+  "argv": [
+    "/root/autodl-tmp/q9-venv/bin/python",
+    "scripts/q10_geometry.py",
+    "run",
+    "--data-dir",
+    "/root/autodl-tmp/data/raw",
+    "--output-dir",
+    "/root/autodl-tmp/cross-subject-mi-eeg/results/Q10-A001",
+    "--resume"
+  ],
+  "exit_code": 1,
+  "expected_marker": "/root/autodl-tmp/cross-subject-mi-eeg/results/Q10-A001/status.json",
+  "expected_status": "complete_validated",
+  "observed_status": null,
+  "log_sha256": "8d8387247e27d36abac92cc6b44ff39e3b2cddf7b21629ea55da8822d08a9045",
+  "marker_sha256": null
+}
