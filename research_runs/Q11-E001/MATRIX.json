@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "experiment_id": "Q11-E001",
+  "status": "implementation_pre_target_freeze_pending",
+  "analysis_status": "exploratory_BNCI_after_Q9_results;not_independent_confirmation",
+  "dataset": "BNCI2014_001",
+  "subjects": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+  "task": "four_class_left_right_feet_tongue",
+  "outer_split": "nine_LOSO_both_target_sessions_held_out",
+  "inner_split": "four_consecutive_pairs_among_sorted_eight_source_subjects",
+  "selection_rule": "earliest_minimum_equal_inner_fold_mean_within_fold_validation_CE_rank",
+  "selection_seed": 20260923,
+  "selection_epochs": [1, 40],
+  "final_seeds": [20260924, 20260925, 20260926],
+  "primary_metric": "equal_subject_mean_of_three_seed_balanced_accuracy",
+  "target_statistics_for_fit_or_selection": false,
+  "preprocessing": "Q8 run-local fourth-order zero-phase Butterworth; 22 EEG, 250 Hz, trial [2.5,5.5), 750 samples, all trials, microvolt scaling",
+  "capacity_matching_rule": "Before any target inference, count trainable parameters of independent two-branch EEGNet. For broadband EEGNet choose F1 from integer 8..32, D=2, F2=2*F1, minimizing absolute parameter-count difference; smallest F1 breaks ties. This uses model structure alone and no EEG or labels.",
+  "conditions": [
+    {"experiment_id": "Q11-E001", "name": "FOUR_BAND_SHARED", "priority": "A", "bands": {"b1": [8, 12], "b2": [12, 16], "b3": [16, 22], "b4": [22, 30]}, "fusion": "one_parameter_shared_EEGNet_equal_mean_logits", "inner_fits": 36, "final_fits": 27},
+    {"experiment_id": "Q11-E001", "name": "TWO_BAND_INDEPENDENT", "priority": "A", "bands": {"mu": [8, 13], "beta": [13, 30]}, "fusion": "two_independently_parameterized_EEGNets_equal_mean_logits", "inner_fits": 36, "final_fits": 27},
+    {"experiment_id": "Q11-E001", "name": "TWO_BAND_EARLY_STACK", "priority": "A", "bands": {"mu": [8, 13], "beta": [13, 30]}, "fusion": "one_EEGNet_44_channels_mu_then_beta", "inner_fits": 36, "final_fits": 27},
+    {"experiment_id": "Q11-E001", "name": "BROAD_CAPACITY_MATCHED", "priority": "A", "bands": {"broad": [4, 40]}, "fusion": "one_broadband_EEGNet_parameter_count_matched_to_independent_two_branch", "inner_fits": 36, "final_fits": 27}
+  ],
+  "shallow_controls": [],
+  "totals": {"deep_inner_fits": 144, "deep_final_fits": 108, "deep_fits": 252, "shallow_fits": 0},
+  "report_all_conditions": true,
+  "no_best_condition_selection_by_BNCI_target_performance": true
+}
