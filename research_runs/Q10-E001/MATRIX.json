@@ -1,0 +1,22 @@
+{
+  "experiment_id": "Q10-E001",
+  "status": "planned_before_Q10_target_inference",
+  "parent_commit": "c6c347edd763108ab867d4ae0b191cb6d00c361c",
+  "parent_unrun_conditions": ["Q9-E003/MU_BETA_CSP8_EEGNET", "Q9-E003/MU_BETA_PCA8_EEGNET"],
+  "dataset": "BNCI2014_001",
+  "outer_split": "nine_subject_LOSO_both_sessions_held_out",
+  "inner_split": "four_consecutive_pairs_of_eight_source_subjects",
+  "selection_rule": "earliest_minimum_equal_inner_fold_mean_within_fold_validation_CE_rank",
+  "selection_seed": 20260923,
+  "max_selection_epochs": 40,
+  "final_seeds": [20260924, 20260925, 20260926],
+  "target_statistics_for_fitting": false,
+  "primary_measure": "equal_subject_mean_of_three_seed_balanced_accuracy",
+  "conditions": [
+    {"experiment_id": "Q10-E001", "name": "MU_BETA_CSP8_EEGNET", "priority": "A", "inner_fits": 36, "final_fits": 27, "spatial_fit": "source_only_multiclass_CSP8_per_band"},
+    {"experiment_id": "Q10-E001", "name": "MU_BETA_PCA8_EEGNET", "priority": "A", "inner_fits": 36, "final_fits": 27, "spatial_fit": "source_only_covariance_PCA8_per_band"}
+  ],
+  "shallow_controls": [],
+  "totals": {"deep_inner_fits": 72, "deep_final_fits": 54, "deep_fits": 126},
+  "analysis_scope": "exploratory_same_dataset_after_Q9_results_were_seen"
+}

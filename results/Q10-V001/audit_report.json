@@ -1,0 +1,234 @@
+{
+  "audit_id": "Q10-V001",
+  "scope": "frozen_Q5_to_Q9_prediction_level_independent_CPU_audit",
+  "status": "passed_with_caveats",
+  "scientific_validation_scope": "prediction_metrics_identity_source_manifests_selection_status_lists_not_raw_EEG_or_checkpoint_replay",
+  "n_prediction_sources": 19,
+  "prediction_sources": [
+    {
+      "condition": "Q5-E001",
+      "path": "results/Q5-E001/predictions.csv",
+      "sha256": "4945a61f6b8e3050209594d36081e92b6aa7707076a040bfc2f04777b2e362a6",
+      "n_rows": 15552
+    },
+    {
+      "condition": "Q6-E001",
+      "path": "research_runs/Q6-E001/results/predictions.csv",
+      "sha256": "cf47e2221055a24ae87eb4aab965784f02dd132e9575f69d7eed9eaf36f231fc",
+      "n_rows": 15552
+    },
+    {
+      "condition": "Q7-E001/B",
+      "path": "research_runs/Q7-E001/results/predictions.csv",
+      "sha256": "a9d414b7248509c8e4cf19e817ee639cc6c8a1de85f6def7ecca1da607bf544d",
+      "n_rows": 1728
+    },
+    {
+      "condition": "Q7-E001/C",
+      "path": "research_runs/Q7-E001/results/predictions.csv",
+      "sha256": "a9d414b7248509c8e4cf19e817ee639cc6c8a1de85f6def7ecca1da607bf544d",
+      "n_rows": 1728
+    },
+    {
+      "condition": "Q8-E001",
+      "path": "research_runs/Q8-E001/results/predictions.csv",
+      "sha256": "e183be68c678ce2000f5fde9c2fd3040be04acee4546d497da8098548856c0d1",
+      "n_rows": 15552
+    },
+    {
+      "condition": "Q9-E001/BETA_13_30",
+      "path": "results/Q9-E001/BETA_13_30/predictions.csv",
+      "sha256": "0f455920a22e8e7be3444614f35cd324447af9e753485ab94702b70b99aca96a",
+      "n_rows": 15552
+    },
+    {
+      "condition": "Q9-E001/MID_8_30",
+      "path": "results/Q9-E001/MID_8_30/predictions.csv",
+      "sha256": "b84dab121b48963ac1a6d6c34cae52e4b0bab72067d4e014b1181fb899a69146",
+      "n_rows": 15552
+    },
+    {
+      "condition": "Q9-E001/MU_8_13",
+      "path": "results/Q9-E001/MU_8_13/predictions.csv",
+      "sha256": "8ba7f58a9aa8db51193c871238cdc85345aceed8ff5ed6cfc155e26bd2710057",
+      "n_rows": 15552
+    },
+    {
+      "condition": "Q9-E001/MU_BETA_SHARED",
+      "path": "results/Q9-E001/MU_BETA_SHARED/predictions.csv",
+      "sha256": "41bd8be6d65237dcaa1c9f5379e7d8f2359496a04bed5daf73f13ea10c2a2d72",
+      "n_rows": 15552
+    },
+    {
+      "condition": "Q9-E002/MID_8_30_Q8_EPOCHS",
+      "path": "results/Q9-E002/MID_8_30_Q8_EPOCHS/predictions.csv",
+      "sha256": "5ae4c651b46bc7896ad7c1819df6ce3d8f5ec5ac8afe1151cf9c98dfe3a6e01d",
+      "n_rows": 15552
+    },
+    {
+      "condition": "Q9-E002/MU_BETA_SHARED_Q8_EPOCHS",
+      "path": "results/Q9-E002/MU_BETA_SHARED_Q8_EPOCHS/predictions.csv",
+      "sha256": "72c76cdb8826b66dd16fc303442fe6e9b95868e4b23fbb66ddf7f9b89a953eb0",
+      "n_rows": 15552
+    },
+    {
+      "condition": "Q9-E004/MU_BETA_SHARED_SOURCE_CLEAN",
+      "path": "results/Q9-E004/MU_BETA_SHARED_SOURCE_CLEAN/predictions.csv",
+      "sha256": "6cf685f3dbe2c5a974b067fdecb741309b3ea3f59bff9c98f3f205e997bb6cb4",
+      "n_rows": 15552
+    },
+    {
+      "condition": "Q9-E005/MU_BETA_SHARED_SOURCE_NORM",
+      "path": "results/Q9-E005/MU_BETA_SHARED_SOURCE_NORM/predictions.csv",
+      "sha256": "133241bf90da3ac71bd42305ed5d0d4bc06bb05230312c3a5283591344e19f53",
+      "n_rows": 15552
+    },
+    {
+      "condition": "Q9-A001/PSD44_LDA",
+      "path": "results/Q9-A001/predictions.csv",
+      "sha256": "cc7a0cca02ee98e83d74bb17dd421c1c7f0ead4d1fb2261c0960cd0b4b119a60",
+      "n_rows": 5184
+    },
+    {
+      "condition": "Q9-A001/PSD44_LINEAR_SVM",
+      "path": "results/Q9-A001/predictions.csv",
+      "sha256": "cc7a0cca02ee98e83d74bb17dd421c1c7f0ead4d1fb2261c0960cd0b4b119a60",
+      "n_rows": 5184
+    },
+    {
+      "condition": "Q4-E001/BroadCSP_LDA",
+      "path": "outputs/Q4-E001/predictions.csv",
+      "sha256": "f2652a7e9096bad57bfe1ae53fdd44f20fb02b4346d15858c92fb0bd36fbd887",
+      "n_rows": 5184
+    },
+    {
+      "condition": "Q4-E001/BroadCSP_SVM",
+      "path": "outputs/Q4-E001/predictions.csv",
+      "sha256": "f2652a7e9096bad57bfe1ae53fdd44f20fb02b4346d15858c92fb0bd36fbd887",
+      "n_rows": 5184
+    },
+    {
+      "condition": "Q4-E001/FBCSP_LDA",
+      "path": "outputs/Q4-E001/predictions.csv",
+      "sha256": "f2652a7e9096bad57bfe1ae53fdd44f20fb02b4346d15858c92fb0bd36fbd887",
+      "n_rows": 5184
+    },
+    {
+      "condition": "Q4-E001/FBCSP_MI8_LDA",
+      "path": "outputs/Q4-E001/predictions.csv",
+      "sha256": "f2652a7e9096bad57bfe1ae53fdd44f20fb02b4346d15858c92fb0bd36fbd887",
+      "n_rows": 5184
+    }
+  ],
+  "source_manifest_checks": [
+    {
+      "condition": "Q5-E001",
+      "n_files": 18,
+      "same_bytes_and_sha256_as_Q5": true
+    },
+    {
+      "condition": "Q6-E001",
+      "n_files": 18,
+      "same_bytes_and_sha256_as_Q5": true
+    },
+    {
+      "condition": "Q8-E001",
+      "n_files": 18,
+      "same_bytes_and_sha256_as_Q5": true
+    },
+    {
+      "condition": "Q9-E001/BETA_13_30",
+      "n_files": 18,
+      "same_bytes_and_sha256_as_Q5": true
+    },
+    {
+      "condition": "Q9-E001/MID_8_30",
+      "n_files": 18,
+      "same_bytes_and_sha256_as_Q5": true
+    },
+    {
+      "condition": "Q9-E001/MU_8_13",
+      "n_files": 18,
+      "same_bytes_and_sha256_as_Q5": true
+    },
+    {
+      "condition": "Q9-E001/MU_BETA_SHARED",
+      "n_files": 18,
+      "same_bytes_and_sha256_as_Q5": true
+    },
+    {
+      "condition": "Q9-E002/MID_8_30_Q8_EPOCHS",
+      "n_files": 18,
+      "same_bytes_and_sha256_as_Q5": true
+    },
+    {
+      "condition": "Q9-E002/MU_BETA_SHARED_Q8_EPOCHS",
+      "n_files": 18,
+      "same_bytes_and_sha256_as_Q5": true
+    },
+    {
+      "condition": "Q9-E004/MU_BETA_SHARED_SOURCE_CLEAN",
+      "n_files": 18,
+      "same_bytes_and_sha256_as_Q5": true
+    },
+    {
+      "condition": "Q9-E005/MU_BETA_SHARED_SOURCE_NORM",
+      "n_files": 18,
+      "same_bytes_and_sha256_as_Q5": true
+    },
+    {
+      "condition": "Q9-A001",
+      "n_files": 18,
+      "same_bytes_and_sha256_as_Q5": true
+    }
+  ],
+  "selection_rows_checked": 81,
+  "q9_batch_status": "passed_orchestration_only",
+  "q9_unrun_planned_conditions": [
+    "MU_BETA_CSP8_EEGNET",
+    "MU_BETA_PCA8_EEGNET"
+  ],
+  "q9_runtime_commit_evidence": {
+    "runtime_git_head": "13421ef3a5739a79f152087cafce9fccad59e5e4",
+    "q9_protocol_in_runtime_commit": false,
+    "q9_matrix_in_runtime_commit": false,
+    "q9_runner_in_runtime_commit": false
+  },
+  "historical_failure_logs": [
+    {
+      "path": "results/Q9-BATCH/jobs/Q9-E001_MID_8_30_selection/run.log",
+      "indicators": [
+        "FileNotFoundError(f\"Expected {len(expected)} local BNCI MAT files; found {len(records)}\")",
+        "FileNotFoundError: Expected 18 local BNCI MAT files; found 22",
+        "ModuleNotFoundError: No module named 'mi_eeg'",
+        "RuntimeError(",
+        "RuntimeError: Detected that PyTorch and TorchAudio were compiled with different CUDA versions. PyTorch has CUDA version 13.2 whereas TorchAudio has CUDA version 13.0. Please install the TorchAudio version that matches your PyTorch version.",
+        "Traceback (most recent call last):"
+      ]
+    }
+  ],
+  "paired_primary_contrast": {
+    "contrast": "Q9-E001/MU_BETA_SHARED minus Q8-E001",
+    "n_subjects": 9,
+    "mean_subject_paired_delta_ba": -0.004822530864197529,
+    "median_subject_paired_delta_ba": 0.006365740740740737,
+    "subject_bootstrap_95ci_low": -0.03208590534979424,
+    "subject_bootstrap_95ci_high": 0.014146090534979434,
+    "exact_two_sided_sign_flip_p": 0.9140625,
+    "mean_excluding_s3_s8": 0.0075231481481481495,
+    "mean_excluding_s3_s9": -0.008184523809523808,
+    "status": "exploratory_same_dataset_not_confirmatory"
+  },
+  "errors": [],
+  "warnings": [
+    "Q7-E001 contains only S3 new B/C fits; A/D reuse Q5/Q6 and Q7 is not a nine-subject estimate.",
+    "Q9 existing batch validation is orchestration-only, not independent scientific validation.",
+    "Q9 planned but unrun: MU_BETA_CSP8_EEGNET, MU_BETA_PCA8_EEGNET",
+    "Q9 protocol/matrix/runner absent from recorded runtime Git commit; do not call it pre-run Git preregistration.",
+    "Historical Q9 launch failures are retained in logs; later success does not erase them.",
+    "All Q5-Q9 primary results use the same nine BNCI2014_001 subjects; no independent external confirmation.",
+    "Nine subjects, not seeds or trials, are the paired inferential units; p-values are exploratory and multiple comparisons remain.",
+    "Zero-phase filtering is acausal; artifact-flag exclusion is source-training sensitivity, not deployable artifact detection.",
+    "Flagged/unflagged BA uses only classes present within the stratum and is not a replacement for the all-trial four-class primary metric."
+  ]
+}

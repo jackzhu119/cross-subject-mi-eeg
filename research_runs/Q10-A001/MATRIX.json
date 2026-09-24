@@ -1,0 +1,76 @@
+{
+  "experiment_id": "Q10-A001",
+  "status": "predeclared_not_run",
+  "analysis_status": "exploratory same-dataset comparator; Q5-Q9 target outcomes were already observed",
+  "question": "Do fixed source-only covariance-geometry representations provide a useful four-class LOSO comparator to EEGNet and CSP without subject-specific calibration?",
+  "dataset": "BNCI2014_001",
+  "subjects": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+  "class_ids": {"left_hand": 1, "right_hand": 2, "feet": 3, "tongue": 4},
+  "q8_trial_metadata_sha256": "6f507d27460279e0fab65acd2ff6e75e19085e5902c2cca320c00b8e6c9a338b",
+  "preprocessing": {
+    "sampling_rate_hz": 250,
+    "bands": {"broad": [4, 40], "mu": [8, 13], "beta": [13, 30]},
+    "filter": {"order": 4, "ftype": "butter", "phase": "zero"},
+    "trial_start_s": 2.5,
+    "trial_stop_exclusive_s": 5.5,
+    "artifact_policy": "include_all",
+    "baseline": null
+  },
+  "geometry": {
+    "name": "in_house_log_euclidean_not_affine_invariant",
+    "covariance": "per_trial_time_demeaned_unbiased_covariance",
+    "shrinkage_to_scaled_identity": 0.01,
+    "matrix_log": "symmetric_eigendecomposition",
+    "vectorization": "upper_triangle_off_diagonal_times_sqrt_2",
+    "source_reference": "mean_training_log_covariance_per_band",
+    "feature_units": "microvolts_squared",
+    "feature_chunk_trials": 128
+  },
+  "evaluation": {
+    "split": "leave_one_subject_out_both_sessions_held_out",
+    "target_fitted_transform": false,
+    "target_based_selection": false,
+    "primary_population": "all_trials_including_artifact_flags",
+    "primary_metric": "equal_subject_mean_balanced_accuracy",
+    "negative_results": "retain_all_predeclared_conditions_and_failed_attempts"
+  },
+  "conditions": [
+    {
+      "id": "BROAD_LOGE_MDM",
+      "bands": ["broad"],
+      "classifier": "log_euclidean_nearest_class_mean",
+      "probability": "softmax_negative_squared_distance_with_source_only_median_within_class_temperature"
+    },
+    {
+      "id": "BROAD_LOGE_LOGREG",
+      "bands": ["broad"],
+      "classifier": "multinomial_logistic_regression",
+      "source_scaler": "StandardScaler",
+      "C": 1.0,
+      "solver": "lbfgs",
+      "max_iter": 2000,
+      "tol": 0.0001
+    },
+    {
+      "id": "MUBETA_LOGE_LDA",
+      "bands": ["mu", "beta"],
+      "classifier": "shrinkage_lda",
+      "source_scaler": "StandardScaler",
+      "solver": "lsqr",
+      "shrinkage": "auto"
+    },
+    {
+      "id": "MUBETA_LOGE_SVM",
+      "bands": ["mu", "beta"],
+      "classifier": "linear_svc_with_libsvm_source_only_probability_calibration",
+      "source_scaler": "StandardScaler",
+      "kernel": "linear",
+      "C": 1.0,
+      "probability": true,
+      "random_state": 20260924
+    }
+  ],
+  "outer_fits": 36,
+  "selection_fits": 0,
+  "note": "The SVM probability option invokes internal source-only CV calibration. It is not counted as an independently selected experimental condition. No hyperparameter is chosen from held-out target results."
+}

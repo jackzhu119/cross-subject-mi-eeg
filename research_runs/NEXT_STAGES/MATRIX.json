@@ -1,0 +1,271 @@
+{
+  "schema_version": 1,
+  "plan_date": "2026-09-24",
+  "parent_commit": "c6c347edd763108ab867d4ae0b191cb6d00c361c",
+  "status": "planned_not_executed",
+  "scientific_status": "post_Q9_exploratory_BNCI_development; external_first_evaluation_requires_prior_freeze",
+  "scope": "Q11-Q14 only; Q10-E001 and Q10-A001 have separate owners",
+  "fit_definition": "One neural fit trains one network on one source-only partition for one seed. One shallow fit trains one complete source-only feature/classifier pipeline. Frozen Q8/Q9 comparator fits are reused and are not counted as new fits.",
+  "primary_contract": {
+    "dataset": "BNCI2014_001",
+    "task": "four_class_left_right_feet_tongue",
+    "outer": "nine LOSO folds, both target sessions held out",
+    "inner": "four consecutive pairs among the sorted eight outer-source subjects",
+    "selection": "earliest epoch minimizing equal-inner-fold mean of within-fold validation-cross-entropy ranks over epochs 1..40",
+    "selection_seed": 20260923,
+    "final_seeds": [20260924, 20260925, 20260926],
+    "target_data_policy": "No target labels or target-cohort statistics for fitting, selection, normalization, alignment, stopping, weighting, or condition choice. Per-trial deterministic input features are permitted.",
+    "preprocessing": "Unless a condition explicitly changes representation, retain Q8/Q9 22 EEG channels, 250 Hz, trial-start [2.5,5.5) seconds, all target trials, Q8 run-local filtering, and fixed microvolt conversion."
+  },
+  "external_contract_candidate_not_frozen": {
+    "dataset": "PhysioNet_EEG_Motor_Movement_Imagery_v1.0.0",
+    "task": "binary_left_vs_right_hand_imagery_only",
+    "eligible_runs": [4, 8, 12],
+    "excluded_runs": "All execution, rest, and bilateral hands/feet runs",
+    "event_map_for_eligible_runs": {"T1": "left_hand", "T2": "right_hand"},
+    "official_max_subjects": 109,
+    "bnci_all_source_inner_groups_candidate": [[1, 2], [3, 4], [5, 6], [7, 8, 9]],
+    "physio_outer_source_inner_rule_candidate": "For each held-out target, sort all eligible other subject IDs and assign consecutive balanced chunks to four validation groups, with sizes differing by at most one; refit every transform within each group split.",
+    "selection_rule_candidate": "earliest epoch minimizing equal-inner-fold mean within-fold validation-CE rank over epochs 1..40; three fixed final seeds",
+    "common_channels": "UNRESOLVED_METADATA_AUDIT_REQUIRED",
+    "cue_relative_window": "UNRESOLVED_METADATA_AUDIT_REQUIRED",
+    "common_sampling_rate": "UNRESOLVED_METADATA_AUDIT_REQUIRED",
+    "reference_policy": "UNRESOLVED_METADATA_AUDIT_REQUIRED",
+    "eligibility_rule": "UNRESOLVED_METADATA_AUDIT_REQUIRED",
+    "status": "blocked_no_external_predictions_permitted"
+  },
+  "analysis_plan": {
+    "primary_unit": "held_out_subject; average three paired final seeds within each subject before the equal-subject mean",
+    "bnci_primary_contrast_status": "exploratory_post_Q9; no new BNCI comparison is independent confirmation",
+    "external_primary_contrast_candidate": "Q14-E003 PHYSIO_LOSO_MU_BETA_SHARED minus PHYSIO_LOSO_BROAD_EEGNET, paired subject-level balanced accuracy; lock before any PhysioNet performance is inspected",
+    "primary_metric": "subject_balanced_accuracy",
+    "secondary_metrics": ["class_recall", "macro_f1", "cohen_kappa", "confusion_matrix", "predicted_class_dominance", "seed_variability", "session_strata", "flagged_strata"],
+    "uncertainty": "Subject-resampling bootstrap CI with seed nested inside subject; report all individual effects. Exact nine-subject sign-flip is an exploratory sensitivity because outer training sets overlap.",
+    "multiplicity": "Declare contrast families before inference and report unadjusted plus within-family Holm-adjusted p-values if inferential p-values are used; do not treat trials, seeds, or source subsets as independent subjects.",
+    "source_count_aggregation": "Average the four deterministic subsets within each held-out subject and source-count k before subject-level analysis; frozen k=8 comparator is reused.",
+    "negative_results": "Retain every technical failure, null effect, worsened subject, and zero-recall class; no target-driven stop or seed/condition selection."
+  },
+  "gates": [
+    {
+      "id": "G0_Q9_SCIENCE",
+      "status": "blocked_pending_independent_validation",
+      "requirement": "Recompute Q9 trial identities, probabilities, metrics, selection, fit boundaries, and checkpoint hashes independently; orchestration-only batch validation is insufficient."
+    },
+    {
+      "id": "G1_PRETARGET_FREEZE",
+      "status": "blocked_pending_implementation",
+      "requirement": "Commit/version code, configs, contrasts, seeds, data hashes, and tests before any new target predictions; later deviations receive a new experiment ID."
+    },
+    {
+      "id": "G2_EXTERNAL_METADATA",
+      "status": "blocked_pending_metadata_only_audit",
+      "requirement": "Audit external subject/run/event/channel/window availability and file hashes without classifying; freeze all eligibility and harmonization rules before external target inference."
+    },
+    {
+      "id": "G3_EXTERNAL_FREEZE",
+      "status": "blocked_pending_external_protocol",
+      "requirement": "Freeze exactly two deep methods, one shallow method, comparison direction, binary label mapping, common electrodes, sampling and reference before PhysioNet performance is inspected."
+    }
+  ],
+  "experiments": [
+    {
+      "id": "Q11-E001",
+      "status": "planned_unimplemented",
+      "priority": "P1",
+      "hypothesis": "Spectral decomposition, fusion location, and network capacity have separable effects relative to frozen Q9 MU_BETA_SHARED and Q8 broadband EEGNet.",
+      "required_gates": ["G0_Q9_SCIENCE", "G1_PRETARGET_FREEZE"],
+      "contrast_family": "spectral_fusion_capacity",
+      "conditions": [
+        {"id": "FOUR_BAND_SHARED", "definition": "fixed 8-12,12-16,16-22,22-30 Hz bands; one parameter-shared EEGNet; equal mean of four logits", "inner_fits": 36, "final_fits": 27},
+        {"id": "TWO_BAND_INDEPENDENT", "definition": "fixed Q9 mu/beta bands; independent branch weights; equal mean of two logits", "inner_fits": 36, "final_fits": 27},
+        {"id": "TWO_BAND_EARLY_STACK", "definition": "fixed Q9 mu/beta bands stacked as 44 channels into one EEGNet; disclose parameter count", "inner_fits": 36, "final_fits": 27},
+        {"id": "BROAD_CAPACITY_MATCHED", "definition": "4-40 Hz one-branch EEGNet sized by parameter count against independent two-branch model before target inference", "inner_fits": 36, "final_fits": 27}
+      ],
+      "planned_deep_fits": 252,
+      "planned_shallow_fits": 0
+    },
+    {
+      "id": "Q11-E002",
+      "status": "planned_unimplemented",
+      "priority": "P2",
+      "hypothesis": "The observed representation effect should be interpreted against representative non-EEGNet CNN architectures, not EEGNet alone.",
+      "required_gates": ["G0_Q9_SCIENCE", "G1_PRETARGET_FREEZE"],
+      "contrast_family": "architecture",
+      "conditions": [
+        {"id": "DEEP4NET_BROAD", "definition": "Braindecode Deep4Net on Q8 broadband input; same source-only selection and recorded training budget", "inner_fits": 36, "final_fits": 27},
+        {"id": "SHALLOWFBCSPNET_BROAD", "definition": "Braindecode ShallowFBCSPNet on Q8 broadband input; same source-only selection and recorded training budget", "inner_fits": 36, "final_fits": 27}
+      ],
+      "planned_deep_fits": 126,
+      "planned_shallow_fits": 0
+    },
+    {
+      "id": "Q11-A001",
+      "status": "planned_unimplemented",
+      "priority": "P1",
+      "hypothesis": "A finer fixed filter bank may benefit conventional spatial and covariance geometry pipelines differently.",
+      "required_gates": ["G0_Q9_SCIENCE", "G1_PRETARGET_FREEZE"],
+      "contrast_family": "classical_filter_bank",
+      "conditions": [
+        {"id": "FOUR_BAND_CSP_LDA", "definition": "source-fitted multiclass CSP and shrinkage LDA with all hyperparameters frozen before target inference", "shallow_fits": 9},
+        {"id": "FOUR_BAND_TANGENT_LDA", "definition": "source-fitted covariance tangent reference and shrinkage LDA; tsupdate=false", "shallow_fits": 9}
+      ],
+      "planned_deep_fits": 0,
+      "planned_shallow_fits": 18
+    },
+    {
+      "id": "Q12-E001",
+      "status": "planned_unimplemented",
+      "priority": "P2",
+      "hypothesis": "Source-only spatial whitening or worst-source training risk can affect held-out-subject performance without target adaptation.",
+      "required_gates": ["G0_Q9_SCIENCE", "G1_PRETARGET_FREEZE"],
+      "contrast_family": "source_only_domain_generalization",
+      "conditions": [
+        {"id": "SOURCE_POOLED_WHITEN", "definition": "fit one regularized spatial whitener on source-training trials only in every inner/final fit; apply unchanged to validation/target", "inner_fits": 36, "final_fits": 27},
+        {"id": "SOURCE_GROUP_DRO", "definition": "source subject is the optimization group; freeze group-weight update and regularization from source-only protocol", "inner_fits": 36, "final_fits": 27}
+      ],
+      "planned_deep_fits": 126,
+      "planned_shallow_fits": 0
+    },
+    {
+      "id": "Q12-E002",
+      "status": "planned_unimplemented",
+      "priority": "P2",
+      "hypothesis": "Training-only perturbations may reduce dependence on source-specific channel patterns or amplitude scale; their interaction should be tested, not assumed beneficial.",
+      "required_gates": ["G0_Q9_SCIENCE", "G1_PRETARGET_FREEZE"],
+      "contrast_family": "source_only_augmentation",
+      "conditions": [
+        {"id": "CHANNEL_DROPOUT", "definition": "source-training-only fixed-probability channel dropout; no validation/target augmentation", "inner_fits": 36, "final_fits": 27},
+        {"id": "GAIN_PERTURB", "definition": "source-training-only bounded channel gain perturbation; no validation/target augmentation", "inner_fits": 36, "final_fits": 27},
+        {"id": "CHANNEL_AND_GAIN", "definition": "predeclared combination of the exact above perturbations", "inner_fits": 36, "final_fits": 27}
+      ],
+      "planned_deep_fits": 189,
+      "planned_shallow_fits": 0
+    },
+    {
+      "id": "Q13-E001",
+      "status": "planned_unimplemented",
+      "priority": "P1",
+      "hypothesis": "The Q8/Q9 contrast may depend on the frozen epoch-selection algorithm, independently of the EEG representation.",
+      "required_gates": ["G0_Q9_SCIENCE", "G1_PRETARGET_FREEZE"],
+      "contrast_family": "epoch_selection_sensitivity",
+      "selection_note": "Use already frozen source-only Q8/Q9 inner curves; no new inner fits. These are post-Q9 sensitivity analyses, not replacement baselines.",
+      "conditions": [
+        {"id": "Q8_MEAN_RAW_CE", "definition": "earliest epoch minimizing equal-inner-fold mean raw validation CE", "inner_fits": 0, "final_fits": 27},
+        {"id": "Q8_FIXED_20", "definition": "fixed epoch 20, midpoint of original candidate range, without target tuning", "inner_fits": 0, "final_fits": 27},
+        {"id": "Q9_SHARED_MEAN_RAW_CE", "definition": "earliest epoch minimizing equal-inner-fold mean raw validation CE", "inner_fits": 0, "final_fits": 27},
+        {"id": "Q9_SHARED_FIXED_20", "definition": "fixed epoch 20, midpoint of original candidate range, without target tuning", "inner_fits": 0, "final_fits": 27}
+      ],
+      "planned_deep_fits": 108,
+      "planned_shallow_fits": 0
+    },
+    {
+      "id": "Q13-E002",
+      "status": "planned_unimplemented",
+      "priority": "P2",
+      "hypothesis": "Source-subject number and identity have distinguishable effects on zero-calibration generalization.",
+      "required_gates": ["G0_Q9_SCIENCE", "G1_PRETARGET_FREEZE"],
+      "contrast_family": "source_subject_quantity_and_composition",
+      "subset_rule": "For each outer target, sort its eight source IDs; for each k in 2,4,6 take the cyclic windows of length k starting at indices 0,2,4,6. Thus each source is represented equally often at a given k. Use the original source-only selected epoch for that model and outer target, frozen from all eight sources; do not reselect by target or subset target performance.",
+      "frozen_k8_references": ["Q8-E001", "Q9-E001/MU_BETA_SHARED"],
+      "reused_k8_final_fits": 54,
+      "conditions": [
+        {"id": "Q8_SRC2", "source_count": 2, "subsets_per_target": 4, "final_seeds": 3, "targets": 9, "inner_fits": 0, "final_fits": 108},
+        {"id": "Q8_SRC4", "source_count": 4, "subsets_per_target": 4, "final_seeds": 3, "targets": 9, "inner_fits": 0, "final_fits": 108},
+        {"id": "Q8_SRC6", "source_count": 6, "subsets_per_target": 4, "final_seeds": 3, "targets": 9, "inner_fits": 0, "final_fits": 108},
+        {"id": "Q9_SHARED_SRC2", "source_count": 2, "subsets_per_target": 4, "final_seeds": 3, "targets": 9, "inner_fits": 0, "final_fits": 108},
+        {"id": "Q9_SHARED_SRC4", "source_count": 4, "subsets_per_target": 4, "final_seeds": 3, "targets": 9, "inner_fits": 0, "final_fits": 108},
+        {"id": "Q9_SHARED_SRC6", "source_count": 6, "subsets_per_target": 4, "final_seeds": 3, "targets": 9, "inner_fits": 0, "final_fits": 108}
+      ],
+      "planned_deep_fits": 648,
+      "planned_shallow_fits": 0
+    },
+    {
+      "id": "Q13-E003",
+      "status": "planned_unimplemented",
+      "priority": "P2",
+      "hypothesis": "Training on one source session may reveal session-mix dependence hidden by the primary two-session source pool.",
+      "required_gates": ["G0_Q9_SCIENCE", "G1_PRETARGET_FREEZE"],
+      "contrast_family": "source_session_robustness",
+      "selection_note": "Use each method's frozen all-source selected epoch per target; target inference is always reported separately for both sessions. Existing target-session stratification requires zero new fits.",
+      "conditions": [
+        {"id": "Q8_SOURCE_SESSION_T", "inner_fits": 0, "final_fits": 27},
+        {"id": "Q8_SOURCE_SESSION_E", "inner_fits": 0, "final_fits": 27},
+        {"id": "Q9_SHARED_SOURCE_SESSION_T", "inner_fits": 0, "final_fits": 27},
+        {"id": "Q9_SHARED_SOURCE_SESSION_E", "inner_fits": 0, "final_fits": 27}
+      ],
+      "planned_deep_fits": 108,
+      "planned_shallow_fits": 0
+    },
+    {
+      "id": "Q14-V001",
+      "status": "blocked_pending_metadata_only_audit",
+      "priority": "P1",
+      "hypothesis": "A common binary left/right imagery protocol can be defined without inspecting external target classification performance.",
+      "required_gates": ["G2_EXTERNAL_METADATA"],
+      "conditions": [],
+      "planned_deep_fits": 0,
+      "planned_shallow_fits": 0
+    },
+    {
+      "id": "Q14-E001",
+      "status": "blocked_pending_external_metadata_and_implementation",
+      "priority": "P1",
+      "hypothesis": "Re-trained BNCI binary baselines establish the task-, channel-, and window-matched source reference for external validation.",
+      "required_gates": ["G1_PRETARGET_FREEZE", "G2_EXTERNAL_METADATA", "G3_EXTERNAL_FREEZE"],
+      "contrast_family": "matched_binary_source_reference",
+      "conditions": [
+        {"id": "BNCI_BINARY_BROAD_EEGNET", "inner_fits": 36, "final_fits": 27},
+        {"id": "BNCI_BINARY_MU_BETA_SHARED", "inner_fits": 36, "final_fits": 27},
+        {"id": "BNCI_BINARY_CSP_LDA", "shallow_fits": 9}
+      ],
+      "planned_deep_fits": 126,
+      "planned_shallow_fits": 9
+    },
+    {
+      "id": "Q14-E002",
+      "status": "blocked_pending_external_metadata_and_implementation",
+      "priority": "P1",
+      "hypothesis": "A model trained and selected exclusively on BNCI binary source data can be evaluated zero-shot on PhysioNet people without any PhysioNet fitting.",
+      "required_gates": ["G1_PRETARGET_FREEZE", "G2_EXTERNAL_METADATA", "G3_EXTERNAL_FREEZE"],
+      "contrast_family": "cross_dataset_zero_shot_binary",
+      "conditions": [
+        {"id": "BNCI_TO_PHYSIO_BROAD_EEGNET", "inner_fits": 4, "final_fits": 3, "external_target_fits": 0},
+        {"id": "BNCI_TO_PHYSIO_MU_BETA_SHARED", "inner_fits": 4, "final_fits": 3, "external_target_fits": 0},
+        {"id": "BNCI_TO_PHYSIO_CSP_LDA", "shallow_fits": 1, "external_target_fits": 0}
+      ],
+      "planned_deep_fits": 14,
+      "planned_shallow_fits": 1
+    },
+    {
+      "id": "Q14-E003",
+      "status": "blocked_pending_external_metadata_and_implementation",
+      "priority": "P2",
+      "hypothesis": "Within-PhysioNet LOSO provides an independent-cohort binary method comparison and distinguishes cohort shift from zero-shot cross-dataset shift.",
+      "required_gates": ["G1_PRETARGET_FREEZE", "G2_EXTERNAL_METADATA", "G3_EXTERNAL_FREEZE"],
+      "contrast_family": "external_binary_loso",
+      "eligible_subjects": null,
+      "provisional_subjects_if_all_eligible": 109,
+      "fit_formula": "two deep methods times N target subjects times (four source-only inner fits plus three final seed fits); one shallow source fit per target subject",
+      "conditions": [
+        {"id": "PHYSIO_LOSO_BROAD_EEGNET", "inner_fits_per_target": 4, "final_fits_per_target": 3, "provisional_deep_fits_if_N109": 763},
+        {"id": "PHYSIO_LOSO_MU_BETA_SHARED", "inner_fits_per_target": 4, "final_fits_per_target": 3, "provisional_deep_fits_if_N109": 763},
+        {"id": "PHYSIO_LOSO_CSP_LDA", "shallow_fits_per_target": 1, "provisional_shallow_fits_if_N109": 109}
+      ],
+      "provisional_deep_fits_if_N109": 1526,
+      "provisional_shallow_fits_if_N109": 109
+    }
+  ],
+  "totals": {
+    "q11_q13_new_deep_fits": 1557,
+    "q11_q13_new_shallow_fits": 18,
+    "q14_new_deep_fits_if_N109": 1666,
+    "q14_new_shallow_fits_if_N109": 119,
+    "q11_q14_new_deep_fits_if_N109": 3223,
+    "q11_q14_new_shallow_fits_if_N109": 137,
+    "separately_owned_q10_planning_assumption_deep_fits": 126,
+    "separately_owned_q10_planning_assumption_shallow_fits": 36,
+    "q10_q14_conditional_new_deep_fits_if_N109": 3349,
+    "q10_q14_conditional_new_shallow_fits_if_N109": 173,
+    "reused_frozen_q13_k8_final_fits_not_new": 54
+  }
+}
