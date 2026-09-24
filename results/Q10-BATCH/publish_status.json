@@ -1,16 +1,20 @@
 {
   "status": "pushed_with_skipped_files",
-  "attempted_at_utc": "2026-09-24T13:30:12.256068+00:00",
+  "attempted_at_utc": "2026-09-24T14:21:06.794091+00:00",
   "batch_dir": "results/Q10-BATCH",
   "experiment_dir": "results/Q10-E001",
-  "candidate_count": 6,
+  "candidate_count": 833,
   "skipped_files": [
     {
       "path": "results/Q10-BATCH/batch.lock",
       "reason": "extension_or_runtime_file"
+    },
+    {
+      "path": "results/Q10-BATCH/publish_status.json",
+      "reason": "extension_or_runtime_file"
     }
   ],
-  "result_commit": "9af3482b03c5374f1aa13a85032e364be8620eb2",
-  "batch_status": "failed_stopped",
-  "finished_at_utc": "2026-09-24T13:30:28.668417+00:00"
+  "result_commit": "9cc087b4cbe49990f54e6acc509b184acbeef49e",
+  "batch_status": "complete_validated",
+  "finished_at_utc": "2026-09-24T14:21:18.802575+00:00"
 }
