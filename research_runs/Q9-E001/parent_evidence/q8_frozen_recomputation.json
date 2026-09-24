@@ -1,0 +1,1732 @@
+{
+  "aggregate": {
+    "conventional_two_sided_sign_test_excluding_ties_p": 0.015625,
+    "improved_subjects": 7,
+    "leave_one_subject_out_mean_delta_pp": {
+      "1": 10.069444444444445,
+      "2": 9.64988425925926,
+      "3": 5.721932870370371,
+      "4": 10.069444444444445,
+      "5": 9.953703703703704,
+      "6": 10.047743055555557,
+      "7": 9.837962962962964,
+      "8": 5.598958333333335,
+      "9": 9.606481481481483
+    },
+    "mean_delta_excluding_s3_s8_pp": 1.4302248677248688,
+    "mean_delta_pp": 8.950617283950619,
+    "median_delta_pp": 1.8518518518518545,
+    "q4_comparison": {
+      "BroadCSP_LDA": {
+        "q4_mean_balanced_accuracy": 0.3904320987654321,
+        "q8_minus_q4_mean_pp": 3.6265432098765435,
+        "q8_subject_wins": 5
+      },
+      "BroadCSP_SVM": {
+        "q4_mean_balanced_accuracy": 0.375,
+        "q8_minus_q4_mean_pp": 5.169753086419755,
+        "q8_subject_wins": 5
+      },
+      "FBCSP_LDA": {
+        "q4_mean_balanced_accuracy": 0.3811728395061728,
+        "q8_minus_q4_mean_pp": 4.55246913580247,
+        "q8_subject_wins": 4
+      },
+      "FBCSP_MI8_LDA": {
+        "q4_mean_balanced_accuracy": 0.3136574074074074,
+        "q8_minus_q4_mean_pp": 11.304012345679013,
+        "q8_subject_wins": 7
+      }
+    },
+    "q5_mean_balanced_accuracy": 0.33719135802469136,
+    "q5_subject_sd_balanced_accuracy": 0.11583871721119611,
+    "q8_mean_balanced_accuracy": 0.42669753086419754,
+    "q8_mean_balanced_accuracy_by_seed": {
+      "20260924": 0.41512345679012347,
+      "20260925": 0.4220679012345679,
+      "20260926": 0.44290123456790126
+    },
+    "q8_mean_class_recall": {
+      "1": 0.48919753086419754,
+      "2": 0.49819958847736623,
+      "3": 0.3531378600823045,
+      "4": 0.3662551440329218
+    },
+    "q8_subject_sd_balanced_accuracy": 0.16043588257056188,
+    "s3_s8_share_of_total_delta": 0.8757183908045977,
+    "unchanged_subjects": 2,
+    "worsened_subjects": 0
+  },
+  "source": {
+    "inference_unit": "subject; seeds are repeated model fits",
+    "paired_predictions": 15552,
+    "q4_predictions_git_sha256": "f2652a7e9096bad57bfe1ae53fdd44f20fb02b4346d15858c92fb0bd36fbd887",
+    "q4_subject_metrics_git_sha256": "48826485dfc878f11151e42c222b71eaffa50e6a6af7887ffd36e216ae79f35f",
+    "q5_predictions_git_sha256": "438364a8dee3b7d605bede33ab58278b1dfa9b82aaf4969d7815789d12876a33",
+    "q5_predictions_worktree_sha256": "4945a61f6b8e3050209594d36081e92b6aa7707076a040bfc2f04777b2e362a6",
+    "q8_manifest": {
+      "files_verified": 34,
+      "manifest_sha256": "40555308fcd1ed8fae29ff84a7875cf7145eb85d7646221891a918a70e7c3c1e"
+    },
+    "q8_predictions_git_sha256": "1c468c09f80ea96151b666f339ed582ef1f58dbad775b9e2c0e9addd262b8f4d",
+    "q8_predictions_worktree_sha256": "e183be68c678ce2000f5fde9c2fd3040be04acee4546d497da8098548856c0d1"
+  },
+  "subjects": [
+    {
+      "Q5": {
+        "active_classes": 4,
+        "balanced_accuracy": 0.5700231481481481,
+        "balanced_accuracy_seed_sd": 0.03403545359382551,
+        "class_recall": {
+          "1": 0.8125,
+          "2": 0.763888888888889,
+          "3": 0.525462962962963,
+          "4": 0.17824074074074076
+        },
+        "dominant_share": 0.40625,
+        "entropy": 0.891261854235196,
+        "per_seed": [
+          {
+            "active_predicted_classes": 4,
+            "balanced_accuracy": 0.5381944444444444,
+            "class_recall": {
+              "1": 0.8958333333333334,
+              "2": 0.5555555555555556,
+              "3": 0.6458333333333334,
+              "4": 0.05555555555555555
+            },
+            "dominant_predicted_share": 0.4652777777777778,
+            "predicted_class_entropy_normalized": 0.8128442985028904,
+            "predicted_counts": {
+              "1": 268,
+              "2": 101,
+              "3": 191,
+              "4": 16
+            },
+            "seed": 20260924,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          },
+          {
+            "active_predicted_classes": 4,
+            "balanced_accuracy": 0.5659722222222222,
+            "class_recall": {
+              "1": 0.8125,
+              "2": 0.75,
+              "3": 0.4236111111111111,
+              "4": 0.2777777777777778
+            },
+            "dominant_predicted_share": 0.3958333333333333,
+            "predicted_class_entropy_normalized": 0.9527455285537286,
+            "predicted_counts": {
+              "1": 228,
+              "2": 139,
+              "3": 127,
+              "4": 82
+            },
+            "seed": 20260925,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          },
+          {
+            "active_predicted_classes": 4,
+            "balanced_accuracy": 0.6059027777777778,
+            "class_recall": {
+              "1": 0.7291666666666666,
+              "2": 0.9861111111111112,
+              "3": 0.5069444444444444,
+              "4": 0.2013888888888889
+            },
+            "dominant_predicted_share": 0.3576388888888889,
+            "predicted_class_entropy_normalized": 0.9081957356489689,
+            "predicted_counts": {
+              "1": 196,
+              "2": 206,
+              "3": 134,
+              "4": 40
+            },
+            "seed": 20260926,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          }
+        ]
+      },
+      "Q8": {
+        "active_classes": 4,
+        "balanced_accuracy": 0.5700231481481481,
+        "balanced_accuracy_seed_sd": 0.03403545359382551,
+        "class_recall": {
+          "1": 0.8125,
+          "2": 0.763888888888889,
+          "3": 0.525462962962963,
+          "4": 0.17824074074074076
+        },
+        "dominant_share": 0.40625,
+        "entropy": 0.891261854235196,
+        "per_seed": [
+          {
+            "active_predicted_classes": 4,
+            "balanced_accuracy": 0.5381944444444444,
+            "class_recall": {
+              "1": 0.8958333333333334,
+              "2": 0.5555555555555556,
+              "3": 0.6458333333333334,
+              "4": 0.05555555555555555
+            },
+            "dominant_predicted_share": 0.4652777777777778,
+            "predicted_class_entropy_normalized": 0.8128442985028904,
+            "predicted_counts": {
+              "1": 268,
+              "2": 101,
+              "3": 191,
+              "4": 16
+            },
+            "seed": 20260924,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          },
+          {
+            "active_predicted_classes": 4,
+            "balanced_accuracy": 0.5659722222222222,
+            "class_recall": {
+              "1": 0.8125,
+              "2": 0.75,
+              "3": 0.4236111111111111,
+              "4": 0.2777777777777778
+            },
+            "dominant_predicted_share": 0.3958333333333333,
+            "predicted_class_entropy_normalized": 0.9527455285537286,
+            "predicted_counts": {
+              "1": 228,
+              "2": 139,
+              "3": 127,
+              "4": 82
+            },
+            "seed": 20260925,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          },
+          {
+            "active_predicted_classes": 4,
+            "balanced_accuracy": 0.6059027777777778,
+            "class_recall": {
+              "1": 0.7291666666666666,
+              "2": 0.9861111111111112,
+              "3": 0.5069444444444444,
+              "4": 0.2013888888888889
+            },
+            "dominant_predicted_share": 0.3576388888888889,
+            "predicted_class_entropy_normalized": 0.9081957356489689,
+            "predicted_counts": {
+              "1": 196,
+              "2": 206,
+              "3": 134,
+              "4": 40
+            },
+            "seed": 20260926,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          }
+        ]
+      },
+      "delta_balanced_accuracy_pp": 0.0,
+      "subject": 1
+    },
+    {
+      "Q5": {
+        "active_classes": 2.3333333333333335,
+        "balanced_accuracy": 0.24479166666666666,
+        "balanced_accuracy_seed_sd": 0.006259637631013864,
+        "class_recall": {
+          "1": 0.8634259259259259,
+          "2": 0.1087962962962963,
+          "3": 0.006944444444444444,
+          "4": 0.0
+        },
+        "dominant_share": 0.8790509259259259,
+        "entropy": 0.2598482453484704,
+        "per_seed": [
+          {
+            "active_predicted_classes": 2,
+            "balanced_accuracy": 0.23958333333333334,
+            "class_recall": {
+              "1": 0.7708333333333334,
+              "2": 0.1875,
+              "3": 0.0,
+              "4": 0.0
+            },
+            "dominant_predicted_share": 0.8055555555555556,
+            "predicted_class_entropy_normalized": 0.35533842692806145,
+            "predicted_counts": {
+              "1": 464,
+              "2": 112,
+              "3": 0,
+              "4": 0
+            },
+            "seed": 20260924,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          },
+          {
+            "active_predicted_classes": 3,
+            "balanced_accuracy": 0.24305555555555555,
+            "class_recall": {
+              "1": 0.9444444444444444,
+              "2": 0.006944444444444444,
+              "3": 0.020833333333333332,
+              "4": 0.0
+            },
+            "dominant_predicted_share": 0.9548611111111112,
+            "predicted_class_entropy_normalized": 0.1548710064800536,
+            "predicted_counts": {
+              "1": 550,
+              "2": 15,
+              "3": 11,
+              "4": 0
+            },
+            "seed": 20260925,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          },
+          {
+            "active_predicted_classes": 2,
+            "balanced_accuracy": 0.2517361111111111,
+            "class_recall": {
+              "1": 0.875,
+              "2": 0.13194444444444445,
+              "3": 0.0,
+              "4": 0.0
+            },
+            "dominant_predicted_share": 0.8767361111111112,
+            "predicted_class_entropy_normalized": 0.2693353026372961,
+            "predicted_counts": {
+              "1": 505,
+              "2": 71,
+              "3": 0,
+              "4": 0
+            },
+            "seed": 20260926,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          }
+        ]
+      },
+      "Q8": {
+        "active_classes": 4,
+        "balanced_accuracy": 0.2783564814814815,
+        "balanced_accuracy_seed_sd": 0.018070017356476835,
+        "class_recall": {
+          "1": 0.5671296296296297,
+          "2": 0.125,
+          "3": 0.4050925925925926,
+          "4": 0.016203703703703703
+        },
+        "dominant_share": 0.7407407407407407,
+        "entropy": 0.5182097280577351,
+        "per_seed": [
+          {
+            "active_predicted_classes": 4,
+            "balanced_accuracy": 0.2725694444444445,
+            "class_recall": {
+              "1": 0.8958333333333334,
+              "2": 0.14583333333333334,
+              "3": 0.041666666666666664,
+              "4": 0.006944444444444444
+            },
+            "dominant_predicted_share": 0.859375,
+            "predicted_class_entropy_normalized": 0.3727187350806975,
+            "predicted_counts": {
+              "1": 495,
+              "2": 53,
+              "3": 24,
+              "4": 4
+            },
+            "seed": 20260924,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          },
+          {
+            "active_predicted_classes": 4,
+            "balanced_accuracy": 0.2638888888888889,
+            "class_recall": {
+              "1": 0.1597222222222222,
+              "2": 0.0763888888888889,
+              "3": 0.7847222222222222,
+              "4": 0.034722222222222224
+            },
+            "dominant_predicted_share": 0.8090277777777778,
+            "predicted_class_entropy_normalized": 0.47479706228362545,
+            "predicted_counts": {
+              "1": 69,
+              "2": 28,
+              "3": 466,
+              "4": 13
+            },
+            "seed": 20260925,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          },
+          {
+            "active_predicted_classes": 4,
+            "balanced_accuracy": 0.2986111111111111,
+            "class_recall": {
+              "1": 0.6458333333333334,
+              "2": 0.1527777777777778,
+              "3": 0.3888888888888889,
+              "4": 0.006944444444444444
+            },
+            "dominant_predicted_share": 0.5538194444444444,
+            "predicted_class_entropy_normalized": 0.7071133868088826,
+            "predicted_counts": {
+              "1": 319,
+              "2": 78,
+              "3": 177,
+              "4": 2
+            },
+            "seed": 20260926,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          }
+        ]
+      },
+      "delta_balanced_accuracy_pp": 3.3564814814814854,
+      "subject": 2
+    },
+    {
+      "Q5": {
+        "active_classes": 2.3333333333333335,
+        "balanced_accuracy": 0.26099537037037035,
+        "balanced_accuracy_seed_sd": 0.016037507477489613,
+        "class_recall": {
+          "1": 0.9722222222222222,
+          "2": 0.07175925925925926,
+          "3": 0.0,
+          "4": 0.0
+        },
+        "dominant_share": 0.9415509259259259,
+        "entropy": 0.13043488967481107,
+        "per_seed": [
+          {
+            "active_predicted_classes": 2,
+            "balanced_accuracy": 0.2517361111111111,
+            "class_recall": {
+              "1": 1.0,
+              "2": 0.006944444444444444,
+              "3": 0.0,
+              "4": 0.0
+            },
+            "dominant_predicted_share": 0.9965277777777778,
+            "predicted_class_entropy_normalized": 0.01668422301990201,
+            "predicted_counts": {
+              "1": 574,
+              "2": 2,
+              "3": 0,
+              "4": 0
+            },
+            "seed": 20260924,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          },
+          {
+            "active_predicted_classes": 3,
+            "balanced_accuracy": 0.2517361111111111,
+            "class_recall": {
+              "1": 0.9930555555555556,
+              "2": 0.013888888888888888,
+              "3": 0.0,
+              "4": 0.0
+            },
+            "dominant_predicted_share": 0.984375,
+            "predicted_class_entropy_normalized": 0.061989243392819596,
+            "predicted_counts": {
+              "1": 567,
+              "2": 8,
+              "3": 1,
+              "4": 0
+            },
+            "seed": 20260925,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          },
+          {
+            "active_predicted_classes": 2,
+            "balanced_accuracy": 0.2795138888888889,
+            "class_recall": {
+              "1": 0.9236111111111112,
+              "2": 0.19444444444444445,
+              "3": 0.0,
+              "4": 0.0
+            },
+            "dominant_predicted_share": 0.84375,
+            "predicted_class_entropy_normalized": 0.31263120261171157,
+            "predicted_counts": {
+              "1": 486,
+              "2": 90,
+              "3": 0,
+              "4": 0
+            },
+            "seed": 20260926,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          }
+        ]
+      },
+      "Q8": {
+        "active_classes": 4,
+        "balanced_accuracy": 0.6087962962962963,
+        "balanced_accuracy_seed_sd": 0.011559597427915649,
+        "class_recall": {
+          "1": 0.5115740740740741,
+          "2": 0.5578703703703703,
+          "3": 0.5763888888888888,
+          "4": 0.7893518518518519
+        },
+        "dominant_share": 0.4618055555555555,
+        "entropy": 0.8992025811975133,
+        "per_seed": [
+          {
+            "active_predicted_classes": 4,
+            "balanced_accuracy": 0.6215277777777778,
+            "class_recall": {
+              "1": 0.6041666666666666,
+              "2": 0.5416666666666666,
+              "3": 0.7708333333333334,
+              "4": 0.5694444444444444
+            },
+            "dominant_predicted_share": 0.4079861111111111,
+            "predicted_class_entropy_normalized": 0.9482483971201925,
+            "predicted_counts": {
+              "1": 106,
+              "2": 90,
+              "3": 235,
+              "4": 145
+            },
+            "seed": 20260924,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          },
+          {
+            "active_predicted_classes": 4,
+            "balanced_accuracy": 0.5989583333333333,
+            "class_recall": {
+              "1": 0.5763888888888888,
+              "2": 0.5277777777777778,
+              "3": 0.3194444444444444,
+              "4": 0.9722222222222222
+            },
+            "dominant_predicted_share": 0.5451388888888888,
+            "predicted_class_entropy_normalized": 0.8443692204226483,
+            "predicted_counts": {
+              "1": 115,
+              "2": 91,
+              "3": 56,
+              "4": 314
+            },
+            "seed": 20260925,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          },
+          {
+            "active_predicted_classes": 4,
+            "balanced_accuracy": 0.6059027777777778,
+            "class_recall": {
+              "1": 0.3541666666666667,
+              "2": 0.6041666666666666,
+              "3": 0.6388888888888888,
+              "4": 0.8263888888888888
+            },
+            "dominant_predicted_share": 0.4322916666666667,
+            "predicted_class_entropy_normalized": 0.9049901260496991,
+            "predicted_counts": {
+              "1": 56,
+              "2": 101,
+              "3": 170,
+              "4": 249
+            },
+            "seed": 20260926,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          }
+        ]
+      },
+      "delta_balanced_accuracy_pp": 34.780092592592595,
+      "subject": 3
+    },
+    {
+      "Q5": {
+        "active_classes": 4,
+        "balanced_accuracy": 0.36921296296296297,
+        "balanced_accuracy_seed_sd": 0.01712806549415364,
+        "class_recall": {
+          "1": 0.13425925925925924,
+          "2": 0.7731481481481481,
+          "3": 0.42592592592592593,
+          "4": 0.14351851851851852
+        },
+        "dominant_share": 0.5179398148148148,
+        "entropy": 0.7609391508233342,
+        "per_seed": [
+          {
+            "active_predicted_classes": 4,
+            "balanced_accuracy": 0.3611111111111111,
+            "class_recall": {
+              "1": 0.2847222222222222,
+              "2": 0.8611111111111112,
+              "3": 0.1875,
+              "4": 0.1111111111111111
+            },
+            "dominant_predicted_share": 0.5902777777777778,
+            "predicted_class_entropy_normalized": 0.7835847637435036,
+            "predicted_counts": {
+              "1": 113,
+              "2": 340,
+              "3": 89,
+              "4": 34
+            },
+            "seed": 20260924,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          },
+          {
+            "active_predicted_classes": 4,
+            "balanced_accuracy": 0.3576388888888889,
+            "class_recall": {
+              "1": 0.10416666666666667,
+              "2": 0.7777777777777778,
+              "3": 0.5069444444444444,
+              "4": 0.041666666666666664
+            },
+            "dominant_predicted_share": 0.5104166666666666,
+            "predicted_class_entropy_normalized": 0.7234600609650419,
+            "predicted_counts": {
+              "1": 46,
+              "2": 294,
+              "3": 222,
+              "4": 14
+            },
+            "seed": 20260925,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          },
+          {
+            "active_predicted_classes": 4,
+            "balanced_accuracy": 0.3888888888888889,
+            "class_recall": {
+              "1": 0.013888888888888888,
+              "2": 0.6805555555555556,
+              "3": 0.5833333333333334,
+              "4": 0.2777777777777778
+            },
+            "dominant_predicted_share": 0.453125,
+            "predicted_class_entropy_normalized": 0.7757726277614572,
+            "predicted_counts": {
+              "1": 6,
+              "2": 211,
+              "3": 261,
+              "4": 98
+            },
+            "seed": 20260926,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          }
+        ]
+      },
+      "Q8": {
+        "active_classes": 4,
+        "balanced_accuracy": 0.36921296296296297,
+        "balanced_accuracy_seed_sd": 0.01712806549415364,
+        "class_recall": {
+          "1": 0.13425925925925924,
+          "2": 0.7731481481481481,
+          "3": 0.42592592592592593,
+          "4": 0.14351851851851852
+        },
+        "dominant_share": 0.5179398148148148,
+        "entropy": 0.7609391508233342,
+        "per_seed": [
+          {
+            "active_predicted_classes": 4,
+            "balanced_accuracy": 0.3611111111111111,
+            "class_recall": {
+              "1": 0.2847222222222222,
+              "2": 0.8611111111111112,
+              "3": 0.1875,
+              "4": 0.1111111111111111
+            },
+            "dominant_predicted_share": 0.5902777777777778,
+            "predicted_class_entropy_normalized": 0.7835847637435036,
+            "predicted_counts": {
+              "1": 113,
+              "2": 340,
+              "3": 89,
+              "4": 34
+            },
+            "seed": 20260924,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          },
+          {
+            "active_predicted_classes": 4,
+            "balanced_accuracy": 0.3576388888888889,
+            "class_recall": {
+              "1": 0.10416666666666667,
+              "2": 0.7777777777777778,
+              "3": 0.5069444444444444,
+              "4": 0.041666666666666664
+            },
+            "dominant_predicted_share": 0.5104166666666666,
+            "predicted_class_entropy_normalized": 0.7234600609650419,
+            "predicted_counts": {
+              "1": 46,
+              "2": 294,
+              "3": 222,
+              "4": 14
+            },
+            "seed": 20260925,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          },
+          {
+            "active_predicted_classes": 4,
+            "balanced_accuracy": 0.3888888888888889,
+            "class_recall": {
+              "1": 0.013888888888888888,
+              "2": 0.6805555555555556,
+              "3": 0.5833333333333334,
+              "4": 0.2777777777777778
+            },
+            "dominant_predicted_share": 0.453125,
+            "predicted_class_entropy_normalized": 0.7757726277614572,
+            "predicted_counts": {
+              "1": 6,
+              "2": 211,
+              "3": 261,
+              "4": 98
+            },
+            "seed": 20260926,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          }
+        ]
+      },
+      "delta_balanced_accuracy_pp": 0.0,
+      "subject": 4
+    },
+    {
+      "Q5": {
+        "active_classes": 2,
+        "balanced_accuracy": 0.24131944444444445,
+        "balanced_accuracy_seed_sd": 0.0069444444444444475,
+        "class_recall": {
+          "1": 0.6481481481481481,
+          "2": 0.31712962962962965,
+          "3": 0.0,
+          "4": 0.0
+        },
+        "dominant_share": 0.9004629629629629,
+        "entropy": 0.20500667862621266,
+        "per_seed": [
+          {
+            "active_predicted_classes": 2,
+            "balanced_accuracy": 0.2482638888888889,
+            "class_recall": {
+              "1": 0.9930555555555556,
+              "2": 0.0,
+              "3": 0.0,
+              "4": 0.0
+            },
+            "dominant_predicted_share": 0.9982638888888888,
+            "predicted_class_entropy_normalized": 0.009211256056877483,
+            "predicted_counts": {
+              "1": 575,
+              "2": 1,
+              "3": 0,
+              "4": 0
+            },
+            "seed": 20260924,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          },
+          {
+            "active_predicted_classes": 2,
+            "balanced_accuracy": 0.234375,
+            "class_recall": {
+              "1": 0.09722222222222222,
+              "2": 0.8402777777777778,
+              "3": 0.0,
+              "4": 0.0
+            },
+            "dominant_predicted_share": 0.8559027777777778,
+            "predicted_class_entropy_normalized": 0.29743464990856494,
+            "predicted_counts": {
+              "1": 83,
+              "2": 493,
+              "3": 0,
+              "4": 0
+            },
+            "seed": 20260925,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          },
+          {
+            "active_predicted_classes": 2,
+            "balanced_accuracy": 0.24131944444444442,
+            "class_recall": {
+              "1": 0.8541666666666666,
+              "2": 0.1111111111111111,
+              "3": 0.0,
+              "4": 0.0
+            },
+            "dominant_predicted_share": 0.8472222222222222,
+            "predicted_class_entropy_normalized": 0.30837412991319557,
+            "predicted_counts": {
+              "1": 488,
+              "2": 88,
+              "3": 0,
+              "4": 0
+            },
+            "seed": 20260926,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          }
+        ]
+      },
+      "Q8": {
+        "active_classes": 2,
+        "balanced_accuracy": 0.2505787037037037,
+        "balanced_accuracy_seed_sd": 0.0036140034712953567,
+        "class_recall": {
+          "1": 0.6597222222222222,
+          "2": 0.34259259259259256,
+          "3": 0.0,
+          "4": 0.0
+        },
+        "dominant_share": 0.7071759259259259,
+        "entropy": 0.38659254650190333,
+        "per_seed": [
+          {
+            "active_predicted_classes": 2,
+            "balanced_accuracy": 0.2465277777777778,
+            "class_recall": {
+              "1": 0.5972222222222222,
+              "2": 0.3888888888888889,
+              "3": 0.0,
+              "4": 0.0
+            },
+            "dominant_predicted_share": 0.6336805555555556,
+            "predicted_class_entropy_normalized": 0.4739020428719291,
+            "predicted_counts": {
+              "1": 365,
+              "2": 211,
+              "3": 0,
+              "4": 0
+            },
+            "seed": 20260924,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          },
+          {
+            "active_predicted_classes": 2,
+            "balanced_accuracy": 0.2534722222222222,
+            "class_recall": {
+              "1": 0.4444444444444444,
+              "2": 0.5694444444444444,
+              "3": 0.0,
+              "4": 0.0
+            },
+            "dominant_predicted_share": 0.5625,
+            "predicted_class_entropy_normalized": 0.4943497041442487,
+            "predicted_counts": {
+              "1": 252,
+              "2": 324,
+              "3": 0,
+              "4": 0
+            },
+            "seed": 20260925,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          },
+          {
+            "active_predicted_classes": 2,
+            "balanced_accuracy": 0.2517361111111111,
+            "class_recall": {
+              "1": 0.9375,
+              "2": 0.06944444444444445,
+              "3": 0.0,
+              "4": 0.0
+            },
+            "dominant_predicted_share": 0.9253472222222222,
+            "predicted_class_entropy_normalized": 0.19152589248953208,
+            "predicted_counts": {
+              "1": 533,
+              "2": 43,
+              "3": 0,
+              "4": 0
+            },
+            "seed": 20260926,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          }
+        ]
+      },
+      "delta_balanced_accuracy_pp": 0.9259259259259273,
+      "subject": 5
+    },
+    {
+      "Q5": {
+        "active_classes": 4,
+        "balanced_accuracy": 0.2835648148148148,
+        "balanced_accuracy_seed_sd": 0.02407713433184571,
+        "class_recall": {
+          "1": 0.0763888888888889,
+          "2": 0.2013888888888889,
+          "3": 0.3726851851851852,
+          "4": 0.4837962962962963
+        },
+        "dominant_share": 0.6197916666666667,
+        "entropy": 0.6890787609907217,
+        "per_seed": [
+          {
+            "active_predicted_classes": 4,
+            "balanced_accuracy": 0.2899305555555555,
+            "class_recall": {
+              "1": 0.041666666666666664,
+              "2": 0.2361111111111111,
+              "3": 0.3194444444444444,
+              "4": 0.5625
+            },
+            "dominant_predicted_share": 0.5017361111111112,
+            "predicted_class_entropy_normalized": 0.7409243101823253,
+            "predicted_counts": {
+              "1": 9,
+              "2": 66,
+              "3": 212,
+              "4": 289
+            },
+            "seed": 20260924,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          },
+          {
+            "active_predicted_classes": 4,
+            "balanced_accuracy": 0.3038194444444444,
+            "class_recall": {
+              "1": 0.1388888888888889,
+              "2": 0.16666666666666666,
+              "3": 0.1527777777777778,
+              "4": 0.7569444444444444
+            },
+            "dominant_predicted_share": 0.6423611111111112,
+            "predicted_class_entropy_normalized": 0.7046147805548637,
+            "predicted_counts": {
+              "1": 37,
+              "2": 38,
+              "3": 131,
+              "4": 370
+            },
+            "seed": 20260925,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          },
+          {
+            "active_predicted_classes": 4,
+            "balanced_accuracy": 0.2569444444444445,
+            "class_recall": {
+              "1": 0.04861111111111111,
+              "2": 0.2013888888888889,
+              "3": 0.6458333333333334,
+              "4": 0.13194444444444445
+            },
+            "dominant_predicted_share": 0.7152777777777778,
+            "predicted_class_entropy_normalized": 0.6216971922349763,
+            "predicted_counts": {
+              "1": 16,
+              "2": 60,
+              "3": 412,
+              "4": 88
+            },
+            "seed": 20260926,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          }
+        ]
+      },
+      "Q8": {
+        "active_classes": 4,
+        "balanced_accuracy": 0.28530092592592593,
+        "balanced_accuracy_seed_sd": 0.023119194855831228,
+        "class_recall": {
+          "1": 0.08564814814814814,
+          "2": 0.1550925925925926,
+          "3": 0.39583333333333337,
+          "4": 0.5046296296296297
+        },
+        "dominant_share": 0.6226851851851851,
+        "entropy": 0.6727840468529298,
+        "per_seed": [
+          {
+            "active_predicted_classes": 4,
+            "balanced_accuracy": 0.265625,
+            "class_recall": {
+              "1": 0.034722222222222224,
+              "2": 0.16666666666666666,
+              "3": 0.4305555555555556,
+              "4": 0.4305555555555556
+            },
+            "dominant_predicted_share": 0.4913194444444444,
+            "predicted_class_entropy_normalized": 0.7177409824936763,
+            "predicted_counts": {
+              "1": 11,
+              "2": 47,
+              "3": 283,
+              "4": 235
+            },
+            "seed": 20260924,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          },
+          {
+            "active_predicted_classes": 4,
+            "balanced_accuracy": 0.2795138888888889,
+            "class_recall": {
+              "1": 0.0625,
+              "2": 0.09722222222222222,
+              "3": 0.13194444444444445,
+              "4": 0.8263888888888888
+            },
+            "dominant_predicted_share": 0.7378472222222222,
+            "predicted_class_entropy_normalized": 0.5711144424156672,
+            "predicted_counts": {
+              "1": 24,
+              "2": 22,
+              "3": 105,
+              "4": 425
+            },
+            "seed": 20260925,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          },
+          {
+            "active_predicted_classes": 4,
+            "balanced_accuracy": 0.3107638888888889,
+            "class_recall": {
+              "1": 0.1597222222222222,
+              "2": 0.2013888888888889,
+              "3": 0.625,
+              "4": 0.2569444444444444
+            },
+            "dominant_predicted_share": 0.6388888888888888,
+            "predicted_class_entropy_normalized": 0.7294967156494458,
+            "predicted_counts": {
+              "1": 40,
+              "2": 52,
+              "3": 368,
+              "4": 116
+            },
+            "seed": 20260926,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          }
+        ]
+      },
+      "delta_balanced_accuracy_pp": 0.1736111111111105,
+      "subject": 6
+    },
+    {
+      "Q5": {
+        "active_classes": 4,
+        "balanced_accuracy": 0.2847222222222222,
+        "balanced_accuracy_seed_sd": 0.007955860581520558,
+        "class_recall": {
+          "1": 0.4398148148148148,
+          "2": 0.5509259259259259,
+          "3": 0.041666666666666664,
+          "4": 0.10648148148148148
+        },
+        "dominant_share": 0.5509259259259259,
+        "entropy": 0.6736257796655644,
+        "per_seed": [
+          {
+            "active_predicted_classes": 4,
+            "balanced_accuracy": 0.2934027777777778,
+            "class_recall": {
+              "1": 0.5625,
+              "2": 0.4305555555555556,
+              "3": 0.05555555555555555,
+              "4": 0.125
+            },
+            "dominant_predicted_share": 0.5069444444444444,
+            "predicted_class_entropy_normalized": 0.705914227026087,
+            "predicted_counts": {
+              "1": 292,
+              "2": 235,
+              "3": 26,
+              "4": 23
+            },
+            "seed": 20260924,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          },
+          {
+            "active_predicted_classes": 4,
+            "balanced_accuracy": 0.2777777777777778,
+            "class_recall": {
+              "1": 0.22916666666666666,
+              "2": 0.7430555555555556,
+              "3": 0.034722222222222224,
+              "4": 0.10416666666666667
+            },
+            "dominant_predicted_share": 0.6770833333333334,
+            "predicted_class_entropy_normalized": 0.6396788457721203,
+            "predicted_counts": {
+              "1": 129,
+              "2": 390,
+              "3": 41,
+              "4": 16
+            },
+            "seed": 20260925,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          },
+          {
+            "active_predicted_classes": 4,
+            "balanced_accuracy": 0.2829861111111111,
+            "class_recall": {
+              "1": 0.5277777777777778,
+              "2": 0.4791666666666667,
+              "3": 0.034722222222222224,
+              "4": 0.09027777777777778
+            },
+            "dominant_predicted_share": 0.46875,
+            "predicted_class_entropy_normalized": 0.6752842661984859,
+            "predicted_counts": {
+              "1": 268,
+              "2": 270,
+              "3": 20,
+              "4": 18
+            },
+            "seed": 20260926,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          }
+        ]
+      },
+      "Q8": {
+        "active_classes": 4,
+        "balanced_accuracy": 0.30324074074074076,
+        "balanced_accuracy_seed_sd": 0.017562489473950834,
+        "class_recall": {
+          "1": 0.5023148148148148,
+          "2": 0.45601851851851855,
+          "3": 0.041666666666666664,
+          "4": 0.21296296296296294
+        },
+        "dominant_share": 0.49594907407407407,
+        "entropy": 0.7240026040046105,
+        "per_seed": [
+          {
+            "active_predicted_classes": 4,
+            "balanced_accuracy": 0.2829861111111111,
+            "class_recall": {
+              "1": 0.5902777777777778,
+              "2": 0.4791666666666667,
+              "3": 0.013888888888888888,
+              "4": 0.04861111111111111
+            },
+            "dominant_predicted_share": 0.5434027777777778,
+            "predicted_class_entropy_normalized": 0.5709033525384579,
+            "predicted_counts": {
+              "1": 313,
+              "2": 250,
+              "3": 3,
+              "4": 10
+            },
+            "seed": 20260924,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          },
+          {
+            "active_predicted_classes": 4,
+            "balanced_accuracy": 0.3125,
+            "class_recall": {
+              "1": 0.3819444444444444,
+              "2": 0.4652777777777778,
+              "3": 0.06944444444444445,
+              "4": 0.3333333333333333
+            },
+            "dominant_predicted_share": 0.4305555555555556,
+            "predicted_class_entropy_normalized": 0.846387670196108,
+            "predicted_counts": {
+              "1": 214,
+              "2": 248,
+              "3": 35,
+              "4": 79
+            },
+            "seed": 20260925,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          },
+          {
+            "active_predicted_classes": 4,
+            "balanced_accuracy": 0.3142361111111111,
+            "class_recall": {
+              "1": 0.5347222222222222,
+              "2": 0.4236111111111111,
+              "3": 0.041666666666666664,
+              "4": 0.2569444444444444
+            },
+            "dominant_predicted_share": 0.5138888888888888,
+            "predicted_class_entropy_normalized": 0.7547167892792656,
+            "predicted_counts": {
+              "1": 296,
+              "2": 194,
+              "3": 10,
+              "4": 76
+            },
+            "seed": 20260926,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          }
+        ]
+      },
+      "delta_balanced_accuracy_pp": 1.8518518518518545,
+      "subject": 7
+    },
+    {
+      "Q5": {
+        "active_classes": 4,
+        "balanced_accuracy": 0.296875,
+        "balanced_accuracy_seed_sd": 0.02112070323020214,
+        "class_recall": {
+          "1": 0.6180555555555556,
+          "2": 0.39120370370370366,
+          "3": 0.06481481481481481,
+          "4": 0.11342592592592593
+        },
+        "dominant_share": 0.5978009259259259,
+        "entropy": 0.6479937978518783,
+        "per_seed": [
+          {
+            "active_predicted_classes": 4,
+            "balanced_accuracy": 0.2829861111111111,
+            "class_recall": {
+              "1": 0.4513888888888889,
+              "2": 0.5694444444444444,
+              "3": 0.013888888888888888,
+              "4": 0.09722222222222222
+            },
+            "dominant_predicted_share": 0.5642361111111112,
+            "predicted_class_entropy_normalized": 0.6122865660964355,
+            "predicted_counts": {
+              "1": 227,
+              "2": 325,
+              "3": 8,
+              "4": 16
+            },
+            "seed": 20260924,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          },
+          {
+            "active_predicted_classes": 4,
+            "balanced_accuracy": 0.2864583333333333,
+            "class_recall": {
+              "1": 0.8680555555555556,
+              "2": 0.09027777777777778,
+              "3": 0.09722222222222222,
+              "4": 0.09027777777777778
+            },
+            "dominant_predicted_share": 0.7482638888888888,
+            "predicted_class_entropy_normalized": 0.5773188617229249,
+            "predicted_counts": {
+              "1": 431,
+              "2": 46,
+              "3": 82,
+              "4": 17
+            },
+            "seed": 20260925,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          },
+          {
+            "active_predicted_classes": 4,
+            "balanced_accuracy": 0.3211805555555555,
+            "class_recall": {
+              "1": 0.5347222222222222,
+              "2": 0.5138888888888888,
+              "3": 0.08333333333333333,
+              "4": 0.1527777777777778
+            },
+            "dominant_predicted_share": 0.4809027777777778,
+            "predicted_class_entropy_normalized": 0.7543759657362743,
+            "predicted_counts": {
+              "1": 233,
+              "2": 277,
+              "3": 34,
+              "4": 32
+            },
+            "seed": 20260926,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          }
+        ]
+      },
+      "Q8": {
+        "active_classes": 4,
+        "balanced_accuracy": 0.6545138888888888,
+        "balanced_accuracy_seed_sd": 0.052285487313804176,
+        "class_recall": {
+          "1": 0.6226851851851852,
+          "2": 0.8796296296296297,
+          "3": 0.5023148148148148,
+          "4": 0.6134259259259259
+        },
+        "dominant_share": 0.38599537037037035,
+        "entropy": 0.951217446741787,
+        "per_seed": [
+          {
+            "active_predicted_classes": 4,
+            "balanced_accuracy": 0.609375,
+            "class_recall": {
+              "1": 0.6527777777777778,
+              "2": 0.9097222222222222,
+              "3": 0.3263888888888889,
+              "4": 0.5486111111111112
+            },
+            "dominant_predicted_share": 0.46875,
+            "predicted_class_entropy_normalized": 0.9056198749491116,
+            "predicted_counts": {
+              "1": 101,
+              "2": 270,
+              "3": 69,
+              "4": 136
+            },
+            "seed": 20260924,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          },
+          {
+            "active_predicted_classes": 4,
+            "balanced_accuracy": 0.642361111111111,
+            "class_recall": {
+              "1": 0.5416666666666666,
+              "2": 0.8888888888888888,
+              "3": 0.5416666666666666,
+              "4": 0.5972222222222222
+            },
+            "dominant_predicted_share": 0.3888888888888889,
+            "predicted_class_entropy_normalized": 0.9573722722733271,
+            "predicted_counts": {
+              "1": 85,
+              "2": 224,
+              "3": 130,
+              "4": 137
+            },
+            "seed": 20260925,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          },
+          {
+            "active_predicted_classes": 4,
+            "balanced_accuracy": 0.7118055555555556,
+            "class_recall": {
+              "1": 0.6736111111111112,
+              "2": 0.8402777777777778,
+              "3": 0.6388888888888888,
+              "4": 0.6944444444444444
+            },
+            "dominant_predicted_share": 0.3003472222222222,
+            "predicted_class_entropy_normalized": 0.9906601930029224,
+            "predicted_counts": {
+              "1": 109,
+              "2": 173,
+              "3": 148,
+              "4": 146
+            },
+            "seed": 20260926,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          }
+        ]
+      },
+      "delta_balanced_accuracy_pp": 35.763888888888886,
+      "subject": 8
+    },
+    {
+      "Q5": {
+        "active_classes": 4,
+        "balanced_accuracy": 0.4832175925925926,
+        "balanced_accuracy_seed_sd": 0.02027115727793635,
+        "class_recall": {
+          "1": 0.42824074074074076,
+          "2": 0.41203703703703703,
+          "3": 0.17592592592592593,
+          "4": 0.9166666666666666
+        },
+        "dominant_share": 0.5341435185185185,
+        "entropy": 0.8334195831982477,
+        "per_seed": [
+          {
+            "active_predicted_classes": 4,
+            "balanced_accuracy": 0.4791666666666667,
+            "class_recall": {
+              "1": 0.3888888888888889,
+              "2": 0.4513888888888889,
+              "3": 0.11805555555555555,
+              "4": 0.9583333333333334
+            },
+            "dominant_predicted_share": 0.5902777777777778,
+            "predicted_class_entropy_normalized": 0.7730590298731077,
+            "predicted_counts": {
+              "1": 64,
+              "2": 135,
+              "3": 37,
+              "4": 340
+            },
+            "seed": 20260924,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          },
+          {
+            "active_predicted_classes": 4,
+            "balanced_accuracy": 0.5052083333333334,
+            "class_recall": {
+              "1": 0.4305555555555556,
+              "2": 0.4652777777777778,
+              "3": 0.3055555555555556,
+              "4": 0.8194444444444444
+            },
+            "dominant_predicted_share": 0.4027777777777778,
+            "predicted_class_entropy_normalized": 0.9444185995454508,
+            "predicted_counts": {
+              "1": 81,
+              "2": 155,
+              "3": 108,
+              "4": 232
+            },
+            "seed": 20260925,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          },
+          {
+            "active_predicted_classes": 4,
+            "balanced_accuracy": 0.4652777777777778,
+            "class_recall": {
+              "1": 0.4652777777777778,
+              "2": 0.3194444444444444,
+              "3": 0.10416666666666667,
+              "4": 0.9722222222222222
+            },
+            "dominant_predicted_share": 0.609375,
+            "predicted_class_entropy_normalized": 0.7827811201761847,
+            "predicted_counts": {
+              "1": 70,
+              "2": 101,
+              "3": 54,
+              "4": 351
+            },
+            "seed": 20260926,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          }
+        ]
+      },
+      "Q8": {
+        "active_classes": 4,
+        "balanced_accuracy": 0.5202546296296297,
+        "balanced_accuracy_seed_sd": 0.020271157277936325,
+        "class_recall": {
+          "1": 0.5069444444444444,
+          "2": 0.4305555555555555,
+          "3": 0.3055555555555556,
+          "4": 0.837962962962963
+        },
+        "dominant_share": 0.4369212962962963,
+        "entropy": 0.9131172474718641,
+        "per_seed": [
+          {
+            "active_predicted_classes": 4,
+            "balanced_accuracy": 0.5381944444444444,
+            "class_recall": {
+              "1": 0.5555555555555556,
+              "2": 0.5416666666666666,
+              "3": 0.4097222222222222,
+              "4": 0.6458333333333334
+            },
+            "dominant_predicted_share": 0.2864583333333333,
+            "predicted_class_entropy_normalized": 0.9926407256574771,
+            "predicted_counts": {
+              "1": 122,
+              "2": 165,
+              "3": 125,
+              "4": 164
+            },
+            "seed": 20260924,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          },
+          {
+            "active_predicted_classes": 4,
+            "balanced_accuracy": 0.5243055555555556,
+            "class_recall": {
+              "1": 0.5555555555555556,
+              "2": 0.3472222222222222,
+              "3": 0.2986111111111111,
+              "4": 0.8958333333333334
+            },
+            "dominant_predicted_share": 0.4635416666666667,
+            "predicted_class_entropy_normalized": 0.9223156552697032,
+            "predicted_counts": {
+              "1": 98,
+              "2": 113,
+              "3": 98,
+              "4": 267
+            },
+            "seed": 20260925,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          },
+          {
+            "active_predicted_classes": 4,
+            "balanced_accuracy": 0.4982638888888889,
+            "class_recall": {
+              "1": 0.4097222222222222,
+              "2": 0.4027777777777778,
+              "3": 0.20833333333333334,
+              "4": 0.9722222222222222
+            },
+            "dominant_predicted_share": 0.5607638888888888,
+            "predicted_class_entropy_normalized": 0.8243953614884121,
+            "predicted_counts": {
+              "1": 61,
+              "2": 126,
+              "3": 66,
+              "4": 323
+            },
+            "seed": 20260926,
+            "true_counts": {
+              "1": 144,
+              "2": 144,
+              "3": 144,
+              "4": 144
+            }
+          }
+        ]
+      },
+      "delta_balanced_accuracy_pp": 3.7037037037037033,
+      "subject": 9
+    }
+  ]
+}

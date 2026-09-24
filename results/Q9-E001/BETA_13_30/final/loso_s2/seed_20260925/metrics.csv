@@ -1,0 +1,4 @@
+fold,subject,seed,model,stratum,n_train,n_test,n_classes_present,balanced_accuracy,accuracy,macro_f1,macro_precision,macro_recall,cohen_kappa,condition,selected_epochs
+loso_s2,2,20260925,EEGNet,all,4608,576,4,0.25,0.25,0.1006993006993007,0.06304728546409807,0.25,0.0,BETA_13_30,1
+loso_s2,2,20260925,EEGNet,unflagged,4608,553,4,0.25,0.24954792043399637,0.10058309037900874,0.06295620437956205,0.25,-4.357583284320121e-05,BETA_13_30,1
+loso_s2,2,20260925,EEGNet,flagged,4608,23,4,0.25,0.2608695652173913,0.10344827586206896,0.06521739130434782,0.25,0.0,BETA_13_30,1

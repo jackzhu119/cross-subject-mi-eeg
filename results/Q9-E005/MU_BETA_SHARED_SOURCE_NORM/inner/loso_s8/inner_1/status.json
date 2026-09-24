@@ -1,0 +1,33 @@
+{
+  "experiment_id": "Q9-E005",
+  "condition": "MU_BETA_SHARED_SOURCE_NORM",
+  "fold": "loso_s8",
+  "target_subject": 8,
+  "stage": "inner",
+  "inner_fold": 1,
+  "seed": 20260923,
+  "train_subjects": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    9
+  ],
+  "validation_subjects": [
+    1,
+    2
+  ],
+  "n_train": 3456,
+  "n_train_candidates": 3456,
+  "n_flagged_source_train_excluded": 0,
+  "n_validation": 1152,
+  "epochs_trained": 40,
+  "elapsed_seconds": 20.432964649051428,
+  "status": "complete",
+  "completed_at_utc": "2026-09-24T07:09:01.496700+00:00",
+  "sha256_checkpoint.pt": "f8f753ae01c757be1ddc1fe687ef481a5fdf48fb7b8ccb8fe99912fd392cecab",
+  "sha256_learning_curve.csv": "00d863f7968bf3473d53f8a04713b3b89f9ad9aa69253ebdf3dc8f743155f2d1",
+  "sha256_fit_manifest.csv": "962377767d45776cfbcead3c716e81e19b4a0a6ae16d39eef67d42cae5edfe8a",
+  "sha256_normalization_receipt.json": "2c3ced6fab2d3c747ebfc571f7121815636cfe668ec5c5f38344abbd6ea9c7fb"
+}

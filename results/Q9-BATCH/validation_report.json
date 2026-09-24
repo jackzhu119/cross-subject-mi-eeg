@@ -1,0 +1,102 @@
+{
+  "status": "passed_orchestration_only",
+  "audited_at_utc": "2026-09-24T07:16:43.706308+00:00",
+  "scientific_validation": "not_performed_by_this_batch_validator",
+  "matrix_sha256": "cdfa48b9c837704c1f1e6003cebb2bba77d552a9fbc21eb4d89413f9f33febe8",
+  "selected_conditions": [
+    "MID_8_30",
+    "MU_8_13",
+    "BETA_13_30",
+    "MU_BETA_SHARED",
+    "PSD44_LDA",
+    "PSD44_LINEAR_SVM",
+    "MID_8_30_Q8_EPOCHS",
+    "MU_BETA_SHARED_Q8_EPOCHS",
+    "MU_BETA_SHARED_SOURCE_CLEAN",
+    "MU_BETA_SHARED_SOURCE_NORM"
+  ],
+  "unselected_planned_conditions": [
+    "MU_BETA_CSP8_EEGNET",
+    "MU_BETA_PCA8_EEGNET"
+  ],
+  "jobs_expected": 15,
+  "jobs_complete": 15,
+  "findings": [
+    {
+      "job_id": "Q9-E001_MID_8_30_selection",
+      "phase": "selection",
+      "complete": true
+    },
+    {
+      "job_id": "Q9-E001_MID_8_30_final",
+      "phase": "final",
+      "complete": true
+    },
+    {
+      "job_id": "Q9-E001_MU_8_13_selection",
+      "phase": "selection",
+      "complete": true
+    },
+    {
+      "job_id": "Q9-E001_MU_8_13_final",
+      "phase": "final",
+      "complete": true
+    },
+    {
+      "job_id": "Q9-E001_BETA_13_30_selection",
+      "phase": "selection",
+      "complete": true
+    },
+    {
+      "job_id": "Q9-E001_BETA_13_30_final",
+      "phase": "final",
+      "complete": true
+    },
+    {
+      "job_id": "Q9-E001_MU_BETA_SHARED_selection",
+      "phase": "selection",
+      "complete": true
+    },
+    {
+      "job_id": "Q9-E001_MU_BETA_SHARED_final",
+      "phase": "final",
+      "complete": true
+    },
+    {
+      "job_id": "Q9-A001_PSD44_both",
+      "phase": "source_fits",
+      "complete": true
+    },
+    {
+      "job_id": "Q9-E002_MID_8_30_Q8_EPOCHS_final",
+      "phase": "final",
+      "complete": true
+    },
+    {
+      "job_id": "Q9-E002_MU_BETA_SHARED_Q8_EPOCHS_final",
+      "phase": "final",
+      "complete": true
+    },
+    {
+      "job_id": "Q9-E004_MU_BETA_SHARED_SOURCE_CLEAN_selection",
+      "phase": "selection",
+      "complete": true
+    },
+    {
+      "job_id": "Q9-E004_MU_BETA_SHARED_SOURCE_CLEAN_final",
+      "phase": "final",
+      "complete": true
+    },
+    {
+      "job_id": "Q9-E005_MU_BETA_SHARED_SOURCE_NORM_selection",
+      "phase": "selection",
+      "complete": true
+    },
+    {
+      "job_id": "Q9-E005_MU_BETA_SHARED_SOURCE_NORM_final",
+      "phase": "final",
+      "complete": true
+    }
+  ],
+  "errors": []
+}

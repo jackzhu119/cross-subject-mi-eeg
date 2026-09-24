@@ -1,0 +1,94 @@
+{
+  "experiment_id": "Q9-E001",
+  "condition": "MU_8_13",
+  "bands": {
+    "mu": [
+      8,
+      13
+    ]
+  },
+  "shared_mean_logits": false,
+  "source_only_selection": true,
+  "fixed_q8_epochs": false,
+  "source_training_artifact_exclusion": false,
+  "source_fit_per_band_channel_zscore": false,
+  "preprocessing": {
+    "sampling_rate_hz": 250,
+    "bands": {
+      "mu": [
+        8,
+        13
+      ]
+    },
+    "filter": {
+      "order": 4,
+      "ftype": "butter",
+      "phase": "zero"
+    },
+    "trial_start_s": 2.5,
+    "trial_stop_exclusive_s": 5.5,
+    "artifact_policy": "include_all",
+    "baseline": null
+  },
+  "architecture": {
+    "library": "braindecode",
+    "model": "EEGNet",
+    "n_chans": 22,
+    "n_outputs": 4,
+    "n_times": 750,
+    "F1": 8,
+    "D": 2,
+    "F2": 16,
+    "kernel_length": 64,
+    "drop_prob": 0.25
+  },
+  "training": {
+    "torch_threads": 4,
+    "deterministic_algorithms": true,
+    "selection_seed": 20260923,
+    "final_seeds": [
+      20260924,
+      20260925,
+      20260926
+    ],
+    "inner_validation_rule": "consecutive_pairs_of_sorted_eight_source_subjects",
+    "inner_folds": 4,
+    "batch_size": 64,
+    "max_epochs": 40,
+    "optimizer": "Adam",
+    "learning_rate": 0.001,
+    "weight_decay": 0.0,
+    "loss": "cross_entropy",
+    "scheduler": "none",
+    "augmentation": "none"
+  },
+  "input": {
+    "shape": [
+      22,
+      750
+    ],
+    "volts_to_microvolts": 1000000.0,
+    "target_derived_normalization": false
+  },
+  "subjects": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "class_ids": {
+    "left_hand": 1,
+    "right_hand": 2,
+    "feet": 3,
+    "tongue": 4
+  },
+  "data_dir": "/root/autodl-tmp/data/raw",
+  "q8_config_sha256": "daac05d5dffc36cd1d44dd30927d480c0a1087125828ce95ebb2b383d7d18342",
+  "q9_matrix_sha256": "cdfa48b9c837704c1f1e6003cebb2bba77d552a9fbc21eb4d89413f9f33febe8",
+  "runner_sha256": "47d20131bfd05b775ac3a55304d9ad2e34c5fc8473901ca717edaa66471f1c56"
+}

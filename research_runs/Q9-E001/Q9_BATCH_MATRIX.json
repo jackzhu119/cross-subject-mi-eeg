@@ -1,0 +1,37 @@
+{
+  "status": "planned_not_implemented_or_executed",
+  "plan_date": "2026-09-24",
+  "parent_commit": "13421ef3a5739a79f152087cafce9fccad59e5e4",
+  "dataset": "BNCI2014_001",
+  "subjects": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+  "task": "four_class_motor_imagery",
+  "outer_split": "LOSO_both_sessions_held_out",
+  "inner_split": "four_consecutive_pairs_of_sorted_eight_source_subjects",
+  "selection": {
+    "rule": "earliest_argmin_of_equal_inner_fold_mean_within_fold_validation_CE_rank",
+    "candidate_epochs": [1, 40],
+    "seed": 20260923,
+    "final_seeds": [20260924, 20260925, 20260926],
+    "target_used": false
+  },
+  "primary_contrast": "Q9-E001/MU_BETA_SHARED_vs_frozen_Q8-E001",
+  "conditions": [
+    {"experiment_id": "Q9-E001", "name": "MID_8_30", "priority": "A", "inner_fits": 36, "final_fits": 27, "band_hz": [8, 30]},
+    {"experiment_id": "Q9-E001", "name": "MU_8_13", "priority": "A", "inner_fits": 36, "final_fits": 27, "band_hz": [8, 13]},
+    {"experiment_id": "Q9-E001", "name": "BETA_13_30", "priority": "A", "inner_fits": 36, "final_fits": 27, "band_hz": [13, 30]},
+    {"experiment_id": "Q9-E001", "name": "MU_BETA_SHARED", "priority": "A", "inner_fits": 36, "final_fits": 27, "bands_hz": [[8, 13], [13, 30]], "fusion": "shared_EEGNet_mean_logits"},
+    {"experiment_id": "Q9-E003", "name": "MU_BETA_CSP8_EEGNET", "priority": "A", "inner_fits": 36, "final_fits": 27, "bands_hz": [[8, 13], [13, 30]], "projection": "source_fit_multiclass_CSP8_per_band"},
+    {"experiment_id": "Q9-E003", "name": "MU_BETA_PCA8_EEGNET", "priority": "A", "inner_fits": 36, "final_fits": 27, "bands_hz": [[8, 13], [13, 30]], "projection": "source_fit_PCA8_per_band"},
+    {"experiment_id": "Q9-E002", "name": "MID_8_30_Q8_EPOCHS", "priority": "B", "inner_fits": 0, "final_fits": 27, "duration": "frozen_Q8_subject_epochs"},
+    {"experiment_id": "Q9-E002", "name": "MU_BETA_SHARED_Q8_EPOCHS", "priority": "B", "inner_fits": 0, "final_fits": 27, "duration": "frozen_Q8_subject_epochs"},
+    {"experiment_id": "Q9-E004", "name": "MU_BETA_SHARED_SOURCE_CLEAN", "priority": "B", "inner_fits": 36, "final_fits": 27, "source_training_flags": "exclude_flagged", "target_flags": "analysis_only"},
+    {"experiment_id": "Q9-E005", "name": "MU_BETA_SHARED_SOURCE_NORM", "priority": "B", "inner_fits": 36, "final_fits": 27, "normalization": "source_fit_per_band_per_channel"}
+  ],
+  "shallow_controls": [
+    {"experiment_id": "Q9-A001", "name": "PSD44_LDA", "priority": "A", "source_fits": 9},
+    {"experiment_id": "Q9-A001", "name": "PSD44_LINEAR_SVM", "priority": "A", "source_fits": 9}
+  ],
+  "planned_totals": {"deep_inner_fits": 288, "deep_final_fits": 270, "deep_fits": 558, "shallow_source_fits": 18},
+  "execution": "sequential_resumable_single_GPU_batch_after_runner_validation",
+  "analysis_status": "exploratory_same_dataset_not_external_confirmation"
+}

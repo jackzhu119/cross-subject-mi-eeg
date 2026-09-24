@@ -1,0 +1,394 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-09-24T04:27:01.848962+00:00",
+  "scope": "orchestration_only_no_target_metric_selection",
+  "matrix_path": "/root/autodl-tmp/cross-subject-mi-eeg/research_runs/Q9-E001/Q9_BATCH_MATRIX.json",
+  "matrix_sha256": "cdfa48b9c837704c1f1e6003cebb2bba77d552a9fbc21eb4d89413f9f33febe8",
+  "code_sha256": {
+    "scripts/q9_batch.py": "5d43b47cc054276523e080aef1fcbb57ca399774a16e50a53376e2f9e63a50c3",
+    "scripts/q9_validate_batch.py": "15f6a626649fe09599cc8a27afcf6f5b596564eba8d267dd93f3c306f8bb1a12",
+    "scripts/q9_neural.py": "47d20131bfd05b775ac3a55304d9ad2e34c5fc8473901ca717edaa66471f1c56",
+    "scripts/q9_spatial_psd.py": "ac0e88e8fdc0e9e14245b3a3dc83c45e167f2090c224efc19b6970170812d712",
+    "scripts/q9_spatial_features.py": "1002ed8cda95a6709d899a3c34efbf72f82dcf2c8beab4e49d8f90ca7dbfe698",
+    "scripts/run_eegnet.py": "d3ee0eda82fb548f7ef6145157d509c8169ac3da93bab7b6a3ebd2904f908b32",
+    "src/mi_eeg/data/bnci_epochs.py": "ed38a09624689d685384cf9aad83f43c3828904426087dee9b7ae6a9677d301b",
+    "src/mi_eeg/models/eegnet_training.py": "ddb1ab9d40f43abe3ec22a4b0132cd194ea1fe61e1e9ebb801f3423408013842",
+    "src/mi_eeg/evaluation/splits.py": "198f6c4941ce743c406789dfc377659bcec453c0c66e7629f0c3a7744de24cdb"
+  },
+  "selected_conditions": [
+    "MID_8_30",
+    "MU_8_13",
+    "BETA_13_30",
+    "MU_BETA_SHARED",
+    "PSD44_LDA",
+    "PSD44_LINEAR_SVM",
+    "MID_8_30_Q8_EPOCHS",
+    "MU_BETA_SHARED_Q8_EPOCHS",
+    "MU_BETA_SHARED_SOURCE_CLEAN",
+    "MU_BETA_SHARED_SOURCE_NORM"
+  ],
+  "unselected_planned_conditions": [
+    "MU_BETA_CSP8_EEGNET",
+    "MU_BETA_PCA8_EEGNET"
+  ],
+  "selected_fit_counts": {
+    "deep_inner": 216,
+    "deep_final": 216,
+    "shallow_source": 18
+  },
+  "data_dir": "/root/autodl-tmp/data/raw",
+  "output_root": "/root/autodl-tmp/cross-subject-mi-eeg/results",
+  "device": "cuda",
+  "python_executable": "/root/autodl-tmp/.venv-cloud/bin/python",
+  "python_version": "3.12.3",
+  "templates": {
+    "neural": [
+      "{python}",
+      "scripts/q9_neural.py",
+      "--condition",
+      "{condition}",
+      "--phase",
+      "{phase}",
+      "--data-dir",
+      "{data_dir}",
+      "--output-root",
+      "{output_root}",
+      "--device",
+      "{device}"
+    ],
+    "psd": [
+      "{python}",
+      "scripts/q9_spatial_psd.py",
+      "--data-dir",
+      "{data_dir}",
+      "--output-dir",
+      "{output_root}/Q9-A001"
+    ]
+  },
+  "jobs": [
+    {
+      "job_id": "Q9-E001_MID_8_30_selection",
+      "experiment_id": "Q9-E001",
+      "condition": "MID_8_30",
+      "phase": "selection",
+      "argv": [
+        "/root/autodl-tmp/.venv-cloud/bin/python",
+        "scripts/q9_neural.py",
+        "--condition",
+        "MID_8_30",
+        "--phase",
+        "selection",
+        "--data-dir",
+        "/root/autodl-tmp/data/raw",
+        "--output-root",
+        "/root/autodl-tmp/cross-subject-mi-eeg/results",
+        "--device",
+        "cuda"
+      ],
+      "completion_status": "/root/autodl-tmp/cross-subject-mi-eeg/results/Q9-E001/MID_8_30/selection_provenance.json",
+      "completion_value": "frozen_before_Q9_target_inference"
+    },
+    {
+      "job_id": "Q9-E001_MID_8_30_final",
+      "experiment_id": "Q9-E001",
+      "condition": "MID_8_30",
+      "phase": "final",
+      "argv": [
+        "/root/autodl-tmp/.venv-cloud/bin/python",
+        "scripts/q9_neural.py",
+        "--condition",
+        "MID_8_30",
+        "--phase",
+        "final",
+        "--data-dir",
+        "/root/autodl-tmp/data/raw",
+        "--output-root",
+        "/root/autodl-tmp/cross-subject-mi-eeg/results",
+        "--device",
+        "cuda"
+      ],
+      "completion_status": "/root/autodl-tmp/cross-subject-mi-eeg/results/Q9-E001/MID_8_30/status.json",
+      "completion_value": "complete"
+    },
+    {
+      "job_id": "Q9-E001_MU_8_13_selection",
+      "experiment_id": "Q9-E001",
+      "condition": "MU_8_13",
+      "phase": "selection",
+      "argv": [
+        "/root/autodl-tmp/.venv-cloud/bin/python",
+        "scripts/q9_neural.py",
+        "--condition",
+        "MU_8_13",
+        "--phase",
+        "selection",
+        "--data-dir",
+        "/root/autodl-tmp/data/raw",
+        "--output-root",
+        "/root/autodl-tmp/cross-subject-mi-eeg/results",
+        "--device",
+        "cuda"
+      ],
+      "completion_status": "/root/autodl-tmp/cross-subject-mi-eeg/results/Q9-E001/MU_8_13/selection_provenance.json",
+      "completion_value": "frozen_before_Q9_target_inference"
+    },
+    {
+      "job_id": "Q9-E001_MU_8_13_final",
+      "experiment_id": "Q9-E001",
+      "condition": "MU_8_13",
+      "phase": "final",
+      "argv": [
+        "/root/autodl-tmp/.venv-cloud/bin/python",
+        "scripts/q9_neural.py",
+        "--condition",
+        "MU_8_13",
+        "--phase",
+        "final",
+        "--data-dir",
+        "/root/autodl-tmp/data/raw",
+        "--output-root",
+        "/root/autodl-tmp/cross-subject-mi-eeg/results",
+        "--device",
+        "cuda"
+      ],
+      "completion_status": "/root/autodl-tmp/cross-subject-mi-eeg/results/Q9-E001/MU_8_13/status.json",
+      "completion_value": "complete"
+    },
+    {
+      "job_id": "Q9-E001_BETA_13_30_selection",
+      "experiment_id": "Q9-E001",
+      "condition": "BETA_13_30",
+      "phase": "selection",
+      "argv": [
+        "/root/autodl-tmp/.venv-cloud/bin/python",
+        "scripts/q9_neural.py",
+        "--condition",
+        "BETA_13_30",
+        "--phase",
+        "selection",
+        "--data-dir",
+        "/root/autodl-tmp/data/raw",
+        "--output-root",
+        "/root/autodl-tmp/cross-subject-mi-eeg/results",
+        "--device",
+        "cuda"
+      ],
+      "completion_status": "/root/autodl-tmp/cross-subject-mi-eeg/results/Q9-E001/BETA_13_30/selection_provenance.json",
+      "completion_value": "frozen_before_Q9_target_inference"
+    },
+    {
+      "job_id": "Q9-E001_BETA_13_30_final",
+      "experiment_id": "Q9-E001",
+      "condition": "BETA_13_30",
+      "phase": "final",
+      "argv": [
+        "/root/autodl-tmp/.venv-cloud/bin/python",
+        "scripts/q9_neural.py",
+        "--condition",
+        "BETA_13_30",
+        "--phase",
+        "final",
+        "--data-dir",
+        "/root/autodl-tmp/data/raw",
+        "--output-root",
+        "/root/autodl-tmp/cross-subject-mi-eeg/results",
+        "--device",
+        "cuda"
+      ],
+      "completion_status": "/root/autodl-tmp/cross-subject-mi-eeg/results/Q9-E001/BETA_13_30/status.json",
+      "completion_value": "complete"
+    },
+    {
+      "job_id": "Q9-E001_MU_BETA_SHARED_selection",
+      "experiment_id": "Q9-E001",
+      "condition": "MU_BETA_SHARED",
+      "phase": "selection",
+      "argv": [
+        "/root/autodl-tmp/.venv-cloud/bin/python",
+        "scripts/q9_neural.py",
+        "--condition",
+        "MU_BETA_SHARED",
+        "--phase",
+        "selection",
+        "--data-dir",
+        "/root/autodl-tmp/data/raw",
+        "--output-root",
+        "/root/autodl-tmp/cross-subject-mi-eeg/results",
+        "--device",
+        "cuda"
+      ],
+      "completion_status": "/root/autodl-tmp/cross-subject-mi-eeg/results/Q9-E001/MU_BETA_SHARED/selection_provenance.json",
+      "completion_value": "frozen_before_Q9_target_inference"
+    },
+    {
+      "job_id": "Q9-E001_MU_BETA_SHARED_final",
+      "experiment_id": "Q9-E001",
+      "condition": "MU_BETA_SHARED",
+      "phase": "final",
+      "argv": [
+        "/root/autodl-tmp/.venv-cloud/bin/python",
+        "scripts/q9_neural.py",
+        "--condition",
+        "MU_BETA_SHARED",
+        "--phase",
+        "final",
+        "--data-dir",
+        "/root/autodl-tmp/data/raw",
+        "--output-root",
+        "/root/autodl-tmp/cross-subject-mi-eeg/results",
+        "--device",
+        "cuda"
+      ],
+      "completion_status": "/root/autodl-tmp/cross-subject-mi-eeg/results/Q9-E001/MU_BETA_SHARED/status.json",
+      "completion_value": "complete"
+    },
+    {
+      "job_id": "Q9-A001_PSD44_both",
+      "experiment_id": "Q9-A001",
+      "condition": "PSD44_both",
+      "phase": "source_fits",
+      "argv": [
+        "/root/autodl-tmp/.venv-cloud/bin/python",
+        "scripts/q9_spatial_psd.py",
+        "--data-dir",
+        "/root/autodl-tmp/data/raw",
+        "--output-dir",
+        "/root/autodl-tmp/cross-subject-mi-eeg/results/Q9-A001"
+      ],
+      "completion_status": "/root/autodl-tmp/cross-subject-mi-eeg/results/Q9-A001/status.json",
+      "completion_value": "complete"
+    },
+    {
+      "job_id": "Q9-E002_MID_8_30_Q8_EPOCHS_final",
+      "experiment_id": "Q9-E002",
+      "condition": "MID_8_30_Q8_EPOCHS",
+      "phase": "final",
+      "argv": [
+        "/root/autodl-tmp/.venv-cloud/bin/python",
+        "scripts/q9_neural.py",
+        "--condition",
+        "MID_8_30_Q8_EPOCHS",
+        "--phase",
+        "final",
+        "--data-dir",
+        "/root/autodl-tmp/data/raw",
+        "--output-root",
+        "/root/autodl-tmp/cross-subject-mi-eeg/results",
+        "--device",
+        "cuda"
+      ],
+      "completion_status": "/root/autodl-tmp/cross-subject-mi-eeg/results/Q9-E002/MID_8_30_Q8_EPOCHS/status.json",
+      "completion_value": "complete"
+    },
+    {
+      "job_id": "Q9-E002_MU_BETA_SHARED_Q8_EPOCHS_final",
+      "experiment_id": "Q9-E002",
+      "condition": "MU_BETA_SHARED_Q8_EPOCHS",
+      "phase": "final",
+      "argv": [
+        "/root/autodl-tmp/.venv-cloud/bin/python",
+        "scripts/q9_neural.py",
+        "--condition",
+        "MU_BETA_SHARED_Q8_EPOCHS",
+        "--phase",
+        "final",
+        "--data-dir",
+        "/root/autodl-tmp/data/raw",
+        "--output-root",
+        "/root/autodl-tmp/cross-subject-mi-eeg/results",
+        "--device",
+        "cuda"
+      ],
+      "completion_status": "/root/autodl-tmp/cross-subject-mi-eeg/results/Q9-E002/MU_BETA_SHARED_Q8_EPOCHS/status.json",
+      "completion_value": "complete"
+    },
+    {
+      "job_id": "Q9-E004_MU_BETA_SHARED_SOURCE_CLEAN_selection",
+      "experiment_id": "Q9-E004",
+      "condition": "MU_BETA_SHARED_SOURCE_CLEAN",
+      "phase": "selection",
+      "argv": [
+        "/root/autodl-tmp/.venv-cloud/bin/python",
+        "scripts/q9_neural.py",
+        "--condition",
+        "MU_BETA_SHARED_SOURCE_CLEAN",
+        "--phase",
+        "selection",
+        "--data-dir",
+        "/root/autodl-tmp/data/raw",
+        "--output-root",
+        "/root/autodl-tmp/cross-subject-mi-eeg/results",
+        "--device",
+        "cuda"
+      ],
+      "completion_status": "/root/autodl-tmp/cross-subject-mi-eeg/results/Q9-E004/MU_BETA_SHARED_SOURCE_CLEAN/selection_provenance.json",
+      "completion_value": "frozen_before_Q9_target_inference"
+    },
+    {
+      "job_id": "Q9-E004_MU_BETA_SHARED_SOURCE_CLEAN_final",
+      "experiment_id": "Q9-E004",
+      "condition": "MU_BETA_SHARED_SOURCE_CLEAN",
+      "phase": "final",
+      "argv": [
+        "/root/autodl-tmp/.venv-cloud/bin/python",
+        "scripts/q9_neural.py",
+        "--condition",
+        "MU_BETA_SHARED_SOURCE_CLEAN",
+        "--phase",
+        "final",
+        "--data-dir",
+        "/root/autodl-tmp/data/raw",
+        "--output-root",
+        "/root/autodl-tmp/cross-subject-mi-eeg/results",
+        "--device",
+        "cuda"
+      ],
+      "completion_status": "/root/autodl-tmp/cross-subject-mi-eeg/results/Q9-E004/MU_BETA_SHARED_SOURCE_CLEAN/status.json",
+      "completion_value": "complete"
+    },
+    {
+      "job_id": "Q9-E005_MU_BETA_SHARED_SOURCE_NORM_selection",
+      "experiment_id": "Q9-E005",
+      "condition": "MU_BETA_SHARED_SOURCE_NORM",
+      "phase": "selection",
+      "argv": [
+        "/root/autodl-tmp/.venv-cloud/bin/python",
+        "scripts/q9_neural.py",
+        "--condition",
+        "MU_BETA_SHARED_SOURCE_NORM",
+        "--phase",
+        "selection",
+        "--data-dir",
+        "/root/autodl-tmp/data/raw",
+        "--output-root",
+        "/root/autodl-tmp/cross-subject-mi-eeg/results",
+        "--device",
+        "cuda"
+      ],
+      "completion_status": "/root/autodl-tmp/cross-subject-mi-eeg/results/Q9-E005/MU_BETA_SHARED_SOURCE_NORM/selection_provenance.json",
+      "completion_value": "frozen_before_Q9_target_inference"
+    },
+    {
+      "job_id": "Q9-E005_MU_BETA_SHARED_SOURCE_NORM_final",
+      "experiment_id": "Q9-E005",
+      "condition": "MU_BETA_SHARED_SOURCE_NORM",
+      "phase": "final",
+      "argv": [
+        "/root/autodl-tmp/.venv-cloud/bin/python",
+        "scripts/q9_neural.py",
+        "--condition",
+        "MU_BETA_SHARED_SOURCE_NORM",
+        "--phase",
+        "final",
+        "--data-dir",
+        "/root/autodl-tmp/data/raw",
+        "--output-root",
+        "/root/autodl-tmp/cross-subject-mi-eeg/results",
+        "--device",
+        "cuda"
+      ],
+      "completion_status": "/root/autodl-tmp/cross-subject-mi-eeg/results/Q9-E005/MU_BETA_SHARED_SOURCE_NORM/status.json",
+      "completion_value": "complete"
+    }
+  ]
+}

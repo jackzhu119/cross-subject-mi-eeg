@@ -1,0 +1,26 @@
+{
+  "status": "complete",
+  "job_id": "Q9-E001_MU_8_13_selection",
+  "argv": [
+    "/root/autodl-tmp/.venv-cloud/bin/python",
+    "scripts/q9_neural.py",
+    "--condition",
+    "MU_8_13",
+    "--phase",
+    "selection",
+    "--data-dir",
+    "/root/autodl-tmp/data/raw",
+    "--output-root",
+    "/root/autodl-tmp/cross-subject-mi-eeg/results",
+    "--device",
+    "cuda"
+  ],
+  "attempts": 1,
+  "started_at_utc": "2026-09-24T05:52:10.255622+00:00",
+  "finished_at_utc": "2026-09-24T06:00:46.869332+00:00",
+  "exit_code": 0,
+  "log_path": "/root/autodl-tmp/cross-subject-mi-eeg/results/Q9-BATCH/jobs/Q9-E001_MU_8_13_selection/run.log",
+  "log_sha256": "da401a42598afd8d1e5d5fa916791a42de88f41b6b0b612d6efe24bc1fc0bcf1",
+  "completion_status": "/root/autodl-tmp/cross-subject-mi-eeg/results/Q9-E001/MU_8_13/selection_provenance.json",
+  "completion_status_sha256": "77a636c8cee88d80d4c46bb68ec87e5eac9307aab31849dad045d215f174b3c3"
+}

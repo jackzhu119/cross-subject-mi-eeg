@@ -1,0 +1,26 @@
+{
+  "status": "complete",
+  "job_id": "Q9-E005_MU_BETA_SHARED_SOURCE_NORM_final",
+  "argv": [
+    "/root/autodl-tmp/.venv-cloud/bin/python",
+    "scripts/q9_neural.py",
+    "--condition",
+    "MU_BETA_SHARED_SOURCE_NORM",
+    "--phase",
+    "final",
+    "--data-dir",
+    "/root/autodl-tmp/data/raw",
+    "--output-root",
+    "/root/autodl-tmp/cross-subject-mi-eeg/results",
+    "--device",
+    "cuda"
+  ],
+  "attempts": 1,
+  "started_at_utc": "2026-09-24T07:11:26.370004+00:00",
+  "finished_at_utc": "2026-09-24T07:16:43.112800+00:00",
+  "exit_code": 0,
+  "log_path": "/root/autodl-tmp/cross-subject-mi-eeg/results/Q9-BATCH/jobs/Q9-E005_MU_BETA_SHARED_SOURCE_NORM_final/run.log",
+  "log_sha256": "4b921f493260627fb6aa4048d1ff9500c7a6119af9b150406661d00175fadc80",
+  "completion_status": "/root/autodl-tmp/cross-subject-mi-eeg/results/Q9-E005/MU_BETA_SHARED_SOURCE_NORM/status.json",
+  "completion_status_sha256": "0e755cbb1e284c4ed62be3a9e8f93ce33da74b871d63c97f26f7e93b4a8d0ae0"
+}

@@ -1,0 +1,20 @@
+{
+  "status": "complete",
+  "job_id": "Q9-A001_PSD44_both",
+  "argv": [
+    "/root/autodl-tmp/.venv-cloud/bin/python",
+    "scripts/q9_spatial_psd.py",
+    "--data-dir",
+    "/root/autodl-tmp/data/raw",
+    "--output-dir",
+    "/root/autodl-tmp/cross-subject-mi-eeg/results/Q9-A001"
+  ],
+  "attempts": 1,
+  "started_at_utc": "2026-09-24T06:33:38.289767+00:00",
+  "finished_at_utc": "2026-09-24T06:34:42.777941+00:00",
+  "exit_code": 0,
+  "log_path": "/root/autodl-tmp/cross-subject-mi-eeg/results/Q9-BATCH/jobs/Q9-A001_PSD44_both/run.log",
+  "log_sha256": "a0cb21cfad8b2827db67fb18edacac3f78dd22613997a23e7ecc47eb27277fa8",
+  "completion_status": "/root/autodl-tmp/cross-subject-mi-eeg/results/Q9-A001/status.json",
+  "completion_status_sha256": "8835432a531a4d2ccd9e0035ac867dcde217788f480f171bc4dd4aa388825881"
+}
