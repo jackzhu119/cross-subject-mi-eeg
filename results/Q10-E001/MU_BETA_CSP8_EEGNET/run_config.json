@@ -1,0 +1,107 @@
+{
+  "experiment_id": "Q10-E001",
+  "condition": "MU_BETA_CSP8_EEGNET",
+  "bands": {
+    "mu": [
+      8,
+      13
+    ],
+    "beta": [
+      13,
+      30
+    ]
+  },
+  "shared_mean_logits": false,
+  "spatial_method": "csp8",
+  "spatial_input_units": "volts",
+  "model_input_units": "source_standardized_dimensionless",
+  "spatial_helper_sha256": "1002ed8cda95a6709d899a3c34efbf72f82dcf2c8beab4e49d8f90ca7dbfe698",
+  "source_only_selection": true,
+  "fixed_q8_epochs": false,
+  "source_training_artifact_exclusion": false,
+  "source_fit_per_band_channel_zscore": false,
+  "preprocessing": {
+    "sampling_rate_hz": 250,
+    "bands": {
+      "mu": [
+        8,
+        13
+      ],
+      "beta": [
+        13,
+        30
+      ]
+    },
+    "filter": {
+      "order": 4,
+      "ftype": "butter",
+      "phase": "zero"
+    },
+    "trial_start_s": 2.5,
+    "trial_stop_exclusive_s": 5.5,
+    "artifact_policy": "include_all",
+    "baseline": null
+  },
+  "architecture": {
+    "library": "braindecode",
+    "model": "EEGNet",
+    "n_chans": 16,
+    "n_outputs": 4,
+    "n_times": 750,
+    "F1": 8,
+    "D": 2,
+    "F2": 16,
+    "kernel_length": 64,
+    "drop_prob": 0.25
+  },
+  "training": {
+    "torch_threads": 4,
+    "deterministic_algorithms": true,
+    "selection_seed": 20260923,
+    "final_seeds": [
+      20260924,
+      20260925,
+      20260926
+    ],
+    "inner_validation_rule": "consecutive_pairs_of_sorted_eight_source_subjects",
+    "inner_folds": 4,
+    "batch_size": 64,
+    "max_epochs": 40,
+    "optimizer": "Adam",
+    "learning_rate": 0.001,
+    "weight_decay": 0.0,
+    "loss": "cross_entropy",
+    "scheduler": "none",
+    "augmentation": "none"
+  },
+  "input": {
+    "shape": [
+      16,
+      750
+    ],
+    "units": "source_standardized_dimensionless",
+    "target_derived_normalization": false
+  },
+  "subjects": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "class_ids": {
+    "left_hand": 1,
+    "right_hand": 2,
+    "feet": 3,
+    "tongue": 4
+  },
+  "data_dir": "/root/autodl-tmp/data/raw",
+  "q8_config_sha256": "daac05d5dffc36cd1d44dd30927d480c0a1087125828ce95ebb2b383d7d18342",
+  "q9_parent_matrix_sha256": "cdfa48b9c837704c1f1e6003cebb2bba77d552a9fbc21eb4d89413f9f33febe8",
+  "execution_matrix_sha256": "fab024fddfdcf3103c4025690380088ce15b74b97b629ccd6d9ad3d28a0adeda",
+  "runner_sha256": "746a7c6f9df36a8d445aa86b8deda0738c44e4b042aa0ab5d2266f460702afd7"
+}

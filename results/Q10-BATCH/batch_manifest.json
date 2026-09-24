@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-09-24T13:22:37.358869+00:00",
+  "scope": "Q10_E001_source_only_orchestration_plus_science_audit",
+  "matrix_path": "/root/autodl-tmp/cross-subject-mi-eeg/research_runs/Q10-E001/MATRIX.json",
+  "matrix_sha256": "fab024fddfdcf3103c4025690380088ce15b74b97b629ccd6d9ad3d28a0adeda",
+  "code_sha256": {
+    "scripts/q10_e001_batch.py": "65e51f4a2d6c4ae5f03b603453ae0e90c9aa67a425b6c726e7c003387cc7d3d7",
+    "scripts/q10_spatial_neural.py": "746a7c6f9df36a8d445aa86b8deda0738c44e4b042aa0ab5d2266f460702afd7",
+    "scripts/validate_q10_e001.py": "d240ce738ccc1e31fb0883928377d23987af270ae4435741bffd840972ef3e99",
+    "scripts/q9_spatial_features.py": "1002ed8cda95a6709d899a3c34efbf72f82dcf2c8beab4e49d8f90ca7dbfe698",
+    "scripts/q9_batch.py": "5d43b47cc054276523e080aef1fcbb57ca399774a16e50a53376e2f9e63a50c3",
+    "scripts/q9_validate_batch.py": "15f6a626649fe09599cc8a27afcf6f5b596564eba8d267dd93f3c306f8bb1a12",
+    "scripts/run_eegnet.py": "d3ee0eda82fb548f7ef6145157d509c8169ac3da93bab7b6a3ebd2904f908b32",
+    "src/mi_eeg/data/bnci_epochs.py": "ed38a09624689d685384cf9aad83f43c3828904426087dee9b7ae6a9677d301b",
+    "src/mi_eeg/models/eegnet_training.py": "ddb1ab9d40f43abe3ec22a4b0132cd194ea1fe61e1e9ebb801f3423408013842",
+    "src/mi_eeg/evaluation/splits.py": "198f6c4941ce743c406789dfc377659bcec453c0c66e7629f0c3a7744de24cdb"
+  },
+  "selected_conditions": [
+    "MU_BETA_CSP8_EEGNET",
+    "MU_BETA_PCA8_EEGNET"
+  ],
+  "unselected_planned_conditions": [],
+  "selected_fit_counts": {
+    "deep_inner": 72,
+    "deep_final": 54,
+    "shallow_source": 0
+  },
+  "data_dir": "/root/autodl-tmp/data/raw",
+  "output_root": "/root/autodl-tmp/cross-subject-mi-eeg/results",
+  "device": "cuda",
+  "python_executable": "/root/autodl-tmp/q9-venv/bin/python",
+  "python_version": "3.12.3",
+  "templates": {
+    "neural": [
+      "/root/autodl-tmp/q9-venv/bin/python",
+      "scripts/q10_spatial_neural.py",
+      "--condition",
+      "{condition}",
+      "--phase",
+      "{phase}",
+      "--data-dir",
+      "{data_dir}",
+      "--output-root",
+      "{output_root}",
+      "--device",
+      "{device}"
+    ],
+    "psd": [
+      "/root/autodl-tmp/q9-venv/bin/python",
+      "-c",
+      "raise SystemExit('not a Q10-E001 job')"
+    ]
+  },
+  "jobs": [
+    {
+      "job_id": "Q10-E001_MU_BETA_CSP8_EEGNET_selection",
+      "experiment_id": "Q10-E001",
+      "condition": "MU_BETA_CSP8_EEGNET",
+      "phase": "selection",
+      "argv": [
+        "/root/autodl-tmp/q9-venv/bin/python",
+        "scripts/q10_spatial_neural.py",
+        "--condition",
+        "MU_BETA_CSP8_EEGNET",
+        "--phase",
+        "selection",
+        "--data-dir",
+        "/root/autodl-tmp/data/raw",
+        "--output-root",
+        "/root/autodl-tmp/cross-subject-mi-eeg/results",
+        "--device",
+        "cuda"
+      ],
+      "completion_status": "/root/autodl-tmp/cross-subject-mi-eeg/results/Q10-E001/MU_BETA_CSP8_EEGNET/selection_provenance.json",
+      "completion_value": "frozen_before_Q10_target_inference"
+    },
+    {
+      "job_id": "Q10-E001_MU_BETA_CSP8_EEGNET_final",
+      "experiment_id": "Q10-E001",
+      "condition": "MU_BETA_CSP8_EEGNET",
+      "phase": "final",
+      "argv": [
+        "/root/autodl-tmp/q9-venv/bin/python",
+        "scripts/q10_spatial_neural.py",
+        "--condition",
+        "MU_BETA_CSP8_EEGNET",
+        "--phase",
+        "final",
+        "--data-dir",
+        "/root/autodl-tmp/data/raw",
+        "--output-root",
+        "/root/autodl-tmp/cross-subject-mi-eeg/results",
+        "--device",
+        "cuda"
+      ],
+      "completion_status": "/root/autodl-tmp/cross-subject-mi-eeg/results/Q10-E001/MU_BETA_CSP8_EEGNET/status.json",
+      "completion_value": "complete"
+    },
+    {
+      "job_id": "Q10-E001_MU_BETA_PCA8_EEGNET_selection",
+      "experiment_id": "Q10-E001",
+      "condition": "MU_BETA_PCA8_EEGNET",
+      "phase": "selection",
+      "argv": [
+        "/root/autodl-tmp/q9-venv/bin/python",
+        "scripts/q10_spatial_neural.py",
+        "--condition",
+        "MU_BETA_PCA8_EEGNET",
+        "--phase",
+        "selection",
+        "--data-dir",
+        "/root/autodl-tmp/data/raw",
+        "--output-root",
+        "/root/autodl-tmp/cross-subject-mi-eeg/results",
+        "--device",
+        "cuda"
+      ],
+      "completion_status": "/root/autodl-tmp/cross-subject-mi-eeg/results/Q10-E001/MU_BETA_PCA8_EEGNET/selection_provenance.json",
+      "completion_value": "frozen_before_Q10_target_inference"
+    },
+    {
+      "job_id": "Q10-E001_MU_BETA_PCA8_EEGNET_final",
+      "experiment_id": "Q10-E001",
+      "condition": "MU_BETA_PCA8_EEGNET",
+      "phase": "final",
+      "argv": [
+        "/root/autodl-tmp/q9-venv/bin/python",
+        "scripts/q10_spatial_neural.py",
+        "--condition",
+        "MU_BETA_PCA8_EEGNET",
+        "--phase",
+        "final",
+        "--data-dir",
+        "/root/autodl-tmp/data/raw",
+        "--output-root",
+        "/root/autodl-tmp/cross-subject-mi-eeg/results",
+        "--device",
+        "cuda"
+      ],
+      "completion_status": "/root/autodl-tmp/cross-subject-mi-eeg/results/Q10-E001/MU_BETA_PCA8_EEGNET/status.json",
+      "completion_value": "complete"
+    }
+  ]
+}

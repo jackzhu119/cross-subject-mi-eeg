@@ -1,0 +1,10 @@
+{
+  "status": "failed_stopped",
+  "started_or_resumed_at_utc": "2026-09-24T13:22:42.834228+00:00",
+  "planned_jobs": 4,
+  "completed_jobs": 0,
+  "manifest_sha256": "bb46c78388abbd530fb559d7f757aff38a4208bfa7e3249ee89401bd4c66e3d3",
+  "error": "Q9 job failed or completion receipt missing: Q10-E001_MU_BETA_CSP8_EEGNET_selection; see /root/autodl-tmp/cross-subject-mi-eeg/results/Q10-BATCH/jobs/Q10-E001_MU_BETA_CSP8_EEGNET_selection/run.log",
+  "traceback": "Traceback (most recent call last):\n  File \"/root/autodl-tmp/cross-subject-mi-eeg/scripts/q10_e001_batch.py\", line 104, in main\n    q9_batch.run_job(job, batch_dir, environment)\n  File \"/root/autodl-tmp/cross-subject-mi-eeg/scripts/q9_batch.py\", line 250, in run_job\n    raise RuntimeError(f\"Q9 job failed or completion receipt missing: {job['job_id']}; see {log_path}\")\nRuntimeError: Q9 job failed or completion receipt missing: Q10-E001_MU_BETA_CSP8_EEGNET_selection; see /root/autodl-tmp/cross-subject-mi-eeg/results/Q10-BATCH/jobs/Q10-E001_MU_BETA_CSP8_EEGNET_selection/run.log\n",
+  "stopped_at_utc": "2026-09-24T13:30:12.214475+00:00"
+}
