@@ -1,0 +1,20 @@
+{
+  "status": "pushed_with_skipped_files",
+  "attempted_at_utc": "2026-09-24T13:30:52.549743+00:00",
+  "batch_dir": "results/Q10-QUEUE",
+  "experiment_dir": "results/Q10-E001",
+  "candidate_count": 6,
+  "skipped_files": [
+    {
+      "path": "results/Q10-QUEUE/queue.lock",
+      "reason": "extension_or_runtime_file"
+    },
+    {
+      "path": "results/Q10-QUEUE/supervisor.pid",
+      "reason": "extension_or_runtime_file"
+    }
+  ],
+  "result_commit": "c7f0dd2a6877e082e8f486502087d0f042fafd4d",
+  "batch_status": "failed_stopped",
+  "finished_at_utc": "2026-09-24T13:31:10.019676+00:00"
+}
