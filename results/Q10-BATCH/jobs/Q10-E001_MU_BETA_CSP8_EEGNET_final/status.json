@@ -1,0 +1,26 @@
+{
+  "status": "complete",
+  "job_id": "Q10-E001_MU_BETA_CSP8_EEGNET_final",
+  "argv": [
+    "/root/autodl-tmp/q9-venv/bin/python",
+    "scripts/q10_spatial_neural.py",
+    "--condition",
+    "MU_BETA_CSP8_EEGNET",
+    "--phase",
+    "final",
+    "--data-dir",
+    "/root/autodl-tmp/data/raw",
+    "--output-root",
+    "/root/autodl-tmp/cross-subject-mi-eeg/results",
+    "--device",
+    "cuda"
+  ],
+  "attempts": 1,
+  "started_at_utc": "2026-09-24T13:51:25.167601+00:00",
+  "finished_at_utc": "2026-09-24T14:02:08.337667+00:00",
+  "exit_code": 0,
+  "log_path": "/root/autodl-tmp/cross-subject-mi-eeg/results/Q10-BATCH/jobs/Q10-E001_MU_BETA_CSP8_EEGNET_final/run.log",
+  "log_sha256": "22ffbb9d12fafe7056c109d72daaadd311afd178e1d59f58d6e333463845f98b",
+  "completion_status": "/root/autodl-tmp/cross-subject-mi-eeg/results/Q10-E001/MU_BETA_CSP8_EEGNET/status.json",
+  "completion_status_sha256": "2628b1eca13034e80d248f43c2504b5a9ddfcf35028e3db6bbe1959c97b801c2"
+}

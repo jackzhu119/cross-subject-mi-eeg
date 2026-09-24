@@ -1,0 +1,33 @@
+{
+  "experiment_id": "Q10-E001",
+  "condition": "MU_BETA_PCA8_EEGNET",
+  "fold": "loso_s5",
+  "target_subject": 5,
+  "stage": "inner",
+  "inner_fold": 3,
+  "seed": 20260923,
+  "train_subjects": [
+    1,
+    2,
+    3,
+    4,
+    8,
+    9
+  ],
+  "validation_subjects": [
+    6,
+    7
+  ],
+  "n_train": 3456,
+  "n_train_candidates": 3456,
+  "n_flagged_source_train_excluded": 0,
+  "n_validation": 1152,
+  "epochs_trained": 40,
+  "elapsed_seconds": 18.04047056660056,
+  "status": "complete",
+  "completed_at_utc": "2026-09-24T14:09:11.548327+00:00",
+  "sha256_checkpoint.pt": "571ad33eb63954701aa3d7cfd67808a4ccc1e870703b781e273e6fcf631125a1",
+  "sha256_learning_curve.csv": "c8c794e42e52b5aa0596b4e17b8d587c6709e34892baec2803a932b98fd2dd20",
+  "sha256_fit_manifest.csv": "3296fe27bba1f1a9f8f4d44e70f3902c056ba6d753f4aa5f06a61429863a2360",
+  "sha256_spatial_receipt.json": "46e711567145269c3e4be94a186d03237536f6aeef8f169637074f7729f60c0f"
+}

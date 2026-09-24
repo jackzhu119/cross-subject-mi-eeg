@@ -1,0 +1,19 @@
+{
+  "status": "passed_scientific_checks",
+  "conditions": [
+    "MU_BETA_CSP8_EEGNET",
+    "MU_BETA_PCA8_EEGNET"
+  ],
+  "final_fits": 54,
+  "inner_fits": 72,
+  "target_trials_per_fit": 576,
+  "checked_source_only_spatial_receipts": 126,
+  "checked_independent_epoch_selections": 18,
+  "comparison_scope": "exploratory_same_dataset_not_external_confirmation",
+  "analysis_files": [
+    "analysis/subject_seed_metrics.csv",
+    "analysis/subject_metrics.csv",
+    "analysis/paired_contrasts.json"
+  ],
+  "errors": []
+}

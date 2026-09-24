@@ -1,0 +1,36 @@
+{
+  "status": "passed_orchestration_only",
+  "audited_at_utc": "2026-09-24T14:21:02.394387+00:00",
+  "scientific_validation": "not_performed_by_this_batch_validator",
+  "matrix_sha256": "fab024fddfdcf3103c4025690380088ce15b74b97b629ccd6d9ad3d28a0adeda",
+  "selected_conditions": [
+    "MU_BETA_CSP8_EEGNET",
+    "MU_BETA_PCA8_EEGNET"
+  ],
+  "unselected_planned_conditions": [],
+  "jobs_expected": 4,
+  "jobs_complete": 4,
+  "findings": [
+    {
+      "job_id": "Q10-E001_MU_BETA_CSP8_EEGNET_selection",
+      "phase": "selection",
+      "complete": true
+    },
+    {
+      "job_id": "Q10-E001_MU_BETA_CSP8_EEGNET_final",
+      "phase": "final",
+      "complete": true
+    },
+    {
+      "job_id": "Q10-E001_MU_BETA_PCA8_EEGNET_selection",
+      "phase": "selection",
+      "complete": true
+    },
+    {
+      "job_id": "Q10-E001_MU_BETA_PCA8_EEGNET_final",
+      "phase": "final",
+      "complete": true
+    }
+  ],
+  "errors": []
+}
