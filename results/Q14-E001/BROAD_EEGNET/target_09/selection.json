@@ -1,0 +1,41 @@
+{
+  "inner_curve_sha256": [
+    "0b22d5fe1e7a04385f169a09085c3c7db21111d66fa3f3fced4e5fb18f081fdf",
+    "0a985868a2e43ca65d9662a52b87d46431f659c1c4b05b8f591787af4029ce1a",
+    "d6732bc1352805c121f97904a5c0103bc436606858e54b1b9b43cbdc3e7b5949",
+    "13a1acb9d1fbad1ee8296ca3b12da76f94485a0f51095dae737b4d945f1d2841"
+  ],
+  "model": "BROAD_EEGNET",
+  "outer": "target_09",
+  "selected_epoch": 36,
+  "selection_rule": "earliest_epoch_minimizing_equal_inner_fold_mean_within_fold_CE_rank",
+  "source_subjects": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "stage": "e001",
+  "validation_groups": [
+    [
+      1,
+      2
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      5,
+      6
+    ],
+    [
+      7,
+      8
+    ]
+  ]
+}

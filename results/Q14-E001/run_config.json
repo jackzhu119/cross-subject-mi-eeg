@@ -1,0 +1,24 @@
+{
+  "config_sha256": "21428bd8344f1fb8750e7f794f60a17588d63baa8c756db324c0df1c2c474ff2",
+  "data_dir": "/root/autodl-tmp/data/raw",
+  "device": "cuda",
+  "runner_sha256": "b70cf5e41474688b22c6a57a068c07edaa22a8bbf640bd2100b8bb616ea05375",
+  "runtime": {
+    "cuda_available": true,
+    "cuda_device_name": "NVIDIA GeForce RTX 4080 SUPER",
+    "packages": {
+      "braindecode": "1.5.1",
+      "mne": "1.13.2",
+      "moabb": "1.7.2",
+      "numpy": "2.3.2",
+      "scikit-learn": "1.9.1",
+      "scipy": "1.18.1",
+      "torch": "2.8.0+cu128",
+      "torchaudio": "2.8.0+cu128"
+    },
+    "platform": "Linux-5.15.0-78-generic-x86_64-with-glibc2.35",
+    "python": "3.12.3 | packaged by Anaconda, Inc. | (main, May  6 2024, 19:46:43) [GCC 11.2.0]",
+    "torch_cuda_runtime": "12.8"
+  },
+  "stage": "e001"
+}

@@ -1,0 +1,41 @@
+{
+  "inner_curve_sha256": [
+    "509713a426a019176395e9d56e6758070d60bb5e0f63d2e4f3c104ce5a3580c7",
+    "6f19b127b7ec5117672118da1b91800f5b036f1bade4960e353bb5b5037fdfe3",
+    "f21b2c772676dfeac98ff3d0e66fe0c44a0cfd19a6d555083e2c83adea567951",
+    "ddcbbfcfb33e2ab1d8da3a507c4ee2ab16654a641c9d7634c8dc9e99c40e8f7c"
+  ],
+  "model": "MU_BETA_SHARED",
+  "outer": "target_04",
+  "selected_epoch": 19,
+  "selection_rule": "earliest_epoch_minimizing_equal_inner_fold_mean_within_fold_CE_rank",
+  "source_subjects": [
+    1,
+    2,
+    3,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "stage": "e001",
+  "validation_groups": [
+    [
+      1,
+      2
+    ],
+    [
+      3,
+      5
+    ],
+    [
+      6,
+      7
+    ],
+    [
+      8,
+      9
+    ]
+  ]
+}
