@@ -1,8 +1,12 @@
 {
-  "status": "running",
+  "status": "failed_stopped",
   "experiment_id": "Q14-E002R2",
   "parent_experiment_id": "Q14-E002R1",
   "started_or_resumed_at_utc": "2026-09-25T13:48:32.566270+00:00",
   "external_target_fits": 0,
-  "protocol_amendment": "native-128-Hz EDFs resampled 5/4 after native-Hz filtering/epoching"
+  "protocol_amendment": "native-128-Hz EDFs resampled 5/4 after native-Hz filtering/epoching",
+  "finished_at_utc": "2026-09-25T14:29:33.224060+00:00",
+  "error": "R2 independent validation failed (exit 1)",
+  "traceback": "Traceback (most recent call last):\n  File \"/root/autodl-tmp/cross-subject-mi-eeg/scripts/q14_r2_supervisor.py\", line 140, in run\n    raise RuntimeError(\nRuntimeError: R2 independent validation failed (exit 1)\n",
+  "runner_exit_code": 0
 }
