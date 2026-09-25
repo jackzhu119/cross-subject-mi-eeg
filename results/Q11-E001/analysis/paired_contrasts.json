@@ -1,0 +1,190 @@
+{
+  "conditions": {
+    "FOUR_BAND_SHARED": {
+      "Q8_broad": {
+        "per_subject_delta": {
+          "1": -0.04976851851851851,
+          "2": 0.015624999999999981,
+          "3": -0.1064814814814814,
+          "4": -0.020833333333333353,
+          "5": 0.007523148148148158,
+          "6": 0.005787037037037035,
+          "7": 0.020833333333333353,
+          "8": -0.1105324074074074,
+          "9": -0.02025462962962965
+        },
+        "mean_delta": -0.028677983539094638,
+        "median_delta": -0.02025462962962965,
+        "subject_bootstrap_95ci": [
+          -0.0615997942386831,
+          -0.0001929012345679087
+        ],
+        "exact_sign_flip_two_sided_p_exploratory": 0.1640625,
+        "inference_unit": "nine_held_out_subjects_not_seeds_or_trials",
+        "holm_adjusted_p_within_four_Q11_conditions": 0.65625
+      },
+      "Q9_mu_beta_shared": {
+        "per_subject_delta": {
+          "1": -0.03819444444444444,
+          "2": 0.00752314814814814,
+          "3": -0.11284722222222225,
+          "4": -0.03356481481481488,
+          "5": 0.004050925925925948,
+          "6": 0.01099537037037035,
+          "7": -0.01678240740740744,
+          "8": -0.00810185185185186,
+          "9": -0.02777777777777779
+        },
+        "mean_delta": -0.023855452674897137,
+        "median_delta": -0.01678240740740744,
+        "subject_bootstrap_95ci": [
+          -0.05028452932098768,
+          -0.004179526748971201
+        ],
+        "exact_sign_flip_two_sided_p_exploratory": 0.05859375,
+        "inference_unit": "nine_held_out_subjects_not_seeds_or_trials",
+        "holm_adjusted_p_within_four_Q11_conditions": 0.234375
+      }
+    },
+    "TWO_BAND_INDEPENDENT": {
+      "Q8_broad": {
+        "per_subject_delta": {
+          "1": 0.022569444444444458,
+          "2": 0.014467592592592579,
+          "3": 0.044560185185185265,
+          "4": -0.040509259259259245,
+          "5": -0.0028935185185185084,
+          "6": -0.009837962962962946,
+          "7": -0.021990740740740717,
+          "8": -0.050925925925925895,
+          "9": 0.07349537037037035
+        },
+        "mean_delta": 0.003215020576131704,
+        "median_delta": -0.0028935185185185084,
+        "subject_bootstrap_95ci": [
+          -0.02031893004115224,
+          0.02835648148148148
+        ],
+        "exact_sign_flip_two_sided_p_exploratory": 0.80859375,
+        "inference_unit": "nine_held_out_subjects_not_seeds_or_trials",
+        "holm_adjusted_p_within_four_Q11_conditions": 1.0
+      },
+      "Q9_mu_beta_shared": {
+        "per_subject_delta": {
+          "1": 0.034143518518518524,
+          "2": 0.006365740740740737,
+          "3": 0.03819444444444442,
+          "4": -0.053240740740740776,
+          "5": -0.006365740740740718,
+          "6": -0.004629629629629632,
+          "7": -0.05960648148148151,
+          "8": 0.05150462962962965,
+          "9": 0.06597222222222221
+        },
+        "mean_delta": 0.008037551440329213,
+        "median_delta": 0.006365740740740737,
+        "subject_bootstrap_95ci": [
+          -0.019868827160493836,
+          0.03440072016460904
+        ],
+        "exact_sign_flip_two_sided_p_exploratory": 0.609375,
+        "inference_unit": "nine_held_out_subjects_not_seeds_or_trials",
+        "holm_adjusted_p_within_four_Q11_conditions": 1.0
+      }
+    },
+    "TWO_BAND_EARLY_STACK": {
+      "Q8_broad": {
+        "per_subject_delta": {
+          "1": 0.00810185185185186,
+          "2": 0.016203703703703647,
+          "3": -0.0063657407407407,
+          "4": -0.045717592592592594,
+          "5": 0.0028935185185185266,
+          "6": -0.004629629629629613,
+          "7": -0.0017361111111110679,
+          "8": -0.046875,
+          "9": 0.0769675925925926
+        },
+        "mean_delta": -0.00012860082304526034,
+        "median_delta": -0.0017361111111110679,
+        "subject_bootstrap_95ci": [
+          -0.02076903292181069,
+          0.023214056069958716
+        ],
+        "exact_sign_flip_two_sided_p_exploratory": 1.0,
+        "inference_unit": "nine_held_out_subjects_not_seeds_or_trials",
+        "holm_adjusted_p_within_four_Q11_conditions": 1.0
+      },
+      "Q9_mu_beta_shared": {
+        "per_subject_delta": {
+          "1": 0.01967592592592593,
+          "2": 0.008101851851851805,
+          "3": -0.012731481481481547,
+          "4": -0.058449074074074125,
+          "5": -0.0005787037037036832,
+          "6": 0.0005787037037037016,
+          "7": -0.03935185185185186,
+          "8": 0.055555555555555546,
+          "9": 0.06944444444444446
+        },
+        "mean_delta": 0.004693930041152247,
+        "median_delta": 0.0005787037037037016,
+        "subject_bootstrap_95ci": [
+          -0.020190329218107015,
+          0.03002829218106995
+        ],
+        "exact_sign_flip_two_sided_p_exploratory": 0.73046875,
+        "inference_unit": "nine_held_out_subjects_not_seeds_or_trials",
+        "holm_adjusted_p_within_four_Q11_conditions": 1.0
+      }
+    },
+    "BROAD_CAPACITY_MATCHED": {
+      "Q8_broad": {
+        "per_subject_delta": {
+          "1": -0.008680555555555506,
+          "2": 0.021412037037037035,
+          "3": -0.040509259259259155,
+          "4": -0.021412037037037018,
+          "5": 0.0023148148148148064,
+          "6": 0.02835648148148151,
+          "7": 0.015625000000000017,
+          "8": -0.04571759259259256,
+          "9": 0.005787037037037017
+        },
+        "mean_delta": -0.004758230452674872,
+        "median_delta": 0.0023148148148148064,
+        "subject_bootstrap_95ci": [
+          -0.02147633744855963,
+          0.010609567901234584
+        ],
+        "exact_sign_flip_two_sided_p_exploratory": 0.60546875,
+        "inference_unit": "nine_held_out_subjects_not_seeds_or_trials",
+        "holm_adjusted_p_within_four_Q11_conditions": 1.0
+      },
+      "Q9_mu_beta_shared": {
+        "per_subject_delta": {
+          "1": 0.002893518518518564,
+          "2": 0.013310185185185194,
+          "3": -0.046875,
+          "4": -0.034143518518518545,
+          "5": -0.0011574074074074032,
+          "6": 0.033564814814814825,
+          "7": -0.021990740740740772,
+          "8": 0.056712962962962986,
+          "9": -0.0017361111111111234
+        },
+        "mean_delta": 6.430041152263506e-05,
+        "median_delta": -0.0011574074074074032,
+        "subject_bootstrap_95ci": [
+          -0.019548932613168733,
+          0.020318930041152275
+        ],
+        "exact_sign_flip_two_sided_p_exploratory": 1.0,
+        "inference_unit": "nine_held_out_subjects_not_seeds_or_trials",
+        "holm_adjusted_p_within_four_Q11_conditions": 1.0
+      }
+    }
+  },
+  "scope": "exploratory_BNCI_same_dataset_after_Q9",
+  "primary_unit": "held_out_subject_equal_weight_after_three_seed_mean"
+}

@@ -1,0 +1,264 @@
+{
+  "experiment_id": "Q11-E001",
+  "condition": "TWO_BAND_EARLY_STACK",
+  "bands": {
+    "mu": [
+      8,
+      13
+    ],
+    "beta": [
+      13,
+      30
+    ]
+  },
+  "fusion": "one_EEGNet_44_channels_mu_then_beta",
+  "preprocessing": {
+    "sampling_rate_hz": 250,
+    "bands": {
+      "mu": [
+        8,
+        13
+      ],
+      "beta": [
+        13,
+        30
+      ]
+    },
+    "filter": {
+      "order": 4,
+      "ftype": "butter",
+      "phase": "zero"
+    },
+    "trial_start_s": 2.5,
+    "trial_stop_exclusive_s": 5.5,
+    "artifact_policy": "include_all",
+    "baseline": null
+  },
+  "architecture": {
+    "library": "braindecode",
+    "model": "EEGNet",
+    "n_chans": 44,
+    "n_outputs": 4,
+    "n_times": 750,
+    "F1": 8,
+    "D": 2,
+    "F2": 16,
+    "kernel_length": 64,
+    "drop_prob": 0.25
+  },
+  "capacity_plan": {
+    "reference_single_branch_count": 2932,
+    "reference_independent_two_branch_count": 5864,
+    "candidates": [
+      {
+        "F1": 8,
+        "D": 2,
+        "F2": 16,
+        "parameter_count": 2932
+      },
+      {
+        "F1": 9,
+        "D": 2,
+        "F2": 18,
+        "parameter_count": 3334
+      },
+      {
+        "F1": 10,
+        "D": 2,
+        "F2": 20,
+        "parameter_count": 3744
+      },
+      {
+        "F1": 11,
+        "D": 2,
+        "F2": 22,
+        "parameter_count": 4162
+      },
+      {
+        "F1": 12,
+        "D": 2,
+        "F2": 24,
+        "parameter_count": 4588
+      },
+      {
+        "F1": 13,
+        "D": 2,
+        "F2": 26,
+        "parameter_count": 5022
+      },
+      {
+        "F1": 14,
+        "D": 2,
+        "F2": 28,
+        "parameter_count": 5464
+      },
+      {
+        "F1": 15,
+        "D": 2,
+        "F2": 30,
+        "parameter_count": 5914
+      },
+      {
+        "F1": 16,
+        "D": 2,
+        "F2": 32,
+        "parameter_count": 6372
+      },
+      {
+        "F1": 17,
+        "D": 2,
+        "F2": 34,
+        "parameter_count": 6838
+      },
+      {
+        "F1": 18,
+        "D": 2,
+        "F2": 36,
+        "parameter_count": 7312
+      },
+      {
+        "F1": 19,
+        "D": 2,
+        "F2": 38,
+        "parameter_count": 7794
+      },
+      {
+        "F1": 20,
+        "D": 2,
+        "F2": 40,
+        "parameter_count": 8284
+      },
+      {
+        "F1": 21,
+        "D": 2,
+        "F2": 42,
+        "parameter_count": 8782
+      },
+      {
+        "F1": 22,
+        "D": 2,
+        "F2": 44,
+        "parameter_count": 9288
+      },
+      {
+        "F1": 23,
+        "D": 2,
+        "F2": 46,
+        "parameter_count": 9802
+      },
+      {
+        "F1": 24,
+        "D": 2,
+        "F2": 48,
+        "parameter_count": 10324
+      },
+      {
+        "F1": 25,
+        "D": 2,
+        "F2": 50,
+        "parameter_count": 10854
+      },
+      {
+        "F1": 26,
+        "D": 2,
+        "F2": 52,
+        "parameter_count": 11392
+      },
+      {
+        "F1": 27,
+        "D": 2,
+        "F2": 54,
+        "parameter_count": 11938
+      },
+      {
+        "F1": 28,
+        "D": 2,
+        "F2": 56,
+        "parameter_count": 12492
+      },
+      {
+        "F1": 29,
+        "D": 2,
+        "F2": 58,
+        "parameter_count": 13054
+      },
+      {
+        "F1": 30,
+        "D": 2,
+        "F2": 60,
+        "parameter_count": 13624
+      },
+      {
+        "F1": 31,
+        "D": 2,
+        "F2": 62,
+        "parameter_count": 14202
+      },
+      {
+        "F1": 32,
+        "D": 2,
+        "F2": 64,
+        "parameter_count": 14788
+      }
+    ],
+    "chosen": {
+      "F1": 15,
+      "D": 2,
+      "F2": 30,
+      "parameter_count": 5914
+    },
+    "relative_parameter_mismatch": 0.008526603001364257,
+    "criterion": "minimum_absolute_count_difference_then_lowest_F1_no_EEG_used"
+  },
+  "training": {
+    "torch_threads": 4,
+    "deterministic_algorithms": true,
+    "selection_seed": 20260923,
+    "final_seeds": [
+      20260924,
+      20260925,
+      20260926
+    ],
+    "inner_validation_rule": "consecutive_pairs_of_sorted_eight_source_subjects",
+    "inner_folds": 4,
+    "batch_size": 64,
+    "max_epochs": 40,
+    "optimizer": "Adam",
+    "learning_rate": 0.001,
+    "weight_decay": 0.0,
+    "loss": "cross_entropy",
+    "scheduler": "none",
+    "augmentation": "none"
+  },
+  "input": {
+    "shape": [
+      22,
+      750
+    ],
+    "volts_to_microvolts": 1000000.0,
+    "target_derived_normalization": false
+  },
+  "subjects": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "class_ids": {
+    "left_hand": 1,
+    "right_hand": 2,
+    "feet": 3,
+    "tongue": 4
+  },
+  "source_only_selection": true,
+  "target_fitted_transform": false,
+  "data_dir": "/root/autodl-tmp/data/raw",
+  "q8_config_sha256": "daac05d5dffc36cd1d44dd30927d480c0a1087125828ce95ebb2b383d7d18342",
+  "execution_matrix_sha256": "21a728ae27908d911a5e27ed5d7818478bee36c10a9159d5b04259a4d4512d0a",
+  "runner_sha256": "77056cd4e97319ecf2b82479a45590ce17caae85076eef6919355ae123d16566"
+}

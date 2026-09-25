@@ -1,0 +1,72 @@
+{
+  "condition": "BROAD_CAPACITY_MATCHED",
+  "fusion": "one_broadband_EEGNet_parameter_count_matched_to_independent_two_branch",
+  "architecture": {
+    "library": "braindecode",
+    "model": "EEGNet",
+    "n_chans": 22,
+    "n_outputs": 4,
+    "n_times": 750,
+    "F1": 15,
+    "D": 2,
+    "F2": 30,
+    "kernel_length": 64,
+    "drop_prob": 0.25
+  },
+  "trainable_parameter_count": 5914,
+  "parameter_shapes": {
+    "conv_temporal.weight": [
+      15,
+      1,
+      1,
+      64
+    ],
+    "bnorm_temporal.weight": [
+      15
+    ],
+    "bnorm_temporal.bias": [
+      15
+    ],
+    "conv_spatial.parametrizations.weight.original": [
+      30,
+      1,
+      22,
+      1
+    ],
+    "bnorm_1.weight": [
+      30
+    ],
+    "bnorm_1.bias": [
+      30
+    ],
+    "conv_separable_depth.weight": [
+      30,
+      1,
+      1,
+      16
+    ],
+    "conv_separable_point.weight": [
+      30,
+      30,
+      1,
+      1
+    ],
+    "bnorm_2.weight": [
+      30
+    ],
+    "bnorm_2.bias": [
+      30
+    ],
+    "final_layer.conv_classifier.weight": [
+      4,
+      30,
+      1,
+      23
+    ],
+    "final_layer.conv_classifier.bias": [
+      4
+    ]
+  },
+  "capacity_reference_two_branch_count": 5864,
+  "target_or_EEG_used_to_size_model": false
+}

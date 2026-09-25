@@ -1,0 +1,26 @@
+{
+  "status": "complete",
+  "job_id": "Q11-E001_FOUR_BAND_SHARED_final",
+  "argv": [
+    "/root/autodl-tmp/q9-venv/bin/python",
+    "scripts/q11_neural.py",
+    "--condition",
+    "FOUR_BAND_SHARED",
+    "--phase",
+    "final",
+    "--data-dir",
+    "/root/autodl-tmp/data/raw",
+    "--output-root",
+    "/root/autodl-tmp/cross-subject-mi-eeg/results",
+    "--device",
+    "cuda"
+  ],
+  "attempts": 1,
+  "started_at_utc": "2026-09-25T01:51:27.046088+00:00",
+  "finished_at_utc": "2026-09-25T01:56:28.682018+00:00",
+  "exit_code": 0,
+  "log_path": "/root/autodl-tmp/cross-subject-mi-eeg/results/Q11-BATCH/jobs/Q11-E001_FOUR_BAND_SHARED_final/run.log",
+  "log_sha256": "540751b7662543e8cbdaaa3de086986d74b7d23f3ea2f49e349ede1f75543a47",
+  "completion_status": "/root/autodl-tmp/cross-subject-mi-eeg/results/Q11-E001/FOUR_BAND_SHARED/status.json",
+  "completion_status_sha256": "91471ab7768f8648cf899a3d29a822dc02b642dac45d0a3db37862cd1958b202"
+}

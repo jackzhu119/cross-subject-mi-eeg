@@ -1,0 +1,26 @@
+{
+  "status": "complete",
+  "job_id": "Q11-E001_BROAD_CAPACITY_MATCHED_selection",
+  "argv": [
+    "/root/autodl-tmp/q9-venv/bin/python",
+    "scripts/q11_neural.py",
+    "--condition",
+    "BROAD_CAPACITY_MATCHED",
+    "--phase",
+    "selection",
+    "--data-dir",
+    "/root/autodl-tmp/data/raw",
+    "--output-root",
+    "/root/autodl-tmp/cross-subject-mi-eeg/results",
+    "--device",
+    "cuda"
+  ],
+  "attempts": 1,
+  "started_at_utc": "2026-09-25T02:37:25.873792+00:00",
+  "finished_at_utc": "2026-09-25T02:47:25.408939+00:00",
+  "exit_code": 0,
+  "log_path": "/root/autodl-tmp/cross-subject-mi-eeg/results/Q11-BATCH/jobs/Q11-E001_BROAD_CAPACITY_MATCHED_selection/run.log",
+  "log_sha256": "82842493a7e2baf672cd80fd153e5d8f06208cb5de853bfe8fe6d833def00bf4",
+  "completion_status": "/root/autodl-tmp/cross-subject-mi-eeg/results/Q11-E001/BROAD_CAPACITY_MATCHED/selection_provenance.json",
+  "completion_status_sha256": "bef925429d3b0e8659d16ac4c2bb3cb2378b5775bbda7f0d4c77d23092400fa3"
+}

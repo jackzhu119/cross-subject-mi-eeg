@@ -1,0 +1,26 @@
+{
+  "status": "complete",
+  "job_id": "Q11-E001_TWO_BAND_INDEPENDENT_final",
+  "argv": [
+    "/root/autodl-tmp/q9-venv/bin/python",
+    "scripts/q11_neural.py",
+    "--condition",
+    "TWO_BAND_INDEPENDENT",
+    "--phase",
+    "final",
+    "--data-dir",
+    "/root/autodl-tmp/data/raw",
+    "--output-root",
+    "/root/autodl-tmp/cross-subject-mi-eeg/results",
+    "--device",
+    "cuda"
+  ],
+  "attempts": 1,
+  "started_at_utc": "2026-09-25T02:13:00.311375+00:00",
+  "finished_at_utc": "2026-09-25T02:18:38.513205+00:00",
+  "exit_code": 0,
+  "log_path": "/root/autodl-tmp/cross-subject-mi-eeg/results/Q11-BATCH/jobs/Q11-E001_TWO_BAND_INDEPENDENT_final/run.log",
+  "log_sha256": "c2e37c2949de6aefda617c6fc0920b874352e843fd484f83029eef3f0f452003",
+  "completion_status": "/root/autodl-tmp/cross-subject-mi-eeg/results/Q11-E001/TWO_BAND_INDEPENDENT/status.json",
+  "completion_status_sha256": "18567f48d0ad3fe9ebb651efc566396cee9563ee9e05fac453b6e8a51e2d460c"
+}

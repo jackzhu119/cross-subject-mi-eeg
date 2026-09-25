@@ -1,0 +1,31 @@
+{
+  "experiment_id": "Q11-E001",
+  "condition": "BROAD_CAPACITY_MATCHED",
+  "fold": "loso_s4",
+  "target_subject": 4,
+  "stage": "inner",
+  "inner_fold": 2,
+  "seed": 20260923,
+  "train_subjects": [
+    1,
+    2,
+    6,
+    7,
+    8,
+    9
+  ],
+  "validation_subjects": [
+    3,
+    5
+  ],
+  "n_train": 3456,
+  "n_validation": 1152,
+  "epochs_trained": 40,
+  "elapsed_seconds": 15.47044471744448,
+  "status": "complete",
+  "completed_at_utc": "2026-09-25T02:41:40.204341+00:00",
+  "sha256_checkpoint.pt": "570d4dcc3c998d5156b1c43dc638f62bc4514fa872728db7587ca032609e33d0",
+  "sha256_learning_curve.csv": "833f4dd2edcab89dd1a7ac8c0ae03453b02151f2c8190e9670227af46dd84b9d",
+  "sha256_fit_manifest.csv": "9bfdf8df5141cf841791e88ed8b48e8d84c07c0f646edbe6ef11c3fa455e4628",
+  "sha256_model_receipt.json": "964ffa431caf29bdd4a6016278563bfd00fb3c7d63a35a5d3ad312e4d782086f"
+}

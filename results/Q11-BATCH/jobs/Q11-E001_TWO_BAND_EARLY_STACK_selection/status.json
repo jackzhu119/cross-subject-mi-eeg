@@ -1,0 +1,26 @@
+{
+  "status": "complete",
+  "job_id": "Q11-E001_TWO_BAND_EARLY_STACK_selection",
+  "argv": [
+    "/root/autodl-tmp/q9-venv/bin/python",
+    "scripts/q11_neural.py",
+    "--condition",
+    "TWO_BAND_EARLY_STACK",
+    "--phase",
+    "selection",
+    "--data-dir",
+    "/root/autodl-tmp/data/raw",
+    "--output-root",
+    "/root/autodl-tmp/cross-subject-mi-eeg/results",
+    "--device",
+    "cuda"
+  ],
+  "attempts": 1,
+  "started_at_utc": "2026-09-25T02:18:38.515040+00:00",
+  "finished_at_utc": "2026-09-25T02:32:22.308023+00:00",
+  "exit_code": 0,
+  "log_path": "/root/autodl-tmp/cross-subject-mi-eeg/results/Q11-BATCH/jobs/Q11-E001_TWO_BAND_EARLY_STACK_selection/run.log",
+  "log_sha256": "9bd50f5880ead77d2e320cbc78c991ccd114d1e0a2650d6866f6c533a37a4834",
+  "completion_status": "/root/autodl-tmp/cross-subject-mi-eeg/results/Q11-E001/TWO_BAND_EARLY_STACK/selection_provenance.json",
+  "completion_status_sha256": "57a2c6718ba178e28e169ffc0f957d6907b67639cf1ba5d441c84df4d105288e"
+}

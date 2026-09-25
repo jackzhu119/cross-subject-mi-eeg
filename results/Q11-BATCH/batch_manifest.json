@@ -1,0 +1,235 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-09-25T01:30:30.957976+00:00",
+  "scope": "Q11_E001_orchestration_and_independent_prediction_audit",
+  "matrix_path": "/root/autodl-tmp/cross-subject-mi-eeg/research_runs/Q11-E001/MATRIX.json",
+  "matrix_sha256": "21a728ae27908d911a5e27ed5d7818478bee36c10a9159d5b04259a4d4512d0a",
+  "code_sha256": {
+    "scripts/q11_neural.py": "77056cd4e97319ecf2b82479a45590ce17caae85076eef6919355ae123d16566",
+    "scripts/q11_batch.py": "11b3b9c57553e8403460da2beacf0777bac675a1753b297acc4106ce759d982e",
+    "scripts/validate_q11_e001.py": "5e21c90a1a3c614ab4b09380aba2b27b6339bb379bf06b75b9e0a8608ade3858",
+    "scripts/q9_neural.py": "47d20131bfd05b775ac3a55304d9ad2e34c5fc8473901ca717edaa66471f1c56",
+    "scripts/q9_batch.py": "5d43b47cc054276523e080aef1fcbb57ca399774a16e50a53376e2f9e63a50c3",
+    "scripts/q9_validate_batch.py": "15f6a626649fe09599cc8a27afcf6f5b596564eba8d267dd93f3c306f8bb1a12",
+    "scripts/run_eegnet.py": "d3ee0eda82fb548f7ef6145157d509c8169ac3da93bab7b6a3ebd2904f908b32",
+    "src/mi_eeg/data/bnci_epochs.py": "ed38a09624689d685384cf9aad83f43c3828904426087dee9b7ae6a9677d301b",
+    "src/mi_eeg/models/eegnet_training.py": "ddb1ab9d40f43abe3ec22a4b0132cd194ea1fe61e1e9ebb801f3423408013842",
+    "src/mi_eeg/evaluation/splits.py": "198f6c4941ce743c406789dfc377659bcec453c0c66e7629f0c3a7744de24cdb"
+  },
+  "selected_conditions": [
+    "FOUR_BAND_SHARED",
+    "TWO_BAND_INDEPENDENT",
+    "TWO_BAND_EARLY_STACK",
+    "BROAD_CAPACITY_MATCHED"
+  ],
+  "unselected_planned_conditions": [],
+  "selected_fit_counts": {
+    "deep_inner": 144,
+    "deep_final": 108,
+    "shallow_source": 0
+  },
+  "data_dir": "/root/autodl-tmp/data/raw",
+  "output_root": "/root/autodl-tmp/cross-subject-mi-eeg/results",
+  "device": "cuda",
+  "python_executable": "/root/autodl-tmp/q9-venv/bin/python",
+  "python_version": "3.12.3",
+  "templates": {
+    "neural": [
+      "/root/autodl-tmp/q9-venv/bin/python",
+      "scripts/q11_neural.py",
+      "--condition",
+      "{condition}",
+      "--phase",
+      "{phase}",
+      "--data-dir",
+      "{data_dir}",
+      "--output-root",
+      "{output_root}",
+      "--device",
+      "{device}"
+    ],
+    "psd": [
+      "/root/autodl-tmp/q9-venv/bin/python",
+      "-c",
+      "raise SystemExit('not a Q11-E001 job')"
+    ]
+  },
+  "jobs": [
+    {
+      "job_id": "Q11-E001_FOUR_BAND_SHARED_selection",
+      "experiment_id": "Q11-E001",
+      "condition": "FOUR_BAND_SHARED",
+      "phase": "selection",
+      "argv": [
+        "/root/autodl-tmp/q9-venv/bin/python",
+        "scripts/q11_neural.py",
+        "--condition",
+        "FOUR_BAND_SHARED",
+        "--phase",
+        "selection",
+        "--data-dir",
+        "/root/autodl-tmp/data/raw",
+        "--output-root",
+        "/root/autodl-tmp/cross-subject-mi-eeg/results",
+        "--device",
+        "cuda"
+      ],
+      "completion_status": "/root/autodl-tmp/cross-subject-mi-eeg/results/Q11-E001/FOUR_BAND_SHARED/selection_provenance.json",
+      "completion_value": "frozen_before_Q11_target_inference"
+    },
+    {
+      "job_id": "Q11-E001_FOUR_BAND_SHARED_final",
+      "experiment_id": "Q11-E001",
+      "condition": "FOUR_BAND_SHARED",
+      "phase": "final",
+      "argv": [
+        "/root/autodl-tmp/q9-venv/bin/python",
+        "scripts/q11_neural.py",
+        "--condition",
+        "FOUR_BAND_SHARED",
+        "--phase",
+        "final",
+        "--data-dir",
+        "/root/autodl-tmp/data/raw",
+        "--output-root",
+        "/root/autodl-tmp/cross-subject-mi-eeg/results",
+        "--device",
+        "cuda"
+      ],
+      "completion_status": "/root/autodl-tmp/cross-subject-mi-eeg/results/Q11-E001/FOUR_BAND_SHARED/status.json",
+      "completion_value": "complete"
+    },
+    {
+      "job_id": "Q11-E001_TWO_BAND_INDEPENDENT_selection",
+      "experiment_id": "Q11-E001",
+      "condition": "TWO_BAND_INDEPENDENT",
+      "phase": "selection",
+      "argv": [
+        "/root/autodl-tmp/q9-venv/bin/python",
+        "scripts/q11_neural.py",
+        "--condition",
+        "TWO_BAND_INDEPENDENT",
+        "--phase",
+        "selection",
+        "--data-dir",
+        "/root/autodl-tmp/data/raw",
+        "--output-root",
+        "/root/autodl-tmp/cross-subject-mi-eeg/results",
+        "--device",
+        "cuda"
+      ],
+      "completion_status": "/root/autodl-tmp/cross-subject-mi-eeg/results/Q11-E001/TWO_BAND_INDEPENDENT/selection_provenance.json",
+      "completion_value": "frozen_before_Q11_target_inference"
+    },
+    {
+      "job_id": "Q11-E001_TWO_BAND_INDEPENDENT_final",
+      "experiment_id": "Q11-E001",
+      "condition": "TWO_BAND_INDEPENDENT",
+      "phase": "final",
+      "argv": [
+        "/root/autodl-tmp/q9-venv/bin/python",
+        "scripts/q11_neural.py",
+        "--condition",
+        "TWO_BAND_INDEPENDENT",
+        "--phase",
+        "final",
+        "--data-dir",
+        "/root/autodl-tmp/data/raw",
+        "--output-root",
+        "/root/autodl-tmp/cross-subject-mi-eeg/results",
+        "--device",
+        "cuda"
+      ],
+      "completion_status": "/root/autodl-tmp/cross-subject-mi-eeg/results/Q11-E001/TWO_BAND_INDEPENDENT/status.json",
+      "completion_value": "complete"
+    },
+    {
+      "job_id": "Q11-E001_TWO_BAND_EARLY_STACK_selection",
+      "experiment_id": "Q11-E001",
+      "condition": "TWO_BAND_EARLY_STACK",
+      "phase": "selection",
+      "argv": [
+        "/root/autodl-tmp/q9-venv/bin/python",
+        "scripts/q11_neural.py",
+        "--condition",
+        "TWO_BAND_EARLY_STACK",
+        "--phase",
+        "selection",
+        "--data-dir",
+        "/root/autodl-tmp/data/raw",
+        "--output-root",
+        "/root/autodl-tmp/cross-subject-mi-eeg/results",
+        "--device",
+        "cuda"
+      ],
+      "completion_status": "/root/autodl-tmp/cross-subject-mi-eeg/results/Q11-E001/TWO_BAND_EARLY_STACK/selection_provenance.json",
+      "completion_value": "frozen_before_Q11_target_inference"
+    },
+    {
+      "job_id": "Q11-E001_TWO_BAND_EARLY_STACK_final",
+      "experiment_id": "Q11-E001",
+      "condition": "TWO_BAND_EARLY_STACK",
+      "phase": "final",
+      "argv": [
+        "/root/autodl-tmp/q9-venv/bin/python",
+        "scripts/q11_neural.py",
+        "--condition",
+        "TWO_BAND_EARLY_STACK",
+        "--phase",
+        "final",
+        "--data-dir",
+        "/root/autodl-tmp/data/raw",
+        "--output-root",
+        "/root/autodl-tmp/cross-subject-mi-eeg/results",
+        "--device",
+        "cuda"
+      ],
+      "completion_status": "/root/autodl-tmp/cross-subject-mi-eeg/results/Q11-E001/TWO_BAND_EARLY_STACK/status.json",
+      "completion_value": "complete"
+    },
+    {
+      "job_id": "Q11-E001_BROAD_CAPACITY_MATCHED_selection",
+      "experiment_id": "Q11-E001",
+      "condition": "BROAD_CAPACITY_MATCHED",
+      "phase": "selection",
+      "argv": [
+        "/root/autodl-tmp/q9-venv/bin/python",
+        "scripts/q11_neural.py",
+        "--condition",
+        "BROAD_CAPACITY_MATCHED",
+        "--phase",
+        "selection",
+        "--data-dir",
+        "/root/autodl-tmp/data/raw",
+        "--output-root",
+        "/root/autodl-tmp/cross-subject-mi-eeg/results",
+        "--device",
+        "cuda"
+      ],
+      "completion_status": "/root/autodl-tmp/cross-subject-mi-eeg/results/Q11-E001/BROAD_CAPACITY_MATCHED/selection_provenance.json",
+      "completion_value": "frozen_before_Q11_target_inference"
+    },
+    {
+      "job_id": "Q11-E001_BROAD_CAPACITY_MATCHED_final",
+      "experiment_id": "Q11-E001",
+      "condition": "BROAD_CAPACITY_MATCHED",
+      "phase": "final",
+      "argv": [
+        "/root/autodl-tmp/q9-venv/bin/python",
+        "scripts/q11_neural.py",
+        "--condition",
+        "BROAD_CAPACITY_MATCHED",
+        "--phase",
+        "final",
+        "--data-dir",
+        "/root/autodl-tmp/data/raw",
+        "--output-root",
+        "/root/autodl-tmp/cross-subject-mi-eeg/results",
+        "--device",
+        "cuda"
+      ],
+      "completion_status": "/root/autodl-tmp/cross-subject-mi-eeg/results/Q11-E001/BROAD_CAPACITY_MATCHED/status.json",
+      "completion_value": "complete"
+    }
+  ]
+}

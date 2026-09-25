@@ -1,0 +1,58 @@
+{
+  "status": "passed_orchestration_only",
+  "audited_at_utc": "2026-09-25T02:50:32.929284+00:00",
+  "scientific_validation": "not_performed_by_this_batch_validator",
+  "matrix_sha256": "21a728ae27908d911a5e27ed5d7818478bee36c10a9159d5b04259a4d4512d0a",
+  "selected_conditions": [
+    "FOUR_BAND_SHARED",
+    "TWO_BAND_INDEPENDENT",
+    "TWO_BAND_EARLY_STACK",
+    "BROAD_CAPACITY_MATCHED"
+  ],
+  "unselected_planned_conditions": [],
+  "jobs_expected": 8,
+  "jobs_complete": 8,
+  "findings": [
+    {
+      "job_id": "Q11-E001_FOUR_BAND_SHARED_selection",
+      "phase": "selection",
+      "complete": true
+    },
+    {
+      "job_id": "Q11-E001_FOUR_BAND_SHARED_final",
+      "phase": "final",
+      "complete": true
+    },
+    {
+      "job_id": "Q11-E001_TWO_BAND_INDEPENDENT_selection",
+      "phase": "selection",
+      "complete": true
+    },
+    {
+      "job_id": "Q11-E001_TWO_BAND_INDEPENDENT_final",
+      "phase": "final",
+      "complete": true
+    },
+    {
+      "job_id": "Q11-E001_TWO_BAND_EARLY_STACK_selection",
+      "phase": "selection",
+      "complete": true
+    },
+    {
+      "job_id": "Q11-E001_TWO_BAND_EARLY_STACK_final",
+      "phase": "final",
+      "complete": true
+    },
+    {
+      "job_id": "Q11-E001_BROAD_CAPACITY_MATCHED_selection",
+      "phase": "selection",
+      "complete": true
+    },
+    {
+      "job_id": "Q11-E001_BROAD_CAPACITY_MATCHED_final",
+      "phase": "final",
+      "complete": true
+    }
+  ],
+  "errors": []
+}

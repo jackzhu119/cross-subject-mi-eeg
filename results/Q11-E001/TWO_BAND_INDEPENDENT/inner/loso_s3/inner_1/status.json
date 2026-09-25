@@ -1,0 +1,31 @@
+{
+  "experiment_id": "Q11-E001",
+  "condition": "TWO_BAND_INDEPENDENT",
+  "fold": "loso_s3",
+  "target_subject": 3,
+  "stage": "inner",
+  "inner_fold": 1,
+  "seed": 20260923,
+  "train_subjects": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "validation_subjects": [
+    1,
+    2
+  ],
+  "n_train": 3456,
+  "n_validation": 1152,
+  "epochs_trained": 40,
+  "elapsed_seconds": 28.01719369739294,
+  "status": "complete",
+  "completed_at_utc": "2026-09-25T02:01:21.779280+00:00",
+  "sha256_checkpoint.pt": "37a4053ad10617aa4b683eb71a5b5f4409d79075def5f61f96ad1b9debf5bfa8",
+  "sha256_learning_curve.csv": "7b1f5b60c6b64d2bf47a2a4dc11b0186eeed7683b28030fa35fee14a8f2a40be",
+  "sha256_fit_manifest.csv": "c785531a8c2f370663662156f957c4b5c1f4fc22e073be1f19554509b8d62d82",
+  "sha256_model_receipt.json": "87d4b09527d2d5bb79f293865b050702322dc0408372888feada47b95e817e60"
+}
