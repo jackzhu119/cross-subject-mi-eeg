@@ -1,0 +1,50 @@
+{
+  "class_counts": {
+    "1": 22,
+    "2": 23
+  },
+  "completed_at_utc": "2026-09-25T10:33:07.230344+00:00",
+  "edf_files": [
+    {
+      "bytes": 2555616,
+      "filename": "S075R04.edf",
+      "run": 4,
+      "sha256": "87714f913602a939c24e3ce672a689ce20f966c5d19d5f699f898a94cca4c086",
+      "subject": 75
+    },
+    {
+      "bytes": 2555616,
+      "filename": "S075R08.edf",
+      "run": 8,
+      "sha256": "12c3c5d354210080fff50cd4bb475cf89df420c18b0a1e675dee817a79b380ba",
+      "subject": 75
+    },
+    {
+      "bytes": 2555616,
+      "filename": "S075R12.edf",
+      "run": 12,
+      "sha256": "6c33faf3fad9d274e8e7718c6dc2df6e8d54e5478638684530b7f854961b0eec",
+      "subject": 75
+    }
+  ],
+  "external_target_fit_count": 0,
+  "freeze_receipt_sha256": "829eb1d100781c091c4fbfb36bbc230eb3b54f9d45b3140cf3b3ed32b5008b9e",
+  "migration_receipt_sha256": "ab74e50cd063dd9140d5eea650f112028a0be108717c7b45bdfadd73172f81cc",
+  "n_prediction_rows": 315,
+  "n_trials": 45,
+  "official_checksum_manifest_sha256": "7f5d16957d8ee7bce86cc7ccba0e5994f63f33781607eb3f838392d49311a208",
+  "predictions_sha256": "71cd45ce17ac8401f5674f46ba668124c4f06fbede41a37d61353baf942f07e2",
+  "resumption_id": "Q14-E002R1",
+  "run_counts": {
+    "12": 15,
+    "4": 15,
+    "8": 15
+  },
+  "source_models": [
+    "BROAD_EEGNET",
+    "MU_BETA_SHARED",
+    "CSP4_LDA"
+  ],
+  "status": "complete",
+  "subject": 75
+}
