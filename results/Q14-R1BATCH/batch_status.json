@@ -1,0 +1,12 @@
+{
+  "status": "failed_stopped",
+  "experiment_id": "Q14-E002R1",
+  "parent_experiment_id": "Q14-E002",
+  "started_or_resumed_at_utc": "2026-09-25T08:50:02.134470+00:00",
+  "external_target_fits": 0,
+  "migration_policy": "only_kernel_platform_change; frozen_model_and_method_unchanged",
+  "finished_at_utc": "2026-09-25T11:35:57.322838+00:00",
+  "error": "Migration inference failed (exit 1)",
+  "traceback": "Traceback (most recent call last):\n  File \"/root/autodl-tmp/cross-subject-mi-eeg/scripts/q14_r1_supervisor.py\", line 124, in run\n    raise RuntimeError(f\"Migration inference failed (exit {exit_code})\")\nRuntimeError: Migration inference failed (exit 1)\n",
+  "runner_exit_code": 1
+}
