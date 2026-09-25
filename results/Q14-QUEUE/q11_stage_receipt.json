@@ -1,0 +1,24 @@
+{
+  "status": "complete",
+  "stage": "q11",
+  "attempts": [
+    {
+      "attempt": 1,
+      "started_at_utc": "2026-09-25T01:30:30.906423+00:00",
+      "finished_at_utc": "2026-09-25T02:50:42.445640+00:00",
+      "exit_code": 0,
+      "independent_markers_passed": true,
+      "log_sha256": "3b5c27d411381070b190e855e9d7c6c300590819f3ab9dce7d614fe43c73bb95"
+    }
+  ],
+  "argv": [
+    "/root/autodl-tmp/q9-venv/bin/python",
+    "scripts/q11_batch.py",
+    "--data-dir",
+    "/root/autodl-tmp/data/raw",
+    "--output-root",
+    "/root/autodl-tmp/cross-subject-mi-eeg/results",
+    "--device",
+    "cuda"
+  ]
+}

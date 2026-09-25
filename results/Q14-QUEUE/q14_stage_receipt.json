@@ -1,0 +1,33 @@
+{
+  "status": "failed_stopped",
+  "stage": "q14",
+  "attempts": [
+    {
+      "attempt": 1,
+      "started_at_utc": "2026-09-25T02:51:01.363329+00:00",
+      "finished_at_utc": null,
+      "exit_code": null,
+      "status": "interrupted_without_exit_receipt",
+      "log_sha256": "3784b2b5c71ae72c15eca3b102a7a1fa2f7ab75fdf83cf7677ee78775a140f78"
+    },
+    {
+      "attempt": 2,
+      "started_at_utc": "2026-09-25T08:34:40.246099+00:00",
+      "finished_at_utc": "2026-09-25T08:34:47.004164+00:00",
+      "exit_code": 1,
+      "independent_markers_passed": false,
+      "log_sha256": "40edb245ea49016aa39278df28d4acd0e252fcaaf2095ac9285ded1e8c15e1ba"
+    }
+  ],
+  "argv": [
+    "/root/autodl-tmp/q9-venv/bin/python",
+    "scripts/q14_batch.py",
+    "--bnci-data-dir",
+    "/root/autodl-tmp/data/raw",
+    "--physionet-data-dir",
+    "/root/autodl-tmp/physionet",
+    "--device",
+    "cuda",
+    "--execute-external"
+  ]
+}

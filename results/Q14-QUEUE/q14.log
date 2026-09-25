@@ -1,0 +1,20 @@
+
+===== ATTEMPT 1 2026-09-25T02:51:01.363329+00:00 =====
+Q14 step e001_source: ['/root/autodl-tmp/q9-venv/bin/python', 'scripts/q14_source.py', '--phase', 'e001', '--data-dir', '/root/autodl-tmp/data/raw', '--device', 'cuda']
+Q14 step e001_validate: ['/root/autodl-tmp/q9-venv/bin/python', 'scripts/q14_validate.py', '--stage', 'e001']
+Q14 step e002_source: ['/root/autodl-tmp/q9-venv/bin/python', 'scripts/q14_source.py', '--phase', 'e002', '--data-dir', '/root/autodl-tmp/data/raw', '--device', 'cuda']
+Q14 step e002_freeze: ['/root/autodl-tmp/q9-venv/bin/python', 'scripts/q14_validate.py', '--stage', 'e002']
+Q14 step e002_external: ['/root/autodl-tmp/q9-venv/bin/python', 'scripts/q14_external.py', '--data-dir', '/root/autodl-tmp/physionet', '--device', 'cuda']
+
+===== ATTEMPT 2 2026-09-25T08:34:40.246099+00:00 =====
+Q14 step e001_source: ['/root/autodl-tmp/q9-venv/bin/python', 'scripts/q14_source.py', '--phase', 'e001', '--data-dir', '/root/autodl-tmp/data/raw', '--device', 'cuda']
+Traceback (most recent call last):
+  File "/root/autodl-tmp/cross-subject-mi-eeg/scripts/q14_batch.py", line 113, in <module>
+    main()
+  File "/root/autodl-tmp/cross-subject-mi-eeg/scripts/q14_batch.py", line 55, in main
+    _step(
+  File "/root/autodl-tmp/cross-subject-mi-eeg/scripts/q14_batch.py", line 36, in _step
+    raise RuntimeError(
+RuntimeError: Q14 e001_source failed with exit 1; see /root/autodl-tmp/cross-subject-mi-eeg/results/Q14-BATCH/e001_source.log. Restart same command after correction.
+
+===== EXIT 1 2026-09-25T08:34:47.004088+00:00 =====

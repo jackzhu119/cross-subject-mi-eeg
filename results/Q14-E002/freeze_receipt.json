@@ -1,0 +1,49 @@
+{
+  "batch_runner_sha256": "ead0f29f71991f0f4ccaee8b73357b3a3d62e4b42dd0d5d603071ad54a33e739",
+  "checkpoints": {
+    "BROAD_EEGNET": {
+      "20260924": "24208772b7192d30c68e17c082c6ebd80a29182bf7f5c0fba220e94597ed96a7",
+      "20260925": "71f6898b79f466878dbc14087e83e3eda50d2993ddfb55a37779c10502cbdb03",
+      "20260926": "1aea68817a51c39fbe11799755b7045f47c4e428085ee382d66b3f47393f8691"
+    },
+    "MU_BETA_SHARED": {
+      "20260924": "bad8f3cfcacedfdaefe2cc361059bdf6b17e07d82c0a19abdb49a570821cc976",
+      "20260925": "1772f665fc8e48786926972dee7f7ab9995becd122c467b3f51e65695daa907a",
+      "20260926": "610e0163f90962fea920a918feabe69fdcddf1c77196cd48eb5176283088a071"
+    }
+  },
+  "config_sha256": "21428bd8344f1fb8750e7f794f60a17588d63baa8c756db324c0df1c2c474ff2",
+  "contract_tests_sha256": "75e4d6aef081c4be1367fae73c5e3461d5a5ad25cb5b9cf789d6a591860dd2e2",
+  "csp_model_sha256": "da03e9f493004dcb56b3f51782e4dcceee9446a11a3f1813b7bd5d06b1485666",
+  "experiment_id": "Q14-E002",
+  "external_runner_sha256": "0bbacfe68c8425dbf161c3e29227530892d426e2a01cfa28fae2a1d0af612d46",
+  "external_target_fit_count": 0,
+  "frozen_at_utc": "2026-09-25T03:07:46.530283+00:00",
+  "metadata_audit_sha256": "60e1056bcc7fa97381e5a3c186e991b15bf58a9122842095840f684c07817d02",
+  "models": [
+    "BROAD_EEGNET",
+    "MU_BETA_SHARED",
+    "CSP4_LDA"
+  ],
+  "primary_contrast": "MU_BETA_SHARED_minus_BROAD_EEGNET_subject_level_balanced_accuracy",
+  "protocol_git_commit": "65c86c0f03475cd86c647336c99495044ad830ff",
+  "q14_e001_validation_report_sha256": "f96296e2dec3bb45f1eddca2deb0fa4b200f2ab3066f60e4e646232b6e414d53",
+  "selected_epochs": {
+    "BROAD_EEGNET": 18,
+    "MU_BETA_SHARED": 17
+  },
+  "source_files_sha256": "eab11a3f27f049ee9ae1539974ed56b1399e54a71a83828f45bf8371c46e2f03",
+  "source_metadata_sha256": "466d849b3cd94cf0ef0d52da892bbd36dbbbdc2f632b367d9072d22249d9a59c",
+  "source_run_config_sha256": "e671643655b498d9fbe45eef30aaa682164774798d5351cb8da4c16d24a74b3b",
+  "source_runner_sha256": "b70cf5e41474688b22c6a57a068c07edaa22a8bbf640bd2100b8bb616ea05375",
+  "source_validation_report_sha256": "428b45b5be19ffd69ba4e1aa2d746db20466bb8fcbd213e25ffd5764a781fd9d",
+  "status": "FROZEN_BEFORE_EXTERNAL_DATA_ACCESS",
+  "target_dataset": "PhysioNet_eegmmidb_1.0.0",
+  "target_runs": [
+    4,
+    8,
+    12
+  ],
+  "target_subjects": "all_1_through_109_or_fail",
+  "validator_sha256": "0820bec8264456d23021a79a59dd218e88e23c116b5e5363c8969aa2428aa83c"
+}

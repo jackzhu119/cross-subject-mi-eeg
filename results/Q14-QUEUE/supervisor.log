@@ -1,1 +1,17 @@
 [publish] Q14-QUEUE/Q14-E002 attempt=1 exit=0 {"status": "pushed_with_skipped_files", "result_commit": "940603a589b0f4d602aeef712b1f5e50b0aab00e", "reason": null}
+[publish] Q14-QUEUE/Q14-E002 attempt=1 exit=0 {"status": "pushed_with_skipped_files", "result_commit": "643e72bea0a3fc7c7782aaa336bde2b1bfe085d9", "reason": null}
+[failed] Q10 stopped with a failed scientific stage; refusing follow-up
+[publish] Q10-BATCH/Q10-E001 attempt=1 exit=0 {"status": "pushed_with_skipped_files", "result_commit": "13abb7d81d9f78307315ca3935b522602f8f9aac", "reason": null}
+[publish] Q10-QUEUE/Q10-A001 attempt=1 exit=0 {"status": "pushed_with_skipped_files", "result_commit": "85ecfcae8ec857208a2f2d09cb975b53c388e68b", "reason": null}
+[gate] Q10 independently validated and both result sets published
+[stage] q11 attempt=1
+[publish] Q11-BATCH/Q11-E001 attempt=1 exit=0 {"status": "pushed_with_skipped_files", "result_commit": "f0ad1a730326fe7046dc7106439ec91d80d9007d", "reason": null}
+[stage] q14 attempt=1
+[publish] Q10-BATCH/Q10-E001 attempt=1 exit=0 {"status": "pushed_with_skipped_files", "result_commit": "13abb7d81d9f78307315ca3935b522602f8f9aac", "reason": null}
+[publish] Q10-QUEUE/Q10-A001 attempt=1 exit=0 {"status": "pushed_with_skipped_files", "result_commit": "85ecfcae8ec857208a2f2d09cb975b53c388e68b", "reason": null}
+[gate] Q10 independently validated and both result sets published
+[resume] q11: existing independent markers passed
+[publish] Q11-BATCH/Q11-E001 attempt=1 exit=0 {"status": "pushed_with_skipped_files", "result_commit": "f0ad1a730326fe7046dc7106439ec91d80d9007d", "reason": null}
+[stage] q14 attempt=2
+[publish] Q11-BATCH/Q11-E001 attempt=1 exit=0 {"status": "pushed_with_skipped_files", "result_commit": "f0ad1a730326fe7046dc7106439ec91d80d9007d", "reason": null}
+[publish] Q14-BATCH/Q14-E001 attempt=1 exit=0 {"status": "pushed", "result_commit": "7bba8498db4fabe625491d26c9690d233d091228", "reason": null}
