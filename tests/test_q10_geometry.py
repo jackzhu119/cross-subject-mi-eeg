@@ -2,15 +2,23 @@
 
 from __future__ import annotations
 
+from pathlib import Path
+
 import numpy as np
 import pandas as pd
 import pytest
 
 from scripts.q10_geometry import (
-    CLASSES, assert_q8_identity, fit_predict_source_only, logcov_features,
-    read_matrix, read_q8_metadata, source_target_indices,
+    CLASSES,
+    MATRIX,
+    assert_q8_identity,
+    fit_predict_source_only,
+    logcov_features,
+    q8_metadata_contract_sha256,
+    read_matrix,
+    read_q8_metadata,
+    source_target_indices,
 )
-from scripts.q10_geometry import MATRIX
 
 
 def test_frozen_geometry_matrix_and_q8_metadata() -> None:
@@ -24,6 +32,21 @@ def test_frozen_geometry_matrix_and_q8_metadata() -> None:
         assert len(source) == 4608 and len(target) == 576
         assert set(q8.iloc[source].subject) == set(range(1, 10)) - {subject}
         assert set(q8.iloc[target].subject) == {subject}
+
+
+def test_q8_metadata_contract_hash_is_cross_platform_but_not_content_blind(
+    tmp_path: Path,
+) -> None:
+    path = tmp_path / "trial_metadata.csv"
+    path.write_bytes(b"sample_id,label\r\ntrial_1,1\r\n")
+    expected = q8_metadata_contract_sha256(path)
+    path.write_bytes(b"sample_id,label\ntrial_1,1\n")
+    assert q8_metadata_contract_sha256(path) == expected
+    path.write_bytes(b"sample_id,label\ntrial_1,2\n")
+    assert q8_metadata_contract_sha256(path) != expected
+    path.write_bytes(b"sample_id,label\rtrial_1,1\r")
+    with pytest.raises(AssertionError, match="unsupported carriage returns"):
+        q8_metadata_contract_sha256(path)
 
 
 def test_identity_rejects_changed_target_label() -> None:

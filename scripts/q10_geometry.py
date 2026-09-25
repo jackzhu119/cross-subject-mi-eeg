@@ -52,6 +52,20 @@ def sha256_file(path: Path) -> str:
     return digest.hexdigest()
 
 
+def q8_metadata_contract_sha256(path: Path) -> str:
+    """Hash Q8 CSV using its frozen CRLF representation on every OS.
+
+    The Q10-A001 matrix recorded the Windows working-tree byte hash. Git
+    stores the same CSV with LF and checks it out as LF on Linux. Only newline
+    representation is canonicalized; all trial fields are still checked below.
+    """
+    contents = path.read_bytes()
+    if b"\r" in contents.replace(b"\r\n", b""):
+        raise AssertionError("Q8 metadata has unsupported carriage returns")
+    canonical = contents.replace(b"\r\n", b"\n").replace(b"\n", b"\r\n")
+    return hashlib.sha256(canonical).hexdigest()
+
+
 def sha256_array(array: np.ndarray) -> str:
     arr = np.ascontiguousarray(array, dtype="<f8")
     return hashlib.sha256(arr.tobytes()).hexdigest()
@@ -120,7 +134,7 @@ def read_matrix(path: Path) -> dict:
 
 
 def read_q8_metadata(config: dict, q8_path: Path = Q8_METADATA) -> pd.DataFrame:
-    if sha256_file(q8_path) != config["q8_trial_metadata_sha256"]:
+    if q8_metadata_contract_sha256(q8_path) != config["q8_trial_metadata_sha256"]:
         raise AssertionError("Frozen Q8 trial metadata SHA256 mismatch")
     q8 = pd.read_csv(q8_path)
     if list(q8.columns) != IDENTITY_COLUMNS or len(q8) != 5184:
@@ -351,7 +365,7 @@ def initialize_output(output: Path, config: dict, *, resume: bool) -> dict:
         "created_utc": utc_now(),
         "matrix_sha256": config_sha,
         "runner_sha256": code_sha,
-        "q8_metadata_sha256": sha256_file(Q8_METADATA),
+        "q8_metadata_sha256": q8_metadata_contract_sha256(Q8_METADATA),
         "q8_source_manifest_sha256": sha256_file(Q8_SOURCES),
         "versions": {
             "python": sys.version.split()[0], "numpy": np.__version__, "scipy": scipy.__version__,
@@ -571,7 +585,7 @@ def validate_run(output: Path) -> dict:
         "prediction_rows_validated": len(predictions),
         "conditions": [condition["id"] for condition in config["conditions"]],
         "target_fitted_transform": False,
-        "q8_metadata_sha256": sha256_file(Q8_METADATA),
+        "q8_metadata_sha256": q8_metadata_contract_sha256(Q8_METADATA),
     }
     atomic_json(output / "validation_report.json", report)
     atomic_json(output / "status.json", {
