@@ -1,0 +1,25 @@
+{
+  "resumption_id": "Q14-E002R2",
+  "parent_resumption_id": "Q14-E002R1",
+  "original_experiment_id": "Q14-E002",
+  "copied_subjects_inclusive": [1, 87],
+  "new_subjects_inclusive": [88, 109],
+  "external_runs": [4, 8, 12],
+  "official_dataset_version": "eegmmidb/1.0.0",
+  "native_128_hz_subjects": [88, 92, 100],
+  "expected_other_native_rate_hz": 160,
+  "accepted_native_rates_hz": [128, 160],
+  "common_rate_hz": 160,
+  "resampling": {
+    "scope": "each checksum-verified 128-Hz run after native-Hz run filtering and cue-relative epoch extraction",
+    "method": "scipy.signal.resample_poly(epoch_volts, up=5, down=4, axis=2)",
+    "ratio_for_128_hz": "5/4",
+    "native_epoch_samples": 384,
+    "common_epoch_samples": 480,
+    "rule": "128 Hz -> 160 Hz; 160 Hz unchanged; any other rate fails"
+  },
+  "model_selection": "frozen Q14-E002 source-only checkpoint and seed set",
+  "external_target_fit_count": 0,
+  "primary_contrast": "MU_BETA_SHARED minus BROAD_EEGNET subject-level balanced accuracy after averaging all three frozen seeds",
+  "anomalous_rate_sensitivity": "report the 3 resampled subjects and 106 native-160-Hz subjects separately; descriptive only"
+}
