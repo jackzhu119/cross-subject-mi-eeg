@@ -1,9 +1,9 @@
 {
-  "status": "failed",
+  "status": "complete",
   "stage": "q10_geometry",
-  "attempt": 1,
-  "started_at_utc": "2026-09-24T14:21:23.769518+00:00",
-  "finished_at_utc": "2026-09-24T14:21:25.073880+00:00",
+  "attempt": 2,
+  "started_at_utc": "2026-09-25T00:31:48.367677+00:00",
+  "finished_at_utc": "2026-09-25T01:28:36.616018+00:00",
   "argv": [
     "/root/autodl-tmp/q9-venv/bin/python",
     "scripts/q10_geometry.py",
@@ -14,10 +14,10 @@
     "/root/autodl-tmp/cross-subject-mi-eeg/results/Q10-A001",
     "--resume"
   ],
-  "exit_code": 1,
+  "exit_code": 0,
   "expected_marker": "/root/autodl-tmp/cross-subject-mi-eeg/results/Q10-A001/status.json",
   "expected_status": "complete_validated",
-  "observed_status": null,
-  "log_sha256": "8d8387247e27d36abac92cc6b44ff39e3b2cddf7b21629ea55da8822d08a9045",
-  "marker_sha256": null
+  "observed_status": "complete_validated",
+  "log_sha256": "069ae31f1ca3dd05b9953ddbc94d13d0e0ad530831c56ecd3bf2cb627cf6a616",
+  "marker_sha256": "3f118a50714561e174a696c1f9c91aa9558fb2375a34af32c38a70a3583d6027"
 }

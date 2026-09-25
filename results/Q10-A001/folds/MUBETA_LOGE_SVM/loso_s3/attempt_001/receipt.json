@@ -1,0 +1,35 @@
+{
+  "bands": [
+    "mu",
+    "beta"
+  ],
+  "classifier": "linear_svc_with_libsvm_source_only_probability_calibration",
+  "condition": "MUBETA_LOGE_SVM",
+  "experiment_id": "Q10-A001",
+  "fit_scope": "source_subjects_only",
+  "matrix_sha256": "62348494583a91bb967227c471539df1080d1f49cf937acf5a7b697d9b063b33",
+  "model_sha256": "958d2c35f41d53be3bcfff1bef9c7cd613b7bc2d767d6e28c771dc7d44377438",
+  "n_source_trials": 4608,
+  "n_target_trials": 576,
+  "ordered_source_sample_ids_sha256": "e6262147e5513b6849064534a4635c18ff037268c2546708dfb91a9695360bf1",
+  "ordered_target_sample_ids_sha256": "61f531f6f3fdd87dadfbbdf2ae78632134fb69463e9c9469d34d27520b0571bb",
+  "prediction_rule": "argmax_probability",
+  "probability_semantics": "source_only_libsvm_cv_calibrated",
+  "runner_sha256": "fa1434c2ae73c973912c8e8a60853aafaa777c4d5429a76a6ee2a4fb6a1f6f00",
+  "source_reference_sha256": "2db445838c80ce4571c0855af52028382b247bf685b4528ec4386cec94c12259",
+  "source_scaler_mean_sha256": "1d46e22eb20bd839d9fb9ba4ac03d7976079a1cfff36a2455dd9cc7f685919ff",
+  "source_scaler_scale_sha256": "22f9671ae8464c85a4548eab2f4c0946c5f67ed751d1fc5796a9a9f976087843",
+  "source_subjects": [
+    1,
+    2,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "target_fitted_transform": false,
+  "target_label_based_selection": false,
+  "target_subject": 3
+}

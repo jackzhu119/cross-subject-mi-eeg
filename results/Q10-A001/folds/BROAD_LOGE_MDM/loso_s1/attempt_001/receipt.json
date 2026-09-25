@@ -1,0 +1,33 @@
+{
+  "bands": [
+    "broad"
+  ],
+  "classifier": "log_euclidean_nearest_class_mean",
+  "condition": "BROAD_LOGE_MDM",
+  "experiment_id": "Q10-A001",
+  "fit_scope": "source_subjects_only",
+  "geometry_source_class_means_sha256": "ec65c3cfb3e17a865e0e4a8dd595cd79b5188beeb7d82dd9e16deedecf20bef3",
+  "matrix_sha256": "62348494583a91bb967227c471539df1080d1f49cf937acf5a7b697d9b063b33",
+  "model_sha256": "3b8691205b86e17e5ff67fff6a6926e9208429169b558b4ab91ed8ed532dc2b2",
+  "n_source_trials": 4608,
+  "n_target_trials": 576,
+  "ordered_source_sample_ids_sha256": "af1b18443f8c944c1e06d9e50bda15931866a6e5706e6bf54ec46fc0d5939bd7",
+  "ordered_target_sample_ids_sha256": "41742b4b818b364cf4bca20a3934b8dfc8fb1861cb716f04b10470f94aeb8718",
+  "prediction_rule": "argmax_probability",
+  "probability_semantics": "uncalibrated_normalized_similarity",
+  "runner_sha256": "fa1434c2ae73c973912c8e8a60853aafaa777c4d5429a76a6ee2a4fb6a1f6f00",
+  "source_only_similarity_temperature": 8.26167123762491,
+  "source_subjects": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "target_fitted_transform": false,
+  "target_label_based_selection": false,
+  "target_subject": 1
+}

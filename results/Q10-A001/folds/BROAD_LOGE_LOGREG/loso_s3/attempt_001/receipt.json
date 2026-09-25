@@ -1,0 +1,34 @@
+{
+  "bands": [
+    "broad"
+  ],
+  "classifier": "multinomial_logistic_regression",
+  "condition": "BROAD_LOGE_LOGREG",
+  "experiment_id": "Q10-A001",
+  "fit_scope": "source_subjects_only",
+  "matrix_sha256": "62348494583a91bb967227c471539df1080d1f49cf937acf5a7b697d9b063b33",
+  "model_sha256": "f088e09f48341e2c8322095ff176ccb4ab3ebb855b6b446bd9331044cd338445",
+  "n_source_trials": 4608,
+  "n_target_trials": 576,
+  "ordered_source_sample_ids_sha256": "e6262147e5513b6849064534a4635c18ff037268c2546708dfb91a9695360bf1",
+  "ordered_target_sample_ids_sha256": "61f531f6f3fdd87dadfbbdf2ae78632134fb69463e9c9469d34d27520b0571bb",
+  "prediction_rule": "argmax_probability",
+  "probability_semantics": "classifier_predict_proba",
+  "runner_sha256": "fa1434c2ae73c973912c8e8a60853aafaa777c4d5429a76a6ee2a4fb6a1f6f00",
+  "source_reference_sha256": "3aff7178cdf73fb4058e76368edad56786f5264ac71286cda006eea2ab6295ce",
+  "source_scaler_mean_sha256": "29a7d274c6095ef2e77d207e9970f215a39af5cecb60444c7b34cb43a7d4c838",
+  "source_scaler_scale_sha256": "42594dc32243bc0de65ec27ac654a98c4ebc0c097a3bb400bac8ef2b10b1d13e",
+  "source_subjects": [
+    1,
+    2,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "target_fitted_transform": false,
+  "target_label_based_selection": false,
+  "target_subject": 3
+}

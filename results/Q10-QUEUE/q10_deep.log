@@ -38,3 +38,32 @@
   "errors": []
 }
 {"status": "pushed_with_skipped_files", "result_commit": "9cc087b4cbe49990f54e6acc509b184acbeef49e", "reason": null}
+
+===== ATTEMPT 3 2026-09-25T00:31:24.671395+00:00 =====
+/root/autodl-tmp/q9-venv/lib/python3.12/site-packages/braindecode/models/eegpt.py:497: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
+  montage = mne.channels.make_standard_montage("standard_1020")
+2.8.0+cu128 2.8.0+cu128 NVIDIA GeForce RTX 4080 SUPER
+[resume] validated complete job Q10-E001_MU_BETA_CSP8_EEGNET_selection
+[resume] validated complete job Q10-E001_MU_BETA_CSP8_EEGNET_final
+[resume] validated complete job Q10-E001_MU_BETA_PCA8_EEGNET_selection
+[resume] validated complete job Q10-E001_MU_BETA_PCA8_EEGNET_final
+{
+  "status": "passed_scientific_checks",
+  "conditions": [
+    "MU_BETA_CSP8_EEGNET",
+    "MU_BETA_PCA8_EEGNET"
+  ],
+  "final_fits": 54,
+  "inner_fits": 72,
+  "target_trials_per_fit": 576,
+  "checked_source_only_spatial_receipts": 126,
+  "checked_independent_epoch_selections": 18,
+  "comparison_scope": "exploratory_same_dataset_not_external_confirmation",
+  "analysis_files": [
+    "analysis/subject_seed_metrics.csv",
+    "analysis/subject_metrics.csv",
+    "analysis/paired_contrasts.json"
+  ],
+  "errors": []
+}
+{"status": "pushed_with_skipped_files", "result_commit": "13abb7d81d9f78307315ca3935b522602f8f9aac", "reason": null}

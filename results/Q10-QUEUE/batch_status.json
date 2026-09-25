@@ -1,6 +1,6 @@
 {
-  "status": "failed_stopped",
-  "started_or_resumed_at_utc": "2026-09-24T13:33:36.122110+00:00",
+  "status": "complete_validated",
+  "started_or_resumed_at_utc": "2026-09-25T00:31:24.671074+00:00",
   "planned_deep_fits": 126,
   "planned_shallow_fits": 36,
   "stages": [
@@ -8,7 +8,5 @@
     "q10_geometry",
     "q10_geometry_validation"
   ],
-  "finished_at_utc": "2026-09-24T14:21:25.074232+00:00",
-  "error": "q10_geometry stopped or validation marker missing; inspect /root/autodl-tmp/cross-subject-mi-eeg/results/Q10-QUEUE/q10_geometry.log",
-  "traceback": "Traceback (most recent call last):\n  File \"/root/autodl-tmp/cross-subject-mi-eeg/scripts/q10_cloud_queue.py\", line 139, in main\n    _stage(\"q10_geometry\", geometry, queue_dir, geometry_dir / \"status.json\",\n  File \"/root/autodl-tmp/cross-subject-mi-eeg/scripts/q10_cloud_queue.py\", line 72, in _stage\n    raise RuntimeError(f\"{name} stopped or validation marker missing; inspect {log}\")\nRuntimeError: q10_geometry stopped or validation marker missing; inspect /root/autodl-tmp/cross-subject-mi-eeg/results/Q10-QUEUE/q10_geometry.log\n"
+  "finished_at_utc": "2026-09-25T01:28:38.999237+00:00"
 }
