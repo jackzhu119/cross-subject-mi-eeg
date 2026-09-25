@@ -1,12 +1,16 @@
 {
   "status": "pushed_with_skipped_files",
-  "attempted_at_utc": "2026-09-25T11:35:57.372717+00:00",
+  "attempted_at_utc": "2026-09-25T11:36:13.936677+00:00",
   "batch_dir": "results/Q14-R1BATCH",
   "experiment_dir": "results/Q14-E002R1",
-  "candidate_count": 179,
+  "candidate_count": 180,
   "skipped_files": [
     {
       "path": "results/Q14-R1BATCH/batch.lock",
+      "reason": "extension_or_runtime_file"
+    },
+    {
+      "path": "results/Q14-R1BATCH/publish_status.json",
       "reason": "extension_or_runtime_file"
     },
     {
@@ -14,7 +18,7 @@
       "reason": "extension_or_runtime_file"
     }
   ],
-  "result_commit": "860c39503e44b99e717707ee3458f1c01d30a890",
+  "result_commit": "5bea3071ebef04cb31837d4273ffc1b300a99617",
   "batch_status": "failed_stopped",
-  "finished_at_utc": "2026-09-25T11:36:09.128823+00:00"
+  "finished_at_utc": "2026-09-25T11:36:24.183284+00:00"
 }
