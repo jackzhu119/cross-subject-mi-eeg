@@ -1,0 +1,56 @@
+{
+  "class_counts": {
+    "1": 24,
+    "2": 21
+  },
+  "completed_at_utc": "2026-09-25T14:28:21.882443+00:00",
+  "edf_files": [
+    {
+      "bytes": 2596896,
+      "filename": "S106R04.edf",
+      "run": 4,
+      "sha256": "7d7599596aacb4635049041a26635e1e14b6b96437a3304701a2a3d7f7cc8c05",
+      "subject": 106
+    },
+    {
+      "bytes": 2596896,
+      "filename": "S106R08.edf",
+      "run": 8,
+      "sha256": "e75bafd408f19d7c04d86479a414c0cc29be39150f20b9e676dfb40843f34792",
+      "subject": 106
+    },
+    {
+      "bytes": 2596896,
+      "filename": "S106R12.edf",
+      "run": 12,
+      "sha256": "1ea2b9ed0d8f02557b21bee5b70514b641e68321b3363cc3325b942832005a99",
+      "subject": 106
+    }
+  ],
+  "external_target_fit_count": 0,
+  "freeze_receipt_sha256": "829eb1d100781c091c4fbfb36bbc230eb3b54f9d45b3140cf3b3ed32b5008b9e",
+  "metadata_preflight_sha256": "6cbdaf1af33164201fae97d348243fa8eacb8cb419a486a0adbeb27c5d42ff2e",
+  "migration_receipt_sha256": "fb772ab0e3d56814b9fb36875ef1fb408ca7a0f8f27742af15ec98a61a4a41bf",
+  "n_prediction_rows": 315,
+  "n_trials": 45,
+  "native_rates_hz": {
+    "12": 160,
+    "4": 160,
+    "8": 160
+  },
+  "official_checksum_manifest_sha256": "7f5d16957d8ee7bce86cc7ccba0e5994f63f33781607eb3f838392d49311a208",
+  "predictions_sha256": "d99567e837de39420127fed391e8dc6430802a5c7e9eba366eed3b5bbc714bcc",
+  "resumption_id": "Q14-E002R2",
+  "run_counts": {
+    "12": 15,
+    "4": 15,
+    "8": 15
+  },
+  "source_models": [
+    "BROAD_EEGNET",
+    "MU_BETA_SHARED",
+    "CSP4_LDA"
+  ],
+  "status": "complete",
+  "subject": 106
+}
