@@ -1,0 +1,132 @@
+{
+  "current_validation_runtime_matches_inference_runtime": false,
+  "experiment_id": "Q14-E002R2",
+  "external_target_fit_count": 0,
+  "figures_sha256": {
+    "external_subject_ba_ecdf.png": "7a884cc8f96ec164bca714dad79467a9a48a00e53a6a456743207d093bec58da",
+    "external_subject_paired_effects.png": "8bc69f749d7b88374ff7c440687f6162bb930a4275e8ea002f79837bb1404abb"
+  },
+  "historical_inference_runtime": {
+    "cuda_available": true,
+    "cuda_device_name": "NVIDIA GeForce RTX 4080 SUPER",
+    "packages": {
+      "braindecode": "1.5.1",
+      "mne": "1.13.2",
+      "moabb": "1.7.2",
+      "numpy": "2.3.2",
+      "scikit-learn": "1.9.1",
+      "scipy": "1.18.1",
+      "torch": "2.8.0+cu128",
+      "torchaudio": "2.8.0+cu128"
+    },
+    "platform": "Linux-5.4.0-153-generic-x86_64-with-glibc2.35",
+    "python": "3.12.3 | packaged by Anaconda, Inc. | (main, May  6 2024, 19:46:43) [GCC 11.2.0]",
+    "torch_cuda_runtime": "12.8"
+  },
+  "limitations": [
+    "R2 was amended after a metadata-triggered R1 failure; it is not an unchanged original Q14-E002 execution.",
+    "Only three subjects needed 128-to-160-Hz resampling; their subgroup is descriptive, not separately powered.",
+    "BNCI and PhysioNet acquisition/reference differ, so the external contrast does not identify one mechanism.",
+    "Binary external BA cannot be directly compared numerically with four-class Q5-Q9 results.",
+    "This independent validation ran on a different host/runtime from the frozen inference; both runtimes are recorded and are not represented as identical."
+  ],
+  "metadata_preflight_sha256": "6cbdaf1af33164201fae97d348243fa8eacb8cb419a486a0adbeb27c5d42ff2e",
+  "migration_receipt_sha256": "fb772ab0e3d56814b9fb36875ef1fb408ca7a0f8f27742af15ec98a61a4a41bf",
+  "n_new_subjects": 22,
+  "n_original_subjects_byte_identical": 87,
+  "n_prediction_rows": 34426,
+  "n_resampled_subjects": 3,
+  "n_subjects": 109,
+  "n_unique_trials": 4918,
+  "n_verified_official_edf_files": 327,
+  "native_rate_sensitivity": {
+    "n_native_160_hz_subjects": 106,
+    "n_resampled_subjects": 3,
+    "native_160_hz_mean_difference": 0.005749773310273709,
+    "resampled_128_hz_subjects": [
+      88,
+      92,
+      100
+    ],
+    "resampled_mean_difference": 0.005138964909079853,
+    "role": "descriptive sensitivity only; no alternate primary endpoint or model selection"
+  },
+  "native_rate_sensitivity_sha256": "ef3dbd05dc3ed2c5a6dead8a3e0bd723f305a6be2378eb25ac6ef55cf7a28795",
+  "new_inference_rows": 0,
+  "new_model_fits": 0,
+  "new_platform": "Linux-5.4.0-153-generic-x86_64-with-glibc2.35",
+  "observed_validation_runtime": {
+    "cuda_available": true,
+    "cuda_device_name": "NVIDIA vGPU-32GB",
+    "packages": {
+      "braindecode": "1.5.1",
+      "mne": "1.13.2",
+      "moabb": "1.7.2",
+      "numpy": "2.3.2",
+      "scikit-learn": "1.9.1",
+      "scipy": "1.18.1",
+      "torch": "2.8.0",
+      "torchaudio": "2.8.0"
+    },
+    "platform": "Linux-5.15.0-83-generic-x86_64-with-glibc2.35",
+    "python": "3.12.3 | packaged by Anaconda, Inc. | (main, May  6 2024, 19:46:43) [GCC 11.2.0]",
+    "torch_cuda_runtime": "12.8"
+  },
+  "official_checksum_manifest_sha256": "7f5d16957d8ee7bce86cc7ccba0e5994f63f33781607eb3f838392d49311a208",
+  "old_platform": "Linux-5.15.0-25-generic-x86_64-with-glibc2.35",
+  "original_experiment_id": "Q14-E002",
+  "passed": true,
+  "pooled_confusion_sha256": "0896e53d4e5c6465688edc2cb72daaeeacf78c8a40a77f7cf835c48c79699154",
+  "portability_amendment_sha256": "69ee6a73c069670f02ebb7b28ae050a3e897cb65a0801be44149f4b00b277e6c",
+  "primary_paired_contrast": {
+    "bootstrap_resamples": 20000,
+    "bootstrap_seed": 20260924,
+    "contrast": "MU_BETA_SHARED_minus_BROAD_EEGNET_subject_level_balanced_accuracy",
+    "mean_difference": 0.005732962069873878,
+    "n_subjects": 109,
+    "negative_subjects": 43,
+    "positive_subjects": 63,
+    "protocol_amendment": "R2 metadata-triggered 128-to-160-Hz polyphase resampling",
+    "subject_bootstrap_percentile_95_ci": [
+      -0.0009668274012807706,
+      0.012415551025224094
+    ],
+    "tied_subjects": 3,
+    "two_sided_exact_sign_test_p_excluding_ties": 0.0644635919894938,
+    "unit": "external_subject_after_averaging_three_fixed_seeds"
+  },
+  "protocol_amended_after_partial_external_execution": true,
+  "r1_run_config_sha256": "d981b377b6f4ad0c46fbb597de72e356cf999f7ed4b41a423af22923e8d93a27",
+  "runtime_fields_except_platform_identical": true,
+  "runtime_fields_except_platform_identical_scope": "historical_R1_vs_R2_inference_only",
+  "source_aggregate_predictions_sha256": "fde382e9e637445ba276449224d65dbdea40ea31c209b35ec8c3075035f52e6e",
+  "source_completion_receipt_sha256": "b3199f751049b10a1a8b6751cbbab9d4722b4b91602e119c02ec2decdf4fd7b2",
+  "source_freeze_sha256": "829eb1d100781c091c4fbfb36bbc230eb3b54f9d45b3140cf3b3ed32b5008b9e",
+  "status": "portable_independent_external_validation_passed",
+  "strict_inference_runtime_equality_required": false,
+  "subject_metrics_sha256": "2199c89b591d7f0c87fbb02ed3fd8146e7f27c174ccd6c6bd2399db487ce5e54",
+  "subject_primary_contrast_sha256": "23c03eef128b79c2f5c853aadb1e743dc8846fe692aa6d3578980481f79cb4e0",
+  "subject_seed_metrics_sha256": "4bbd74158d8780dfa06f03fcfd60afa871e2da97244e31c60eab6ce7ee568b8b",
+  "summary": {
+    "BROAD_EEGNET": {
+      "max_subject_balanced_accuracy": 0.955862977602108,
+      "mean_subject_balanced_accuracy": 0.6181459187169062,
+      "min_subject_balanced_accuracy": 0.4334650856389987,
+      "sd_subject_balanced_accuracy": 0.12564943287402153
+    },
+    "CSP4_LDA": {
+      "max_subject_balanced_accuracy": 0.8191699604743083,
+      "mean_subject_balanced_accuracy": 0.5446171979507949,
+      "min_subject_balanced_accuracy": 0.4150197628458498,
+      "sd_subject_balanced_accuracy": 0.07898496747992108
+    },
+    "MU_BETA_SHARED": {
+      "max_subject_balanced_accuracy": 0.9706851119894598,
+      "mean_subject_balanced_accuracy": 0.62387888078678,
+      "min_subject_balanced_accuracy": 0.3932806324110672,
+      "sd_subject_balanced_accuracy": 0.12921726881470882
+    }
+  },
+  "validation_attempt_id": "Q14-E002R2V1",
+  "validation_mode": "cross_host_existing_predictions_and_official_edf_only"
+}
