@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "status": "prepared_not_executed",
+  "parent_commit": "f99191b14b46589b058f3cb15d63b1f5f1b34639",
+  "dataset": "BNCI2014_001",
+  "task": "four_class_left_right_feet_tongue",
+  "analysis_status": "exploratory_post_Q8_target_exploration",
+  "outer": "LOSO; both target sessions excluded",
+  "inner": "four consecutive pairs from sorted eight source subjects",
+  "selection": "earliest minimum equal-inner-fold mean rank of validation CE over epochs 1..40",
+  "selection_seed": 20260923,
+  "final_seeds": [20260924, 20260925, 20260926],
+  "comparator": "frozen_Q8-E001_broad_EEGNet_no_retraining",
+  "target_policy": "no target fit, target statistics, target-based hyperparameter or seed selection",
+  "contrast_families": {
+    "source_only_domain_generalization": [
+      "SOURCE_POOLED_WHITEN-Q8-E001",
+      "SOURCE_BALANCED_ERM-Q8-E001",
+      "SOURCE_GROUP_DRO-SOURCE_BALANCED_ERM"
+    ],
+    "source_only_augmentation": [
+      "CHANNEL_DROPOUT-Q8-E001",
+      "GAIN_PERTURB-Q8-E001",
+      "CHANNEL_AND_GAIN-Q8-E001"
+    ]
+  },
+  "conditions": [
+    {
+      "id": "SOURCE_POOLED_WHITEN",
+      "experiment_id": "Q12-E001",
+      "method": "whiten",
+      "ridge_fraction": 0.05,
+      "inner_fits": 36,
+      "final_fits": 27
+    },
+    {
+      "id": "SOURCE_BALANCED_ERM",
+      "experiment_id": "Q12-E001",
+      "method": "balanced_erm",
+      "nominal_batch_size": 64,
+      "inner_fits": 36,
+      "final_fits": 27
+    },
+    {
+      "id": "SOURCE_GROUP_DRO",
+      "experiment_id": "Q12-E001",
+      "method": "group_dro",
+      "nominal_batch_size": 64,
+      "group_step_size": 0.05,
+      "inner_fits": 36,
+      "final_fits": 27
+    },
+    {
+      "id": "CHANNEL_DROPOUT",
+      "experiment_id": "Q12-E002",
+      "method": "channel_dropout",
+      "channel_dropout_probability": 0.10,
+      "inner_fits": 36,
+      "final_fits": 27
+    },
+    {
+      "id": "GAIN_PERTURB",
+      "experiment_id": "Q12-E002",
+      "method": "gain_perturb",
+      "gain_low": 0.8,
+      "gain_high": 1.2,
+      "inner_fits": 36,
+      "final_fits": 27
+    },
+    {
+      "id": "CHANNEL_AND_GAIN",
+      "experiment_id": "Q12-E002",
+      "method": "channel_and_gain",
+      "channel_dropout_probability": 0.10,
+      "gain_low": 0.8,
+      "gain_high": 1.2,
+      "inner_fits": 36,
+      "final_fits": 27
+    }
+  ],
+  "totals": {"inner_fits": 216, "final_fits": 162, "new_deep_fits": 378}
+}

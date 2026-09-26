@@ -23,7 +23,7 @@ import pandas as pd
 from mne.datasets import eegbci
 from scipy.stats import binomtest
 
-from scripts import q14_external, q14_r2_external, q14_r2_migration, q14_validate
+from scripts import q14_external, q14_r2_external, q14_r2_migration, q14_r2_numeric, q14_validate
 from scripts.q14_source import (
     ALL_MODELS,
     CONFIG,
@@ -277,7 +277,7 @@ def validate(data_dir: Path | None = None) -> dict:
     q14_r2_migration.same(verified_edfs, 327, "all 327 official EDFs")
     reconstructed = pd.concat(frames, ignore_index=True)
     aggregate = pd.read_csv(EXTERNAL / "predictions.csv")
-    pd.testing.assert_frame_equal(reconstructed, aggregate, check_dtype=False, check_exact=True)
+    q14_r2_numeric.assert_aggregate_matches_subjects(reconstructed, aggregate)
     q14_r2_migration.same(
         len(aggregate), completion["n_prediction_rows"], "aggregate prediction row count"
     )

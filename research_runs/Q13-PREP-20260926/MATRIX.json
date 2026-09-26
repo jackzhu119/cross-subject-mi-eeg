@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "status": "implementation_prepared_not_executed",
+  "base_commit": "f99191b14b46589b058f3cb15d63b1f5f1b34639",
+  "dataset": "BNCI2014_001",
+  "task": "four_class_left_right_feet_tongue",
+  "outer": "nine subject LOSO; both target sessions and all target trials held out",
+  "selection_seed": 20260923,
+  "final_seeds": [20260924, 20260925, 20260926],
+  "common_training": {
+    "source_only": true,
+    "batch_size": 64,
+    "optimizer": "Adam",
+    "learning_rate": 0.001,
+    "weight_decay": 0.0,
+    "natural_minibatches_per_epoch": true,
+    "artifact_policy": "include_all",
+    "epochs_fixed": 20,
+    "device_requested": "cuda",
+    "target_data_for_fitting_selection_normalization": false
+  },
+  "methods": {
+    "Q8_BROAD": {"bands": {"broad": [4, 40]}, "shared_mean_logits": false},
+    "Q9_MU_BETA_SHARED": {"bands": {"mu": [8, 13], "beta": [13, 30]}, "shared_mean_logits": true}
+  },
+  "experiments": [
+    {
+      "id": "Q13-E001",
+      "question": "How sensitive is the Q8 versus Q9 comparison to source-only epoch selection?",
+      "status": "planned_not_run",
+      "conditions": [
+        {"name": "Q8_RAW_CE_REUSE_Q5", "method": "Q8_BROAD", "selection": "frozen_Q5_source_only_raw_CE", "new_fits": 0, "reused_final_fits": 27},
+        {"name": "Q8_FIXED20", "method": "Q8_BROAD", "selection": "fixed_20", "new_fits": 27},
+        {"name": "Q9_SHARED_RAW_CE", "method": "Q9_MU_BETA_SHARED", "selection": "raw_CE_from_frozen_Q9_inner_curves", "new_fits": 27},
+        {"name": "Q9_SHARED_FIXED20", "method": "Q9_MU_BETA_SHARED", "selection": "fixed_20", "new_fits": 27}
+      ],
+      "new_deep_fits": 81,
+      "reused_deep_fits": 27
+    },
+    {
+      "id": "Q13-E004",
+      "supersedes_unrun_plan": "Q13-E002",
+      "question": "How much do number and identity of source subjects change unseen-subject performance?",
+      "status": "planned_not_run",
+      "selection": "fixed_20_for_every_k_and_subset; independent_of_all_source_curves",
+      "source_counts": [2, 4, 6, 8],
+      "source_order": "ascending_subject_ID_excluding_outer_target",
+      "subset_rule": "for k=2,4,6 take circular length-k windows starting at 0,2,4,6; for k=8 use all eight once",
+      "subsets_per_target_for_k_2_4_6": 4,
+      "methods": ["Q8_BROAD", "Q9_MU_BETA_SHARED"],
+      "new_deep_fits": 648,
+      "reused_k8_fixed20_fits_from_Q13_E001": 54,
+      "training_budget_interpretation": "natural-epoch analysis; number of update steps changes with source count; this is not an isolated causal effect of subject count"
+    },
+    {
+      "id": "Q13-E005",
+      "supersedes_unrun_plan": "Q13-E003",
+      "question": "How does source acquisition session affect generalization to both held-out target sessions?",
+      "status": "planned_not_run",
+      "selection": "fixed_20_for_both_source_sessions",
+      "source_sessions": ["0train", "1test"],
+      "methods": ["Q8_BROAD", "Q9_MU_BETA_SHARED"],
+      "new_deep_fits": 108,
+      "reused_both_source_session_fixed20_fits_from_Q13_E001": 54
+    }
+  ],
+  "total_new_deep_fits": 837,
+  "total_new_inner_fits": 0,
+  "target_fits": 0,
+  "inference_unit": "outer_held_out_subject_not_seed_or_source_subset",
+  "predeclared_contrast_families": {
+    "source_count": ["Q8_BROAD_k2_minus_k8", "Q8_BROAD_k4_minus_k8", "Q8_BROAD_k6_minus_k8", "Q9_MU_BETA_SHARED_k2_minus_k8", "Q9_MU_BETA_SHARED_k4_minus_k8", "Q9_MU_BETA_SHARED_k6_minus_k8"],
+    "source_session": ["Q8_BROAD_1test_minus_0train", "Q9_MU_BETA_SHARED_1test_minus_0train"],
+    "selection": ["Q8_FIXED20_minus_Q8_RAW_CE_REUSE_Q5", "Q9_SHARED_FIXED20_minus_Q9_SHARED_RAW_CE"]
+  },
+  "paired_inference": "nine target-subject differences; seeds and identity subsets averaged within subject; 10000 deterministic subject-bootstrap resamples; exact sign-flip exploratory sensitivity; Holm within each predeclared family",
+  "analysis_status": "exploratory_post_Q5_Q9_BNCI_development_not_independent_confirmation"
+}
