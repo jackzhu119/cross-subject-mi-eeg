@@ -556,7 +556,14 @@ def main() -> int:
         write_json(environment_path, environment)
     if args.phase == "final" and not _freeze_selection(output, config):
         raise RuntimeError("All 36 source-only inner fits required before Q12 target inference")
-    x, y, meta = q11._load_data(config, args.data_dir.resolve(), device, output)
+    # Execution-only compatibility bridge:
+    # Q12 inherits the frozen Q8 band definition in preprocessing["bands"],
+    # while q11._load_data expects the same definition at config["bands"].
+    loader_config = dict(config)
+    loader_config["bands"] = config["preprocessing"]["bands"]
+    x, y, meta = q11._load_data(
+        loader_config, args.data_dir.resolve(), device, output
+    )
     targets = [args.target_subject] if args.target_subject else list(range(1, 10))
     try:
         for subject in targets:
