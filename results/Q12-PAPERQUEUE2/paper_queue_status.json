@@ -1,7 +1,7 @@
 {
   "status": "failed_stopped",
-  "started_or_resumed_at_utc": "2026-09-26T08:04:50.210089+00:00",
-  "manifest_sha256": "e37ba41a76ec1e7cefef1ad1597c3b8414961c824fc11add15dd119edfb0cc85",
+  "started_or_resumed_at_utc": "2026-09-26T08:11:51.176255+00:00",
+  "manifest_sha256": "e2b6bfa278101971366747143b088b13ca845e146ddb413018fac1a0f96d0889",
   "stages": {
     "Q14_PORTABLE_VALIDATION": {
       "status": "complete_validated",
@@ -30,11 +30,11 @@
         "--data-dir",
         "/root/autodl-tmp/data/raw"
       ],
-      "started_at_utc": "2026-09-26T08:04:50.212005+00:00",
-      "attempts": 2,
+      "started_at_utc": "2026-09-26T08:11:51.177317+00:00",
+      "attempts": 3,
       "returncode": 1,
-      "log_sha256": "61628b6428098cfaeb5ca3eed5ddfcae975cf5eae1f604f4c013bed1dcdc2bf7",
-      "finished_at_utc": "2026-09-26T08:05:57.437339+00:00",
+      "log_sha256": "ae02fd8abd8eef78f1a8382b73ed6a986407687d0afad40773bbb45072430b14",
+      "finished_at_utc": "2026-09-26T08:12:58.259574+00:00",
       "error": "Q12 batch failed with exit 1"
     }
   },
@@ -47,5 +47,5 @@
   "current_stage": "Q12",
   "error": "Q12 batch failed with exit 1",
   "traceback": "Traceback (most recent call last):\n  File \"/root/autodl-tmp/cross-subject-mi-eeg-paper-run/scripts/paper_cloud_queue.py\", line 232, in run\n    raise RuntimeError(stage_error)\nRuntimeError: Q12 batch failed with exit 1\n",
-  "finished_at_utc": "2026-09-26T08:05:57.442368+00:00"
+  "finished_at_utc": "2026-09-26T08:12:58.264222+00:00"
 }

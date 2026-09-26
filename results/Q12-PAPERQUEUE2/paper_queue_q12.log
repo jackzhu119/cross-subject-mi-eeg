@@ -18,3 +18,13 @@
 [start] Q12-E001_SOURCE_POOLED_WHITEN_selection (2026-09-26T08:05:05.369927+00:00)
 {"status": "pushed_with_skipped_files", "result_commit": "73c01a4376bd81fecfc0e832aae6f1b14285d47e", "reason": null}
 {"status": "pushed_with_skipped_files", "result_commit": "73c01a4376bd81fecfc0e832aae6f1b14285d47e", "reason": null}
+
+[2026-09-26T08:11:51.177568+00:00] invocation 3
+/root/autodl-tmp/.venv-paper/lib/python3.12/site-packages/braindecode/models/eegpt.py:497: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
+  montage = mne.channels.make_standard_montage("standard_1020")
+/root/autodl-tmp/.venv-paper/lib/python3.12/site-packages/braindecode/models/eegpt.py:497: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
+  montage = mne.channels.make_standard_montage("standard_1020")
+2.8.0+cu128 2.8.0+cu128 NVIDIA vGPU-32GB
+[start] Q12-E001_SOURCE_POOLED_WHITEN_selection (2026-09-26T08:12:04.505986+00:00)
+{"status": "pushed_with_skipped_files", "result_commit": "2c50a5d14a102818efa20b9e09b4faffc5a1ba94", "reason": null}
+{"status": "pushed_with_skipped_files", "result_commit": "2c50a5d14a102818efa20b9e09b4faffc5a1ba94", "reason": null}
