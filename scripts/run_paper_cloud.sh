@@ -25,7 +25,8 @@ done
 [[ "$execute" == true && "$publish" == true && -x "$python" && -d "$data_dir" && -d "$physionet_dir" ]] || usage
 
 root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-batch="$root/results/Q12-BATCH"
+"$python" "$root/scripts/check_paper_env.py"
+batch="$root/results/Q12-PAPERQUEUE2"
 mkdir -p "$batch"
 pid_file="$batch/paper_cloud.pid"
 log_file="$batch/paper_cloud_launch.log"

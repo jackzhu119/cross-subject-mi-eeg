@@ -26,7 +26,7 @@ if str(ROOT) not in sys.path:
 
 from scripts import q9_batch
 
-BATCH = ROOT / "results/Q12-BATCH"
+BATCH = ROOT / "results/Q12-PAPERQUEUE2"
 RECEIPT = BATCH / "paper_queue_status.json"
 MANIFEST = BATCH / "paper_queue_manifest.json"
 SUCCESSFUL_PUBLICATION = {"pushed", "pushed_with_skipped_files"}
@@ -93,15 +93,18 @@ def stages(python: str, data_dir: Path, physionet_dir: Path) -> list[dict]:
 
 def build_manifest(python: str, data_dir: Path, physionet_dir: Path) -> dict:
     files = {name: sha256(ROOT / name) for name in SOURCE_FILES}
+    # Preserve the virtualenv executable path. Path.resolve() dereferences
+    # bin/python -> the base interpreter and loses installed CUDA packages.
+    executable = str(Path(python).absolute())
     return {
         "schema_version": 1,
         "purpose": "post_hoc_source_only_Q12_then_Q13_no_target_driven_selection",
-        "python": str(Path(python).resolve()),
+        "python": executable,
         "data_dir": str(data_dir.resolve()),
         "physionet_dir": str(physionet_dir.resolve()),
         "output_root": str((ROOT / "results").resolve()),
         "source_sha256": files,
-        "stages": stages(str(Path(python).resolve()), data_dir.resolve(),
+        "stages": stages(executable, data_dir.resolve(),
                          physionet_dir.resolve()),
         "total_new_deep_fits": 1215,
         "q14_validation_only": True,

@@ -39,7 +39,7 @@ SSH logout and local-computer shutdown; it does **not** survive cloud-instance
 poweroff, account/billing suspension, or host loss. Do not use it as evidence
 that any fit or scientific validator has passed.
 
-The durable summary is `results/Q12-BATCH/paper_queue_status.json`; stage logs
+The durable summary is `results/Q12-PAPERQUEUE2/paper_queue_status.json`; stage logs
 are `paper_queue_q14_portable_validation.log`, `paper_queue_q12.log`, and
 `paper_queue_q13.log` beside it. Q14, Q12 and Q13
 retain their own `batch_status.json`, fit-level checkpoints, validation
@@ -58,3 +58,11 @@ rules of their batch runners. The Q14 stage is validation-only and keeps the
 historical failed receipt; it does not silently turn an old run into a pass.
 Never edit a prior manifest to bypass a mismatch;
 record and review a new amendment instead.
+
+The first 2026-09-26 launcher attempt is preserved in `results/Q12-BATCH`.
+Its supervisor mistakenly dereferenced the virtualenv Python symlink when
+building child commands, so Q14 and Q12 exited before validation or fitting
+with `ModuleNotFoundError: mne`. The new `Q12-PAPERQUEUE2` receipt separates
+the corrected launch from that failed attempt; it passes the virtualenv
+executable path unchanged to every child. No Q12/Q13 fit was completed in the
+first attempt.

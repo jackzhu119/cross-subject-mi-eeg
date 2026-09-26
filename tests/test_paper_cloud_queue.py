@@ -31,6 +31,15 @@ def test_plan_is_fixed_and_has_no_q14_retraining(tmp_path: Path) -> None:
     assert all(len(value) == 64 for value in plan["source_sha256"].values())
 
 
+def test_child_commands_preserve_virtualenv_python_path(tmp_path: Path) -> None:
+    interpreter = tmp_path / ".venv-paper" / "bin" / "python"
+    plan = paper_cloud_queue.build_manifest(
+        str(interpreter), tmp_path / "raw", tmp_path / "edf")
+    assert plan["python"] == str(interpreter.absolute())
+    assert all(row["argv"][0] == str(interpreter.absolute()) for row in plan["stages"])
+    assert paper_cloud_queue.BATCH.name == "Q12-PAPERQUEUE2"
+
+
 @pytest.mark.parametrize("stage_name,expected_status,counts", [
     ("Q12", "passed_scientific_checks", {"inner_fits": 216, "final_fits": 162}),
     ("Q13", "passed", {"checkpoint_replays": 837}),
