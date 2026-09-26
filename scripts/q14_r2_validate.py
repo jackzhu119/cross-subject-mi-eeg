@@ -12,6 +12,7 @@ import json
 import sys
 from datetime import datetime
 from pathlib import Path
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
@@ -86,7 +87,39 @@ def _trial_index(
     return trials
 
 
-def validate(data_dir: Path | None = None) -> dict:
+def _origin_for_validation(
+    resolved_data: Path, run: dict, config: dict, freeze_sha: str, *, portable: bool
+) -> tuple[dict, dict]:
+    """Audit historical inference custody; never claim a new host did the inference.
+
+    The legacy path still requires the live runtime to match the inference
+    receipt exactly. In the explicitly versioned portable path, the original
+    R1-to-R2 origin audit compares *their two saved inference runtimes* while
+    the actual validation runtime is returned for a separate report. The
+    temporary dependency injection is confined to this custody check.
+    """
+    observed = runtime_receipt()
+    if not portable:
+        q14_r2_migration.same(run["runtime"], observed, "R2 runtime")
+        return observed, q14_r2_migration.audit_r1_origin(
+            resolved_data, run["device"], config, freeze_sha
+        )
+    with patch.object(q14_r2_migration, "runtime_receipt", return_value=run["runtime"]):
+        origin = q14_r2_migration.audit_r1_origin(
+            resolved_data, run["device"], config, freeze_sha
+        )
+    return observed, origin
+
+
+def validate(data_dir: Path | None = None, *, portable_output_root: Path | None = None) -> dict:
+    portable = portable_output_root is not None
+    if portable:
+        output_root = portable_output_root.resolve()
+        if output_root != (ROOT / "results/Q14-E002R2V1").resolve():
+            raise AssertionError("Portable Q14 validation must use versioned Q14-E002R2V1 outputs")
+        output_external = output_root / "external"
+    else:
+        output_root, output_external = RESULT, EXTERNAL
     config = q14_r2_migration.read(CONFIG)
     amendment = q14_r2_migration.read(q14_r2_migration.AMENDMENT)
     q14_external.verify_freeze(config)
@@ -97,8 +130,9 @@ def validate(data_dir: Path | None = None) -> dict:
         q14_r2_migration.same(
             str(data_dir.resolve()), str(resolved_data.resolve()), "validator data directory"
         )
-    q14_r2_migration.same(run["runtime"], runtime_receipt(), "R2 runtime")
-    origin = q14_r2_migration.audit_r1_origin(resolved_data, run["device"], config, freeze_sha)
+    observed_runtime, origin = _origin_for_validation(
+        resolved_data, run, config, freeze_sha, portable=portable
+    )
     official_file = EXTERNAL / "physionet_SHA256SUMS.txt"
     _hash(official_file, origin["official_checksum_manifest_sha256"])
     official = q14_external.parse_official_checksums(official_file.read_text(encoding="ascii"))
@@ -142,7 +176,7 @@ def validate(data_dir: Path | None = None) -> dict:
         "device": run["device"],
         "subjects": list(q14_r2_migration.ALL),
         "runs": config["external_runs"],
-        "runtime": runtime_receipt(),
+        "runtime": run["runtime"] if portable else runtime_receipt(),
     }
     q14_r2_migration.same(run, expected_run, "R2 run config")
     completion = q14_r2_migration.read(EXTERNAL / "completion_receipt.json")
@@ -293,10 +327,10 @@ def validate(data_dir: Path | None = None) -> dict:
     if wide.shape != (109, 3) or wide.isna().any().any():
         raise AssertionError("Incomplete 109-by-3 external subject metric table")
     differences = (wide["MU_BETA_SHARED"] - wide["BROAD_EEGNET"]).to_numpy()
-    metric_file = EXTERNAL / "subject_seed_metrics.csv"
-    subject_file = EXTERNAL / "subject_metrics.csv"
-    contrast_file = EXTERNAL / "subject_primary_contrast.csv"
-    confusion_file = EXTERNAL / "pooled_confusion_by_model_seed.csv"
+    metric_file = output_external / "subject_seed_metrics.csv"
+    subject_file = output_external / "subject_metrics.csv"
+    contrast_file = output_external / "subject_primary_contrast.csv"
+    confusion_file = output_external / "pooled_confusion_by_model_seed.csv"
     q14_external._atomic_csv(metric_file, metrics)
     q14_external._atomic_csv(subject_file, subject_metrics)
     q14_external._atomic_csv(
@@ -328,7 +362,7 @@ def validate(data_dir: Path | None = None) -> dict:
         .sum()
         .sort_values(["model", "seed"]),
     )
-    figures = q14_validate._external_figures(wide, differences, EXTERNAL)
+    figures = q14_validate._external_figures(wide, differences, output_external)
     rng = np.random.default_rng(20260924)
     bootstrap = differences[rng.integers(0, 109, size=(20000, 109))].mean(axis=1)
     nontied = int(np.count_nonzero(differences))
@@ -359,7 +393,7 @@ def validate(data_dir: Path | None = None) -> dict:
         "native_160_hz_mean_difference": float(differences[~native].mean()),
         "role": "descriptive sensitivity only; no alternate primary endpoint or model selection",
     }
-    q14_external._atomic_json(EXTERNAL / "native_rate_sensitivity.json", sensitivity)
+    q14_external._atomic_json(output_external / "native_rate_sensitivity.json", sensitivity)
     summary = {}
     for model in ALL_MODELS:
         values = wide[model].to_numpy()
@@ -395,7 +429,7 @@ def validate(data_dir: Path | None = None) -> dict:
         "subject_metrics_sha256": sha256(subject_file),
         "subject_primary_contrast_sha256": sha256(contrast_file),
         "pooled_confusion_sha256": sha256(confusion_file),
-        "native_rate_sensitivity_sha256": sha256(EXTERNAL / "native_rate_sensitivity.json"),
+        "native_rate_sensitivity_sha256": sha256(output_external / "native_rate_sensitivity.json"),
         "figures_sha256": figures,
         "summary": summary,
         "primary_paired_contrast": primary,
@@ -407,15 +441,44 @@ def validate(data_dir: Path | None = None) -> dict:
             "Binary external BA cannot be directly compared numerically with four-class Q5-Q9 results.",
         ],
     }
-    q14_external._atomic_json(RESULT / "validation_report.json", report)
+    if portable:
+        portability_amendment = (
+            ROOT / "research_runs/Q14-E002R2/VALIDATION_PORTABILITY_AMENDMENT_20260926.md"
+        )
+        report.update(
+            validation_attempt_id="Q14-E002R2V1",
+            status="portable_independent_external_validation_passed",
+            validation_mode="cross_host_existing_predictions_and_official_edf_only",
+            strict_inference_runtime_equality_required=False,
+            runtime_fields_except_platform_identical_scope="historical_R1_vs_R2_inference_only",
+            current_validation_runtime_matches_inference_runtime=(
+                observed_runtime == run["runtime"]
+            ),
+            historical_inference_runtime=run["runtime"],
+            observed_validation_runtime=observed_runtime,
+            source_aggregate_predictions_sha256=completion["aggregate_predictions_sha256"],
+            source_completion_receipt_sha256=sha256(EXTERNAL / "completion_receipt.json"),
+            portability_amendment_sha256=sha256(portability_amendment),
+            new_model_fits=0,
+            new_inference_rows=0,
+        )
+        report["limitations"].append(
+            "This independent validation ran on a different host/runtime from the frozen "
+            "inference; both runtimes are recorded and are not represented as identical."
+        )
+    q14_external._atomic_json(output_root / "validation_report.json", report)
     return report
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--data-dir", type=Path)
+    parser.add_argument("--portable-output-root", type=Path)
     args = parser.parse_args()
-    print(json.dumps(validate(args.data_dir), indent=2), flush=True)
+    print(
+        json.dumps(validate(args.data_dir, portable_output_root=args.portable_output_root), indent=2),
+        flush=True,
+    )
 
 
 if __name__ == "__main__":
