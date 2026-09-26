@@ -1,0 +1,32 @@
+{
+  "experiment_id": "Q12-E001",
+  "condition": "SOURCE_POOLED_WHITEN",
+  "fold": "loso_s3",
+  "target_subject": 3,
+  "stage": "inner",
+  "inner_fold": 3,
+  "seed": 20260923,
+  "train_subjects": [
+    1,
+    2,
+    4,
+    5,
+    8,
+    9
+  ],
+  "validation_subjects": [
+    6,
+    7
+  ],
+  "n_train": 3456,
+  "n_validation": 1152,
+  "epochs_trained": 40,
+  "elapsed_seconds": 15.439701542258263,
+  "status": "complete",
+  "completed_at_utc": "2026-09-26T08:19:32.422726+00:00",
+  "sha256_checkpoint.pt": "ec99ff3c4c9fcefb0865f140c396e18164cbfb5f5130b6386df2d4f881c5107b",
+  "sha256_learning_curve.csv": "b773845277beb969aa3c7736b904dcef5e4642e202248159391bf070a0a04621",
+  "sha256_fit_manifest.csv": "6c4f471871a4156e0b0660134785c2227517732d1cb22188cc53f2692ad5d523",
+  "sha256_model_receipt.json": "77ed43a79b184486cfe5e82714cf6358a08fb561d1bb59637e96c15fc8931b4c",
+  "sha256_source_whitener.json": "3b5b893b9ce5897b29b2023c8be05ef0282611cc6ba22b11c57a94f7d4709d6f"
+}

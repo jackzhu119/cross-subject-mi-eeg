@@ -1,0 +1,26 @@
+{
+  "status": "complete",
+  "job_id": "Q12-E002_GAIN_PERTURB_selection",
+  "argv": [
+    "/root/autodl-tmp/.venv-paper/bin/python",
+    "scripts/q12_dg.py",
+    "--condition",
+    "GAIN_PERTURB",
+    "--phase",
+    "selection",
+    "--data-dir",
+    "/root/autodl-tmp/data/raw",
+    "--output-root",
+    "/root/autodl-tmp/cross-subject-mi-eeg-paper-run/results",
+    "--device",
+    "cuda"
+  ],
+  "attempts": 1,
+  "started_at_utc": "2026-09-26T09:00:05.033137+00:00",
+  "finished_at_utc": "2026-09-26T09:09:53.585816+00:00",
+  "exit_code": 0,
+  "log_path": "/root/autodl-tmp/cross-subject-mi-eeg-paper-run/results/Q12-BATCH/jobs/Q12-E002_GAIN_PERTURB_selection/run.log",
+  "log_sha256": "1c7580a334ec59607aa8a0a95e15d22b8c843a0caaee3ea5c9b5fcea9ccf74b9",
+  "completion_status": "/root/autodl-tmp/cross-subject-mi-eeg-paper-run/results/Q12-E002/GAIN_PERTURB/selection_provenance.json",
+  "completion_status_sha256": "b19ad9ff7d68488c610913892d7816149d1e3f51ef34b83ba05b861d96d68b06"
+}

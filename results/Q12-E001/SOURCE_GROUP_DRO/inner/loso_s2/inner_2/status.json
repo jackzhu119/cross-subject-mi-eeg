@@ -1,0 +1,31 @@
+{
+  "experiment_id": "Q12-E001",
+  "condition": "SOURCE_GROUP_DRO",
+  "fold": "loso_s2",
+  "target_subject": 2,
+  "stage": "inner",
+  "inner_fold": 2,
+  "seed": 20260923,
+  "train_subjects": [
+    1,
+    3,
+    6,
+    7,
+    8,
+    9
+  ],
+  "validation_subjects": [
+    4,
+    5
+  ],
+  "n_train": 3456,
+  "n_validation": 1152,
+  "epochs_trained": 40,
+  "elapsed_seconds": 19.189978919923306,
+  "status": "complete",
+  "completed_at_utc": "2026-09-26T08:40:25.122568+00:00",
+  "sha256_checkpoint.pt": "bc5b3b35bd4c29b7d2579f66c98e10e3acff7e1d981427bcf00811634810e709",
+  "sha256_learning_curve.csv": "5bc7e42260ab615ae5b67e3f903a64f3318cd521088471ae190adad3c075da44",
+  "sha256_fit_manifest.csv": "6b2a3d83f50e0f805b2358cf942be5130401cbc83e8fa3539a5c3e8de264aa84",
+  "sha256_model_receipt.json": "22e5b04b43697ada128b2776a7096b9ef1eb6f4c84e918f4e857238a24bf3582"
+}

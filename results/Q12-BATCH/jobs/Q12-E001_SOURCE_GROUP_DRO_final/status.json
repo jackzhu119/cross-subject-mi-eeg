@@ -1,0 +1,26 @@
+{
+  "status": "complete",
+  "job_id": "Q12-E001_SOURCE_GROUP_DRO_final",
+  "argv": [
+    "/root/autodl-tmp/.venv-paper/bin/python",
+    "scripts/q12_dg.py",
+    "--condition",
+    "SOURCE_GROUP_DRO",
+    "--phase",
+    "final",
+    "--data-dir",
+    "/root/autodl-tmp/data/raw",
+    "--output-root",
+    "/root/autodl-tmp/cross-subject-mi-eeg-paper-run/results",
+    "--device",
+    "cuda"
+  ],
+  "attempts": 1,
+  "started_at_utc": "2026-09-26T09:27:27.314147+00:00",
+  "finished_at_utc": "2026-09-26T09:31:09.058706+00:00",
+  "exit_code": 0,
+  "log_path": "/root/autodl-tmp/cross-subject-mi-eeg-paper-run/results/Q12-BATCH/jobs/Q12-E001_SOURCE_GROUP_DRO_final/run.log",
+  "log_sha256": "1e9b530c51686ff4558a275f8190f5dadaeec8ceffaf9df2b1a94be8a4aede7a",
+  "completion_status": "/root/autodl-tmp/cross-subject-mi-eeg-paper-run/results/Q12-E001/SOURCE_GROUP_DRO/status.json",
+  "completion_status_sha256": "5883e120255021b7e2a51f91b824b78952d4b28a97634a6f7ac37a131b742b71"
+}

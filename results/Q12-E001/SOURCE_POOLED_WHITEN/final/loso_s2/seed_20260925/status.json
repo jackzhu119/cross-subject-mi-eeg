@@ -1,0 +1,36 @@
+{
+  "experiment_id": "Q12-E001",
+  "condition": "SOURCE_POOLED_WHITEN",
+  "fold": "loso_s2",
+  "target_subject": 2,
+  "stage": "full",
+  "seed": 20260925,
+  "train_subjects": [
+    1,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "test_subjects": [
+    2
+  ],
+  "n_train": 4608,
+  "n_test": 576,
+  "selected_epochs": 6,
+  "selection_sha256": "2999462d5891f53c97673ec7f8ead195d8faae8cbdd17e90c6483f64d06125e5",
+  "elapsed_seconds": 3.4875942021608353,
+  "status": "complete",
+  "completed_at_utc": "2026-09-26T09:20:29.165969+00:00",
+  "sha256_checkpoint.pt": "4460c7f97fd2213c68fa256dfa7507176456b37a5625a4fe59be57a274f67b8d",
+  "sha256_learning_curve.csv": "738c85fb112f91881abc27fbe7dd2c41a8ee14108210ae38b8df8cd5f0ebb602",
+  "sha256_fit_manifest.csv": "0541c29ea71a3145aa3aab011a5bbae195298238a4b84c9d82eea18c4407d021",
+  "sha256_model_receipt.json": "d8b0241b8ae9802b418175a6772824b0daf67aad7c1206f25d4e32f1de6a3c64",
+  "sha256_predictions.csv": "68d9ff953ef3161dab47b773867073f7ab180d4eca6bc35bf29d07d81bcc73b3",
+  "sha256_metrics.csv": "e4681956856f86b477fbd9f6c03a363c66ed93310abf9460d8211899f571adad",
+  "sha256_confusion.csv": "6d0fd4d45ea5bb7cfd66b573a4dcfa69407208d60f62d872baf6641c6ee452cb",
+  "sha256_source_whitener.json": "e74664809c6a55875be80d6eff362b4cb8e461dac29f752ae88a3a583b7a507d"
+}

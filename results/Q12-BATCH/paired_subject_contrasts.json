@@ -1,0 +1,140 @@
+{
+  "SOURCE_POOLED_WHITEN-Q8-E001": {
+    "family": "source_only_domain_generalization",
+    "per_subject_delta": {
+      "1": 0.01736111111111116,
+      "2": 0.023726851851851843,
+      "3": 0.04050925925925938,
+      "4": 0.023148148148148157,
+      "5": -0.0005787037037037016,
+      "6": -0.00752314814814814,
+      "7": 0.023726851851851877,
+      "8": -0.044560185185185196,
+      "9": 0.07407407407407406
+    },
+    "mean_delta": 0.01665380658436216,
+    "median_delta": 0.023148148148148157,
+    "subject_bootstrap_95ci": [
+      -0.003922325102880657,
+      0.03665123456790125
+    ],
+    "exact_sign_flip_two_sided_p_exploratory": 0.1796875,
+    "inference_unit": "nine_held_out_subjects_not_seeds_or_trials",
+    "holm_within_family_p_exploratory": 0.359375
+  },
+  "SOURCE_BALANCED_ERM-Q8-E001": {
+    "family": "source_only_domain_generalization",
+    "per_subject_delta": {
+      "1": -0.009259259259259245,
+      "2": 0.013310185185185194,
+      "3": 0.008101851851851935,
+      "4": 0.00520833333333337,
+      "5": -0.002314814814814816,
+      "6": -0.0028935185185185084,
+      "7": 0.020254629629629668,
+      "8": -0.028935185185185158,
+      "9": 0.042824074074074035
+    },
+    "mean_delta": 0.0051440329218107195,
+    "median_delta": 0.00520833333333337,
+    "subject_bootstrap_95ci": [
+      -0.007073045267489689,
+      0.017746913580246926
+    ],
+    "exact_sign_flip_two_sided_p_exploratory": 0.4765625,
+    "inference_unit": "nine_held_out_subjects_not_seeds_or_trials",
+    "holm_within_family_p_exploratory": 0.4765625
+  },
+  "SOURCE_GROUP_DRO-SOURCE_BALANCED_ERM": {
+    "family": "source_only_domain_generalization",
+    "per_subject_delta": {
+      "1": -0.10590277777777778,
+      "2": 0.0069444444444443825,
+      "3": -0.09375,
+      "4": -0.06250000000000001,
+      "5": 0.004050925925925912,
+      "6": 0.04224537037037037,
+      "7": -0.024305555555555563,
+      "8": -0.19791666666666666,
+      "9": -0.1493055555555555
+    },
+    "mean_delta": -0.06449331275720165,
+    "median_delta": -0.06250000000000001,
+    "subject_bootstrap_95ci": [
+      -0.11471193415637858,
+      -0.01787551440329219
+    ],
+    "exact_sign_flip_two_sided_p_exploratory": 0.046875,
+    "inference_unit": "nine_held_out_subjects_not_seeds_or_trials",
+    "holm_within_family_p_exploratory": 0.140625
+  },
+  "CHANNEL_DROPOUT-Q8-E001": {
+    "family": "source_only_augmentation",
+    "per_subject_delta": {
+      "1": -0.009259259259259264,
+      "2": 0.012152777777777735,
+      "3": -0.029513888888888767,
+      "4": -0.016203703703703665,
+      "5": -0.0023148148148147973,
+      "6": 0.04398148148148149,
+      "7": -0.02662037037037031,
+      "8": -0.11111111111111112,
+      "9": -0.010995370370370405
+    },
+    "mean_delta": -0.01665380658436212,
+    "median_delta": -0.010995370370370405,
+    "subject_bootstrap_95ci": [
+      -0.04507619598765432,
+      0.006365740740740739
+    ],
+    "exact_sign_flip_two_sided_p_exploratory": 0.30078125,
+    "inference_unit": "nine_held_out_subjects_not_seeds_or_trials",
+    "holm_within_family_p_exploratory": 0.76171875
+  },
+  "GAIN_PERTURB-Q8-E001": {
+    "family": "source_only_augmentation",
+    "per_subject_delta": {
+      "1": -0.004050925925925893,
+      "2": 0.019675925925925913,
+      "3": 0.019097222222222248,
+      "4": 0.0028935185185185084,
+      "5": -0.012731481481481483,
+      "6": 0.010995370370370405,
+      "7": 0.012731481481481491,
+      "8": -0.01909722222222221,
+      "9": 0.03819444444444442
+    },
+    "mean_delta": 0.0075231481481481555,
+    "median_delta": 0.010995370370370405,
+    "subject_bootstrap_95ci": [
+      -0.003407921810699573,
+      0.01858281893004116
+    ],
+    "exact_sign_flip_two_sided_p_exploratory": 0.25390625,
+    "inference_unit": "nine_held_out_subjects_not_seeds_or_trials",
+    "holm_within_family_p_exploratory": 0.76171875
+  },
+  "CHANNEL_AND_GAIN-Q8-E001": {
+    "family": "source_only_augmentation",
+    "per_subject_delta": {
+      "1": -0.01157407407407407,
+      "2": 0.012152777777777771,
+      "3": -0.07060185185185175,
+      "4": -0.0023148148148147696,
+      "5": -0.00752314814814814,
+      "6": 0.04282407407407409,
+      "7": -0.009837962962962946,
+      "8": -0.12037037037037039,
+      "9": 0.009837962962963001
+    },
+    "mean_delta": -0.017489711934156355,
+    "median_delta": -0.00752314814814814,
+    "subject_bootstrap_95ci": [
+      -0.05054012345679011,
+      0.009130658436214007
+    ],
+    "exact_sign_flip_two_sided_p_exploratory": 0.3515625,
+    "inference_unit": "nine_held_out_subjects_not_seeds_or_trials",
+    "holm_within_family_p_exploratory": 0.76171875
+  }
+}

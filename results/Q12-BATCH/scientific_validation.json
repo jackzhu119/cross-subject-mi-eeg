@@ -1,0 +1,62 @@
+{
+  "status": "passed_scientific_checks",
+  "conditions": [
+    {
+      "experiment_id": "Q12-E001",
+      "condition": "SOURCE_POOLED_WHITEN",
+      "inner_fits": 36,
+      "final_fits": 27,
+      "checkpoint_predictions_reconstructed": 27
+    },
+    {
+      "experiment_id": "Q12-E001",
+      "condition": "SOURCE_BALANCED_ERM",
+      "inner_fits": 36,
+      "final_fits": 27,
+      "checkpoint_predictions_reconstructed": 27
+    },
+    {
+      "experiment_id": "Q12-E001",
+      "condition": "SOURCE_GROUP_DRO",
+      "inner_fits": 36,
+      "final_fits": 27,
+      "checkpoint_predictions_reconstructed": 27
+    },
+    {
+      "experiment_id": "Q12-E002",
+      "condition": "CHANNEL_DROPOUT",
+      "inner_fits": 36,
+      "final_fits": 27,
+      "checkpoint_predictions_reconstructed": 27
+    },
+    {
+      "experiment_id": "Q12-E002",
+      "condition": "GAIN_PERTURB",
+      "inner_fits": 36,
+      "final_fits": 27,
+      "checkpoint_predictions_reconstructed": 27
+    },
+    {
+      "experiment_id": "Q12-E002",
+      "condition": "CHANNEL_AND_GAIN",
+      "inner_fits": 36,
+      "final_fits": 27,
+      "checkpoint_predictions_reconstructed": 27
+    }
+  ],
+  "inner_fits": 216,
+  "final_fits": 162,
+  "target_prediction_reconstructions": 162,
+  "inference_unit": "held_out_subject_after_paired_seed_mean",
+  "exploratory_post_Q8": true,
+  "source_only_transform_receipts_checked": 63,
+  "paired_contrasts": [
+    "SOURCE_POOLED_WHITEN-Q8-E001",
+    "SOURCE_BALANCED_ERM-Q8-E001",
+    "SOURCE_GROUP_DRO-SOURCE_BALANCED_ERM",
+    "CHANNEL_DROPOUT-Q8-E001",
+    "GAIN_PERTURB-Q8-E001",
+    "CHANNEL_AND_GAIN-Q8-E001"
+  ],
+  "matrix_sha256": "5f5a6d4fa01063fb7554bde4b33ed726f9f7c2ca9c751dbdce9cc25d81df39a6"
+}

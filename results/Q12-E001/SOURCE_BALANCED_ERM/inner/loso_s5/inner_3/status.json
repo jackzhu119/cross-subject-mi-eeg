@@ -1,0 +1,31 @@
+{
+  "experiment_id": "Q12-E001",
+  "condition": "SOURCE_BALANCED_ERM",
+  "fold": "loso_s5",
+  "target_subject": 5,
+  "stage": "inner",
+  "inner_fold": 3,
+  "seed": 20260923,
+  "train_subjects": [
+    1,
+    2,
+    3,
+    4,
+    8,
+    9
+  ],
+  "validation_subjects": [
+    6,
+    7
+  ],
+  "n_train": 3456,
+  "n_validation": 1152,
+  "epochs_trained": 40,
+  "elapsed_seconds": 18.840949833393097,
+  "status": "complete",
+  "completed_at_utc": "2026-09-26T08:32:35.082909+00:00",
+  "sha256_checkpoint.pt": "04c181ee75fdda2712bb264f120110093f5e25af0d4847d6d010013c5b0f3625",
+  "sha256_learning_curve.csv": "1713e98da853f76248db2d0f1845d6e98284566959eba38cdd900f8aa6cf3b85",
+  "sha256_fit_manifest.csv": "3296fe27bba1f1a9f8f4d44e70f3902c056ba6d753f4aa5f06a61429863a2360",
+  "sha256_model_receipt.json": "9d10f1819ae5039b1aa50d2e82362c71f8a6a1c9b7905b25b1a65a83dcd6faaa"
+}

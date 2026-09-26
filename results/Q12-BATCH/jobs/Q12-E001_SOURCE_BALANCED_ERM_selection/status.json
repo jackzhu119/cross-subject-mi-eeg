@@ -1,0 +1,26 @@
+{
+  "status": "complete",
+  "job_id": "Q12-E001_SOURCE_BALANCED_ERM_selection",
+  "argv": [
+    "/root/autodl-tmp/.venv-paper/bin/python",
+    "scripts/q12_dg.py",
+    "--condition",
+    "SOURCE_BALANCED_ERM",
+    "--phase",
+    "selection",
+    "--data-dir",
+    "/root/autodl-tmp/data/raw",
+    "--output-root",
+    "/root/autodl-tmp/cross-subject-mi-eeg-paper-run/results",
+    "--device",
+    "cuda"
+  ],
+  "attempts": 1,
+  "started_at_utc": "2026-09-26T08:26:01.438388+00:00",
+  "finished_at_utc": "2026-09-26T08:37:58.715006+00:00",
+  "exit_code": 0,
+  "log_path": "/root/autodl-tmp/cross-subject-mi-eeg-paper-run/results/Q12-BATCH/jobs/Q12-E001_SOURCE_BALANCED_ERM_selection/run.log",
+  "log_sha256": "cb1a55b8cfa3b235208cf0579c05f6f6e52a096812b80ebb8f7439e8c6c36158",
+  "completion_status": "/root/autodl-tmp/cross-subject-mi-eeg-paper-run/results/Q12-E001/SOURCE_BALANCED_ERM/selection_provenance.json",
+  "completion_status_sha256": "a98e6dc828cc27fff46931cbdf65e2720a70af98c31251331ffa06f01103836d"
+}

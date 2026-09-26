@@ -1,0 +1,26 @@
+{
+  "status": "complete",
+  "job_id": "Q12-E002_CHANNEL_DROPOUT_selection",
+  "argv": [
+    "/root/autodl-tmp/.venv-paper/bin/python",
+    "scripts/q12_dg.py",
+    "--condition",
+    "CHANNEL_DROPOUT",
+    "--phase",
+    "selection",
+    "--data-dir",
+    "/root/autodl-tmp/data/raw",
+    "--output-root",
+    "/root/autodl-tmp/cross-subject-mi-eeg-paper-run/results",
+    "--device",
+    "cuda"
+  ],
+  "attempts": 1,
+  "started_at_utc": "2026-09-26T08:50:09.701776+00:00",
+  "finished_at_utc": "2026-09-26T09:00:05.030985+00:00",
+  "exit_code": 0,
+  "log_path": "/root/autodl-tmp/cross-subject-mi-eeg-paper-run/results/Q12-BATCH/jobs/Q12-E002_CHANNEL_DROPOUT_selection/run.log",
+  "log_sha256": "40ac5177c0a74e66fdab9d92d6693eaa4a2fb2c0fd0c7c7c90af93c69c07346f",
+  "completion_status": "/root/autodl-tmp/cross-subject-mi-eeg-paper-run/results/Q12-E002/CHANNEL_DROPOUT/selection_provenance.json",
+  "completion_status_sha256": "faad394a818931ff94841f3c00a3603d47d1b5571725ccfe802357f2c679aa76"
+}

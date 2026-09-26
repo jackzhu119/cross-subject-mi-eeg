@@ -1,0 +1,80 @@
+{
+  "status": "passed_orchestration_only",
+  "audited_at_utc": "2026-09-26T09:47:54.924221+00:00",
+  "scientific_validation": "not_performed_by_this_batch_validator",
+  "matrix_sha256": "5f5a6d4fa01063fb7554bde4b33ed726f9f7c2ca9c751dbdce9cc25d81df39a6",
+  "selected_conditions": [
+    "SOURCE_POOLED_WHITEN",
+    "SOURCE_BALANCED_ERM",
+    "SOURCE_GROUP_DRO",
+    "CHANNEL_DROPOUT",
+    "GAIN_PERTURB",
+    "CHANNEL_AND_GAIN"
+  ],
+  "unselected_planned_conditions": [],
+  "jobs_expected": 12,
+  "jobs_complete": 12,
+  "findings": [
+    {
+      "job_id": "Q12-E001_SOURCE_POOLED_WHITEN_selection",
+      "phase": "selection",
+      "complete": true
+    },
+    {
+      "job_id": "Q12-E001_SOURCE_BALANCED_ERM_selection",
+      "phase": "selection",
+      "complete": true
+    },
+    {
+      "job_id": "Q12-E001_SOURCE_GROUP_DRO_selection",
+      "phase": "selection",
+      "complete": true
+    },
+    {
+      "job_id": "Q12-E002_CHANNEL_DROPOUT_selection",
+      "phase": "selection",
+      "complete": true
+    },
+    {
+      "job_id": "Q12-E002_GAIN_PERTURB_selection",
+      "phase": "selection",
+      "complete": true
+    },
+    {
+      "job_id": "Q12-E002_CHANNEL_AND_GAIN_selection",
+      "phase": "selection",
+      "complete": true
+    },
+    {
+      "job_id": "Q12-E001_SOURCE_POOLED_WHITEN_final",
+      "phase": "final",
+      "complete": true
+    },
+    {
+      "job_id": "Q12-E001_SOURCE_BALANCED_ERM_final",
+      "phase": "final",
+      "complete": true
+    },
+    {
+      "job_id": "Q12-E001_SOURCE_GROUP_DRO_final",
+      "phase": "final",
+      "complete": true
+    },
+    {
+      "job_id": "Q12-E002_CHANNEL_DROPOUT_final",
+      "phase": "final",
+      "complete": true
+    },
+    {
+      "job_id": "Q12-E002_GAIN_PERTURB_final",
+      "phase": "final",
+      "complete": true
+    },
+    {
+      "job_id": "Q12-E002_CHANNEL_AND_GAIN_final",
+      "phase": "final",
+      "complete": true
+    }
+  ],
+  "errors": []
+}

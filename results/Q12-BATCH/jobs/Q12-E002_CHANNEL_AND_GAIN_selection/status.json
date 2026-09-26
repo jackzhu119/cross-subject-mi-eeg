@@ -1,0 +1,26 @@
+{
+  "status": "complete",
+  "job_id": "Q12-E002_CHANNEL_AND_GAIN_selection",
+  "argv": [
+    "/root/autodl-tmp/.venv-paper/bin/python",
+    "scripts/q12_dg.py",
+    "--condition",
+    "CHANNEL_AND_GAIN",
+    "--phase",
+    "selection",
+    "--data-dir",
+    "/root/autodl-tmp/data/raw",
+    "--output-root",
+    "/root/autodl-tmp/cross-subject-mi-eeg-paper-run/results",
+    "--device",
+    "cuda"
+  ],
+  "attempts": 1,
+  "started_at_utc": "2026-09-26T09:09:53.587815+00:00",
+  "finished_at_utc": "2026-09-26T09:19:39.416102+00:00",
+  "exit_code": 0,
+  "log_path": "/root/autodl-tmp/cross-subject-mi-eeg-paper-run/results/Q12-BATCH/jobs/Q12-E002_CHANNEL_AND_GAIN_selection/run.log",
+  "log_sha256": "66beb97d63b36c21f73723622ed93353d650fe34fb6710b10763b1f3768733d5",
+  "completion_status": "/root/autodl-tmp/cross-subject-mi-eeg-paper-run/results/Q12-E002/CHANNEL_AND_GAIN/selection_provenance.json",
+  "completion_status_sha256": "6e9f3f9a8194400f59bb2443bb8aed4676ce7f9e17ddd13d0660a99927abbdd5"
+}
