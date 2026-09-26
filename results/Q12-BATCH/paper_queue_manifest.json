@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "purpose": "post_hoc_source_only_Q12_then_Q13_no_target_driven_selection",
+  "python": "/root/miniconda3/bin/python3.12",
+  "data_dir": "/root/autodl-tmp/data/raw",
+  "physionet_dir": "/root/autodl-tmp/physionet",
+  "output_root": "/root/autodl-tmp/cross-subject-mi-eeg-paper-run/results",
+  "source_sha256": {
+    "scripts/paper_cloud_queue.py": "669c3bebe63d26bbede824884f5bd71b06a42b76ef113712ffc146d1ab99c6ad",
+    "scripts/run_paper_cloud.sh": "c4ed5e2c5d59021dd1c291c894bd4c3cd2757681fbb5035f39ddc29970dd8ca5",
+    "scripts/q14_r2_portable_finalize.py": "46cdea8dd4f833ee5885d5e62fd4b1193d6df4e763d7fdcfb50cdb2e0a07cb11",
+    "scripts/q14_r2_validate.py": "7c3deebc223fd1b248bf408ac829974637bad1d0671064cee612195d29c83d2e",
+    "scripts/q14_r2_numeric.py": "b1df29b900e9c43d8aefda0cd1947d1b09ba1127483cdcb481195cd4c5eac9ec",
+    "research_runs/Q14-E002R2/VALIDATION_PORTABILITY_AMENDMENT_20260926.md": "69ee6a73c069670f02ebb7b28ae050a3e897cb65a0801be44149f4b00b277e6c",
+    "scripts/q12_batch.py": "0eae9ae2d3a0f8a6316cbb5773f392f13204998dd28efff22a598fdf2963006c",
+    "scripts/q12_dg.py": "282bdeca3668d141fa81c33bca84874defe083689266a4f5704a3c8b3372059d",
+    "scripts/validate_q12.py": "0bfd522106f91f2567c5c99a0b78d83d93d51d1997a6437c36a874dcf162fc28",
+    "scripts/q13_batch.py": "710b3c1018b966c6ed00b66773d090616bb7e9c92c5f1ca6e41a3e09dfc3b157",
+    "scripts/q13_neural.py": "929a694a7360569c294382aca10e68e032a9523e2dd1073a1f30f0aa815fcb9f",
+    "scripts/validate_q13.py": "c3281c282f0ce0d77a6d989018f05c224126169cd16fa7d3ba63e6fede9361a8",
+    "scripts/q9_batch.py": "5d43b47cc054276523e080aef1fcbb57ca399774a16e50a53376e2f9e63a50c3",
+    "scripts/q9_neural.py": "47d20131bfd05b775ac3a55304d9ad2e34c5fc8473901ca717edaa66471f1c56",
+    "scripts/publish_research_run.py": "9bb745cec8ecb448c40931946d8a90de9c5778b04c172727d4ba36483323e6f2",
+    "scripts/run_eegnet.py": "d3ee0eda82fb548f7ef6145157d509c8169ac3da93bab7b6a3ebd2904f908b32",
+    "src/mi_eeg/data/bnci_epochs.py": "ed38a09624689d685384cf9aad83f43c3828904426087dee9b7ae6a9677d301b",
+    "src/mi_eeg/models/eegnet_training.py": "ddb1ab9d40f43abe3ec22a4b0132cd194ea1fe61e1e9ebb801f3423408013842",
+    "research_runs/Q12-PREP-20260926/MATRIX.json": "5f5a6d4fa01063fb7554bde4b33ed726f9f7c2ca9c751dbdce9cc25d81df39a6",
+    "research_runs/Q13-PREP-20260926/MATRIX.json": "f1487579d8dae8a6f28dc75206b3a6a74b4c1e638401833c797ecc441ed7c5e2"
+  },
+  "stages": [
+    {
+      "id": "Q14_PORTABLE_VALIDATION",
+      "new_deep_fits": 0,
+      "argv": [
+        "/root/miniconda3/bin/python3.12",
+        "scripts/q14_r2_portable_finalize.py",
+        "--execute",
+        "--data-dir",
+        "/root/autodl-tmp/physionet"
+      ],
+      "failure_policy": "record_and_continue_independent_BNCI_stages",
+      "batch_status": "results/Q14-R2PORT/batch_status.json",
+      "scientific_report": "results/Q14-E002R2V1/validation_report.json"
+    },
+    {
+      "id": "Q12",
+      "new_deep_fits": 378,
+      "argv": [
+        "/root/miniconda3/bin/python3.12",
+        "scripts/q12_batch.py",
+        "--execute",
+        "--publish",
+        "--data-dir",
+        "/root/autodl-tmp/data/raw"
+      ],
+      "failure_policy": "stop_training_sequence",
+      "batch_status": "results/Q12-BATCH/batch_status.json",
+      "scientific_report": "results/Q12-BATCH/scientific_validation.json",
+      "scientific_pass": "passed_scientific_checks"
+    },
+    {
+      "id": "Q13",
+      "new_deep_fits": 837,
+      "argv": [
+        "/root/miniconda3/bin/python3.12",
+        "scripts/q13_batch.py",
+        "--execute",
+        "--publish",
+        "--data-dir",
+        "/root/autodl-tmp/data/raw",
+        "--device",
+        "cuda"
+      ],
+      "failure_policy": "stop_training_sequence",
+      "batch_status": "results/Q13-BATCH/batch_status.json",
+      "scientific_report": "results/Q13-BATCH/validation_report.json",
+      "scientific_pass": "passed"
+    }
+  ],
+  "total_new_deep_fits": 1215,
+  "q14_validation_only": true,
+  "automatic_shutdown": false
+}

@@ -1,0 +1,8 @@
+
+[2026-09-26T07:16:16.272979+00:00] invocation 1
+Traceback (most recent call last):
+  File "/root/autodl-tmp/cross-subject-mi-eeg-paper-run/scripts/q12_batch.py", line 22, in <module>
+    from scripts import publish_research_run, q9_batch, q9_validate_batch, q12_dg
+  File "/root/autodl-tmp/cross-subject-mi-eeg-paper-run/scripts/q12_dg.py", line 24, in <module>
+    import mne
+ModuleNotFoundError: No module named 'mne'

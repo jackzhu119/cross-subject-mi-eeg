@@ -1,0 +1,51 @@
+{
+  "status": "failed_stopped",
+  "started_or_resumed_at_utc": "2026-09-26T07:15:51.171162+00:00",
+  "manifest_sha256": "4c24722f2385fb18beda77299c3371c3b7ceb62af219ebb018ae3811e862ef1d",
+  "stages": {
+    "Q14_PORTABLE_VALIDATION": {
+      "status": "failed_stopped",
+      "argv": [
+        "/root/miniconda3/bin/python3.12",
+        "scripts/q14_r2_portable_finalize.py",
+        "--execute",
+        "--data-dir",
+        "/root/autodl-tmp/physionet"
+      ],
+      "started_at_utc": "2026-09-26T07:15:51.171425+00:00",
+      "attempts": 1,
+      "returncode": 1,
+      "log_sha256": "2f0bf8597a76085ceca45795755f131516429d31bafc5fd15d6f59c35024f3aa",
+      "finished_at_utc": "2026-09-26T07:16:16.272137+00:00",
+      "error": "Q14_PORTABLE_VALIDATION batch failed with exit 1"
+    },
+    "Q12": {
+      "status": "failed_stopped",
+      "argv": [
+        "/root/miniconda3/bin/python3.12",
+        "scripts/q12_batch.py",
+        "--execute",
+        "--publish",
+        "--data-dir",
+        "/root/autodl-tmp/data/raw"
+      ],
+      "started_at_utc": "2026-09-26T07:16:16.272642+00:00",
+      "attempts": 1,
+      "returncode": 1,
+      "log_sha256": "d74bbd4bfd189ac76fb30ea9abacf9449babbbd9128e3d16345f120f67dcf2c1",
+      "finished_at_utc": "2026-09-26T07:16:16.340762+00:00",
+      "error": "Q12 batch failed with exit 1"
+    }
+  },
+  "total_new_deep_fits_planned": 1215,
+  "completed_stages": 0,
+  "stage_failures": [
+    "Q14_PORTABLE_VALIDATION",
+    "Q12"
+  ],
+  "automatic_shutdown": false,
+  "current_stage": "Q12",
+  "error": "Q12 batch failed with exit 1",
+  "traceback": "Traceback (most recent call last):\n  File \"/root/autodl-tmp/cross-subject-mi-eeg-paper-run/scripts/paper_cloud_queue.py\", line 229, in run\n    raise RuntimeError(stage_error)\nRuntimeError: Q12 batch failed with exit 1\n",
+  "finished_at_utc": "2026-09-26T07:16:16.345073+00:00"
+}
