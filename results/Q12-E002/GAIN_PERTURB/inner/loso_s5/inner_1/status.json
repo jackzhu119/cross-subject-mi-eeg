@@ -1,0 +1,31 @@
+{
+  "experiment_id": "Q12-E002",
+  "condition": "GAIN_PERTURB",
+  "fold": "loso_s5",
+  "target_subject": 5,
+  "stage": "inner",
+  "inner_fold": 1,
+  "seed": 20260923,
+  "train_subjects": [
+    3,
+    4,
+    6,
+    7,
+    8,
+    9
+  ],
+  "validation_subjects": [
+    1,
+    2
+  ],
+  "n_train": 3456,
+  "n_validation": 1152,
+  "epochs_trained": 40,
+  "elapsed_seconds": 15.390003681182861,
+  "status": "complete",
+  "completed_at_utc": "2026-09-26T09:04:58.002771+00:00",
+  "sha256_checkpoint.pt": "bef1deb488c798bc9a0153f5076a5c21d941743c2b83b8b2553a45608af4c389",
+  "sha256_learning_curve.csv": "8d8214b2f386111298952e61293c63a1d4c9724040e38d544cf307d6fa8c7b3a",
+  "sha256_fit_manifest.csv": "1b9825004b74de9590208b3b2cface71786c55e9c96b04107494f600068c34e9",
+  "sha256_model_receipt.json": "74467892db92fc74ff1c8f6348c1c1e79dab031152f500eb3bfce7d51e8bd831"
+}

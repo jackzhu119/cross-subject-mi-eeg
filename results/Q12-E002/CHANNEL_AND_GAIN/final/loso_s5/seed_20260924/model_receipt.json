@@ -1,0 +1,91 @@
+{
+  "experiment_id": "Q12-E002",
+  "condition": "CHANNEL_AND_GAIN",
+  "architecture": {
+    "library": "braindecode",
+    "model": "EEGNet",
+    "n_chans": 22,
+    "n_outputs": 4,
+    "n_times": 750,
+    "F1": 8,
+    "D": 2,
+    "F2": 16,
+    "kernel_length": 64,
+    "drop_prob": 0.25
+  },
+  "method": "channel_and_gain",
+  "method_parameters": {
+    "channel_dropout_probability": 0.1,
+    "gain_low": 0.8,
+    "gain_high": 1.2
+  },
+  "group_training": {
+    "train_subjects": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      7,
+      8,
+      9
+    ],
+    "final_group_weights": null,
+    "balanced_batches": false,
+    "nominal_batch_size": 64
+  },
+  "parameter_shapes": {
+    "conv_temporal.weight": [
+      8,
+      1,
+      1,
+      64
+    ],
+    "bnorm_temporal.weight": [
+      8
+    ],
+    "bnorm_temporal.bias": [
+      8
+    ],
+    "conv_spatial.parametrizations.weight.original": [
+      16,
+      1,
+      22,
+      1
+    ],
+    "bnorm_1.weight": [
+      16
+    ],
+    "bnorm_1.bias": [
+      16
+    ],
+    "conv_separable_depth.weight": [
+      16,
+      1,
+      1,
+      16
+    ],
+    "conv_separable_point.weight": [
+      16,
+      16,
+      1,
+      1
+    ],
+    "bnorm_2.weight": [
+      16
+    ],
+    "bnorm_2.bias": [
+      16
+    ],
+    "final_layer.conv_classifier.weight": [
+      4,
+      16,
+      1,
+      23
+    ],
+    "final_layer.conv_classifier.bias": [
+      4
+    ]
+  },
+  "trainable_parameter_count": 2932
+}
