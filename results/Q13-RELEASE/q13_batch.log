@@ -16,3 +16,12 @@
 {"status": "pushed_with_skipped_files", "result_commit": "60a6269c02bd4c6c327b7b89b8efbeb07d5594a4", "reason": null}
 {"status": "pushed_with_skipped_files", "result_commit": "01e55986648d857feb8b0cdc9df892bb2699366b", "reason": null}
 [2026-09-27T12:24:58.622668+00:00] exit_code=241
+
+[2026-09-27T12:26:21.428560+00:00] argv=["/root/autodl-tmp/.venv-paper/bin/python", "/root/autodl-tmp/cross-subject-mi-eeg-paper-run/scripts/q13_batch.py", "--execute", "--publish", "--data-dir", "/root/autodl-tmp/data/raw", "--output-root", "/root/autodl-tmp/cross-subject-mi-eeg-paper-run/results", "--device", "cuda", "--python", "/root/autodl-tmp/.venv-paper/bin/python"]
+/root/autodl-tmp/.venv-paper/lib/python3.12/site-packages/braindecode/models/eegpt.py:497: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
+  montage = mne.channels.make_standard_montage("standard_1020")
+{"status": "pushed_with_skipped_files", "result_commit": "7bad2f2a4d69b2c9f80a2bce79a904f7faf8cf8c", "reason": null}
+{"status": "pushed_with_skipped_files", "result_commit": "b92d540ef5713982b439fee03958ca92dfce65fe", "reason": null}
+{"status": "pushed_with_skipped_files", "result_commit": "2d673f74f4ede9a38af8a201a0089534a2c3782e", "reason": null}
+{"status": "pushed_with_skipped_files", "result_commit": "4b9f5e41c87ef1851ac0fad9569734f1ab0fdc05", "reason": null}
+[2026-09-27T13:49:11.257410+00:00] exit_code=1
