@@ -1,10 +1,14 @@
 {
   "status": "pushed_with_skipped_files",
-  "attempted_at_utc": "2026-09-27T12:19:08.274300+00:00",
+  "attempted_at_utc": "2026-09-27T12:19:20.474379+00:00",
   "batch_dir": "results/Q13-RELEASE",
   "experiment_dir": "results/Q13-E006",
-  "candidate_count": 5,
+  "candidate_count": 6,
   "skipped_files": [
+    {
+      "path": "results/Q13-RELEASE/publish_status.json",
+      "reason": "extension_or_runtime_file"
+    },
     {
       "path": "results/Q13-RELEASE/queue.lock",
       "reason": "extension_or_runtime_file"
@@ -14,7 +18,7 @@
       "reason": "extension_or_runtime_file"
     }
   ],
-  "result_commit": "7350880f7f041a74f381740ea53f695619e6d0a1",
+  "result_commit": "63d16d2a2c9b18cf550b34e4413109cd1f0c9b08",
   "batch_status": "failed_stopped",
-  "finished_at_utc": "2026-09-27T12:19:16.178523+00:00"
+  "finished_at_utc": "2026-09-27T12:19:28.550063+00:00"
 }
