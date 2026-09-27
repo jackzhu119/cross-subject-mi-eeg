@@ -213,7 +213,9 @@ def main() -> int:
     args = parser.parse_args()
     if args.check_only == args.execute or (args.execute and not args.publish):
         parser.error("Choose --check-only, or both --execute --publish")
-    data_dir, python = args.data_dir.resolve(), args.python.resolve()
+    # A venv's bin/python is often a symlink. Resolving it to the underlying
+    # system interpreter discards the venv's site-packages on Linux.
+    data_dir, python = args.data_dir.resolve(), args.python.absolute()
     if args.check_only:
         print(json.dumps(check_only(data_dir, python), indent=2))
         return 0

@@ -37,6 +37,33 @@ def test_check_only_requires_all_18_historical_mat_bytes(
     assert receipt["q15_activated"] is False
 
 
+def test_cli_preserves_virtualenv_python_symlink(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    target = tmp_path / "system_python"
+    target.write_text("placeholder", encoding="utf-8")
+    virtual = tmp_path / "venv" / "bin" / "python"
+    virtual.parent.mkdir(parents=True)
+    try:
+        virtual.symlink_to(target)
+    except OSError:
+        pytest.skip("Host cannot create test symlinks")
+    captured = {}
+
+    def fake_check(data_dir: Path, python: Path) -> dict:
+        captured["data_dir"] = data_dir
+        captured["python"] = python
+        return {"status": "preflight_passed_no_training"}
+
+    monkeypatch.setattr(chain, "check_only", fake_check)
+    monkeypatch.setattr(sys, "argv", ["q13_cloud_chain.py", "--check-only",
+                                    "--python", str(virtual),
+                                    "--data-dir", str(tmp_path)])
+    assert chain.main() == 0
+    assert captured["python"] == virtual.absolute()
+    assert captured["python"] != target.resolve()
+
+
 @pytest.mark.parametrize("scientific_pass", [True, False])
 def test_chain_only_runs_e006_after_full_q13_pass_and_always_publishes(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch, scientific_pass: bool,
