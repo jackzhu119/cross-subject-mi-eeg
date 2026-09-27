@@ -1,0 +1,28 @@
+{
+  "experiment_id": "Q13-E004",
+  "condition": "Q8_SRC2",
+  "target_subject": 2,
+  "fold": "loso_s2",
+  "subset_id": "k2_start2",
+  "source_count": 2,
+  "train_subjects": [
+    4,
+    5
+  ],
+  "source_session": null,
+  "seed": 20260926,
+  "selected_epochs": 20,
+  "n_train": 1152,
+  "n_test": 576,
+  "run_config_sha256": "37fe5e4279b1989c0955e1bb39d7d8497c05591ea52834583cee8f43e68dc9b2",
+  "elapsed_seconds": 2.5866547375917435,
+  "optimizer_updates": 360,
+  "status": "complete",
+  "completed_at_utc": "2026-09-27T12:32:18.422956+00:00",
+  "sha256_checkpoint.pt": "ebf2610407379de15b6706c24a3da1819737601c2e83ea23acb19c9d2f46cd12",
+  "sha256_learning_curve.csv": "c2a0b57781f1df6e510295f8fb343fbe0b427eb6e535a76554f045cadbcca3aa",
+  "sha256_fit_manifest.csv": "b6cab1e3269a72061a66430ea40a2f6b6a248fd133375cf8bd0986765c7caab0",
+  "sha256_predictions.csv": "ced52e036b55dd42e76ad831eb6ca1e3496c34c5c1000402032cb7e5495ea2be",
+  "sha256_metrics.csv": "5d71e2318277ab43d0aab436845de2580454b8a11009f926b2067e082901b56f",
+  "sha256_confusion.csv": "e2c72c84175d26d1c088ab334250eb5317fedc91d296f770a43d139349b7c012"
+}

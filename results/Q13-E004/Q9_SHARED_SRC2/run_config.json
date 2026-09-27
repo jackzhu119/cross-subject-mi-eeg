@@ -1,0 +1,119 @@
+{
+  "experiment_id": "Q13-E004",
+  "condition": "Q9_SHARED_SRC2",
+  "method": "Q9_MU_BETA_SHARED",
+  "source_count": 2,
+  "source_session": null,
+  "selected_epochs_by_target": {
+    "1": 20,
+    "2": 20,
+    "3": 20,
+    "4": 20,
+    "5": 20,
+    "6": 20,
+    "7": 20,
+    "8": 20,
+    "9": 20
+  },
+  "source_only_selection_provenance": {
+    "q5_config_sha256": "8caa3589d3ca2d8e21f2ed9d9f8de33d30e942a2159f2df236ad3923b509862c",
+    "q5_selection_sha256": "1b71fc50c58ea70284ba4f4cd1967b7c9b21d5b5d12d8469ddb07129a441491a",
+    "q5_validation_sha256": "237b846d2d9c851aeb7d0db5aded0dbf87676ff2f4ea18bfa5c5df650a7e519f"
+  },
+  "preprocessing": {
+    "sampling_rate_hz": 250,
+    "bands": {
+      "mu": [
+        8,
+        13
+      ],
+      "beta": [
+        13,
+        30
+      ]
+    },
+    "filter": {
+      "order": 4,
+      "ftype": "butter",
+      "phase": "zero"
+    },
+    "trial_start_s": 2.5,
+    "trial_stop_exclusive_s": 5.5,
+    "artifact_policy": "include_all",
+    "baseline": null
+  },
+  "bands": {
+    "mu": [
+      8,
+      13
+    ],
+    "beta": [
+      13,
+      30
+    ]
+  },
+  "shared_mean_logits": true,
+  "architecture": {
+    "library": "braindecode",
+    "model": "EEGNet",
+    "n_chans": 22,
+    "n_outputs": 4,
+    "n_times": 750,
+    "F1": 8,
+    "D": 2,
+    "F2": 16,
+    "kernel_length": 64,
+    "drop_prob": 0.25
+  },
+  "training": {
+    "torch_threads": 4,
+    "deterministic_algorithms": true,
+    "selection_seed": 20260923,
+    "final_seeds": [
+      20260924,
+      20260925,
+      20260926
+    ],
+    "inner_validation_rule": "consecutive_pairs_of_sorted_eight_source_subjects",
+    "inner_folds": 4,
+    "batch_size": 64,
+    "max_epochs": 40,
+    "optimizer": "Adam",
+    "learning_rate": 0.001,
+    "weight_decay": 0.0,
+    "loss": "cross_entropy",
+    "scheduler": "none",
+    "augmentation": "none"
+  },
+  "input": {
+    "shape": [
+      22,
+      750
+    ],
+    "volts_to_microvolts": 1000000.0,
+    "target_derived_normalization": false
+  },
+  "subjects": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "class_ids": {
+    "left_hand": 1,
+    "right_hand": 2,
+    "feet": 3,
+    "tongue": 4
+  },
+  "source_fit_per_band_channel_zscore": false,
+  "target_fit_or_selection": false,
+  "data_dir": "/root/autodl-tmp/data/raw",
+  "q8_config_sha256": "daac05d5dffc36cd1d44dd30927d480c0a1087125828ce95ebb2b383d7d18342",
+  "matrix_sha256": "f1487579d8dae8a6f28dc75206b3a6a74b4c1e638401833c797ecc441ed7c5e2",
+  "runner_sha256": "929a694a7360569c294382aca10e68e032a9523e2dd1073a1f30f0aa815fcb9f"
+}
