@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "experiment_id": "Q13-E006",
+  "status": "prepared_not_executed",
+  "amendment_to": "Q13-E001 selection sensitivity only",
+  "condition": "Q8_RAW_CE_MATCHED",
+  "method": "Q8_BROAD",
+  "selection": "Q5 source-only raw-CE selected epochs, independently reconstructed from the frozen inner learning curves",
+  "predecessor_for_runtime_match": "Q13-E001/Q8_FIXED20",
+  "outer_subjects": 9,
+  "final_seeds": [20260924, 20260925, 20260926],
+  "new_final_fits": 27,
+  "new_inner_fits": 0,
+  "target_fits": 0,
+  "inference_unit": "held-out subject",
+  "analysis_status": "exploratory_post_Q5_Q9_BNCI_development",
+  "interpretation": "Q13-E006 versus Q13-E001/Q8_FIXED20 isolates duration selection more cleanly than cross-runtime Q5 reuse; it is not independent confirmation"
+}

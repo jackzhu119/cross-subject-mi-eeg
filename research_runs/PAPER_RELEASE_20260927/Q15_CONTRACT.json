@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "experiment_family": "Q15_prospective_21_channel_external_replication",
+  "status": "prepared_metadata_and_source_freeze_pending",
+  "historical_q14_config": "research_runs/Q14-E001/CONFIG.json",
+  "historical_q15_packet": "research_runs/PAPER_RELEASE_20260926/EXTERNAL_PROTOCOL.md",
+  "source_of_channel_concern": {
+    "moabb_version": "v1.7.2",
+    "url": "https://github.com/NeuroTechX/moabb/blob/v1.7.2/moabb/datasets/Lee2019.py#L297-L375",
+    "catalogue_missing_from_q14": ["FCz"],
+    "raw_file_confirmation": false,
+    "existing_22_channel_lee_arms": ["Q15-E001", "Q15-E004"],
+    "disposition": "blocked_pending_raw_metadata_audit"
+  },
+  "metadata_audits": [
+    {"id": "Q15-V001", "dataset": "Lee2019_MI", "expected_subjects": 54, "expected_sessions_per_subject": 2, "run_scope": "offline_labeled_MI_training_only", "status": "not_executed"},
+    {"id": "Q15-V002", "dataset": "Cho2017", "expected_subjects": 52, "expected_sessions_per_subject": 1, "run_scope": "labeled_MI_only", "status": "not_executed"}
+  ],
+  "new_source_arm": {
+    "id": "Q15-E005",
+    "dataset": "BNCI2014_001",
+    "implementation_status": "local_source_runner_synthetic_checks_only_real_raw_adapter_and_independent_source_validator_pending",
+    "subject_ids": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+    "channel_rule": "Q14_order_minus_FCz_only_before_training",
+    "channels": ["Fz", "FC3", "FC1", "FC2", "FC4", "C5", "C3", "C1", "Cz", "C2", "C4", "C6", "CP3", "CP1", "CPz", "CP2", "CP4", "P1", "Pz", "P2", "POz"],
+    "cue_window_s_half_open": [0.5, 2.5],
+    "common_sampling_rate_hz": 160,
+    "n_times": 320,
+    "frequency_bands_hz": {"broad": [8, 30], "mu": [8, 13], "beta": [13, 30]},
+    "filter": {"order": 4, "ftype": "butter", "phase": "zero", "scope": "run_local"},
+    "artifact_policy": "include_all",
+    "source_only_inner_groups": [[1, 2], [3, 4], [5, 6], [7, 8, 9]],
+    "selection_seed": 20260923,
+    "final_seeds": [20260924, 20260925, 20260926],
+    "max_epochs": 40,
+    "batch_size": 64,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0,
+    "source_only_epoch_rule": "earliest_epoch_minimizing_equal_inner_fold_mean_within_fold_CE_rank",
+    "neural_models": ["BROAD_EEGNET", "MU_BETA_SHARED"],
+    "shallow_models": ["CSP4_LDA"],
+    "architecture_changes_from_q14": {"n_chans": 21, "n_times": 320},
+    "new_deep_fits": 14,
+    "new_shallow_fits": 1,
+    "external_target_fits": 0,
+    "status": "conditional_not_executed"
+  },
+  "external_arms": [
+    {"id": "Q15-E006", "dataset": "Cho2017", "source_arm": "Q15-E005", "new_model_fits": 0, "target_fits": 0, "status": "conditional_not_executed"},
+    {"id": "Q15-E007", "dataset": "Lee2019_MI", "source_arm": "Q15-E005", "new_model_fits": 0, "target_fits": 0, "status": "conditional_not_executed"}
+  ],
+  "primary_contrast": "MU_BETA_SHARED_minus_BROAD_EEGNET_equal_subject_mean_balanced_accuracy_after_within_subject_three_seed_average",
+  "inference_unit": "person_not_trial_seed_run_or_session",
+  "target_data_policy": "zero_target_fit_normalization_alignment_selection_adaptation_or_seed_choice",
+  "readiness": "not_ready_for_external_prediction_until_real_raw_audits_source_fit_validation_and_checkpoint_freeze_pass"
+}
