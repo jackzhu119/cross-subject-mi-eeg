@@ -4,6 +4,8 @@ from __future__ import annotations
 
 import hashlib
 import json
+import subprocess
+import sys
 from pathlib import Path
 
 import numpy as np
@@ -11,6 +13,14 @@ import pandas as pd
 import pytest
 
 from scripts import q13_e006_postrun_stats as stats
+
+
+def test_standalone_cli_imports_from_outside_repo(tmp_path: Path) -> None:
+    completed = subprocess.run(
+        (sys.executable, str(Path(stats.__file__)), "--help"),
+        cwd=tmp_path, capture_output=True, text=True, check=False,
+    )
+    assert completed.returncode == 0, completed.stderr
 
 
 def _fixture(results: Path) -> None:

@@ -12,7 +12,12 @@ import hashlib
 import itertools
 import json
 import os
+import sys
 from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 import numpy as np
 import pandas as pd
@@ -21,7 +26,6 @@ from sklearn.metrics import balanced_accuracy_score
 from scripts.validate_q13 import CONDITIONS as Q13_CONDITIONS
 from scripts.validate_q13 import _receipt_matches
 
-ROOT = Path(__file__).resolve().parents[1]
 Q13_MATRIX = ROOT / "research_runs/Q13-PREP-20260926/MATRIX.json"
 E006_MATRIX = ROOT / "research_runs/Q13-E006/MATRIX.json"
 SEEDS = (20260924, 20260925, 20260926)
