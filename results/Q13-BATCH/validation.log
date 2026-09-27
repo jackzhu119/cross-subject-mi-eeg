@@ -1,0 +1,12 @@
+
+Q13 independent validation 2026-09-27T13:47:46.025416+00:00
+Traceback (most recent call last):
+  File "/root/autodl-tmp/cross-subject-mi-eeg-paper-run/scripts/validate_q13.py", line 380, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/root/autodl-tmp/cross-subject-mi-eeg-paper-run/scripts/validate_q13.py", line 372, in main
+    report = validate_all(args.results_root.resolve(),
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/cross-subject-mi-eeg-paper-run/scripts/validate_q13.py", line 247, in validate_all
+    from scripts import q9_neural
+ModuleNotFoundError: No module named 'scripts'
