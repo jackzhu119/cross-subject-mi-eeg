@@ -12,6 +12,7 @@ import hashlib
 import json
 import os
 import subprocess
+import sys
 from pathlib import Path
 
 import numpy as np
@@ -19,6 +20,11 @@ import pandas as pd
 from sklearn.metrics import balanced_accuracy_score, confusion_matrix
 
 ROOT = Path(__file__).resolve().parents[1]
+# The batch runner starts this file by absolute path. In that mode Python
+# places scripts/ rather than the repository root on sys.path. Checkpoint
+# replay imports scripts.q9_neural, so make the import available before replay.
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 MATRIX = ROOT / "research_runs/Q13-PREP-20260926/MATRIX.json"
 REFERENCE = ROOT / "research_runs/Q8-E001/results/trial_metadata.csv"
 Q5_METRICS = ROOT / "results/Q5-E001/per_subject_metrics.csv"

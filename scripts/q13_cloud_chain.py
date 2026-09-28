@@ -52,6 +52,11 @@ def atomic_json(path: Path, value: dict) -> None:
     os.replace(temporary, path)
 
 
+def _mtime_ns(path: Path) -> int:
+    """An absent old receipt cannot certify a newly completed child run."""
+    return path.stat().st_mtime_ns if path.is_file() else -1
+
+
 def run_logged(name: str, argv: list[str], *, python: Path) -> int:
     RELEASE.mkdir(parents=True, exist_ok=True)
     log_path = RELEASE / f"{name}.log"
@@ -131,18 +136,27 @@ def execute(data_dir: Path, python: Path) -> int:
             state["preflight"] = check_only(data_dir, python)
             state["status"] = "running_q13"
             atomic_json(RELEASE / "batch_status.json", state)
+            original_status_path = ORIGINAL / "batch_status.json"
+            original_validation_path = ORIGINAL / "validation_report.json"
+            prior_status_mtime = _mtime_ns(original_status_path)
+            prior_validation_mtime = _mtime_ns(original_validation_path)
             q13_rc = run_logged(
                 "q13_batch", [str(python), str(ROOT / "scripts/q13_batch.py"),
                               "--execute", "--publish", "--data-dir", str(data_dir),
                               "--output-root", str(RESULTS), "--device", "cuda",
                               "--python", str(python)], python=python)
             state["q13_batch_exit_code"] = q13_rc
-            original = read_json(ORIGINAL / "batch_status.json")
-            scientific = read_json(ORIGINAL / "validation_report.json")
-            if (original.get("status") != "complete_validated"
+            original = read_json(original_status_path)
+            scientific = read_json(original_validation_path)
+            # Return code 2 may mean only Git publication is pending after a
+            # genuine scientific pass; an earlier passed receipt is not enough.
+            if (q13_rc not in (0, 2)
+                    or _mtime_ns(original_status_path) <= prior_status_mtime
+                    or _mtime_ns(original_validation_path) <= prior_validation_mtime
+                    or original.get("status") != "complete_validated"
                     or scientific.get("status") != "passed"
                     or scientific.get("checkpoint_replays") != 837):
-                raise RuntimeError("Q13 837-checkpoint scientific validation did not pass")
+                raise RuntimeError("Fresh Q13 837-checkpoint scientific validation did not pass")
             state["q13_837_validated"] = True
             state["status"] = "running_e006"
             atomic_json(RELEASE / "batch_status.json", state)
@@ -185,21 +199,27 @@ def execute(data_dir: Path, python: Path) -> int:
             if not published or not all(published.values()):
                 state["publication_pending"] = True
                 result = result or 2
+            # Publish this final scientific state before the last publisher
+            # snapshots it. Its publish_status.json is the separate evidence
+            # of whether that push succeeded.
+            state["final_publication_attempted"] = True
+            state["final_publication_receipt"] = "results/Q13-RELEASE/publish_status.json"
             atomic_json(RELEASE / "batch_status.json", state)
-            # A second pass records the final publication summary when possible.
+            # A second pass includes the summary above in the Git commit.
             try:
-                published["final_release_receipt"] = run_logged(
+                final_published = run_logged(
                     "publish_final_receipt",
                     [str(python), str(ROOT / "scripts/publish_research_run.py"),
                      "--batch-dir", str(RELEASE), "--experiment-dir", str(AMENDMENT)],
                     python=python,
                 ) == 0
             except Exception:  # noqa: BLE001 - local receipt remains authoritative
-                published["final_release_receipt"] = False
-            if not published["final_release_receipt"]:
+                final_published = False
+            if not final_published:
                 result = result or 2
-            state["publication"] = published
-            atomic_json(RELEASE / "batch_status.json", state)
+                state["publication_pending"] = True
+                state["publication"]["final_release_receipt"] = False
+                atomic_json(RELEASE / "batch_status.json", state)
         return result
 
 
