@@ -1,0 +1,47 @@
+
+[2026-09-28T02:12:17.845937+00:00] argv=["/root/autodl-tmp/.venv-paper/bin/python", "/root/autodl-tmp/cross-subject-mi-eeg-paper-run/scripts/q13_e006_postrun_stats.py"]
+{
+  "status": "post_validation_exploratory_statistics_complete",
+  "not_a_new_scientific_validation": true,
+  "q13_checkpoint_replays": 837,
+  "e006_checkpoint_replays": 27,
+  "q13_original_fit_and_q5_input_digest": "35db5d9b7a7675d7a16ec399c117b466d8503a238631765396fe89918ac2a594",
+  "inference_unit": "nine held-out subjects; seeds and source subsets averaged within subject",
+  "bootstrap_seed": 20260926,
+  "bootstrap_draws": 10000,
+  "contrast_count": 11,
+  "subject_rows": 99,
+  "limitations": [
+    "BNCI target outcomes were previously examined: all Q13/E006 contrasts exploratory.",
+    "LOSO training sets overlap: exact sign-flip is sensitivity, not exact causal inference.",
+    "Natural optimizer updates and training trial counts increase with source count.",
+    "Q5 historical reuse can differ in runtime from Q13; its contrast remains descriptive.",
+    "E006 tests a frozen historical source-only epoch schedule, not reselection under the new runtime.",
+    "Nine subjects give fragile confidence intervals; negative and class-collapse results stay visible."
+  ],
+  "input_sha256": {
+    "q13_validation": "3d21dbb98d775a19f8328dc4ad4a5d285c6c4ee18204b22543561c4ee14a0266",
+    "q13_batch_status": "be41a55aa671143f2edb7a097c2882ff784a05d4db4b19f63b693ec5c3fe0af5",
+    "e006_validation": "ef60b412b8724dd51d648c8bc51e8f74ad5ace470bca93c0f2327ac959dd1ddd",
+    "e006_fit_status": "72fd2ce52f13a0a43545a731b22c29f768935c81ad5b4fe457374e7eca39f8ee",
+    "q13_matrix": "f1487579d8dae8a6f28dc75206b3a6a74b4c1e638401833c797ecc441ed7c5e2",
+    "e006_matrix": "972b6d25db4f0a4dd3420382b43672effe54640271bf0fc5008cc19829c6a411",
+    "fit_level": "963b5c77838a5e2fcd910bdba6190ca3bd6e4dc679a20d790ac69b904b43e83a",
+    "subject_source_count": "2d0d0a7579e20534c9f7e0e74ab2359cc193a983de203b96820e7d05c2b3fa4a",
+    "subject_source_session": "8d39953429b3ec56c10acde6a73c8d7e7ae7664d350f668dfc76018fa2d310e4",
+    "subject_selection": "c5f8ec43e90678f66cae1d1f28e6fd0404cf0013f776080e4c222ba80454602b",
+    "e006_predictions": "b55a5be08eed454927cc2240881277fc1b57ebfc292f6c69bea866273612b51a",
+    "e006_metrics": "bada29064aedb0febc6683b91b8dd0875fc28f6cc59958983eacd45db5387cc4",
+    "q13_fixed20_metrics": "0293d77127d2aa2a343e48cfeaf5ca5df4cbc0710d28057f40b0da774c8107ac"
+  },
+  "outputs": [
+    "paired_contrasts.csv",
+    "subject_paired_differences.csv",
+    "source_count_trajectories.csv",
+    "source_subset_means.csv",
+    "source_identity_spread.csv",
+    "source_session_subjects.csv",
+    "e006_seed_pairs.csv"
+  ]
+}
+[2026-09-28T02:12:21.800235+00:00] exit_code=0

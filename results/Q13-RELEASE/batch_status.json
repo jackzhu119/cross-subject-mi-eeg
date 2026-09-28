@@ -1,9 +1,9 @@
 {
-  "status": "failed_stopped",
-  "started_at_utc": "2026-09-27T12:26:10.970680+00:00",
-  "q13_837_validated": false,
-  "e006_27_validated": false,
-  "postrun_statistics_complete": false,
+  "status": "complete_validated",
+  "started_at_utc": "2026-09-28T01:51:31.333290+00:00",
+  "q13_837_validated": true,
+  "e006_27_validated": true,
+  "postrun_statistics_complete": true,
   "q15_activated": false,
   "preflight": {
     "status": "preflight_passed_no_training",
@@ -11,17 +11,10 @@
     "q13_deep_fits": 837,
     "e006_deep_fits_after_q13_validation": 27,
     "frozen_bnci_mat_files": 18,
+    "moabb_download_provider": "upstream",
     "target_fits": 0,
     "q15_activated": false
   },
-  "q13_batch_exit_code": 1,
-  "error": "Q13 837-checkpoint scientific validation did not pass",
-  "traceback": "Traceback (most recent call last):\n  File \"/root/autodl-tmp/cross-subject-mi-eeg-paper-run/scripts/q13_cloud_chain.py\", line 145, in execute\n    raise RuntimeError(\"Q13 837-checkpoint scientific validation did not pass\")\nRuntimeError: Q13 837-checkpoint scientific validation did not pass\n",
-  "updated_at_utc": "2026-09-27T13:49:11.258249+00:00",
-  "publication": {
-    "Q13-E001": true,
-    "Q13-E004": true,
-    "Q13-E005": true,
-    "Q13-RELEASE_and_E006": true
-  }
+  "q13_batch_exit_code": 0,
+  "updated_at_utc": "2026-09-28T02:12:21.800588+00:00"
 }
