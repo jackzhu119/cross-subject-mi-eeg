@@ -70,6 +70,39 @@ def run_logged(name: str, argv: list[str], *, python: Path) -> int:
     return process.returncode
 
 
+def verify_bnci_loader_route(data_dir: Path, files: list[dict]) -> None:
+    """Require MOABB to load the 18 frozen MAT files, never a mirror."""
+    if os.environ.get("MOABB_DOWNLOAD_PROVIDER", "").lower() != "upstream":
+        raise RuntimeError("Q13 requires MOABB_DOWNLOAD_PROVIDER=upstream")
+    canonical = (data_dir / "MNE-bnci-data" / "~bci" / "database" / "001-2014").resolve()
+    names = {row["filename"] for row in files}
+    expected_names = {
+        f"A{subject:02d}{suffix}.mat"
+        for subject in range(1, 10) for suffix in ("T", "E")
+    }
+    if len(files) != 18 or names != expected_names:
+        raise AssertionError("Frozen BNCI MAT receipt has unexpected file identities")
+    # Verify cache layout before asking MOABB for paths, so a missing cache
+    # cannot silently trigger a network download during paid preflight.
+    if any(not (canonical / name).is_file() for name in names):
+        raise AssertionError("Frozen BNCI MAT files are absent from MOABB's upstream cache")
+
+    from moabb.datasets import BNCI2014_001
+
+    dataset = BNCI2014_001(artifact_handling="annotate_bad")
+    for subject in range(1, 10):
+        expected = {
+            (canonical / f"A{subject:02d}{suffix}.mat").resolve()
+            for suffix in ("T", "E")
+        }
+        actual = {
+            Path(path).resolve()
+            for path in dataset.data_path(subject, path=str(data_dir), force_update=False)
+        }
+        if actual != expected:
+            raise AssertionError(f"MOABB routes subject {subject} outside frozen BNCI MAT cache")
+
+
 def check_only(data_dir: Path, python: Path) -> dict:
     """No fits: verify Q13 source and publication gates before paid work."""
     if not python.is_absolute() or not python.is_file():
@@ -83,6 +116,7 @@ def check_only(data_dir: Path, python: Path) -> dict:
     files = q14_source.source_file_receipt(data_dir)
     if len(files) != 18:
         raise AssertionError("Exactly 18 Q8-identical BNCI MAT files required")
+    verify_bnci_loader_route(data_dir, files)
     plan = q13_batch.plan()
     if len(plan) != 13 or sum(job["expected_fits"] for job in plan) != 837:
         raise AssertionError("Q13 frozen batch no longer plans 13 jobs and 837 fits")
@@ -91,7 +125,8 @@ def check_only(data_dir: Path, python: Path) -> dict:
         raise AssertionError("E006 historical source-only selections are incomplete")
     return {"status": "preflight_passed_no_training", "q13_jobs": 13,
             "q13_deep_fits": 837, "e006_deep_fits_after_q13_validation": 27,
-            "frozen_bnci_mat_files": len(files), "target_fits": 0,
+            "frozen_bnci_mat_files": len(files), "moabb_download_provider": "upstream",
+            "target_fits": 0,
             "q15_activated": False}
 
 

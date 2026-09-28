@@ -26,6 +26,9 @@ command -v setsid >/dev/null || { echo 'setsid is required on this Linux host' >
 
 root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$root"
+# MOABB may otherwise prefer its NEMAR mirror even when the frozen BNCI MAT
+# files are present. This provider choice is inherited by every child process.
+export MOABB_DOWNLOAD_PROVIDER=upstream
 "$python" "$root/scripts/q13_cloud_chain.py" --check-only \
   --python "$python" --data-dir "$data_dir"
 

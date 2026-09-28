@@ -21,8 +21,10 @@ bash scripts/run_q13_cloud.sh --execute --publish \
 The launcher first runs `scripts/q13_cloud_chain.py --check-only`: real CUDA
 operation, exact package versions, Q13 frozen source-only/Git gates, a
 noninteractive Git push dry run, and **all 18 MAT file bytes versus frozen Q8
-SHA-256 provenance** must pass before a training process is detached. The
-background Python chain records its PID in
+SHA-256 provenance** must pass before a training process is detached. It also
+pins MOABB's download provider to `upstream` and verifies that MOABB resolves
+all nine subjects to those same local MAT files; the NEMAR mirror is not used.
+The background Python chain records its PID in
 `results/Q13-RELEASE/supervisor.pid`, its launch log in `launcher.log`,
 stage logs in the same directory, and a durable `batch_status.json`.
 Check the process and status after launch; a successful shell exit alone is

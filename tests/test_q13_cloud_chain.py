@@ -5,7 +5,7 @@ from __future__ import annotations
 import json
 import sys
 from pathlib import Path
-from types import SimpleNamespace
+from types import ModuleType, SimpleNamespace
 
 import pytest
 
@@ -28,6 +28,7 @@ def test_check_only_requires_all_18_historical_mat_bytes(
     monkeypatch.setattr(chain.q13_e006, "selected_epochs_from_q5",
                         lambda: {str(subject): 20 for subject in range(1, 10)})
     monkeypatch.setattr(chain.q14_source, "source_file_receipt", lambda *_a: [{}] * 17)
+    monkeypatch.setattr(chain, "verify_bnci_loader_route", lambda *_a: None)
     with pytest.raises(AssertionError, match="18 Q8-identical"):
         chain.check_only(data, python)
     monkeypatch.setattr(chain.q14_source, "source_file_receipt", lambda *_a: [{}] * 18)
@@ -35,6 +36,48 @@ def test_check_only_requires_all_18_historical_mat_bytes(
     assert receipt["status"] == "preflight_passed_no_training"
     assert receipt["q13_deep_fits"] == 837
     assert receipt["q15_activated"] is False
+
+
+def test_preflight_refuses_nemar_and_proves_mat_loader_route(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    canonical = tmp_path / "MNE-bnci-data" / "~bci" / "database" / "001-2014"
+    canonical.mkdir(parents=True)
+    names = [f"A{subject:02d}{suffix}.mat"
+             for subject in range(1, 10) for suffix in ("T", "E")]
+    files = [{"filename": name} for name in names]
+    for name in names:
+        (canonical / name).write_bytes(b"frozen-test-mat")
+    monkeypatch.delenv("MOABB_DOWNLOAD_PROVIDER", raising=False)
+    with pytest.raises(RuntimeError, match="MOABB_DOWNLOAD_PROVIDER=upstream"):
+        chain.verify_bnci_loader_route(tmp_path, files)
+
+    monkeypatch.setenv("MOABB_DOWNLOAD_PROVIDER", "upstream")
+    dataset_module = ModuleType("moabb.datasets")
+
+    class FakeDataset:
+        def __init__(self, *, artifact_handling: str) -> None:
+            assert artifact_handling == "annotate_bad"
+
+        def data_path(self, subject: int, *, path: str, force_update: bool) -> list[str]:
+            assert path == str(tmp_path)
+            assert force_update is False
+            return [str(canonical / f"A{subject:02d}{suffix}.mat") for suffix in ("T", "E")]
+
+    dataset_module.BNCI2014_001 = FakeDataset
+    monkeypatch.setitem(sys.modules, "moabb.datasets", dataset_module)
+    chain.verify_bnci_loader_route(tmp_path, files)
+
+    class WrongRouteDataset(FakeDataset):
+        def data_path(self, subject: int, *, path: str, force_update: bool) -> list[str]:
+            return [str(tmp_path / "NEMAR" / f"subject_{subject}.set")]
+
+    dataset_module.BNCI2014_001 = WrongRouteDataset
+    with pytest.raises(AssertionError, match="outside frozen"):
+        chain.verify_bnci_loader_route(tmp_path, files)
+    (canonical / "A09E.mat").unlink()
+    with pytest.raises(AssertionError, match="absent"):
+        chain.verify_bnci_loader_route(tmp_path, files)
 
 
 def test_cli_preserves_virtualenv_python_symlink(
