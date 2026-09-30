@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "checked_at_utc": "2026-09-30T14:02:27.980006+00:00",
+  "environment_presence": {
+    "R2_ACCESS_KEY_ID": "missing",
+    "R2_SECRET_ACCESS_KEY": "missing",
+    "R2_ENDPOINT": "missing",
+    "R2_BUCKET": "missing"
+  },
+  "configuration_draft_revision": 4,
+  "secret_bindings": [
+    {
+      "name": "R2_ACCESS_KEY_ID",
+      "has_saved_binding": false
+    },
+    {
+      "name": "R2_SECRET_ACCESS_KEY",
+      "has_saved_binding": false
+    }
+  ],
+  "pending_runtime_variables": [
+    "R2_BUCKET",
+    "R2_ENDPOINT"
+  ],
+  "applied_runtime_requirements": [],
+  "network_connectivity": "proxy_CONNECT_403_Forbidden_before_R2_authentication",
+  "bucket_list": "not_executed",
+  "probe_write_read_delete": "not_executed",
+  "fits_started": 0,
+  "large_download_started": false,
+  "target_scores_computed": false,
+  "required_action": "Save secure bindings and apply the four variables and R2 network destination to the environment associated with this task. Reconnect or start a refreshed instance if required for runtime propagation. Do not send credentials in chat."
+}

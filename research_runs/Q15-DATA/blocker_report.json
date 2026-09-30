@@ -34,5 +34,12 @@
   "provider_inventory_verified": false,
   "preprocessing_contract_frozen": false,
   "credential_values_recorded": false,
-  "required_action": "Apply the saved R2 destination and variable/secret requirements in environment settings. Supply usable local S3 signing credentials securely, then rerun scripts/q15_r2_preflight.py. Never provide key values in chat."
+  "required_action": "Apply the saved R2 destination and variable/secret requirements in environment settings. Supply usable local S3 signing credentials securely, then rerun scripts/q15_r2_preflight.py. Never provide key values in chat.",
+  "last_rechecked_at_utc": "2026-09-30T14:02:27.980006+00:00",
+  "secure_bindings_saved": false,
+  "pending_runtime_variables": [
+    "R2_BUCKET",
+    "R2_ENDPOINT"
+  ],
+  "runtime_diagnostic": "research_runs/Q15-DATA/runtime_configuration_diagnostic.json"
 }
