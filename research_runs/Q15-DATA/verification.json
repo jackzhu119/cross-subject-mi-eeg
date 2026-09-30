@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "scope": "private_R2_preflight_and_existing_Q15_synthetic_CPU_regressions",
+  "preflight_tests_passed": 10,
+  "existing_q15_tests_passed": 32,
+  "total_tests_passed": 42,
+  "tests_failed": 0,
+  "warnings": 2,
+  "test_files": [
+    "tests/test_q15_r2_preflight.py",
+    "tests/test_q15_metadata_audit.py",
+    "tests/test_q15_prospective_contract.py",
+    "tests/test_q15_source_preflight.py"
+  ],
+  "ruff": "passed",
+  "git_diff_check": "passed",
+  "real_r2_roundtrip": "unrun_blocked",
+  "real_provider_inventory": "unverified",
+  "real_raw_metadata_audits": "unrun",
+  "large_download_started": false,
+  "fits_started": 0,
+  "target_scores_computed": false
+}
