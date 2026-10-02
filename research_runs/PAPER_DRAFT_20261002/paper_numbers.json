@@ -1,0 +1,575 @@
+{
+  "q5_mean": 0.33719135802469136,
+  "q6_mean": 0.37930812757201643,
+  "q8_mean": 0.42669753086419754,
+  "shared_mean": 0.421875,
+  "q8_delta_pp": 8.950617283950614,
+  "q8_median_delta_pp": 1.8518518518518434,
+  "q8_original_statistics": {
+    "n_subjects": 9,
+    "Q5_mean_BA": 0.33719135802469136,
+    "Q8_mean_BA": 0.42669753086419754,
+    "mean_delta_pp": 8.950617283950614,
+    "median_delta_pp": 1.8518518518518434,
+    "subjects_improved": 7,
+    "subjects_worsened": 0,
+    "wilcoxon_statistic": 0.0,
+    "wilcoxon_p": 0.015625,
+    "paired_t_statistic": 1.7916226443358454,
+    "paired_t_p": 0.11096421112491674,
+    "sign_test_p": 0.1796875,
+    "paired_cohen_dz": 0.5972075481119485,
+    "bootstrap_mean_delta_95CI_pp": [
+      1.0480967078189296,
+      19.95884773662551
+    ]
+  },
+  "q6_original_statistics": {
+    "n_subjects": 9,
+    "Q5_mean_BA": 0.33719135802469136,
+    "Q6_mean_BA": 0.37930812757201643,
+    "mean_delta_BA": 0.042116769547325086,
+    "mean_delta_percentage_points": 4.211676954732509,
+    "median_delta_percentage_points": 0.23148148148148529,
+    "delta_IQR_percentage_points": [
+      -0.057870370370372015,
+      0.5208333333333343
+    ],
+    "subjects_improved": 6,
+    "subjects_worsened": 3,
+    "wilcoxon_statistic": 11.0,
+    "wilcoxon_p": 0.203125,
+    "paired_t_statistic": 0.9408870624045703,
+    "paired_t_p": 0.3743009820071076,
+    "two_sided_sign_test_p": 0.5078125,
+    "paired_cohen_dz": 0.31362902080152344,
+    "bootstrap_mean_delta_95CI_pp": [
+      -1.11882716049383,
+      13.490226337448554
+    ]
+  },
+  "q13_fixed20_mean": 0.4398791152263375,
+  "q13_matched_ce_mean": 0.3392489711934157,
+  "q13_fixed20_minus_ce_pp": 10.063014403292179,
+  "q13_matched_contrast": {
+    "family": "E006_matched_runtime_amendment",
+    "contrast": "Q8_E006_RAW_CE_minus_Q8_FIXED20",
+    "interpretation": "exploratory_matched_runtime_schedule",
+    "n_subjects": 9,
+    "mean_paired_ba_difference": -0.1006301440329218,
+    "median_paired_ba_difference": 0.001736111111111,
+    "sd_paired_ba_difference": 0.1696965218609459,
+    "paired_dz": -0.5930006279997948,
+    "min_paired_ba_difference": -0.4236111111111111,
+    "max_paired_ba_difference": 0.0237268518518518,
+    "subject_bootstrap_95ci_low": -0.21528420781893,
+    "subject_bootstrap_95ci_high": -0.0067515432098765,
+    "exact_sign_flip_p_exploratory": 0.125,
+    "holm_within_family_p_exploratory": 0.125
+  },
+  "q14_report": {
+    "current_validation_runtime_matches_inference_runtime": false,
+    "experiment_id": "Q14-E002R2",
+    "external_target_fit_count": 0,
+    "figures_sha256": {
+      "external_subject_ba_ecdf.png": "7a884cc8f96ec164bca714dad79467a9a48a00e53a6a456743207d093bec58da",
+      "external_subject_paired_effects.png": "8bc69f749d7b88374ff7c440687f6162bb930a4275e8ea002f79837bb1404abb"
+    },
+    "historical_inference_runtime": {
+      "cuda_available": true,
+      "cuda_device_name": "NVIDIA GeForce RTX 4080 SUPER",
+      "packages": {
+        "braindecode": "1.5.1",
+        "mne": "1.13.2",
+        "moabb": "1.7.2",
+        "numpy": "2.3.2",
+        "scikit-learn": "1.9.1",
+        "scipy": "1.18.1",
+        "torch": "2.8.0+cu128",
+        "torchaudio": "2.8.0+cu128"
+      },
+      "platform": "Linux-5.4.0-153-generic-x86_64-with-glibc2.35",
+      "python": "3.12.3 | packaged by Anaconda, Inc. | (main, May  6 2024, 19:46:43) [GCC 11.2.0]",
+      "torch_cuda_runtime": "12.8"
+    },
+    "limitations": [
+      "R2 was amended after a metadata-triggered R1 failure; it is not an unchanged original Q14-E002 execution.",
+      "Only three subjects needed 128-to-160-Hz resampling; their subgroup is descriptive, not separately powered.",
+      "BNCI and PhysioNet acquisition/reference differ, so the external contrast does not identify one mechanism.",
+      "Binary external BA cannot be directly compared numerically with four-class Q5-Q9 results.",
+      "This independent validation ran on a different host/runtime from the frozen inference; both runtimes are recorded and are not represented as identical."
+    ],
+    "metadata_preflight_sha256": "6cbdaf1af33164201fae97d348243fa8eacb8cb419a486a0adbeb27c5d42ff2e",
+    "migration_receipt_sha256": "fb772ab0e3d56814b9fb36875ef1fb408ca7a0f8f27742af15ec98a61a4a41bf",
+    "n_new_subjects": 22,
+    "n_original_subjects_byte_identical": 87,
+    "n_prediction_rows": 34426,
+    "n_resampled_subjects": 3,
+    "n_subjects": 109,
+    "n_unique_trials": 4918,
+    "n_verified_official_edf_files": 327,
+    "native_rate_sensitivity": {
+      "n_native_160_hz_subjects": 106,
+      "n_resampled_subjects": 3,
+      "native_160_hz_mean_difference": 0.005749773310273709,
+      "resampled_128_hz_subjects": [
+        88,
+        92,
+        100
+      ],
+      "resampled_mean_difference": 0.005138964909079853,
+      "role": "descriptive sensitivity only; no alternate primary endpoint or model selection"
+    },
+    "native_rate_sensitivity_sha256": "ef3dbd05dc3ed2c5a6dead8a3e0bd723f305a6be2378eb25ac6ef55cf7a28795",
+    "new_inference_rows": 0,
+    "new_model_fits": 0,
+    "new_platform": "Linux-5.4.0-153-generic-x86_64-with-glibc2.35",
+    "observed_validation_runtime": {
+      "cuda_available": true,
+      "cuda_device_name": "NVIDIA vGPU-32GB",
+      "packages": {
+        "braindecode": "1.5.1",
+        "mne": "1.13.2",
+        "moabb": "1.7.2",
+        "numpy": "2.3.2",
+        "scikit-learn": "1.9.1",
+        "scipy": "1.18.1",
+        "torch": "2.8.0",
+        "torchaudio": "2.8.0"
+      },
+      "platform": "Linux-5.15.0-83-generic-x86_64-with-glibc2.35",
+      "python": "3.12.3 | packaged by Anaconda, Inc. | (main, May  6 2024, 19:46:43) [GCC 11.2.0]",
+      "torch_cuda_runtime": "12.8"
+    },
+    "official_checksum_manifest_sha256": "7f5d16957d8ee7bce86cc7ccba0e5994f63f33781607eb3f838392d49311a208",
+    "old_platform": "Linux-5.15.0-25-generic-x86_64-with-glibc2.35",
+    "original_experiment_id": "Q14-E002",
+    "passed": true,
+    "pooled_confusion_sha256": "0896e53d4e5c6465688edc2cb72daaeeacf78c8a40a77f7cf835c48c79699154",
+    "portability_amendment_sha256": "69ee6a73c069670f02ebb7b28ae050a3e897cb65a0801be44149f4b00b277e6c",
+    "primary_paired_contrast": {
+      "bootstrap_resamples": 20000,
+      "bootstrap_seed": 20260924,
+      "contrast": "MU_BETA_SHARED_minus_BROAD_EEGNET_subject_level_balanced_accuracy",
+      "mean_difference": 0.005732962069873878,
+      "n_subjects": 109,
+      "negative_subjects": 43,
+      "positive_subjects": 63,
+      "protocol_amendment": "R2 metadata-triggered 128-to-160-Hz polyphase resampling",
+      "subject_bootstrap_percentile_95_ci": [
+        -0.0009668274012807706,
+        0.012415551025224094
+      ],
+      "tied_subjects": 3,
+      "two_sided_exact_sign_test_p_excluding_ties": 0.0644635919894938,
+      "unit": "external_subject_after_averaging_three_fixed_seeds"
+    },
+    "protocol_amended_after_partial_external_execution": true,
+    "r1_run_config_sha256": "d981b377b6f4ad0c46fbb597de72e356cf999f7ed4b41a423af22923e8d93a27",
+    "runtime_fields_except_platform_identical": true,
+    "runtime_fields_except_platform_identical_scope": "historical_R1_vs_R2_inference_only",
+    "source_aggregate_predictions_sha256": "fde382e9e637445ba276449224d65dbdea40ea31c209b35ec8c3075035f52e6e",
+    "source_completion_receipt_sha256": "b3199f751049b10a1a8b6751cbbab9d4722b4b91602e119c02ec2decdf4fd7b2",
+    "source_freeze_sha256": "829eb1d100781c091c4fbfb36bbc230eb3b54f9d45b3140cf3b3ed32b5008b9e",
+    "status": "portable_independent_external_validation_passed",
+    "strict_inference_runtime_equality_required": false,
+    "subject_metrics_sha256": "2199c89b591d7f0c87fbb02ed3fd8146e7f27c174ccd6c6bd2399db487ce5e54",
+    "subject_primary_contrast_sha256": "23c03eef128b79c2f5c853aadb1e743dc8846fe692aa6d3578980481f79cb4e0",
+    "subject_seed_metrics_sha256": "4bbd74158d8780dfa06f03fcfd60afa871e2da97244e31c60eab6ce7ee568b8b",
+    "summary": {
+      "BROAD_EEGNET": {
+        "max_subject_balanced_accuracy": 0.955862977602108,
+        "mean_subject_balanced_accuracy": 0.6181459187169062,
+        "min_subject_balanced_accuracy": 0.4334650856389987,
+        "sd_subject_balanced_accuracy": 0.12564943287402153
+      },
+      "CSP4_LDA": {
+        "max_subject_balanced_accuracy": 0.8191699604743083,
+        "mean_subject_balanced_accuracy": 0.5446171979507949,
+        "min_subject_balanced_accuracy": 0.4150197628458498,
+        "sd_subject_balanced_accuracy": 0.07898496747992108
+      },
+      "MU_BETA_SHARED": {
+        "max_subject_balanced_accuracy": 0.9706851119894598,
+        "mean_subject_balanced_accuracy": 0.62387888078678,
+        "min_subject_balanced_accuracy": 0.3932806324110672,
+        "sd_subject_balanced_accuracy": 0.12921726881470882
+      }
+    },
+    "validation_attempt_id": "Q14-E002R2V1",
+    "validation_mode": "cross_host_existing_predictions_and_official_edf_only"
+  },
+  "q14_primary": {
+    "bootstrap_resamples": 20000,
+    "bootstrap_seed": 20260924,
+    "contrast": "MU_BETA_SHARED_minus_BROAD_EEGNET_subject_level_balanced_accuracy",
+    "mean_difference": 0.005732962069873878,
+    "n_subjects": 109,
+    "negative_subjects": 43,
+    "positive_subjects": 63,
+    "protocol_amendment": "R2 metadata-triggered 128-to-160-Hz polyphase resampling",
+    "subject_bootstrap_percentile_95_ci": [
+      -0.0009668274012807706,
+      0.012415551025224094
+    ],
+    "tied_subjects": 3,
+    "two_sided_exact_sign_test_p_excluding_ties": 0.0644635919894938,
+    "unit": "external_subject_after_averaging_three_fixed_seeds"
+  },
+  "q14_means": {
+    "BROAD_EEGNET_BA": 0.6181459187169062,
+    "MU_BETA_SHARED_BA": 0.62387888078678,
+    "CSP4_LDA_BA": 0.5446171979507949
+  },
+  "q7_cells": [
+    {
+      "condition": "A",
+      "condition_name": "Raw_plus_2epochs",
+      "source_experiment": "Q5-E001",
+      "normalization": false,
+      "fixed_epochs": 2,
+      "BA_mean": 0.2609953703703704,
+      "BA_seed_std": 0.0160375074774896,
+      "macroF1_mean": 0.1254097865745587,
+      "kappa_mean": 0.0146604938271604,
+      "entropy_mean": 0.130434889674811,
+      "dominant_share_mean": 0.941550925925926
+    },
+    {
+      "condition": "B",
+      "condition_name": "SourceNorm_plus_2epochs",
+      "source_experiment": "Q7-E001",
+      "normalization": true,
+      "fixed_epochs": 2,
+      "BA_mean": 0.2569444444444444,
+      "BA_seed_std": 0.0060140653040586,
+      "macroF1_mean": 0.1171566136156904,
+      "kappa_mean": 0.0092592592592592,
+      "entropy_mean": 0.0826934944080575,
+      "dominant_share_mean": 0.9751157407407408
+    },
+    {
+      "condition": "C",
+      "condition_name": "Raw_plus_16epochs",
+      "source_experiment": "Q7-E001",
+      "normalization": false,
+      "fixed_epochs": 16,
+      "BA_mean": 0.6770833333333334,
+      "BA_seed_std": 0.0539033843620139,
+      "macroF1_mean": 0.6715320154151133,
+      "kappa_mean": 0.5694444444444445,
+      "entropy_mean": 0.9561033608809508,
+      "dominant_share_mean": 0.3668981481481481
+    },
+    {
+      "condition": "D",
+      "condition_name": "SourceNorm_plus_16epochs",
+      "source_experiment": "Q6-E001",
+      "normalization": true,
+      "fixed_epochs": 16,
+      "BA_mean": 0.6585648148148148,
+      "BA_seed_std": 0.0971653686279052,
+      "macroF1_mean": 0.6501925771569642,
+      "kappa_mean": 0.5447530864197531,
+      "entropy_mean": 0.9036972861846048,
+      "dominant_share_mean": 0.4386574074074074
+    }
+  ],
+  "four_class_models": [
+    {
+      "label": "Q5 mean CE",
+      "path": "results/Q5-E001/subject_seed_metrics.csv",
+      "mean_ba": 0.33719135802469136,
+      "subject_sd": 0.11583871721119608,
+      "subjects": {
+        "1": 0.5700231481481481,
+        "2": 0.24479166666666663,
+        "3": 0.2609953703703704,
+        "4": 0.36921296296296297,
+        "5": 0.24131944444444442,
+        "6": 0.2835648148148148,
+        "7": 0.28472222222222227,
+        "8": 0.296875,
+        "9": 0.48321759259259256
+      }
+    },
+    {
+      "label": "Q6 source normalization",
+      "path": "research_runs/Q6-E001/results/subject_seed_metrics.csv",
+      "mean_ba": 0.37930812757201643,
+      "subject_sd": 0.15679376167236175,
+      "subjects": {
+        "1": 0.5688657407407407,
+        "2": 0.24710648148148148,
+        "3": 0.6585648148148148,
+        "4": 0.37384259259259256,
+        "5": 0.24652777777777776,
+        "6": 0.2829861111111111,
+        "7": 0.2864583333333333,
+        "8": 0.2528935185185185,
+        "9": 0.49652777777777773
+      }
+    },
+    {
+      "label": "Q8 mean rank",
+      "path": "research_runs/Q8-E001/results/subject_seed_metrics.csv",
+      "mean_ba": 0.42669753086419754,
+      "subject_sd": 0.1604358825705619,
+      "subjects": {
+        "1": 0.5700231481481481,
+        "2": 0.27835648148148145,
+        "3": 0.6087962962962962,
+        "4": 0.36921296296296297,
+        "5": 0.2505787037037037,
+        "6": 0.2853009259259259,
+        "7": 0.3032407407407407,
+        "8": 0.6545138888888888,
+        "9": 0.5202546296296297
+      }
+    },
+    {
+      "label": "Q9 8-30 Hz",
+      "path": "results/Q9-E001/MID_8_30/per_subject_metrics.csv",
+      "mean_ba": 0.4455375514403292,
+      "subject_sd": 0.17171574481304577,
+      "subjects": {
+        "1": 0.6024305555555556,
+        "2": 0.29687499999999994,
+        "3": 0.6863425925925926,
+        "4": 0.3524305555555555,
+        "5": 0.24884259259259256,
+        "6": 0.2818287037037037,
+        "7": 0.3460648148148147,
+        "8": 0.5758101851851851,
+        "9": 0.6192129629629629
+      }
+    },
+    {
+      "label": "Q9 mu only",
+      "path": "results/Q9-E001/MU_8_13/per_subject_metrics.csv",
+      "mean_ba": 0.4329989711934156,
+      "subject_sd": 0.162225207420268,
+      "subjects": {
+        "1": 0.5734953703703703,
+        "2": 0.3055555555555555,
+        "3": 0.6128472222222222,
+        "4": 0.3883101851851852,
+        "5": 0.24363425925925922,
+        "6": 0.28009259259259256,
+        "7": 0.28414351851851843,
+        "8": 0.607638888888889,
+        "9": 0.6012731481481481
+      }
+    },
+    {
+      "label": "Q9 beta only",
+      "path": "results/Q9-E001/BETA_13_30/per_subject_metrics.csv",
+      "mean_ba": 0.3153292181069959,
+      "subject_sd": 0.1004627981374641,
+      "subjects": {
+        "1": 0.2806712962962963,
+        "2": 0.24710648148148148,
+        "3": 0.2505787037037037,
+        "4": 0.2505787037037037,
+        "5": 0.2511574074074074,
+        "6": 0.30613425925925924,
+        "7": 0.2737268518518518,
+        "8": 0.5,
+        "9": 0.47800925925925924
+      }
+    },
+    {
+      "label": "Q9 shared mu/beta",
+      "path": "results/Q9-E001/MU_BETA_SHARED/per_subject_metrics.csv",
+      "mean_ba": 0.421875,
+      "subject_sd": 0.14095445138249615,
+      "subjects": {
+        "1": 0.5584490740740741,
+        "2": 0.2864583333333333,
+        "3": 0.6151620370370371,
+        "4": 0.3819444444444444,
+        "5": 0.2540509259259259,
+        "6": 0.2800925925925926,
+        "7": 0.34085648148148145,
+        "8": 0.5520833333333334,
+        "9": 0.5277777777777778
+      }
+    },
+    {
+      "label": "Q10 CSP8 + EEGNet",
+      "path": "results/Q10-E001/MU_BETA_CSP8_EEGNET/per_subject_metrics.csv",
+      "mean_ba": 0.41480195473251025,
+      "subject_sd": 0.16036274801955833,
+      "subjects": {
+        "1": 0.5399305555555555,
+        "2": 0.25,
+        "3": 0.5567129629629629,
+        "4": 0.34953703703703703,
+        "5": 0.2569444444444444,
+        "6": 0.25752314814814814,
+        "7": 0.3032407407407407,
+        "8": 0.625,
+        "9": 0.5943287037037037
+      }
+    },
+    {
+      "label": "Q10 PCA8 + EEGNet",
+      "path": "results/Q10-E001/MU_BETA_PCA8_EEGNET/per_subject_metrics.csv",
+      "mean_ba": 0.42058899176954734,
+      "subject_sd": 0.1550504197045536,
+      "subjects": {
+        "1": 0.5133101851851852,
+        "2": 0.32060185185185186,
+        "3": 0.5584490740740741,
+        "4": 0.3489583333333333,
+        "5": 0.2523148148148148,
+        "6": 0.28009259259259256,
+        "7": 0.27662037037037035,
+        "8": 0.6579861111111112,
+        "9": 0.5769675925925926
+      }
+    },
+    {
+      "label": "Q11 capacity-matched broad",
+      "path": "results/Q11-E001/BROAD_CAPACITY_MATCHED/per_subject_metrics.csv",
+      "mean_ba": 0.4219393004115226,
+      "subject_sd": 0.14051315748383975,
+      "subjects": {
+        "1": 0.5613425925925927,
+        "2": 0.29976851851851855,
+        "3": 0.5682870370370371,
+        "4": 0.3478009259259259,
+        "5": 0.2528935185185185,
+        "6": 0.3136574074074074,
+        "7": 0.31886574074074076,
+        "8": 0.6087962962962963,
+        "9": 0.5260416666666666
+      }
+    },
+    {
+      "label": "Q11 independent two-band",
+      "path": "results/Q11-E001/TWO_BAND_INDEPENDENT/per_subject_metrics.csv",
+      "mean_ba": 0.4299125514403292,
+      "subject_sd": 0.1737801656764491,
+      "subjects": {
+        "1": 0.5925925925925926,
+        "2": 0.29282407407407407,
+        "3": 0.6533564814814815,
+        "4": 0.3287037037037037,
+        "5": 0.24768518518518515,
+        "6": 0.27546296296296297,
+        "7": 0.28125,
+        "8": 0.6035879629629629,
+        "9": 0.59375
+      }
+    },
+    {
+      "label": "Q11 early stack",
+      "path": "results/Q11-E001/TWO_BAND_EARLY_STACK/per_subject_metrics.csv",
+      "mean_ba": 0.42656893004115226,
+      "subject_sd": 0.16230587106158384,
+      "subjects": {
+        "1": 0.578125,
+        "2": 0.29456018518518506,
+        "3": 0.6024305555555555,
+        "4": 0.3234953703703703,
+        "5": 0.25347222222222227,
+        "6": 0.2806712962962963,
+        "7": 0.3015046296296296,
+        "8": 0.6076388888888888,
+        "9": 0.5972222222222222
+      }
+    },
+    {
+      "label": "Q11 four-band shared",
+      "path": "results/Q11-E001/FOUR_BAND_SHARED/per_subject_metrics.csv",
+      "mean_ba": 0.3980195473251029,
+      "subject_sd": 0.11580755369661205,
+      "subjects": {
+        "1": 0.5202546296296297,
+        "2": 0.29398148148148145,
+        "3": 0.5023148148148148,
+        "4": 0.3483796296296296,
+        "5": 0.25810185185185186,
+        "6": 0.29108796296296297,
+        "7": 0.324074074074074,
+        "8": 0.5439814814814815,
+        "9": 0.5
+      }
+    }
+  ],
+  "q12_models": [
+    {
+      "condition": "SOURCE_POOLED_WHITEN",
+      "label": "Source-pooled whitening",
+      "mean_ba": 0.44335133744855965,
+      "delta_pp": 1.6653806584362156,
+      "control": "Q8 historical mean-rank"
+    },
+    {
+      "condition": "SOURCE_BALANCED_ERM",
+      "label": "Source-balanced ERM",
+      "mean_ba": 0.43184156378600824,
+      "delta_pp": 0.514403292181072,
+      "control": "Q8 historical mean-rank"
+    },
+    {
+      "condition": "SOURCE_GROUP_DRO",
+      "label": "GroupDRO vs balanced ERM",
+      "mean_ba": 0.3673482510288066,
+      "delta_pp": -6.449331275720166,
+      "control": "SOURCE_BALANCED_ERM"
+    },
+    {
+      "condition": "CHANNEL_DROPOUT",
+      "label": "Channel dropout",
+      "mean_ba": 0.4100437242798354,
+      "delta_pp": -1.6653806584362132,
+      "control": "Q8 historical mean-rank"
+    },
+    {
+      "condition": "GAIN_PERTURB",
+      "label": "Gain perturbation",
+      "mean_ba": 0.43422067901234557,
+      "delta_pp": 0.752314814814814,
+      "control": "Q8 historical mean-rank"
+    },
+    {
+      "condition": "CHANNEL_AND_GAIN",
+      "label": "Dropout + gain",
+      "mean_ba": 0.40920781893004116,
+      "delta_pp": -1.748971193415637,
+      "control": "Q8 historical mean-rank"
+    }
+  ],
+  "input_sha256": {
+    "results/Q5-E001/subject_seed_metrics.csv": "ec18b7f608d4ef6cc62183ac62bcaa6d575e3085872c443b9a8bee43acfa5251",
+    "research_runs/Q6-E001/results/subject_seed_metrics.csv": "d6d0f401070c6bd4d0d97e8e53e538ca212ba0c8fea9a3c597533a9c3f7f088a",
+    "research_runs/Q8-E001/results/subject_seed_metrics.csv": "29746f2adfc71dab6355d7dbf5e945971216c0845e8c45f7565dbca27e22df3e",
+    "results/Q9-E001/MU_BETA_SHARED/per_subject_metrics.csv": "140c1e5e21d1ac39180161ddccb8ce1362936d3226bf9225bde7bf9897d64edd",
+    "research_runs/Q7-E001/analysis/q7_four_cell_summary.csv": "0a755a293c04b23611c3023fcc4118320f3b98b453628c0bfaed59410ada5794",
+    "research_runs/Q8-E001/results/selection.csv": "a9bd17507e66e876ad54b97130cfb4749ba16eda91b17adfa9940ad9179966fc",
+    "results/Q5-E001/selection.csv": "1b71fc50c58ea70284ba4f4cd1967b7c9b21d5b5d12d8469ddb07129a441491a",
+    "research_runs/Q8-E001/analysis/Q5_vs_Q8_paired_statistics.json": "c6ae12eaf9a606e252afa3274f6b2067ce59d16e914635b453b785e5dddb5b2c",
+    "research_runs/Q6-E001/posthoc_analysis/paired_subject_statistics.json": "4ebf3abff642473675befd36a2844260f371edb9e495ce857c29b914b1d555d7",
+    "results/Q13-E006/postrun_statistics/source_count_trajectories.csv": "e7ddddabb63e81c0c195d7a8e12169b29e3c54264e86dbd4066578a1059d6a05",
+    "results/Q13-E006/postrun_statistics/paired_contrasts.csv": "81ef4b4236c08f1bf597cc3001bda9d0877d6cdbfcc5daf74698226bc20d0239",
+    "results/Q13-E006/postrun_statistics/subject_paired_differences.csv": "f0b6e890226741b8be6122c7ce2fd06f718208d941fa69fef753fcc3b2c89a29",
+    "results/Q13-E001/Q8_FIXED20/per_subject_metrics.csv": "0293d77127d2aa2a343e48cfeaf5ca5df4cbc0710d28057f40b0da774c8107ac",
+    "results/Q13-E006/Q8_RAW_CE_MATCHED/per_subject_metrics.csv": "bada29064aedb0febc6683b91b8dd0875fc28f6cc59958983eacd45db5387cc4",
+    "results/Q14-E002R2V1/external/subject_primary_contrast.csv": "23c03eef128b79c2f5c853aadb1e743dc8846fe692aa6d3578980481f79cb4e0",
+    "results/Q14-E002R2V1/validation_report.json": "1ed3959b303c06672257963ef177f8c7ef619bcac01e4a263cfd587e7d9b5320",
+    "results/Q12-BATCH/subject_level_metrics.csv": "70dc8b6286bb0771880a56bd1f6ee673633d8701b9a4302eba43cb6cd2c47dda",
+    "results/Q9-E001/MID_8_30/per_subject_metrics.csv": "452ce6e13f269b35c6c7e5fa04207877fc53eea62e99581e04fe0cb4a9cd8cdd",
+    "results/Q9-E001/MU_8_13/per_subject_metrics.csv": "f5a090c7ed0ca42f61535d4e928175aaab4540e4639ac34f9de4c6bf991f339d",
+    "results/Q9-E001/BETA_13_30/per_subject_metrics.csv": "9827ac22189e3de846af060fbee2b0f1da4e1c85b5d3f82af53ba5ecf55ba284",
+    "results/Q10-E001/MU_BETA_CSP8_EEGNET/per_subject_metrics.csv": "4fc60d61c8d727a66177f4cb36729c2d73959b8f227e7653707a633f32504dfd",
+    "results/Q10-E001/MU_BETA_PCA8_EEGNET/per_subject_metrics.csv": "31cf48239ad269231673b62c14d6c4f232510121c56e42495d14baa9cc3554e1",
+    "results/Q11-E001/BROAD_CAPACITY_MATCHED/per_subject_metrics.csv": "66567435e4adec2b6c18796d6532ce570e395f62e8d6c409327d7faecfe9bcca",
+    "results/Q11-E001/TWO_BAND_INDEPENDENT/per_subject_metrics.csv": "44b84e57d408f22e66de813c86e48275478d61c159705378244a50c121887682",
+    "results/Q11-E001/TWO_BAND_EARLY_STACK/per_subject_metrics.csv": "1d9d42b562fd88c9754c99cae675601d6e2f566876fc82ae25b2ed4d21663293",
+    "results/Q11-E001/FOUR_BAND_SHARED/per_subject_metrics.csv": "7a8c341456e269162a06dce85404a02768f7f98836f725a78049b5f908abf556"
+  },
+  "new_fits": 0,
+  "new_checkpoint_inference": 0
+}
