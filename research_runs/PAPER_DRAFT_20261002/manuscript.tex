@@ -1,0 +1,756 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.9in]{geometry}
+\usepackage{amsmath,booktabs,array,longtable,graphicx,hyperref,pgfplots}
+\usepackage{caption}
+\usepgfplotslibrary{groupplots}
+\pgfplotsset{compat=1.18}
+\hypersetup{hidelinks}
+\setlength{\emergencystretch}{3em}
+\title{Source-only model selection and shared spectral representations in cross-subject motor-imagery EEG decoding\\\large An exploratory internal study with a frozen binary external evaluation}
+\author{Author details pending}
+\date{Working draft for author review, 2 October 2026}
+\begin{document}
+\maketitle
+\section*{Abstract}
+Objective. Cross-subject motor-imagery EEG decoding requires training and model selection without calibration from the held-out person. We examined whether failures associated with source-only training-duration selection could be distinguished from the effects of spectral representations. Methods. Completed experiments were re-audited using archived protocols, trial predictions, source partitions, and experiment-specific validation records. Internal four-class analyses used nine BNCI2014\_001 participants with both sessions held out per outer fold. We compared raw validation-loss selection with within-fold rank aggregation, fixed-duration and matched-runtime controls, spatial-spectral ablations, and source-only robustness interventions. A separate, frozen binary source model was evaluated on 109 PhysioNet participants. Results. The internal mean balanced accuracy increased from 33.72\% under mean-loss selection to 42.67\% under mean-rank selection; most of the aggregate improvement arose from two participants. In a matched-runtime control, fixed 20-epoch training exceeded the historical source-selected duration schedule by 10.06 percentage points (pp; bootstrap 95\% interval [0.68, 21.53], exact sign-flip p = 0.125). Shared mu/beta input did not improve the internal mean over the rank-selected broad model. In external binary transfer, broad and shared models achieved 61.81\% and 62.39\%; the primary paired difference was +0.573 pp (95\% interval [-0.097, 1.242], sign-test p = 0.0645). Conclusion. These exploratory results identify training-duration selection and participant heterogeneity as important audit targets. They do not establish general superiority of rank selection or shared spectral representations. External interpretation requires disclosure of a metadata-driven sampling-rate amendment.
+
+Keywords: motor imagery; EEG; cross-subject decoding; EEGNet; source-only model selection; spectral parameter sharing; reproducibility.
+
+\section*{1. Introduction}
+Motor-imagery EEG provides a setting in which a decoder must distinguish imagined actions from weak, variable scalp signals. A calibration-free decoder should transfer from previously recorded people to a new person without fitting to that person's labels or distributional statistics. This requirement differs from within-person evaluation and from adaptation procedures that use unlabeled target recordings. The BCI Competition IV dataset 2a remains a useful, small, well-documented benchmark for studying this distinction [1,2]. Its limited participant count also makes aggregate performance especially sensitive to a few people.
+
+Spatial filtering and frequency decomposition offer complementary inductive biases. Common spatial patterns (CSP) learn discriminative projections from class covariance structure [4], while filter-bank CSP extends that approach across frequency bands [5,6]. Compact convolutional models such as EEGNet combine temporal filtering, depthwise spatial filtering, and separable convolutions [3]. Broader CNN work illustrates the flexibility of learned EEG representations [7]. None of these architectural ideas removes the need to choose training duration using source participants whose validation curves may differ in scale, shape, and optimum epoch.
+
+A decoder that predicts predominantly one class can have balanced accuracy near chance even when the same architecture performs well with a different training duration. Such a failure can be mistaken for evidence that the input distribution requires normalization or a new representation. Conversely, a positive average after an intervention may reflect rescue of one or two participants rather than consistent improvement. Source-only fitting prevents per-fit target leakage, but it does not make a method independently confirmatory when the research program was developed after examining the same benchmark.
+
+We therefore treat model selection, representation, and robustness as distinct experimental questions. The first question is whether heterogeneous source-validation losses can lead to short training schedules and whether a rank-based aggregation changes those schedules. The second is whether fixed mu/beta views processed by one parameter-shared EEGNet provide an advantage beyond broad inputs, explicit spatial projections, or architectural controls. The third is whether those conclusions survive source-composition and matched-runtime checks. Finally, we evaluate a separately frozen binary model on an independent public cohort [9,10], while preserving its protocol-amendment history.
+
+The contribution is an evidence-grounded experimental audit, rather than a claim of a universally improved decoder. We report null and adverse conditions alongside positive point estimates; keep the held-out person as the inference unit; separate four-class development from binary external transfer; and distinguish archived checkpoint reconstruction from current prediction-table reanalysis. No new model was trained to prepare this manuscript.
+
+\section*{2. Materials and methods}
+\subsection*{2.1. Datasets, populations, and task separation}
+BNCI2014\_001 corresponds to BCI Competition IV dataset 2a [1,2]. Nine participants completed two recording sessions, each containing six runs of 48 trials: 12 each of left-hand, right-hand, feet, and tongue imagery. Twenty-two EEG channels and three EOG channels were sampled at 250 Hz. Original acquisition used a left-mastoid reference, right-mastoid ground, 0.5--100 Hz band-pass, and 50-Hz notch; the offline operations below are additional processing of those recordings. The primary neural input uses EEG channels only. The archived metadata contain 5,184 trials, 576 per participant and 1,296 per class. All 488 expert artifact-flagged trials remain in the primary evaluation population. This include-all endpoint differs from the original competition's artifact-free scoring; source-clean conditions exclude flagged source-training trials but retain every target trial.
+
+The external EEG Motor Movement/Imagery Database version 1.0.0 [9] supplies a separate binary task. We include all 109 subjects and only imagery runs 4, 8, and 12; T1 and T2 denote left- and right-fist imagery. Executed-movement, bilateral-task, and rest events do not enter this contrast. The final audited inventory contains 327 official-checksum-verified EDF files and 4,918 unique trials. The nominal 160-Hz acquisition description is supplemented by the actual headers: three subjects have 128-Hz recordings. Four-class and binary balanced accuracy have different chance levels and are never pooled into a common score.
+
+\par\medskip\noindent\textbf{Table 1. Evaluated populations and computational endpoints.}
+\begingroup\small\setlength{\tabcolsep}{4pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.240842\linewidth}>{\raggedright\arraybackslash}p{0.101895\linewidth}>{\raggedright\arraybackslash}p{0.101895\linewidth}>{\raggedright\arraybackslash}p{0.176000\linewidth}>{\raggedright\arraybackslash}p{0.259368\linewidth}@{}}
+\toprule
+Analysis & People & Classes & Unique trials & Primary tensor \\
+\midrule\endfirsthead
+\toprule
+Analysis & People & Classes & Unique trials & Primary tensor \\
+\midrule\endhead
+\bottomrule\endfoot
+\bottomrule\endlastfoot
+Internal BNCI & 9 & 4 & 5,184 & 22 $\times$ 750 at 250 Hz \\
+Binary BNCI source & 9 & 2 & 2,592 & 22 $\times$ 480 at 160 Hz \\
+External PhysioNet & 109 & 2 & 4,918 & 22 $\times$ 480 at 160 Hz \\
+\end{longtable}
+\noindent\footnotesize Both sessions of each BNCI outer target are held out. The binary source models are separately fitted and are not a relabeling of the four-class checkpoints. The 34,426 external model/seed prediction rows represent seven saved predictions per unique trial, not independent observations.
+\par\endgroup\medskip
+\subsection*{2.2. Offline preprocessing and source-only partitions}
+For internal BNCI analyses, fourth-order zero-phase Butterworth filters are applied within each native recording run before epoch extraction. The half-open interval [2.5,5.5) s after the MAT trial start corresponds to [0.5,3.5) s after the cue and yields 750 samples. There is no baseline subtraction, additional notch, or additional re-reference in the primary neural pipeline. MNE-loaded volt values are multiplied by 10\textasciicircum{}6 for network inputs in microvolts. These offline zero-phase operations use future samples and are not a causal online decoder.
+
+The broad mean-loss and mean-rank EEGNet conditions use 4--40 Hz. Restricted broad input uses 8--30 Hz, and the shared representation uses fixed mu (8--13 Hz) and beta (13--30 Hz) views. The bands are predefined experimental choices, not participant-specific estimates or physiological source separation. Any fitted scaler, CSP/PCA projection, or whitening transform is estimated on the applicable source-training partition only.
+
+Each primary four-class outer split holds out both sessions of one participant. The eight source people contribute 4,608 trials and the target contributes 576. Sorted source IDs define four consecutive, two-person inner-validation groups. Each inner fit trains on six people/3,456 trials and validates on two people/1,152 trials. This separation is by person, not by random trial. Final evaluation retains three fixed seeds, averaged within person before cross-person aggregation. Model evaluation freezes BatchNorm statistics; target examples do not update them.
+
+\subsection*{2.3. Training-duration selection and diagnostic controls}
+The mean-loss rule selects the earliest epoch minimizing the equally weighted mean validation cross-entropy across the four inner folds. Candidate epochs are 1--40. The mean-rank rule first ranks epochs within each fold by validation cross-entropy, assigns average ranks to ties, averages those ranks across folds, and selects the earliest minimum. Its operational purpose is invariance to strictly increasing (order-preserving) transformations within a fold; that property does not guarantee better target prediction. The rank follow-up reuses the 36 frozen original inner trajectories and trains 27 new final models after the schedule has been frozen.
+
+\begin{equation*}
+e^*=\min\operatorname*{arg\,min}_{e\in\{1,\ldots,40\}}\frac{1}{K}\sum_{k=1}^{K}\operatorname{rank}_{k}\{L_k(e)\},\quad K=4.
+\end{equation*}
+The rank candidate was motivated by earlier results on the same BNCI participants, so the internal comparison remains exploratory despite source-only per-fit selection. A four-cell diagnostic for S3 crosses raw versus source-normalized input with two versus 16 fixed epochs. Here raw means filtered, microvolt-scaled EEG without fitted source normalization. Two cells reuse the archived original conditions and two are new archived diagnostic conditions; this is one participant, not a population-level replication. Source normalization estimates per-channel mean and scale from source-training samples only.
+
+Later controls compare fixed 20-epoch training with raw-loss-selected schedules. An additive matched-runtime experiment uses the same historical source-selected epoch counts but retrains the 27 final models on the same actual runtime and raw files as the fixed-duration comparator. It does not reselect epochs under the newer runtime. Source-count controls use k = 2, 4, or 6 source participants, four predefined identity subsets per count, and the k = 8 anchor; all counts use fixed 20 epochs. The 0train-versus-1test source-session contrast uses equal budgets: 2,304 trials, 20 epochs, and 720 optimizer updates per fit. Source-count contrasts and comparisons of one source session with the both-session anchor change the number of training examples and optimizer updates; those contrasts do not isolate a single causal factor.
+
+\subsection*{2.4. Neural representation and spatial-spectral controls}
+The four-class model is Braindecode 1.5.1 EEGNet with 22 input channels, 750 samples, F1 = 8, depth multiplier D = 2, F2 = 16, temporal kernel length 64 samples, and dropout 0.25. It has 2,932 trainable parameters in the archived implementation. Training uses Adam, learning rate 0.001, batch size 64, cross-entropy, zero weight decay, and no scheduler or default augmentation. The selection seed is 20260923 and the three final seeds are 20260924, 20260925, and 20260926. This is a configured EEGNet study, not an exact reproduction of the original paper's preprocessing or splits [3].
+
+For shared mu/beta input, both band views pass through the same EEGNet in one concatenated mini-batch. Their class logits are averaged before cross-entropy in training and before softmax in inference. Network parameters and BatchNorm are shared; dropout acts per view. There are no learned band weights, attention mechanism, or separate independently trained branches. Parameter count matches one EEGNet, while forward-pass work and preprocessing differ.
+
+\begin{equation*}
+p(y\mid X)=\operatorname{softmax}\left\{\frac{f_{\theta}(X_{\mu})+f_{\theta}(X_{\beta})}{2}\right\}.
+\end{equation*}
+Controls include individual frequency bands; fixed source-selected durations; Welch log-bandpower with source-fitted shallow classifiers; eight source-only CSP or PCA time-series projections per band; log-Euclidean covariance features; source-only normalization; and source-clean training. The CSP/PCA neural controls both use 16 projected channels and source-fitted standardization, so their width is matched to each other but differs from the 22-channel shared-logit model. Architectural ablations use two independent networks, early band stacking, four shared bands, and a broadband capacity comparator. The independent two-band model has 5,864 parameters and its comparator has 5,914, a disclosed 0.85\% mismatch. The traditional filter-bank implementation is FBCSP-inspired, not a literal reproduction of Ang et al. [5,6].
+
+\subsection*{2.5. Source-only robustness interventions}
+The six completed robustness conditions comprise source-pooled whitening, source-balanced empirical risk minimization (ERM), source-group distributionally robust optimization (GroupDRO), channel dropout, gain perturbation, and their combination. Source whitening uses equal-person covariance aggregation, a ridge of 5\% of the mean eigenvalue, and scale preservation; no target covariance or target alignment is fitted. GroupDRO treats source person as group [8]: persistent log weights increase by 0.05 times detached per-group cross-entropy, are normalized by log-sum-exp, and weight the group loss. Its declared matched comparator is balanced ERM, preserving the batching/sampling intervention. Training-only channel dropout uses probability 0.1 with surviving-channel scale 1/0.9; gain perturbation uses U[0.8,1.2], applied before dropout in the combined condition. Validation and target inputs are not augmented.
+
+Whitening and augmentation conditions are compared with the previously frozen broad rank-selected baseline. That historical baseline was executed on a different runtime from the robustness batch, so those cross-batch deltas combine intervention and runtime variation. GroupDRO versus balanced ERM is a cleaner within-runtime objective comparison. We retain this distinction beside the numerical table rather than attributing every delta to its named method.
+
+\subsection*{2.6. Separate binary source freeze and external inference}
+The binary BNCI source population contains 2,592 left/right trials, 288 per person. Filtering and epoching occur at 250 Hz before deterministic polyphase resampling by 16/25 to 160 Hz, giving 22 $\times$ 480 samples. The broad binary model uses 8--30 Hz; the shared model uses the fixed mu/beta views. All-nine-source duration selection uses the validation groups [1,2], [3,4], [5,6], and [7,8,9], with equal fold weighting. Frozen durations are 18 broad-model epochs and 17 shared-model epochs. Checkpoints, channels, labels, contrast, seeds, and preprocessing are frozen before external access. A source-only CSP4 + LDA comparator uses reg = None and LDA solver = svd; it does not inherit the internal CSP8 OAS/shrinkage-LDA configuration.
+
+A partial external run stopped at S88 when its 128-Hz header violated the original 160-Hz assumption. A versioned, metadata-driven amendment inspected remaining headers without using their predictions or scores. S88, S92, and S100 are filtered and epoched at their native rate, then resampled by 5/4 from 384 to 480 samples. The other 106 subjects retain native 160-Hz processing. The 87 completed earlier subject outputs are copied byte-for-byte and 22 additional subjects complete the cohort. No target statistics, fitted normalization, adaptation, seed selection, or class-performance-dependent branch is introduced. Because amendment followed partial external execution, the combined result is not a pristine execution of the original freeze.
+
+The original aggregate validation failed when re-serialized CSV probabilities were subjected to an inappropriate exact floating-point equality check. A later cross-host runtime mismatch was a separate limitation and motivated a versioned portability amendment. Both events remain in the record. The versioned validation-only attempt verified official EDF checksums and event identities and recomputed saved probability/argmax consistency, subject metrics, and statistics. It passed with zero new fits and zero new model-inference rows. This audit must not be described as regenerating all external predictions from checkpoints on the later validation host.
+
+\subsection*{2.7. Endpoints, uncertainty, and evidence verification}
+\begin{equation*}
+\mathrm{BA}_{i,s}=\frac{1}{C}\sum_{c=1}^{C}\frac{\mathrm{TP}_{i,s,c}}{\mathrm{TP}_{i,s,c}+\mathrm{FN}_{i,s,c}},\qquad\overline{\mathrm{BA}}=\frac{1}{N}\sum_{i=1}^{N}\frac{1}{3}\sum_{s=1}^{3}\mathrm{BA}_{i,s}.
+\end{equation*}
+The held-out person is the inference unit. Seeds are paired and averaged within person; predefined source-identity subsets are averaged within person and source count. Shallow conditions have one prediction per trial rather than three independent neural seeds. Paired differences are expressed in balanced-accuracy percentage points (pp). Person-bootstrap percentile intervals resample people, not trials, sessions, seeds, or source subsets. External intervals condition on the frozen source models and do not quantify source-cohort sampling uncertainty. Internal analyses remain exploratory because benchmark outcomes informed the research program and outer training sets overlap.
+
+We preserve archived experiment-specific statistics and identify each interval's resampling procedure. Rank-selection intervals use 20,000 person-bootstrap draws with seed 20260923. The archived shared-minus-broad representation contrast and robustness intervals use 20,000 draws with seed 20260924. Source-composition and matched-runtime intervals use 10,000 draws with seed 20260926 and exhaustive two-sided sign flips over nine participant differences; familywise exploratory p-values use Holm correction within the frozen families. The external primary contrast uses 20,000 draws with seed 20260924 and an exact two-sided binomial sign test excluding exact zero differences. Its primary hypothesis is shared-minus-broad; contextual comparisons with CSP do not replace it. A supplementary numerical audit uses 200,000 draws with seed 20261002 and is labelled separately. We do not equate an interval excluding zero with agreement across all small-sample tests.
+
+One historical rank-selection script labelled a nine-person binomial calculation as a sign test while retaining two unchanged participants in its denominator. We describe its p = 0.1797 as an archived nine-person sign sensitivity. A conventional tie-excluding calculation uses seven nonzero changes and gives p = 0.015625; the paired t-test gives p = 0.111. This distinction is reported transparently rather than selecting the favorable procedure or rewriting the frozen result. Multiplicity corrections from later declared families are not retrospectively imposed on unrelated earlier statistics.
+
+For this manuscript, archived prediction tables were independently reaggregated by participant and seed, with checks for missing/duplicate trial identities and agreement with reported balanced accuracy. Available historical scientific validators provide deeper checkpoint/raw-data reconstruction for specific batches; the early spectral batch's top-level validator establishes orchestration only. Validation depth is therefore recorded per experiment. Some text prediction hashes correspond to archived CRLF line endings while the cloud checkout uses LF; those cases are documented as exact newline-conversion matches, not asserted to be identical original bytes. No checkpoint inference or new fit was performed in manuscript preparation.
+
+\section*{3. Results}
+\subsection*{3.1. Traditional baselines and heterogeneous duration selection}
+The all-trial four-class broad CSP8 + LDA baseline achieved 39.04\% balanced accuracy; broad CSP + SVM and the full filter-bank LDA comparator achieved 37.50\% and 38.12\%. Raw mean-loss-selected EEGNet achieved 33.72\%, below the broad CSP mean. These descriptive comparisons do not establish superiority of a model class. The mean-loss schedule selected only one or two epochs for S2, S3, and S8, while source-validation optima differed substantially across folds.
+
+Source-only per-channel normalization increased the mean to 37.93\%, a +4.21 pp difference. The archived paired 95\% interval spans -1.12 to +13.49 pp and the median change is only +0.23 pp. The intervention has heterogeneous effects, including negative transfer in S8. It does not establish a general normalization benefit.
+
+The S3 diagnostic separates normalization from duration. Raw input at two epochs gave 26.10\% balanced accuracy and source normalization at two epochs gave 25.69\%. At 16 epochs, raw and normalized inputs gave 67.71\% and 65.86\%. The short-run raw condition placed approximately 94\% of predictions in one class. Duration can reproduce the observed rescue for this participant; this four-cell diagnostic does not prove that duration explains all cross-person failures.
+
+Mean-rank selection increased equal-person mean balanced accuracy to 42.67\%, a +8.95 pp change over raw mean-loss selection. The archived bootstrap interval is [+1.05,+19.96] pp and the median change is +1.85 pp. Seven participants improved and two were unchanged. S3 and S8 account for 87.57\% of the summed improvement. Thus the positive average includes a marked concentration of benefit, and the prior same-dataset development and disagreement among small-sample statistics limit a general claim.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}
+\begin{groupplot}[group style={group size=3 by 1,horizontal sep=0.7cm},width=.30\linewidth,height=4.3cm,font=\scriptsize,legend style={font=\tiny,draw=none,fill=none},axis lines=left,tick align=outside]
+\nextgroupplot[title={A: Source-selected epochs},xlabel={Participant},ylabel={Epochs},xmin=.7,xmax=9.3,ymin=0,ymax=40,xtick={1,2,3,4,5,6,7,8,9},legend pos=north east]
+\addplot[gray,mark=*] coordinates {(1.00000000,27.00000000) (2.00000000,1.00000000) (3.00000000,2.00000000) (4.00000000,10.00000000) (5.00000000,13.00000000) (6.00000000,7.00000000) (7.00000000,6.00000000) (8.00000000,1.00000000) (9.00000000,7.00000000)};
+\addlegendentry{Mean CE}
+\addplot[blue,mark=square*] coordinates {(1.00000000,27.00000000) (2.00000000,13.00000000) (3.00000000,10.00000000) (4.00000000,10.00000000) (5.00000000,17.00000000) (6.00000000,15.00000000) (7.00000000,16.00000000) (8.00000000,23.00000000) (9.00000000,9.00000000)};
+\addlegendentry{Mean rank}
+\nextgroupplot[title={B: Four-class LOSO},xlabel={Participant},ylabel={BA (\%)},xmin=.7,xmax=9.3,ymin=20,ymax=80,xtick={1,2,3,4,5,6,7,8,9},legend pos=north east]
+\addplot[gray,mark=*] coordinates {(1.00000000,57.00231481) (2.00000000,24.47916667) (3.00000000,26.09953704) (4.00000000,36.92129630) (5.00000000,24.13194444) (6.00000000,28.35648148) (7.00000000,28.47222222) (8.00000000,29.68750000) (9.00000000,48.32175926)};
+\addlegendentry{Mean CE}
+\addplot[blue,mark=square*] coordinates {(1.00000000,57.00231481) (2.00000000,27.83564815) (3.00000000,60.87962963) (4.00000000,36.92129630) (5.00000000,25.05787037) (6.00000000,28.53009259) (7.00000000,30.32407407) (8.00000000,65.45138889) (9.00000000,52.02546296)};
+\addlegendentry{Mean rank}
+\addplot[orange,mark=triangle*] coordinates {(1.00000000,55.84490741) (2.00000000,28.64583333) (3.00000000,61.51620370) (4.00000000,38.19444444) (5.00000000,25.40509259) (6.00000000,28.00925926) (7.00000000,34.08564815) (8.00000000,55.20833333) (9.00000000,52.77777778)};
+\addlegendentry{Shared}
+\addplot[gray,dotted,no marks,forget plot] coordinates {(0.70000000,25.00000000) (9.30000000,25.00000000)};
+\nextgroupplot[title={C: S3 diagnostic},xlabel={Fixed epochs},ylabel={BA (\%)},xmin=-.5,xmax=1.5,ymin=0,ymax=80,xtick={0,1},xticklabels={2,16},legend pos=north west]
+\addplot[ybar,bar width=7pt,bar shift=-4pt,fill=gray,draw=gray,error bars/.cd,y dir=both,y explicit] coordinates {(0,26.09953704) +- (0,1.60375075) (1,67.70833333) +- (0,5.39033844)};
+\addlegendentry{Raw}
+\addplot[ybar,bar width=7pt,bar shift=4pt,fill=green!60!black,draw=green!60!black,error bars/.cd,y dir=both,y explicit] coordinates {(0,25.69444444) +- (0,0.60140653) (1,65.85648148) +- (0,9.71653686)};
+\addlegendentry{SourceNorm}
+\addplot[gray,dotted,no marks,forget plot] coordinates {(-0.50000000,25.00000000) (1.50000000,25.00000000)};
+\end{groupplot}
+\end{tikzpicture}
+
+\caption*{\textbf{Figure 1}. Training-duration selection and participant-level internal results. A: archived source-selected epochs. B: each participant's all-trial balanced accuracy after averaging three fixed seeds; the dotted line is four-class chance (25\%). C: the S3 four-cell diagnostic; error bars are standard deviations across three seeds, not uncertainty across people. Raw and source-normalized input are compared at two fixed durations. The diagnostic involves one person.}
+\end{figure}
+\par\medskip\noindent\textbf{Table 2. Selected completed four-class conditions; all nine participants.}
+\begingroup\small\setlength{\tabcolsep}{4pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.401890\linewidth}>{\raggedright\arraybackslash}p{0.138583\linewidth}>{\raggedright\arraybackslash}p{0.200945\linewidth}>{\raggedright\arraybackslash}p{0.138583\linewidth}@{}}
+\toprule
+Condition & Bands (Hz) & Mean BA (\%) & Interpretation \\
+\midrule\endfirsthead
+\toprule
+Condition & Bands (Hz) & Mean BA (\%) & Interpretation \\
+\midrule\endhead
+\bottomrule\endfoot
+\bottomrule\endlastfoot
+Broad CSP8 + LDA & 4--40 & 39.04 & Single source fit/fold \\
+Filter-bank CSP + LDA & 4--40 bank & 38.12 & Fixed filter-bank control \\
+EEGNet, mean loss & 4--40 & 33.72 & Source-selected duration \\
+EEGNet, source norm & 4--40 & 37.93 & Source-only fitted scale \\
+EEGNet, mean rank & 4--40 & 42.67 & Reused source curves \\
+Shared mu/beta & 8--13 / 13--30 & 42.19 & Representation-specific rank \\
+Broad, fixed 20 & 4--40 & 43.99 & Later runtime \\
+Broad, matched CE schedule & 4--40 & 33.92 & Same runtime as fixed 20 \\
+\end{longtable}
+\noindent\footnotesize All-trial primary population. Neural means average three fixed seeds within person first. Rows span different batches; only explicitly matched comparisons isolate runtime variation. These rows summarize declared controls, not a target-selected ranking. Complete representation and robustness inventories are supplied in the supplement.
+\par\endgroup\medskip
+\subsection*{3.2. Matched-runtime duration and source-composition controls}
+In the additive matched-runtime experiment, retraining the historical raw-loss duration schedule gave 33.92\% balanced accuracy versus 43.99\% for fixed 20 epochs. The fixed-minus-historical-schedule mean was +10.06 pp, with bootstrap 95\% interval [+0.68,+21.53] pp. The exact sign-flip p-value was 0.125. The schedule comparison persists on a matched runtime, but its nine-person inferential evidence remains sensitive to the test; it is not proof of a universally optimal fixed duration or of a newly selected schedule under that runtime.
+
+Mean balanced accuracy increased descriptively with source count. Broad fixed-duration models gave 32.96\%, 38.89\%, 43.16\%, and 43.99\% at k = 2, 4, 6, and 8; shared models gave 34.74\%, 38.89\%, 42.48\%, and 43.98\%. Source-identity variation within each count remained substantial. The two-source broad-minus-eight-source difference was -11.03 pp, but its Holm-adjusted exploratory p was 0.164. Every source-count/selection/session family retained null corrected findings. One-session-versus-the-other contrasts were small and heterogeneous. These trajectories are consistent with training-information sensitivity and do not separate source diversity from sample count or optimizer-update budget.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}
+\begin{groupplot}[group style={group size=2 by 1,horizontal sep=0.7cm},width=.46\linewidth,height=5.1cm,font=\scriptsize,legend style={font=\tiny,draw=none,fill=none},axis lines=left,tick align=outside]
+\nextgroupplot[title={A: Source-count sensitivity},xlabel={Source participants},ylabel={Four-class BA (\%)},xmin=1.7,xmax=8.3,ymin=20,ymax=80,xtick={2,4,6,8},legend pos=north west]
+\addplot[blue,opacity=.18,no marks,forget plot] coordinates {(2.00000000,40.10416667) (4.00000000,53.80497685) (6.00000000,59.78009259) (8.00000000,55.15046296)};
+\addplot[blue,opacity=.18,no marks,forget plot] coordinates {(2.00000000,25.99826389) (4.00000000,28.54456019) (6.00000000,30.46875000) (8.00000000,30.67129630)};
+\addplot[blue,opacity=.18,no marks,forget plot] coordinates {(2.00000000,38.20891204) (4.00000000,48.58217593) (6.00000000,62.80381944) (8.00000000,68.46064815)};
+\addplot[blue,opacity=.18,no marks,forget plot] coordinates {(2.00000000,28.12500000) (4.00000000,33.46354167) (6.00000000,36.45833333) (8.00000000,35.01157407)};
+\addplot[blue,opacity=.18,no marks,forget plot] coordinates {(2.00000000,25.20254630) (4.00000000,25.05787037) (6.00000000,25.04340278) (8.00000000,24.36342593)};
+\addplot[blue,opacity=.18,no marks,forget plot] coordinates {(2.00000000,33.04398148) (4.00000000,30.57002315) (6.00000000,29.34027778) (8.00000000,28.35648148)};
+\addplot[blue,opacity=.18,no marks,forget plot] coordinates {(2.00000000,27.02546296) (4.00000000,32.10358796) (6.00000000,33.62268519) (8.00000000,29.28240741)};
+\addplot[blue,opacity=.18,no marks,forget plot] coordinates {(2.00000000,37.48553241) (4.00000000,51.63483796) (6.00000000,57.63888889) (8.00000000,64.98842593)};
+\addplot[blue,opacity=.18,no marks,forget plot] coordinates {(2.00000000,41.42071759) (4.00000000,46.25289352) (6.00000000,53.24074074) (8.00000000,59.60648148)};
+\addplot[blue,thick,mark=*] coordinates {(2.00000000,32.95717593) (4.00000000,38.89049640) (6.00000000,43.15522119) (8.00000000,43.98791152)};
+\addlegendentry{Broad}
+\addplot[orange,opacity=.18,no marks,forget plot] coordinates {(2.00000000,42.30324074) (4.00000000,52.21354167) (6.00000000,58.02951389) (8.00000000,60.01157407)};
+\addplot[orange,opacity=.18,no marks,forget plot] coordinates {(2.00000000,26.75057870) (4.00000000,28.44328704) (6.00000000,29.29687500) (8.00000000,29.91898148)};
+\addplot[orange,opacity=.18,no marks,forget plot] coordinates {(2.00000000,42.91087963) (4.00000000,47.13541667) (6.00000000,59.49074074) (8.00000000,64.93055556)};
+\addplot[orange,opacity=.18,no marks,forget plot] coordinates {(2.00000000,29.57175926) (4.00000000,32.08912037) (6.00000000,37.13831019) (8.00000000,33.21759259)};
+\addplot[orange,opacity=.18,no marks,forget plot] coordinates {(2.00000000,25.73784722) (4.00000000,25.26041667) (6.00000000,25.07233796) (8.00000000,24.88425926)};
+\addplot[orange,opacity=.18,no marks,forget plot] coordinates {(2.00000000,31.90104167) (4.00000000,28.81944444) (6.00000000,28.60243056) (8.00000000,28.99305556)};
+\addplot[orange,opacity=.18,no marks,forget plot] coordinates {(2.00000000,27.48842593) (4.00000000,32.36400463) (6.00000000,31.46701389) (8.00000000,30.55555556)};
+\addplot[orange,opacity=.18,no marks,forget plot] coordinates {(2.00000000,42.23090278) (4.00000000,54.94791667) (6.00000000,58.26099537) (8.00000000,63.54166667)};
+\addplot[orange,opacity=.18,no marks,forget plot] coordinates {(2.00000000,43.79340278) (4.00000000,48.72685185) (6.00000000,55.00578704) (8.00000000,59.72222222)};
+\addplot[orange,thick,mark=*] coordinates {(2.00000000,34.74311986) (4.00000000,38.88888889) (6.00000000,42.48488940) (8.00000000,43.97505144)};
+\addlegendentry{Shared}
+\addplot[gray,dotted,no marks,forget plot] coordinates {(1.70000000,25.00000000) (8.30000000,25.00000000)};
+\nextgroupplot[title={B: Matched-runtime duration},xlabel={Participant},ylabel={Fixed20 minus historical CE (pp)},xmin=.5,xmax=9.5,ymin=-5,ymax=57,xtick={1,2,3,4,5,6,7,8,9}]
+\addplot[blue,fill=blue!65,ybar,bar width=11pt] coordinates {(2.00000000,6.25000000) (3.00000000,42.36111111) (8.00000000,35.35879630) (9.00000000,11.11111111)};
+\addplot[orange,fill=orange!65,ybar,bar width=11pt] coordinates {(1.00000000,-2.37268519) (4.00000000,-1.44675926) (5.00000000,-0.17361111) (6.00000000,-0.17361111) (7.00000000,-0.34722222)};
+\addplot[gray,dotted,no marks,forget plot] coordinates {(0.50000000,0.00000000) (9.50000000,0.00000000)};
+\node[anchor=north west,align=left,font=\tiny] at (axis description cs:0.02,0.98) {Mean +10.06 pp\\95\% CI [+0.68, +21.53]\\Exact sign-flip p = 0.125};
+\end{groupplot}
+\end{tikzpicture}
+
+\caption*{\textbf{Figure 2}. Source composition and matched-runtime controls. A: strong lines are equal-person means; faint lines are individual target-person trajectories after averaging the four predefined identity subsets and three seeds at k = 2, 4, 6. All counts use 20 epochs; k = 8 reuses the fixed-20 anchor. B: all nine fixed-20-minus-historical-CE-schedule effects on the matched runtime. The interval is the sign-reversed archived matched contrast. Source count changes data volume and optimizer updates; these are exploratory sensitivities.}
+\end{figure}
+\subsection*{3.3. Spectral, spatial, and architectural interventions}
+The internal shared mu/beta condition achieved 42.19\% versus 42.67\% for the broad mean-rank baseline, a -0.48 pp mean difference. The archived Q10-V001 exploratory paired interval is [-3.21,+1.41] pp (20,000 draws, seed 20260924), with exact sign-flip p = 0.914. There is no demonstrated primary spectral-sharing gain. A restricted broad band and the individual bands provide descriptive frequency controls, while fixed-duration representation controls preserve their declared schedules.
+
+The source-only CSP8 and PCA8 neural projections achieved 41.48\% and 42.06\%. The architectural controls achieved 42.99\% for independent two-band networks, 42.19\% for the broadband capacity comparator, 42.66\% for early stacking, and 39.80\% for four-band sharing. These completed alternatives do not supply evidence for a general shared-band advantage. Their differences in preprocessing, projected width, BatchNorm behavior, and compute prevent a single-factor physiological interpretation. Complete model means and participant-level values accompany the manuscript.
+
+\subsection*{3.4. Source-only robustness has no corrected established gain}
+Source-pooled whitening, source-balanced ERM, and gain perturbation had positive point estimates relative to the historical broad rank baseline, whereas dropout conditions were lower. None established a corrected improvement. The matched GroupDRO-minus-balanced-ERM difference was -6.45 pp (unadjusted bootstrap interval [-11.47,-1.79] pp; exact sign-flip p = 0.046875, Holm-adjusted p = 0.140625). This adverse estimate is a follow-up lead, not evidence that distributionally robust optimization generally harms EEG decoding. Whitening and gain perturbation intervals cross zero; their cross-runtime historical comparator further limits attribution.
+
+\par\medskip\noindent\textbf{Table 3. Exploratory source-only robustness (nine participants).}
+\begingroup\small\setlength{\tabcolsep}{4pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.213735\linewidth}>{\raggedright\arraybackslash}p{0.091390\linewidth}>{\raggedright\arraybackslash}p{0.154774\linewidth}>{\raggedright\arraybackslash}p{0.095812\linewidth}>{\raggedright\arraybackslash}p{0.235846\linewidth}>{\raggedright\arraybackslash}p{0.088442\linewidth}@{}}
+\toprule
+Condition & BA (\%) & Control & $\Delta$ (pp) & 95\% CI (pp) & Holm p \\
+\midrule\endfirsthead
+\toprule
+Condition & BA (\%) & Control & $\Delta$ (pp) & 95\% CI (pp) & Holm p \\
+\midrule\endhead
+\bottomrule\endfoot
+\bottomrule\endlastfoot
+Whitening & 44.34 & Q8 historical & +1.67 & [-0.39,+3.67] & 0.3594 \\
+Balanced ERM & 43.18 & Q8 historical & +0.51 & [-0.71,+1.77] & 0.4766 \\
+GroupDRO & 36.73 & Balanced ERM & -6.45 & [-11.47,-1.79] & 0.1406 \\
+Channel dropout & 41.00 & Q8 historical & -1.67 & [-4.51,+0.64] & 0.7617 \\
+Gain perturbation & 43.42 & Q8 historical & +0.75 & [-0.34,+1.86] & 0.7617 \\
+Dropout + gain & 40.92 & Q8 historical & -1.75 & [-5.05,+0.91] & 0.7617 \\
+\end{longtable}
+\noindent\footnotesize Intervals are the archived, unadjusted person-bootstrap intervals; p-values use the declared within-family Holm correction. All comparisons with Q8 cross runtimes. GroupDRO versus balanced ERM is the matched-batching, within-runtime contrast. No interval/p-value is treated as a target-selection rule.
+\par\endgroup\medskip
+\subsection*{3.5. Frozen binary external transfer has a small uncertain primary effect}
+In binary BNCI development, broad, shared, and CSP models achieved 68.21\%, 67.35\%, and 61.54\% balanced accuracy. These development outcomes cannot be pooled with the four-class analyses. The separately frozen all-nine-source models then provided predictions for all 109 external subjects. The final validation confirms 4,918 trial identities and 34,426 saved prediction rows. No target fit was made.
+
+External equal-person balanced accuracy was 61.81\% for broad EEGNet, 62.39\% for shared mu/beta, and 54.46\% for CSP4 + LDA. The predeclared shared-minus-broad primary difference was +0.573 pp, with 95\% bootstrap interval [-0.097,+1.242] pp. Sixty-three people favored shared, 43 favored broad, and three tied; the exact tie-excluding sign-test p was 0.06446. Neither the interval nor this test establishes external superiority.
+
+Individual performance varied widely. The shared model ranged from 39.33\% to 97.07\% balanced accuracy, with median 58.73\%. Three-seed average differences also varied in direction across people. The three resampled subjects had mean shared-minus-broad $\Delta$ = +0.514 pp, versus +0.575 pp for the 106 native-160-Hz subjects. The small three-person subgroup is descriptive, not a powered subgroup test. This result is reported with the sampling-rate and validation-portability amendments, rather than as an unmodified original external protocol.
+
+\par\medskip\noindent\textbf{Table 4. Separate binary external evaluation (109 participants).}
+\begingroup\small\setlength{\tabcolsep}{4pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.401890\linewidth}>{\raggedright\arraybackslash}p{0.138583\linewidth}>{\raggedright\arraybackslash}p{0.200945\linewidth}>{\raggedright\arraybackslash}p{0.138583\linewidth}@{}}
+\toprule
+Frozen model & Mean BA (\%) & Subject SD (pp) & Median BA (\%) \\
+\midrule\endfirsthead
+\toprule
+Frozen model & Mean BA (\%) & Subject SD (pp) & Median BA (\%) \\
+\midrule\endhead
+\bottomrule\endfoot
+\bottomrule\endlastfoot
+Broad EEGNet & 61.81 & 12.56 & 58.23 \\
+Shared mu/beta & 62.39 & 12.92 & 58.73 \\
+CSP4 + LDA & 54.46 & 7.90 & 52.08 \\
+\end{longtable}
+\noindent\footnotesize Deep-model seeds are averaged within each person. The primary contrast is shared minus broad: +0.573 pp, 95\% CI [-0.097,+1.242], p = 0.06446. CSP comparisons are contextual and do not replace the primary hypothesis. Sampling-rate amendment and versioned portability validation are disclosed in Methods.
+\par\endgroup\medskip
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}
+\begin{groupplot}[group style={group size=2 by 1,horizontal sep=0.7cm},width=.46\linewidth,height=5.1cm,font=\scriptsize,legend style={font=\tiny,draw=none,fill=none},axis lines=left,tick align=outside]
+\nextgroupplot[title={A: Binary external transfer},xlabel={Subject BA (\%)},ylabel={Cumulative fraction},xmin=25,xmax=100,ymin=0,ymax=1,legend pos=north west]
+\addplot[blue,no marks,const plot] coordinates {(43.34650856,0.00917431) (43.55158730,0.01834862) (44.23583663,0.02752294) (44.33465086,0.03669725) (44.89459816,0.04587156) (45.33730159,0.05504587) (45.97701149,0.06422018) (46.27799736,0.07339450) (46.54150198,0.08256881) (46.62698413,0.09174312) (46.92460317,0.10091743) (47.61904762,0.11009174) (47.85902503,0.11926606) (48.18840580,0.12844037) (48.45191041,0.13761468) (48.71031746,0.14678899) (49.57180501,0.15596330) (50.00000000,0.16513761) (50.00000000,0.17431193) (50.79051383,0.18348624) (50.79365079,0.19266055) (51.08695652,0.20183486) (51.54808959,0.21100917) (51.58730159,0.22018349) (52.17391304,0.22935780) (52.17391304,0.23853211) (52.27272727,0.24770642) (52.40447958,0.25688073) (53.17460317,0.26605505) (53.88669302,0.27522936) (54.08432148,0.28440367) (54.16666667,0.29357798) (54.71014493,0.30275229) (54.86111111,0.31192661) (54.87483531,0.32110092) (55.07246377,0.33027523) (55.30303030,0.33944954) (55.40184453,0.34862385) (55.85317460,0.35779817) (55.92885375,0.36697248) (55.95238095,0.37614679) (56.09354414,0.38532110) (56.45586298,0.39449541) (56.52173913,0.40366972) (56.62055336,0.41284404) (56.91699605,0.42201835) (56.94444444,0.43119266) (56.94444444,0.44036697) (57.50988142,0.44954128) (57.70750988,0.45871560) (57.93650794,0.46788991) (57.93807642,0.47706422) (58.06982872,0.48623853) (58.13570487,0.49541284) (58.23451910,0.50458716) (58.33333333,0.51376147) (59.45322793,0.52293578) (60.30961792,0.53211009) (60.80368906,0.54128440) (61.11111111,0.55045872) (61.69301713,0.55963303) (61.89064559,0.56880734) (62.10317460,0.57798165) (62.12121212,0.58715596) (62.18708827,0.59633028) (62.20238095,0.60550459) (62.54940711,0.61467890) (62.58234519,0.62385321) (63.20816864,0.63302752) (63.99868248,0.64220183) (63.99868248,0.65137615) (64.58333333,0.66055046) (64.75625823,0.66972477) (65.57539683,0.67889908) (65.84321476,0.68807339) (66.17259552,0.69724771) (66.23847167,0.70642202) (66.66666667,0.71559633) (67.06349206,0.72477064) (67.75793651,0.73394495) (67.78656126,0.74311927) (68.70882740,0.75229358) (68.84057971,0.76146789) (68.94841270,0.77064220) (69.07407407,0.77981651) (69.30171278,0.78899083) (69.63109354,0.79816514) (69.84126984,0.80733945) (71.04743083,0.81651376) (71.93675889,0.82568807) (72.72727273,0.83486239) (74.63768116,0.84403670) (75.65876153,0.85321101) (76.31752306,0.86238532) (78.09617918,0.87155963) (79.34782609,0.88073394) (79.38076416,0.88990826) (80.89591568,0.89908257) (81.58761528,0.90825688) (82.54281950,0.91743119) (84.98023715,0.92660550) (86.42951252,0.93577982) (86.90476190,0.94495413) (87.87878788,0.95412844) (90.94202899,0.96330275) (91.10671937,0.97247706) (91.73254282,0.98165138) (94.13702240,0.99082569) (95.58629776,1.00000000)};
+\addlegendentry{Broad}
+\addplot[orange,no marks,const plot] coordinates {(39.32806324,0.00917431) (45.43650794,0.01834862) (45.68511199,0.02752294) (45.75098814,0.03669725) (46.23015873,0.04587156) (46.40974967,0.05504587) (46.59277504,0.06422018) (47.13438735,0.07339450) (47.61904762,0.08256881) (48.48484848,0.09174312) (48.64953887,0.10091743) (48.84716733,0.11009174) (49.17654809,0.11926606) (49.30555556,0.12844037) (49.67061924,0.13761468) (50.00000000,0.14678899) (50.00000000,0.15596330) (50.00000000,0.16513761) (50.29761905,0.17431193) (50.52700922,0.18348624) (50.72463768,0.19266055) (50.88932806,0.20183486) (51.05401845,0.21100917) (51.09126984,0.22018349) (51.28968254,0.22935780) (51.71277997,0.23853211) (51.88492063,0.24770642) (52.33860343,0.25688073) (52.56916996,0.26605505) (52.89855072,0.27522936) (53.07539683,0.28440367) (53.17460317,0.29357798) (54.16666667,0.30275229) (54.24901186,0.31192661) (54.34782609,0.32110092) (54.46428571,0.33027523) (54.57839262,0.33944954) (54.86111111,0.34862385) (54.94071146,0.35779817) (55.33596838,0.36697248) (55.59947299,0.37614679) (55.79710145,0.38532110) (55.83003953,0.39449541) (56.15942029,0.40366972) (56.62055336,0.41284404) (56.84523810,0.42201835) (57.04874835,0.43119266) (57.08168643,0.44036697) (57.34519104,0.44954128) (57.57575758,0.45871560) (58.03571429,0.46788991) (58.36627141,0.47706422) (58.43214756,0.48623853) (58.62977602,0.49541284) (58.72859025,0.50458716) (58.72859025,0.51376147) (59.02777778,0.52293578) (59.18972332,0.53211009) (60.27667984,0.54128440) (61.10013175,0.55045872) (62.03703704,0.55963303) (62.20238095,0.56880734) (62.28590250,0.57798165) (62.28590250,0.58715596) (62.59920635,0.59633028) (62.94466403,0.60550459) (63.01054018,0.61467890) (63.89986825,0.62385321) (64.65744401,0.63302752) (65.28326746,0.64220183) (65.54677207,0.65137615) (65.77380952,0.66055046) (67.06192358,0.66972477) (67.39130435,0.67889908) (68.54413702,0.68807339) (68.84057971,0.69724771) (69.07114625,0.70642202) (69.07407407,0.71559633) (69.23583663,0.72477064) (69.43346509,0.73394495) (69.89459816,0.74311927) (70.03968254,0.75229358) (70.53571429,0.76146789) (70.78392622,0.77064220) (70.91567852,0.77981651) (70.91567852,0.78899083) (71.21212121,0.79816514) (73.02371542,0.80733945) (73.31349206,0.81651376) (75.29761905,0.82568807) (75.59523810,0.83486239) (76.11989460,0.84403670) (76.41633729,0.85321101) (76.58102767,0.86238532) (77.10803689,0.87155963) (78.03030303,0.88073394) (78.19499341,0.88990826) (78.62318841,0.89908257) (81.09354414,0.90825688) (81.68642951,0.91743119) (86.21031746,0.92660550) (89.39393939,0.93577982) (89.52569170,0.94495413) (90.18445323,0.95412844) (90.94202899,0.96330275) (90.97496706,0.97247706) (91.83135705,0.98165138) (96.37681159,0.99082569) (97.06851120,1.00000000)};
+\addlegendentry{Shared}
+\addplot[gray,no marks,const plot] coordinates {(41.50197628,0.00917431) (41.99604743,0.01834862) (43.67588933,0.02752294) (44.04761905,0.03669725) (44.66403162,0.04587156) (44.66403162,0.05504587) (45.65217391,0.06422018) (45.84980237,0.07339450) (46.04743083,0.08256881) (46.13095238,0.09174312) (46.13095238,0.10091743) (46.29629630,0.11009174) (46.54150198,0.11926606) (47.52964427,0.12844037) (47.52964427,0.13761468) (47.72727273,0.14678899) (47.82608696,0.15596330) (47.82608696,0.16513761) (47.91666667,0.17431193) (48.12252964,0.18348624) (48.61660079,0.19266055) (49.10714286,0.20183486) (49.20948617,0.21100917) (50.00000000,0.22018349) (50.00000000,0.22935780) (50.00000000,0.23853211) (50.00000000,0.24770642) (50.00000000,0.25688073) (50.00000000,0.26605505) (50.00000000,0.27522936) (50.00000000,0.28440367) (50.00000000,0.29357798) (50.00000000,0.30275229) (50.00000000,0.31192661) (50.00000000,0.32110092) (50.00000000,0.33027523) (50.00000000,0.33944954) (50.00000000,0.34862385) (50.00000000,0.35779817) (50.00000000,0.36697248) (50.00000000,0.37614679) (50.00000000,0.38532110) (50.00000000,0.39449541) (50.00000000,0.40366972) (50.00000000,0.41284404) (50.09881423,0.42201835) (51.48221344,0.43119266) (51.48221344,0.44036697) (51.67984190,0.44954128) (51.67984190,0.45871560) (51.87747036,0.46788991) (51.90886700,0.47706422) (52.07509881,0.48623853) (52.07509881,0.49541284) (52.07509881,0.50458716) (52.07509881,0.51376147) (52.17391304,0.52293578) (52.17391304,0.53211009) (52.27272727,0.54128440) (52.27272727,0.55045872) (52.37154150,0.55963303) (52.38095238,0.56880734) (52.67857143,0.57798165) (52.67857143,0.58715596) (52.97619048,0.59633028) (53.27380952,0.60550459) (53.35497835,0.61467890) (53.45849802,0.62385321) (53.85375494,0.63302752) (54.74308300,0.64220183) (55.23715415,0.65137615) (55.53359684,0.66055046) (55.65476190,0.66972477) (55.65476190,0.67889908) (56.02766798,0.68807339) (56.02766798,0.69724771) (56.42292490,0.70642202) (57.14285714,0.71559633) (58.03571429,0.72477064) (58.59683794,0.73394495) (58.59683794,0.74311927) (59.18972332,0.75229358) (59.52380952,0.76146789) (59.82142857,0.77064220) (60.07905138,0.77981651) (60.41666667,0.78899083) (60.67193676,0.79816514) (60.67193676,0.80733945) (60.77075099,0.81651376) (60.86956522,0.82568807) (61.36363636,0.83486239) (62.35177866,0.84403670) (62.54940711,0.85321101) (63.39285714,0.86238532) (63.69047619,0.87155963) (63.73517787,0.88073394) (65.47619048,0.88990826) (66.30434783,0.89908257) (66.60079051,0.90825688) (67.09486166,0.91743119) (67.09486166,0.92660550) (68.77470356,0.93577982) (69.56521739,0.94495413) (71.64031621,0.95412844) (73.41897233,0.96330275) (73.61660079,0.97247706) (73.81422925,0.98165138) (75.19762846,0.99082569) (81.91699605,1.00000000)};
+\addlegendentry{CSP4 + LDA}
+\addplot[gray,dotted,no marks,forget plot] coordinates {(50.00000000,0.00000000) (50.00000000,1.00000000)};
+\nextgroupplot[title={B: Frozen primary contrast},xlabel={Shared minus broad (pp)},ylabel={Participants},xmin=-15,xmax=15,ymin=0,ymax=27]
+\addplot[ybar interval,fill=orange!80,draw=white] coordinates {(-15.00000000,0.00000000) (-13.75000000,0.00000000) (-12.50000000,0.00000000) (-11.25000000,0.00000000) (-10.00000000,1.00000000) (-8.75000000,0.00000000) (-7.50000000,3.00000000) (-6.25000000,5.00000000) (-5.00000000,4.00000000) (-3.75000000,7.00000000) (-2.50000000,8.00000000) (-1.25000000,15.00000000) (0.00000000,25.00000000) (1.25000000,12.00000000) (2.50000000,11.00000000) (3.75000000,7.00000000) (5.00000000,3.00000000) (6.25000000,4.00000000) (7.50000000,3.00000000) (8.75000000,0.00000000) (10.00000000,1.00000000) (11.25000000,0.00000000) (12.50000000,0.00000000) (13.75000000,0.00000000) (15.00000000,0.00000000)};
+\addplot[gray,no marks,forget plot] coordinates {(0.00000000,0.00000000) (0.00000000,27.00000000)};
+\addplot[blue,dashed,thick,no marks,forget plot] coordinates {(0.57329621,0.00000000) (0.57329621,27.00000000)};
+\node[anchor=north west,align=left,font=\tiny] at (axis description cs:0.02,0.98) {Mean +0.573 pp\\95\% CI [-0.097, +1.242]\\Sign-test p = 0.0645};
+\end{groupplot}
+\end{tikzpicture}
+
+\caption*{\textbf{Figure 3}. Independent-cohort binary transfer. A: empirical cumulative distributions of three-seed subject mean balanced accuracy (one CSP value per person); the vertical dotted line denotes binary chance (50\%). B: all 109 primary paired effects, with zero and the mean indicated. The interval and p-value are the frozen person-bootstrap and tie-excluding sign-test outputs. The cohort contains three deterministically resampled subjects under the disclosed metadata amendment.}
+\end{figure}
+\section*{4. Discussion}
+\subsection*{4.1. Model selection is part of the generalization problem}
+The internal experiments indicate that a source-only decoder can fail through its training-duration decision even before a representation intervention is considered. The S3 fixed-duration diagnostic reproduced a large recovery with raw input and did not reproduce it through normalization at the shorter duration. Rank aggregation changed source-selected epochs and rescued S3/S8 in the archived follow-up. A matched-runtime control retained a substantial average penalty for the historical short schedule. Together these findings motivate inspecting source-validation curves, selected duration, class recall, and prediction concentration whenever a cross-person model appears to collapse.
+
+These results support a specific diagnostic interpretation, not a universal duration prescription. Rank aggregation discards fold-specific loss scale but also discards magnitude information and weights every fold equally. The external study did not independently compare mean-rank with mean-loss duration selection, so it is not an external confirmation of rank selection. A prospective duration comparison on new participants, with runtime matched and training-update budgets controlled, is required to establish that contribution beyond this research program.
+
+\subsection*{4.2. Spectral sharing is a constrained representation, not established superiority}
+Fixed mu/beta views and shared parameters are plausible ways to constrain a compact decoder. However, the internal primary representation comparison was slightly negative and the independent binary contrast was small and uncertain. Source-fitted spatial projections and architectural controls did not create a coherent superiority pattern. This evidence does not justify a claim that the method identifies invariant rhythms, separates physiological sources, or solves subject shift. Nor does a null comparison prove equivalence; the intervals and sample sizes leave a range of small effects compatible with the data.
+
+The shared model's parameter economy must also be distinguished from compute economy. It processes two band views and shares their BatchNorm statistics, whereas an independent-branch model has different capacity and normalization behavior. The near capacity-matched broad comparator has a small disclosed parameter mismatch. A future controlled study should measure runtime and isolate these design factors rather than crediting every difference to band physiology. We retain the implemented descriptive name ``shared mu/beta EEGNet'' instead of labelling it a novel attention or adaptation architecture.
+
+\subsection*{4.3. Participant heterogeneity and statistical limits}
+The same average can conceal near-chance people, high-performing people, adverse changes, and large rescues. The concentration of the rank-selection gain in S3/S8 and the directional variability of external differences make person-level tables essential. Multiple seeds help characterize stochastic variation but do not increase the number of independent people. Source subsets and sessions are also repeated measurements within the same target person. Outer LOSO training sets overlap, adding dependence beyond a simple independent-participant model.
+
+Bootstrap intervals, sign tests, sign flips, and paired t-tests answer related questions under different assumptions. With nine skewed differences they need not agree. We report those discrepancies and the archived tie-denominator convention explicitly. The broad internal program contains many hypotheses, so internal unadjusted findings are exploratory; the later frozen families retain their Holm-corrected null outcomes. The independent external primary result is stronger in population size and source-freeze design, but its interval includes zero and its metadata amendment reduces the claim of pristine confirmation.
+
+\subsection*{4.4. Reproducibility and scope of external evidence}
+The public record retains configurations, source identities, checkpoints where published, trial predictions, transform receipts, statistics, technical failures, and versioned amendments. A successful schedule/checkpoint bookkeeping check is distinct from scientific replay. Likewise, a later audit of saved probabilities and official event identities is distinct from regenerating predictions on a different host. Preserving those distinctions and newline-custody notes avoids overstating reproducibility while making the available evidence inspectable.
+
+The external cohort uses different acquisition hardware, references, channels selected from a broader montage, task labels, and a binary decision. Its source-to-external performance change cannot be attributed to one isolated shift mechanism. All pipelines remain offline; no clinical population, assistive-control task, or online BCI was tested. We make no claim of clinical benefit or universal calibration-free reliability.
+
+\section*{5. Conclusion}
+Completed source-only experiments show that training-duration decisions can reproduce substantial cross-subject failure and rescue in a small, previously explored benchmark. Person-level and matched-runtime analyses qualify the aggregate gains. Fixed shared mu/beta representations, spatial controls, and source-only robustness interventions do not establish a general advantage. A separately frozen binary external evaluation yields a small positive shared-minus-broad point estimate with an interval spanning zero. The resulting evidence favors transparent selection diagnostics, complete negative-result reporting, and prospective participant-level validation over a claim of a finished universally superior spatial-spectral decoder.
+
+\section*{Data, code, ethics, and author declarations}
+The source datasets are public resources [1,2,9], with PhysioNet providing the external distribution platform [11]; their original licenses and usage terms apply. Code, archived experiment records, and published results are available at https://github.com/jackzhu119/cross-subject-mi-eeg. This draft reviewed GitHub main at commit adb2d406b4300e2c8e4d5112969291c0331f3ed5; the manuscript evidence bundle records local input hashes, audit scope, and reproducible table/figure scripts. Raw EEG is not redistributed in the manuscript bundle. Some large checkpoint files may be omitted by recorded publication policies; availability must be verified before submission.
+
+This work analyzes existing public recordings and recruited no new participants. Ethical approval and consent for original collection are governed by the dataset creators' reports; the authors must confirm any institutional requirements for secondary analysis. Author names, affiliations, corresponding author, funding, competing interests, contributions, and any required AI-assistance disclosure remain to be supplied or confirmed by the authors. No approval number, consent statement, funding award, or competing-interest declaration is invented here.
+
+\section*{Supplementary material}
+\subsection*{S1. Full internal model inventory and participant effects}
+Table S1 reports all completed nine-person Q4--Q11 four-class conditions, including shallow spectral/geometric controls and source-clean/source-normalized variants. It is descriptive: higher target mean does not select a method for a confirmatory claim. Individual participant values, fixed seeds, primary all-trial populations, and source file hashes are available in the accompanying CSV/JSON evidence. The complete inventory includes 61 Q4--Q14 condition records, with repeated endpoints and the four single-person diagnostic cells marked; these rows are not independent replications or a cumulative fit count. Robustness conditions are reported in Table 3, source-composition means in the complete CSV, and their statistical families in Table S2.
+
+\par\medskip\noindent\textbf{Table S1. Completed nine-person Q4--Q11 four-class conditions.}
+\begingroup\small\setlength{\tabcolsep}{4pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.509474\linewidth}>{\raggedright\arraybackslash}p{0.169825\linewidth}>{\raggedright\arraybackslash}p{0.200702\linewidth}@{}}
+\toprule
+Archived condition & Mean BA (\%) & Subject SD (pp) \\
+\midrule\endfirsthead
+\toprule
+Archived condition & Mean BA (\%) & Subject SD (pp) \\
+\midrule\endhead
+\bottomrule\endfoot
+\bottomrule\endlastfoot
+Q4-E001/BroadCSP LDA & 39.04 & 14.18 \\
+Q4-E001/BroadCSP SVM & 37.50 & 12.66 \\
+Q4-E001/FBCSP LDA & 38.12 & 7.69 \\
+Q4-E001/FBCSP MI8 LDA & 31.37 & 4.26 \\
+Q4-A001/FBCSP MI16 LDA & 34.65 & 8.45 \\
+Q4-A001/FBCSP MI32 LDA & 36.75 & 8.86 \\
+Q4-A001/FBCSP MI72 LDA & 38.12 & 7.69 \\
+Q4-A001/FBCSP MI8 LDA & 31.37 & 4.26 \\
+Q5-E001 & 33.72 & 11.58 \\
+Q6-E001 & 37.93 & 15.68 \\
+Q8-E001 & 42.67 & 16.04 \\
+Q9-A001/PSD44 LDA & 36.28 & 8.17 \\
+Q9-A001/PSD44 LINEAR SVM & 35.78 & 8.39 \\
+Q10-A001/BROAD LOGE LOGREG & 35.32 & 10.74 \\
+Q10-A001/BROAD LOGE MDM & 29.49 & 8.73 \\
+Q10-A001/MUBETA LOGE LDA & 36.00 & 10.75 \\
+Q10-A001/MUBETA LOGE SVM & 35.47 & 8.83 \\
+Q9-E001/BETA 13 30 & 31.53 & 10.05 \\
+Q9-E001/MID 8 30 & 44.55 & 17.17 \\
+Q9-E001/MU 8 13 & 43.30 & 16.22 \\
+Q9-E001/MU BETA SHARED & 42.19 & 14.10 \\
+Q9-E002/MID 8 30 Q8 EPOCHS & 42.73 & 15.73 \\
+Q9-E002/MU BETA SHARED Q8 EPOCHS & 43.50 & 15.82 \\
+Q9-E004/MU BETA SHARED SOURCE CLEAN & 42.11 & 15.23 \\
+Q9-E005/MU BETA SHARED SOURCE NORM & 41.53 & 13.88 \\
+Q10-E001/MU BETA CSP8 EEGNET & 41.48 & 16.04 \\
+Q10-E001/MU BETA PCA8 EEGNET & 42.06 & 15.51 \\
+Q11-E001/BROAD CAPACITY MATCHED & 42.19 & 14.05 \\
+Q11-E001/FOUR BAND SHARED & 39.80 & 11.58 \\
+Q11-E001/TWO BAND EARLY STACK & 42.66 & 16.23 \\
+Q11-E001/TWO BAND INDEPENDENT & 42.99 & 17.38 \\
+\end{longtable}
+\noindent\footnotesize Neural seeds are averaged within person; shallow arms have one evaluated model per fold. Q4-A001 reuses fitted CSP feature caches but refits scaler/LDA; its k8/k72 predictions reproduce prior Q4 endpoints and do not add independent outcomes. Archived condition IDs identify protocol order, not a sorted leaderboard. The four S3 diagnostic cells are shown in Figure 1C, not included as nine-person rows.
+\par\endgroup\medskip
+\subsection*{S2. Robustness heterogeneity}
+\begin{figure}[htbp]
+\centering
+\resizebox{.96\linewidth}{!}{\begin{tikzpicture}[x=.68cm,y=.68cm,font=\small]
+\node[anchor=east] at (-.15,5.5) {Source-pooled whitening};
+\definecolor{cell00}{rgb}{0.901423,0.936794,0.956248}
+\fill[cell00] (0,5) rectangle (1,6);
+\node[text=black] at (0.5,5.5) {+1.7};
+\definecolor{cell01}{rgb}{0.878047,0.925721,0.951942}
+\fill[cell01] (1,5) rectangle (2,6);
+\node[text=black] at (1.5,5.5) {+2.4};
+\definecolor{cell02}{rgb}{0.809919,0.893118,0.938408}
+\fill[cell02] (2,5) rectangle (3,6);
+\node[text=black] at (2.5,5.5) {+4.1};
+\definecolor{cell03}{rgb}{0.883891,0.928489,0.953018}
+\fill[cell03] (3,5) rectangle (4,6);
+\node[text=black] at (3.5,5.5) {+2.3};
+\definecolor{cell04}{rgb}{0.969089,0.966474,0.964937}
+\fill[cell04] (4,5) rectangle (5,6);
+\node[text=black] at (4.5,5.5) {-0.1};
+\definecolor{cell05}{rgb}{0.972780,0.949250,0.935409}
+\fill[cell05] (5,5) rectangle (6,6);
+\node[text=black] at (5.5,5.5) {-0.8};
+\definecolor{cell06}{rgb}{0.878047,0.925721,0.951942}
+\fill[cell06] (6,5) rectangle (7,6);
+\node[text=black] at (6.5,5.5) {+2.4};
+\definecolor{cell07}{rgb}{0.988005,0.833910,0.748558}
+\fill[cell07] (7,5) rectangle (8,6);
+\node[text=black] at (7.5,5.5) {-4.5};
+\definecolor{cell08}{rgb}{0.606459,0.789773,0.880277}
+\fill[cell08] (8,5) rectangle (9,6);
+\node[text=black] at (8.5,5.5) {+7.4};
+\node[anchor=east] at (-.15,4.5) {Source-balanced ERM};
+\definecolor{cell10}{rgb}{0.973702,0.944944,0.928028}
+\fill[cell10] (0,4) rectangle (1,5);
+\node[text=black] at (0.5,4.5) {-0.9};
+\definecolor{cell11}{rgb}{0.918954,0.945098,0.959477}
+\fill[cell11] (1,4) rectangle (2,5);
+\node[text=black] at (1.5,4.5) {+1.3};
+\definecolor{cell12}{rgb}{0.936486,0.953403,0.962707}
+\fill[cell12] (2,4) rectangle (3,5);
+\node[text=black] at (2.5,4.5) {+0.8};
+\definecolor{cell13}{rgb}{0.948174,0.958939,0.964860}
+\fill[cell13] (3,4) rectangle (4,5);
+\node[text=black] at (3.5,4.5) {+0.5};
+\definecolor{cell14}{rgb}{0.970012,0.962168,0.957555}
+\fill[cell14] (4,4) rectangle (5,5);
+\node[text=black] at (4.5,4.5) {-0.2};
+\definecolor{cell15}{rgb}{0.970012,0.962168,0.957555}
+\fill[cell15] (5,4) rectangle (6,5);
+\node[text=black] at (5.5,4.5) {-0.3};
+\definecolor{cell16}{rgb}{0.889735,0.931257,0.954095}
+\fill[cell16] (6,4) rectangle (7,5);
+\node[text=black] at (6.5,4.5) {+2.0};
+\definecolor{cell17}{rgb}{0.985698,0.888966,0.832065}
+\fill[cell17] (7,4) rectangle (8,5);
+\node[text=black] at (7.5,4.5) {-2.9};
+\definecolor{cell18}{rgb}{0.800231,0.888197,0.935640}
+\fill[cell18] (8,4) rectangle (9,5);
+\node[text=black] at (8.5,4.5) {+4.3};
+\node[anchor=east] at (-.15,3.5) {GroupDRO vs balanced ERM};
+\definecolor{cell20}{rgb}{0.876125,0.461361,0.367166}
+\fill[cell20] (0,3) rectangle (1,4);
+\node[text=black] at (0.5,3.5) {-10.6};
+\definecolor{cell21}{rgb}{0.942330,0.956171,0.963783}
+\fill[cell21] (1,3) rectangle (2,4);
+\node[text=black] at (1.5,3.5) {+0.7};
+\definecolor{cell22}{rgb}{0.913033,0.546251,0.432372}
+\fill[cell22] (2,3) rectangle (3,4);
+\node[text=black] at (2.5,3.5) {-9.4};
+\definecolor{cell23}{rgb}{0.971396,0.734256,0.621223}
+\fill[cell23] (3,3) rectangle (4,4);
+\node[text=black] at (3.5,3.5) {-6.2};
+\definecolor{cell24}{rgb}{0.954018,0.961707,0.965936}
+\fill[cell24] (4,3) rectangle (5,4);
+\node[text=black] at (4.5,3.5) {+0.4};
+\definecolor{cell25}{rgb}{0.800231,0.888197,0.935640}
+\fill[cell25] (5,3) rectangle (6,4);
+\node[text=black] at (5.5,3.5) {+4.2};
+\definecolor{cell26}{rgb}{0.982930,0.901884,0.854210}
+\fill[cell26] (6,3) rectangle (7,4);
+\node[text=black] at (6.5,3.5) {-2.4};
+\definecolor{cell27}{rgb}{0.403922,0.000000,0.121569}
+\fill[cell27] (7,3) rectangle (8,4);
+\node[text=white] at (7.5,3.5) {-19.8};
+\definecolor{cell28}{rgb}{0.728489,0.155017,0.197386}
+\fill[cell28] (8,3) rectangle (9,4);
+\node[text=white] at (8.5,3.5) {-14.9};
+\node[anchor=east] at (-.15,2.5) {Channel dropout};
+\definecolor{cell30}{rgb}{0.973702,0.944944,0.928028}
+\fill[cell30] (0,2) rectangle (1,3);
+\node[text=black] at (0.5,2.5) {-0.9};
+\definecolor{cell31}{rgb}{0.924798,0.947866,0.960554}
+\fill[cell31] (1,2) rectangle (2,3);
+\node[text=black] at (1.5,2.5) {+1.2};
+\definecolor{cell32}{rgb}{0.986621,0.884660,0.824683}
+\fill[cell32] (2,2) rectangle (3,3);
+\node[text=black] at (2.5,2.5) {-3.0};
+\definecolor{cell33}{rgb}{0.978316,0.923414,0.891119}
+\fill[cell33] (3,2) rectangle (4,3);
+\node[text=black] at (3.5,2.5) {-1.6};
+\definecolor{cell34}{rgb}{0.970012,0.962168,0.957555}
+\fill[cell34] (4,2) rectangle (5,3);
+\node[text=black] at (4.5,2.5) {-0.2};
+\definecolor{cell35}{rgb}{0.790542,0.883276,0.932872}
+\fill[cell35] (5,2) rectangle (6,3);
+\node[text=black] at (5.5,2.5) {+4.4};
+\definecolor{cell36}{rgb}{0.984775,0.893272,0.839446}
+\fill[cell36] (6,2) rectangle (7,3);
+\node[text=black] at (6.5,2.5) {-2.7};
+\definecolor{cell37}{rgb}{0.862284,0.429527,0.342714}
+\fill[cell37] (7,2) rectangle (8,3);
+\node[text=black] at (7.5,2.5) {-11.1};
+\definecolor{cell38}{rgb}{0.975548,0.936332,0.913264}
+\fill[cell38] (8,2) rectangle (9,3);
+\node[text=black] at (8.5,2.5) {-1.1};
+\node[anchor=east] at (-.15,1.5) {Gain perturbation};
+\definecolor{cell40}{rgb}{0.970934,0.957862,0.950173}
+\fill[cell40] (0,1) rectangle (1,2);
+\node[text=black] at (0.5,1.5) {-0.4};
+\definecolor{cell41}{rgb}{0.895579,0.934025,0.955171}
+\fill[cell41] (1,1) rectangle (2,2);
+\node[text=black] at (1.5,1.5) {+2.0};
+\definecolor{cell42}{rgb}{0.895579,0.934025,0.955171}
+\fill[cell42] (2,1) rectangle (3,2);
+\node[text=black] at (2.5,1.5) {+1.9};
+\definecolor{cell43}{rgb}{0.959862,0.964475,0.967013}
+\fill[cell43] (3,1) rectangle (4,2);
+\node[text=black] at (3.5,1.5) {+0.3};
+\definecolor{cell44}{rgb}{0.976471,0.932026,0.905882}
+\fill[cell44] (4,1) rectangle (5,2);
+\node[text=black] at (4.5,1.5) {-1.3};
+\definecolor{cell45}{rgb}{0.924798,0.947866,0.960554}
+\fill[cell45] (5,1) rectangle (6,2);
+\node[text=black] at (5.5,1.5) {+1.1};
+\definecolor{cell46}{rgb}{0.918954,0.945098,0.959477}
+\fill[cell46] (6,1) rectangle (7,2);
+\node[text=black] at (6.5,1.5) {+1.3};
+\definecolor{cell47}{rgb}{0.980161,0.914802,0.876355}
+\fill[cell47] (7,1) rectangle (8,2);
+\node[text=black] at (7.5,1.5) {-1.9};
+\definecolor{cell48}{rgb}{0.825452,0.900807,0.942253}
+\fill[cell48] (8,1) rectangle (9,2);
+\node[text=black] at (8.5,1.5) {+3.8};
+\node[anchor=east] at (-.15,0.5) {Dropout + gain};
+\definecolor{cell50}{rgb}{0.975548,0.936332,0.913264}
+\fill[cell50] (0,0) rectangle (1,1);
+\node[text=black] at (0.5,0.5) {-1.2};
+\definecolor{cell51}{rgb}{0.924798,0.947866,0.960554}
+\fill[cell51] (1,0) rectangle (2,1);
+\node[text=black] at (1.5,0.5) {+1.2};
+\definecolor{cell52}{rgb}{0.964475,0.692734,0.568166}
+\fill[cell52] (2,0) rectangle (3,1);
+\node[text=black] at (2.5,0.5) {-7.1};
+\definecolor{cell53}{rgb}{0.970012,0.962168,0.957555}
+\fill[cell53] (3,0) rectangle (4,1);
+\node[text=black] at (3.5,0.5) {-0.2};
+\definecolor{cell54}{rgb}{0.972780,0.949250,0.935409}
+\fill[cell54] (4,0) rectangle (5,1);
+\node[text=black] at (4.5,0.5) {-0.8};
+\definecolor{cell55}{rgb}{0.800231,0.888197,0.935640}
+\fill[cell55] (5,0) rectangle (6,1);
+\node[text=black] at (5.5,0.5) {+4.3};
+\definecolor{cell56}{rgb}{0.974625,0.940638,0.920646}
+\fill[cell56] (6,0) rectangle (7,1);
+\node[text=black] at (6.5,0.5) {-1.0};
+\definecolor{cell57}{rgb}{0.833679,0.365398,0.296732}
+\fill[cell57] (7,0) rectangle (8,1);
+\node[text=black] at (7.5,0.5) {-12.0};
+\definecolor{cell58}{rgb}{0.930642,0.950634,0.961630}
+\fill[cell58] (8,0) rectangle (9,1);
+\node[text=black] at (8.5,0.5) {+1.0};
+\node at (0.5,-.35) {S1};
+\node at (1.5,-.35) {S2};
+\node at (2.5,-.35) {S3};
+\node at (3.5,-.35) {S4};
+\node at (4.5,-.35) {S5};
+\node at (5.5,-.35) {S6};
+\node at (6.5,-.35) {S7};
+\node at (7.5,-.35) {S8};
+\node at (8.5,-.35) {S9};
+\node at (4.5,-.85) {Held-out participant};
+\definecolor{legend0}{rgb}{0.403922,0.000000,0.121569}
+\fill[legend0] (9.4,0.000000) rectangle (9.7,0.100000);
+\definecolor{legend1}{rgb}{0.450058,0.014764,0.128950}
+\fill[legend1] (9.4,0.100000) rectangle (9.7,0.200000);
+\definecolor{legend2}{rgb}{0.496194,0.029527,0.136332}
+\fill[legend2] (9.4,0.200000) rectangle (9.7,0.300000);
+\definecolor{legend3}{rgb}{0.553864,0.047982,0.145559}
+\fill[legend3] (9.4,0.300000) rectangle (9.7,0.400000);
+\definecolor{legend4}{rgb}{0.600000,0.062745,0.152941}
+\fill[legend4] (9.4,0.400000) rectangle (9.7,0.500000);
+\definecolor{legend5}{rgb}{0.646136,0.077509,0.160323}
+\fill[legend5] (9.4,0.500000) rectangle (9.7,0.600000);
+\definecolor{legend6}{rgb}{0.700807,0.099654,0.171242}
+\fill[legend6] (9.4,0.600000) rectangle (9.7,0.700000);
+\definecolor{legend7}{rgb}{0.722953,0.143945,0.192157}
+\fill[legend7] (9.4,0.700000) rectangle (9.7,0.800000);
+\definecolor{legend8}{rgb}{0.745098,0.188235,0.213072}
+\fill[legend8] (9.4,0.800000) rectangle (9.7,0.900000);
+\definecolor{legend9}{rgb}{0.772780,0.243599,0.239216}
+\fill[legend9] (9.4,0.900000) rectangle (9.7,1.000000);
+\definecolor{legend10}{rgb}{0.794925,0.287889,0.260131}
+\fill[legend10] (9.4,1.000000) rectangle (9.7,1.100000);
+\definecolor{legend11}{rgb}{0.817070,0.332180,0.281046}
+\fill[legend11] (9.4,1.100000) rectangle (9.7,1.200000);
+\definecolor{legend12}{rgb}{0.843829,0.387082,0.310111}
+\fill[legend12] (9.4,1.200000) rectangle (9.7,1.300000);
+\definecolor{legend13}{rgb}{0.862284,0.429527,0.342714}
+\fill[legend13] (9.4,1.300000) rectangle (9.7,1.400000);
+\definecolor{legend14}{rgb}{0.880738,0.471972,0.375317}
+\fill[legend14] (9.4,1.400000) rectangle (9.7,1.500000);
+\definecolor{legend15}{rgb}{0.903806,0.525029,0.416071}
+\fill[legend15] (9.4,1.500000) rectangle (9.7,1.600000);
+\definecolor{legend16}{rgb}{0.922261,0.567474,0.448674}
+\fill[legend16] (9.4,1.600000) rectangle (9.7,1.700000);
+\definecolor{legend17}{rgb}{0.940715,0.609919,0.481276}
+\fill[legend17] (9.4,1.700000) rectangle (9.7,1.800000);
+\definecolor{legend18}{rgb}{0.958939,0.659516,0.525721}
+\fill[legend18] (9.4,1.800000) rectangle (9.7,1.900000);
+\definecolor{legend19}{rgb}{0.964475,0.692734,0.568166}
+\fill[legend19] (9.4,1.900000) rectangle (9.7,2.000000);
+\definecolor{legend20}{rgb}{0.970012,0.725952,0.610611}
+\fill[legend20] (9.4,2.000000) rectangle (9.7,2.100000);
+\definecolor{legend21}{rgb}{0.976932,0.767474,0.663668}
+\fill[legend21] (9.4,2.100000) rectangle (9.7,2.200000);
+\definecolor{legend22}{rgb}{0.982468,0.800692,0.706113}
+\fill[legend22] (9.4,2.200000) rectangle (9.7,2.300000);
+\definecolor{legend23}{rgb}{0.988005,0.833910,0.748558}
+\fill[legend23] (9.4,2.300000) rectangle (9.7,2.400000);
+\definecolor{legend24}{rgb}{0.990311,0.867436,0.795156}
+\fill[legend24] (9.4,2.400000) rectangle (9.7,2.500000);
+\definecolor{legend25}{rgb}{0.986621,0.884660,0.824683}
+\fill[legend25] (9.4,2.500000) rectangle (9.7,2.600000);
+\definecolor{legend26}{rgb}{0.982930,0.901884,0.854210}
+\fill[legend26] (9.4,2.600000) rectangle (9.7,2.700000);
+\definecolor{legend27}{rgb}{0.978316,0.923414,0.891119}
+\fill[legend27] (9.4,2.700000) rectangle (9.7,2.800000);
+\definecolor{legend28}{rgb}{0.974625,0.940638,0.920646}
+\fill[legend28] (9.4,2.800000) rectangle (9.7,2.900000);
+\definecolor{legend29}{rgb}{0.970934,0.957862,0.950173}
+\fill[legend29] (9.4,2.900000) rectangle (9.7,3.000000);
+\definecolor{legend30}{rgb}{0.954018,0.961707,0.965936}
+\fill[legend30] (9.4,3.000000) rectangle (9.7,3.100000);
+\definecolor{legend31}{rgb}{0.930642,0.950634,0.961630}
+\fill[legend31] (9.4,3.100000) rectangle (9.7,3.200000);
+\definecolor{legend32}{rgb}{0.907266,0.939562,0.957324}
+\fill[legend32] (9.4,3.200000) rectangle (9.7,3.300000);
+\definecolor{legend33}{rgb}{0.878047,0.925721,0.951942}
+\fill[legend33] (9.4,3.300000) rectangle (9.7,3.400000);
+\definecolor{legend34}{rgb}{0.854671,0.914648,0.947636}
+\fill[legend34] (9.4,3.400000) rectangle (9.7,3.500000);
+\definecolor{legend35}{rgb}{0.831296,0.903576,0.943329}
+\fill[legend35] (9.4,3.500000) rectangle (9.7,3.600000);
+\definecolor{legend36}{rgb}{0.790542,0.883276,0.932872}
+\fill[legend36] (9.4,3.600000) rectangle (9.7,3.700000);
+\definecolor{legend37}{rgb}{0.751788,0.863591,0.921799}
+\fill[legend37] (9.4,3.700000) rectangle (9.7,3.800000);
+\definecolor{legend38}{rgb}{0.713033,0.843906,0.910727}
+\fill[legend38] (9.4,3.800000) rectangle (9.7,3.900000);
+\definecolor{legend39}{rgb}{0.664591,0.819300,0.896886}
+\fill[legend39] (9.4,3.900000) rectangle (9.7,4.000000);
+\definecolor{legend40}{rgb}{0.625836,0.799616,0.885813}
+\fill[legend40] (9.4,4.000000) rectangle (9.7,4.100000);
+\definecolor{legend41}{rgb}{0.587082,0.779931,0.874740}
+\fill[legend41] (9.4,4.100000) rectangle (9.7,4.200000);
+\definecolor{legend42}{rgb}{0.530027,0.745636,0.856055}
+\fill[legend42] (9.4,4.200000) rectangle (9.7,4.300000);
+\definecolor{legend43}{rgb}{0.481430,0.714879,0.839446}
+\fill[legend43] (9.4,4.300000) rectangle (9.7,4.400000);
+\definecolor{legend44}{rgb}{0.432834,0.684121,0.822837}
+\fill[legend44] (9.4,4.400000) rectangle (9.7,4.500000);
+\definecolor{legend45}{rgb}{0.372088,0.645675,0.802076}
+\fill[legend45] (9.4,4.500000) rectangle (9.7,4.600000);
+\definecolor{legend46}{rgb}{0.323491,0.614917,0.785467}
+\fill[legend46] (9.4,4.600000) rectangle (9.7,4.700000);
+\definecolor{legend47}{rgb}{0.274894,0.584160,0.768858}
+\fill[legend47] (9.4,4.700000) rectangle (9.7,4.800000);
+\definecolor{legend48}{rgb}{0.241830,0.548789,0.750557}
+\fill[legend48] (9.4,4.800000) rectangle (9.7,4.900000);
+\definecolor{legend49}{rgb}{0.220915,0.521107,0.736409}
+\fill[legend49] (9.4,4.900000) rectangle (9.7,5.000000);
+\definecolor{legend50}{rgb}{0.200000,0.493426,0.722261}
+\fill[legend50] (9.4,5.000000) rectangle (9.7,5.100000);
+\definecolor{legend51}{rgb}{0.173856,0.458824,0.704575}
+\fill[legend51] (9.4,5.100000) rectangle (9.7,5.200000);
+\definecolor{legend52}{rgb}{0.152941,0.431142,0.690427}
+\fill[legend52] (9.4,5.200000) rectangle (9.7,5.300000);
+\definecolor{legend53}{rgb}{0.132026,0.403460,0.676278}
+\fill[legend53] (9.4,5.300000) rectangle (9.7,5.400000);
+\definecolor{legend54}{rgb}{0.110035,0.362630,0.622607}
+\fill[legend54] (9.4,5.400000) rectangle (9.7,5.500000);
+\definecolor{legend55}{rgb}{0.092810,0.329412,0.576471}
+\fill[legend55] (9.4,5.500000) rectangle (9.7,5.600000);
+\definecolor{legend56}{rgb}{0.075586,0.296194,0.530334}
+\fill[legend56] (9.4,5.600000) rectangle (9.7,5.700000);
+\definecolor{legend57}{rgb}{0.054056,0.254671,0.472664}
+\fill[legend57] (9.4,5.700000) rectangle (9.7,5.800000);
+\definecolor{legend58}{rgb}{0.036832,0.221453,0.426528}
+\fill[legend58] (9.4,5.800000) rectangle (9.7,5.900000);
+\definecolor{legend59}{rgb}{0.019608,0.188235,0.380392}
+\fill[legend59] (9.4,5.900000) rectangle (9.7,6.000000);
+\node[anchor=west] at (9.85,0.000000) {-19.8};
+\node[anchor=west] at (9.85,3.000000) {+0.0};
+\node[anchor=west] at (9.85,6.000000) {+19.8};
+\node[rotate=90] at (11,3) {BA difference (pp)};
+\end{tikzpicture}}
+
+\caption*{\textbf{Figure S1}. All nine participant-level robustness differences in fixed order. Color and annotations are balanced-accuracy percentage points. The GroupDRO row uses balanced ERM as control; every other row uses the historical Q8 rank baseline and therefore crosses runtime. This is descriptive, without target-based exclusion or significance stars.}
+\end{figure}
+\subsection*{S3. Duration, source-count, and source-session statistical families}
+\par\medskip\noindent\textbf{Table S2. Archived exploratory Q13/E006 paired contrasts.}
+\begingroup\small\setlength{\tabcolsep}{4pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.401890\linewidth}>{\raggedright\arraybackslash}p{0.138583\linewidth}>{\raggedright\arraybackslash}p{0.200945\linewidth}>{\raggedright\arraybackslash}p{0.138583\linewidth}@{}}
+\toprule
+Contrast & $\Delta$ (pp) & 95\% CI (pp) & Holm p \\
+\midrule\endfirsthead
+\toprule
+Contrast & $\Delta$ (pp) & 95\% CI (pp) & Holm p \\
+\midrule\endhead
+\bottomrule\endfoot
+\bottomrule\endlastfoot
+Broad k2 minus k8 & -11.03 & [-18.80,-3.56] & 0.1641 \\
+Broad k4 minus k8 & -5.10 & [-10.36,-0.38] & 0.4336 \\
+Broad k6 minus k8 & -0.83 & [-3.67,+1.89] & 0.5664 \\
+Shared k2 minus k8 & -9.23 & [-15.41,-3.15] & 0.1641 \\
+Shared k4 minus k8 & -5.09 & [-9.28,-1.31] & 0.2344 \\
+Shared k6 minus k8 & -1.49 & [-3.41,+0.42] & 0.4336 \\
+Broad 1test minus 0train & -0.84 & [-1.89,+0.19] & 0.3516 \\
+Shared 1test minus 0train & +0.08 & [-1.14,+1.18] & 0.8516 \\
+Fixed20 minus Historical CE & +10.27 & [+0.96,+21.62] & 0.1562 \\
+Shared FIXED20 minus Shared RAW CE & +3.91 & [+0.44,+7.62] & 0.1562 \\
+Matched CE minus Fixed20 & -10.06 & [-21.53,-0.68] & 0.1250 \\
+\end{longtable}
+\noindent\footnotesize Each row uses nine people after within-person averaging of fixed seeds and, where applicable, source subsets. The historical CE contrast crosses runtimes; the separately declared matched-CE-minus-fixed20 row matches them. Intervals are unadjusted, while p-values are corrected within each declared family. These signs follow the archived contrasts; Figure 2B reverses the matched contrast for readability.
+\par\endgroup\medskip
+\subsection*{S4. Audit and reporting boundaries}
+The manuscript-number audit independently reaggregates stored predictions and records its actual CSV hashes. Historical source scientific replay counts are reported only where a passing scientific receipt supports them. The Q9 top-level batch report alone is orchestration-only. The external versioned portability validator adds no new inference. CRLF-to-LF matches are labelled explicitly. The paper bundle includes the source-snapshot manifest, per-review input hashes, an independent numerical audit, generated tables, figure sources, and draft-render checks. None of these files is a new training authorization or an external outcome-selected method freeze.
+
+The original rank-follow-up archive reports a bootstrap interval [+1.048,+19.959] pp (20,000 draws, seed 20260923); the independent 200,000-draw reanalysis with seed 20261002 gives [+1.067,+19.952] pp. The main text preserves the original interval. The saved nine-person sign sensitivity retains zero changes in its denominator; the conventional tie-excluding sensitivity is identified separately. Disclosing both implementation and resampling differences prevents an apparent numerical disagreement from being silently concealed.
+
+The external primary sign test preserves the archived exact-zero rule. S10 has a saved shared-minus-broad difference of approximately -1.11 $\times$ 10\textasciicircum{}-16 and therefore counts as negative: 63 positive, 43 negative, and three zero differences, p = 0.06446. A numerical-tolerance sensitivity at 10\textasciicircum{}-14 classifies that difference as a tie, giving 63 positive, 42 negative, four ties, and p = 0.05044. The primary rule is unchanged; neither calculation establishes superiority at the conventional 0.05 threshold.
+
+\subsection*{S5. Earlier binary calibration, artifact, and EOG checks}
+Earlier pipeline checks use only left/right imagery and must remain separate from the four-class analysis. P2-E001 contains 2,346 expert-clean trials. Its within-session leave-run-out and cross-session models use labeled trials from the evaluated person; only its cross-subject LOSO excludes both target sessions. Within-session/LOSO each evaluate all 2,346 trials, while cross-session evaluates 1,183 later-session trials. The single-person P2-SMOKE-S1B is a technical smoke, not a population replication. The all-trial P2-E002-ALLTRIALS condition changes both source and target populations to include 2,592 trials; some retained metadata uses an earlier clean-name field, so effective populations, rather than those labels, determine interpretation.
+
+P3-E001 compares CSP4, Welch PSD88, and their 92-feature fusion under source-all versus source-expert-clean training. The same 2,346 expert-clean target trials define its primary endpoint; all 2,592 and the 246 flagged target trials are secondary strata. P4-E001B is the successful EOG-processing retry: regression coefficients are fitted on clean source data, then applied to three synchronous target EOG channels. It uses no target parameter fit but requires those additional sensors. Its clean-target balanced accuracy is 62.57\% versus 62.85\% uncorrected, so the result does not establish a decoding benefit or selective ocular-artifact removal. The failed original P4 attempt remains in the technical record.
+
+\par\medskip\noindent\textbf{Table S3. Earlier binary QC primary endpoints; all nine participants.}
+\begingroup\small\setlength{\tabcolsep}{4pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.368000\linewidth}>{\raggedright\arraybackslash}p{0.304000\linewidth}>{\raggedright\arraybackslash}p{0.112000\linewidth}>{\raggedright\arraybackslash}p{0.096000\linewidth}@{}}
+\toprule
+Stage / model & Split / source policy & Target trials & BA (\%) \\
+\midrule\endfirsthead
+\toprule
+Stage / model & Split / source policy & Target trials & BA (\%) \\
+\midrule\endhead
+\bottomrule\endfoot
+\bottomrule\endlastfoot
+P2-E001 / CSP+LDA & cross session; expert clean only & 1183 & 76.06 \\
+P2-E001 / CSP+linearSVM & cross session; expert clean only & 1183 & 75.05 \\
+P2-E001 / CSP+LDA & cross subject; expert clean only & 2346 & 62.76 \\
+P2-E001 / CSP+linearSVM & cross subject; expert clean only & 2346 & 62.09 \\
+P2-E001 / CSP+LDA & within session; expert clean only & 2346 & 78.06 \\
+P2-E001 / CSP+linearSVM & within session; expert clean only & 2346 & 78.21 \\
+P2-E002-ALLTRIALS / CSP+LDA & cross subject; all trials & 2592 & 61.50 \\
+P2-E002-ALLTRIALS / CSP+linearSVM & cross subject; all trials & 2592 & 60.57 \\
+P3-E001 / CSP4+PSD88 + LDA & cross subject; all trials & 2346 & 64.10 \\
+P3-E001 / CSP4 + LDA & cross subject; all trials & 2346 & 61.92 \\
+P3-E001 / PSD88 + LDA & cross subject; all trials & 2346 & 58.55 \\
+P3-E001 / CSP4+PSD88 + LDA & cross subject; expert clean only & 2346 & 64.63 \\
+P3-E001 / CSP4 + LDA & cross subject; expert clean only & 2346 & 62.85 \\
+P3-E001 / PSD88 + LDA & cross subject; expert clean only & 2346 & 58.19 \\
+P4-E001B / EOG regression & cross subject; source train fitted EOG regression & 2346 & 62.57 \\
+P4-E001B / Uncorrected CSP4 + LDA & cross subject; uncorrected & 2346 & 62.85 \\
+\end{longtable}
+\noindent\footnotesize All rows are binary, with 50\% chance. Within-session and cross-session rows use target-person labeled calibration. P3/P4 rows use expert-clean targets; P2 all-trial rows use all trials. CSV supplements retain all/flagged secondary endpoints, target-information notes, and the single-person smoke. These modes and populations are not pooled into a calibration-free score.
+\par\endgroup\medskip
+\subsection*{S6. Selection-curve analyses and technical history}
+Completed Q8-A001/A002/A003 analyses inspect archived source-validation curves without additional model fitting. Leave-one-inner-fold-out sensitivity and six candidate aggregation rules are hypothesis-generating analyses; they do not constitute six target-evaluated decoder conditions. P1-E001 is a single-subject acquisition audit. P2-SMOKE-S1 and the original P4-E001 retain failed run receipts, followed by successful retries. Q13-E002/E003 and Q14-E003 remain unrun and receive no performance values. The external partial 87-person attempt is not counted as an additional cohort alongside the completed 109-person result. The separate completed-experiment inventory links each record to its evidential role and explicitly marks reuse, validation depth, and technical failure.
+
+\section*{References}
+\begin{enumerate}
+\item Brunner, C.; Leeb, R.; Müller-Putz, G. R.; Schlögl, A.; Pfurtscheller, G. (2008). BCI Competition 2008 -- Graz data set A. Official competition dataset description. https://www.bbci.de/competition/iv/desc\_2a.pdf
+\item Tangermann, M.; Müller, K.-R.; Aertsen, A.; Birbaumer, N.; Braun, C.; Brunner, C.; Leeb, R.; Mehring, C.; Miller, K. J.; Müller-Putz, G. R.; Nolte, G.; Pfurtscheller, G.; Preissl, H.; Schalk, G.; Schlögl, A.; Vidaurre, C.; Waldert, S.; Blankertz, B. (2012). Review of the BCI Competition IV. Frontiers in Neuroscience, 6. https://doi.org/10.3389/fnins.2012.00055
+\item Lawhern, V. J.; Solon, A. J.; Waytowich, N. R.; Gordon, S. M.; Hung, C. P.; Lance, B. J. (2018). EEGNet: a compact convolutional neural network for EEG-based brain--computer interfaces. Journal of Neural Engineering, 15(5), 056013. https://doi.org/10.1088/1741-2552/aace8c
+\item Ramoser, H.; Müller-Gerking, J.; Pfurtscheller, G. (2000). Optimal spatial filtering of single trial EEG during imagined hand movement. IEEE Transactions on Rehabilitation Engineering, 8(4), 441--446. https://doi.org/10.1109/86.895946
+\item Ang, K. K.; Chin, Z. Y.; Wang, C.; Guan, C.; Zhang, H. (2012). Filter Bank Common Spatial Pattern Algorithm on BCI Competition IV Datasets 2a and 2b. Frontiers in Neuroscience, 6. https://doi.org/10.3389/fnins.2012.00039
+\item Ang, K. K.; Chin, Z. Y.; Zhang, H.; Guan, C. (2008). Filter Bank Common Spatial Pattern (FBCSP) in Brain-Computer Interface. 2008 IEEE International Joint Conference on Neural Networks (IEEE World Congress on Computational Intelligence), 2390--2397. https://doi.org/10.1109/IJCNN.2008.4634130
+\item Schirrmeister, R. T.; Springenberg, J. T.; Fiederer, L. D. J.; Glasstetter, M.; Eggensperger, K.; Tangermann, M.; Hutter, F.; Burgard, W.; Ball, T. (2017). Deep learning with convolutional neural networks for EEG decoding and visualization. Human Brain Mapping, 38(11), 5391--5420. https://doi.org/10.1002/hbm.23730
+\item Sagawa, Shiori; Koh, Pang Wei; Hashimoto, Tatsunori B.; Liang, Percy (2020). Distributionally Robust Neural Networks for Group Shifts: On the Importance of Regularization for Worst-Case Generalization. International Conference on Learning Representations (ICLR). https://openreview.net/forum?id=ryxGuJrFvS
+\item Schalk, G. (2009). EEG Motor Movement/Imagery Dataset. PhysioNet, version 1.0.0. https://doi.org/10.13026/C28G6P
+\item Schalk, G.; McFarland, D. J.; Hinterberger, T.; Birbaumer, N.; Wolpaw, J. R. (2004). BCI2000: A General-Purpose Brain-Computer Interface (BCI) System. IEEE Transactions on Biomedical Engineering, 51(6), 1034--1043. https://doi.org/10.1109/TBME.2004.827072
+\item Goldberger, A. L.; Amaral, L. A. N.; Glass, L.; Hausdorff, J. M.; Ivanov, P. Ch.; Mark, R. G.; Mietus, J. E.; Moody, G. B.; Peng, C.-K.; Stanley, H. E. (2000). PhysioBank, PhysioToolkit, and PhysioNet: Components of a New Research Resource for Complex Physiologic Signals. Circulation, 101(23). https://doi.org/10.1161/01.CIR.101.23.e215
+\end{enumerate}
+\end{document}
