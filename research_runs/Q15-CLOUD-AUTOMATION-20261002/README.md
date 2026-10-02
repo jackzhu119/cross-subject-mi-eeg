@@ -42,4 +42,6 @@ Paper archive: [PR #1](https://github.com/jackzhu119/cross-subject-mi-eeg/pull/1
 
 ## Prepared release verification
 
-31 no-network tests passed, including simultaneous local log/status/stdout ENOSPC and verified backup before Pod stop. The pinned code commit is `61a0204130da386a3b5b0a0e501a3f9fafb4b388`. `PREPARATION_RECEIPT.json` explicitly records that this workflow is prepared and has not been deployed. `LAUNCH_ON_RUNPOD.sh` fetches and checks both production-script hashes before launch.
+39 no-network tests passed, including simultaneous local log/status/stdout ENOSPC and verified backup before Pod stop. The pinned code commit is `5e86353017ef9465866a49508f5b75d2a29fa52f`. `PREPARATION_RECEIPT.json` explicitly records that this workflow is prepared and has not been deployed. `LAUNCH_ON_RUNPOD.sh` fetches and checks both production-script hashes before launch.
+
+The launcher now selects the current server from `RUNPOD_POD_ID`, validates that ID with the official API, and binds stop requests to the same current environment. A cached or historically hard-coded Pod ID cannot select the server. Missing or mismatched current identity prevents any stop request. The latest user attempt was NOT_STARTED; this update is still not proof of a deployed worker.
