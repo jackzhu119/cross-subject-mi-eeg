@@ -20,8 +20,7 @@ import urllib.parse
 import uuid
 import warnings
 
-EXPECTED_JOB_SHA256 = "528047be63a1040355a9cbc679d991fd329e1aa764e89b34bd76c3affe80df96"
-EXPECTED_POD_ID = "i9fw4mnl9zh558"
+EXPECTED_JOB_SHA256 = "3556b8dbf2d1753b41866842f68ced1ee3cb98ae4dd763fccbc9b7a36c539c42"
 REQUIRED = ("R2_BUCKET", "R2_ENDPOINT", "R2_ACCESS_KEY_ID", "R2_SECRET_ACCESS_KEY", "RUNPOD_API_KEY")
 
 class BootstrapError(RuntimeError):
@@ -61,6 +60,8 @@ def main():
     spec = importlib.util.spec_from_file_location("q15_launch_job", source)
     job_module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(job_module)
+    # Use the Pod hosting this terminal. Never select a historical cached Pod.
+    pod_id = job_module.current_pod_id()
     private = Path("/workspace/.q15-cloud")
     if any((parent / ".git").exists() for parent in (private, *private.parents)):
         raise BootstrapError("private_credential_directory_inside_git_worktree")
@@ -87,9 +88,6 @@ def main():
         raise BootstrapError("expected_https_cloudflare_r2_account_endpoint")
     if not re.fullmatch(r"[a-z0-9][a-z0-9.-]{1,61}[a-z0-9]", credentials["R2_BUCKET"]):
         raise BootstrapError("bucket_name_invalid")
-    pod_id = os.environ.get("RUNPOD_POD_ID") or previous.get("pod_id") or EXPECTED_POD_ID
-    if pod_id != EXPECTED_POD_ID:
-        raise BootstrapError("pod_id_does_not_match_current_user_pod")
     credentials.update({"pod_id": pod_id, "raw_dir": "/workspace/q15-data/raw"})
     # Install only on the RunPod where this script is invoked. Suppress pip output,
     # which can otherwise include credential-bearing package-index URLs.

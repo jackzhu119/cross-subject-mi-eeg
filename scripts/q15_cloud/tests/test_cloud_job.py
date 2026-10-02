@@ -6,6 +6,7 @@ credentials, run a model, or send a real Pod stop request.
 
 from __future__ import annotations
 
+from contextlib import nullcontext
 import hashlib
 import io
 import json
@@ -21,6 +22,8 @@ from unittest.mock import Mock, patch
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import q15_cloud_job as job
 import q15_cloud_bootstrap as bootstrap
+
+TEST_POD_ID = "test-current-pod"
 
 
 class MemoryObjectStore:
@@ -392,7 +395,7 @@ class CloudJobTest(unittest.TestCase):
         config.write_text(json.dumps({
             "R2_BUCKET": "test-bucket", "R2_ENDPOINT": "https://invalid.test",
             "R2_ACCESS_KEY_ID": "dummy-test-key", "R2_SECRET_ACCESS_KEY": "dummy-test-secret",
-            "RUNPOD_API_KEY": "dummy-test-api", "pod_id": job.POD_ID,
+            "RUNPOD_API_KEY": "dummy-test-api", "pod_id": TEST_POD_ID,
             "raw_dir": str(self.root / "raw"),
         }), encoding="utf-8")
         config.chmod(0o600)
@@ -407,17 +410,50 @@ class CloudJobTest(unittest.TestCase):
                                       "botocore.config": core_config}), \
                 patch.object(sys, "argv", ["q15_cloud_job.py", "--config", str(config),
                                            "--job-dir", str(job_dir)]), \
-                patch.dict(job.os.environ, {"RUNPOD_POD_ID": job.POD_ID}), \
+                patch.dict(job.os.environ, {"RUNPOD_POD_ID": TEST_POD_ID}), \
                 patch.object(job, "runpod_request", side_effect=job.IntegrityError(
                     "test_identity_check_failed")) as request, \
                 patch.object(sys, "stdout", io.StringIO()):
             result = job.main()
         self.assertEqual(result, 2)
-        request.assert_called_once_with("dummy-test-api", job.POD_ID)
+        request.assert_called_once_with("dummy-test-api", TEST_POD_ID)
         state = json.loads((job_dir / "job_status.json").read_text())
         self.assertEqual(state["shutdown_error_code"], "pod_identity_not_verified_stop_forbidden")
         self.assertEqual(state["fits_started"], 0)
         self.assertTrue(client.objects, "Identity failure should still preserve its durable error evidence")
+
+    def test_worker_missing_or_mismatched_current_identity_makes_no_api_request(self):
+        for current in (None, "some-other-current-pod"):
+            with self.subTest(current_identity=current):
+                config = self.root / "dummy-cached-config.json"
+                config.write_text(json.dumps({
+                    "R2_BUCKET": "test-bucket", "R2_ENDPOINT": "https://invalid.test",
+                    "R2_ACCESS_KEY_ID": "dummy-test-key", "R2_SECRET_ACCESS_KEY": "dummy-test-secret",
+                    "RUNPOD_API_KEY": "dummy-test-api", "pod_id": TEST_POD_ID,
+                    "raw_dir": str(self.root / "raw"),
+                }))
+                config.chmod(0o600)
+                client = MemoryObjectStore()
+                boto = ModuleType("boto3")
+                boto.client = Mock(return_value=client)
+                core = ModuleType("botocore")
+                core_config = ModuleType("botocore.config")
+                core_config.Config = Mock()
+                job_dir = self.root / ("missing-pod-job" if current is None else "mismatched-pod-job")
+                env = {} if current is None else {"RUNPOD_POD_ID": current}
+                with patch.dict(sys.modules, {"boto3": boto, "botocore": core,
+                                              "botocore.config": core_config}), \
+                        patch.object(sys, "argv", ["q15_cloud_job.py", "--config", str(config),
+                                                   "--job-dir", str(job_dir)]), \
+                        patch.dict(job.os.environ, env, clear=True), \
+                        patch.object(job, "runpod_request") as request, \
+                        patch.object(sys, "stdout", io.StringIO()):
+                    result = job.main()
+                self.assertEqual(result, 2)
+                request.assert_not_called()
+                state = json.loads((job_dir / "job_status.json").read_text())
+                self.assertEqual(state["shutdown_error_code"], "pod_identity_not_verified_stop_forbidden")
+                self.assertEqual(state["fits_started"], 0)
 
     def test_bootstrap_rejects_non_terminal_before_prompting_for_secret(self):
         with patch.object(sys.stdin, "isatty", return_value=False), \
@@ -481,7 +517,7 @@ class CloudJobTest(unittest.TestCase):
         config.write_text(json.dumps({
             "R2_BUCKET": "test-bucket", "R2_ENDPOINT": "https://invalid.test",
             "R2_ACCESS_KEY_ID": "dummy-test-key", "R2_SECRET_ACCESS_KEY": "dummy-test-secret",
-            "RUNPOD_API_KEY": "dummy-test-api", "pod_id": job.POD_ID,
+            "RUNPOD_API_KEY": "dummy-test-api", "pod_id": TEST_POD_ID,
             "raw_dir": str(self.root / "raw"),
         }), encoding="utf-8")
         config.chmod(0o600)
@@ -505,7 +541,7 @@ class CloudJobTest(unittest.TestCase):
                                       "botocore.config": core_config}), \
                 patch.object(sys, "argv", ["q15_cloud_job.py", "--config", str(config),
                                            "--job-dir", str(job_dir)]), \
-                patch.dict(job.os.environ, {"RUNPOD_POD_ID": job.POD_ID}), \
+                patch.dict(job.os.environ, {"RUNPOD_POD_ID": TEST_POD_ID}), \
                 patch.object(job.shutil, "disk_usage", return_value=SimpleNamespace(free=200 * 1024**3)), \
                 patch.object(job, "atomic_json", side_effect=OSError(28, "test JSON volume full")), \
                 patch.object(Path, "open", new=disk_full_log_append), \
@@ -518,7 +554,7 @@ class CloudJobTest(unittest.TestCase):
         download.assert_called_once()
         self.assertEqual(request.call_count, 2)
         self.assertEqual(request.call_args.args,
-                         ("dummy-test-api", job.POD_ID, "POST", "/stop"))
+                         ("dummy-test-api", TEST_POD_ID, "POST", "/stop"))
         prefix = "q15/cloud-jobs/enospc-job"
         state = json.loads(client.objects[prefix + "/final_job_status.json"][0])
         self.assertEqual(state["error_code"], "actual_volume_quota_or_disk_full")
@@ -528,6 +564,55 @@ class CloudJobTest(unittest.TestCase):
         self.assertTrue(all(e["errno"] == 28 for e in state["local_persistence_errors"]))
         for name in ("final_job_status.json", "job.log", "final_backup_manifest.json"):
             self.assertIn(("get", prefix + "/" + name), client.events)
+
+
+class PodIdentityTests(unittest.TestCase):
+    def test_current_environment_selects_new_pod(self):
+        with patch.dict(job.os.environ, {"RUNPOD_POD_ID": "new-current-pod"}, clear=True):
+            self.assertEqual(job.current_pod_id(), "new-current-pod")
+
+    def test_missing_current_identity_has_no_historical_fallback(self):
+        with patch.dict(job.os.environ, {}, clear=True):
+            with self.assertRaisesRegex(job.IntegrityError, "pod_id_environment_missing"):
+                job.current_pod_id()
+
+    def test_invalid_identity_is_rejected_before_http_request(self):
+        for invalid in ("", "../other", "pod/other", "pod?x", "pod#x", "pod%2fother", "pod\n", "x" * 65):
+            with self.subTest(identity=invalid), patch.object(job.urllib.request, "urlopen") as request:
+                with self.assertRaisesRegex(job.IntegrityError, "pod_id_invalid"):
+                    job.runpod_request("dummy-api", invalid)
+                request.assert_not_called()
+
+    def test_api_accepts_new_current_pod_and_checks_returned_identity(self):
+        response = Mock(status=200)
+        response.read.return_value = json.dumps({"id": "new-current-pod"}).encode()
+        with patch.object(job.urllib.request, "urlopen", return_value=nullcontext(response)) as request:
+            result = job.runpod_request("dummy-api", "new-current-pod")
+        self.assertEqual(result["pod_id"], "new-current-pod")
+        self.assertEqual(request.call_args.args[0].full_url,
+                         "https://rest.runpod.io/v1/pods/new-current-pod")
+
+    def test_api_identity_mismatch_is_rejected(self):
+        response = Mock(status=200)
+        response.read.return_value = json.dumps({"id": "some-other-pod"}).encode()
+        with patch.object(job.urllib.request, "urlopen", return_value=nullcontext(response)):
+            with self.assertRaisesRegex(job.IntegrityError, "pod_identity_mismatch"):
+                job.runpod_request("dummy-api", "new-current-pod")
+
+    def test_api_only_allows_inspection_and_stop(self):
+        with patch.object(job.urllib.request, "urlopen") as request:
+            for method, action in (("DELETE", ""), ("POST", "/terminate"), ("GET", "/../other")):
+                with self.assertRaisesRegex(job.IntegrityError, "api_operation_invalid"):
+                    job.runpod_request("dummy-api", "new-current-pod", method, action)
+        request.assert_not_called()
+
+    def test_bootstrap_missing_identity_fails_before_secret_prompt(self):
+        with patch.dict(job.os.environ, {}, clear=True), \
+                patch.object(sys.stdin, "isatty", return_value=True), \
+                patch.object(bootstrap, "read_hidden") as prompt:
+            with self.assertRaisesRegex(RuntimeError, "pod_id_environment_missing"):
+                bootstrap.main()
+        prompt.assert_not_called()
 
 
 if __name__ == "__main__":

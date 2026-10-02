@@ -23,7 +23,6 @@ import urllib.error
 import urllib.request
 import uuid
 
-POD_ID = "i9fw4mnl9zh558"
 REPO_COMMIT = "adb2d406b4300e2c8e4d5112969291c0331f3ed5"
 ARCHIVE_KEY = "q15/provenance/20261001T093410835515Z-614d381fb70141d7b91a85ae4eb907a8/archive.tar.gz"
 ARCHIVE_SHA = "332b878514894f7e6543c652e4138be13d8125ac8da20099ae9ca8641684fa0b"
@@ -289,9 +288,23 @@ def run_training_if_allowed(gate, runner):
     return runner()
 
 
+def validate_pod_id(pod_id):
+    if not isinstance(pod_id, str) or re.fullmatch(r"[A-Za-z0-9_-]{1,64}", pod_id) is None:
+        raise IntegrityError("runpod_pod_id_invalid")
+    return pod_id
+
+
+def current_pod_id():
+    pod_id = os.environ.get("RUNPOD_POD_ID")
+    if not pod_id:
+        raise IntegrityError("runpod_pod_id_environment_missing")
+    return validate_pod_id(pod_id)
+
+
 def runpod_request(api_key, pod_id, method="GET", action=""):
-    if pod_id != POD_ID:
-        raise IntegrityError("pod_id_does_not_match_current_user_pod")
+    pod_id = validate_pod_id(pod_id)
+    if (method, action) not in (("GET", ""), ("POST", "/stop")):
+        raise IntegrityError("runpod_api_operation_invalid")
     url = f"https://rest.runpod.io/v1/pods/{pod_id}" + action
     req = urllib.request.Request(url, method=method,
                                   headers={"Authorization": "Bearer " + api_key, "Accept": "application/json"})
@@ -423,9 +436,11 @@ def main():
         def stop():
             if not identity_verified:
                 raise IntegrityError("pod_identity_not_verified_stop_forbidden")
+            if current_pod_id() != credentials["pod_id"]:
+                raise IntegrityError("running_pod_environment_identity_mismatch")
             return runpod_request(credentials["RUNPOD_API_KEY"], credentials["pod_id"], "POST", "/stop")
         try:
-            if os.environ.get("RUNPOD_POD_ID", credentials["pod_id"]) != credentials["pod_id"]:
+            if current_pod_id() != validate_pod_id(credentials["pod_id"]):
                 raise IntegrityError("running_pod_environment_identity_mismatch")
             runpod_request(credentials["RUNPOD_API_KEY"], credentials["pod_id"])
             identity_verified = True
