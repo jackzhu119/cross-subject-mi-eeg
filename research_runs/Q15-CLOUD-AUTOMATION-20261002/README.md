@@ -39,3 +39,7 @@ Implement and independently review real provider adapters and inventory authenti
 The trained source runner also requires independent source validation and checkpoint freezing before any external Q15 evaluation. This automation is not evidence that those stages exist or have completed.
 
 Paper archive: [PR #1](https://github.com/jackzhu119/cross-subject-mi-eeg/pull/1). Research handoff: [`CONTINUE_IN_ANOTHER_CHAT.md`](https://github.com/jackzhu119/cross-subject-mi-eeg/blob/paper/non-q15-manuscript-20261002/research_runs/PAPER_PUBLICATION_20261002/CONTINUE_IN_ANOTHER_CHAT.md).
+
+## Prepared release verification
+
+31 no-network tests passed, including simultaneous local log/status/stdout ENOSPC and verified backup before Pod stop. The pinned code commit is `61a0204130da386a3b5b0a0e501a3f9fafb4b388`. `PREPARATION_RECEIPT.json` explicitly records that this workflow is prepared and has not been deployed. `LAUNCH_ON_RUNPOD.sh` fetches and checks both production-script hashes before launch.
