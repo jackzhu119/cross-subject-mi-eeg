@@ -69,6 +69,7 @@ bash /workspace/.q15-cloud/start.sh --interactive --reset-credential RUNPOD_API_
 
 | 安全错误代码 | 处理 |
 | --- | --- |
+| `runpod_api_edge_policy_denied_http_403` | 网络防护拒绝；不重新询问密钥，不反复重试，检查 Pod 网络限制或联系 RunPod 支持。 |
 | `runpod_api_http_401` / `runpod_api_http_403` | 只重新输入有当前 Pod 访问权限的 RunPod API key；R2 字段保留。 |
 | `runpod_api_http_404` | 核对当前 Pod 是否属于该密钥账户，不手工使用旧 Pod ID。 |
 | `runpod_api_pod_identity_mismatch` | API 响应身份不匹配，停止启动并排查；不请求停止其它 Pod。 |
@@ -86,11 +87,17 @@ Progress and final receipts use private `q15/cloud-jobs/` prefixes. Every final 
 
 The API identity is checked before work and again before Stop. Startup and worker locks prevent duplicate jobs. Credential values are absent from commands, public receipts, exception output and child environment. Runtime copies preserve a tested entry point on the persistent volume.
 
+## RunPod API network-edge fix
+
+Public unauthenticated probes reproduced a Cloudflare 1010 denial with Python urllib's default client signature. The same endpoint accepted an explicit, accurate `q15-cloud-transport/20261003` application User-Agent and returned the expected authentication failure for a synthetic invalid key. GET and Stop now consistently identify this application. No browser identity is impersonated, no authentication is removed, and no proxy/TLS setting is bypassed.
+
+A recognizable network-edge denial is separately classified as `runpod_api_edge_policy_denied_http_403` and does not trigger secret re-entry or automatic identity rotation. Ordinary RunPod authentication denials retain their previous codes. The user's previous 403 body was not available, so this reproduction does not establish that every prior 403 was caused by the network edge. Real current-Pod authentication remains to be verified by the new release.
+
 ## Release validation and limitations
 
 See `PREPARATION_RECEIPT.json` and `RELEASE_VALIDATION.json` for the exact commit, checksums and test counts. Automated tests use fake credentials, a memory object store and synthetic HTTP/process fixtures; they do not run models or actually stop a Pod. Managed-cloud live R2 tests separately verify list/write/full readback/delete and restoration of the real pinned archive and 160-file inventory.
 
-These checks are **not authenticated validation of the user's RunPod**. The latest old-version attempt was `NOT_STARTED` at the RunPod API identity preflight with an opaque `IntegrityError`; the API status cannot be recovered from that old log. The new Pod screenshot establishes that the Pod is running, not that credentials or this supervisor are deployed. First successful preflight and worker handshake on that Pod are still required.
+These checks are **not authenticated validation of the user's RunPod**. The latest old-version attempt was `NOT_STARTED` at the RunPod API identity preflight with an opaque `IntegrityError`. The next release reported HTTP 403 after three authentication attempts; its response body was not logged, so API authorization denial and network-edge denial could not be distinguished. The new Pod screenshot establishes that the Pod is running, not that credentials or this supervisor are deployed. First successful preflight and worker handshake on that Pod are still required.
 
 ## Research continuation
 

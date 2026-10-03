@@ -30,7 +30,7 @@ import urllib.parse
 import uuid
 import warnings
 
-EXPECTED_JOB_SHA256 = "f4b9526b7a04d1f8d55bddac9b405f8d842e8a99ab800bfec1df34997604f8a2"
+EXPECTED_JOB_SHA256 = "f3c313cb37e73b9d2030cc467645bd2aa83d8db87169ad91f5f300b73cd2989d"
 PRIVATE_ROOT = Path("/workspace/.q15-cloud")
 RAW_ROOT = Path("/workspace/q15-data/raw")
 REQUIRED = ("R2_BUCKET", "R2_ENDPOINT", "R2_ACCESS_KEY_ID", "R2_SECRET_ACCESS_KEY", "RUNPOD_API_KEY")
@@ -691,6 +691,8 @@ def cli(argv=None):
             output["pid"] = report.data["pid"]
         if code == "configured_workspace_volume_quota_unknown":
             output["next_step"] = "Read the purchased Volume Disk GB from RunPod and rerun with --volume-gb N. Cached R2 values are retained."
+        elif code == "runpod_api_edge_policy_denied_http_403":
+            output["next_step"] = "The RunPod API network edge denied this request. Do not keep re-entering credentials; contact RunPod support or check the Pod network policy."
         elif code == "shared_volume_worker_belongs_to_different_pod":
             output["next_step"] = "The shared volume has a supervisor for another Pod. Verify and stop that old worker/Pod before launching here."
         elif code in ("runpod_api_http_401", "runpod_api_http_403"):

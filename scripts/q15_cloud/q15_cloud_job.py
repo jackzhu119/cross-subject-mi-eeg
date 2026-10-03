@@ -31,6 +31,7 @@ ARCHIVE_BYTES = 4708471
 INVENTORY_SHA256 = "6dc6728e3d8b84c405249845b3dd346d75ba74218e603d5ad8584b0ded93b62a"
 RAW_BYTES = 75551469122
 RAW_FILES = 160
+RUNPOD_USER_AGENT = "q15-cloud-transport/20261003"
 SAFETY = {"fits_started": 0, "source_fits": 0, "target_fits": 0,
           "raw_audit_completed": False, "scientific_raw_metadata_audit_complete": False,
           "preprocessing_contract_frozen": False, "source_training_authorized": False,
@@ -359,12 +360,27 @@ def runpod_request(api_key, pod_id, method="GET", action=""):
     if method == "GET":
         url += "?includeNetworkVolume=true"
     req = urllib.request.Request(url, method=method,
-                                  headers={"Authorization": "Bearer " + api_key, "Accept": "application/json"})
+                                  headers={"Authorization": "Bearer " + api_key, "Accept": "application/json",
+                                           "User-Agent": RUNPOD_USER_AGENT})
     try:
         with urllib.request.urlopen(req, timeout=40) as response:
             raw = response.read(1024 * 1024)
             status = response.status
     except urllib.error.HTTPError as exc:
+        # Classify an edge denial without printing arbitrary response text. An
+        # edge 403 must not trigger repeated secret entry as if it were auth.
+        edge_denied = False
+        if exc.code == 403:
+            try:
+                body = exc.read(65536).lower()
+                headers = exc.headers or {}
+                edge_denied = (b"error code: 1010" in body or b'"error_code":1010' in body.replace(b" ", b"")
+                               or b"browser_signature_banned" in body
+                               or headers.get("cf-mitigated", "").lower() == "challenge")
+            except Exception:
+                pass
+        if edge_denied:
+            raise IntegrityError("runpod_api_edge_policy_denied_http_403") from None
         raise IntegrityError(f"runpod_api_http_{exc.code}") from None
     except Exception as exc:
         raise IntegrityError("runpod_api_" + type(exc).__name__) from None

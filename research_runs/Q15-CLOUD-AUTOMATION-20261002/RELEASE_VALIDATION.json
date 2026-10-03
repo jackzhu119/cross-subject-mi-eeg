@@ -2,7 +2,7 @@
   "schema_version": 1,
   "release_date": "2026-10-03",
   "automated_tests": {
-    "count": 88,
+    "count": 93,
     "passed": true,
     "network_requests": false,
     "model_operations": false,
@@ -40,6 +40,10 @@
     "local_ENOSPC_preserves_remote_final_evidence",
     "duplicate_bootstrap_and_worker_prevention",
     "process_startup_handshake_and_pending_state",
-    "fits_started_zero_scientific_block"
-  ]
+    "fits_started_zero_scientific_block",
+    "accurate_GET_and_POST_application_identification",
+    "edge_policy_403_not_auth_secret_retry",
+    "bounded_error_body_read_without_logging"
+  ],
+  "runpod_network_edge_validation": "RUNPOD_NETWORK_EDGE_VALIDATION.json"
 }

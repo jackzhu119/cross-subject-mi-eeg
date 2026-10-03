@@ -593,6 +593,8 @@ class PodIdentityTests(unittest.TestCase):
         self.assertEqual(result["pod_id"], "new-current-pod")
         self.assertEqual(request.call_args.args[0].full_url,
                          "https://rest.runpod.io/v1/pods/new-current-pod?includeNetworkVolume=true")
+        self.assertEqual(request.call_args.args[0].get_header("User-agent"),
+                         "q15-cloud-transport/20261003")
 
     def test_api_identity_mismatch_is_rejected(self):
         response = Mock(status=200)
@@ -654,6 +656,62 @@ class PodIdentityTests(unittest.TestCase):
                 self.assertEqual(job.safe_error_code(raised.exception), "runpod_api_http_" + str(status))
                 self.assertNotIn("SENTINEL", str(raised.exception))
 
+    def test_api_edge_policy_403_is_classified_without_printing_body_url_or_api_key(self):
+        fixtures = ((b"error code: 1010 SENTINEL_PRIVATE_RESPONSE", {}),
+                    (b"browser_signature_banned SENTINEL_PRIVATE_RESPONSE", {}),
+                    (b"SENTINEL_PRIVATE_RESPONSE", {"cf-mitigated": "challenge"}))
+        for body, headers in fixtures:
+            with self.subTest(body_kind=body.split()[0]):
+                error = urllib.error.HTTPError("https://private.invalid/?key=SENTINEL_TEST_API_KEY",
+                                              403, "SENTINEL_PRIVATE_RESPONSE", headers, io.BytesIO(body))
+                output, errors = io.StringIO(), io.StringIO()
+                with patch.object(job.urllib.request, "urlopen", side_effect=error), \
+                        patch.object(sys, "stdout", output), patch.object(sys, "stderr", errors):
+                    with self.assertRaises(job.IntegrityError) as raised:
+                        job.runpod_request("SENTINEL_TEST_API_KEY", "new-current-pod")
+                self.assertEqual(job.safe_error_code(raised.exception),
+                                 "runpod_api_edge_policy_denied_http_403")
+                visible = str(raised.exception) + output.getvalue() + errors.getvalue()
+                self.assertNotIn("SENTINEL", visible)
+                self.assertNotIn("private.invalid", visible)
+
+    def test_api_edge_body_marker_on_401_remains_auth_error(self):
+        error = urllib.error.HTTPError("https://private.invalid/", 401, "unsafe", {},
+                                      io.BytesIO(b"error code: 1010 browser_signature_banned"))
+        with patch.object(job.urllib.request, "urlopen", side_effect=error):
+            with self.assertRaises(job.IntegrityError) as raised:
+                job.runpod_request("fixture-key", "new-current-pod")
+        self.assertEqual(job.safe_error_code(raised.exception), "runpod_api_http_401")
+
+    def test_api_error_body_read_is_bounded_and_late_marker_is_not_inspected(self):
+        class RecordingBody(io.BytesIO):
+            def __init__(self, value):
+                super().__init__(value)
+                self.read_sizes = []
+
+            def read(self, size=-1):
+                self.read_sizes.append(size)
+                return super().read(size)
+
+        body = RecordingBody(b"x" * (64 * 1024) + b"browser_signature_banned SENTINEL_PRIVATE_RESPONSE")
+        error = urllib.error.HTTPError("https://private.invalid/", 403, "unsafe", {}, body)
+        with patch.object(job.urllib.request, "urlopen", side_effect=error):
+            with self.assertRaises(job.IntegrityError) as raised:
+                job.runpod_request("fixture-key", "new-current-pod")
+        self.assertEqual(job.safe_error_code(raised.exception), "runpod_api_http_403")
+        self.assertEqual(body.read_sizes, [64 * 1024])
+        self.assertNotIn("SENTINEL", str(raised.exception))
+
+    def test_api_unreadable_403_body_still_returns_safe_http_error(self):
+        body = Mock()
+        body.read.side_effect = OSError("SENTINEL_PRIVATE_RESPONSE")
+        error = urllib.error.HTTPError("https://private.invalid/", 403, "unsafe", {}, body)
+        with patch.object(job.urllib.request, "urlopen", side_effect=error):
+            with self.assertRaises(job.IntegrityError) as raised:
+                job.runpod_request("fixture-key", "new-current-pod")
+        self.assertEqual(job.safe_error_code(raised.exception), "runpod_api_http_403")
+        self.assertNotIn("SENTINEL", str(raised.exception))
+
     def test_stop_accepts_empty_200_body_without_claiming_physical_shutdown(self):
         response = Mock(status=200)
         response.read.return_value = b""
@@ -662,6 +720,8 @@ class PodIdentityTests(unittest.TestCase):
         self.assertEqual(result["action"], "stop")
         self.assertEqual(result["http_status"], 200)
         self.assertEqual(request.call_args.args[0].get_method(), "POST")
+        self.assertEqual(request.call_args.args[0].get_header("User-agent"),
+                         "q15-cloud-transport/20261003")
         self.assertNotIn("physical_shutdown_confirmed", result)
 
     def test_api_invalid_json_and_nested_schema_are_rejected(self):

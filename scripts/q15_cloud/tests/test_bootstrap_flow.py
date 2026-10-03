@@ -314,6 +314,20 @@ class BootstrapFlowTest(unittest.TestCase):
         self.assertEqual(result, 0)
         self.prompts.assert_not_called()
 
+    def test_network_edge_403_does_not_reprompt_for_credentials_or_launch_worker(self):
+        self.api_errors.append(urllib.error.HTTPError(
+            "https://rest.runpod.io/private-SENTINEL_SECRET_API", 403,
+            "SENTINEL_SECRET_HTTP_BODY", {"cf-mitigated": "challenge"},
+            io.BytesIO(b'{"error_code":1010,"detail":"SENTINEL_SECRET_HTTP_BODY"}')))
+        result, report = self.invoke("--check-only")
+        self.assertEqual(result, 2)
+        self.assert_not_started(report, "runpod_api", "runpod_api_edge_policy_denied_http_403")
+        self.assertEqual(len(self.api_requests), 1)
+        self.prompts.assert_not_called()
+        self.popen.assert_not_called()
+        self.assertNotIn("SENTINEL_SECRET_HTTP_BODY", self.stdout.getvalue())
+        self.assertIn("Do not keep re-entering credentials", self.stdout.getvalue())
+
     def test_real_401_and_403_http_errors_are_safe_and_persist_credentials_for_retry(self):
         for status in (401, 403):
             with self.subTest(status=status):
