@@ -1,30 +1,40 @@
 {
-  "schema_version": 1,
-  "code_commit": "5e86353017ef9465866a49508f5b75d2a29fa52f",
+  "schema_version": 2,
+  "code_commit": "b2527a7e97300e6bf06b9ddc4e5dc2b5b2d203ce",
   "public_branch": "q15/cloud-bootstrap-20261002",
   "prepared_not_deployed": true,
   "cloud_server_authenticated_connection_established": false,
-  "user_reported_server_credentials_configured": false,
+  "user_reported_persistent_volume_migrated": true,
+  "user_reported_volume_gb": null,
+  "user_reported_current_pod_id": "85ziby5lobstbf",
+  "current_pod_id_is_read_from_environment_not_this_receipt": true,
   "raw_transport_supervisor_implemented": true,
   "automatic_training_implemented": false,
   "automatic_stop_implemented": true,
+  "automatic_start_on_pod_power_on_installed": false,
   "fits_started": 0,
   "scientific_raw_metadata_audit_complete": false,
   "preprocessing_contract_frozen": false,
   "tests": {
-    "count": 39,
+    "count": 88,
     "passed": true,
     "network_or_models_used": false
   },
+  "managed_cloud_live_r2_probe_and_pinned_archive_restoration": "passed_not_runpod_validation",
   "scripts_sha256": {
-    "q15_cloud_bootstrap.py": "7d17c01b607bd4def05d00546898bce208c2327a08efee4039211a4fb2f3f975",
-    "q15_cloud_job.py": "3556b8dbf2d1753b41866842f68ced1ee3cb98ae4dd763fccbc9b7a36c539c42"
+    "q15_cloud_bootstrap.py": "775f092c096f4f0fe077f1013ad6d2d2f343f5367c683650313556fce2ce31f4",
+    "q15_cloud_job.py": "f4b9526b7a04d1f8d55bddac9b405f8d842e8a99ab800bfec1df34997604f8a2"
   },
-  "launcher_sha256": "8e207b958e18524c816aeaa9350ff2f655bebade4c5cfd2354ebf7978747e2b7",
+  "launcher_sha256": "4b72b1bb2dba54422618ceea33b8befdfeeef6d7dd55d467cf24083978b8cb3f",
   "paper_archive_pr": "https://github.com/jackzhu119/cross-subject-mi-eeg/pull/1",
-  "required_user_action": "Run the pinned launch script in the Pod Jupyter Terminal and enter real R2 and RunPod API credentials using hidden prompts. Confirm the actual worker startup receipt and sufficient purchased Volume Disk quota.",
+  "required_user_action": "Execute the current launcher in the new Pod web/Jupyter Terminal. Reuse cached credentials or supply missing values using hidden prompts; wait for a verified detached startup receipt.",
   "next_scientific_action": "Implement and independently review real metadata adapters, audit all160, verify BNCI18 source originals, freeze committed preprocessing before training.",
-  "pod_identity_source": "current RUNPOD_POD_ID environment variable; no historical fallback",
-  "latest_user_attempt_status": "NOT_STARTED; old fixed Pod identity rejected the current server",
-  "pod_identity_fix_tests_passed": true
+  "pod_identity_source": "current RUNPOD_POD_ID; no historical fallback",
+  "latest_old_version_user_attempt_status": "NOT_STARTED at RunPod API identity preflight; opaque IntegrityError; actual HTTP status unknown",
+  "migration_fixes": [
+    "current_Pod_API_revalidation",
+    "environment_auth_retry_after_rejected_cached_key",
+    "shared_volume_different_Pod_worker_conflict",
+    "pinned_inventory_recovery_before_remaining_space_budget"
+  ]
 }
