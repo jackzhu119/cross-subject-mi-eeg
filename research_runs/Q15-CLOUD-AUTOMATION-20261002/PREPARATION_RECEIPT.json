@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "code_commit": "b2527a7e97300e6bf06b9ddc4e5dc2b5b2d203ce",
+  "code_commit": "40c93ebd80589637cdbfe936fd27687f5175673f",
   "public_branch": "q15/cloud-bootstrap-20261002",
   "prepared_not_deployed": true,
   "cloud_server_authenticated_connection_established": false,
@@ -16,25 +16,26 @@
   "scientific_raw_metadata_audit_complete": false,
   "preprocessing_contract_frozen": false,
   "tests": {
-    "count": 88,
+    "count": 93,
     "passed": true,
     "network_or_models_used": false
   },
   "managed_cloud_live_r2_probe_and_pinned_archive_restoration": "passed_not_runpod_validation",
   "scripts_sha256": {
-    "q15_cloud_bootstrap.py": "775f092c096f4f0fe077f1013ad6d2d2f343f5367c683650313556fce2ce31f4",
-    "q15_cloud_job.py": "f4b9526b7a04d1f8d55bddac9b405f8d842e8a99ab800bfec1df34997604f8a2"
+    "q15_cloud_bootstrap.py": "827ca023cd442a1ac116e28ac3f979978b66e26d3bcd3589e07de6509cd1229f",
+    "q15_cloud_job.py": "f3c313cb37e73b9d2030cc467645bd2aa83d8db87169ad91f5f300b73cd2989d"
   },
-  "launcher_sha256": "4b72b1bb2dba54422618ceea33b8befdfeeef6d7dd55d467cf24083978b8cb3f",
+  "launcher_sha256": "ed962b81f4619f32412f5ab6d11ab0dbb7732d85fdf406640438eb28b0437ece",
   "paper_archive_pr": "https://github.com/jackzhu119/cross-subject-mi-eeg/pull/1",
   "required_user_action": "Execute the current launcher in the new Pod web/Jupyter Terminal. Reuse cached credentials or supply missing values using hidden prompts; wait for a verified detached startup receipt.",
   "next_scientific_action": "Implement and independently review real metadata adapters, audit all160, verify BNCI18 source originals, freeze committed preprocessing before training.",
   "pod_identity_source": "current RUNPOD_POD_ID; no historical fallback",
-  "latest_old_version_user_attempt_status": "NOT_STARTED at RunPod API identity preflight; opaque IntegrityError; actual HTTP status unknown",
+  "latest_old_version_user_attempt_status": "NOT_STARTED at runpod_api with HTTP403; response body unavailable. Managed public probe reproduced default-urllib Cloudflare1010; explicit accurate application UA reached authentication boundary.",
   "migration_fixes": [
     "current_Pod_API_revalidation",
     "environment_auth_retry_after_rejected_cached_key",
     "shared_volume_different_Pod_worker_conflict",
     "pinned_inventory_recovery_before_remaining_space_budget"
-  ]
+  ],
+  "runpod_api_client_signature_fix": "q15-cloud-transport/20261003 for GET and POST, edge denials classified without repeated secret entry"
 }
