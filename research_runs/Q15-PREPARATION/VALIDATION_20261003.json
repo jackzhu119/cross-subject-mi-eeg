@@ -1,0 +1,138 @@
+{
+  "unit_and_existing_gate_tests_passed": 43,
+  "real_samples_verified": [
+    {
+      "dataset": "Lee2019_MI",
+      "file_id": "session1/s1/sess01_subj01_EEG_MI.mat",
+      "original_hashes_verified": true,
+      "metadata_observation": {
+        "run_field_observed": "EEG_MI_train",
+        "other_fields_not_authorized": true,
+        "sampling_rate_hz": 1000.0,
+        "continuous_shape": [
+          1418040,
+          62
+        ],
+        "signal_dtype": "float64",
+        "channel_names_as_stored": [
+          "Fp1",
+          "Fp2",
+          "F7",
+          "F3",
+          "Fz",
+          "F4",
+          "F8",
+          "FC5",
+          "FC1",
+          "FC2",
+          "FC6",
+          "T7",
+          "C3",
+          "Cz",
+          "C4",
+          "T8",
+          "TP9",
+          "CP5",
+          "CP1",
+          "CP2",
+          "CP6",
+          "TP10",
+          "P7",
+          "P3",
+          "Pz",
+          "P4",
+          "P8",
+          "PO9",
+          "O1",
+          "Oz",
+          "O2",
+          "PO10",
+          "FC3",
+          "FC4",
+          "C5",
+          "C1",
+          "C2",
+          "C6",
+          "CP3",
+          "CPz",
+          "CP4",
+          "P1",
+          "P2",
+          "POz",
+          "FT9",
+          "FTT9h",
+          "TTP7h",
+          "TP7",
+          "TPP9h",
+          "FT10",
+          "FTT10h",
+          "TPP8h",
+          "TP8",
+          "TPP10h",
+          "F9",
+          "F10",
+          "AF7",
+          "AF3",
+          "AF4",
+          "AF8",
+          "PO3",
+          "PO4"
+        ],
+        "cue_count": 100,
+        "cue_min_as_stored": 198717,
+        "cue_max_as_stored": 1335911,
+        "label_counts_as_stored": {
+          "1": 50,
+          "2": 50
+        },
+        "unit_field_present": false,
+        "reference_field_present": false,
+        "event_index_conversion_frozen": false
+      }
+    },
+    {
+      "dataset": "Cho2017",
+      "file_id": "s01.mat",
+      "original_hashes_verified": true,
+      "metadata_observation": {
+        "run_fields_observed": [
+          "imagery_left",
+          "imagery_right"
+        ],
+        "sampling_rate_hz": 512.0,
+        "class_array_shape": [
+          68,
+          358400
+        ],
+        "signal_dtype": "float32",
+        "trials_per_class_as_stored": 100,
+        "retained_samples_per_class_trial": 3584,
+        "first_marker_zero_based": 1023,
+        "marker_codes_as_stored": [
+          0,
+          1
+        ],
+        "frame_as_stored": [
+          -2000,
+          5000
+        ],
+        "in_file_channel_name_field_present": false,
+        "unit_field_present": false,
+        "reference_field_present": false,
+        "artificial_concatenation_boundaries_present": true,
+        "run_mapping_verified": false,
+        "event_index_conversion_frozen": false
+      }
+    }
+  ],
+  "full_cohort_observations_run": false,
+  "new_pod_connected": false,
+  "new_pod_id_reported_by_user": "zqrpbt5icb1tjo",
+  "fits_started": 0,
+  "scientific_audit_passed": false,
+  "bnci_official_originals_verified": 18,
+  "bnci_r2_full_readbacks_verified": 18,
+  "bnci_total_original_bytes": 779873919,
+  "bulk_r2_client": "boto3 default supported-checksum configuration; request_checksum_calculation=when_required rejected large signed uploads in this managed proxy",
+  "raw_source_transfers_cloud_only": true
+}
