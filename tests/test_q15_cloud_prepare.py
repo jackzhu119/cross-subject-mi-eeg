@@ -5,6 +5,7 @@ import importlib.util
 import io
 import json
 from pathlib import Path
+from types import SimpleNamespace
 
 import pytest
 
@@ -102,3 +103,35 @@ def test_observe_real_mat_structure_never_authorizes(tmp_path):
     assert result["event_index_conversion_frozen"] is False
     assert prepare.SAFETY["fits_started"] == 0
     assert prepare.SAFETY["scientific_audit_passed"] is False
+
+
+def test_complete_preparation_retains_missing_files_and_stays_blocked(tmp_path, monkeypatch):
+    """Exercise real receipt writes and resumed reads, without any download/fit."""
+    root = tmp_path / "repo"
+    provenance = root / "research_runs/Q8-E001/results/source_files.json"
+    provenance.parent.mkdir(parents=True)
+    source = tmp_path / "source"
+    source.mkdir()
+    originals = []
+    for subject in range(1, 10):
+        for split in "TE":
+            filename = f"A0{subject}{split}.mat"
+            (source / filename).write_bytes(b"fixture-original")
+            originals.append({**record(b"fixture-original"), "path": filename})
+    provenance.write_text(json.dumps(originals))
+    inventory = root / "research_runs/Q15-PREPARATION/transport_inventory.json"
+    inventory.parent.mkdir(parents=True)
+    inventory.write_text(json.dumps({"files": [{"dataset": "Cho2017", "file_id": "s01.mat",
+                                               "size_bytes": 1, "md5": "unused", "sha256": "unused"}]}))
+    monkeypatch.setattr(prepare, "ROOT", root)
+    monkeypatch.delenv("GH_TOKEN", raising=False)
+    job = tmp_path / "job"
+    prepare.run(SimpleNamespace(output=str(job), bnci_dir=str(source), raw_dir=str(tmp_path / "missing")))
+    status = json.loads((job / "preparation_status.json").read_text())
+    observed = json.loads((job / "external_observations.json").read_text())
+    assert status["bnci_originals_verified"] == 18
+    assert status["status"] == "blocked_scientific_audit_and_freeze"
+    assert status["fits_started"] == 0
+    assert observed["files"] == [] and len(observed["failures"]) == 1
+    assert "external_raw_files_missing_corrupt_or_schema_failed" in status["blocking_reasons"]
+    assert not (job / "github_publication_receipt.json").exists()
