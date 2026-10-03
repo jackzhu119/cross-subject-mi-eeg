@@ -13,6 +13,7 @@ import hashlib
 import io
 import json
 import math
+import os
 from pathlib import Path
 import stat
 import subprocess
@@ -90,6 +91,8 @@ class BootstrapFlowTest(unittest.TestCase):
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name)
         self.private = self.root / "private"
+        self.state = self.root / "shared-control"
+        self.legacy = self.root / "legacy-private"
         self.raw = self.root / "raw"
         self.store = PreflightStore()
         self.api_requests = []
@@ -114,6 +117,8 @@ class BootstrapFlowTest(unittest.TestCase):
         self.stack.enter_context(patch.dict(bootstrap.os.environ, {**self.CREDS,
                                                "RUNPOD_POD_ID": self.POD}, clear=True))
         self.stack.enter_context(patch.object(bootstrap, "PRIVATE_ROOT", self.private))
+        self.stack.enter_context(patch.object(bootstrap, "STATE_ROOT", self.state))
+        self.stack.enter_context(patch.object(bootstrap, "LEGACY_PRIVATE_ROOT", self.legacy))
         self.stack.enter_context(patch.object(bootstrap, "RAW_ROOT", self.raw))
         # Exercise the pin check and real dynamic import while other agents may
         # change the worker. The committed pin is checked separately in release.
@@ -168,7 +173,7 @@ class BootstrapFlowTest(unittest.TestCase):
             child.poll.return_value = 2
         elif self.child_mode == "pending":
             status = {"status": "worker_initializing", "fits_started": 0}
-        bootstrap.atomic_private_json(job_dir / "job_status.json", status)
+        bootstrap.atomic_state_json(job_dir / "job_status.json", status)
         self.children.append(child)
         return child
 
@@ -176,14 +181,14 @@ class BootstrapFlowTest(unittest.TestCase):
         self.stdout.seek(0)
         self.stdout.truncate(0)
         result = bootstrap.cli(list(args))
-        report_path = self.private / "last_bootstrap_report.json"
+        report_path = self.state / "last_bootstrap_report.json"
         report = json.loads(report_path.read_text()) if report_path.exists() else {}
         self.assert_safe_output(report)
         return result, report
 
     def assert_safe_output(self, report):
         text = self.stdout.getvalue() + json.dumps(report)
-        for path in self.private.glob("jobs/*/launch_receipt.json") if self.private.exists() else []:
+        for path in self.state.glob("jobs/*/launch_receipt.json") if self.state.exists() else []:
             text += path.read_text()
         for value in ("SENTINEL_SECRET_HTTP_BODY", "SENTINEL_SECRET_API",
                       "SENTINEL_SECRET_ACCESS_ID", "SENTINEL_SECRET_ACCESS_KEY"):
@@ -219,8 +224,8 @@ class BootstrapFlowTest(unittest.TestCase):
             self.assertIsNotNone(member)
             data = member.read()
         self.assertEqual(hashlib.sha256(data).hexdigest(), job.INVENTORY_SHA256)
-        bootstrap.safe_private_root(self.private)
-        inventory = self.private / "transport_inventory.json"
+        bootstrap.safe_private_root(self.state)
+        inventory = self.state / "transport_inventory.json"
         inventory.write_bytes(data)
         inventory.chmod(0o600)
         files = job.load_inventory(inventory)
@@ -462,8 +467,8 @@ class BootstrapFlowTest(unittest.TestCase):
         self.restore_inventory.assert_called_once()
 
     def test_wrong_cached_inventory_hash_blocks_before_space_credit_or_r2_access(self):
-        bootstrap.safe_private_root(self.private)
-        inventory = self.private / "transport_inventory.json"
+        bootstrap.safe_private_root(self.state)
+        inventory = self.state / "transport_inventory.json"
         inventory.write_bytes(b'{"files": [], "fixture": "not-trusted"}')
         inventory.chmod(0o600)
         result, report = self.invoke("--check-only", "--non-interactive")
@@ -580,7 +585,7 @@ class BootstrapFlowTest(unittest.TestCase):
         (self.private / "credentials.json").chmod(0o644)
         result, report = self.invoke("--non-interactive")
         self.assertEqual(result, 2)
-        self.assert_not_started(report, "persistent_runtime", "existing_credential_file_permissions_unsafe")
+        self.assert_not_started(report, "credential_storage", "existing_credential_file_permissions_unsafe")
         self.assertFalse(self.api_requests)
         self.prompts.assert_not_called()
 
@@ -627,7 +632,7 @@ class BootstrapFlowTest(unittest.TestCase):
         self.assertEqual(report["pid"], 54321)
         self.popen.assert_called_once()
         self.assertNotIn('"status": "NOT_STARTED"', self.stdout.getvalue())
-        pointer = json.loads((self.private / "active_job.json").read_text())
+        pointer = json.loads((self.state / "active_job.json").read_text())
         self.assertEqual(pointer["pid"], 54321)
 
     def test_detached_worker_failure_carries_safe_specific_error_and_retains_pid(self):
@@ -646,8 +651,8 @@ class BootstrapFlowTest(unittest.TestCase):
         self.assertEqual(report["stage"], "verified_worker_startup")
         self.assertEqual(report["error_code"], "runpod_api_http_403")
         self.assertEqual(report["pid"], 54321)
-        pointer = json.loads((self.private / "active_job.json").read_text())
-        job_dir = self.private / "jobs" / pointer["job_id"]
+        pointer = json.loads((self.state / "active_job.json").read_text())
+        job_dir = self.state / "jobs" / pointer["job_id"]
         self.assertFalse((job_dir / "job_status.json").exists())
         self.assertEqual((job_dir / "supervisor.log").stat().st_mode & 0o777, 0o600)
         self.assertNotIn("request_url", json.dumps(report))
@@ -655,15 +660,15 @@ class BootstrapFlowTest(unittest.TestCase):
         self.assertNotIn("SENTINEL_SECRET_API", self.stdout.getvalue())
 
     def test_existing_active_worker_reused_without_credentials_api_or_second_popen(self):
-        bootstrap.safe_private_root(self.private)
-        active = job.acquire_job_lock(self.private / "active.lock")
+        bootstrap.safe_private_root(self.state)
+        active = job.acquire_job_lock(self.state / "active.lock")
         self.addCleanup(active.close)
         stamp = "20261002T130000Z-abcdef123456"
-        job_dir = self.private / "jobs" / stamp
+        job_dir = self.state / "jobs" / stamp
         job_dir.mkdir(parents=True)
-        bootstrap.atomic_private_json(self.private / "active_job.json",
+        bootstrap.atomic_state_json(self.state / "active_job.json",
                                       {"job_id": stamp, "pid": 54321, "pod_id": self.POD})
-        bootstrap.atomic_private_json(job_dir / "job_status.json",
+        bootstrap.atomic_state_json(job_dir / "job_status.json",
                                       {"status": "downloading_raw", "fits_started": 0,
                                        "pod_identity_verified": True})
         for name in bootstrap.REQUIRED:
@@ -677,15 +682,15 @@ class BootstrapFlowTest(unittest.TestCase):
         self.boto.client.assert_not_called()
 
     def test_active_shared_volume_worker_on_old_pod_is_not_reused_or_stopped(self):
-        bootstrap.safe_private_root(self.private)
-        active = job.acquire_job_lock(self.private / "active.lock")
+        bootstrap.safe_private_root(self.state)
+        active = job.acquire_job_lock(self.state / "active.lock")
         self.addCleanup(active.close)
         stamp = "20261002T130000Z-abcdef123456"
-        job_dir = self.private / "jobs" / stamp
+        job_dir = self.state / "jobs" / stamp
         job_dir.mkdir(parents=True)
-        bootstrap.atomic_private_json(self.private / "active_job.json",
+        bootstrap.atomic_state_json(self.state / "active_job.json",
                                       {"job_id": stamp, "pid": 54321, "pod_id": "fixture-old-still-active-pod"})
-        bootstrap.atomic_private_json(job_dir / "job_status.json",
+        bootstrap.atomic_state_json(job_dir / "job_status.json",
                                       {"status": "downloading_raw", "fits_started": 0,
                                        "pod_identity_verified": True})
         result, report = self.invoke("--non-interactive")
@@ -736,7 +741,7 @@ class BootstrapFlowTest(unittest.TestCase):
             archive.addfile(unrelated, io.BytesIO(b"!"))
         archive_body = stream.getvalue()
         self.store.objects[job.ARCHIVE_KEY] = (archive_body, {})
-        bootstrap.safe_private_root(self.private)
+        bootstrap.safe_private_root(self.state)
         patches = ExitStack()
         self.addCleanup(patches.close)
         patches.enter_context(patch.object(job, "ARCHIVE_SHA", hashlib.sha256(archive_body).hexdigest()))
@@ -747,7 +752,7 @@ class BootstrapFlowTest(unittest.TestCase):
 
     def test_restored_fixture_inventory_is_pinned_private_and_reused_without_archive_get(self):
         inventory = self.fixture_inventory_archive()
-        target = self.real_restore_inventory(self.store, self.CREDS, job, self.private)
+        target = self.real_restore_inventory(self.store, self.CREDS, job, self.state)
         self.assertEqual(target.read_bytes(), inventory)
         self.assertEqual(target.stat().st_mode & 0o777, 0o600)
         self.assertEqual(len(job.load_inventory(target)), 160)
@@ -755,42 +760,42 @@ class BootstrapFlowTest(unittest.TestCase):
         self.assertFalse((self.root.parent / "fixture-must-not-be-written").exists())
         self.assertFalse(self.raw.exists())
         requests_before = list(self.store.events)
-        self.assertEqual(self.real_restore_inventory(self.store, self.CREDS, job, self.private), target)
+        self.assertEqual(self.real_restore_inventory(self.store, self.CREDS, job, self.state), target)
         self.assertEqual(self.store.events, requests_before)
-        self.assertEqual(list(self.private.iterdir()), [target])
+        self.assertEqual(list(self.state.iterdir()), [target])
 
     def test_restored_archive_with_wrong_full_hash_never_creates_final_inventory(self):
         self.fixture_inventory_archive()
         with patch.object(job, "ARCHIVE_SHA", "0" * 64):
             with self.assertRaises(job.IntegrityError):
-                self.real_restore_inventory(self.store, self.CREDS, job, self.private)
-        self.assertFalse((self.private / "transport_inventory.json").exists())
+                self.real_restore_inventory(self.store, self.CREDS, job, self.state)
+        self.assertFalse((self.state / "transport_inventory.json").exists())
         self.assertEqual(sum(event[0] == "get" for event in self.store.events), 3)
 
     def test_restored_inventory_with_wrong_member_hash_is_rejected_before_cache(self):
         self.fixture_inventory_archive()
         with patch.object(job, "INVENTORY_SHA256", "0" * 64):
             with self.assertRaisesRegex(bootstrap.BootstrapError, "authenticated_transport_inventory_hash_mismatch"):
-                self.real_restore_inventory(self.store, self.CREDS, job, self.private)
-        self.assertFalse((self.private / "transport_inventory.json").exists())
+                self.real_restore_inventory(self.store, self.CREDS, job, self.state)
+        self.assertFalse((self.state / "transport_inventory.json").exists())
 
     def test_duplicate_inventory_members_are_rejected_without_extracting_archive_paths(self):
         self.fixture_inventory_archive(duplicate=True)
         with self.assertRaisesRegex(bootstrap.BootstrapError, "authenticated_transport_inventory_member_invalid"):
-            self.real_restore_inventory(self.store, self.CREDS, job, self.private)
-        self.assertFalse((self.private / "transport_inventory.json").exists())
+            self.real_restore_inventory(self.store, self.CREDS, job, self.state)
+        self.assertFalse((self.state / "transport_inventory.json").exists())
 
     def test_symlink_inventory_member_is_rejected_without_extracting_archive_paths(self):
         self.fixture_inventory_archive(member_kind="symlink")
         with self.assertRaisesRegex(bootstrap.BootstrapError, "authenticated_transport_inventory_member_invalid"):
-            self.real_restore_inventory(self.store, self.CREDS, job, self.private)
-        self.assertFalse((self.private / "transport_inventory.json").exists())
+            self.real_restore_inventory(self.store, self.CREDS, job, self.state)
+        self.assertFalse((self.state / "transport_inventory.json").exists())
 
     def test_correctly_pinned_but_invalid_inventory_schema_does_not_leave_final_cache(self):
         self.fixture_inventory_archive(wrong_schema=True)
         with self.assertRaisesRegex(job.IntegrityError, "original_inventory_count_mismatch"):
-            self.real_restore_inventory(self.store, self.CREDS, job, self.private)
-        self.assertFalse((self.private / "transport_inventory.json").exists())
+            self.real_restore_inventory(self.store, self.CREDS, job, self.state)
+        self.assertFalse((self.state / "transport_inventory.json").exists())
 
     def test_raw_only_migration_restores_authenticated_metadata_before_full_space_budget(self):
         inventory = self.fixture_inventory_archive()
@@ -799,7 +804,7 @@ class BootstrapFlowTest(unittest.TestCase):
             path = self.raw / item["dataset"] / item["file_id"]
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_bytes(b"!")
-        self.assertFalse((self.private / "transport_inventory.json").exists())
+        self.assertFalse((self.state / "transport_inventory.json").exists())
         original_loader = bootstrap.load_job_module
 
         def fixture_loader(source):
@@ -824,16 +829,173 @@ class BootstrapFlowTest(unittest.TestCase):
         self.assertEqual(disk["remaining_allocation_bytes"], 0)
         self.assertEqual(disk["required_free_bytes"], 20 * 1024 ** 3)
         self.assertFalse(disk["cached_content_integrity_verified_by_space_check"])
-        self.assertEqual((self.private / "transport_inventory.json").read_bytes(), inventory)
+        self.assertEqual((self.state / "transport_inventory.json").read_bytes(), inventory)
         # Probe readback completes first, then the archive GET authenticates
         # metadata. No raw EEG is downloaded or accepted as hash-verified here.
         self.assertEqual([event[0] for event in self.store.events],
                          ["list", "head", "put", "get", "delete", "head", "head", "get"])
         self.popen.assert_not_called()
 
-    def test_concurrent_bootstrap_lock_failure_has_no_external_effects(self):
+    def assert_shared_state_has_no_credentials(self):
+        for path in self.state.rglob("*"):
+            if path.is_file():
+                body = path.read_bytes()
+                for value in self.CREDS.values():
+                    self.assertNotIn(value.encode(), body, str(path))
+        self.assertFalse((self.state / "credentials.json").exists())
+
+    def make_wide_legacy_cache(self, **extra):
+        self.legacy.mkdir(mode=0o777)
+        self.legacy.chmod(0o777)
+        legacy = self.legacy / "credentials.json"
+        legacy.write_text(json.dumps({**self.CREDS, **extra}))
+        legacy.chmod(0o666)
+        return legacy
+
+    def test_wide_legacy_credentials_migrate_to_strict_private_storage_without_leak(self):
+        legacy = self.make_wide_legacy_cache(
+            pod_id="fixture-old-pod", raw_dir="/fixture-untrusted-path",
+            attacker_extra="SENTINEL_EXTRA_MUST_NOT_MIGRATE",
+            _validation={"runpod": {"verified": True, "pod_id": "fixture-old-pod"}})
+        for name in bootstrap.REQUIRED:
+            bootstrap.os.environ.pop(name, None)
+        result, report = self.invoke("--check-only", "--non-interactive")
+        self.assertEqual(result, 0)
+        self.assertEqual(report["status"], "PREFLIGHT_PASSED_WORKER_NOT_STARTED")
+        cached = self.read_cache()
+        self.assertEqual({name: cached[name] for name in bootstrap.REQUIRED}, self.CREDS)
+        self.assertEqual(cached["pod_id"], self.POD)
+        self.assertEqual(cached["raw_dir"], str(self.raw))
+        self.assertNotIn("attacker_extra", cached)
+        self.assertNotIn("SENTINEL_EXTRA_MUST_NOT_MIGRATE", self.stdout.getvalue())
+        self.assertEqual(self.private.stat().st_mode & 0o777, 0o700)
+        self.assertEqual((self.private / "credentials.json").stat().st_mode & 0o777, 0o600)
+        self.assertFalse(legacy.exists())
+        self.prompts.assert_not_called()
+        self.assert_shared_state_has_no_credentials()
+
+    def test_existing_private_cache_wins_and_legacy_wide_secret_copy_is_removed(self):
+        self.cache()
+        legacy = self.make_wide_legacy_cache(RUNPOD_API_KEY="SENTINEL_LEGACY_API_MUST_NOT_REPLACE")
+        result, report = self.invoke("--check-only", "--non-interactive")
+        self.assertEqual(result, 0)
+        self.assertEqual(self.read_cache()["RUNPOD_API_KEY"], self.CREDS["RUNPOD_API_KEY"])
+        self.assertEqual(self.api_requests[0].get_header("Authorization"),
+                         "Bearer " + self.CREDS["RUNPOD_API_KEY"])
+        self.assertFalse(legacy.exists())
+        self.assertNotIn("SENTINEL_LEGACY_API_MUST_NOT_REPLACE", self.stdout.getvalue())
+        self.assert_shared_state_has_no_credentials()
+
+    def test_partial_private_cache_recovers_missing_fields_before_legacy_removal(self):
+        self.cache(omit=("R2_SECRET_ACCESS_KEY", "RUNPOD_API_KEY"))
+        legacy = self.make_wide_legacy_cache()
+        for name in bootstrap.REQUIRED:
+            bootstrap.os.environ.pop(name, None)
+        result, report = self.invoke("--check-only", "--non-interactive")
+        self.assertEqual(result, 0)
+        self.assertEqual({name: self.read_cache()[name] for name in bootstrap.REQUIRED}, self.CREDS)
+        self.assertFalse(legacy.exists())
+        self.prompts.assert_not_called()
+        self.assert_shared_state_has_no_credentials()
+
+    def test_legacy_symlink_cannot_be_loaded_migrated_or_deleted(self):
+        outside = self.root / "outside-credentials.json"
+        outside.write_text(json.dumps(self.CREDS))
+        self.legacy.mkdir()
+        legacy = self.legacy / "credentials.json"
+        legacy.symlink_to(outside)
+        result, report = self.invoke("--check-only", "--non-interactive")
+        self.assertEqual(result, 2)
+        self.assertTrue(legacy.is_symlink())
+        self.assertTrue(outside.exists())
+        self.assertFalse((self.private / "credentials.json").exists())
+        self.assertFalse(self.api_requests)
+        self.popen.assert_not_called()
+        self.prompts.assert_not_called()
+
+    def test_legacy_hardlink_cannot_duplicate_secret_into_private_storage(self):
+        outside = self.root / "outside-credentials.json"
+        outside.write_text(json.dumps(self.CREDS))
+        self.legacy.mkdir()
+        legacy = self.legacy / "credentials.json"
+        os.link(outside, legacy)
+        result, report = self.invoke("--check-only", "--non-interactive")
+        self.assertEqual(result, 2)
+        self.assertTrue(legacy.exists())
+        self.assertTrue(outside.exists())
+        self.assertFalse((self.private / "credentials.json").exists())
+        self.assertFalse(self.api_requests)
+        self.popen.assert_not_called()
+
+    def test_private_filesystem_that_ignores_chmod_fails_before_secret_loading(self):
+        self.private.mkdir(mode=0o777)
+        self.private.chmod(0o777)
+        with patch.object(bootstrap.os, "chmod", return_value=None):
+            result, report = self.invoke("--check-only", "--non-interactive")
+        self.assertEqual(result, 2)
+        self.assertFalse((self.private / "credentials.json").exists())
+        self.assertFalse(self.api_requests)
+        self.popen.assert_not_called()
+        self.prompts.assert_not_called()
+        self.assertNotIn("SENTINEL", self.stdout.getvalue())
+
+    def test_private_atomic_write_rejects_broad_mode_before_secret_installation(self):
         bootstrap.safe_private_root(self.private)
-        with bootstrap.launch_lock(self.private / "launch.lock"):
+        destination = self.private / "credentials.json"
+        original_open = bootstrap.os.open
+
+        def broad_create(path, flags, mode=0o777, *args, **kwargs):
+            fd = original_open(path, flags, mode, *args, **kwargs)
+            if flags & os.O_CREAT and Path(path).parent == self.private:
+                # Model a filesystem's returned modes independently of the
+                # bootstrap's protective umask and requested create mode.
+                os.fchmod(fd, 0o666)
+            return fd
+
+        with patch.object(bootstrap.os, "chmod", return_value=None), \
+                patch.object(bootstrap.os, "open", side_effect=broad_create):
+            with self.assertRaises(bootstrap.BootstrapError):
+                bootstrap.atomic_private_json(destination, self.CREDS)
+        self.assertFalse(destination.exists())
+        self.assertEqual(list(self.private.glob("credentials.json.new-*")), [])
+        self.assertFalse(self.api_requests)
+
+    def test_shared_fuse_modes_are_supported_without_any_persistent_credentials(self):
+        self.state.mkdir(mode=0o777)
+        self.state.chmod(0o777)
+        original_chmod = bootstrap.os.chmod
+        original_stat = Path.stat
+
+        def shared_chmod(path, mode, *args, **kwargs):
+            if Path(path).is_relative_to(self.state):
+                return None
+            return original_chmod(path, mode, *args, **kwargs)
+
+        def shared_stat(path, *args, **kwargs):
+            result = original_stat(path, *args, **kwargs)
+            if path.is_relative_to(self.state):
+                values = list(result)
+                values[0] = stat.S_IFMT(result.st_mode) | (0o777 if stat.S_ISDIR(result.st_mode) else 0o666)
+                return os.stat_result(values)
+            return result
+
+        with patch.object(bootstrap.os, "chmod", side_effect=shared_chmod), \
+                patch.object(Path, "stat", shared_stat):
+            result, report = self.invoke("--non-interactive")
+        self.assertEqual(result, 0)
+        self.assertEqual(report["status"], "detached_download_supervisor_started_training_not_started")
+        self.assertEqual(self.read_cache()["shared_control_dir"], str(self.state))
+        self.assertEqual(self.private.stat().st_mode & 0o777, 0o700)
+        self.assertEqual((self.private / "credentials.json").stat().st_mode & 0o777, 0o600)
+        self.assert_shared_state_has_no_credentials()
+        config_arg = self.popen.call_args.args[0]
+        self.assertEqual(config_arg[config_arg.index("--config") + 1], str(self.private / "credentials.json"))
+        self.assertEqual(config_arg[config_arg.index("--control-dir") + 1], str(self.state))
+        self.assertTrue(Path(config_arg[1]).is_relative_to(self.private / "workers"))
+
+    def test_concurrent_bootstrap_lock_failure_has_no_external_effects(self):
+        bootstrap.safe_private_root(self.state)
+        with bootstrap.launch_lock(self.state / "launch.lock"):
             result, report = self.invoke("--non-interactive")
         self.assertEqual(result, 2)
         # Before this invocation owns launch.lock it cannot replace an earlier

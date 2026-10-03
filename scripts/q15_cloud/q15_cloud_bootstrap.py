@@ -30,8 +30,10 @@ import urllib.parse
 import uuid
 import warnings
 
-EXPECTED_JOB_SHA256 = "f3c313cb37e73b9d2030cc467645bd2aa83d8db87169ad91f5f300b73cd2989d"
-PRIVATE_ROOT = Path("/workspace/.q15-cloud")
+EXPECTED_JOB_SHA256 = "b969339a37b5409845015b8cfb3e33a975cc7d3cc7170ba59587c45a75c9917e"
+PRIVATE_ROOT = Path("/tmp") / ("q15-private-" + str(os.getuid()))
+STATE_ROOT = Path("/workspace/.q15-cloud")
+LEGACY_PRIVATE_ROOT = Path("/workspace/.q15-cloud")
 RAW_ROOT = Path("/workspace/q15-data/raw")
 REQUIRED = ("R2_BUCKET", "R2_ENDPOINT", "R2_ACCESS_KEY_ID", "R2_SECRET_ACCESS_KEY", "RUNPOD_API_KEY")
 SAFE_CODE_PATTERN = re.compile(r"[A-Za-z][A-Za-z0-9_]{0,159}(?::(?:R2_BUCKET|R2_ENDPOINT|R2_ACCESS_KEY_ID|R2_SECRET_ACCESS_KEY|RUNPOD_API_KEY))?")
@@ -76,10 +78,25 @@ def safe_private_root(root):
         raise BootstrapError("private_directory_or_ancestor_symlink")
     if any((path / ".git").exists() for path in (root, *root.parents)):
         raise BootstrapError("private_credential_directory_inside_git_worktree")
-    root.mkdir(parents=True, exist_ok=True)
+    root.mkdir(parents=True, mode=0o700, exist_ok=True)
     if not root.is_dir() or root.stat().st_uid != os.getuid():
         raise BootstrapError("private_directory_owner_or_type_unsafe")
     os.chmod(root, 0o700)
+    if stat.S_IMODE(root.stat().st_mode) != 0o700:
+        raise BootstrapError("local_private_directory_permissions_not_enforced")
+    return root
+
+
+def safe_state_root(root):
+    """Shared non-secret control data; network-volume modes may be virtual."""
+    root = Path(root).absolute()
+    if any(path.is_symlink() for path in (root, *root.parents)):
+        raise BootstrapError("shared_state_directory_or_ancestor_symlink")
+    if any((path / ".git").exists() for path in (root, *root.parents)):
+        raise BootstrapError("shared_state_directory_inside_git_worktree")
+    root.mkdir(parents=True, exist_ok=True)
+    if not root.is_dir() or root.stat().st_uid != os.getuid():
+        raise BootstrapError("shared_state_directory_owner_or_type_unsafe")
     return root
 
 
@@ -87,13 +104,13 @@ def check_regular_file(path, secret=False):
     if path.is_symlink():
         raise BootstrapError("private_file_symlink")
     mode = path.stat()
-    if not stat.S_ISREG(mode.st_mode) or mode.st_uid != os.getuid():
+    if not stat.S_ISREG(mode.st_mode) or mode.st_uid != os.getuid() or mode.st_nlink != 1:
         raise BootstrapError("private_file_owner_or_type_unsafe")
     if secret and mode.st_mode & 0o077:
         raise BootstrapError("existing_credential_file_permissions_unsafe")
 
 
-def atomic_private_bytes(path, body, mode=0o600):
+def atomic_private_bytes(path, body, mode=0o600, enforce_permissions=True):
     path = Path(path)
     if path.is_symlink():
         raise BootstrapError("private_file_symlink")
@@ -108,9 +125,25 @@ def atomic_private_bytes(path, body, mode=0o600):
             output.flush()
             os.fsync(output.fileno())
         os.chmod(temp, mode)
+        if enforce_permissions:
+            check_regular_file(temp)
+            if stat.S_IMODE(temp.stat().st_mode) != mode:
+                raise BootstrapError("local_private_file_permissions_not_enforced")
         os.replace(temp, path)
+        if enforce_permissions:
+            check_regular_file(path)
+            if stat.S_IMODE(path.stat().st_mode) != mode:
+                raise BootstrapError("local_private_file_permissions_not_enforced")
     finally:
         temp.unlink(missing_ok=True)
+
+
+def atomic_state_bytes(path, body, mode=0o600):
+    atomic_private_bytes(path, body, mode, enforce_permissions=False)
+
+
+def atomic_state_json(path, value):
+    atomic_state_bytes(path, (json.dumps(value, sort_keys=True, indent=2) + "\n").encode())
 
 
 def atomic_private_json(path, value):
@@ -131,6 +164,48 @@ def read_private_json(path, secret=False):
     if not isinstance(value, dict):
         raise BootstrapError("private_json_invalid")
     return value
+
+
+def migrate_legacy_credentials(private):
+    legacy_root = Path(LEGACY_PRIVATE_ROOT).absolute()
+    source = legacy_root / "credentials.json"
+    target = Path(private) / "credentials.json"
+    if source == target:
+        return False
+    if any(path.is_symlink() for path in (source, legacy_root, *legacy_root.parents)):
+        raise BootstrapError("legacy_credential_path_symlink")
+    if not source.exists():
+        return False
+    check_regular_file(source)
+    if source.stat().st_size > 64 * 1024:
+        raise BootstrapError("legacy_credential_file_too_large")
+    # Only the user's known cache is read. No value is printed or copied to state.
+    legacy = read_private_json(source)
+    selected = {name: value for name in REQUIRED
+                if isinstance((value := legacy.get(name)), str) and value}
+    for name, value in selected.items():
+        if len(value) > 4096 or any(ord(ch) < 32 for ch in value):
+            raise BootstrapError("legacy_credential_format_invalid:" + name)
+    previous = read_private_json(target, secret=True)
+    # Existing local values win; a partial local cache must not discard the
+    # other recoverable legacy fields before the old cleartext copy is removed.
+    merged = {**selected, **previous}
+    if not any(isinstance(merged.get(name), str) and merged[name] for name in REQUIRED):
+        raise BootstrapError("legacy_credential_cache_has_no_required_fields")
+    atomic_private_json(target, merged)
+    restored = read_private_json(target, secret=True)
+    if restored != merged:
+        raise BootstrapError("legacy_credential_migration_readback_failed")
+    os.chmod(target, 0o600)
+    if stat.S_IMODE(target.stat().st_mode) != 0o600:
+        raise BootstrapError("local_private_file_permissions_not_enforced")
+    try:
+        source.unlink()
+    except OSError:
+        raise BootstrapError("legacy_credential_cleanup_failed") from None
+    if source.exists() or source.is_symlink():
+        raise BootstrapError("legacy_credential_cleanup_failed")
+    return True
 
 
 @contextmanager
@@ -158,7 +233,7 @@ class StageReport:
     def save(self):
         self.data["updated_at_utc"] = now()
         if self.path is not None:
-            atomic_private_json(self.path, self.data)
+            atomic_state_json(self.path, self.data)
 
     def stage(self, name, status="running", **safe_details):
         self.data["stage"] = name
@@ -217,7 +292,7 @@ def load_job_module(source):
     return module
 
 
-def install_runtime(private, bootstrap, source):
+def install_runtime(private, bootstrap, source, state=None):
     runtime = private / "runtime"
     if runtime.is_symlink():
         raise BootstrapError("private_runtime_directory_symlink")
@@ -231,6 +306,11 @@ def install_runtime(private, bootstrap, source):
     command = shlex.quote(sys.executable) + " " + shlex.quote(str(runtime / "q15_cloud_bootstrap.py"))
     body = '#!/usr/bin/env bash\nset -euo pipefail\nexec ' + command + ' --non-interactive "$@"\n'
     atomic_private_bytes(private / "start.sh", body.encode(), 0o700)
+    if state is not None:
+        # This wrapper contains no credential values. It can survive a volume
+        # move; missing local runtime requires rerunning the published launcher.
+        wrapper = '#!/usr/bin/env bash\nset -euo pipefail\nif [[ ! -f ' + shlex.quote(str(private / "start.sh")) + ' ]]; then\n  echo "Container-local runtime is missing; rerun the current published Q15 launcher." >&2\n  exit 2\nfi\nbash ' + shlex.quote(str(private / "start.sh")) + ' "$@"\n'
+        atomic_state_bytes(state / "start.sh", wrapper.encode(), 0o700)
 
 
 def make_s3_client(credentials):
@@ -311,7 +391,7 @@ def verify_disk(raw, api_result, report, declared_volume_gb=None, inventory_pend
     if capacity * 1000 ** 3 < MIN_FREE_BYTES:
         raise BootstrapError("allocated_volume_quota_below_95_gib_requirement")
     job_module = report.job_module
-    inventory_path = Path(PRIVATE_ROOT) / "transport_inventory.json"
+    inventory_path = Path(STATE_ROOT) / "transport_inventory.json"
     files = None
     if inventory_path.is_symlink():
         raise BootstrapError("cached_transport_inventory_symlink")
@@ -370,9 +450,9 @@ def restore_transport_inventory(s3, credentials, job_module, private):
         if hashlib.sha256(body).hexdigest() != job_module.INVENTORY_SHA256:
             raise BootstrapError("authenticated_transport_inventory_hash_mismatch")
         candidate = Path(temporary) / "inventory.json"
-        atomic_private_bytes(candidate, body)
+        atomic_state_bytes(candidate, body)
         job_module.load_inventory(candidate)
-        atomic_private_bytes(target, body)
+        atomic_state_bytes(target, body)
     return target
 
 
@@ -459,7 +539,7 @@ def existing_worker(private, job_module):
             raw_command = command.read_bytes()
         except OSError:
             raw_command = b""
-        worker_path = str(private / "jobs" / snapshot["job_id"] / "q15_cloud_job.py").encode()
+        worker_path = str(Path(PRIVATE_ROOT) / "workers" / snapshot["job_id"] / "q15_cloud_job.py").encode()
         if worker_path in raw_command.split(b"\0"):
             if snapshot.get("pod_id") != job_module.current_pod_id():
                 raise BootstrapError("shared_volume_worker_belongs_to_different_pod")
@@ -479,7 +559,9 @@ def show_status(private):
 
 
 def detach_worker(source, config_path, job_dir):
-    destination = job_dir / "q15_cloud_job.py"
+    worker_dir = config_path.parent / "workers" / job_dir.name
+    safe_private_root(worker_dir)
+    destination = worker_dir / "q15_cloud_job.py"
     atomic_private_bytes(destination, source.read_bytes(), 0o700)
     child_env = dict(os.environ)
     for name in REQUIRED:
@@ -488,7 +570,7 @@ def detach_worker(source, config_path, job_dir):
     fd = os.open(log_path, os.O_WRONLY | os.O_CREAT | os.O_APPEND | getattr(os, "O_NOFOLLOW", 0), 0o600)
     with os.fdopen(fd, "ab", buffering=0) as output:
         return subprocess.Popen([sys.executable, str(destination), "--config", str(config_path),
-                                 "--job-dir", str(job_dir)], stdin=subprocess.DEVNULL,
+                                 "--job-dir", str(job_dir), "--control-dir", str(Path(STATE_ROOT))], stdin=subprocess.DEVNULL,
                                 stdout=output, stderr=output, start_new_session=True,
                                 close_fds=True, env=child_env)
 
@@ -540,10 +622,11 @@ def wait_for_startup(child, job_dir, timeout, job_module):
 
 def run(args, report):
     private = safe_private_root(PRIVATE_ROOT)
+    state = safe_state_root(STATE_ROOT)
     if args.status:
-        return show_status(private)
-    with launch_lock(private / "launch.lock"):
-        report.path = private / "last_bootstrap_report.json"
+        return show_status(state)
+    with launch_lock(state / "launch.lock"):
+        report.path = state / "last_bootstrap_report.json"
         report.stage("scripts")
         launch = Path(__file__).resolve().parent
         source = launch / "q15_cloud_job.py"
@@ -551,22 +634,28 @@ def run(args, report):
         report.job_module = job_module
         report.stage("current_pod_identity")
         pod_id = job_module.current_pod_id()
-        active = existing_worker(private, job_module)
+        active = existing_worker(state, job_module)
         if active:
             report.data.update({"status": "EXISTING_WORKER_ACTIVE", "worker": active})
             report.stage("existing_worker", "reused")
             print(json.dumps(active, indent=2), flush=True)
             return 0
         report.stage("persistent_runtime")
-        install_runtime(private, Path(__file__), source)
+        install_runtime(private, Path(__file__), source, state)
         print("Q15 raw download supervisor: fits_started = 0.", flush=True)
         print("Downloads and verifies data, backs up evidence, then stops the current Pod.", flush=True)
         print("Training stays blocked until raw audits and a committed preprocessing freeze are complete.", flush=True)
+        report.stage("credential_storage")
+        migrated = migrate_legacy_credentials(private)
+        report.data["credential_storage"] = {"container_local_private_directory": True,
+                                              "persists_across_container_recreation": False,
+                                              "legacy_cleartext_copy_removed": migrated}
+        report.stage("credential_storage", "verified_private")
         config_path = private / "credentials.json"
         previous = read_private_json(config_path, secret=True)
         credentials = {name: previous[name] for name in REQUIRED if isinstance(previous.get(name), str)}
         credentials["_validation"] = previous.get("_validation", {}) if isinstance(previous.get("_validation"), dict) else {}
-        credentials.update({"pod_id": pod_id, "raw_dir": str(RAW_ROOT)})
+        credentials.update({"pod_id": pod_id, "raw_dir": str(RAW_ROOT), "shared_control_dir": str(state)})
         if args.volume_gb is not None:
             credentials.update({"declared_volume_gb": args.volume_gb, "declared_volume_pod_id": pod_id})
         elif previous.get("declared_volume_pod_id") == pod_id:
@@ -614,7 +703,7 @@ def run(args, report):
         atomic_private_json(config_path, credentials)
         report.stage("r2_list_write_readback_delete", "passed")
         report.stage("authenticated_transport_inventory")
-        restore_transport_inventory(s3, credentials, job_module, private)
+        restore_transport_inventory(s3, credentials, job_module, state)
         report.stage("authenticated_transport_inventory", "passed")
         report.stage("disk_remaining_space")
         verify_disk(RAW_ROOT, api_result, report, credentials.get("declared_volume_gb"))
@@ -625,13 +714,13 @@ def run(args, report):
                               "next_start_command": str(private / "start.sh")}), flush=True)
             return 0
         report.stage("detached_worker")
-        job_dir = private / "jobs" / stamp
+        job_dir = state / "jobs" / stamp
         if job_dir.parent.is_symlink():
             raise BootstrapError("private_jobs_directory_symlink")
         job_dir.mkdir(parents=True, mode=0o700)
         os.chmod(job_dir, 0o700)
         child = detach_worker(source, config_path, job_dir)
-        atomic_private_json(private / "active_job.json", {"job_id": stamp, "pid": child.pid, "pod_id": pod_id})
+        atomic_state_json(state / "active_job.json", {"job_id": stamp, "pid": child.pid, "pod_id": pod_id})
         report.data.update({"pid": child.pid, "job_id": stamp})
         report.stage("verified_worker_startup")
         if not wait_for_startup(child, job_dir, args.startup_timeout, job_module):
@@ -646,7 +735,7 @@ def run(args, report):
                    "local_status": str(job_dir / "job_status.json"), "local_log": str(job_dir / "supervisor.log"),
                    "scientific_contract_frozen": False,
                    "automatic_stop_policy": "only_after_final_status_and_logs_full_r2_readback"}
-        atomic_private_json(job_dir / "launch_receipt.json", receipt)
+        atomic_state_json(job_dir / "launch_receipt.json", receipt)
         report.data["status"] = receipt["status"]
         report.stage("verified_worker_startup", "passed")
         print(json.dumps(receipt, indent=2), flush=True)

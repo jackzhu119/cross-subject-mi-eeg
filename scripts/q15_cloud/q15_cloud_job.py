@@ -15,6 +15,7 @@ import os
 from pathlib import Path, PurePosixPath
 import re
 import shutil
+import stat
 import subprocess
 import sys
 import tarfile
@@ -464,16 +465,29 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", type=Path, required=True)
     parser.add_argument("--job-dir", type=Path, required=True)
+    parser.add_argument("--control-dir", type=Path, help="shared non-secret lock/state root; supplied by the bootstrap")
     args = parser.parse_args()
+    control_root = args.control_dir if args.control_dir is not None else args.config.parent
+    if any(path.is_symlink() for path in (control_root, *control_root.parents)):
+        raise IntegrityError("shared_control_directory_symlink")
     # Acquire outside the backup/stop handler: duplicate workers must never stop
     # the original worker's Pod. Keep this handle alive until main returns.
-    with acquire_job_lock(args.config.parent / "active.lock") as active_lock:
+    with acquire_job_lock(control_root / "active.lock") as active_lock:
         # No traceback or arbitrary API exception strings are written to public output.
         import boto3
         from botocore.config import Config
-        if args.config.is_symlink() or args.config.stat().st_mode & 0o077:
+        if any(path.is_symlink() for path in (args.config, *args.config.parents)):
+            raise IntegrityError("credential_file_permissions_unsafe")
+        info = args.config.stat()
+        parent = args.config.parent.stat()
+        if (not stat.S_ISREG(info.st_mode) or info.st_uid != os.getuid() or info.st_nlink != 1
+            or stat.S_IMODE(info.st_mode) != 0o600 or info.st_size > 64 * 1024
+            or not stat.S_ISDIR(parent.st_mode) or parent.st_uid != os.getuid()
+            or stat.S_IMODE(parent.st_mode) != 0o700):
             raise IntegrityError("credential_file_permissions_unsafe")
         credentials = json.loads(args.config.read_text())
+        if args.control_dir is not None and credentials.get("shared_control_dir") != str(control_root):
+            raise IntegrityError("shared_control_directory_mismatch")
         job = args.job_dir.resolve()
         job.mkdir(parents=True, exist_ok=True)
         os.chmod(job, 0o700)
@@ -562,7 +576,7 @@ def main():
             verified_backup(s3, bucket, prefix + "/inventory.json", inventory_bytes)
             # Cache only the exact authenticated inventory bytes for restart space
             # planning. Allocation credits never replace per-file SHA/MD5 checks.
-            inventory_cache = args.config.parent / "transport_inventory.json"
+            inventory_cache = control_root / "transport_inventory.json"
             cache_temp = inventory_cache.with_name(".transport_inventory-" + uuid.uuid4().hex)
             try:
                 if inventory_cache.is_symlink():

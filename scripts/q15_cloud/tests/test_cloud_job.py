@@ -514,6 +514,59 @@ class CloudJobTest(unittest.TestCase):
         finally:
             original.close()
 
+    def test_explicit_shared_lock_blocks_worker_before_local_credential_read(self):
+        control = self.root / "shared-control"
+        private = self.root / "private"
+        private.mkdir(mode=0o700)
+        lock = job.acquire_job_lock(control / "active.lock")
+        try:
+            with patch.object(sys, "argv", ["worker.py", "--config", str(private / "not-read.json"),
+                                           "--job-dir", str(control / "jobs" / "fixture"),
+                                           "--control-dir", str(control)]), \
+                    patch.object(job, "runpod_request") as request, \
+                    patch.object(job, "verified_backup") as backup:
+                with self.assertRaisesRegex(job.IntegrityError, "another_cloud_supervisor_is_active"):
+                    job.main()
+            request.assert_not_called()
+            backup.assert_not_called()
+            self.assertFalse((private / "active.lock").exists())
+        finally:
+            lock.close()
+
+    def test_worker_refuses_private_config_without_enforced_modes_before_sdk_client(self):
+        private = self.root / "private"
+        private.mkdir(mode=0o700)
+        config = private / "credentials.json"
+        config.write_text('{"RUNPOD_API_KEY":"SENTINEL_PRIVATE_CREDENTIAL"}')
+        boto = ModuleType("boto3")
+        boto.client = Mock()
+        core = ModuleType("botocore")
+        core_config = ModuleType("botocore.config")
+        core_config.Config = Mock()
+        for parent_mode, file_mode, hardlink in ((0o777, 0o600, False),
+                                                 (0o700, 0o666, False),
+                                                 (0o700, 0o600, True)):
+            with self.subTest(parent_mode=parent_mode, file_mode=file_mode, hardlink=hardlink):
+                private.chmod(parent_mode)
+                config.chmod(file_mode)
+                link = private / "credential-hardlink"
+                if hardlink:
+                    import os
+                    os.link(config, link)
+                try:
+                    with patch.dict(sys.modules, {"boto3": boto, "botocore": core,
+                                                  "botocore.config": core_config}), \
+                            patch.object(sys, "argv", ["worker.py", "--config", str(config),
+                                                       "--job-dir", str(self.root / "job")]), \
+                            patch.object(job, "runpod_request") as request:
+                        with self.assertRaisesRegex(job.IntegrityError, "credential_file_permissions_unsafe"):
+                            job.main()
+                    boto.client.assert_not_called()
+                    request.assert_not_called()
+                finally:
+                    link.unlink(missing_ok=True)
+        private.chmod(0o700)
+
     def test_local_disk_full_still_verifies_final_remote_backups_before_stop(self):
         config = self.root / "dummy-enospc-config.json"
         config.write_text(json.dumps({
@@ -738,6 +791,8 @@ class PodIdentityTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temporary, \
                 patch.dict(job.os.environ, {}, clear=True), \
                 patch.object(bootstrap, "PRIVATE_ROOT", Path(temporary) / "private"), \
+                patch.object(bootstrap, "STATE_ROOT", Path(temporary) / "state"), \
+                patch.object(bootstrap, "LEGACY_PRIVATE_ROOT", Path(temporary) / "state"), \
                 patch.object(bootstrap, "read_hidden") as prompt, \
                 patch.object(sys, "stdout", io.StringIO()) as output:
             self.assertEqual(bootstrap.cli([]), 2)

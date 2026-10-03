@@ -22,7 +22,11 @@ RunPod API key 必须有访问当前 Pod、执行 Stop 的权限。读取 Pod �
 
 ## 已有磁盘、断点续传和下次启动
 
-私有配置、可重复执行的入口和状态放在 `/workspace/.q15-cloud/`，目录权限 0700，凭据文件 0600，位于 Git 之外。原始数据放在 `/workspace/q15-data/raw/`。共享磁盘迁移后会重新核验当前 Pod；发现另一个 Pod 的 supervisor 持有锁会报出冲突，防止同一磁盘上并行下载或误报启动成功。
+凭据、运行代码和本地入口放在容器本地 `/tmp/q15-private-<UID>/`，逐次核验目录 0700、文件 0600（运行代码为 0700）、所有者、普通文件类型和单一硬链接。共享网络卷可能把 `chmod 700/600` 忽略并显示为 `777/666`，不能在这种卷上保存明文凭据。
+
+`/workspace/.q15-cloud/` 保留不含凭据的状态、认证库存、任务日志、启动委托入口和共享锁；原始数据继续放在 `/workspace/q15-data/raw/`。升级时只迁移旧凭据中已知字段到严格私有目录，本地完整写入与读回成功后移除共享卷上的旧明文副本。旧 Pod ID、路径和控制目录不会从旧缓存继承。已有本地字段优先，缺少的字段才由旧缓存补齐。
+
+共享磁盘迁移后会重新核验当前 Pod；bootstrap 和 worker 继续使用原来共享目录中的锁，发现另一个 Pod 的 supervisor 持有锁会报出冲突，防止新旧版本并行下载。
 
 在首次运行新版本后，下次服务器启动可执行：
 
@@ -30,7 +34,9 @@ RunPod API key 必须有访问当前 Pod、执行 Stop 的权限。读取 Pod �
 bash /workspace/.q15-cloud/start.sh
 ```
 
-这个持久入口默认非交互，凭据完整时无需再输入。它只使用已保存配置或当前环境变量；缺少字段会明确说明字段名称。持久入口文件本身不会修改 RunPod 的模板启动命令，**尚未设置“开机自动运行”**。新版本尚未在用户的 Pod 上安装或实测；首次运行上面的稳定入口才会创建它。
+这个共享入口不含任何凭据，委托容器本地入口非交互执行。在同一容器中，凭据完整时无需再输入。**容器重建或迁移后，本地凭据和运行代码可能消失**：重新运行上面的发布入口，从 RunPod 环境变量/Secrets 或隐藏输入恢复配置，原始文件、库存与续传状态仍可复用。共享入口会明确提示缺少本地运行代码，不会假称已经启动。
+
+这不是 RunPod 模板的自动开机命令，**尚未设置“开机自动运行”**。修正版尚未在用户的 Pod 上安装或实测；首次运行发布入口才会创建本地与共享入口。
 
 已有完整文件必须重新通过全量 SHA-256/MD5 检查才复用。`.part` 文件只在对象 ETag 和预期内容身份一致时续传，写入后还会独立从磁盘完整读取验证。不会因为文件存在、元数据匹配、文件数相同或空间预算通过就把内容标为正确。
 
@@ -65,7 +71,7 @@ bash /workspace/.q15-cloud/start.sh --interactive --reset-credential RUNPOD_API_
 
 `--reset-credential` 只接收字段名称，绝不接收密钥值。可替换的字段是 `R2_BUCKET`、`R2_ENDPOINT`、`R2_ACCESS_KEY_ID`、`R2_SECRET_ACCESS_KEY`、`RUNPOD_API_KEY`。使用 `--interactive --check-only` 可以允许隐藏输入并仅验证。
 
-预检逐阶段输出安全 JSON，私有 `last_bootstrap_report.json` 记录阶段和具体错误代码。不会再把身份检查错误折叠成无信息的 `IntegrityError`。
+预检逐阶段输出安全 JSON，不含凭据的共享 `last_bootstrap_report.json` 记录阶段和具体错误代码。不会再把身份检查错误折叠成无信息的 `IntegrityError`。
 
 | 安全错误代码 | 处理 |
 | --- | --- |
@@ -75,6 +81,8 @@ bash /workspace/.q15-cloud/start.sh --interactive --reset-credential RUNPOD_API_
 | `runpod_api_pod_identity_mismatch` | API 响应身份不匹配，停止启动并排查；不请求停止其它 Pod。 |
 | `runpod_pod_locked_stop_forbidden` | 当前 Pod 被锁定，无法自动 Stop；解除该 Pod 的锁后重试。 |
 | `shared_volume_worker_belongs_to_different_pod` | 旧 Pod 仍有共享磁盘 supervisor，先核实并停止旧任务再启动此 Pod。 |
+| `local_private_directory_permissions_not_enforced` / `local_private_file_permissions_not_enforced` | 容器本地文件系统也未落实严格权限，停止启动；不放宽凭据检查。 |
+| `legacy_credential_cleanup_failed` | 私有副本写入后，旧共享卷明文副本未能移除，停止并排查该文件权限；不继续启动。 |
 | `configured_workspace_volume_quota_unknown` | 从 Volumes 获取实际 GB，再用 `--volume-gb N` 提供。 |
 | `s3_AccessDenied` / `s3_InvalidAccessKeyId` / `s3_SignatureDoesNotMatch` | 核对桶权限或相应 S3 字段，仅重录有问题的字段。 |
 | `LAUNCH_PENDING_NOT_CONFIRMED` | 启动尚未确认；先 `--status` 查看，锁和进程检查会阻止重复 worker。 |
@@ -85,7 +93,7 @@ The provenance archive SHA-256 is `332b878514894f7e6543c652e4138be13d8125ac8da20
 
 Progress and final receipts use private `q15/cloud-jobs/` prefixes. Every final status, log and backup manifest is uploaded, fully read back and hashed before the official `POST /v1/pods/{currentPodId}/stop` request. There is no terminate/delete operation or container shutdown command. Scientific blocks and supported-work failures are recorded before stopping; if identity, backup or Stop verification fails, the worker reports that shutdown is unconfirmed. API acceptance is not proof of physical shutdown. Stopped Pod volumes can still incur storage charges.
 
-The API identity is checked before work and again before Stop. Startup and worker locks prevent duplicate jobs. Credential values are absent from commands, public receipts, exception output and child environment. Runtime copies preserve a tested entry point on the persistent volume.
+The API identity is checked before work and again before Stop. Startup and worker locks prevent duplicate jobs. Credential values are absent from commands, public receipts, exception output and child environment. Runtime copies and credentials reside on the strict container-local filesystem; only a secret-free delegation entry persists on the shared volume. A recreated container needs the published launcher again.
 
 ## RunPod API network-edge fix
 
