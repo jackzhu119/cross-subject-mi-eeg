@@ -10,6 +10,7 @@ import argparse
 import hashlib
 import fcntl
 import json
+import math
 import os
 from pathlib import Path, PurePosixPath
 import re
@@ -27,6 +28,7 @@ REPO_COMMIT = "adb2d406b4300e2c8e4d5112969291c0331f3ed5"
 ARCHIVE_KEY = "q15/provenance/20261001T093410835515Z-614d381fb70141d7b91a85ae4eb907a8/archive.tar.gz"
 ARCHIVE_SHA = "332b878514894f7e6543c652e4138be13d8125ac8da20099ae9ca8641684fa0b"
 ARCHIVE_BYTES = 4708471
+INVENTORY_SHA256 = "6dc6728e3d8b84c405249845b3dd346d75ba74218e603d5ad8584b0ded93b62a"
 RAW_BYTES = 75551469122
 RAW_FILES = 160
 SAFETY = {"fits_started": 0, "source_fits": 0, "target_fits": 0,
@@ -37,10 +39,33 @@ SAFETY = {"fits_started": 0, "source_fits": 0, "target_fits": 0,
           "performance_metrics_computed": False}
 
 class IntegrityError(RuntimeError):
-    pass
+    def __init__(self, code):
+        self.safe_code = code if isinstance(code, str) and re.fullmatch(r"[A-Za-z][A-Za-z0-9_:.-]{0,159}", code) else "integrity_check_failed"
+        super().__init__(self.safe_code)
 
 class GateBlocked(RuntimeError):
     pass
+
+
+def safe_error_code(exc):
+    """Return an internal code or whitelisted status, never exception text."""
+    if isinstance(exc, IntegrityError):
+        return exc.safe_code
+    response = getattr(exc, "response", None)
+    if isinstance(response, dict):
+        code = response.get("Error", {}).get("Code") if isinstance(response.get("Error"), dict) else None
+        if code in {"AccessDenied", "InvalidAccessKeyId", "SignatureDoesNotMatch", "NoSuchBucket",
+                    "NoSuchKey", "RequestTimeTooSkewed", "ExpiredToken", "InvalidToken",
+                    "AuthorizationHeaderMalformed", "NotFound"}:
+            return "s3_" + code
+        meta = response.get("ResponseMetadata", {})
+        status = meta.get("HTTPStatusCode") if isinstance(meta, dict) else None
+        if isinstance(status, int) and not isinstance(status, bool) and 100 <= status <= 599:
+            return "remote_http_" + str(status)
+    if isinstance(exc, urllib.error.HTTPError):
+        return "http_" + str(exc.code)
+    name = type(exc).__name__
+    return name if re.fullmatch(r"[A-Za-z][A-Za-z0-9_]{0,63}", name) else "unexpected_error"
 
 
 def acquire_job_lock(lock_path):
@@ -131,6 +156,31 @@ def file_hashes(path):
     return sha.hexdigest(), md5.hexdigest(), count
 
 
+def raw_disk_requirements(raw_dir, files=None):
+    """Budget allocation; cached bytes still need full integrity verification."""
+    root = Path(raw_dir).resolve()
+    credited = 0
+    if files is not None:
+        for item in files:
+            target = root / item["dataset"] / Path(*safe_relative(item["file_id"]).parts)
+            if not target.resolve().is_relative_to(root):
+                raise IntegrityError("raw_destination_outside_root")
+            occupied = 0
+            for path in (target, target.with_name(target.name + ".part")):
+                if path.is_symlink():
+                    raise IntegrityError("raw_disk_preflight_symlink")
+                if path.is_file():
+                    info = path.stat()
+                    if info.st_nlink == 1:
+                        occupied += min(info.st_size, getattr(info, "st_blocks", 0) * 512)
+            credited += min(item["size_bytes"], occupied)
+    return {"expected_raw_bytes": RAW_BYTES, "credited_existing_allocation_bytes": credited,
+            "remaining_allocation_bytes": max(0, RAW_BYTES - credited),
+            "headroom_bytes": 20 * 1024 ** 3,
+            "required_free_bytes": max(0, RAW_BYTES - credited) + 20 * 1024 ** 3,
+            "cached_content_integrity_verified_by_space_check": False}
+
+
 def download_verified(s3, bucket, key, dest, expected_sha256, expected_md5,
                       expected_size, retries=3, on_progress=None):
     dest = Path(dest)
@@ -219,9 +269,9 @@ def download_verified(s3, bucket, key, dest, expected_sha256, expected_md5,
             # Real allocation errors override misleading shared df capacity.
             if exc.errno == 28:
                 raise IntegrityError("actual_volume_quota_or_disk_full") from None
-            last_code = type(exc).__name__
+            last_code = safe_error_code(exc)
         except Exception as exc:
-            last_code = str(exc) if isinstance(exc, IntegrityError) else type(exc).__name__
+            last_code = safe_error_code(exc)
         finally:
             if body is not None:
                 body.close()
@@ -248,7 +298,7 @@ def verified_backup(s3, bucket, key, body):
                 raise IntegrityError("backup_readback_hash_mismatch")
             return {"key": key, "sha256": expected, "size_bytes": size, "full_readback_verified": True}
         except Exception as exc:
-            last_code = str(exc) if isinstance(exc, IntegrityError) else type(exc).__name__
+            last_code = safe_error_code(exc)
         finally:
             if stream is not None:
                 stream.close()
@@ -306,6 +356,8 @@ def runpod_request(api_key, pod_id, method="GET", action=""):
     if (method, action) not in (("GET", ""), ("POST", "/stop")):
         raise IntegrityError("runpod_api_operation_invalid")
     url = f"https://rest.runpod.io/v1/pods/{pod_id}" + action
+    if method == "GET":
+        url += "?includeNetworkVolume=true"
     req = urllib.request.Request(url, method=method,
                                   headers={"Authorization": "Bearer " + api_key, "Accept": "application/json"})
     try:
@@ -316,6 +368,9 @@ def runpod_request(api_key, pod_id, method="GET", action=""):
         raise IntegrityError(f"runpod_api_http_{exc.code}") from None
     except Exception as exc:
         raise IntegrityError("runpod_api_" + type(exc).__name__) from None
+    if not isinstance(status, int) or not 200 <= status <= 299:
+        raise IntegrityError("runpod_api_http_" + str(status) if isinstance(status, int) else "runpod_api_status_invalid")
+    metadata = {}
     if method == "GET":
         try:
             result = json.loads(raw)
@@ -323,7 +378,22 @@ def runpod_request(api_key, pod_id, method="GET", action=""):
             raise IntegrityError("runpod_api_invalid_json") from None
         if not isinstance(result, dict) or result.get("id") != pod_id:
             raise IntegrityError("runpod_api_pod_identity_mismatch")
-    return {"http_status": status, "pod_id": pod_id, "action": "stop" if action else "inspect"}
+        if result.get("locked") is True:
+            raise IntegrityError("runpod_pod_locked_stop_forbidden")
+        # The API response may contain secrets in env. Return only these fields.
+        mounted = result.get("volumeMountPath") == "/workspace"
+        volume = result.get("networkVolume")
+        capacity = volume.get("size") if isinstance(volume, dict) else None
+        capacity_source = "networkVolume.size"
+        if not isinstance(capacity, (int, float)) or isinstance(capacity, bool) or not math.isfinite(capacity) or capacity <= 0:
+            capacity = result.get("volumeInGb")
+            capacity_source = "volumeInGb"
+        if not mounted or not isinstance(capacity, (int, float)) or isinstance(capacity, bool) or not math.isfinite(capacity) or capacity <= 0:
+            capacity, capacity_source = None, "unknown"
+        metadata = {"disk_capacity_gb": capacity, "disk_capacity_source": capacity_source,
+                    "workspace_volume_mount_verified": mounted, "pod_locked": False,
+                    "stop_permission_verified": False}
+    return {"http_status": status, "pod_id": pod_id, "action": "stop" if action else "inspect", **metadata}
 
 
 def finish_job(s3, bucket, prefix, state, log_path, stopper):
@@ -442,15 +512,26 @@ def main():
         try:
             if current_pod_id() != validate_pod_id(credentials["pod_id"]):
                 raise IntegrityError("running_pod_environment_identity_mismatch")
-            runpod_request(credentials["RUNPOD_API_KEY"], credentials["pod_id"])
+            pod_metadata = runpod_request(credentials["RUNPOD_API_KEY"], credentials["pod_id"])
+            state["pod_preflight"] = pod_metadata
             identity_verified = True
+            capacity = pod_metadata.get("disk_capacity_gb")
+            if capacity is None and credentials.get("declared_volume_pod_id") == credentials["pod_id"]:
+                candidate = credentials.get("declared_volume_gb")
+                if isinstance(candidate, (int, float)) and not isinstance(candidate, bool) and math.isfinite(candidate) and candidate > 0:
+                    capacity = candidate
+                    state["pod_preflight"]["disk_capacity_source"] = "user_reported_for_current_pod"
+            if capacity is None:
+                raise IntegrityError("configured_workspace_volume_quota_unknown")
+            if capacity * 1_000_000_000 < 95 * 1024 ** 3:
+                raise IntegrityError("configured_workspace_volume_capacity_insufficient")
             log("runpod_identity_verified")
             raw = Path(credentials["raw_dir"]).resolve()
             raw.mkdir(parents=True, exist_ok=True)
             free = shutil.disk_usage(raw).free
-            if free < 95 * 1024 ** 3:
-                raise IntegrityError("requires_at_least_95_GiB_free_plus_actual_volume_quota")
-            log("disk_precheck_passed_quota_still_unverified", reported_free_bytes=free)
+            if free < 20 * 1024 ** 3:
+                raise IntegrityError("requires_20_gib_working_headroom")
+            log("disk_capacity_and_headroom_passed", reported_free_bytes=free)
             state["status"] = "preflight_verified_downloading_provenance"
             state["pod_identity_verified"] = True
             checkpoint()
@@ -458,8 +539,35 @@ def main():
             download_verified(s3, bucket, ARCHIVE_KEY, archive, ARCHIVE_SHA, None, ARCHIVE_BYTES)
             safe_extract(archive, job / "provenance")
             inventory_path = job / "provenance/research_runs/Q15-DATA/r2_source_storage_verification.json"
+            inventory_bytes = inventory_path.read_bytes()
+            if hashlib.sha256(inventory_bytes).hexdigest() != INVENTORY_SHA256:
+                raise IntegrityError("transport_inventory_hash_mismatch")
             files = load_inventory(inventory_path)
-            verified_backup(s3, bucket, prefix + "/inventory.json", inventory_path.read_bytes())
+            verified_backup(s3, bucket, prefix + "/inventory.json", inventory_bytes)
+            # Cache only the exact authenticated inventory bytes for restart space
+            # planning. Allocation credits never replace per-file SHA/MD5 checks.
+            inventory_cache = args.config.parent / "transport_inventory.json"
+            cache_temp = inventory_cache.with_name(".transport_inventory-" + uuid.uuid4().hex)
+            try:
+                if inventory_cache.is_symlink():
+                    raise IntegrityError("transport_inventory_cache_symlink")
+                fd = os.open(cache_temp, os.O_WRONLY | os.O_CREAT | os.O_EXCL | getattr(os, "O_NOFOLLOW", 0), 0o600)
+                with os.fdopen(fd, "wb") as output:
+                    output.write(inventory_bytes)
+                    output.flush()
+                    os.fsync(output.fileno())
+                os.replace(cache_temp, inventory_cache)
+            except OSError as exc:
+                local_error("transport_inventory_cache", exc)
+            finally:
+                try:
+                    cache_temp.unlink(missing_ok=True)
+                except OSError as exc:
+                    local_error("transport_inventory_temp_cleanup", exc)
+            disk_plan = raw_disk_requirements(raw, files)
+            state["raw_disk_requirements"] = disk_plan
+            if shutil.disk_usage(raw).free < disk_plan["required_free_bytes"]:
+                raise IntegrityError("insufficient_free_space_for_remaining_raw_data")
             state["status"] = "downloading_original_raw_files"
             checkpoint()
             last_checkpoint = [0.0]
@@ -510,7 +618,7 @@ def main():
         except Exception as exc:
             state["status"] = "failed_without_training"
             state["training_status"] = "not_started"
-            state["error_code"] = str(exc) if isinstance(exc, IntegrityError) else type(exc).__name__
+            state["error_code"] = safe_error_code(exc)
             log("job_failed_without_training", error_code=state["error_code"])
         # An idle/blocked/failed Pod is stopped only after its final evidence is durable.
         local_json(job / "job_status.json", state)
@@ -520,7 +628,7 @@ def main():
             local_json(job / "stop_api_receipt.json", result)
             log("stop_api_accepted_physical_shutdown_unconfirmed")
         except Exception as exc:
-            code = str(exc) if isinstance(exc, IntegrityError) else type(exc).__name__
+            code = safe_error_code(exc)
             state["shutdown_status"] = "not_confirmed_backup_or_stop_failed"
             state["shutdown_error_code"] = code
             local_json(job / "job_status.json", state)
@@ -532,6 +640,6 @@ if __name__ == "__main__":
     try:
         sys.exit(main())
     except Exception as exc:
-        print(json.dumps({"status": "bootstrap_or_config_failed", "error_type": type(exc).__name__,
+        print(json.dumps({"status": "bootstrap_or_config_failed", "stage": "worker_initialization", "error_code": safe_error_code(exc),
                           "fits_started": 0}), flush=True)
         sys.exit(2)

@@ -16,6 +16,7 @@ import tarfile
 import tempfile
 from types import ModuleType, SimpleNamespace
 import unittest
+import urllib.error
 from unittest.mock import Mock, patch
 
 
@@ -456,10 +457,11 @@ class CloudJobTest(unittest.TestCase):
                 self.assertEqual(state["fits_started"], 0)
 
     def test_bootstrap_rejects_non_terminal_before_prompting_for_secret(self):
-        with patch.object(sys.stdin, "isatty", return_value=False), \
+        with patch.dict(bootstrap.os.environ, {}, clear=True), \
+                patch.object(sys.stdin, "isatty", return_value=False), \
                 patch.object(bootstrap.getpass, "getpass") as prompt:
-            with self.assertRaisesRegex(bootstrap.BootstrapError, "run_in_jupyter_terminal"):
-                bootstrap.main()
+            with self.assertRaisesRegex(bootstrap.BootstrapError, "interactive_terminal_required"):
+                bootstrap.read_hidden("RUNPOD_API_KEY", {})
         prompt.assert_not_called()
 
     def test_hidden_prompt_rejects_echo_fallback_warning(self):
@@ -475,7 +477,7 @@ class CloudJobTest(unittest.TestCase):
                 patch.object(bootstrap, "EXPECTED_JOB_SHA256", "0" * 64), \
                 patch.object(bootstrap, "read_hidden") as prompt:
             with self.assertRaisesRegex(bootstrap.BootstrapError, "companion_job_script_hash_mismatch"):
-                bootstrap.main()
+                bootstrap.load_job_module(Path(job.__file__))
         prompt.assert_not_called()
 
     def test_bootstrap_pinned_sha_matches_current_job_script(self):
@@ -548,7 +550,7 @@ class CloudJobTest(unittest.TestCase):
                 patch.object(job, "print", create=True, side_effect=OSError(28, "test stdout volume full")), \
                 patch.object(job, "download_verified", side_effect=job.IntegrityError(
                     "actual_volume_quota_or_disk_full")) as download, \
-                patch.object(job, "runpod_request", return_value={"http_status": 200}) as request:
+                patch.object(job, "runpod_request", return_value={"http_status": 200, "disk_capacity_gb": 200}) as request:
             result = job.main()
         self.assertEqual(result, 0)
         download.assert_called_once()
@@ -590,7 +592,7 @@ class PodIdentityTests(unittest.TestCase):
             result = job.runpod_request("dummy-api", "new-current-pod")
         self.assertEqual(result["pod_id"], "new-current-pod")
         self.assertEqual(request.call_args.args[0].full_url,
-                         "https://rest.runpod.io/v1/pods/new-current-pod")
+                         "https://rest.runpod.io/v1/pods/new-current-pod?includeNetworkVolume=true")
 
     def test_api_identity_mismatch_is_rejected(self):
         response = Mock(status=200)
@@ -606,12 +608,80 @@ class PodIdentityTests(unittest.TestCase):
                     job.runpod_request("dummy-api", "new-current-pod", method, action)
         request.assert_not_called()
 
+
+    def api_response(self, payload, status=200):
+        response = Mock(status=status)
+        response.read.return_value = json.dumps(payload).encode()
+        return nullcontext(response)
+
+    def test_api_network_volume_quota_and_secret_fields_are_filtered(self):
+        payload = {"id": "new-current-pod", "volumeMountPath": "/workspace",
+                   "volumeInGb": 50, "networkVolume": {"size": 200},
+                   "env": {"SECRET": "SENTINEL_PRIVATE_RESPONSE"}}
+        with patch.object(job.urllib.request, "urlopen", return_value=self.api_response(payload)):
+            result = job.runpod_request("dummy-api", "new-current-pod")
+        self.assertEqual(result["disk_capacity_gb"], 200)
+        self.assertEqual(result["disk_capacity_source"], "networkVolume.size")
+        self.assertFalse(result["stop_permission_verified"])
+        self.assertNotIn("SENTINEL_PRIVATE_RESPONSE", json.dumps(result))
+        self.assertNotIn("env", result)
+
+    def test_api_missing_mount_and_invalid_numeric_quota_are_unknown(self):
+        for capacity, mounted in ((float("nan"), "/workspace"), (float("inf"), "/workspace"),
+                                  (True, "/workspace"), (-1, "/workspace"), (200, "/other")):
+            with self.subTest(capacity=capacity, mounted=mounted):
+                payload = {"id": "new-current-pod", "volumeMountPath": mounted,
+                           "volumeInGb": capacity, "networkVolume": {"size": capacity}}
+                with patch.object(job.urllib.request, "urlopen", return_value=self.api_response(payload)):
+                    result = job.runpod_request("dummy-api", "new-current-pod")
+                self.assertIsNone(result["disk_capacity_gb"])
+
+    def test_api_locked_pod_is_rejected(self):
+        with patch.object(job.urllib.request, "urlopen", return_value=self.api_response(
+                {"id": "new-current-pod", "locked": True})):
+            with self.assertRaisesRegex(job.IntegrityError, "runpod_pod_locked_stop_forbidden"):
+                job.runpod_request("dummy-api", "new-current-pod")
+
+    def test_api_auth_errors_preserve_only_safe_http_code(self):
+        for status in (401, 403, 404, 429, 500):
+            with self.subTest(status=status):
+                error = urllib.error.HTTPError("https://private.invalid/SECRET", status,
+                                              "SENTINEL_PRIVATE_RESPONSE", {},
+                                              io.BytesIO(b"SENTINEL_PRIVATE_RESPONSE"))
+                with patch.object(job.urllib.request, "urlopen", side_effect=error):
+                    with self.assertRaises(job.IntegrityError) as raised:
+                        job.runpod_request("dummy-api", "new-current-pod")
+                self.assertEqual(job.safe_error_code(raised.exception), "runpod_api_http_" + str(status))
+                self.assertNotIn("SENTINEL", str(raised.exception))
+
+    def test_stop_accepts_empty_200_body_without_claiming_physical_shutdown(self):
+        response = Mock(status=200)
+        response.read.return_value = b""
+        with patch.object(job.urllib.request, "urlopen", return_value=nullcontext(response)) as request:
+            result = job.runpod_request("dummy-api", "new-current-pod", "POST", "/stop")
+        self.assertEqual(result["action"], "stop")
+        self.assertEqual(result["http_status"], 200)
+        self.assertEqual(request.call_args.args[0].get_method(), "POST")
+        self.assertNotIn("physical_shutdown_confirmed", result)
+
+    def test_api_invalid_json_and_nested_schema_are_rejected(self):
+        for body, expected in ((b"not-json", "runpod_api_invalid_json"),
+                               (b'{"pod":{"id":"new-current-pod"}}', "runpod_api_pod_identity_mismatch")):
+            with self.subTest(expected=expected):
+                response = Mock(status=200)
+                response.read.return_value = body
+                with patch.object(job.urllib.request, "urlopen", return_value=nullcontext(response)):
+                    with self.assertRaisesRegex(job.IntegrityError, expected):
+                        job.runpod_request("dummy-api", "new-current-pod")
+
     def test_bootstrap_missing_identity_fails_before_secret_prompt(self):
-        with patch.dict(job.os.environ, {}, clear=True), \
-                patch.object(sys.stdin, "isatty", return_value=True), \
-                patch.object(bootstrap, "read_hidden") as prompt:
-            with self.assertRaisesRegex(RuntimeError, "pod_id_environment_missing"):
-                bootstrap.main()
+        with tempfile.TemporaryDirectory() as temporary, \
+                patch.dict(job.os.environ, {}, clear=True), \
+                patch.object(bootstrap, "PRIVATE_ROOT", Path(temporary) / "private"), \
+                patch.object(bootstrap, "read_hidden") as prompt, \
+                patch.object(sys, "stdout", io.StringIO()) as output:
+            self.assertEqual(bootstrap.cli([]), 2)
+            self.assertIn('"error_code": "runpod_pod_id_environment_missing"', output.getvalue())
         prompt.assert_not_called()
 
 
