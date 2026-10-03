@@ -1,0 +1,43 @@
+{
+  "actual_full_cohort_scientific_audit_executed_here": false,
+  "bash_syntax_passed": true,
+  "code_sha256": {
+    "requirements-q15-runtime.txt": "8b0c7e59ac54aba0e2eaa615041f0aef93bf86ff5019c79f9d370a6bd9a8a982",
+    "research_runs/Q15-EXECUTION-20261003/EXECUTION_CONTRACT.json": "4db58b7096378fc1a429580600f35dc8df1a98d701cf8bfb081770f8ea721766",
+    "scripts/q15_cloud/q15_full_job.py": "697c00f30ae39337c1eb0c5e57d2e5a9da274154579465bde42e966ba3044b9f",
+    "scripts/q15_external.py": "6876042faf7fb5bd77a3be122f00fab2b1bbd2f6fb5b302c1745eba28f28a08c",
+    "scripts/q15_metadata_audit.py": "383dfdbee949e2dcdbe6a6f594c6f14110b17d866c4a57c2a419710347a1d71a",
+    "scripts/q15_preprocess_external.py": "aa5726ce584eb5449c7d71f9884ca10ef0b29b8bfe2f07a29e5024e7f3472c1b",
+    "scripts/q15_real_metadata.py": "96c00d69d6f7f0ab38707fde696f0d160cb6ebee2169365e1a362fd90f142004",
+    "scripts/q15_source.py": "b0c3a02d757c3b636ec6f312f3d3d8f43d5ce44a0ff14dfbfe10dacef4172648",
+    "scripts/q15_validate_external.py": "df688777d51d3d8aec9bd785683859b512024f922ba2805284dfe5fbfc71e8bd",
+    "scripts/q15_validate_source.py": "4b5dc7b848eb91a5644d8c45d99a03361a2d5063302f59c95bd88be97e763663",
+    "src/mi_eeg/data/q15_context.py": "849ee22e2a1c1987c2a83ed3a837f9f358b505133ce2ffe13ee876f01adc3d61",
+    "src/mi_eeg/models/q15_csp.py": "b5e4df5428c28688d5163cbb235fad5408cf89324ac4112c6511cdedd25294fd"
+  },
+  "completion_claim_limit": "completed_with_calibration_limitations only after independent full real-data result validation",
+  "credential_value_scan_passed": true,
+  "diff_whitespace_passed": true,
+  "diff_whitespace_scope": "authored code/tests/documentation; archived provider evidence keeps exact upstream bytes",
+  "fits_started": 0,
+  "full_cohort_audit_required_before_fit_on_pod": true,
+  "gpu_cuda_tested_here": false,
+  "known_test_warnings": "26 Braindecode/MNE deprecation notices, no failures",
+  "native_external_sample_observation": "Cho s01 and Lee session1/s1 only; full160 audited at launch",
+  "native_source_observation": "18 actual BNCI originals and complete native metadata versus frozen Q8; no preprocessing",
+  "provider_evidence_whitespace_preserved_byte_exact": true,
+  "python_compile_passed": true,
+  "real_external_predictions_computed": false,
+  "restart_limit": "Interruption after GitHub ref advance before local publication receipt requires publication-state reconciliation.",
+  "ruff_passed": true,
+  "schema_version": 1,
+  "status": "prepared_tested_not_launched_on_pod",
+  "test_runtime": "isolated torch 2.8.0+cpu and matching torchaudio, approved Python3.12 runtime; synthetic fixtures only",
+  "tests": {
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "tests": 344
+  },
+  "verified_at_utc": "2026-10-03T07:27:52.514829+00:00"
+}

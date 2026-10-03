@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "status": "synthetic_cpu_model_compatibility_passed",
+  "created_at_utc": "2026-10-03T07:26:40.162320+00:00",
+  "torch_version": "2.8.0+cpu",
+  "torchaudio_version": "2.8.0+cpu",
+  "braindecode_version": "1.5.1",
+  "device": "cpu",
+  "torch_runtime_cuda": null,
+  "gpu_cuda_compatibility_tested": false,
+  "intended_cloud_runtime": "torch 2.8.0+cu128 / torchaudio 2.8.0+cu128; GPU preflight required on Pod",
+  "data_used": "zeros and seeded torch.randn only; no EEG files or labels were read",
+  "real_preprocessing_started": false,
+  "fits_started": 0,
+  "real_training_authorized_by_this_probe": false,
+  "synthetic_backward_steps_per_model": 1,
+  "source_runner_sha256": "b0c3a02d757c3b636ec6f312f3d3d8f43d5ce44a0ff14dfbfe10dacef4172648",
+  "eegnet_helper_sha256": "ddb1ab9d40f43abe3ec22a4b0132cd194ea1fe61e1e9ebb801f3423408013842",
+  "models": [
+    {
+      "model": "BROAD_EEGNET",
+      "synthetic_input_shape": [
+        2,
+        21,
+        320
+      ],
+      "zero_input_forward_shape": [
+        2,
+        2
+      ],
+      "forward_finite": true,
+      "synthetic_backward_gradients_finite": true,
+      "synthetic_optimizer_step_parameter_change_verified": true,
+      "synthetic_cross_entropy": 0.758350133895874
+    },
+    {
+      "model": "MU_BETA_SHARED",
+      "synthetic_input_shape": [
+        2,
+        2,
+        21,
+        320
+      ],
+      "zero_input_forward_shape": [
+        2,
+        2
+      ],
+      "forward_finite": true,
+      "synthetic_backward_gradients_finite": true,
+      "synthetic_optimizer_step_parameter_change_verified": true,
+      "synthetic_cross_entropy": 0.6431652307510376
+    }
+  ],
+  "source_preflight_unit_tests": {
+    "test_file": "tests/test_q15_source_preflight.py",
+    "passed": 8,
+    "failed": 0,
+    "pythonpath_overlay": "isolated torch 2.8.0+cpu / torchaudio 2.8.0+cpu; remaining packages from approved virtual environment",
+    "real_fits_started": 0
+  }
+}

@@ -15,9 +15,12 @@ import importlib.util
 import json
 import os
 import re
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 CONTRACT_PATH = ROOT / "research_runs/PAPER_RELEASE_20260927/Q15_CONTRACT.json"
 STRUCTURAL_VALIDATOR_PATH = CONTRACT_PATH.with_name("q15_validate_contract.py")
 SHA256 = re.compile(r"^[0-9a-f]{64}$")
@@ -96,6 +99,20 @@ def audit_manifest(manifest_path: Path, *, synthetic_fixture: bool = False) -> d
     false until a future independent provider-manifest adapter is reviewed.
     """
     manifest_path = manifest_path.resolve()
+    # Real files use the separately reviewed prospective operational adapter.
+    # Its receipt preserves unverified physical calibration explicitly; fixture
+    # receipts remain distinct and can never be substituted for a real cohort.
+    try:
+        claim = _read_json(manifest_path)
+    except (OSError, ValueError, TypeError):
+        claim = {}
+    claim_files = claim.get("files") if isinstance(claim.get("files"), list) else []
+    if not synthetic_fixture and any(
+        row.get("adapter") == "real_mat_operational_v1"
+        for row in claim_files if isinstance(row, dict)
+    ):
+        from scripts.q15_real_metadata import audit_inventory
+        return audit_inventory(manifest_path)
     plan = _read_json(CONTRACT_PATH)
     try:
         manifest_hash = _sha256(manifest_path)
