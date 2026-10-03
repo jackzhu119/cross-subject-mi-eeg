@@ -1,0 +1,17 @@
+{
+  "kind": "managed_cloud_r2_and_real_archive_validation_not_runpod_deployment",
+  "variables_present": 4,
+  "fits_started": 0,
+  "runpod_authenticated_validation_performed": false,
+  "generated_at_utc": "2026-10-03T01:40:26.885331+00:00",
+  "stages": {
+    "list_write_full_readback_delete": "passed",
+    "real_pinned_archive_download_and_inventory_restore": "passed"
+  },
+  "inventory": {
+    "files": 160,
+    "bytes": 75551469122,
+    "sha256": "6dc6728e3d8b84c405249845b3dd346d75ba74218e603d5ad8584b0ded93b62a"
+  },
+  "status": "passed"
+}

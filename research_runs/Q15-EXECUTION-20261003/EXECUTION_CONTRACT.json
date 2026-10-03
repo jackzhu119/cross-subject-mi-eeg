@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "experiment_family": "Q15_prospective_21_channel_external_replication",
+  "protocol_revision": "20261003_trial_context_amendment_v1",
+  "status": "prospective_execution_contract_not_results",
+  "target_fits": 0,
+  "decision_basis": "complete metadata observations and independent primary-source review before any Q15 model fit or target outcome",
+  "superseded_processing": "historical planned run_local filter; historical Q14 and Q15 plan files unchanged",
+  "shared_transform": {
+    "context_relative_s": [
+      -1.5,
+      4.5
+    ],
+    "cue_window_s": [
+      0.5,
+      2.5
+    ],
+    "common_rate_hz": 160,
+    "channels": [
+      "Fz",
+      "FC3",
+      "FC1",
+      "FC2",
+      "FC4",
+      "C5",
+      "C3",
+      "C1",
+      "Cz",
+      "C2",
+      "C4",
+      "C6",
+      "CP3",
+      "CP1",
+      "CPz",
+      "CP2",
+      "CP4",
+      "P1",
+      "Pz",
+      "P2",
+      "POz"
+    ],
+    "reference": "common_average_21",
+    "bands": {
+      "broad": [
+        8,
+        30
+      ],
+      "mu": [
+        8,
+        13
+      ],
+      "beta": [
+        13,
+        30
+      ]
+    },
+    "filter": {
+      "order": 4,
+      "ftype": "butter",
+      "phase": "zero",
+      "scope": "each_real_retained_trial_context",
+      "padlen": 27
+    },
+    "output_unit": "uV",
+    "analysis_input_unit_convention": "native_numeric_as_microvolts",
+    "native_export_units_verified": false,
+    "dtype": "float32",
+    "artifact_policy": "include_all",
+    "target_fitted_normalization": false,
+    "baseline_correction": false
+  },
+  "cue_conventions": {
+    "BNCI2014_001": "zero-based (MATLAB trial-1) plus 2 seconds",
+    "Lee2019_MI": "zero-based MATLAB stored t minus one; supplied smt alignment differs and is disclosed",
+    "Cho2017": "zero-based nonzero imagery_event array sample; no additional shift; independently retained chunk boundaries"
+  },
+  "cohort_scope": {
+    "Lee2019_MI": {
+      "subjects": 54,
+      "sessions": [
+        1,
+        2
+      ],
+      "signal_field": "EEG_MI_train",
+      "labeled_trials_per_file": 100,
+      "expected_trials": 10800,
+      "native_to_canonical_label": {
+        "1": 2,
+        "2": 1
+      }
+    },
+    "Cho2017": {
+      "subjects": 52,
+      "sessions": [
+        1
+      ],
+      "signal_fields": [
+        "imagery_left",
+        "imagery_right"
+      ],
+      "expected_trials": 10520,
+      "120_per_class_subjects": [
+        7,
+        9,
+        46
+      ],
+      "physical_run_ids_reconstructed": false,
+      "analysis_run": "retained_labeled_MI"
+    },
+    "BNCI2014_001": {
+      "subjects": 9,
+      "sessions": [
+        "0train",
+        "1test"
+      ],
+      "runs_per_session": 6,
+      "binary_trials_per_run": 24,
+      "expected_trials": 2592
+    }
+  },
+  "interpretation_limits": {
+    "native_export_voltage_calibration_verified": false,
+    "original_Cho_reference_verified": false,
+    "hardware_cue_latency_verified": false,
+    "claim_scope": "prospective operational adapter benchmark under declared native-microvolt convention",
+    "required_completion_status": "completed_with_calibration_limitations"
+  },
+  "evidence_sha256": {
+    "cho_transfer_manifest.json": "570630f7070712ed05ce97d78cfd47aef6b3999e89959dddc34f5ad4a04fd3c7",
+    "100542.md5": "20b1ef60db5877a8508bfb9fb04a206cf9173d884bf48850ce2627d55c957cb4",
+    "lee_transfer_manifest.json": "85d5fb7cdb31940901707762c869e2ca82aa0f2b0aec612b11e3782b6101410f",
+    "cho_channel_map.json": "a862da5f1be810468dd529054b5b0e54bf0aa785085f754c7f1e25631306dad9",
+    "cho_figure1.jpg": "29649085f0ba0954dc29501c2eb30dac488bef538cc95c479556bc90795ed87c",
+    "cho_bucket_inventory.xml": "77cfd5405cb369f386bad4376b00e71755b40878d8314edacacb2e2255dfa6ea",
+    "moabb_v1.7.2_Cho2017.py": "c2bf5c861f77d9050daad60d53a844719339238ed13a98844b2236b9937102dd",
+    "moabb_v1.7.2_Lee2019.py": "2a0101d2955a93eaeeb4f8371847d97678f8b3253ab8514277b4713cd8a5c4a1",
+    "openbmi_bv_read.m": "047426a62b35d728cf0a1c3a88099bb243934adf04c9fffec3d77b8a75c4a2f8",
+    "openbmi_prep_segmentation.m": "62ae92f04b77a537473fc95d4258e6d203943ed66f34c7f484741e5545ccc2d0"
+  },
+  "source_model_policy": "14 BNCI-only neural fits and one BNCI-only CSP fit; original seeds, selection rule and hyperparameters preserved; common context/CAR processing is an explicit new pre-outcome method revision",
+  "external_policy": "zero target fit, no target normalization/alignment/selection; two cohorts separately; person is inference unit",
+  "csp_coordinate_rule": {
+    "name": "fixed_21_to_20_helmert",
+    "reason": "common-average reference removes one spatial degree; represent the entire rank20 CAR subspace before unregularized full-rank CSP",
+    "data_dependent": false,
+    "basis": "scipy.linalg.helmert(21, full=False)",
+    "n_coordinates": 20,
+    "n_components": 4,
+    "target_fit": false
+  }
+}

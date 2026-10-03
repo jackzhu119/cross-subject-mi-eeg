@@ -1,0 +1,16 @@
+{
+  "kind": "unauthenticated_public_endpoint_client_identification_probe",
+  "user_pod_authenticated": false,
+  "real_key_used": false,
+  "fits_started": 0,
+  "at_utc": "2026-10-03T01:55:48.540244+00:00",
+  "default_library_signature_prior_probe": {
+    "http_status": 403,
+    "edge_1010_detected": true
+  },
+  "accurate_application_signature": {
+    "user_agent": "q15-cloud-transport/20261003",
+    "safe_error_code": "runpod_api_http_401"
+  },
+  "status": "expected_authentication_boundary_reached"
+}

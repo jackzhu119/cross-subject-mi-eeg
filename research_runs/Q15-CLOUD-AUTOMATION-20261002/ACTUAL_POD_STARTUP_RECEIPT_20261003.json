@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "release_commit": "eab9e9f5b13ce87d732e94989b5d1858d4d60a97",
+  "code_commit": "08e20e92675f67cc4a4cb9e3bf020ec7101f99cf",
+  "observed_at_utc": "2026-10-03T02:32:08.255259+00:00",
+  "evidence": [
+    "user_terminal_verified_detached_startup_receipt",
+    "authenticated_private_R2_progress_read"
+  ],
+  "pod_id": "85ziby5lobstbf",
+  "job_id": "20261003T022938Z-6903e72ea5cb",
+  "pid_from_terminal": 1322,
+  "job_script_sha256_verified": true,
+  "passed_on_actual_pod": [
+    "credential_storage",
+    "runpod_api",
+    "r2_list_write_readback_delete",
+    "authenticated_transport_inventory",
+    "disk",
+    "verified_worker_startup"
+  ],
+  "cloud_job_started": true,
+  "codex_ssh_connection_established": false,
+  "progress_snapshot": {
+    "job_id": "20261003T022938Z-6903e72ea5cb",
+    "pod_id": "85ziby5lobstbf",
+    "status": "downloading_original_raw_files",
+    "fits_started": 0,
+    "verified_size_bytes": 2706810554,
+    "full_readback_files": 13,
+    "expected_raw_files": 160,
+    "expected_raw_bytes": 75551469122,
+    "pod_identity_verified": true,
+    "started_at_utc": "2026-10-03T02:29:44.616566+00:00",
+    "updated_at_utc": "2026-10-03T02:32:06.682527+00:00",
+    "current_file": {
+      "dataset": "Cho2017",
+      "file_id": "s13.mat",
+      "number": 13,
+      "downloaded_bytes": 199330843,
+      "expected_bytes": 199330843
+    }
+  },
+  "R2_status_prefix": "q15/cloud-jobs/20261003T022938Z-6903e72ea5cb",
+  "raw_transport_completed": false,
+  "automatic_stop_requested_yet": false,
+  "physical_shutdown_confirmed": false,
+  "scientific_raw_metadata_audit_complete": false,
+  "preprocessing_contract_frozen": false,
+  "fits_started": 0,
+  "automatic_stop_policy": "after_final_status_and_log_full_R2_readbacks",
+  "credential_values_included": false
+}

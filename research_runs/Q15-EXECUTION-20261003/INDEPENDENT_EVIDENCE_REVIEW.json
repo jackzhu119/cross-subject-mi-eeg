@@ -1,0 +1,302 @@
+{
+  "schema_version": 1,
+  "status": "independent_review_non_authorizing",
+  "fits_started": 0,
+  "raw_eeg_read_by_this_review": false,
+  "processed_eeg_written": false,
+  "predictions_computed": false,
+  "historical_contract_edited": false,
+  "actual_observation_path": "/workspace/handoffs/paper-publication-20261002/pod-preparation-20261003T042211Z-5b8bf5833b9f/external_observations.json",
+  "actual_observation_sha256": "667c79466de65988d558a894818e1717db69e71db58fb24e9882ea2629d11eee",
+  "cohort_summary": {
+    "Cho2017": {
+      "n_files": 52,
+      "expected_ids_exact": true,
+      "provider_sizes_match_all": true,
+      "provider_md5_supported_count": 49,
+      "known_provider_md5_match_all": true,
+      "provider_content_md5_unavailable": [
+        "s07.mat",
+        "s09.mat",
+        "s46.mat"
+      ],
+      "recorded_transport_sha256_md5_size_match_all": true,
+      "size_bytes": 10704036837,
+      "unit_field_absent_count": 52,
+      "reference_field_absent_count": 52,
+      "native_hz": 512,
+      "retained_chunk_samples": 3584,
+      "marker_local_zero_based": 1023,
+      "per_class120_subjects": [
+        7,
+        9,
+        46
+      ],
+      "per_class100_subjects_count": 49,
+      "total_labeled_trials": 10520,
+      "raw_mat_channel_names_absent": true,
+      "primary_row_names_source": "official paper Figure 1, acquisition map; MAT row identity remains provider montage assumption",
+      "selected_indices_zero_based": [
+        37,
+        9,
+        10,
+        45,
+        44,
+        13,
+        12,
+        11,
+        47,
+        48,
+        49,
+        50,
+        17,
+        18,
+        31,
+        55,
+        54,
+        19,
+        30,
+        56,
+        29
+      ]
+    },
+    "Lee2019_MI": {
+      "n_files": 108,
+      "expected_ids_exact": true,
+      "provider_sizes_match_all": true,
+      "provider_md5_supported_count": 108,
+      "known_provider_md5_match_all": true,
+      "provider_content_md5_unavailable": [],
+      "recorded_transport_sha256_md5_size_match_all": true,
+      "size_bytes": 64847432285,
+      "unit_field_absent_count": 108,
+      "reference_field_absent_count": 108,
+      "native_hz": 1000,
+      "all_channel_order_equal": true,
+      "channel_count": 62,
+      "cues_per_session": 100,
+      "labels_per_native_code_per_session": 50,
+      "total_labeled_trials": 10800,
+      "selected_indices_zero_based": [
+        4,
+        32,
+        8,
+        9,
+        33,
+        34,
+        12,
+        35,
+        13,
+        36,
+        14,
+        37,
+        38,
+        18,
+        39,
+        19,
+        40,
+        41,
+        24,
+        42,
+        43
+      ],
+      "FCz_absent": true,
+      "sample_only_label_semantics": {
+        "1": "right_hand",
+        "2": "left_hand"
+      },
+      "sample_only_x_smt_alignment": "smt[k] exactly x[t[k]:t[k]+4000], Python; NOT proof of physical cue zero-based storage"
+    }
+  },
+  "proposed_prospective_contract": {
+    "selected_channel_order": [
+      "Fz",
+      "FC3",
+      "FC1",
+      "FC2",
+      "FC4",
+      "C5",
+      "C3",
+      "C1",
+      "Cz",
+      "C2",
+      "C4",
+      "C6",
+      "CP3",
+      "CP1",
+      "CPz",
+      "CP2",
+      "CP4",
+      "P1",
+      "Pz",
+      "P2",
+      "POz"
+    ],
+    "common_rate_hz": 160,
+    "analysis_half_open_seconds_relative_to_operational_cue": [
+      0.5,
+      2.5
+    ],
+    "output_samples": 320,
+    "label_output_mapping": {
+      "left_hand": 1,
+      "right_hand": 2
+    },
+    "Lee_native_mapping_required_per_file": {
+      "1": 2,
+      "2": 1
+    },
+    "operational_cue_rules": {
+      "Cho2017": "actual nonzero imagery_event array index, unchanged; local 1023 in each retained chunk",
+      "Lee2019_MI": "t_minus_one proposed to follow archived MATLAB t indexing; supplied smt disagreement must remain an explicit limitation",
+      "BNCI2014_001": "zero-based trial start + 500 native samples (2 seconds) from verified BNCI event mapping"
+    },
+    "filter_context_half_open_seconds": [
+      -1.5,
+      4.5
+    ],
+    "context_samples": {
+      "BNCI2014_001": 1500,
+      "Cho2017": 3072,
+      "Lee2019_MI": 6000
+    },
+    "Cho_context_bounds_zero_based_in_chunk": [
+      255,
+      3327
+    ],
+    "rereference_proposal": "instantaneous CAR over exactly the same 21 selected channels in all three cohorts, assuming a common additive reference and uniform channel gains",
+    "artifact_policy": "include_all; no amplitude thresholds or new rejection rules",
+    "filter_proposal": {
+      "type": "butter bandpass in SOS",
+      "prototype_order": 4,
+      "sos_sections": 4,
+      "effective_bandpass_order": 8,
+      "phase": "sosfiltfilt forward/backward",
+      "padding": "odd",
+      "native_padding_samples": 27,
+      "bands_hz": {
+        "broad": [
+          8,
+          30
+        ],
+        "mu": [
+          8,
+          13
+        ],
+        "beta": [
+          13,
+          30
+        ]
+      },
+      "scope": "separate context for each trial, no crossing Cho retained chunk boundaries; source and Lee contexts fully inside their real recorded continuous run"
+    },
+    "resampling_proposal": {
+      "method": "scipy.signal.resample_poly",
+      "rational_ratios": {
+        "BNCI2014_001": [
+          16,
+          25
+        ],
+        "Cho2017": [
+          5,
+          16
+        ],
+        "Lee2019_MI": [
+          4,
+          25
+        ]
+      },
+      "window": [
+        "kaiser",
+        5.0
+      ],
+      "padtype": "constant",
+      "cval": 0.0,
+      "context_output_samples": 960,
+      "analysis_crop_half_open_samples": [
+        320,
+        640
+      ],
+      "pin_requirement": "SciPy and NumPy versions, generated SOS arrays and FIR implementation/coefficients must be frozen; explicit cval differs from relying on defaults"
+    },
+    "units_proposal": "original native-unit/calibration status remains unknown for Cho and not exporter-bound for Lee; an explicit benchmark convention of native values interpreted as microvolts is possible only as a documented assumption, not a verified exported-unit fact",
+    "Cho_identity": "subject/session1/class_name/retained_chunk_ordinal; physical_run_id null, never fabricated from candidate 40-trial blocks",
+    "Lee_identity": "subject/session/offline_train/native_cue_ordinal; exclude EEG_MI_test/other paradigms/rest/EMG",
+    "inference_unit": "person; fixed full cohort; three-seed within-person mean before equal-person comparison; no target fitting or adaptive normalization",
+    "historical_difference": "requires a new prospective method amendment and newly preprocessed BNCI source fits; existing q15_source run-local MNE transform does not implement this context/CAR pipeline"
+  },
+  "true_pre_execution_blockers": [
+    "All 160-file observation reports omit finite-value checks and full native per-trial identity/alignment checks; re-run strict actual-byte audits before freeze.",
+    "Lee: validate class maps/y_class/y_logic, cue integer type/range, t/smt offset candidates and all selected/context bounds per each of 108 files.",
+    "Cho: replay every marker, shape/subject/coordinate layout, first64 montage compatibility, per-class chunk bounds and finite samples across 52 files; bind row labels to primary Figure1 with recorded scope assumption.",
+    "Reconcile official inventories/checksum evidence per file; multipart ETags for Cho s07/s09/s46 are not content MD5; do not label them provider-MD5-verified.",
+    "Freeze operational cue conversion, boundary handling, reference choice, explicit unit decision and numerical implementation BEFORE any source fit; keep original physical timing/voltage caveats visible.",
+    "Implement identical source/target transform and independent adversarial/no-boundary/no-label-leakage replay tests; do not re-use earlier source checkpoints after transform amendment.",
+    "Preserve target outcome sealing and fixed source-only selection; check expected 14 neural+1 shallow source fits and zero target fits."
+  ],
+  "limitations_that_do_not_require_fabrication_or_target_fit": [
+    "Cho original physical run chronology is not needed for independent retained-context prediction and person-level inference, provided no run-specific stats are claimed.",
+    "Unknown original additive reference can be recorded and addressed by the same fixed CAR under an explicit uniform-gain assumption; CAR does not discover original reference.",
+    "One-sample timing discrepancy can be handled by an outcome-independent prospective operational rule; cannot be reported as recovered hardware/display latency.",
+    "An assumed exported unit is a scientific limitation of an adapter benchmark, not evidence of physical voltage calibration; calibrated-unit claims and voltage rejection remain unavailable."
+  ],
+  "evidence_files": [
+    {
+      "path": "/workspace/cross-subject-mi-eeg/research_runs/Q15-DATA/metadata/preprocessing_evidence.md",
+      "sha256": "5819cc3b2ed028f39e7e2173f432b1e2dc2e50afa7b8deca1681b2b6427c4210"
+    },
+    {
+      "path": "/workspace/cross-subject-mi-eeg/research_runs/Q15-DATA/metadata/preprocessing_evidence.json",
+      "sha256": "676ff20d976698f45f51b2148d790bd8d842932f16bfbde3bb3ecd73cb0c2ba4"
+    },
+    {
+      "path": "/workspace/cross-subject-mi-eeg/research_runs/Q15-DATA/metadata/lee_sample_metadata.json",
+      "sha256": "fa2a9e40cbafa5c9ff4111db684faf46cb43da74092c05b46b0564f9865a5bb3"
+    },
+    {
+      "path": "/workspace/cross-subject-mi-eeg/research_runs/Q15-DATA/metadata/cho_sample_metadata.json",
+      "sha256": "9ac93b8cb35c40bd2549c63c3cd4b4ace01624cdd0457f2c84a05ddba2ed494c"
+    },
+    {
+      "path": "/workspace/cross-subject-mi-eeg/research_runs/Q15-DATA/metadata/preprocessing_evidence_sources/cho_channel_order_from_figure1.json",
+      "sha256": "76ad169f06ede6b00e3f30b14f751ce5a695c1e8228b514044b57cad0d032633"
+    },
+    {
+      "path": "/workspace/cross-subject-mi-eeg/research_runs/Q15-DATA/metadata/preprocessing_evidence_sources/gix034fig1.jpg",
+      "sha256": "29649085f0ba0954dc29501c2eb30dac488bef538cc95c479556bc90795ed87c"
+    },
+    {
+      "path": "/workspace/cross-subject-mi-eeg/research_runs/Q15-DATA/metadata/preprocessing_evidence_sources/OpenBMI_archive_20181123/OpenBMI-master/BMI_modules/PreProcessing/prep_segmentation.m",
+      "sha256": "62ae92f04b77a537473fc95d4258e6d203943ed66f34c7f484741e5545ccc2d0"
+    },
+    {
+      "path": "/workspace/cross-subject-mi-eeg/research_runs/Q15-DATA/evidence/lee/transfer_manifest.json",
+      "sha256": "85d5fb7cdb31940901707762c869e2ca82aa0f2b0aec612b11e3782b6101410f"
+    },
+    {
+      "path": "/workspace/cross-subject-mi-eeg/research_runs/Q15-DATA/evidence/lee/100542.md5",
+      "sha256": "20b1ef60db5877a8508bfb9fb04a206cf9173d884bf48850ce2627d55c957cb4"
+    },
+    {
+      "path": "/workspace/cross-subject-mi-eeg/research_runs/Q15-DATA/evidence/cho/transfer_manifest.json",
+      "sha256": "570630f7070712ed05ce97d78cfd47aef6b3999e89959dddc34f5ad4a04fd3c7"
+    },
+    {
+      "path": "/workspace/cross-subject-mi-eeg/research_runs/Q15-DATA/evidence/cho/sequence_independent_readonly_replay.json",
+      "sha256": "6a043070325e6a254c6086226938609fa639be7e5b9937cca7915426badd8056"
+    },
+    {
+      "path": "/workspace/cross-subject-mi-eeg/research_runs/Q15-DATA/evidence/cho/prospective_preprocessing_amendment_proposal.md",
+      "sha256": "a3d435206af45b4a60e35839b930669e28c915e2025d6205d5ca232910d477ce"
+    }
+  ],
+  "independent_figure1_viewed_in_current_review": true,
+  "compatible_completion_category": "completed_with_calibration_limitations",
+  "compatibility_conditions": [
+    "real complete per-file audits and immutable prospective freeze before any fit",
+    "same per-trial context/CAR/filter/resampling implementation across newly trained source and external targets",
+    "fixed unit analysis convention with calibration_verified=false, not physically verified voltage claims",
+    "fixed operational timing choice, full label replays and no performance-based rule selection",
+    "independent source, checkpoint, prediction and person-statistical validation, zero target fits"
+  ]
+}

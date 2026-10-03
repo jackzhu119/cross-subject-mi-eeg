@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "release_date": "2026-10-03",
+  "automated_tests": {
+    "count": 103,
+    "passed": true,
+    "network_requests": false,
+    "model_operations": false,
+    "real_pinned_inventory_tests_executed": 2,
+    "test_files": [
+      "scripts/q15_cloud/tests/test_cloud_job.py",
+      "scripts/q15_cloud/tests/test_bootstrap_flow.py"
+    ]
+  },
+  "checks": {
+    "python_compile": "passed",
+    "git_diff_whitespace": "passed"
+  },
+  "live_validation": "LIVE_R2_VALIDATION_20261003.json",
+  "runpod_authenticated_validation_performed": false,
+  "user_new_pod_has_not_run_this_release": true,
+  "automatic_start_on_pod_power_on_installed": false,
+  "fits_started": 0,
+  "covered_failures": [
+    "HTTP401_403_preserve_safe_code",
+    "current_environment_key_auth_retry",
+    "cached_manual_key_precedence",
+    "partial_credentials_saved_before_preflight",
+    "hidden_input_never_falls_back_to_echo",
+    "stale_current_pod_identity_rejected",
+    "different_pod_shared_volume_lock_conflict",
+    "allocated_quota_not_shared_df",
+    "authenticated_inventory_restore_after_raw_only_migration",
+    "remaining_allocation_plus_reserve_budget",
+    "cached_corrupt_inventory_rejected",
+    "range_resume_etag_binding",
+    "stream_hash_and_independent_persisted_readback",
+    "backup_full_readback_before_stop",
+    "backup_failure_blocks_stop",
+    "local_ENOSPC_preserves_remote_final_evidence",
+    "duplicate_bootstrap_and_worker_prevention",
+    "process_startup_handshake_and_pending_state",
+    "fits_started_zero_scientific_block",
+    "accurate_GET_and_POST_application_identification",
+    "edge_policy_403_not_auth_secret_retry",
+    "bounded_error_body_read_without_logging",
+    "non_POSIX_shared_volume_virtual_777_666",
+    "strict_local_root_and_atomic_file_mode_validation",
+    "bounded_owned_single_link_legacy_migration",
+    "partial_private_cache_merges_missing_legacy_fields",
+    "legacy_removed_only_after_private_full_readback",
+    "shared_control_state_contains_no_credential_values",
+    "shared_worker_lock_remains_separate_from_private_config",
+    "worker_refuses_permissive_private_config_or_parent"
+  ],
+  "runpod_network_edge_validation": "RUNPOD_NETWORK_EDGE_VALIDATION.json",
+  "container_local_credential_storage": true,
+  "container_recreation_requires_secret_reinjection_or_hidden_input": true,
+  "legacy_shared_plaintext_removed_on_successful_migration": true
+}

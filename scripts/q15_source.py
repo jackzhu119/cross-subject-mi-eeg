@@ -3,7 +3,8 @@
 This is a new model, not an alteration of frozen Q14 checkpoints. The default
 invocation is read-only dry-run. Source fitting requires two independently
 verified, real raw-file metadata audits *and* a committed pre-fit freeze
-receipt. No external EEG or target labels are loaded here.
+receipt. External originals are replayed for metadata verification; source
+fitting uses BNCI EEG and labels only.
 """
 
 from __future__ import annotations
@@ -21,8 +22,9 @@ from pathlib import Path
 
 os.environ.setdefault("CUBLAS_WORKSPACE_CONFIG", ":4096:8")
 ROOT = Path(__file__).resolve().parents[1]
-if str(ROOT) not in sys.path:
-    sys.path.insert(0, str(ROOT))
+for directory in (ROOT, ROOT / "src"):
+    if str(directory) not in sys.path:
+        sys.path.insert(0, str(directory))
 
 import joblib
 import numpy as np
@@ -35,7 +37,15 @@ CONTRACT_CHECKER = CONTRACT.with_name("q15_validate_contract.py")
 METADATA_AUDITOR = ROOT / "scripts/q15_metadata_audit.py"
 Q14_CONFIG = ROOT / "research_runs/Q14-E001/CONFIG.json"
 Q8_SOURCE_PROVENANCE = ROOT / "research_runs/Q8-E001/results/source_files.json"
-DEPENDENCY_SPEC = ROOT / "requirements-paper-cu128.txt"
+Q8_SOURCE_METADATA = ROOT / "research_runs/Q8-E001/results/trial_metadata.csv"
+DEPENDENCY_SPEC = ROOT / "requirements-q15-runtime.txt"
+EXECUTION_CONTRACT = ROOT / "research_runs/Q15-EXECUTION-20261003/EXECUTION_CONTRACT.json"
+REAL_METADATA_ADAPTER = ROOT / "scripts/q15_real_metadata.py"
+CONTEXT_PREPROCESSOR = ROOT / "src/mi_eeg/data/q15_context.py"
+EXTERNAL_PREPROCESSOR = ROOT / "scripts/q15_preprocess_external.py"
+CSP_BASIS = ROOT / "src/mi_eeg/models/q15_csp.py"
+TRANSPORT_INVENTORY = ROOT / "research_runs/Q15-PREPARATION/transport_inventory.json"
+SOURCE_VALIDATOR = ROOT / "scripts/q15_validate_source.py"
 BNCI_LOADER = ROOT / "src/mi_eeg/data/bnci_epochs.py"
 EEGNET_HELPER = ROOT / "src/mi_eeg/models/eegnet_training.py"
 AUDIT_RECEIPTS = {
@@ -95,7 +105,7 @@ def _metadata_auditor():
 
 
 def derive_config() -> dict:
-    """Pin every Q14 setting except the predeclared input channel/time shape."""
+    """Preserve model policy with the explicit prospective context/CAR amendment."""
     _contract_checker().validate_contract()
     plan = _json(CONTRACT)["new_source_arm"]
     config = copy.deepcopy(_json(Q14_CONFIG))
@@ -116,6 +126,16 @@ def derive_config() -> dict:
         raise AssertionError("Unexpected Q15 channel rule")
     if config["architecture"]["n_chans"] != 21 or config["n_times"] != 320:
         raise AssertionError("Unexpected Q15 model input dimensions")
+    from mi_eeg.data.q15_context import preprocessing_contract
+    operational = preprocessing_contract()
+    config.update({
+        "execution_context_relative_s": operational["shared_transform"]["context_relative_s"],
+        "execution_reference": operational["shared_transform"]["reference"],
+        "execution_filter_scope": operational["filter"]["scope"],
+        "execution_filter_padlen": operational["filter"]["padlen"],
+        "execution_contract_sha256": _sha(EXECUTION_CONTRACT),
+        "execution_csp_basis": "fixed_21_to_20_helmert",
+    })
     return config
 
 
@@ -181,6 +201,7 @@ def preflight_metadata() -> dict[str, dict]:
 
 
 def _freeze_payload(receipts: dict[str, dict]) -> dict:
+    from mi_eeg.data.q15_context import numerical_implementation
     return {
         "schema_version": 1,
         "experiment_id": "Q15-E005",
@@ -196,6 +217,15 @@ def _freeze_payload(receipts: dict[str, dict]) -> dict:
         "bnci_loader_sha256": _sha(BNCI_LOADER),
         "eegnet_training_helper_sha256": _sha(EEGNET_HELPER),
         "metadata_auditor_sha256": _sha(METADATA_AUDITOR),
+        "execution_contract_sha256": _sha(EXECUTION_CONTRACT),
+        "real_metadata_adapter_sha256": _sha(REAL_METADATA_ADAPTER),
+        "context_preprocessor_sha256": _sha(CONTEXT_PREPROCESSOR),
+        "external_preprocessor_sha256": _sha(EXTERNAL_PREPROCESSOR),
+        "csp_basis_sha256": _sha(CSP_BASIS),
+        "transport_inventory_sha256": _sha(TRANSPORT_INVENTORY),
+        "source_validator_sha256": _sha(SOURCE_VALIDATOR),
+        "q8_source_metadata_sha256": _sha(Q8_SOURCE_METADATA),
+        "numerical_preprocessing": numerical_implementation(),
         "runner_sha256": _sha(SOURCE_SCRIPT),
         "q14_source_helper_sha256": _sha(Path(q14_source.__file__)),
         "metadata_receipt_sha256": {
@@ -208,11 +238,23 @@ def _freeze_payload(receipts: dict[str, dict]) -> dict:
     }
 
 
+def _freeze_inputs():
+    evidence = [EXECUTION_CONTRACT.parent / "evidence" / name
+                for name in _json(EXECUTION_CONTRACT)["evidence_sha256"]]
+    manifests = [Path(_json(path)["provider_manifest_path"]) for path in AUDIT_RECEIPTS.values()]
+    return (CONTRACT, CONTRACT_CHECKER, Q14_CONFIG, Q8_SOURCE_PROVENANCE, Q8_SOURCE_METADATA,
+            DEPENDENCY_SPEC, BNCI_LOADER, EEGNET_HELPER, METADATA_AUDITOR,
+            SOURCE_SCRIPT, Path(q14_source.__file__), EXECUTION_CONTRACT,
+            REAL_METADATA_ADAPTER, CONTEXT_PREPROCESSOR, EXTERNAL_PREPROCESSOR,
+            CSP_BASIS, SOURCE_VALIDATOR, TRANSPORT_INVENTORY,
+            *AUDIT_RECEIPTS.values(), *manifests, *evidence)
+
+
 def prepare_freeze() -> Path:
     """Prepare a receipt; a separate reviewed Git commit is still required."""
     receipts = preflight_metadata()
     payload = _freeze_payload(receipts)
-    for path in (CONTRACT, CONTRACT_CHECKER, Q14_CONFIG, Q8_SOURCE_PROVENANCE, DEPENDENCY_SPEC, BNCI_LOADER, EEGNET_HELPER, METADATA_AUDITOR, SOURCE_SCRIPT, Path(q14_source.__file__), *AUDIT_RECEIPTS.values()):
+    for path in _freeze_inputs():
         _assert_committed_unchanged(path)
     if FREEZE.exists() and _json(FREEZE) != payload:
         raise AssertionError("Existing Q15 pre-fit freeze differs")
@@ -227,13 +269,22 @@ def _verify_committed_freeze() -> dict:
     recorded = _json(FREEZE)
     if recorded != _freeze_payload(receipts):
         raise AssertionError("Q15 pre-fit freeze no longer matches audited inputs")
-    for path in (CONTRACT, CONTRACT_CHECKER, Q14_CONFIG, Q8_SOURCE_PROVENANCE, DEPENDENCY_SPEC, BNCI_LOADER, EEGNET_HELPER, METADATA_AUDITOR, SOURCE_SCRIPT, Path(q14_source.__file__), FREEZE, *AUDIT_RECEIPTS.values()):
+    for path in (*_freeze_inputs(), FREEZE):
         _assert_committed_unchanged(path)
     return recorded
 
 
 def load_source(config: dict, data_dir: Path):
-    """Filter at native 250 Hz, epoch 2 s, then remove FCz and resample."""
+    """Apply the same declared context/CAR/filter transform as both targets."""
+    from mi_eeg.data.q15_context import load_bnci_source
+    arrays, meta, audit = load_bnci_source(data_dir, config["source_subjects"], Q8_SOURCE_PROVENANCE)
+    if any(values.shape != (2592, 21, 320) for values in arrays.values()):
+        raise AssertionError("Uniform Q15 source shape differs")
+    return arrays, meta, audit
+
+
+def _legacy_source_shape_example(config: dict, data_dir: Path):
+    """Historical preparation example; unused by the revised execution runner."""
     preprocessing = {
         "sampling_rate_hz": 250,
         "bands": config["bands_hz"],
@@ -355,7 +406,11 @@ def _fit_csp(path: Path, arrays, meta, config, protocol_sha: str) -> None:
         if not model_file.is_file() or _sha(model_file) != old.get("model_sha256"):
             raise AssertionError("Existing Q15 CSP artifact corrupted")
         return
-    pipeline = q14_source._csp_pipeline()
+    from sklearn.pipeline import Pipeline
+
+    from mi_eeg.models.q15_csp import FixedCARBasis
+    legacy = q14_source._csp_pipeline()
+    pipeline = Pipeline([("fixed_car_basis", FixedCARBasis()), *legacy.steps])
     pipeline.fit(arrays["broad"][train].astype(np.float64), meta.iloc[train]["label"].to_numpy())
     path.mkdir(parents=True, exist_ok=True)
     temp = path / "model.joblib.tmp"
@@ -365,6 +420,49 @@ def _fit_csp(path: Path, arrays, meta, config, protocol_sha: str) -> None:
         manifest_path,
         {**required, "status": "complete", "model_sha256": _sha(model_file), "n_source_trials": len(train)},
     )
+
+
+def _source_stage_completion(root: Path, protocol_sha: str, *, write: bool) -> Path:
+    """Preserve a completed stage's immutable receipt when reusing its fits.
+
+    The inference freeze pins the source validation report, which in turn
+    hashes this receipt. Replacing its timestamp on resume would invalidate
+    that freeze despite unchanged fits. Existing receipts therefore require
+    the complete same protocol and an aware timestamp, and are never rewritten.
+    """
+    path = Path(root) / "source_stage_complete.json"
+    expected = {
+        "experiment_id": "Q15-E005",
+        "status": "fits_complete_pending_independent_source_validation",
+        "deep_fit_count": 14,
+        "shallow_fit_count": 1,
+        "external_predictions_computed": False,
+        "external_prediction_authorized": False,
+        "pre_fit_freeze_sha256": protocol_sha,
+    }
+    if path.is_symlink():
+        raise AssertionError("Existing Q15 source completion is symlinked; resume blocked")
+    if path.exists():
+        recorded = _json(path)
+        if set(recorded) != set(expected) | {"completed_at_utc"} or any(
+            recorded.get(key) != value for key, value in expected.items()
+        ):
+            raise AssertionError("Existing Q15 source completion differs; resume blocked")
+        timestamp = recorded["completed_at_utc"]
+        try:
+            if not isinstance(timestamp, str):
+                raise TypeError("Timestamp must be text")
+            completed = datetime.fromisoformat(timestamp)
+            if completed.tzinfo is None or completed.utcoffset() is None:
+                raise ValueError("Timestamp must contain a timezone")
+        except (ValueError, TypeError):
+            raise AssertionError("Existing Q15 source completion timestamp is invalid") from None
+        return path
+    if write:
+        q14_source.atomic_json(path, {
+            **expected, "completed_at_utc": datetime.now(UTC).isoformat(),
+        })
+    return path
 
 
 def run_source(data_dir: Path, device_name: str) -> None:
@@ -386,6 +484,8 @@ def run_source(data_dir: Path, device_name: str) -> None:
         "pre_fit_freeze_sha256": _sha(FREEZE),
         "contract_sha256": freeze["contract_sha256"],
         "runner_sha256": freeze["runner_sha256"],
+        "source_config": config,
+        "execution_contract_sha256": _sha(EXECUTION_CONTRACT),
         "source_file_receipt_sha256": hashlib.sha256(
             json.dumps(source_files, sort_keys=True).encode("utf-8")
         ).hexdigest(),
@@ -399,6 +499,7 @@ def run_source(data_dir: Path, device_name: str) -> None:
     root.mkdir(parents=True, exist_ok=True)
     q14_source.atomic_json(run_config_path, run_config)
     q14_source.atomic_json(root / "source_files.json", {"files": source_files})
+    _source_stage_completion(root, _sha(FREEZE), write=False)
     arrays, meta, audit = load_source(config, data_dir)
     q14_source.atomic_csv(root / "source_metadata.csv", meta)
     q14_source.atomic_csv(root / "source_audit.csv", audit)
@@ -471,19 +572,7 @@ def run_source(data_dir: Path, device_name: str) -> None:
         if device.type == "cuda":
             torch.cuda.empty_cache()
     _fit_csp(root / "CSP4_LDA" / "all_source", arrays, meta, config, protocol_sha)
-    q14_source.atomic_json(
-        root / "source_stage_complete.json",
-        {
-            "experiment_id": "Q15-E005",
-            "status": "fits_complete_pending_independent_source_validation",
-            "deep_fit_count": 14,
-            "shallow_fit_count": 1,
-            "external_predictions_computed": False,
-            "external_prediction_authorized": False,
-            "pre_fit_freeze_sha256": protocol_sha,
-            "completed_at_utc": datetime.now(UTC).isoformat(),
-        },
-    )
+    _source_stage_completion(root, protocol_sha, write=True)
 
 
 def main() -> None:
