@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "code_commit": "40c93ebd80589637cdbfe936fd27687f5175673f",
+  "code_commit": "08e20e92675f67cc4a4cb9e3bf020ec7101f99cf",
   "public_branch": "q15/cloud-bootstrap-20261002",
   "prepared_not_deployed": true,
   "cloud_server_authenticated_connection_established": false,
@@ -16,26 +16,36 @@
   "scientific_raw_metadata_audit_complete": false,
   "preprocessing_contract_frozen": false,
   "tests": {
-    "count": 93,
+    "count": 103,
     "passed": true,
     "network_or_models_used": false
   },
   "managed_cloud_live_r2_probe_and_pinned_archive_restoration": "passed_not_runpod_validation",
   "scripts_sha256": {
-    "q15_cloud_bootstrap.py": "827ca023cd442a1ac116e28ac3f979978b66e26d3bcd3589e07de6509cd1229f",
-    "q15_cloud_job.py": "f3c313cb37e73b9d2030cc467645bd2aa83d8db87169ad91f5f300b73cd2989d"
+    "q15_cloud_bootstrap.py": "44fe211995a9d363f317d6d80a056b731458c6296793d8573e6054925c2a74ab",
+    "q15_cloud_job.py": "b969339a37b5409845015b8cfb3e33a975cc7d3cc7170ba59587c45a75c9917e"
   },
-  "launcher_sha256": "ed962b81f4619f32412f5ab6d11ab0dbb7732d85fdf406640438eb28b0437ece",
+  "launcher_sha256": "0598fb9efe262690edae83477edbb19fdf9c53c040136f8e936b465c58f7636f",
   "paper_archive_pr": "https://github.com/jackzhu119/cross-subject-mi-eeg/pull/1",
   "required_user_action": "Execute the current launcher in the new Pod web/Jupyter Terminal. Reuse cached credentials or supply missing values using hidden prompts; wait for a verified detached startup receipt.",
   "next_scientific_action": "Implement and independently review real metadata adapters, audit all160, verify BNCI18 source originals, freeze committed preprocessing before training.",
   "pod_identity_source": "current RUNPOD_POD_ID; no historical fallback",
-  "latest_old_version_user_attempt_status": "NOT_STARTED at runpod_api with HTTP403; response body unavailable. Managed public probe reproduced default-urllib Cloudflare1010; explicit accurate application UA reached authentication boundary.",
+  "latest_old_version_user_attempt_status": "NOT_STARTED at persistent_runtime: chmod on user shared network volume leaves directory777 and credential666. New permission-storage release has not yet been run on the Pod.",
   "migration_fixes": [
     "current_Pod_API_revalidation",
     "environment_auth_retry_after_rejected_cached_key",
     "shared_volume_different_Pod_worker_conflict",
     "pinned_inventory_recovery_before_remaining_space_budget"
   ],
-  "runpod_api_client_signature_fix": "q15-cloud-transport/20261003 for GET and POST, edge denials classified without repeated secret entry"
+  "runpod_api_client_signature_fix": "q15-cloud-transport/20261003 for GET and POST, edge denials classified without repeated secret entry",
+  "credential_storage": {
+    "container_local_directory": "/tmp/q15-private-<UID>",
+    "directory_mode_verified": "700",
+    "credential_mode_verified": "600",
+    "shared_state_root": "/workspace/.q15-cloud",
+    "shared_state_contains_credentials": false,
+    "legacy_fields_migrated_then_old_plaintext_removed": true,
+    "cache_survives_container_recreation": false,
+    "recreated_container_requires_environment_secrets_or_hidden_input": true
+  }
 }
