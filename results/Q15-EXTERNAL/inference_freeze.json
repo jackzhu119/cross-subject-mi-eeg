@@ -1,0 +1,554 @@
+{
+  "context_preprocessor_sha256": "849ee22e2a1c1987c2a83ed3a837f9f358b505133ce2ffe13ee876f01adc3d61",
+  "contract_sha256": "ef59b23b821f5fadd75b3483540a4bdfbb0afbefe58f6b4835d659aac9f35554",
+  "csp_basis_sha256": "b5e4df5428c28688d5163cbb235fad5408cf89324ac4112c6511cdedd25294fd",
+  "dependency_spec_sha256": "8b0c7e59ac54aba0e2eaa615041f0aef93bf86ff5019c79f9d370a6bd9a8a982",
+  "epoch_manifests": {
+    "Cho2017": {
+      "n_persons": 52,
+      "path": "/workspace/q15-execution/repo/results/Q15-EXTERNAL/manifests/Cho2017.json",
+      "sha256": "9af80235553d8805ea1d7ce7525354c7649f50796f0e696d311ccb1ce9e0f573"
+    },
+    "Lee2019_MI": {
+      "n_persons": 54,
+      "path": "/workspace/q15-execution/repo/results/Q15-EXTERNAL/manifests/Lee2019_MI.json",
+      "sha256": "404d820417bfa01529c822700e749eb681f564999342729ada35132dffba34e7"
+    }
+  },
+  "execution_contract_sha256": "4db58b7096378fc1a429580600f35dc8df1a98d701cf8bfb081770f8ea721766",
+  "external_arms": {
+    "Cho2017": "Q15-E006",
+    "Lee2019_MI": "Q15-E007"
+  },
+  "external_validator_sha256": "df688777d51d3d8aec9bd785683859b512024f922ba2805284dfe5fbfc71e8bd",
+  "metadata_receipts": {
+    "Cho2017": "5593d194397d905ce3535deea362ffe10655eecb7b9fad7e124746b8d21cac16",
+    "Lee2019_MI": "f7f253ae721db39ec26473f9ed3aab827140035975878b9efc4e587e0a3f045b"
+  },
+  "new_model_fits": 0,
+  "preprocessing": {
+    "analysis_input_unit_convention": "native_numeric_as_microvolts",
+    "artifact_policy": "include_all",
+    "bands_hz": {
+      "beta": [
+        13,
+        30
+      ],
+      "broad": [
+        8,
+        30
+      ],
+      "mu": [
+        8,
+        13
+      ]
+    },
+    "calibration_verified": false,
+    "channels": [
+      "Fz",
+      "FC3",
+      "FC1",
+      "FC2",
+      "FC4",
+      "C5",
+      "C3",
+      "C1",
+      "Cz",
+      "C2",
+      "C4",
+      "C6",
+      "CP3",
+      "CP1",
+      "CPz",
+      "CP2",
+      "CP4",
+      "P1",
+      "Pz",
+      "P2",
+      "POz"
+    ],
+    "cue_window_s_half_open": [
+      0.5,
+      2.5
+    ],
+    "dtype": "float32",
+    "filter": {
+      "ftype": "butter",
+      "order": 4,
+      "padlen": 27,
+      "phase": "zero",
+      "scope": "each_real_retained_trial_context"
+    },
+    "label_map": {
+      "left_hand": 1,
+      "right_hand": 2
+    },
+    "n_times": 320,
+    "native_export_units_verified": false,
+    "native_microvolt_analysis_convention": true,
+    "numerical_implementation": {
+      "bandpass_order": 8,
+      "filter_padlen_native_samples": 27,
+      "filter_padtype": "odd",
+      "filter_representation": "SOS",
+      "native_filter_sos": {
+        "1000": {
+          "beta": [
+            [
+              7.102385783856649e-06,
+              1.4204771567713298e-05,
+              7.102385783856649e-06,
+              1.0,
+              -1.8695524945162387,
+              0.890314526512204
+            ],
+            [
+              1.0,
+              2.0,
+              1.0,
+              1.0,
+              -1.91141949318941,
+              0.9217769386349588
+            ],
+            [
+              1.0,
+              -2.0,
+              1.0,
+              1.0,
+              -1.912818141393665,
+              0.9455524666791577
+            ],
+            [
+              1.0,
+              -2.0,
+              1.0,
+              1.0,
+              -1.967736783712257,
+              0.9746702587925307
+            ]
+          ],
+          "broad": [
+            [
+              1.916680760731928e-05,
+              3.833361521463856e-05,
+              1.916680760731928e-05,
+              1.0,
+              -1.8264890910850375,
+              0.8437348365574079
+            ],
+            [
+              1.0,
+              2.0,
+              1.0,
+              1.0,
+              -1.91292229022187,
+              0.9175253024789412
+            ],
+            [
+              1.0,
+              -2.0,
+              1.0,
+              1.0,
+              -1.8890593043496555,
+              0.9211094445448632
+            ],
+            [
+              1.0,
+              -2.0,
+              1.0,
+              1.0,
+              -1.9742373533837334,
+              0.9768896206169394
+            ]
+          ],
+          "mu": [
+            [
+              5.8451424331444814e-08,
+              1.1690284866288963e-07,
+              5.8451424331444814e-08,
+              1.0,
+              -1.9637968147844989,
+              0.9686935513598462
+            ],
+            [
+              1.0,
+              2.0,
+              1.0,
+              1.0,
+              -1.970749764984105,
+              0.9740926603111487
+            ],
+            [
+              1.0,
+              -2.0,
+              1.0,
+              1.0,
+              -1.979028416221137,
+              0.985423936266074
+            ],
+            [
+              1.0,
+              -2.0,
+              1.0,
+              1.0,
+              -1.9880825969853004,
+              0.9906850812439008
+            ]
+          ]
+        },
+        "250": {
+          "beta": [
+            [
+              0.0012609791390538825,
+              0.002521958278107765,
+              0.0012609791390538825,
+              1.0,
+              -1.3419527021947788,
+              0.6242912681593911
+            ],
+            [
+              1.0,
+              2.0,
+              1.0,
+              1.0,
+              -1.5680047383189277,
+              0.7149004665323198
+            ],
+            [
+              1.0,
+              -2.0,
+              1.0,
+              1.0,
+              -1.3390827082636143,
+              0.8066774220354329
+            ],
+            [
+              1.0,
+              -2.0,
+              1.0,
+              1.0,
+              -1.7944433629094618,
+              0.9003091233158103
+            ]
+          ],
+          "broad": [
+            [
+              0.003111903604586018,
+              0.006223807209172036,
+              0.003111903604586018,
+              1.0,
+              -1.2672931915575452,
+              0.493789184143714
+            ],
+            [
+              1.0,
+              2.0,
+              1.0,
+              1.0,
+              -1.6370396227024675,
+              0.7019629536078331
+            ],
+            [
+              1.0,
+              -2.0,
+              1.0,
+              1.0,
+              -1.2863770965150896,
+              0.7317912749111386
+            ],
+            [
+              1.0,
+              -2.0,
+              1.0,
+              1.0,
+              -1.8683294067657878,
+              0.9091564065038225
+            ]
+          ],
+          "mu": [
+            [
+              1.3293728898752895e-05,
+              2.658745779750579e-05,
+              1.3293728898752895e-05,
+              1.0,
+              -1.8060422601506538,
+              0.8805093633316909
+            ],
+            [
+              1.0,
+              2.0,
+              1.0,
+              1.0,
+              -1.8486839744364183,
+              0.8999875581498267
+            ],
+            [
+              1.0,
+              -2.0,
+              1.0,
+              1.0,
+              -1.8438823009872507,
+              0.9432574579945188
+            ],
+            [
+              1.0,
+              -2.0,
+              1.0,
+              1.0,
+              -1.9221810984302843,
+              0.9631139465155167
+            ]
+          ]
+        },
+        "512": {
+          "beta": [
+            [
+              9.141146876000512e-05,
+              0.00018282293752001024,
+              9.141146876000512e-05,
+              1.0,
+              -1.7213930772707835,
+              0.7965107930310726
+            ],
+            [
+              1.0,
+              2.0,
+              1.0,
+              1.0,
+              -1.8141510150611009,
+              0.8521836506162183
+            ],
+            [
+              1.0,
+              -2.0,
+              1.0,
+              1.0,
+              -1.776280732051976,
+              0.8971558260009154
+            ],
+            [
+              1.0,
+              -2.0,
+              1.0,
+              1.0,
+              -1.9248315774527867,
+              0.9509216059530954
+            ]
+          ],
+          "broad": [
+            [
+              0.00023881540336781845,
+              0.0004776308067356369,
+              0.00023881540336781845,
+              1.0,
+              -1.654534622699491,
+              0.7159105177786428
+            ],
+            [
+              1.0,
+              2.0,
+              1.0,
+              1.0,
+              -1.8276588079444576,
+              0.8445299114741608
+            ],
+            [
+              1.0,
+              -2.0,
+              1.0,
+              1.0,
+              -1.7358603171359117,
+              0.8529750065508179
+            ],
+            [
+              1.0,
+              -2.0,
+              1.0,
+              1.0,
+              -1.9452129379613807,
+              0.9552125515989741
+            ]
+          ],
+          "mu": [
+            [
+              8.186931516717469e-07,
+              1.6373863033434938e-06,
+              8.186931516717469e-07,
+              1.0,
+              -1.9213769304547583,
+              0.9397648635324479
+            ],
+            [
+              1.0,
+              2.0,
+              1.0,
+              1.0,
+              -1.9374034903148638,
+              0.9499918998623004
+            ],
+            [
+              1.0,
+              -2.0,
+              1.0,
+              1.0,
+              -1.947563551100681,
+              0.9717570977266038
+            ],
+            [
+              1.0,
+              -2.0,
+              1.0,
+              1.0,
+              -1.9719963488667374,
+              0.9818742122977707
+            ]
+          ]
+        }
+      },
+      "numpy_version": "2.5.3",
+      "prototype_order": 4,
+      "resampling": {
+        "context_samples": 960,
+        "crop_half_open": [
+          320,
+          640
+        ],
+        "cval": 0.0,
+        "implementation": "scipy.signal.resample_poly",
+        "native_to_common_ratios": {
+          "1000": [
+            4,
+            25
+          ],
+          "250": [
+            16,
+            25
+          ],
+          "512": [
+            5,
+            16
+          ]
+        },
+        "padtype": "constant",
+        "window": [
+          "kaiser",
+          5.0
+        ]
+      },
+      "scipy_version": "1.18.1",
+      "sos_sections": 4
+    },
+    "sampling_rate_hz": 160,
+    "shared_transform": {
+      "analysis_input_unit_convention": "native_numeric_as_microvolts",
+      "artifact_policy": "include_all",
+      "bands": {
+        "beta": [
+          13,
+          30
+        ],
+        "broad": [
+          8,
+          30
+        ],
+        "mu": [
+          8,
+          13
+        ]
+      },
+      "baseline_correction": false,
+      "channels": [
+        "Fz",
+        "FC3",
+        "FC1",
+        "FC2",
+        "FC4",
+        "C5",
+        "C3",
+        "C1",
+        "Cz",
+        "C2",
+        "C4",
+        "C6",
+        "CP3",
+        "CP1",
+        "CPz",
+        "CP2",
+        "CP4",
+        "P1",
+        "Pz",
+        "P2",
+        "POz"
+      ],
+      "common_rate_hz": 160,
+      "context_relative_s": [
+        -1.5,
+        4.5
+      ],
+      "cue_window_s": [
+        0.5,
+        2.5
+      ],
+      "dtype": "float32",
+      "filter": {
+        "ftype": "butter",
+        "order": 4,
+        "padlen": 27,
+        "phase": "zero",
+        "scope": "each_real_retained_trial_context"
+      },
+      "native_export_units_verified": false,
+      "output_unit": "uV",
+      "reference": "common_average_21",
+      "target_fitted_normalization": false
+    },
+    "target_alignment": false,
+    "target_channel_interpolation": false,
+    "target_fits": 0,
+    "target_normalization": false,
+    "unit": "uV"
+  },
+  "preprocessor_sha256": "aa5726ce584eb5449c7d71f9884ca10ef0b29b8bfe2f07a29e5024e7f3472c1b",
+  "real_metadata_adapter_sha256": "96c00d69d6f7f0ab38707fde696f0d160cb6ebee2169365e1a362fd90f142004",
+  "runner_sha256": "6876042faf7fb5bd77a3be122f00fab2b1bbd2f6fb5b302c1745eba28f28a08c",
+  "schema_version": 1,
+  "source_arm": "Q15-E005",
+  "source_checkpoints": {
+    "results/Q15-E005/pre_fit_freeze.json": "5d22d76eb823a720b606ff7acc3d118f2a21e4bbc4903dd3fda36270e6ac950d",
+    "results/Q15-E005/source/BROAD_EEGNET/all_source/final_seed_20260924/checkpoint.pt": "29e895aa32ad0dab8df1647d12b9be1b48ec58eef10a87271b60180d8dd07e87",
+    "results/Q15-E005/source/BROAD_EEGNET/all_source/final_seed_20260925/checkpoint.pt": "c560b444fd0cd984382dfcc787e7eb7dd50aba9c4569454c6b4cbadc02c6af68",
+    "results/Q15-E005/source/BROAD_EEGNET/all_source/final_seed_20260926/checkpoint.pt": "8539fa7e1b500b1c319acd84723eea0856ff6dd224ba09b0fc989df870c24f6f",
+    "results/Q15-E005/source/BROAD_EEGNET/all_source/selection.json": "380615ce3f606fee5cbf7221fc95551e3c8ab74052d6859c13909ef05df651c3",
+    "results/Q15-E005/source/CSP4_LDA/all_source/model.joblib": "15ee57321177bca17472bd0fe211f1a42557291203b4e5700caf74a093bdd61f",
+    "results/Q15-E005/source/MU_BETA_SHARED/all_source/final_seed_20260924/checkpoint.pt": "4de9a6d54a49d9cd52c76a54857364d8da11fd39ed787d47cebab1133419892f",
+    "results/Q15-E005/source/MU_BETA_SHARED/all_source/final_seed_20260925/checkpoint.pt": "ebfdacad2f96c2b3d44f36eda9c82e3a225ce930d79eed06f86cd852891e16f2",
+    "results/Q15-E005/source/MU_BETA_SHARED/all_source/final_seed_20260926/checkpoint.pt": "99ae34a372f54d283ad8b8fdd26755e6d859381f1e744da6ea4b8e2f470299b0",
+    "results/Q15-E005/source/MU_BETA_SHARED/all_source/selection.json": "8d5eaa166b28b57635d2861daae955ce10f95a0ea15f575ed605b5391819ce8e"
+  },
+  "source_runner_sha256": "b0c3a02d757c3b636ec6f312f3d3d8f43d5ce44a0ff14dfbfe10dacef4172648",
+  "source_validation_sha256": "837bdd6a9a4739bd09c36c1e095b5a7c7bec657768683d70c8968f0fbb81542b",
+  "source_validator_sha256": "4b5dc7b848eb91a5644d8c45d99a03361a2d5063302f59c95bd88be97e763663",
+  "statistics": {
+    "bootstrap_draws": 20000,
+    "bootstrap_seed": 20260924,
+    "cohort_aggregation": "equal_person_mean",
+    "confidence_interval": "paired_person_bootstrap_percentile",
+    "confidence_level": 0.95,
+    "context_comparator": "CSP4_LDA",
+    "hypothesis_test": "two_sided_paired_person_sign_flip_monte_carlo_plus_one",
+    "inference_unit": "person",
+    "multiplicity": "Holm_two_predeclared_cohorts",
+    "outcome_based_selection": false,
+    "primary_contrast": "MU_BETA_SHARED_minus_BROAD_EEGNET",
+    "schema_version": 1,
+    "session_aggregation": "pool_declared_sessions_within_person_before_balanced_accuracy",
+    "sign_flip_draws": 20000,
+    "sign_flip_seed": 20261003,
+    "target_fits": 0,
+    "within_person_aggregation": "balanced_accuracy_per_seed_then_three_seed_mean"
+  },
+  "status": "frozen_before_external_prediction_pending_commit",
+  "target_fits": 0,
+  "target_outcomes_inspected": false,
+  "training_helper_sha256": "ddb1ab9d40f43abe3ec22a4b0132cd194ea1fe61e1e9ebb801f3423408013842"
+}
