@@ -1,0 +1,1092 @@
+{
+  "schema_version": 1,
+  "dataset": "Lee2019_MI",
+  "provider_version": "GigaDB DOI 10.5524/100542, available 2019-01-24; Wasabi snapshot downloaded 2026-09-30 (objects last modified 2023-03-27); no explicit semantic version in DataCite",
+  "license": "CC0-1.0",
+  "loader_version": "Q15-native-MAT-operational-v1",
+  "provider_inventory_source": "https://s3.ap-northeast-1.wasabisys.com/gigadb-datasets/live/pub/10.5524/100001_101000/100542/100542.md5",
+  "expected_file_ids": [
+    "session1/s1/sess01_subj01_EEG_MI.mat",
+    "session1/s2/sess01_subj02_EEG_MI.mat",
+    "session1/s3/sess01_subj03_EEG_MI.mat",
+    "session1/s4/sess01_subj04_EEG_MI.mat",
+    "session1/s5/sess01_subj05_EEG_MI.mat",
+    "session1/s6/sess01_subj06_EEG_MI.mat",
+    "session1/s7/sess01_subj07_EEG_MI.mat",
+    "session1/s8/sess01_subj08_EEG_MI.mat",
+    "session1/s9/sess01_subj09_EEG_MI.mat",
+    "session1/s10/sess01_subj10_EEG_MI.mat",
+    "session1/s11/sess01_subj11_EEG_MI.mat",
+    "session1/s12/sess01_subj12_EEG_MI.mat",
+    "session1/s13/sess01_subj13_EEG_MI.mat",
+    "session1/s14/sess01_subj14_EEG_MI.mat",
+    "session1/s15/sess01_subj15_EEG_MI.mat",
+    "session1/s16/sess01_subj16_EEG_MI.mat",
+    "session1/s17/sess01_subj17_EEG_MI.mat",
+    "session1/s18/sess01_subj18_EEG_MI.mat",
+    "session1/s19/sess01_subj19_EEG_MI.mat",
+    "session1/s20/sess01_subj20_EEG_MI.mat",
+    "session1/s21/sess01_subj21_EEG_MI.mat",
+    "session1/s22/sess01_subj22_EEG_MI.mat",
+    "session1/s23/sess01_subj23_EEG_MI.mat",
+    "session1/s24/sess01_subj24_EEG_MI.mat",
+    "session1/s25/sess01_subj25_EEG_MI.mat",
+    "session1/s26/sess01_subj26_EEG_MI.mat",
+    "session1/s27/sess01_subj27_EEG_MI.mat",
+    "session1/s28/sess01_subj28_EEG_MI.mat",
+    "session1/s29/sess01_subj29_EEG_MI.mat",
+    "session1/s30/sess01_subj30_EEG_MI.mat",
+    "session1/s31/sess01_subj31_EEG_MI.mat",
+    "session1/s32/sess01_subj32_EEG_MI.mat",
+    "session1/s33/sess01_subj33_EEG_MI.mat",
+    "session1/s34/sess01_subj34_EEG_MI.mat",
+    "session1/s35/sess01_subj35_EEG_MI.mat",
+    "session1/s36/sess01_subj36_EEG_MI.mat",
+    "session1/s37/sess01_subj37_EEG_MI.mat",
+    "session1/s38/sess01_subj38_EEG_MI.mat",
+    "session1/s39/sess01_subj39_EEG_MI.mat",
+    "session1/s40/sess01_subj40_EEG_MI.mat",
+    "session1/s41/sess01_subj41_EEG_MI.mat",
+    "session1/s42/sess01_subj42_EEG_MI.mat",
+    "session1/s43/sess01_subj43_EEG_MI.mat",
+    "session1/s44/sess01_subj44_EEG_MI.mat",
+    "session1/s45/sess01_subj45_EEG_MI.mat",
+    "session1/s46/sess01_subj46_EEG_MI.mat",
+    "session1/s47/sess01_subj47_EEG_MI.mat",
+    "session1/s48/sess01_subj48_EEG_MI.mat",
+    "session1/s49/sess01_subj49_EEG_MI.mat",
+    "session1/s50/sess01_subj50_EEG_MI.mat",
+    "session1/s51/sess01_subj51_EEG_MI.mat",
+    "session1/s52/sess01_subj52_EEG_MI.mat",
+    "session1/s53/sess01_subj53_EEG_MI.mat",
+    "session1/s54/sess01_subj54_EEG_MI.mat",
+    "session2/s1/sess02_subj01_EEG_MI.mat",
+    "session2/s2/sess02_subj02_EEG_MI.mat",
+    "session2/s3/sess02_subj03_EEG_MI.mat",
+    "session2/s4/sess02_subj04_EEG_MI.mat",
+    "session2/s5/sess02_subj05_EEG_MI.mat",
+    "session2/s6/sess02_subj06_EEG_MI.mat",
+    "session2/s7/sess02_subj07_EEG_MI.mat",
+    "session2/s8/sess02_subj08_EEG_MI.mat",
+    "session2/s9/sess02_subj09_EEG_MI.mat",
+    "session2/s10/sess02_subj10_EEG_MI.mat",
+    "session2/s11/sess02_subj11_EEG_MI.mat",
+    "session2/s12/sess02_subj12_EEG_MI.mat",
+    "session2/s13/sess02_subj13_EEG_MI.mat",
+    "session2/s14/sess02_subj14_EEG_MI.mat",
+    "session2/s15/sess02_subj15_EEG_MI.mat",
+    "session2/s16/sess02_subj16_EEG_MI.mat",
+    "session2/s17/sess02_subj17_EEG_MI.mat",
+    "session2/s18/sess02_subj18_EEG_MI.mat",
+    "session2/s19/sess02_subj19_EEG_MI.mat",
+    "session2/s20/sess02_subj20_EEG_MI.mat",
+    "session2/s21/sess02_subj21_EEG_MI.mat",
+    "session2/s22/sess02_subj22_EEG_MI.mat",
+    "session2/s23/sess02_subj23_EEG_MI.mat",
+    "session2/s24/sess02_subj24_EEG_MI.mat",
+    "session2/s25/sess02_subj25_EEG_MI.mat",
+    "session2/s26/sess02_subj26_EEG_MI.mat",
+    "session2/s27/sess02_subj27_EEG_MI.mat",
+    "session2/s28/sess02_subj28_EEG_MI.mat",
+    "session2/s29/sess02_subj29_EEG_MI.mat",
+    "session2/s30/sess02_subj30_EEG_MI.mat",
+    "session2/s31/sess02_subj31_EEG_MI.mat",
+    "session2/s32/sess02_subj32_EEG_MI.mat",
+    "session2/s33/sess02_subj33_EEG_MI.mat",
+    "session2/s34/sess02_subj34_EEG_MI.mat",
+    "session2/s35/sess02_subj35_EEG_MI.mat",
+    "session2/s36/sess02_subj36_EEG_MI.mat",
+    "session2/s37/sess02_subj37_EEG_MI.mat",
+    "session2/s38/sess02_subj38_EEG_MI.mat",
+    "session2/s39/sess02_subj39_EEG_MI.mat",
+    "session2/s40/sess02_subj40_EEG_MI.mat",
+    "session2/s41/sess02_subj41_EEG_MI.mat",
+    "session2/s42/sess02_subj42_EEG_MI.mat",
+    "session2/s43/sess02_subj43_EEG_MI.mat",
+    "session2/s44/sess02_subj44_EEG_MI.mat",
+    "session2/s45/sess02_subj45_EEG_MI.mat",
+    "session2/s46/sess02_subj46_EEG_MI.mat",
+    "session2/s47/sess02_subj47_EEG_MI.mat",
+    "session2/s48/sess02_subj48_EEG_MI.mat",
+    "session2/s49/sess02_subj49_EEG_MI.mat",
+    "session2/s50/sess02_subj50_EEG_MI.mat",
+    "session2/s51/sess02_subj51_EEG_MI.mat",
+    "session2/s52/sess02_subj52_EEG_MI.mat",
+    "session2/s53/sess02_subj53_EEG_MI.mat",
+    "session2/s54/sess02_subj54_EEG_MI.mat"
+  ],
+  "files": [
+    {
+      "file_id": "session1/s1/sess01_subj01_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s1/sess01_subj01_EEG_MI.mat",
+      "sha256": "da1e4ce677f95bf2feed9ba0bc5edaef9daa4fb5ef2102d90fdcece69cc48b5c",
+      "subject": 1,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s2/sess01_subj02_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s2/sess01_subj02_EEG_MI.mat",
+      "sha256": "2f281b03f5493251855d65c4da107bd38ff1540aca0ea4b308b420c21bb89c66",
+      "subject": 2,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s3/sess01_subj03_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s3/sess01_subj03_EEG_MI.mat",
+      "sha256": "ed9be7033fc8620647c545b0b09b5619a2074fa3ce9e1171570df847a74c7bea",
+      "subject": 3,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s4/sess01_subj04_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s4/sess01_subj04_EEG_MI.mat",
+      "sha256": "4a5f8b110fbf939ceb1f82a5e4e8099866c5c0132bd4387d043bad96c4a0c729",
+      "subject": 4,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s5/sess01_subj05_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s5/sess01_subj05_EEG_MI.mat",
+      "sha256": "490456ce6a371c1e0f6cbfd0cecc614370d2e310c032deae12c3dec18abad46c",
+      "subject": 5,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s6/sess01_subj06_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s6/sess01_subj06_EEG_MI.mat",
+      "sha256": "3cdf0111925ac17214c8b46ad521974e260f82daadba15c19a5e090632f24389",
+      "subject": 6,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s7/sess01_subj07_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s7/sess01_subj07_EEG_MI.mat",
+      "sha256": "3be16dd0c4f105d5672cb90cc8892f03d14e86f6636d7a1deea81d0c24ab030c",
+      "subject": 7,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s8/sess01_subj08_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s8/sess01_subj08_EEG_MI.mat",
+      "sha256": "6d5d9e53bb241b9e8fafcbf9ac217014886238d9c42758ee7a409c7b3584afdf",
+      "subject": 8,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s9/sess01_subj09_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s9/sess01_subj09_EEG_MI.mat",
+      "sha256": "833e7070e5464757768dd304c9e9775f86c92ef4da68fe17c252c45971ec430f",
+      "subject": 9,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s10/sess01_subj10_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s10/sess01_subj10_EEG_MI.mat",
+      "sha256": "076c76c0d8401fa320fc50744742a39ccab3b8a4dee7c954c7cc43d08f27c791",
+      "subject": 10,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s11/sess01_subj11_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s11/sess01_subj11_EEG_MI.mat",
+      "sha256": "0445fa7164d457c85c925cbbca8164272a4f8dadd5479299582d79336b2949d8",
+      "subject": 11,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s12/sess01_subj12_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s12/sess01_subj12_EEG_MI.mat",
+      "sha256": "a057c64ce3473dcb322eb8ccbbbf95b987a166a089bf2c36fbbbc0c9d0b51832",
+      "subject": 12,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s13/sess01_subj13_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s13/sess01_subj13_EEG_MI.mat",
+      "sha256": "caf403478278e6829251ef68fc4c24c1382400be431f374d6f251d7fa7f4e5c5",
+      "subject": 13,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s14/sess01_subj14_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s14/sess01_subj14_EEG_MI.mat",
+      "sha256": "62f77a98b7eba89c357e5d0314f8022de6dd0a77e2e4f11a192c65bf2e14148d",
+      "subject": 14,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s15/sess01_subj15_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s15/sess01_subj15_EEG_MI.mat",
+      "sha256": "41625b6ee02f213019dcd4650019f45ce0fcaa8392c198a4dfce8b08c317667e",
+      "subject": 15,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s16/sess01_subj16_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s16/sess01_subj16_EEG_MI.mat",
+      "sha256": "2cce6af37a783f198e06288eea8c059e4a2c11be0064f52a3832f49bfa4c1de0",
+      "subject": 16,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s17/sess01_subj17_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s17/sess01_subj17_EEG_MI.mat",
+      "sha256": "1ab5d3054aa29f2c004f2577f12631f67dbde35465c680409d01ebcedc2f0f47",
+      "subject": 17,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s18/sess01_subj18_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s18/sess01_subj18_EEG_MI.mat",
+      "sha256": "8ef8fd343531e428188af60cf0b23d14eb20b9f533d418a12331dd80ec7b1013",
+      "subject": 18,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s19/sess01_subj19_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s19/sess01_subj19_EEG_MI.mat",
+      "sha256": "a68dd3be49b35c68c0c72aaf6634cd476e81ca1ee9b3988a788eabe11160c1a1",
+      "subject": 19,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s20/sess01_subj20_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s20/sess01_subj20_EEG_MI.mat",
+      "sha256": "4e483abadb69174925c16e10aeffcbcb62d54b65df42d8aca57a3b3a39d4ba55",
+      "subject": 20,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s21/sess01_subj21_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s21/sess01_subj21_EEG_MI.mat",
+      "sha256": "fa80c87bff7272c39713fbd4aec64da96d21eb80dee71606dbc021e58ab7d554",
+      "subject": 21,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s22/sess01_subj22_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s22/sess01_subj22_EEG_MI.mat",
+      "sha256": "f9e7fd2bb5b83fcd0e24df09d46172eb22802f7d16938dfe8df7f31ff3277748",
+      "subject": 22,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s23/sess01_subj23_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s23/sess01_subj23_EEG_MI.mat",
+      "sha256": "4caeee5093a8313d1ebd6a1f3a0cb7b7596a6037ef136aa6c7de0a74c5fa3364",
+      "subject": 23,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s24/sess01_subj24_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s24/sess01_subj24_EEG_MI.mat",
+      "sha256": "413febef96a473198e5bd4e27dd1e9493f93d658abd8f7b93d9c03158c063796",
+      "subject": 24,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s25/sess01_subj25_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s25/sess01_subj25_EEG_MI.mat",
+      "sha256": "01e31eab25d35395420165d72bcd951198fbaf2975dea9f35bda0315df928a19",
+      "subject": 25,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s26/sess01_subj26_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s26/sess01_subj26_EEG_MI.mat",
+      "sha256": "07e3928a62511d275daeb0abe84bb695cbac4d7a23d48b56a5086b1427aad5aa",
+      "subject": 26,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s27/sess01_subj27_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s27/sess01_subj27_EEG_MI.mat",
+      "sha256": "867653f047a72269c040c6e9bc06bb38c326be56f9024d601a594a7900ef6459",
+      "subject": 27,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s28/sess01_subj28_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s28/sess01_subj28_EEG_MI.mat",
+      "sha256": "a32b088b669b6767401134730821015767fd07430922563b67bb0e29dee19c20",
+      "subject": 28,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s29/sess01_subj29_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s29/sess01_subj29_EEG_MI.mat",
+      "sha256": "58dc9fd13d700db117e66a1612cfd6e145523eff6c1e6fdb7d9e2c7bc38409e4",
+      "subject": 29,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s30/sess01_subj30_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s30/sess01_subj30_EEG_MI.mat",
+      "sha256": "160780b9537dea8e9bb06b7e6cedc4bc5ddba45a0db3bd95170beaae1ab6a29d",
+      "subject": 30,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s31/sess01_subj31_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s31/sess01_subj31_EEG_MI.mat",
+      "sha256": "56247e40cd7d8ff13bd18b545e9c052a0ac71b574a685261ef68146b35b63cff",
+      "subject": 31,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s32/sess01_subj32_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s32/sess01_subj32_EEG_MI.mat",
+      "sha256": "ceb8977c6ff3df102d836155ea8cbe21e95a708ef6bf99a766edf236b9583c31",
+      "subject": 32,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s33/sess01_subj33_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s33/sess01_subj33_EEG_MI.mat",
+      "sha256": "97b1f328c5f560e20be9c4ba927fb36f4d268514abd958156c7cf2cee50c7a3a",
+      "subject": 33,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s34/sess01_subj34_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s34/sess01_subj34_EEG_MI.mat",
+      "sha256": "bb1f323eecc968bdb0c4c6b8dfc29dea98e455094450272702b32b05d62cecf3",
+      "subject": 34,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s35/sess01_subj35_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s35/sess01_subj35_EEG_MI.mat",
+      "sha256": "bddafa9e98092f88c64f2d15f65fc6dd7429afc3cc25c652bdbbd0ebb098772f",
+      "subject": 35,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s36/sess01_subj36_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s36/sess01_subj36_EEG_MI.mat",
+      "sha256": "b29e4cb9e5324591b85d330de915c9edd1709c6e61b318d8b82e3cec4a366d0f",
+      "subject": 36,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s37/sess01_subj37_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s37/sess01_subj37_EEG_MI.mat",
+      "sha256": "871a4e3cd61f95abd728e4ce4c5cc09eb1ca93260f04b19b913ab11f350add9d",
+      "subject": 37,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s38/sess01_subj38_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s38/sess01_subj38_EEG_MI.mat",
+      "sha256": "ce036473dbbec7bffe23fcd801eb7862b736ceddff01dda9a6d9a1267f213189",
+      "subject": 38,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s39/sess01_subj39_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s39/sess01_subj39_EEG_MI.mat",
+      "sha256": "c9c35127968dcd9eaf65fa7834b36dfdb34700bfd6c197af5bbaf7eb3b02f2bf",
+      "subject": 39,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s40/sess01_subj40_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s40/sess01_subj40_EEG_MI.mat",
+      "sha256": "eb043eb625b8423617d7562fda235ed4bee1ae037f322cbe15aece981381ff0b",
+      "subject": 40,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s41/sess01_subj41_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s41/sess01_subj41_EEG_MI.mat",
+      "sha256": "87dc3126f4f3fa88cf52fdf9fd044652c45b9c1e31fd55adf6f4bc09df49e8cf",
+      "subject": 41,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s42/sess01_subj42_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s42/sess01_subj42_EEG_MI.mat",
+      "sha256": "88393e7c9684aee59050ddcbd5a850a30ae2ddbd5ca38714dd0d6ef39a0747ad",
+      "subject": 42,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s43/sess01_subj43_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s43/sess01_subj43_EEG_MI.mat",
+      "sha256": "9eb5a1323741e92a7ee13296ce745a1bbe8d43c8fdb1dc75883f350b598e5142",
+      "subject": 43,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s44/sess01_subj44_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s44/sess01_subj44_EEG_MI.mat",
+      "sha256": "449af7184525df05304bb88281395ef233671034f6a7cf10eb40e61b8448496e",
+      "subject": 44,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s45/sess01_subj45_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s45/sess01_subj45_EEG_MI.mat",
+      "sha256": "316bba18caccb7871d750c99dfd9fd7347aa66b9c7deb5e3fd89c07eb18168f2",
+      "subject": 45,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s46/sess01_subj46_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s46/sess01_subj46_EEG_MI.mat",
+      "sha256": "782be689086589097a56591d7b8b63b6810809460e3a2edcc47ed607bdbf862b",
+      "subject": 46,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s47/sess01_subj47_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s47/sess01_subj47_EEG_MI.mat",
+      "sha256": "9e1e3cb79f82ec08d87c80aaa8d5929479ceccd454f25b3d3fea7115f3eb05c9",
+      "subject": 47,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s48/sess01_subj48_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s48/sess01_subj48_EEG_MI.mat",
+      "sha256": "c85a9ce1baf086fcb0a74938089d527649f6147aa75e6369f82c1c635c9ce8b3",
+      "subject": 48,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s49/sess01_subj49_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s49/sess01_subj49_EEG_MI.mat",
+      "sha256": "20ff8fd7ca3d1457cc21cde8cf53bda0e6f5d906ecf79cd8d8a4290896647b7b",
+      "subject": 49,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s50/sess01_subj50_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s50/sess01_subj50_EEG_MI.mat",
+      "sha256": "cb458839c893cd2cd2e7c000e49a8a72c61f6d5ce9b73ac3d68b61c98ec16b47",
+      "subject": 50,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s51/sess01_subj51_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s51/sess01_subj51_EEG_MI.mat",
+      "sha256": "428937c1b9d3b0cfc1596d5a18319a62befbf989bc6b955daa06931c5d386229",
+      "subject": 51,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s52/sess01_subj52_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s52/sess01_subj52_EEG_MI.mat",
+      "sha256": "6017e7788a30ca39806a277911ea786eae06e7b7aa1680d67ee0d92412a3d739",
+      "subject": 52,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s53/sess01_subj53_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s53/sess01_subj53_EEG_MI.mat",
+      "sha256": "518073244a9b1843f3f651a738c4c429ac2df5d0b07e9eed32eda5b144431a47",
+      "subject": 53,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session1/s54/sess01_subj54_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session1/s54/sess01_subj54_EEG_MI.mat",
+      "sha256": "52ed5974f0db73db7ed4cc00f2e5f28be4f2d884861fb906483421ab29615d5b",
+      "subject": 54,
+      "session": 1,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s1/sess02_subj01_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s1/sess02_subj01_EEG_MI.mat",
+      "sha256": "5b8f0664dae03306328927e1fb43242f00d0335aad21aacb09db355f7301bb58",
+      "subject": 1,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s2/sess02_subj02_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s2/sess02_subj02_EEG_MI.mat",
+      "sha256": "4ee0261feda7bd3588fa8a60ac4d9188331571e35ac5d87f379252adcaf1e1bb",
+      "subject": 2,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s3/sess02_subj03_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s3/sess02_subj03_EEG_MI.mat",
+      "sha256": "46c12e798f4bca1443479f032bf54633cd60d4d286af9ec80f0e1bbd2c35295c",
+      "subject": 3,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s4/sess02_subj04_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s4/sess02_subj04_EEG_MI.mat",
+      "sha256": "e5723e389ccdec0dab9bac8e0b7d6baccd1fe81e21cb11ff29c8b0ad8c02b212",
+      "subject": 4,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s5/sess02_subj05_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s5/sess02_subj05_EEG_MI.mat",
+      "sha256": "6cbfa582246297cd3a8080110dfb607a2892e78455ddeb2949b03fda57ccba06",
+      "subject": 5,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s6/sess02_subj06_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s6/sess02_subj06_EEG_MI.mat",
+      "sha256": "772f247ac4b7defc7558b0ef76fced4d8ea4ce87cd016a076682f38ea5ee985c",
+      "subject": 6,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s7/sess02_subj07_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s7/sess02_subj07_EEG_MI.mat",
+      "sha256": "607d26cba4ab36c2c9d47077fe3dc307b4910610ae3a0c0538c6855db47ce781",
+      "subject": 7,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s8/sess02_subj08_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s8/sess02_subj08_EEG_MI.mat",
+      "sha256": "90086a0a3b0e5d0f209cb3933f5cf785c1a7e34012467ac02162a237e583bff4",
+      "subject": 8,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s9/sess02_subj09_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s9/sess02_subj09_EEG_MI.mat",
+      "sha256": "be1ae7f4212255f5f6569733ce3f850a8d2512054626632fc599c650972e917d",
+      "subject": 9,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s10/sess02_subj10_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s10/sess02_subj10_EEG_MI.mat",
+      "sha256": "f54a02a143ea69191c73907e7f8c820638b5eac2d834aef3c31550fcb221f7d2",
+      "subject": 10,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s11/sess02_subj11_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s11/sess02_subj11_EEG_MI.mat",
+      "sha256": "be6fd3d4fb27992e990ce2145f4dd00ce52c4436e80ec73427d79ad82f6d0780",
+      "subject": 11,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s12/sess02_subj12_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s12/sess02_subj12_EEG_MI.mat",
+      "sha256": "08e7cd0f5928ea8acb171ced10feb1eed745a2cf624d68bf8534e6d2408dbba9",
+      "subject": 12,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s13/sess02_subj13_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s13/sess02_subj13_EEG_MI.mat",
+      "sha256": "f055e5232c9eed89e3f400430be9363fdd8b2bb6e6c852116bf0b6e5b60cbe67",
+      "subject": 13,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s14/sess02_subj14_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s14/sess02_subj14_EEG_MI.mat",
+      "sha256": "7320b521548a201661e7b5395eaa9177ddbe578a4a34a70e6246de1679f0100b",
+      "subject": 14,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s15/sess02_subj15_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s15/sess02_subj15_EEG_MI.mat",
+      "sha256": "88990ec440e7f1e379e36dc3af1b9a4b62a2d021e290e594f16012d42b75fda6",
+      "subject": 15,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s16/sess02_subj16_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s16/sess02_subj16_EEG_MI.mat",
+      "sha256": "dba0e0d60043c447cb17edc3475ca69ce41c111aba496da92e6b8cee3399a1ec",
+      "subject": 16,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s17/sess02_subj17_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s17/sess02_subj17_EEG_MI.mat",
+      "sha256": "bd1475fddb59b64395f5f342b350428cfe366effd8f010b77882a31859c3082e",
+      "subject": 17,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s18/sess02_subj18_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s18/sess02_subj18_EEG_MI.mat",
+      "sha256": "b7af668a0ed7aa4c80cd9e96b07f2dabd325720ba0782f19e2f993d2e1d4a3eb",
+      "subject": 18,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s19/sess02_subj19_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s19/sess02_subj19_EEG_MI.mat",
+      "sha256": "d02f5e4b0d5747142b599bd9e985ba6665fab2c27fe239a623383b6ec416327d",
+      "subject": 19,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s20/sess02_subj20_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s20/sess02_subj20_EEG_MI.mat",
+      "sha256": "1631c0cf535c46869221f28f87b07d1f36b0778dd566741e43820145eb0db942",
+      "subject": 20,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s21/sess02_subj21_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s21/sess02_subj21_EEG_MI.mat",
+      "sha256": "50b2bc7359670bf42cd5ee59ca3db4dc44c2af15ddf672f00e73709f0c84c76d",
+      "subject": 21,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s22/sess02_subj22_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s22/sess02_subj22_EEG_MI.mat",
+      "sha256": "926c611078fc383ea30e4b4a45cf502415480a9b2bbc372535f291c7a74deb04",
+      "subject": 22,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s23/sess02_subj23_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s23/sess02_subj23_EEG_MI.mat",
+      "sha256": "7eb982af294f5ecb1ebf7dc635a66ba28795835a64c167dcfc9678d2099388dd",
+      "subject": 23,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s24/sess02_subj24_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s24/sess02_subj24_EEG_MI.mat",
+      "sha256": "a49f7fb8703305cc6b036ea4e792be25cef7b1470d4aef9f8a29f516935f3bd8",
+      "subject": 24,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s25/sess02_subj25_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s25/sess02_subj25_EEG_MI.mat",
+      "sha256": "cdec9e5b8b1646e5a06cff1bbdb76b0e7e2e1321e6ba6e5468c1715ece5500b5",
+      "subject": 25,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s26/sess02_subj26_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s26/sess02_subj26_EEG_MI.mat",
+      "sha256": "0b7a33bd641518be0ad99e5d994b60727592184beb47149f5606f479352fdbdb",
+      "subject": 26,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s27/sess02_subj27_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s27/sess02_subj27_EEG_MI.mat",
+      "sha256": "e915c874c61350ddbefa850098f4735fbc7c16a17a584b3ec425844438200edd",
+      "subject": 27,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s28/sess02_subj28_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s28/sess02_subj28_EEG_MI.mat",
+      "sha256": "9decb42c880d826823f1e8ce684f62954c9e0614446eef95afd0978c6e686d9d",
+      "subject": 28,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s29/sess02_subj29_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s29/sess02_subj29_EEG_MI.mat",
+      "sha256": "c3504a653d7a03e9919e356eace1a5e75b131c04ed744466dc48af9f6cdb8de4",
+      "subject": 29,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s30/sess02_subj30_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s30/sess02_subj30_EEG_MI.mat",
+      "sha256": "3019a2fa1a805ef88585b127f9387e6ad07063db4ae7ff33f9e9504e1c872254",
+      "subject": 30,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s31/sess02_subj31_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s31/sess02_subj31_EEG_MI.mat",
+      "sha256": "3d1400445ae98a3be69a5af1a3b2a76df6924f99c115dd2e32b411ca177585c6",
+      "subject": 31,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s32/sess02_subj32_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s32/sess02_subj32_EEG_MI.mat",
+      "sha256": "e481c3add7200d8ac6d51044f07dfddef9786b1f1b1b663027d2607933546874",
+      "subject": 32,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s33/sess02_subj33_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s33/sess02_subj33_EEG_MI.mat",
+      "sha256": "de3449f6595df4e06a6309689fd93713c99d5851495579c65454b4749954804b",
+      "subject": 33,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s34/sess02_subj34_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s34/sess02_subj34_EEG_MI.mat",
+      "sha256": "4829594690840a057d73dc64cbf271570a128fecffd1022efa0dbcc8738bcba6",
+      "subject": 34,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s35/sess02_subj35_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s35/sess02_subj35_EEG_MI.mat",
+      "sha256": "7bfcaddac9c5945635a390c4ba3aead66666284b14329de779799036fae892c8",
+      "subject": 35,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s36/sess02_subj36_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s36/sess02_subj36_EEG_MI.mat",
+      "sha256": "7e2d3c40dd8cb8a8041d3c316b9035194311d98b0b2ffcc5845832fc6605477c",
+      "subject": 36,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s37/sess02_subj37_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s37/sess02_subj37_EEG_MI.mat",
+      "sha256": "550b323dc411b97345c0d3835ad2bed84b64e8c5b31f9c6344200fa3bff4f63d",
+      "subject": 37,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s38/sess02_subj38_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s38/sess02_subj38_EEG_MI.mat",
+      "sha256": "2d576f9941f9ce6c80b46dcd18de073583313a1593614220a4e73e1f16e040f9",
+      "subject": 38,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s39/sess02_subj39_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s39/sess02_subj39_EEG_MI.mat",
+      "sha256": "a738535e02d7d6d29aaf05b0a422cada591d8a41f9d1c16ddfb6eccb6a92ff16",
+      "subject": 39,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s40/sess02_subj40_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s40/sess02_subj40_EEG_MI.mat",
+      "sha256": "33e8478b384183f3feb0f657e100ef7e128b5be42cddb4a0615f3ce9faf961dd",
+      "subject": 40,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s41/sess02_subj41_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s41/sess02_subj41_EEG_MI.mat",
+      "sha256": "f3400cbf76dfdb31901caddd75692a26f5bc9bcac8ee174505c904ce2c5dba09",
+      "subject": 41,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s42/sess02_subj42_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s42/sess02_subj42_EEG_MI.mat",
+      "sha256": "ec135d4085a1dcf81d61132bb4973ae9e712b9b2666c753aeac343d41d97c188",
+      "subject": 42,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s43/sess02_subj43_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s43/sess02_subj43_EEG_MI.mat",
+      "sha256": "923325040004bc97b06cc2711b8f849429f9474fa9d3ef03c62c4291b94b6a06",
+      "subject": 43,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s44/sess02_subj44_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s44/sess02_subj44_EEG_MI.mat",
+      "sha256": "ca14058c5045d5e5367a6b36f52f15cc28260ad258702e604397d269a9fbbb79",
+      "subject": 44,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s45/sess02_subj45_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s45/sess02_subj45_EEG_MI.mat",
+      "sha256": "c01e5e33ecd83f30c30c48666c7fce765a0e5cdeb20b3381dd981253537833b8",
+      "subject": 45,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s46/sess02_subj46_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s46/sess02_subj46_EEG_MI.mat",
+      "sha256": "f97cfc55654673bd901a6859e266191e5561811ee39c35e868bac83fbc12122b",
+      "subject": 46,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s47/sess02_subj47_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s47/sess02_subj47_EEG_MI.mat",
+      "sha256": "eaac59812169d83f02da8004c763191120e8bdcbde980ec090c7bf3453e9ff18",
+      "subject": 47,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s48/sess02_subj48_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s48/sess02_subj48_EEG_MI.mat",
+      "sha256": "c4a1c317ac06bec00224bccf625586adc46c2c101ef098e40a17bfc40dce8dc8",
+      "subject": 48,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s49/sess02_subj49_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s49/sess02_subj49_EEG_MI.mat",
+      "sha256": "489de54198933a31ea334e0a7d3716e468eb37d068e2b3ad2edc5871f765546b",
+      "subject": 49,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s50/sess02_subj50_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s50/sess02_subj50_EEG_MI.mat",
+      "sha256": "5fc82ca3c332305d50916c5f7638224a10626ed69a2889b6a951e1026079a4fe",
+      "subject": 50,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s51/sess02_subj51_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s51/sess02_subj51_EEG_MI.mat",
+      "sha256": "03551473a75d660d6dbdb246d710e478791827651aeac4a81f4ac67ee64c5a65",
+      "subject": 51,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s52/sess02_subj52_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s52/sess02_subj52_EEG_MI.mat",
+      "sha256": "5f12536075b48a86e2520476f171702b19a4a1ece2a84e7a6ff6b9e607436673",
+      "subject": 52,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s53/sess02_subj53_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s53/sess02_subj53_EEG_MI.mat",
+      "sha256": "921ff23487cf5cde985d7cb38ef06195139f10373d47a4fd48807622e6d55afb",
+      "subject": 53,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    },
+    {
+      "file_id": "session2/s54/sess02_subj54_EEG_MI.mat",
+      "path": "/workspace/q15-data/raw/Lee2019_MI/session2/s54/sess02_subj54_EEG_MI.mat",
+      "sha256": "58d859d44788f74524e565e44998edfcb694494df0dcd30a97ca676425f26a30",
+      "subject": 54,
+      "session": 2,
+      "run": "offline_train",
+      "adapter": "real_mat_operational_v1"
+    }
+  ]
+}
