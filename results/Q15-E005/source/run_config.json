@@ -1,0 +1,173 @@
+{
+  "contract_sha256": "ef59b23b821f5fadd75b3483540a4bdfbb0afbefe58f6b4835d659aac9f35554",
+  "data_dir": "/workspace/q15-data/raw/BNCI2014_001",
+  "device": "cuda",
+  "execution_contract_sha256": "4db58b7096378fc1a429580600f35dc8df1a98d701cf8bfb081770f8ea721766",
+  "experiment_id": "Q15-E005",
+  "pre_fit_freeze_sha256": "5d22d76eb823a720b606ff7acc3d118f2a21e4bbc4903dd3fda36270e6ac950d",
+  "runner_sha256": "b0c3a02d757c3b636ec6f312f3d3d8f43d5ce44a0ff14dfbfe10dacef4172648",
+  "runtime": {
+    "cuda_available": true,
+    "cuda_device_name": "NVIDIA RTX 4000 Ada Generation",
+    "packages": {
+      "braindecode": "1.5.1",
+      "mne": "1.13.2",
+      "moabb": "1.7.2",
+      "numpy": "2.5.3",
+      "scikit-learn": "1.9.1",
+      "scipy": "1.18.1",
+      "torch": "2.8.0+cu128",
+      "torchaudio": "2.8.0+cu128"
+    },
+    "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Aug 14 2025, 17:47:21) [GCC 13.3.0]",
+    "torch_cuda_runtime": "12.8"
+  },
+  "source_config": {
+    "architecture": {
+      "D": 2,
+      "F1": 8,
+      "F2": 16,
+      "drop_prob": 0.25,
+      "kernel_length": 64,
+      "library": "braindecode",
+      "model": "EEGNet",
+      "n_chans": 21,
+      "n_outputs": 2,
+      "n_times": 320
+    },
+    "artifact_policy": "include_all",
+    "bands_hz": {
+      "beta": [
+        13,
+        30
+      ],
+      "broad": [
+        8,
+        30
+      ],
+      "mu": [
+        8,
+        13
+      ]
+    },
+    "batch_size": 64,
+    "channels": [
+      "Fz",
+      "FC3",
+      "FC1",
+      "FC2",
+      "FC4",
+      "C5",
+      "C3",
+      "C1",
+      "Cz",
+      "C2",
+      "C4",
+      "C6",
+      "CP3",
+      "CP1",
+      "CPz",
+      "CP2",
+      "CP4",
+      "P1",
+      "Pz",
+      "P2",
+      "POz"
+    ],
+    "class_map": {
+      "left_hand": 1,
+      "right_hand": 2
+    },
+    "common_rate_hz": 160,
+    "cue_relative_start_s": 0.5,
+    "cue_relative_stop_exclusive_s": 2.5,
+    "execution_context_relative_s": [
+      -1.5,
+      4.5
+    ],
+    "execution_contract_sha256": "4db58b7096378fc1a429580600f35dc8df1a98d701cf8bfb081770f8ea721766",
+    "execution_csp_basis": "fixed_21_to_20_helmert",
+    "execution_filter_padlen": 27,
+    "execution_filter_scope": "each_real_retained_trial_context",
+    "execution_reference": "common_average_21",
+    "external_checksum_manifest_url": "https://physionet.org/files/eegmmidb/1.0.0/SHA256SUMS.txt",
+    "external_dataset": "PhysioNet_eegmmidb_1.0.0",
+    "external_event_map": {
+      "T1": 1,
+      "T2": 2
+    },
+    "external_primary_contrast": "MU_BETA_SHARED_minus_BROAD_EEGNET_subject_level_balanced_accuracy",
+    "external_runs": [
+      4,
+      8,
+      12
+    ],
+    "external_subjects": "all_1_through_109_or_fail",
+    "filter": {
+      "ftype": "butter",
+      "order": 4,
+      "phase": "zero"
+    },
+    "final_seeds": [
+      20260924,
+      20260925,
+      20260926
+    ],
+    "learning_rate": 0.001,
+    "max_epochs": 40,
+    "models": [
+      "BROAD_EEGNET",
+      "MU_BETA_SHARED",
+      "CSP4_LDA"
+    ],
+    "n_times": 320,
+    "protocol_status": "planned_not_run",
+    "q14_e001_inner_rule": "four_consecutive_pairs_of_sorted_eight_outer_source_subjects",
+    "q14_e002_inner_groups": [
+      [
+        1,
+        2
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        7,
+        8,
+        9
+      ]
+    ],
+    "schema_version": 1,
+    "selection_seed": 20260923,
+    "source_data_contract": "both_sessions_all_binary_trials_including_artifact_flagged",
+    "source_dataset": "BNCI2014_001",
+    "source_native_rate_hz": 250,
+    "source_only_epoch_rule": "earliest_epoch_minimizing_equal_inner_fold_mean_within_fold_CE_rank",
+    "source_resample_down": 25,
+    "source_resample_up": 16,
+    "source_subjects": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "source_trial_start_s": 2.5,
+    "source_trial_stop_exclusive_s": 4.5,
+    "target_data_policy": "zero_target_fits_no_target_selection_no_target_normalization_no_target_adaptation",
+    "volts_to_microvolts": 1000000.0,
+    "weight_decay": 0.0
+  },
+  "source_file_receipt_sha256": "ae07fe4cf0d82b60a07ac5f05e041930f1222ebe44843524a7f935614708cffe",
+  "status": "source_fitting_not_external_validation"
+}

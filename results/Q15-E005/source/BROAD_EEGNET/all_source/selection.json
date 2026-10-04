@@ -1,0 +1,43 @@
+{
+  "experiment_id": "Q15-E005",
+  "inner_curve_sha256": [
+    "19a1d7307d4a4c3ca3b92054d6bfbda5e8af4f7b04404606906d07441d5b64d6",
+    "f0e8a6caa076311dde4e30beeb4a9b135e520360bc955b34b0a8894453eaa90f",
+    "a79495fa23158ff98015620d7846e69c70f75f4d46f1e94d670d59231dc49c16",
+    "71aff6f921a0b37ee290fce7235d2b772772d41c9bceaf46e4ed29792d5ac209"
+  ],
+  "model": "BROAD_EEGNET",
+  "protocol_sha256": "5d22d76eb823a720b606ff7acc3d118f2a21e4bbc4903dd3fda36270e6ac950d",
+  "selected_epoch": 14,
+  "selection_rule": "earliest_epoch_minimizing_equal_inner_fold_mean_within_fold_CE_rank",
+  "source_subjects": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "validation_groups": [
+    [
+      1,
+      2
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      5,
+      6
+    ],
+    [
+      7,
+      8,
+      9
+    ]
+  ]
+}

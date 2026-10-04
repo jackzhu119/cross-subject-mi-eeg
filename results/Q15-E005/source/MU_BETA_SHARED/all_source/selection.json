@@ -1,0 +1,43 @@
+{
+  "experiment_id": "Q15-E005",
+  "inner_curve_sha256": [
+    "71e650b4a768feb673910da01e13d3e2ca4291a95726665668f16dda956568f2",
+    "2dff1a21e666998a114712771e8433d744551b951df47d2335cc69fb455ad7b6",
+    "634d07397c72bc1ee97c4708bf9856d53b2bda294f2756858befdc79dfc76873",
+    "26d358f184c5d066db757de864d99922c805ded877aaf135fed3f15a8628f2ce"
+  ],
+  "model": "MU_BETA_SHARED",
+  "protocol_sha256": "5d22d76eb823a720b606ff7acc3d118f2a21e4bbc4903dd3fda36270e6ac950d",
+  "selected_epoch": 19,
+  "selection_rule": "earliest_epoch_minimizing_equal_inner_fold_mean_within_fold_CE_rank",
+  "source_subjects": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "validation_groups": [
+    [
+      1,
+      2
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      5,
+      6
+    ],
+    [
+      7,
+      8,
+      9
+    ]
+  ]
+}
