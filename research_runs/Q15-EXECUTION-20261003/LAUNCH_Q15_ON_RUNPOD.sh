@@ -2,6 +2,8 @@
 # Run this manually on the intended, already-running RunPod after preparation.
 # The detached worker trains source only after committed audits and freezes.
 set -euo pipefail
+# Never expose credentials if this script was invoked with bash -x.
+set +x
 umask 077
 
 CODE_REVISION=271af288a2f3863430ab80e3145c2dee9bd5571d
@@ -10,12 +12,14 @@ Q15_WORKSPACE=/workspace
 Q15_REPO="$Q15_WORKSPACE/q15-execution/repo"
 Q15_CONTROL="$Q15_WORKSPACE/.q15-cloud"
 Q15_CHECK_ONLY=0
+Q15_RESET_CREDENTIALS=0
 Q15_JOB_ID=''
 while (($#)); do
   case "$1" in
     --check-only) Q15_CHECK_ONLY=1; shift ;;
+    --reset-credentials) Q15_RESET_CREDENTIALS=1; shift ;;
     --job-id) [[ $# -ge 2 ]] || { printf 'Missing --job-id value.\n' >&2; exit 2; }; Q15_JOB_ID=$2; shift 2 ;;
-    *) printf 'Usage: bash LAUNCH_Q15_ON_RUNPOD.sh [--check-only] [--job-id existing-id]\n' >&2; exit 2 ;;
+    *) printf 'Usage: bash LAUNCH_Q15_ON_RUNPOD.sh [--check-only] [--reset-credentials] [--job-id existing-id]\n' >&2; exit 2 ;;
   esac
 done
 [[ "$CODE_REVISION" =~ ^[0-9a-f]{40}$ ]] || { printf 'Launcher code revision has not been pinned.\n' >&2; exit 1; }
@@ -30,6 +34,63 @@ exec 8>"$Q15_CONTROL/launch.lock"
 flock -n 8 || { printf 'Another Q15 launcher is active; no worker started.\n' >&2; exit 1; }
 exec 9>"$Q15_CONTROL/active.lock"
 flock -n 9 || { printf 'A cloud supervisor is already active; no worker started or stopped.\n' >&2; exit 1; }
+
+# Q15_CREDENTIALS_BEGIN
+set +x
+q15_collect_credentials() {
+  local Q15_CREDENTIAL_NAME Q15_CREDENTIAL_VALUE Q15_ATTEMPT
+  local Q15_TTY_FD='' Q15_TTY_ATTEMPTED=0
+  for Q15_CREDENTIAL_NAME in GH_TOKEN RUNPOD_API_KEY; do
+    Q15_CREDENTIAL_VALUE=${!Q15_CREDENTIAL_NAME:-}
+    # Trim accidental clipboard whitespace without passing secrets to a command.
+    Q15_CREDENTIAL_VALUE="${Q15_CREDENTIAL_VALUE#"${Q15_CREDENTIAL_VALUE%%[![:space:]]*}"}"
+    Q15_CREDENTIAL_VALUE="${Q15_CREDENTIAL_VALUE%"${Q15_CREDENTIAL_VALUE##*[![:space:]]}"}"
+    if [[ "${Q15_RESET_CREDENTIALS:-0}" == 1 || "$Q15_CREDENTIAL_VALUE" == *[[:space:]]* ]]; then
+      Q15_CREDENTIAL_VALUE=''
+    fi
+    if [[ -z "$Q15_CREDENTIAL_VALUE" ]]; then
+      if [[ "$Q15_TTY_ATTEMPTED" == 0 ]]; then
+        Q15_TTY_ATTEMPTED=1
+        if ! { exec {Q15_TTY_FD}<>/dev/tty; } 2>/dev/null; then
+          Q15_TTY_FD=''
+        fi
+      fi
+      if [[ -z "$Q15_TTY_FD" ]] || [[ ! -t "$Q15_TTY_FD" ]]; then
+        printf '{"status":"NOT_STARTED","error_code":"interactive_terminal_required:%s","fits_started":0}\n' "$Q15_CREDENTIAL_NAME" >&2
+        [[ -z "$Q15_TTY_FD" ]] || exec {Q15_TTY_FD}>&-
+        return 1
+      fi
+      printf 'Paste only the token value, then press Enter. Hidden input shows no characters.\n' >&"$Q15_TTY_FD"
+      for Q15_ATTEMPT in 1 2 3; do
+        if ! IFS= read -r -s -u "$Q15_TTY_FD" -p "$Q15_CREDENTIAL_NAME (hidden; attempt $Q15_ATTEMPT/3): " Q15_CREDENTIAL_VALUE; then
+          printf '\n' >&"$Q15_TTY_FD"
+          printf '{"status":"NOT_STARTED","error_code":"credential_input_interrupted:%s","fits_started":0}\n' "$Q15_CREDENTIAL_NAME" >&2
+          exec {Q15_TTY_FD}>&-
+          return 1
+        fi
+        printf '\n' >&"$Q15_TTY_FD"
+        Q15_CREDENTIAL_VALUE="${Q15_CREDENTIAL_VALUE#"${Q15_CREDENTIAL_VALUE%%[![:space:]]*}"}"
+        Q15_CREDENTIAL_VALUE="${Q15_CREDENTIAL_VALUE%"${Q15_CREDENTIAL_VALUE##*[![:space:]]}"}"
+        if [[ -n "$Q15_CREDENTIAL_VALUE" && "$Q15_CREDENTIAL_VALUE" != *[[:space:]]* ]]; then
+          break
+        fi
+        Q15_CREDENTIAL_VALUE=''
+        printf 'Empty or whitespace-containing input. Paste only the key value; nothing is displayed while typing.\n' >&"$Q15_TTY_FD"
+      done
+      if [[ -z "$Q15_CREDENTIAL_VALUE" ]]; then
+        printf '{"status":"NOT_STARTED","error_code":"credential_required:%s","fits_started":0}\n' "$Q15_CREDENTIAL_NAME" >&2
+        exec {Q15_TTY_FD}>&-
+        return 1
+      fi
+    fi
+    printf -v "$Q15_CREDENTIAL_NAME" '%s' "$Q15_CREDENTIAL_VALUE"
+    export "$Q15_CREDENTIAL_NAME"
+  done
+  [[ -z "$Q15_TTY_FD" ]] || exec {Q15_TTY_FD}>&-
+  printf '{"stage":"credential_input","status":"values_present_not_api_validated","present":{"GH_TOKEN":true,"RUNPOD_API_KEY":true},"fits_started":0}\n'
+}
+q15_collect_credentials
+# Q15_CREDENTIALS_END
 
 Q15_RUNTIME=$(mktemp -d /tmp/q15-full-runtime.XXXXXXXX)
 trap 'printf "Q15 launcher exited with an error. Check the printed job status; private dependency log: %s/dependency-install.log\n" "$Q15_RUNTIME" >&2' ERR
@@ -67,16 +128,6 @@ env -u GH_TOKEN -u GITHUB_TOKEN -u RUNPOD_API_KEY TMPDIR="$Q15_RUNTIME/tmp" PIP_
   "$Q15_RUNTIME/venv/bin/python" -m pip install --disable-pip-version-check --no-cache-dir --no-deps \
   --editable "$Q15_REPO" >>"$Q15_RUNTIME/dependency-install.log" 2>&1
 
-if [[ -z "${GH_TOKEN:-}" && -t 0 ]]; then
-  read -r -s -p 'GitHub repo-scoped Contents write token (hidden): ' GH_TOKEN
-  printf '\n'
-fi
-if [[ -z "${RUNPOD_API_KEY:-}" && -t 0 ]]; then
-  read -r -s -p 'RunPod API key for this current Pod only (hidden): ' RUNPOD_API_KEY
-  printf '\n'
-fi
-[[ -n "${GH_TOKEN:-}" && -n "${RUNPOD_API_KEY:-}" ]] || { printf 'Both private credentials are required; no worker started.\n' >&2; exit 1; }
-export GH_TOKEN RUNPOD_API_KEY
 if [[ -z "$Q15_JOB_ID" ]]; then
   Q15_JOB_ID=$(python3 - <<'PY'
 from datetime import datetime, timezone
