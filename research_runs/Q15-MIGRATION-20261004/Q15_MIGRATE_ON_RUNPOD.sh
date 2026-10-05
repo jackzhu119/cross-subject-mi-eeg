@@ -2,16 +2,18 @@
 set -euo pipefail
 set +x
 umask 077
-Q15_HELPER_REVISION=f0a7c59d647c16a61b7560968ce09060dd21757d
+Q15_HELPER_REVISION=c7c06ee57cde2cc9e2d4d75704f1c92ab96a0325
 Q15_HELPER_PATH=research_runs/Q15-MIGRATION-20261004
 Q15_MODE=${1:-}
-[[ "$Q15_MODE" == backup || "$Q15_MODE" == restore || "$Q15_MODE" == from-r2 ]] || { printf 'Usage: bash Q15_MIGRATE_ON_RUNPOD.sh from-r2|backup|restore [--job-id ID] [--reset-credential NAME] [--object-key KEY --archive-sha256 SHA]\n' >&2; exit 2; }
+[[ "$Q15_MODE" == backup || "$Q15_MODE" == restore || "$Q15_MODE" == from-r2 ]] || { printf 'Usage: bash Q15_MIGRATE_ON_RUNPOD.sh from-r2|backup|restore [--manual-stop] [--job-id ID] [--reset-credential NAME] [--object-key KEY --archive-sha256 SHA]\n' >&2; exit 2; }
 shift
 Q15_OBJECT_KEY=''
 Q15_ARCHIVE_SHA=''
 Q15_JOB_ID=''
+Q15_MANUAL_STOP=false
 Q15_RESET_CREDENTIALS=()
 while (($#)); do
+  if [[ "$1" == --manual-stop ]]; then Q15_MANUAL_STOP=true; shift; continue; fi
   [[ $# -ge 2 ]] || { printf 'Missing argument value.\n' >&2; exit 2; }
   case "$1" in
     --object-key) Q15_OBJECT_KEY=$2 ;;
@@ -31,6 +33,7 @@ done
 if [[ "$Q15_MODE" == restore ]]; then
   [[ "$Q15_ARCHIVE_SHA" =~ ^[a-f0-9]{64}$ && "$Q15_OBJECT_KEY" == q15/migrations/* ]] || { printf 'Supply the verified backup object key and SHA256.\n' >&2; exit 2; }
 fi
+if [[ "$Q15_MANUAL_STOP" == true ]]; then unset RUNPOD_API_KEY; fi
 [[ -z "$Q15_JOB_ID" || "$Q15_JOB_ID" =~ ^[A-Za-z0-9_-]{1,80}$ ]] || { printf 'Invalid migration job ID.\n' >&2; exit 2; }
 command -v flock >/dev/null
 exec 8>/root/.q15-migration-setup.lock
@@ -75,12 +78,20 @@ for Q15_NAME in "$@"; do
   export -n "$Q15_NAME"
 done
 }
+q15_check_accounts() {
+  if [[ "$Q15_MANUAL_STOP" == true ]]; then
+    GH_TOKEN="$GH_TOKEN" python3 "$Q15_PRIVATE/q15_migration_supervisor.py" check-accounts --manual-stop
+  else
+    GH_TOKEN="$GH_TOKEN" RUNPOD_API_KEY="$RUNPOD_API_KEY" python3 "$Q15_PRIVATE/q15_migration_supervisor.py" check-accounts
+  fi
+}
 if [[ "$Q15_MODE" != backup ]]; then
-  q15_collect_credentials GH_TOKEN RUNPOD_API_KEY
+  q15_collect_credentials GH_TOKEN
+  [[ "$Q15_MANUAL_STOP" == true ]] || q15_collect_credentials RUNPOD_API_KEY
   # Only account credentials reach this standard-library-only, read-only
   # preflight. An inherited value is presence, never API authorization.
   for Q15_API_ATTEMPT in 1 2 3; do
-    if Q15_ACCOUNT_REPORT=$(GH_TOKEN="$GH_TOKEN" RUNPOD_API_KEY="$RUNPOD_API_KEY" python3 "$Q15_PRIVATE/q15_migration_supervisor.py" check-accounts); then
+    if Q15_ACCOUNT_REPORT=$(q15_check_accounts); then
       printf '%s\n' "$Q15_ACCOUNT_REPORT"
       break
     fi
@@ -103,7 +114,10 @@ fi
 q15_collect_credentials R2_BUCKET R2_ENDPOINT R2_ACCESS_KEY_ID R2_SECRET_ACCESS_KEY
 [[ -z "$Q15_TTY_FD" ]] || exec {Q15_TTY_FD}>&-
 Q15_CREDENTIAL_NAMES=(R2_BUCKET R2_ENDPOINT R2_ACCESS_KEY_ID R2_SECRET_ACCESS_KEY)
-[[ "$Q15_MODE" == backup ]] || Q15_CREDENTIAL_NAMES+=(GH_TOKEN RUNPOD_API_KEY)
+if [[ "$Q15_MODE" != backup ]]; then
+  Q15_CREDENTIAL_NAMES+=(GH_TOKEN)
+  [[ "$Q15_MANUAL_STOP" == true ]] || Q15_CREDENTIAL_NAMES+=(RUNPOD_API_KEY)
+fi
 python3 -m venv --system-site-packages "$Q15_PRIVATE/venv"
 "$Q15_PRIVATE/venv/bin/python" -m pip install --disable-pip-version-check -r "$Q15_PRIVATE/requirements-migration.txt" >"$Q15_PRIVATE/client-install.log" 2>&1 || { printf 'S3 client installation failed; private log: %s/client-install.log\n' "$Q15_PRIVATE" >&2; exit 1; }
 Q15_JOB_ID=${Q15_JOB_ID:-$(date -u +%Y%m%dT%H%M%SZ)-migration-$Q15_MODE-$(python3 -c 'import uuid;print(uuid.uuid4().hex[:8])')}
@@ -123,11 +137,15 @@ os.replace(temporary, path)
 PY
 for Q15_NAME in "${Q15_CREDENTIAL_NAMES[@]}"; do export "$Q15_NAME"; done
 Q15_ARGS=("$Q15_MODE" --job-directory "$Q15_JOB_DIR" --job-id "$Q15_JOB_ID" --private-log "$Q15_PRIVATE/scientific-install.log")
+[[ "$Q15_MANUAL_STOP" == false ]] || Q15_ARGS+=(--manual-stop)
 if [[ "$Q15_MODE" == restore ]]; then Q15_ARGS+=(--object-key "$Q15_OBJECT_KEY" --archive-sha256 "$Q15_ARCHIVE_SHA"); fi
 # Worker inherits FD9's lock and credentials only in memory. No secret is stored in a file.
 nohup "$Q15_PRIVATE/venv/bin/python" "$Q15_PRIVATE/q15_migration_supervisor.py" "${Q15_ARGS[@]}" 8>&- >"$Q15_JOB_DIR/supervisor.log" 2>&1 </dev/null &
 Q15_PID=$!
-printf '{"status":"detached_migration_started_not_scientifically_complete","operation":"%s","pid":%s,"job_id":"%s","new_source_fits":0,"target_fits":0}\n' "$Q15_MODE" "$Q15_PID" "$Q15_JOB_ID"
+Q15_STOP_FIELDS=''
+[[ "$Q15_MANUAL_STOP" == false ]] || Q15_STOP_FIELDS=',"automatic_shutdown_enabled":false,"runpod_api_checked":false,"manual_stop_required":true'
+printf '{"status":"detached_migration_started_not_scientifically_complete","operation":"%s","pid":%s,"job_id":"%s","new_source_fits":0,"target_fits":0%s}\n' "$Q15_MODE" "$Q15_PID" "$Q15_JOB_ID" "$Q15_STOP_FIELDS"
 printf 'Progress: cat %s/migration_status.json\n' "$Q15_JOB_DIR"
 printf 'Logs: tail -n 25 %s/supervisor.log\n' "$Q15_JOB_DIR"
 printf 'Results branch: https://github.com/jackzhu119/cross-subject-mi-eeg/tree/q15/run-%s\n' "$Q15_JOB_ID"
+[[ "$Q15_MANUAL_STOP" == false ]] || printf 'Manual stop mode: no RunPod API key or API calls. Stop this Pod in the console after verified results backup.\n'
