@@ -153,7 +153,7 @@ def test_read_api_sanitizes_provider_specific_errors(supervisor, monkeypatch, ho
     assert sensitive not in str(caught.value)
 
 
-def fake_account_queries(supervisor, monkeypatch, rejected_provider=None):
+def fake_account_queries(supervisor, monkeypatch, rejected_provider=None, github_push=True):
     """Fake both account endpoints without exposing even synthetic tokens."""
     calls = []
 
@@ -181,7 +181,7 @@ def fake_account_queries(supervisor, monkeypatch, rejected_provider=None):
             provider = "github"
             secret = FAKE_SECRETS["GH_TOKEN"]
             body = {"full_name": "jackzhu119/cross-subject-mi-eeg",
-                    "permissions": {"push": True}}
+                    "permissions": {"push": github_push}}
         else:
             pytest.fail("Only the two read-only account endpoints are allowed")
         assert request.get_method() == "GET"
@@ -265,11 +265,149 @@ def test_check_accounts_is_read_only_without_job_arguments(supervisor, monkeypat
     assert all(secret not in output for secret in FAKE_SECRETS.values())
 
 
+def test_manual_identity_requires_no_runpod_key_and_queries_only_github(supervisor, monkeypatch):
+    monkeypatch.delenv("RUNPOD_API_KEY")
+    calls = fake_account_queries(supervisor, monkeypatch)
+    assert supervisor.check_destination_identity(manual_stop=True) == "new_fake_test_pod"
+    assert calls == ["github"]
+
+
+def test_manual_identity_still_requires_github_credential(supervisor, monkeypatch):
+    monkeypatch.delenv("RUNPOD_API_KEY")
+    monkeypatch.delenv("GH_TOKEN")
+    monkeypatch.setattr(supervisor, "read_api", lambda *_: pytest.fail("No account API"))
+    with pytest.raises(supervisor.MigrationError, match="required_credential_missing:GH_TOKEN"):
+        supervisor.check_destination_identity(manual_stop=True)
+
+
+@pytest.mark.parametrize("pod", ["", "hvjo2yy3m3wamh", "bad/pod", "a" * 65])
+def test_manual_stop_still_rejects_missing_origin_or_unsafe_pod_environment(supervisor,
+                                                                         monkeypatch, pod):
+    monkeypatch.delenv("RUNPOD_API_KEY")
+    monkeypatch.setenv("RUNPOD_POD_ID", pod)
+    monkeypatch.setattr(supervisor, "read_api", lambda *_: pytest.fail("No account API"))
+    with pytest.raises(supervisor.MigrationError, match="new_destination_pod_required"):
+        supervisor.check_destination_identity(manual_stop=True)
+
+
+@pytest.mark.parametrize("failure,error", [(None, None),
+                                          ("http", "github_account_api_http_403"),
+                                          ("permission", "github_publication_access_unverified")])
+def test_manual_accounts_check_is_read_only_and_never_claims_runpod_validation(supervisor,
+                                                                             monkeypatch,
+                                                                             tmp_path, capsys,
+                                                                             failure, error):
+    monkeypatch.delenv("RUNPOD_API_KEY")
+    monkeypatch.chdir(tmp_path)
+    prohibit_scientific_and_cloud_actions(supervisor, monkeypatch)
+    calls = fake_account_queries(supervisor, monkeypatch,
+                                 "github" if failure == "http" else None,
+                                 github_push=failure != "permission")
+    original_import = builtins.__import__
+
+    def safe_import(name, *args, **kwargs):
+        assert name not in {"q15_migration_transport", "q15_restore_from_r2", "torch", "boto3"}
+        return original_import(name, *args, **kwargs)
+
+    def no_file_change(*_, **__):
+        pytest.fail("Manual account check must not write files or create directories")
+
+    monkeypatch.setattr(builtins, "__import__", safe_import)
+    monkeypatch.setattr(Path, "mkdir", no_file_change)
+    monkeypatch.setattr(Path, "write_text", no_file_change)
+    monkeypatch.setattr(Path, "replace", no_file_change)
+    assert supervisor.main(["check-accounts", "--manual-stop"]) == (1 if failure else 0)
+    output = capsys.readouterr().out
+    report = json.loads(output)
+    assert report["new_source_fits"] == report["target_fits"] == 0
+    if failure:
+        assert report["status"] == "accounts_preflight_failed"
+        assert report["error_code"] == error
+    else:
+        assert report["status"] == "github_preflight_verified_manual_stop"
+        assert report["runpod_api_checked"] is False
+        assert report["automatic_shutdown_enabled"] is False
+        assert report["pod_identity_source"] == "pod_environment_only"
+    assert report.get("runpod_api_checked", False) is False
+    assert calls == ["github"]
+    assert list(tmp_path.iterdir()) == []
+    assert all(secret not in output for secret in FAKE_SECRETS.values())
+
+
+@pytest.mark.parametrize("mode", ["restore", "from-r2"])
+@pytest.mark.parametrize("failure,error", [("http", "github_account_api_http_403"),
+                                          ("permission", "github_publication_access_unverified")])
+def test_manual_github_failure_blocks_all_migration_actions(supervisor, sandbox, monkeypatch,
+                                                          tmp_path, capsys, mode, failure, error):
+    monkeypatch.delenv("RUNPOD_API_KEY")
+    prohibit_scientific_and_cloud_actions(supervisor, monkeypatch)
+    calls = fake_account_queries(supervisor, monkeypatch,
+                                 "github" if failure == "http" else None,
+                                 github_push=failure != "permission")
+    assert supervisor.main(launch_args(tmp_path, mode) + ["--manual-stop"]) == 1
+    report = progress(tmp_path)
+    assert report["stage"] == "failed_or_blocked"
+    assert report["error_code"] == error
+    assert report["new_source_fits"] == report["target_fits"] == 0
+    assert report["automatic_pod_stop_requested_by_migration_supervisor"] is False
+    assert calls == ["github"]
+    output = capsys.readouterr().out
+    for row in (json.loads(line) for line in output.splitlines()):
+        assert row["runpod_api_checked"] is False
+        assert row["automatic_shutdown_enabled"] is False
+        assert row["pod_identity_source"] == "pod_environment_only"
+    assert all(secret not in output for secret in FAKE_SECRETS.values())
+
+
+@pytest.mark.parametrize("mode", ["restore", "from-r2"])
+def test_manual_stop_flag_reaches_only_verified_continuation(supervisor, sandbox, monkeypatch,
+                                                           tmp_path, capsys, mode):
+    monkeypatch.delenv("RUNPOD_API_KEY")
+    calls = fake_account_queries(supervisor, monkeypatch)
+    events = []
+
+    def transport(args):
+        assert args[0] == "restore"
+        events.append("restore")
+        ready_receipt(sandbox)
+        return 0
+
+    def restore_from_r2(*_, **kwargs):
+        assert kwargs == {"manual_stop": True}
+        events.append("restore")
+        return {"ready_for_continuation": True}
+
+    def continuation(command, **kwargs):
+        assert Path(command[1]).name == "q15_continue_validated.py"
+        assert command.count("--manual-stop") == 1
+        assert kwargs["check"] is False
+        events.append("continue")
+        return types.SimpleNamespace(returncode=0)
+
+    install_transport(monkeypatch, transport if mode == "restore" else
+                      lambda *_: pytest.fail("No archive transport for from-r2"))
+    monkeypatch.setitem(sys.modules, "q15_restore_from_r2", types.SimpleNamespace(
+        restore_from_r2=restore_from_r2))
+    monkeypatch.setattr(supervisor, "install_scientific_runtime", lambda *_: None)
+    monkeypatch.setattr(supervisor.subprocess, "run", continuation)
+    assert supervisor.main(launch_args(tmp_path, mode) + ["--manual-stop"]) == 0
+    assert calls == ["github"]
+    assert events == ["restore", "continue"]
+    report = progress(tmp_path)
+    assert report["scientific_completion_requires_job_report"] is True
+    assert report["new_source_fits"] == report["target_fits"] == 0
+    for row in (json.loads(line) for line in capsys.readouterr().out.splitlines()):
+        assert row["runpod_api_checked"] is False
+        assert row["automatic_shutdown_enabled"] is False
+        assert row["pod_identity_source"] == "pod_environment_only"
+        assert row["new_source_fits"] == row["target_fits"] == 0
+
+
 @pytest.mark.parametrize("mode", ["backup", "restore", "from-r2"])
 @pytest.mark.parametrize("missing", ["--job-directory", "--job-id", "--private-log"])
 def test_migration_modes_still_require_all_job_arguments(supervisor, monkeypatch, tmp_path,
                                                         mode, missing):
-    monkeypatch.setattr(supervisor, "check_destination_identity", lambda: pytest.fail("No API"))
+    monkeypatch.setattr(supervisor, "check_destination_identity", lambda manual_stop=False: pytest.fail("No API"))
     args = launch_args(tmp_path, mode)
     index = args.index(missing)
     del args[index:index + 2]
@@ -280,7 +418,7 @@ def test_migration_modes_still_require_all_job_arguments(supervisor, monkeypatch
 
 
 def test_restore_account_preflight_precedes_transport(supervisor, sandbox, monkeypatch, tmp_path):
-    def rejected():
+    def rejected(manual_stop=False):
         raise supervisor.MigrationError("destination_fake_rejected")
 
     monkeypatch.setattr(supervisor, "check_destination_identity", rejected)
@@ -294,7 +432,7 @@ def test_restore_account_preflight_precedes_transport(supervisor, sandbox, monke
 
 
 def test_invalid_archive_digest_blocks_transport(supervisor, sandbox, monkeypatch, tmp_path):
-    monkeypatch.setattr(supervisor, "check_destination_identity", lambda: "new_fake_test_pod")
+    monkeypatch.setattr(supervisor, "check_destination_identity", lambda manual_stop=False: "new_fake_test_pod")
     install_transport(monkeypatch, lambda *_: pytest.fail("Unverified backup must not be downloaded"))
     assert supervisor.main(launch_args(tmp_path, archive_sha256="bad")) == 1
     assert progress(tmp_path)["error_code"] == "verified_backup_locator_required"
@@ -306,7 +444,7 @@ def test_invalid_archive_digest_blocks_transport(supervisor, sandbox, monkeypatc
 ])
 def test_partial_restore_or_failed_transport_cannot_continue(supervisor, sandbox, monkeypatch,
                                                            tmp_path, transport_result, ready, error):
-    monkeypatch.setattr(supervisor, "check_destination_identity", lambda: "new_fake_test_pod")
+    monkeypatch.setattr(supervisor, "check_destination_identity", lambda manual_stop=False: "new_fake_test_pod")
     monkeypatch.setattr(supervisor, "check_cuda_template", lambda: None)
 
     def transport(_):
@@ -324,7 +462,7 @@ def test_restore_launches_only_verified_continuation_after_runtime_install(super
                                                                           monkeypatch, tmp_path):
     events = []
     monkeypatch.setattr(supervisor, "check_destination_identity",
-                        lambda: events.append("identity") or "new_fake_test_pod")
+                        lambda manual_stop=False: events.append("identity") or "new_fake_test_pod")
     monkeypatch.setattr(supervisor, "check_cuda_template", lambda: events.append("runtime_probe"))
 
     def transport(args):
@@ -371,7 +509,7 @@ def test_verified_backup_preserves_old_job_and_does_not_stop_or_continue(supervi
         return 0
 
     install_transport(monkeypatch, transport)
-    monkeypatch.setattr(supervisor, "check_destination_identity", lambda: pytest.fail("Backup uses old Pod"))
+    monkeypatch.setattr(supervisor, "check_destination_identity", lambda manual_stop=False: pytest.fail("Backup uses old Pod"))
     monkeypatch.setattr(supervisor.subprocess, "run", lambda *_args, **_kw: pytest.fail("No scientific worker"))
     assert supervisor.main(launch_args(tmp_path, "backup")) == 0
     report = progress(tmp_path)
@@ -432,7 +570,7 @@ def test_from_r2_uses_no_archive_and_continues_only_after_ready(supervisor, sand
                                                               tmp_path):
     events = []
     monkeypatch.setattr(supervisor, 'check_destination_identity',
-                        lambda: events.append('identity') or 'new_fake_test_pod')
+                        lambda manual_stop=False: events.append('identity') or 'new_fake_test_pod')
     monkeypatch.setattr(supervisor, 'check_cuda_template', lambda: events.append('gpu'))
     install_transport(monkeypatch, lambda *_: pytest.fail('No archive transport is needed'))
 
@@ -458,7 +596,7 @@ def test_from_r2_uses_no_archive_and_continues_only_after_ready(supervisor, sand
 
 def test_from_r2_incomplete_restore_never_starts_scientific_worker(supervisor, sandbox,
                                                                 monkeypatch, tmp_path):
-    monkeypatch.setattr(supervisor, 'check_destination_identity', lambda: 'new_fake_test_pod')
+    monkeypatch.setattr(supervisor, 'check_destination_identity', lambda manual_stop=False: 'new_fake_test_pod')
     install_transport(monkeypatch, lambda *_: pytest.fail('No archive transport'))
     monkeypatch.setitem(sys.modules, 'q15_restore_from_r2', types.SimpleNamespace(
         restore_from_r2=lambda *_: {'ready_for_continuation': False}))
@@ -468,7 +606,7 @@ def test_from_r2_incomplete_restore_never_starts_scientific_worker(supervisor, s
 
 
 def test_wrong_cuda_template_blocks_r2_download(supervisor, sandbox, monkeypatch, tmp_path):
-    monkeypatch.setattr(supervisor, 'check_destination_identity', lambda: 'new_fake_test_pod')
+    monkeypatch.setattr(supervisor, 'check_destination_identity', lambda manual_stop=False: 'new_fake_test_pod')
 
     def reject():
         raise supervisor.MigrationError('pinned_pytorch_cuda_template_required')

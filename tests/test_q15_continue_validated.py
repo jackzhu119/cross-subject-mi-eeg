@@ -756,3 +756,211 @@ def test_result_evidence_rejects_unrecognized_artifact_inventory_before_stop(tmp
     assert "reinspect-new-pod" not in p.events and "stop-new-pod" not in p.events
     assert continuation.read_json(p.job / "job_status.json")["backup_error_code"] == \
         "publication_evidence_artifact_identity_invalid"
+
+
+def enable_manual_pipeline(p, monkeypatch, inherited_key=False):
+    p.args.manual_stop = True
+    if inherited_key:
+        monkeypatch.setenv("RUNPOD_API_KEY", "private-runpod-key")
+    else:
+        monkeypatch.delenv("RUNPOD_API_KEY", raising=False)
+
+    def forbidden_api(*args, **kwargs):
+        pytest.fail("Manual stop must never call the frozen automatic preflight or any RunPod API")
+
+    p.full.preflight = p.cloud.runpod_request = forbidden_api
+
+    def preflight(args, full, publisher):
+        p.events.append("manual-runtime-preflight")
+        publisher.verify_access()
+        return {"pod_id": "new-pod", "pod_identity_authenticated": False,
+                "pod_identity_source": "pod_environment_only", "disk_capacity_gb": None,
+                "workspace_available_bytes": 150 * 1024**3,
+                "workspace_purchased_quota_verified": False,
+                "workspace_capacity_check_method":
+                    "filesystem_available_bytes_purchased_quota_unverified",
+                "gpu_computation_verified": True}
+
+    monkeypatch.setattr(continuation, "manual_preflight", preflight)
+
+
+@pytest.mark.parametrize("inherited_key", [False, True])
+def test_manual_complete_publishes_validated_results_and_never_contacts_runpod(
+        tmp_path, monkeypatch, capsys, inherited_key):
+    p = pipeline(tmp_path, monkeypatch)
+    enable_manual_pipeline(p, monkeypatch, inherited_key)
+    assert continuation.run(p.args, p.full, p.publisher, p.job, p.restore) == 0
+    assert p.events.index("independent-source-replay-readonly") < p.events.index("commit-provenance")
+    assert p.events.index("commit-inference-freeze") < p.events.index("external-inference")
+    assert p.events.index("independent-external-replay") < p.events.index("commit-final")
+    assert p.events.index("commit-final") < p.events.index("commit-evidence")
+    state = continuation.read_json(p.job / "job_status.json")
+    assert state["status"] == "completed_with_calibration_limitations"
+    assert state["scientific_validation_passed"] is True
+    assert state["github_results_backup_verified"] is True
+    assert state["fits_started"] == state["original_source_fits"] == 15
+    assert state["new_source_fits"] == state["target_fits"] == 0
+    assert state["automatic_shutdown_enabled"] is False
+    assert state["auto_shutdown_enabled"] is False
+    assert state["automatic_pod_stop_enabled"] is False
+    assert state["runpod_api_checked"] is False
+    assert state["manual_stop_required"] is True
+    assert state["shutdown_status"] == "manual_stop_required"
+    assert state["pod_identity_authenticated"] is False
+    assert state["pod_identity_source"] == "pod_environment_only"
+    assert state["disk_capacity_gb"] is None and state["workspace_purchased_quota_verified"] is False
+    assert not (p.job / "stop_api_receipt.json").exists()
+    assert "new_pod_stop_api_accepted" not in capsys.readouterr().out
+    public = p.args.repo / "research_runs/Q15-MIGRATION-20261004/jobs/new-job"
+    assert continuation.read_json(public / "job_status.json")["manual_stop_required"] is True
+    evidence = continuation.read_json(public / "publication_evidence.json")
+    assert evidence["readback_verified"] is True
+    assert evidence["publication_purpose"] == "scientific_results"
+    assert evidence["physical_shutdown_confirmed"] is False
+
+
+@pytest.mark.parametrize("inherited_key", [False, True])
+@pytest.mark.parametrize("failure,fail_backup", [
+    ("verify-original-freeze", False), ("verify-inference-freeze", False),
+    ("independent-external-replay", False), ("commit-evidence", False),
+    ("verify-inference-freeze", True)])
+def test_manual_science_or_publication_failure_never_contacts_runpod_or_claims_completion(
+        tmp_path, monkeypatch, failure, fail_backup, inherited_key):
+    p = pipeline(tmp_path, monkeypatch, fail_at=failure, fail_backup=fail_backup)
+    enable_manual_pipeline(p, monkeypatch, inherited_key)
+    assert continuation.run(p.args, p.full, p.publisher, p.job, p.restore) == 1
+    state = continuation.read_json(p.job / "job_status.json")
+    assert state["status"] in ("failed_or_blocked", "failed_backup_manual_attention_required")
+    assert state["new_source_fits"] == state["target_fits"] == 0
+    assert state["automatic_pod_stop_enabled"] is False
+    assert state["manual_stop_required"] is True
+    assert state["shutdown_status"] == "manual_stop_required"
+    assert state["physical_shutdown_confirmed"] is False
+    assert not (p.job / "stop_api_receipt.json").exists()
+    if not fail_backup and failure != "commit-evidence":
+        assert state["scientific_validation_passed"] is False
+        evidence = continuation.read_json(p.args.repo /
+            "research_runs/Q15-MIGRATION-20261004/jobs/new-job/publication_evidence.json")
+        assert evidence["publication_purpose"] == "failure_status"
+        assert evidence["readback_verified"] is True
+
+
+def test_manual_main_flag_is_forwarded_and_check_only_does_not_publish_or_stop(tmp_path, monkeypatch):
+    p = pipeline(tmp_path, monkeypatch)
+    enable_manual_pipeline(p, monkeypatch)
+    monkeypatch.setattr(continuation, "load_restored_full", lambda args: p.full)
+    assert continuation.main(["--job-id", "new-job", "--workspace", str(tmp_path),
+                              "--manual-stop", "--check-only"]) == 0
+    assert "manual-runtime-preflight" in p.events
+    assert "raw-to-epoch-replay-Lee2019_MI" in p.events
+    assert p.commits == [] and "external-inference" not in p.events
+    state = continuation.read_json(p.job / "job_status.json")
+    assert state["status"] == "continuation_ready_no_new_fits_or_predictions"
+    assert state["shutdown_status"] == "manual_stop_required"
+    assert not (p.job / "stop_api_receipt.json").exists()
+
+
+def manual_runtime_fixture(tmp_path, monkeypatch):
+    p = pipeline(tmp_path, monkeypatch)
+    monkeypatch.delenv("RUNPOD_API_KEY", raising=False)
+    p.args.manual_stop = True
+    p.full.REPOSITORY = "jackzhu119/cross-subject-mi-eeg"
+    p.full.PINNED_PATHS = ["scripts", "src", "requirements-q15-runtime.txt"]
+    p.full.workspace_allocated_bytes = lambda path: 3 * 1024**3
+    (p.args.repo / "requirements-q15-runtime.txt").write_text("# exact fixture pin\nnumpy==2.5.3\n")
+    p.full.git = lambda *args: (b"https://github.com/jackzhu119/cross-subject-mi-eeg.git\n"
+                              if args == ("remote", "get-url", "origin") else b"")
+    monkeypatch.setattr(continuation.sys, "version_info", (3, 12, 0))
+    monkeypatch.setattr(continuation.os, "statvfs", lambda path:
+                        SimpleNamespace(f_bavail=40 * 1024**3, f_frsize=1))
+    versions = {"torchaudio": "2.8.0+cu128", "numpy": "2.5.3"}
+    monkeypatch.setattr(continuation.importlib.metadata, "version", versions.__getitem__)
+    output = SimpleNamespace(shape=(2, 2))
+    tensor = SimpleNamespace(item=lambda: 1)
+    finite = SimpleNamespace(all=lambda: SimpleNamespace(item=lambda: True))
+    shapes = []
+
+    class Model:
+        def eval(self):
+            return self
+
+        def __call__(self, zero):
+            assert zero == "zeros"
+            return output
+
+    torch = SimpleNamespace(__version__="2.8.0+cu128", version=SimpleNamespace(cuda="12.8"),
+        cuda=SimpleNamespace(is_available=lambda: True, empty_cache=lambda: p.events.append("cuda-empty-cache")),
+        ones=lambda *args, **kwargs: tensor, inference_mode=lambda: nullcontext(),
+        device=lambda name: name, isfinite=lambda result: finite,
+        zeros=lambda shape, **kwargs: (shapes.append(shape), "zeros")[1])
+    real_import = continuation.importlib.import_module
+    monkeypatch.setattr(continuation.importlib, "import_module",
+                        lambda name: torch if name == "torch" else real_import(name))
+    source = p.modules["q15_source"]
+    source.derive_config = lambda: {"synthetic": True}
+    source.MODELS = ["BROAD_EEGNET", "EEGConformer"]
+    source._build_model = lambda *args: Model()
+    p.cloud.runpod_request = lambda *args, **kwargs: pytest.fail("Manual runtime cannot contact RunPod")
+    return p, torch, versions, shapes
+
+
+def test_manual_runtime_preflight_preserves_code_github_and_zero_input_gpu_guards(tmp_path, monkeypatch):
+    p, _torch, _versions, shapes = manual_runtime_fixture(tmp_path, monkeypatch)
+    result = continuation.manual_preflight(p.args, p.full, p.publisher)
+    assert result["pod_id"] == "new-pod"
+    assert result["pod_identity_authenticated"] is False
+    assert result["pod_identity_source"] == "pod_environment_only"
+    assert result["runpod_api_checked"] is False
+    assert result["automatic_shutdown_enabled"] is False
+    assert result["disk_capacity_gb"] is None
+    assert result["workspace_available_bytes"] == 40 * 1024**3
+    assert result["workspace_purchased_quota_verified"] is False
+    assert result["workspace_capacity_check_method"] == \
+        "filesystem_available_bytes_purchased_quota_unverified"
+    assert result["runtime_distributions"] == {"numpy": "2.5.3"}
+    assert result["gpu_computation_verified"] is True
+    assert result["cuda_zero_input_architecture_probe_verified"] is True
+    assert result["eeg_loaded_for_runtime_probe"] is False
+    assert shapes == [(2, 21, 320), (2, 2, 21, 320)]
+    assert p.events == ["verify-github-access-and-resume-head", "cuda-empty-cache"]
+    assert "RUNPOD_API_KEY" not in continuation.os.environ
+
+
+@pytest.mark.parametrize("change,code", [
+    ("missing-github", "github_credentials_required"),
+    ("wrong-origin", "repository_origin_mismatch"),
+    ("changed-pinned-code", "pinned_execution_code_or_contract_changed"),
+    ("untracked-pinned-code", "untracked_execution_code_or_contract_rejected"),
+    ("low-filesystem-space", "workspace_filesystem_headroom_below_25_gib"),
+    ("wrong-cuda-runtime", "pinned_cuda_runtime_unavailable"),
+    ("wrong-torchaudio", "pinned_torchaudio_runtime_unavailable"),
+    ("wrong-distribution", "pinned_runtime_distribution_mismatch"),
+    ("unfrozen-requirements", "runtime_requirement_not_exact_pin"),
+    ("bad-computation", "gpu_computation_probe_failed")])
+def test_manual_runtime_preflight_rejects_scientific_runtime_or_storage_failure_without_api(
+        tmp_path, monkeypatch, change, code):
+    p, torch, versions, shapes = manual_runtime_fixture(tmp_path, monkeypatch)
+    if change == "missing-github":
+        monkeypatch.delenv("GH_TOKEN")
+    elif change == "wrong-origin":
+        p.full.git = lambda *args: b"https://github.com/foreign/repo.git"
+    elif change in ("changed-pinned-code", "untracked-pinned-code"):
+        original = p.full.git
+        command = "diff" if change == "changed-pinned-code" else "ls-files"
+        p.full.git = lambda *args: b"unexpected change" if args[0] == command else original(*args)
+    elif change == "low-filesystem-space":
+        monkeypatch.setattr(continuation.os, "statvfs", lambda path:
+                            SimpleNamespace(f_bavail=24 * 1024**3, f_frsize=1))
+    elif change == "wrong-cuda-runtime":
+        torch.version.cuda = "12.7"
+    elif change == "wrong-torchaudio":
+        versions["torchaudio"] = "2.8.0"
+    elif change == "wrong-distribution":
+        versions["numpy"] = "2.4.0"
+    elif change == "unfrozen-requirements":
+        (p.args.repo / "requirements-q15-runtime.txt").write_text("numpy>=2.5\n")
+    elif change == "bad-computation":
+        torch.ones = lambda *args, **kwargs: SimpleNamespace(item=lambda: 0)
+    with pytest.raises(continuation.ContinuationError, match=code):
+        continuation.manual_preflight(p.args, p.full, p.publisher)
+    assert shapes == []

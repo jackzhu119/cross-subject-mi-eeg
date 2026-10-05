@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import importlib.metadata
 import importlib.util
 import json
 import os
@@ -330,6 +331,78 @@ def public_publication_evidence(receipt, root, paths, job_id, purpose):
     return value
 
 
+def manual_preflight(args, full, publisher):
+    """Keep runtime/publication guards without authenticating a RunPod account."""
+    if sys.version_info[:2] != (3, 12):
+        raise ContinuationError("pinned_python_312_runtime_unavailable")
+    if not os.environ.get("GH_TOKEN"):
+        raise ContinuationError("github_credentials_required")
+    if full.git("remote", "get-url", "origin").decode().strip() != \
+            "https://github.com/" + full.REPOSITORY + ".git":
+        raise ContinuationError("repository_origin_mismatch")
+    if not COMMIT_RE.fullmatch(args.revision):
+        raise ContinuationError("code_revision_invalid")
+    if full.git("diff", args.revision, "--", *full.PINNED_PATHS):
+        raise ContinuationError("pinned_execution_code_or_contract_changed")
+    if full.git("ls-files", "--others", "--exclude-standard", "--", *full.PINNED_PATHS):
+        raise ContinuationError("untracked_execution_code_or_contract_rejected")
+    for name in ("raw_dir", "bnci_dir", "epoch_dir", "control_dir"):
+        path = Path(getattr(args, name))
+        if not path.is_absolute() or path.resolve().is_relative_to(full.ROOT.resolve()):
+            raise ContinuationError("private_data_or_control_directory_unsafe")
+    publisher.verify_access()
+    allocated = full.workspace_allocated_bytes(Path(args.workspace))
+    disk = os.statvfs(args.workspace)
+    available = disk.f_bavail * disk.f_frsize
+    if available < 25 * 1024**3:
+        raise ContinuationError("workspace_filesystem_headroom_below_25_gib")
+    torch = importlib.import_module("torch")
+    if (torch.__version__ != "2.8.0+cu128" or torch.version.cuda != "12.8"
+            or not torch.cuda.is_available()):
+        raise ContinuationError("pinned_cuda_runtime_unavailable")
+    if importlib.metadata.version("torchaudio") != "2.8.0+cu128":
+        raise ContinuationError("pinned_torchaudio_runtime_unavailable")
+    versions = {}
+    for line in (full.ROOT / "requirements-q15-runtime.txt").read_text().splitlines():
+        line = line.strip()
+        if not line or line.startswith("#"):
+            continue
+        match = re.fullmatch(r"([A-Za-z0-9_.-]+)==([A-Za-z0-9_.+-]+)", line)
+        if match is None:
+            raise ContinuationError("runtime_requirement_not_exact_pin")
+        name, expected = match.groups()
+        actual = importlib.metadata.version(name)
+        if actual != expected:
+            raise ContinuationError("pinned_runtime_distribution_mismatch")
+        versions[name] = actual
+    if torch.ones(1, device="cuda").item() != 1:
+        raise ContinuationError("gpu_computation_probe_failed")
+    source = restored_module(full, "q15_source")
+    config = source.derive_config()
+    with torch.inference_mode():
+        for name in source.MODELS:
+            model = source._build_model(name, config, torch.device("cuda")).eval()
+            shape = (2, 21, 320) if name == "BROAD_EEGNET" else (2, 2, 21, 320)
+            output = model(torch.zeros(shape, device="cuda"))
+            if tuple(output.shape) != (2, 2) or not torch.isfinite(output).all().item():
+                raise ContinuationError("cuda_architecture_zero_input_probe_failed")
+            del model, output
+    torch.cuda.empty_cache()
+    cloud = restored_module(full, "q15_cloud.q15_cloud_job")
+    return {"pod_id": cloud.current_pod_id(), "disk_capacity_gb": None,
+            "allocated_workspace_bytes": allocated, "workspace_available_bytes": available,
+            "workspace_purchased_quota_verified": False,
+            "workspace_capacity_check_method": "filesystem_available_bytes_purchased_quota_unverified",
+            "pod_identity_authenticated": False, "pod_identity_source": "pod_environment_only",
+            "runpod_api_checked": False, "automatic_shutdown_enabled": False,
+            "auto_shutdown_enabled": False, "automatic_pod_stop_enabled": False,
+            "manual_stop_required": True,
+            "gpu_computation_verified": True, "torch_version": torch.__version__,
+            "runtime_cuda": torch.version.cuda, "runtime_distributions": versions,
+            "cuda_zero_input_architecture_probe_verified": True,
+            "eeg_loaded_for_runtime_probe": False}
+
+
 def run(args, full, publisher, job, restore):
     # Outside the publication/failure/stop handlers, including remote readback
     # for resumed commits. An invalid starting HEAD cannot be published over.
@@ -338,6 +411,7 @@ def run(args, full, publisher, job, restore):
     public_dir = full.ROOT / "research_runs/Q15-MIGRATION-20261004/jobs" / args.job_id
     public_status = public_dir / "job_status.json"
     private_status = job / "job_status.json"
+    manual_stop = getattr(args, "manual_stop", False)
     state = {"schema_version": 1, "job_id": args.job_id, "branch": branch,
              "origin_job_id": ORIGIN_JOB_ID, "origin_pod_id": ORIGIN_POD_ID,
              "original_source_fits": 15, "new_source_fits": 0, "target_fits": 0,
@@ -345,12 +419,24 @@ def run(args, full, publisher, job, restore):
              "original_source_fits_verified": False, "source_only_reuse": True,
              "scientific_validation_passed": False, "predictions_computed": False,
              "github_results_backup_verified": False,
+             "runpod_api_checked": False,
+             "automatic_shutdown_enabled": not manual_stop,
+             "auto_shutdown_enabled": not manual_stop,
+             "automatic_pod_stop_enabled": not manual_stop,
+             "manual_stop_required": manual_stop,
+             "physical_shutdown_confirmed": False,
              "status": "restore_preflight_running", "supervisor_pid": os.getpid()}
+    if manual_stop:
+        state.update({"shutdown_status": "manual_stop_required",
+                      "pod_identity_authenticated": False,
+                      "pod_identity_source": "pod_environment_only"})
     pod_verified = False
     backup_verified = False
     backup_evidence_receipt = None
 
     def stage(name, **fields):
+        if manual_stop:
+            fields["shutdown_status"] = "manual_stop_required"
         state.update({"status": name, "updated_at_utc": full.now(), **fields})
         full.atomic_json(private_status, state)
         if not args.check_only:
@@ -391,11 +477,18 @@ def run(args, full, publisher, job, restore):
         current = cloud.current_pod_id()
         if current == ORIGIN_POD_ID:
             raise ContinuationError("original_pod_identity_forbidden")
-        result = full.preflight(args, publisher)
-        if result.get("pod_id") != current or result.get("pod_id") == ORIGIN_POD_ID:
-            raise ContinuationError("new_pod_preflight_identity_mismatch")
-        pod_verified = True
-        stage("new_pod_preflight_passed", pod_id=current, startup_verified=True)
+        if manual_stop:
+            result = manual_preflight(args, full, publisher)
+            if result.get("pod_id") != current or result.get("pod_id") == ORIGIN_POD_ID:
+                raise ContinuationError("new_pod_environment_identity_mismatch")
+            stage("manual_stop_runtime_preflight_passed", startup_verified=True, **result)
+        else:
+            result = full.preflight(args, publisher)
+            if result.get("pod_id") != current or result.get("pod_id") == ORIGIN_POD_ID:
+                raise ContinuationError("new_pod_preflight_identity_mismatch")
+            pod_verified = True
+            stage("new_pod_preflight_passed", pod_id=current, startup_verified=True,
+                  runpod_api_checked=True, pod_identity_authenticated=True)
         stage("original_source_and_epochs_revalidation_running")
         manifests = verify_reused_science(args, full)
         stage("original_source_and_epochs_revalidated", original_source_fits_verified=True,
@@ -479,6 +572,11 @@ def run(args, full, publisher, job, restore):
             stage("failed_backup_manual_attention_required", backup_error_code=safe_code(backup_exc),
                   shutdown_status="not_requested_backup_unverified")
             return 1
+    if manual_stop:
+        print(json.dumps({"stage": "manual_stop_required", "automatic_pod_stop_enabled": False,
+                          "scientific_validation_passed": state["scientific_validation_passed"],
+                          "physical_shutdown_confirmed": False}), flush=True)
+        return 0 if state["scientific_validation_passed"] else 1
     if not pod_verified:
         stage("manual_attention_required", shutdown_status="not_requested_pod_identity_unverified")
         return 1
@@ -515,6 +613,8 @@ def main(argv=None):
     parser.add_argument("--revision", default=SCIENTIFIC_REVISION)
     parser.add_argument("--restore-receipt")
     parser.add_argument("--check-only", action="store_true")
+    parser.add_argument("--manual-stop", action="store_true",
+                        help="Never contact RunPod API; the user stops the Pod manually.")
     args = canonical_arguments(parser.parse_args(argv))
     restore = validate_restore_receipt(args)
     full = load_restored_full(args)

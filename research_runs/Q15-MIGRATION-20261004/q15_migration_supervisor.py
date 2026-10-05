@@ -59,31 +59,37 @@ def safe_failure_code(exc):
     return code
 
 
-def check_accounts_only():
+def check_accounts_only(manual_stop=False):
     """Read two account APIs without files, SDK, CUDA, transfer, fitting or Stop."""
     try:
-        pod = check_destination_identity()
+        pod = check_destination_identity(manual_stop=True) if manual_stop else check_destination_identity()
     except Exception as exc:  # noqa: BLE001 - never serialize private response diagnostics
         print(json.dumps({"status": "accounts_preflight_failed", "error_code": safe_failure_code(exc),
                           "new_source_fits": 0, "target_fits": 0}), flush=True)
         return 1
-    print(json.dumps({"status": "accounts_preflight_verified", "pod_id": pod,
-                      "new_source_fits": 0, "target_fits": 0}), flush=True)
+    report = {"status": "accounts_preflight_verified", "pod_id": pod,
+              "new_source_fits": 0, "target_fits": 0}
+    if manual_stop:
+        report.update({"status": "github_preflight_verified_manual_stop",
+                       "runpod_api_checked": False, "automatic_shutdown_enabled": False,
+                       "pod_identity_source": "pod_environment_only"})
+    print(json.dumps(report), flush=True)
     return 0
 
 
-def check_destination_identity():
+def check_destination_identity(manual_stop=False):
     """Fail before a 75 GB restore if the destination account credentials are wrong."""
     pod = os.environ.get("RUNPOD_POD_ID", "")
     if not re.fullmatch(r"[A-Za-z0-9_-]{1,64}", pod) or pod == ORIGIN_POD:
         raise MigrationError("new_destination_pod_required")
-    for name in ("GH_TOKEN", "RUNPOD_API_KEY"):
+    for name in (("GH_TOKEN",) if manual_stop else ("GH_TOKEN", "RUNPOD_API_KEY")):
         if not os.environ.get(name):
             raise MigrationError("required_credential_missing:" + name)
-    result = read_api("https://rest.runpod.io/v1/pods/" + pod,
-                      os.environ["RUNPOD_API_KEY"])
-    if result.get("id") != pod:
-        raise MigrationError("destination_account_pod_identity_unverified")
+    if not manual_stop:
+        result = read_api("https://rest.runpod.io/v1/pods/" + pod,
+                          os.environ["RUNPOD_API_KEY"])
+        if result.get("id") != pod:
+            raise MigrationError("destination_account_pod_identity_unverified")
     repo = read_api("https://api.github.com/repos/jackzhu119/cross-subject-mi-eeg",
                     os.environ["GH_TOKEN"])
     if (repo.get("full_name") != "jackzhu119/cross-subject-mi-eeg"
@@ -158,19 +164,26 @@ def main(argv=None):
     parser.add_argument("--private-log", type=Path)
     parser.add_argument("--object-key")
     parser.add_argument("--archive-sha256")
+    parser.add_argument("--manual-stop", action="store_true")
     args = parser.parse_args(argv)
     if args.mode == "check-accounts":
-        return check_accounts_only()
+        return check_accounts_only(manual_stop=args.manual_stop)
     if args.job_directory is None or args.job_id is None or args.private_log is None:
         parser.error("migration requires --job-directory, --job-id and --private-log")
     job = args.job_directory
     job.mkdir(parents=True, exist_ok=True)
     progress = job / "migration_status.json"
     repo = Path("/workspace/q15-execution/repo")
+    def report(stage, **fields):
+        if args.manual_stop:
+            fields.update({"runpod_api_checked": False, "automatic_shutdown_enabled": False,
+                           "pod_identity_source": "pod_environment_only"})
+        status(progress, stage, **fields)
+
     try:
         import q15_migration_transport as transport
         if args.mode == "backup":
-            status(progress, "exporting_verified_source_and_epochs", origin_job_id=ORIGIN_JOB)
+            report("exporting_verified_source_and_epochs", origin_job_id=ORIGIN_JOB)
             result = transport.main([
                 "backup", "--repo", str(repo), "--epoch-dir", "/workspace/q15-data/epochs",
                 "--bnci-dir", "/workspace/q15-data/raw/BNCI2014_001", "--archive",
@@ -182,25 +195,28 @@ def main(argv=None):
             receipt = json.loads((job / "r2_backup_receipt.json").read_text())
             if receipt.get("readback_verified") is not True:
                 raise MigrationError("backup_readback_not_verified")
-            status(progress, "backup_verified_old_pod_can_be_stopped_manually",
+            report("backup_verified_old_pod_can_be_stopped_manually",
                    object_key=receipt["object_key"], archive_sha256=receipt["archive_sha256"],
                    backup_readback_verified=True, origin_source_fits=15)
             return 0
-        status(progress, "destination_account_preflight")
-        pod = check_destination_identity()
+        report("destination_account_preflight")
+        pod = (check_destination_identity(manual_stop=True) if args.manual_stop
+               else check_destination_identity())
         check_cuda_template()
         if args.mode == "from-r2":
             import q15_restore_from_r2
+            options = {"manual_stop": True} if args.manual_stop else {}
             receipt = q15_restore_from_r2.restore_from_r2(
-                Path("/workspace"), args.job_id, job, args.private_log, install_scientific_runtime)
+                Path("/workspace"), args.job_id, job, args.private_log, install_scientific_runtime,
+                **options)
             if receipt.get("ready_for_continuation") is not True:
                 raise MigrationError("r2_restoration_not_ready")
         else:
             if not args.object_key or not re.fullmatch(r"[a-f0-9]{64}", args.archive_sha256 or ""):
                 raise MigrationError("verified_backup_locator_required")
-            status(progress, "restoring_archive_and_raw_originals", pod_id=pod)
+            report("restoring_archive_and_raw_originals", pod_id=pod)
             if existing_ready_restore(args.archive_sha256, args.object_key):
-                status(progress, "verified_restoration_reused_scientific_revalidation_still_required", pod_id=pod)
+                report("verified_restoration_reused_scientific_revalidation_still_required", pod_id=pod)
             else:
                 result = transport.main([
                     "restore", "--workspace", "/workspace", "--archive", str(job / "backup.tar"),
@@ -211,22 +227,25 @@ def main(argv=None):
             receipt = json.loads(Path("/workspace/q15-migration/restore_receipt.json").read_text())
             if receipt.get("ready_for_continuation") is not True:
                 raise MigrationError("restored_originals_not_verified")
-            status(progress, "installing_frozen_inference_runtime", pod_id=pod)
+            report("installing_frozen_inference_runtime", pod_id=pod)
             install_scientific_runtime(repo, args.private_log)
-        status(progress, "validated_source_continuation_starting", pod_id=pod,
+        report("validated_source_continuation_starting", pod_id=pod,
                origin_source_fits=15)
-        result = subprocess.run([
+        continuation_args = [
             sys.executable, str(Path(__file__).with_name("q15_continue_validated.py")),
-            "--job-id", args.job_id, "--workspace", "/workspace"], check=False,
+            "--job-id", args.job_id, "--workspace", "/workspace"]
+        if args.manual_stop:
+            continuation_args.append("--manual-stop")
+        result = subprocess.run(continuation_args, check=False,
             **continuation_descriptor_options())
         if result.returncode:
             raise MigrationError("continuation_failed_or_blocked")
-        status(progress, "continuation_process_returned", pod_id=pod,
+        report("continuation_process_returned", pod_id=pod,
                scientific_completion_requires_job_report=True)
         return 0
     except Exception as exc:  # noqa: BLE001 - redact all SDK/API failures
         # SDK/network tracebacks can embed endpoint or credential material; never emit them.
-        status(progress, "failed_or_blocked", error_code=safe_failure_code(exc),
+        report("failed_or_blocked", error_code=safe_failure_code(exc),
                automatic_pod_stop_requested_by_migration_supervisor=False)
         return 1
 

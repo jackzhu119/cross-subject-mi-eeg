@@ -41,7 +41,7 @@ def digest(value):
 
 
 def fixture_pipeline(tmp_path, monkeypatch, fail_at=None, fail_backup=False,
-                     inventory_counts=(160, 18), capacity=150):
+                     inventory_counts=(160, 18), capacity=150, available_bytes=150 * 10**9):
     events, publications = [], []
     args = restore.arguments(tmp_path, "new-job", continuation)
     repo = args.repo
@@ -128,6 +128,17 @@ def fixture_pipeline(tmp_path, monkeypatch, fail_at=None, fail_backup=False,
         event("source-cuda-github-pod-preflight")
         return {"pod_id": "new-pod", "disk_capacity_gb": capacity}
 
+    def manual_preflight(args, full, publisher):
+        assert args.manual_stop is True
+        event("manual-cuda-github-filesystem-preflight")
+        return {"pod_id": "new-pod", "disk_capacity_gb": None,
+                "workspace_available_bytes": available_bytes,
+                "allocated_workspace_bytes": 0,
+                "workspace_purchased_quota_verified": False,
+                "workspace_capacity_check_method":
+                    "filesystem_available_bytes_purchased_quota_unverified",
+                "pod_identity_authenticated": False, "pod_identity_source": "pod_environment_only"}
+
     def git(*arguments):
         if arguments[0] in ("diff", "ls-files"):
             return b""
@@ -182,6 +193,7 @@ def fixture_pipeline(tmp_path, monkeypatch, fail_at=None, fail_backup=False,
     monkeypatch.setattr(continuation, "restored_module", lambda full, name: modules[name])
     monkeypatch.setattr(continuation, "verify_continuation_head", lambda *a:
                         event("published-resume-head-custody"))
+    monkeypatch.setattr(continuation, "manual_preflight", manual_preflight)
     job_directory = tmp_path / "q15-migration/jobs/new-job"
     job_directory.mkdir(parents=True)
     install = lambda repo, log: event("install-pinned-runtime")
@@ -190,9 +202,120 @@ def fixture_pipeline(tmp_path, monkeypatch, fail_at=None, fail_backup=False,
         job_directory=job_directory, install=install)
 
 
-def run_fixture(fixture):
+def run_fixture(fixture, manual_stop=False):
     return restore.restore_from_r2(Path(fixture.args.workspace), "new-job", fixture.job_directory,
-                                    Path(fixture.args.workspace) / "private-install.log", fixture.install)
+                                    Path(fixture.args.workspace) / "private-install.log", fixture.install,
+                                    manual_stop=manual_stop)
+
+
+def forbid_runpod_requests(fixture, monkeypatch, inherited=False):
+    if not inherited:
+        monkeypatch.delenv("RUNPOD_API_KEY", raising=False)
+
+    def prohibited(*args, **kwargs):
+        pytest.fail("Manual-stop restoration must never call any RunPod API")
+
+    fixture.full.preflight = prohibited
+    fixture.cloud.runpod_request = prohibited
+
+
+@pytest.mark.parametrize("inherited", [False, True])
+def test_manual_stop_restores_all_science_without_runpod_key_or_requests(tmp_path, monkeypatch,
+                                                                       inherited):
+    fixture = fixture_pipeline(tmp_path, monkeypatch)
+    forbid_runpod_requests(fixture, monkeypatch, inherited)
+    receipt = run_fixture(fixture, manual_stop=True)
+    assert continuation.validate_restore_receipt(fixture.args) == receipt
+    assert fixture.events.count("download-original") == 178
+    assert receipt["epoch_person_count"] == 106 and receipt["source_fit_count"] == 15
+    state = json.loads((fixture.job_directory / "migration_status.json").read_text())
+    assert state["new_source_fits"] == 0 and state["target_fits"] == 0
+    assert state["auto_shutdown_enabled"] is False and state["runpod_api_checked"] is False
+    assert state["automatic_shutdown_enabled"] is False
+    assert state["automatic_pod_stop_enabled"] is False and state["manual_stop_required"] is True
+    assert state["shutdown_status"] == "manual_stop_required"
+    assert state["pod_identity_authenticated"] is False
+    assert state["pod_identity_source"] == "pod_environment_only"
+    assert state["disk_capacity_gb"] is None
+    assert state["workspace_purchased_quota_verified"] is False
+    assert state["workspace_capacity_check_method"] == (
+        "filesystem_available_bytes_purchased_quota_unverified")
+    assert fixture.events.index("manual-cuda-github-filesystem-preflight") < (
+        fixture.events.index("r2-list-write-readback-delete"))
+    assert "stop-new-pod" not in fixture.events and "reinspect-new-pod" not in fixture.events
+    assert not (tmp_path / "q15-execution/jobs/new-job/stop_api_receipt.json").exists()
+
+
+@pytest.mark.parametrize("inherited", [False, True])
+@pytest.mark.parametrize("fail_at", ["manual-cuda-github-filesystem-preflight",
+    "r2-list-write-readback-delete", "download-original", "source-freeze",
+    "source-validation-replay", "regenerate-Lee2019_MI"])
+def test_manual_stop_failure_backs_up_evidence_without_runpod_requests(tmp_path, monkeypatch,
+                                                                      inherited, fail_at):
+    fixture = fixture_pipeline(tmp_path, monkeypatch, fail_at=fail_at)
+    forbid_runpod_requests(fixture, monkeypatch, inherited)
+    with pytest.raises(restore.RestorationError):
+        run_fixture(fixture, manual_stop=True)
+    assert "publish-r2_restore_failed_or_blocked" in fixture.events
+    assert "stop-new-pod" not in fixture.events and "reinspect-new-pod" not in fixture.events
+    assert not Path(fixture.args.restore_receipt).exists()
+    state = json.loads((fixture.job_directory / "migration_status.json").read_text())
+    assert state["auto_shutdown_enabled"] is False and state["runpod_api_checked"] is False
+    assert state["shutdown_status"] == "manual_stop_required"
+    assert state["scientific_validation_passed"] is False
+    assert "FAKE-PRIVATE-SECRET" not in json.dumps(state)
+
+
+def test_manual_stop_failed_github_backup_does_not_request_stop(tmp_path, monkeypatch):
+    fixture = fixture_pipeline(tmp_path, monkeypatch, fail_at="download-original", fail_backup=True)
+    forbid_runpod_requests(fixture, monkeypatch)
+    with pytest.raises(restore.RestorationError):
+        run_fixture(fixture, manual_stop=True)
+    state = json.loads((fixture.job_directory / "migration_status.json").read_text())
+    assert state["status"] == "r2_restore_manual_attention_required"
+    assert state["shutdown_status"] == "manual_stop_required"
+    assert state["backup_error_code"] == "restoration_github_readback_not_verified"
+    assert not (tmp_path / "q15-execution/jobs/new-job/stop_api_receipt.json").exists()
+
+
+def test_manual_restore_requires_remaining_original_bytes_and_headroom_in_filesystem_availability(
+        tmp_path, monkeypatch):
+    fixture = fixture_pipeline(tmp_path, monkeypatch, capacity=150, available_bytes=25 * 1024**3)
+    forbid_runpod_requests(fixture, monkeypatch)
+    with pytest.raises(restore.RestorationError):
+        run_fixture(fixture, manual_stop=True)
+    state = json.loads((fixture.job_directory / "migration_status.json").read_text())
+    assert state["error_code"] == "filesystem_available_capacity_insufficient_for_r2_restore"
+    assert state["disk_capacity_gb"] is None and state["workspace_purchased_quota_verified"] is False
+    assert "r2-client" not in fixture.events and "download-original" not in fixture.events
+
+
+def test_manual_restore_uses_remaining_bytes_on_resume_but_still_verifies_every_original(
+        tmp_path, monkeypatch):
+    fixture = fixture_pipeline(tmp_path, monkeypatch, available_bytes=25 * 1024**3)
+    for row in fixture.records:
+        path = Path(row["path"])
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(b"x" * row["size_bytes"])
+    forbid_runpod_requests(fixture, monkeypatch)
+    assert restore.remaining_download_bytes(fixture.records) == 0
+    receipt = run_fixture(fixture, manual_stop=True)
+    assert fixture.events.count("download-original") == 178
+    assert receipt["bnci_originals_verified"] == 18 and receipt["raw_originals_verified"] == 160
+
+
+@pytest.mark.parametrize("reported", [restore.ORIGIN_POD, "different-pod", None])
+def test_manual_preflight_still_rejects_environment_pod_mismatch_without_api(tmp_path, monkeypatch,
+                                                                           reported):
+    fixture = fixture_pipeline(tmp_path, monkeypatch)
+    forbid_runpod_requests(fixture, monkeypatch)
+    monkeypatch.setattr(continuation, "manual_preflight", lambda *args:
+                        {"pod_id": reported, "workspace_available_bytes": 150 * 10**9})
+    with pytest.raises(restore.RestorationError):
+        run_fixture(fixture, manual_stop=True)
+    state = json.loads((fixture.job_directory / "migration_status.json").read_text())
+    assert state["error_code"] == "r2_restore_requires_new_environment_pod"
+    assert "r2-client" not in fixture.events and "download-original" not in fixture.events
 
 
 def test_all_178_originals_and_106_epoch_subjects_generate_strict_compatible_receipt(tmp_path, monkeypatch):

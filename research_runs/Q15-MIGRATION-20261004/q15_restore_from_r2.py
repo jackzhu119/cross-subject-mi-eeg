@@ -168,7 +168,8 @@ def regenerate_epochs(full, continuation, epoch_root):
     return manifests, recorded["artifact_sha256"]
 
 
-def restore_from_r2(workspace, job_id, job_directory, private_log, install_runtime):
+def restore_from_r2(workspace, job_id, job_directory, private_log, install_runtime,
+                    manual_stop=False):
     import q15_continue_validated as continuation
     import q15_migration_bundle as bundle
     import q15_migration_transport as transport
@@ -176,6 +177,7 @@ def restore_from_r2(workspace, job_id, job_directory, private_log, install_runti
     workspace = safe_path(workspace)
     job_directory = safe_path(job_directory)
     args = arguments(workspace, job_id, continuation)
+    args.manual_stop = manual_stop
     custody = safe_path(workspace / "q15-migration")
     custody.mkdir(parents=True, exist_ok=True)
     canonical_receipt = custody / "restore_receipt.json"
@@ -210,11 +212,22 @@ def restore_from_r2(workspace, job_id, job_directory, private_log, install_runti
                  "origin_pod_id": ORIGIN_POD, "original_source_fits": 15, "new_source_fits": 0,
                  "fits_started": 15, "target_fits": 0, "scientific_validation_passed": False,
                  "predictions_computed": False, "original_source_fits_verified": True,
-                 "source_checkpoint_custody_verified": proof["verified_source_artifacts"]}
+                 "source_checkpoint_custody_verified": proof["verified_source_artifacts"],
+                 "auto_shutdown_enabled": not manual_stop,
+                 "automatic_shutdown_enabled": not manual_stop,
+                 "automatic_pod_stop_enabled": not manual_stop,
+                 "manual_stop_required": manual_stop,
+                 "runpod_api_checked": False,
+                 "physical_shutdown_confirmed": False}
+        if manual_stop:
+            state.update(shutdown_status="manual_stop_required",
+                         pod_identity_authenticated=False, pod_identity_source="pod_environment_only")
         public_status = repo / "research_runs/Q15-MIGRATION-20261004/jobs" / job_id / "job_status.json"
         pod_verified = False
 
         def stage(name, publish=False, **fields):
+            if manual_stop:
+                fields["shutdown_status"] = "manual_stop_required"
             state.update(status=name, updated_at_utc=full.now(), **fields)
             full.atomic_json(job / "job_status.json", state)
             full.atomic_json(job_directory / "migration_status.json", state)
@@ -227,20 +240,28 @@ def restore_from_r2(workspace, job_id, job_directory, private_log, install_runti
 
         try:
             stage("r2_restore_preflight_running")
-            preflight = full.preflight(args, publisher)
+            preflight = (continuation.manual_preflight(args, full, publisher) if manual_stop
+                         else full.preflight(args, publisher))
             pod = preflight.get("pod_id")
             if not pod or pod == ORIGIN_POD or pod != cloud.current_pod_id():
-                raise RestorationError("r2_restore_requires_new_verified_pod")
+                raise RestorationError("r2_restore_requires_new_environment_pod" if manual_stop
+                                       else "r2_restore_requires_new_verified_pod")
             pod_verified = True
             state["pod_id"] = pod
+            state["runpod_api_checked"] = not manual_stop
+            if manual_stop:
+                state.update(preflight)
             originals = transport.load_raw_inventory(repo, Path(args.raw_dir), revision=BASE)
             bnci = transport.load_bnci_inventory(repo, Path(args.raw_dir), revision=BASE)
             if len(originals) != 160 or len(bnci) != 18:
                 raise RestorationError("complete_original_inventory_required")
             required_bytes = remaining_download_bytes(originals + bnci) + 25 * 1024**3
-            free = preflight["disk_capacity_gb"] * 10**9 - full.workspace_allocated_bytes(workspace)
+            free = (preflight["workspace_available_bytes"] if manual_stop else
+                    preflight["disk_capacity_gb"] * 10**9 - full.workspace_allocated_bytes(workspace))
             if free < required_bytes:
-                raise RestorationError("purchased_workspace_capacity_insufficient_for_r2_restore")
+                raise RestorationError("filesystem_available_capacity_insufficient_for_r2_restore"
+                                       if manual_stop else
+                                       "purchased_workspace_capacity_insufficient_for_r2_restore")
             client, bucket = transport.make_s3()
             probe = transport.probe_r2(client, bucket)
             stage("r2_original_download_running", publish=True, files_verified=0, expected_files=178)
@@ -283,6 +304,17 @@ def restore_from_r2(workspace, job_id, job_directory, private_log, install_runti
             failed_stage = state.get("status")
             stage("r2_restore_failed_or_blocked", error_code=continuation.safe_code(exc),
                   failed_stage=failed_stage, shutdown_status="pending_verified_failure_backup")
+            if manual_stop:
+                # The user owns stopping this Pod. Failure evidence is still
+                # backed up when GitHub access permits; no RunPod request occurs.
+                try:
+                    stage("r2_restore_failed_or_blocked", publish=True,
+                          error_code=continuation.safe_code(exc), failed_stage=failed_stage)
+                except Exception as backup_error:  # noqa: BLE001 - redact SDK/API failures
+                    stage("r2_restore_manual_attention_required",
+                          error_code=continuation.safe_code(exc),
+                          backup_error_code=continuation.safe_code(backup_error))
+                raise RestorationError("r2_restore_failed_or_blocked") from None
             if not pod_verified:
                 raise
             # Only this authenticated new Pod may stop, after a verified failure

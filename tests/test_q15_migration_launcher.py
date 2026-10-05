@@ -38,6 +38,7 @@ R2_NAMES = (
     "R2_SECRET_ACCESS_KEY",
 )
 REQUIRED_NAMES = (*R2_NAMES, "GH_TOKEN", "RUNPOD_API_KEY")
+MANUAL_REQUIRED_NAMES = (*R2_NAMES, "GH_TOKEN")
 AUTH_NAMES = ("GH_TOKEN", "RUNPOD_API_KEY")
 SECRET_NAMES = (*REQUIRED_NAMES, "GITHUB_TOKEN")
 FAKES = {name: "FAKE_TEST_ONLY_" + name + "_abcdefghijklmnop" for name in SECRET_NAMES}
@@ -88,12 +89,13 @@ class OfflineLauncher:
             "names = " + repr(SECRET_NAMES),
             "arguments = sys.argv[1:]",
             "if arguments[0] == 'check-accounts':",
+            "    manual_stop = '--manual-stop' in arguments",
             "    observations = pathlib.Path(os.environ['Q15_TEST_OBSERVATIONS'])",
             "    prior = [json.loads(line) for line in observations.read_text().splitlines()] if observations.exists() else []",
             "    attempt = sum(row['kind'] == 'accounts' for row in prior)",
             "    configured = json.loads(os.environ.get('Q15_TEST_AUTH_STATUSES', '{}'))",
             "    providers = {}",
-            "    for provider in ('github', 'runpod'):",
+            "    for provider in (('github',) if manual_stop else ('github', 'runpod')):",
             "        statuses = configured.get(provider, [200])",
             "        providers[provider] = statuses[min(attempt, len(statuses) - 1)]",
             "    receipt = {",
@@ -103,7 +105,7 @@ class OfflineLauncher:
             "        'system_python': os.environ['Q15_TEST_RUNTIME_PATH'] == os.environ['Q15_TEST_SYSTEM_RUNTIME']}",
             "    with observations.open('a') as stream:",
             "        stream.write(json.dumps(receipt) + '\\n')",
-            "    response = {'status': 'accounts_preflight_verified', 'pod_id': os.environ['RUNPOD_POD_ID'], 'new_source_fits': 0, 'target_fits': 0}",
+            "    response = {'status': 'github_preflight_verified_manual_stop' if manual_stop else 'accounts_preflight_verified', 'pod_id': os.environ['RUNPOD_POD_ID'], 'new_source_fits': 0, 'target_fits': 0}",
             "    for provider, status in providers.items():",
             "        if status != 200:",
             "            response.update(status='accounts_preflight_failed', error_code=provider + '_account_api_http_' + str(status))",
@@ -353,14 +355,15 @@ def _assert_started(result, mode):
     assert receipts[0]["new_source_fits"] == receipts[0]["target_fits"] == 0
 
 
-def _assert_setup_children_are_private(offline, *, accounts=True):
+def _assert_setup_children_are_private(offline, *, accounts=True, manual_stop=False):
     observations = offline.child_observations()
     checks = [row for row in observations if row["kind"] == "accounts"]
     assert bool(checks) is accounts
     for row in observations:
         if row["kind"] == "accounts":
-            assert row["secret_names"] == list(AUTH_NAMES)
-            assert row["arguments"] == ["check-accounts"]
+            assert row["secret_names"] == (["GH_TOKEN"] if manual_stop else list(AUTH_NAMES))
+            assert row["arguments"] == ["check-accounts", *(["--manual-stop"] if manual_stop else [])]
+            assert set(row["statuses"]) == ({"github"} if manual_stop else {"github", "runpod"})
             assert row["system_python"] is True
         else:
             assert row["secret_names"] == []
@@ -559,6 +562,89 @@ def test_reset_credential_rejects_unknown_names_before_any_child(offline, name):
     assert "credential name" in output.lower()
     assert not offline.observations.exists()
     assert not (offline.workspace / "q15-migration/jobs").exists()
+
+
+@pytest.mark.parametrize("inherited_runpod_key", [False, True])
+def test_manual_stop_terminal_collects_only_five_credentials_and_skips_runpod(
+    offline, inherited_runpod_key
+):
+    credentials = {"GITHUB_TOKEN": FAKES["GITHUB_TOKEN"]}
+    if inherited_runpod_key:
+        credentials["RUNPOD_API_KEY"] = FAKES["RUNPOD_API_KEY"]
+    run = offline.terminal(
+        "from-r2", "--job-id", "offline-job", "--manual-stop",
+        credentials=credentials, redirect_stdin=True, trace=True,
+        auth_statuses={"runpod": [403]},
+    )
+    for name in ("GH_TOKEN", *R2_NAMES):
+        run.submit(name, " \t" + FAKES[name] + "\t ")
+    result = run.finish()
+    _assert_started(result, "from-r2")
+    assert "github_preflight_verified_manual_stop" in result[1]
+    assert "RUNPOD_API_KEY (hidden;" not in result[1]
+    assert "GITHUB_TOKEN (hidden;" not in result[1]
+    checks = _assert_setup_children_are_private(offline, manual_stop=True)
+    assert len(checks) == 1
+    assert checks[0]["statuses"] == {"github": 200}
+    assert checks[0]["trimmed_matches"] == {"GH_TOKEN": True}
+    worker = offline.worker()
+    assert worker["present"] == list(MANUAL_REQUIRED_NAMES)
+    assert all(worker["trimmed_matches"].values())
+    assert worker["arguments"].count("--manual-stop") == 1
+    assert worker["fd9_open"] is True
+    assert [row["kind"] for row in offline.child_observations()] == [
+        *["curl"] * 7, "accounts", "venv", "pip"
+    ]
+    offline.assert_no_stored_credentials()
+
+
+def test_manual_stop_rejected_github_reprompts_only_github_and_ignores_runpod(offline):
+    rejected = "FAKE_REJECTED_INHERITED_GITHUB_TOKEN_abcdefghijklmnop"
+    credentials = {**FAKES, "GH_TOKEN": rejected}
+    run = offline.terminal(
+        "from-r2", "--manual-stop", "--job-id", "offline-job",
+        credentials=credentials, trace=True,
+        auth_statuses={"github": [403, 200], "runpod": [403]},
+    )
+    run.submit("GH_TOKEN", FAKES["GH_TOKEN"])
+    result = run.finish()
+    _assert_started(result, "from-r2")
+    assert rejected not in result[1]
+    assert result[1].count("GH_TOKEN (hidden;") == 1
+    assert all(name + " (hidden;" not in result[1] for name in SECRET_NAMES if name != "GH_TOKEN")
+    checks = _assert_setup_children_are_private(offline, manual_stop=True)
+    assert len(checks) == 2
+    assert checks[0]["trimmed_matches"] == {"GH_TOKEN": False}
+    assert checks[1]["trimmed_matches"] == {"GH_TOKEN": True}
+    assert [row["statuses"] for row in checks] == [{"github": 403}, {"github": 200}]
+    worker = offline.worker()
+    assert worker["present"] == list(MANUAL_REQUIRED_NAMES)
+    assert all(worker["trimmed_matches"].values())
+    assert "--manual-stop" in worker["arguments"]
+    offline.assert_no_stored_credentials()
+
+
+@pytest.mark.parametrize("status", [401, 403, 404])
+def test_manual_stop_github_auth_exhaustion_never_prompts_runpod_or_r2(offline, status):
+    run = offline.terminal(
+        "from-r2", "--job-id", "offline-job", "--manual-stop", trace=True,
+        auth_statuses={"github": [status], "runpod": [403]},
+    )
+    for _ in range(3):
+        run.submit("GH_TOKEN", FAKES["GH_TOKEN"])
+    code, output = run.finish()
+    assert code != 0
+    assert "github_account_api_http_" + str(status) in output
+    assert "detached_migration" not in output
+    assert output.count("GH_TOKEN (hidden;") == 3
+    assert all(name + " (hidden;" not in output for name in SECRET_NAMES if name != "GH_TOKEN")
+    assert all(value not in output for value in FAKES.values())
+    checks = _assert_setup_children_are_private(offline, manual_stop=True)
+    assert len(checks) == 3
+    assert all(row["statuses"] == {"github": status} for row in checks)
+    assert {row["kind"] for row in offline.child_observations()} == {"curl", "accounts"}
+    assert not (offline.workspace / "q15-migration/jobs").exists()
+    offline.assert_no_stored_credentials()
 
 
 @pytest.mark.parametrize("with_unused_tokens", [False, True])
