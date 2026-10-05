@@ -35,7 +35,9 @@
 | `GH_TOKEN` | 能写入 `jackzhu119/cross-subject-mi-eeg` 的 GitHub token；细粒度 token 选择该仓库，授予 **Contents: Read and write** |
 | `RUNPOD_API_KEY` | **新 RunPod 账号**的 API key，须能读取和停止当前新 Pod |
 
-R2 权限须支持 list、read、write 和 delete，以完成独立探针。旧 RunPod 账号的 API key 不会获得新账号 Pod 的操作权限。脚本将先检查新 Pod 身份、GitHub 写权限及 CUDA 环境，再恢复大型原始文件。
+R2 权限须支持 list、read、write 和 delete，以完成独立探针。旧 RunPod 账号的 API key 不会获得新账号 Pod 的操作权限。请从当前新账号的 Credentials → API Keys 取得具有读取及停止 Pod 权限的 key。
+
+启动脚本首先在前台分别读取 RunPod 当前 Pod 和 GitHub 仓库权限。通过后才收集缺失的 R2 值、安装 S3 客户端并启动后台任务；后台仍会复核账号和 CUDA 环境。`accounts_preflight_verified` 证明这些只读请求通过，不单独证明 Stop 写权限、R2 可用性或科学运行完成。
 
 ## 3. 在新 Pod 的 Jupyter Terminal 启动
 
@@ -43,12 +45,12 @@ R2 权限须支持 list、read、write 和 delete，以完成独立探针。旧 
 
 ```bash
 curl -fSsL --retry 3 \
-  https://raw.githubusercontent.com/jackzhu119/cross-subject-mi-eeg/007d8950fa645d6eb576634f7d6904317ecd4cb2/research_runs/Q15-MIGRATION-20261004/Q15_MIGRATE_ON_RUNPOD.sh \
+  https://raw.githubusercontent.com/jackzhu119/cross-subject-mi-eeg/07cbc1eab0d7db8d84bc857ef35a8713ff30a3b6/research_runs/Q15-MIGRATION-20261004/Q15_MIGRATE_ON_RUNPOD.sh \
   -o /tmp/q15-migrate.sh &&
 bash /tmp/q15-migrate.sh from-r2
 ```
 
-这个入口不需要旧 Pod 终端、旧磁盘或迁移归档。脚本会验证固定版本的辅助文件，安装私有运行环境，收集缺失的凭据，并启动后台作业。凭据仅通过进程环境传递，脚本不将它们保存到 `/workspace`。
+这个入口不需要旧 Pod 终端、旧磁盘或迁移归档。脚本会验证固定版本的辅助文件，前台验证账号，再安装私有运行环境并启动后台作业。凭据仅在当前启动进程及后台任务内传递，脚本不将它们保存到 `/workspace`。重新执行时，只有 Pod Secrets 等已有环境配置可以自动提供凭据；上一次子脚本的隐藏输入不会保存到下一次执行。
 
 终端出现 `detached_migration_started_not_scientifically_complete` 只表示已发起后台运行。请继续检查下面的状态；待新 Pod 预检通过、状态进入 `r2_original_download_running` 且 `files_verified` 开始增加后，可以关闭本地电脑和浏览器。保持云端 Pod 运行以及持久磁盘挂载。
 
@@ -85,12 +87,29 @@ research_runs/Q15-MIGRATION-20261004/jobs/<JOB_ID>/job_status.json
 ```bash
 JOB_ID=$(python3 -c 'import json; print(json.load(open("/workspace/q15-migration/jobs/current_job.json"))["job_id"])')
 curl -fSsL --retry 3 \
-  https://raw.githubusercontent.com/jackzhu119/cross-subject-mi-eeg/007d8950fa645d6eb576634f7d6904317ecd4cb2/research_runs/Q15-MIGRATION-20261004/Q15_MIGRATE_ON_RUNPOD.sh \
+  https://raw.githubusercontent.com/jackzhu119/cross-subject-mi-eeg/07cbc1eab0d7db8d84bc857ef35a8713ff30a3b6/research_runs/Q15-MIGRATION-20261004/Q15_MIGRATE_ON_RUNPOD.sh \
   -o /tmp/q15-migrate.sh &&
 bash /tmp/q15-migrate.sh from-r2 --job-id "$JOB_ID"
 ```
 
 如果提示 `A migration worker is already active`，现有后台进程仍持有运行锁，请继续观察现有作业。不要为同一磁盘同时启动多个作业。恢复启动仍需有效的六项凭据；可由新 Pod Secrets 提供。
+
+### 账号预检拒绝时重试
+
+前台错误码会区分服务：`runpod_account_api_http_403` 来自 RunPod 请求，`github_account_api_http_403` 来自 GitHub 请求。401、403、404 或 GitHub 写权限未确认时，脚本会只要求重新隐藏输入对应密钥，最多尝试三次；其他值只在本次进程内保留。网络错误不会被当作换密钥可解决的问题。预检未通过时，不启动迁移 worker、不下载 R2 原始数据，也不请求停止 Pod。
+
+旧版本的 `account_api_http_403` 同时用于两家服务，不能凭该错误确定拒绝方。如果启动时没有询问某个变量，只能说明脚本继承了可接受格式的值，不能证明该值有效。可用重复的 `--reset-credential NAME` 强制重新输入指定项；允许名称为本页列出的六项变量。该参数只替换本次脚本进程内的值，不修改控制台 Secrets。
+
+针对已确认在账号预检阶段失败的作业 `20261005T050511Z-migration-from-r2-b82ad79b`，下载本页固定入口后执行：
+
+```bash
+bash /tmp/q15-migrate.sh from-r2 \
+  --job-id 20261005T050511Z-migration-from-r2-b82ad79b \
+  --reset-credential RUNPOD_API_KEY \
+  --reset-credential GH_TOKEN
+```
+
+两项账号密钥均会提示隐藏输入。RunPod key 应来自当前 Pod 所属新账号；GitHub token 应能写入指定仓库。之后脚本才询问缺失的四项 R2 值。这里只重试已失败的同一作业，不重新训练已经验证并保存在 GitHub 的 15 次源域模型。
 
 ## 6. 自动停止及需要人工处理的情况
 

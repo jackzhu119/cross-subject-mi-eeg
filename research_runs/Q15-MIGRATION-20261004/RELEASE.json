@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
-  "released_at_utc": "2026-10-05T01:52:08.918533+00:00",
-  "launcher_revision": "007d8950fa645d6eb576634f7d6904317ecd4cb2",
-  "helper_revision": "4cec775357e8dcf7db1b68d994e2ab9a9f721049",
-  "launcher_url": "https://raw.githubusercontent.com/jackzhu119/cross-subject-mi-eeg/007d8950fa645d6eb576634f7d6904317ecd4cb2/research_runs/Q15-MIGRATION-20261004/Q15_MIGRATE_ON_RUNPOD.sh",
-  "launcher_sha256": "0b59eb1cc70ac2678268316a25aad22505ad04bb37b5eb3b0097d1c1e4526ee2",
+  "released_at_utc": "2026-10-05T05:18:55.178566+00:00",
+  "launcher_revision": "07cbc1eab0d7db8d84bc857ef35a8713ff30a3b6",
+  "helper_revision": "f0a7c59d647c16a61b7560968ce09060dd21757d",
+  "launcher_url": "https://raw.githubusercontent.com/jackzhu119/cross-subject-mi-eeg/07cbc1eab0d7db8d84bc857ef35a8713ff30a3b6/research_runs/Q15-MIGRATION-20261004/Q15_MIGRATE_ON_RUNPOD.sh",
+  "launcher_sha256": "f402ba5326606c142ba71172dd9eb33522d934846cb0c02b3164953f2fb54d0a",
   "helper_checksum_file": "research_runs/Q15-MIGRATION-20261004/SHA256SUMS",
-  "helper_checksum_file_sha256": "b35f0ffe1660557cd4d1626315ac9a46e76c5c8a29c22d16b7b4a35085aa2b45",
+  "helper_checksum_file_sha256": "f827f1972e59cd6f82eadbfe95270d0e58cb38cba23c16603904876745950342",
   "scientific_revision": "271af288a2f3863430ab80e3145c2dee9bd5571d",
   "source_baseline_revision": "782d2d0070a50c37d13c8e9f1cab3b3b81bac4fc",
   "mode": "from-r2",
@@ -16,5 +16,10 @@
   "target_fits": 0,
   "results_branch_format": "q15/run-<JOB_ID>",
   "scientific_completion_observed_for_new_job": false,
-  "physical_shutdown_observed_for_new_job": false
+  "physical_shutdown_observed_for_new_job": false,
+  "read_only_account_preflight_before_r2_inputs": true,
+  "provider_specific_account_failure_codes": true,
+  "repeatable_named_credential_reset_supported": true,
+  "auth_preflight_fix_validation_file": "research_runs/Q15-MIGRATION-20261004/AUTH_PREFLIGHT_FIX_VALIDATION.json",
+  "previous_launcher_revision": "007d8950fa645d6eb576634f7d6904317ecd4cb2"
 }
