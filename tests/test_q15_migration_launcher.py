@@ -38,6 +38,7 @@ R2_NAMES = (
     "R2_SECRET_ACCESS_KEY",
 )
 REQUIRED_NAMES = (*R2_NAMES, "GH_TOKEN", "RUNPOD_API_KEY")
+AUTH_NAMES = ("GH_TOKEN", "RUNPOD_API_KEY")
 SECRET_NAMES = (*REQUIRED_NAMES, "GITHUB_TOKEN")
 FAKES = {name: "FAKE_TEST_ONLY_" + name + "_abcdefghijklmnop" for name in SECRET_NAMES}
 
@@ -86,6 +87,30 @@ class OfflineLauncher:
             "expected = " + repr(expected_hashes),
             "names = " + repr(SECRET_NAMES),
             "arguments = sys.argv[1:]",
+            "if arguments[0] == 'check-accounts':",
+            "    observations = pathlib.Path(os.environ['Q15_TEST_OBSERVATIONS'])",
+            "    prior = [json.loads(line) for line in observations.read_text().splitlines()] if observations.exists() else []",
+            "    attempt = sum(row['kind'] == 'accounts' for row in prior)",
+            "    configured = json.loads(os.environ.get('Q15_TEST_AUTH_STATUSES', '{}'))",
+            "    providers = {}",
+            "    for provider in ('github', 'runpod'):",
+            "        statuses = configured.get(provider, [200])",
+            "        providers[provider] = statuses[min(attempt, len(statuses) - 1)]",
+            "    receipt = {",
+            "        'kind': 'accounts', 'arguments': arguments, 'statuses': providers,",
+            "        'secret_names': [name for name in names if name in os.environ],",
+            "        'trimmed_matches': {name: hashlib.sha256(os.environ.get(name, '').encode()).hexdigest() == expected[name] for name in names if name in os.environ},",
+            "        'system_python': os.environ['Q15_TEST_RUNTIME_PATH'] == os.environ['Q15_TEST_SYSTEM_RUNTIME']}",
+            "    with observations.open('a') as stream:",
+            "        stream.write(json.dumps(receipt) + '\\n')",
+            "    response = {'status': 'accounts_preflight_verified', 'pod_id': os.environ['RUNPOD_POD_ID'], 'new_source_fits': 0, 'target_fits': 0}",
+            "    for provider, status in providers.items():",
+            "        if status != 200:",
+            "            response.update(status='accounts_preflight_failed', error_code=provider + '_account_api_http_' + str(status))",
+            "            print(json.dumps(response, separators=(',', ':')))",
+            "            sys.exit(1)",
+            "    print(json.dumps(response, separators=(',', ':')))",
+            "    sys.exit(0)",
             "directory = pathlib.Path(arguments[arguments.index('--job-directory') + 1])",
             "receipt = {",
             "'mode': arguments[0], 'arguments': arguments, 'pid': os.getpid(),",
@@ -143,6 +168,7 @@ class OfflineLauncher:
             "    observe('pip')",
             "    sys.exit(int(os.environ.get('Q15_TEST_PIP_FAIL', '0')))",
             "else:",
+            "    os.environ['Q15_TEST_RUNTIME_PATH'] = str(pathlib.Path(__file__).resolve())",
             "    os.execv(sys.executable, [sys.executable, *arguments])",
         ])
         for name, content in (("curl", curl), ("python3", runtime)):
@@ -150,7 +176,7 @@ class OfflineLauncher:
             script.write_text(content)
             script.chmod(0o700)
 
-    def environment(self, credentials=None, *, pip_fail=False):
+    def environment(self, credentials=None, *, pip_fail=False, auth_statuses=None):
         # Deliberately inherit no real cloud or GitHub credentials.
         return {
             "PATH": str(self.bin) + ":" + os.environ["PATH"],
@@ -161,10 +187,12 @@ class OfflineLauncher:
             "Q15_TEST_OBSERVATIONS": str(self.observations),
             "Q15_TEST_RELEASE": str(self.release),
             "Q15_TEST_PIP_FAIL": "1" if pip_fail else "0",
+            "Q15_TEST_AUTH_STATUSES": json.dumps(auth_statuses or {}),
+            "Q15_TEST_SYSTEM_RUNTIME": str((self.bin / 'python3').resolve()),
             **(credentials or {}),
         }
 
-    def run(self, *arguments, credentials=None, trace=False, pip_fail=False):
+    def run(self, *arguments, credentials=None, trace=False, pip_fail=False, auth_statuses=None):
         command = ["bash", *(["-x"] if trace else []), str(self.launcher), *arguments]
         result = subprocess.run(
             command,
@@ -172,14 +200,16 @@ class OfflineLauncher:
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
             start_new_session=True,
-            env=self.environment(credentials, pip_fail=pip_fail),
+            env=self.environment(credentials, pip_fail=pip_fail, auth_statuses=auth_statuses),
             timeout=4,
             check=False,
         )
         return result.returncode, result.stdout.decode()
 
-    def terminal(self, *arguments, credentials=None, redirect_stdin=False, trace=False):
-        run = TerminalRun(self, arguments, credentials, redirect_stdin, trace)
+    def terminal(
+        self, *arguments, credentials=None, redirect_stdin=False, trace=False, auth_statuses=None
+    ):
+        run = TerminalRun(self, arguments, credentials, redirect_stdin, trace, auth_statuses)
         self.terminals.append(run)
         return run
 
@@ -221,7 +251,7 @@ class OfflineLauncher:
 
 
 class TerminalRun:
-    def __init__(self, fixture, arguments, credentials, redirect_stdin, trace):
+    def __init__(self, fixture, arguments, credentials, redirect_stdin, trace, auth_statuses):
         self.master, slave = pty.openpty()
         self.return_receipt = fixture.base / "terminal-return-code.json"
         command = [
@@ -240,7 +270,7 @@ class TerminalRun:
             "deadline = time.monotonic() + 12; "
             "exec('while not release.exists() and time.monotonic() < deadline:\\n    time.sleep(0.02)')"
         )
-        environment = fixture.environment(credentials)
+        environment = fixture.environment(credentials, auth_statuses=auth_statuses)
         environment["Q15_TEST_TERMINAL_RECEIPT"] = str(self.return_receipt)
         self.process = subprocess.Popen(
             [sys.executable, "-c", controller, *command],
@@ -323,6 +353,20 @@ def _assert_started(result, mode):
     assert receipts[0]["new_source_fits"] == receipts[0]["target_fits"] == 0
 
 
+def _assert_setup_children_are_private(offline, *, accounts=True):
+    observations = offline.child_observations()
+    checks = [row for row in observations if row["kind"] == "accounts"]
+    assert bool(checks) is accounts
+    for row in observations:
+        if row["kind"] == "accounts":
+            assert row["secret_names"] == list(AUTH_NAMES)
+            assert row["arguments"] == ["check-accounts"]
+            assert row["system_python"] is True
+        else:
+            assert row["secret_names"] == []
+    return checks
+
+
 @pytest.mark.parametrize("trace", [False, True])
 def test_from_r2_environment_is_trimmed_and_setup_children_have_no_secrets(offline, trace):
     credentials = {name: " \t" + value + "\r " for name, value in FAKES.items()}
@@ -339,8 +383,12 @@ def test_from_r2_environment_is_trimmed_and_setup_children_have_no_secrets(offli
     assert [row["name"] for row in observations if row["kind"] == "curl"] == [
         *HELPERS, "SHA256SUMS"
     ]
-    assert all(row["secret_names"] == [] for row in observations)
-    assert {row["kind"] for row in observations} == {"curl", "venv", "pip"}
+    checks = _assert_setup_children_are_private(offline)
+    assert len(checks) == 1
+    assert all(checks[0]["trimmed_matches"].values())
+    assert [row["kind"] for row in observations] == [
+        *["curl"] * 7, "accounts", "venv", "pip"
+    ]
     offline.assert_no_stored_credentials()
 
 
@@ -349,14 +397,16 @@ def test_real_terminal_collects_all_six_without_echo_and_retries_blank(offline, 
     run = offline.terminal(
         "from-r2", "--job-id", "offline-job", redirect_stdin=redirect_stdin, trace=True
     )
+    for name in AUTH_NAMES:
+        run.submit(name, " \t" + FAKES[name] + "\t ")
     run.submit("R2_BUCKET", "")
-    for name in REQUIRED_NAMES:
+    for name in R2_NAMES:
         run.submit(name, " \t" + FAKES[name] + "\t ")
     _assert_started(run.finish(), "from-r2")
     worker = offline.worker()
     assert worker["present"] == list(REQUIRED_NAMES)
     assert all(worker["trimmed_matches"].values())
-    assert all(row["secret_names"] == [] for row in offline.child_observations())
+    _assert_setup_children_are_private(offline)
     offline.assert_no_stored_credentials()
 
 
@@ -372,7 +422,7 @@ def test_invalid_internal_whitespace_retries_and_is_not_printed(offline):
     assert offline.worker()["trimmed_matches"]["GH_TOKEN"] is True
 
 
-def test_three_blank_attempts_do_not_download_or_start(offline):
+def test_three_blank_attempts_after_public_download_do_not_install_or_start(offline):
     credentials = {name: value for name, value in FAKES.items() if name != "GH_TOKEN"}
     run = offline.terminal("from-r2", "--job-id", "offline-job", credentials=credentials)
     for value in ("", " \t ", ""):
@@ -381,17 +431,134 @@ def test_three_blank_attempts_do_not_download_or_start(offline):
     assert code != 0
     assert "Missing required credential: GH_TOKEN" in output
     assert all(value not in output for value in FAKES.values())
-    assert not offline.observations.exists()
+    assert [row["kind"] for row in offline.child_observations()] == ["curl"] * 7
+    assert all(row["secret_names"] == [] for row in offline.child_observations())
     assert not list(offline.workspace.rglob("worker_observation.json"))
     offline.assert_no_stored_credentials()
 
 
-def test_missing_credentials_without_terminal_fail_before_download(offline):
+def test_missing_credentials_without_terminal_fail_after_public_download(offline):
     code, output = offline.run("from-r2", "--job-id", "offline-job")
     assert code != 0
     assert "interactive terminal is required" in output
-    assert not offline.observations.exists()
+    assert [row["kind"] for row in offline.child_observations()] == ["curl"] * 7
+    assert all(row["secret_names"] == [] for row in offline.child_observations())
     assert not list(offline.workspace.rglob("worker_observation.json"))
+
+
+@pytest.mark.parametrize("provider,name", [
+    ("github", "GH_TOKEN"), ("runpod", "RUNPOD_API_KEY")
+])
+@pytest.mark.parametrize("status", [401, 403, 404])
+def test_foreground_auth_rejection_retries_only_provider_before_any_r2_input(
+    offline, provider, name, status
+):
+    # Neither an R2 prompt nor SDK setup may occur while account access fails.
+    credentials = {key: FAKES[key] for key in AUTH_NAMES if key != name}
+    run = offline.terminal(
+        "from-r2", "--job-id", "offline-job", credentials=credentials, trace=True,
+        auth_statuses={provider: [status]},
+    )
+    for _ in range(3):
+        run.submit(name, FAKES[name])
+    code, output = run.finish()
+    assert code != 0
+    assert provider + "_account_api_http_" + str(status) in output
+    assert "detached_migration" not in output
+    assert output.count(name + " (hidden;") == 3
+    assert all(other + " (hidden;" not in output for other in SECRET_NAMES if other != name)
+    assert all(value not in output for value in FAKES.values())
+    checks = _assert_setup_children_are_private(offline)
+    assert len(checks) == 3
+    assert all(row["statuses"][provider] == status for row in checks)
+    assert {row["kind"] for row in offline.child_observations()} == {"curl", "accounts"}
+    assert not (offline.workspace / "q15-migration/jobs").exists()
+    offline.assert_no_stored_credentials()
+
+
+def test_inherited_runpod_403_reprompts_only_runpod_and_preserves_other_credentials(offline):
+    rejected = "FAKE_REJECTED_INHERITED_RUNPOD_TOKEN_abcdefghijklmnop"
+    credentials = {**FAKES, "RUNPOD_API_KEY": rejected}
+    run = offline.terminal(
+        "from-r2", "--job-id", "offline-job", credentials=credentials, trace=True,
+        auth_statuses={"runpod": [403, 200]},
+    )
+    run.submit("RUNPOD_API_KEY", " \t" + FAKES["RUNPOD_API_KEY"] + "\r ")
+    result = run.finish()
+    _assert_started(result, "from-r2")
+    assert rejected not in result[1]
+    assert result[1].count("RUNPOD_API_KEY (hidden;") == 1
+    assert all(name + " (hidden;" not in result[1] for name in SECRET_NAMES if name != "RUNPOD_API_KEY")
+    checks = _assert_setup_children_are_private(offline)
+    assert len(checks) == 2
+    assert checks[0]["trimmed_matches"] == {"GH_TOKEN": True, "RUNPOD_API_KEY": False}
+    assert all(checks[1]["trimmed_matches"].values())
+    assert offline.worker()["present"] == list(REQUIRED_NAMES)
+    assert all(offline.worker()["trimmed_matches"].values())
+    assert [row["kind"] for row in offline.child_observations()] == [
+        *["curl"] * 7, "accounts", "accounts", "venv", "pip"
+    ]
+    offline.assert_no_stored_credentials()
+
+
+def test_inherited_rejected_token_without_terminal_does_not_install_or_detach(offline):
+    code, output = offline.run(
+        "from-r2", "--job-id", "offline-job", credentials=FAKES,
+        auth_statuses={"runpod": [403]},
+    )
+    assert code != 0
+    assert "runpod_account_api_http_403" in output
+    assert "interactive terminal is required" in output
+    assert "detached_migration" not in output
+    assert len(_assert_setup_children_are_private(offline)) == 1
+    assert {row["kind"] for row in offline.child_observations()} == {"curl", "accounts"}
+    assert not (offline.workspace / "q15-migration/jobs").exists()
+
+
+@pytest.mark.parametrize("name", REQUIRED_NAMES)
+def test_reset_credential_forces_only_named_inherited_value_to_be_prompted(offline, name):
+    run = offline.terminal(
+        "from-r2", "--job-id", "offline-job", "--reset-credential", name,
+        credentials=FAKES, trace=True,
+    )
+    run.submit(name, " \t" + FAKES[name] + "\t ")
+    result = run.finish()
+    _assert_started(result, "from-r2")
+    assert result[1].count(name + " (hidden;") == 1
+    assert all(other + " (hidden;" not in result[1] for other in SECRET_NAMES if other != name)
+    assert all(offline.worker()["trimmed_matches"].values())
+    assert len(_assert_setup_children_are_private(offline)) == 1
+    offline.assert_no_stored_credentials()
+
+
+def test_reset_credential_is_repeatable_and_other_inherited_values_survive(offline):
+    run = offline.terminal(
+        "from-r2", "--job-id", "offline-job",
+        "--reset-credential", "GH_TOKEN", "--reset-credential", "RUNPOD_API_KEY",
+        "--reset-credential", "R2_BUCKET", "--reset-credential", "GH_TOKEN",
+        credentials=FAKES,
+    )
+    for name in (*AUTH_NAMES, "R2_BUCKET"):
+        run.submit(name, FAKES[name])
+    result = run.finish()
+    _assert_started(result, "from-r2")
+    for name in (*AUTH_NAMES, "R2_BUCKET"):
+        assert result[1].count(name + " (hidden;") == 1
+    assert all(name + " (hidden;" not in result[1] for name in SECRET_NAMES if name not in (*AUTH_NAMES, "R2_BUCKET"))
+    assert all(offline.worker()["trimmed_matches"].values())
+    _assert_setup_children_are_private(offline)
+
+
+@pytest.mark.parametrize("name", ["GITHUB_TOKEN", "UNKNOWN", "gh_token", "GH_TOKEN=value"])
+def test_reset_credential_rejects_unknown_names_before_any_child(offline, name):
+    code, output = offline.run(
+        "from-r2", "--job-id", "offline-job", "--reset-credential", name,
+        credentials=FAKES,
+    )
+    assert code != 0
+    assert "credential name" in output.lower()
+    assert not offline.observations.exists()
+    assert not (offline.workspace / "q15-migration/jobs").exists()
 
 
 @pytest.mark.parametrize("with_unused_tokens", [False, True])
@@ -405,7 +572,7 @@ def test_backup_needs_only_four_r2_values_and_does_not_forward_unused_tokens(
     worker = offline.worker()
     assert worker["present"] == list(R2_NAMES)
     assert all(worker["trimmed_matches"].values())
-    assert all(row["secret_names"] == [] for row in offline.child_observations())
+    _assert_setup_children_are_private(offline, accounts=False)
     offline.assert_no_stored_credentials()
 
 
@@ -425,7 +592,7 @@ def test_sdk_install_failure_prevents_worker_and_log_contains_no_secrets(offline
     )
     assert code != 0
     assert "S3 client installation failed" in output
-    assert all(row["secret_names"] == [] for row in offline.child_observations())
+    _assert_setup_children_are_private(offline)
     assert not list(offline.workspace.rglob("worker_observation.json"))
     offline.assert_no_stored_credentials()
 

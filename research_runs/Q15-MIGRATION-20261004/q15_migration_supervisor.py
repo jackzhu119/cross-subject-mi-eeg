@@ -8,6 +8,7 @@ import re
 import subprocess
 import sys
 import urllib.error
+import urllib.parse
 import urllib.request
 from datetime import UTC, datetime
 from pathlib import Path
@@ -33,15 +34,42 @@ def status(path, stage, **fields):
 
 
 def read_api(url, token):
+    provider = {"rest.runpod.io": "runpod", "api.github.com": "github"}.get(
+        urllib.parse.urlsplit(url).hostname)
+    prefix = (provider + "_" if provider else "") + "account_api_"
     request = urllib.request.Request(url, headers={"Authorization": "Bearer " + token,
                                                   "Accept": "application/json"})
     try:
         with urllib.request.urlopen(request, timeout=30) as response:
             return json.loads(response.read(2 * 1024**2))
     except urllib.error.HTTPError as exc:
-        raise MigrationError("account_api_http_" + str(exc.code)) from None
+        raise MigrationError(prefix + "http_" + str(exc.code)) from None
     except Exception:  # noqa: BLE001 - response and network diagnostics may contain credentials
-        raise MigrationError("account_api_unreachable") from None
+        raise MigrationError(prefix + "unreachable") from None
+
+
+def safe_failure_code(exc):
+    code = str(exc) if isinstance(exc, MigrationError) else getattr(exc, "safe_code", type(exc).__name__)
+    if not isinstance(code, str) or not re.fullmatch(r"[A-Za-z0-9_: .-]{1,160}", code):
+        return "unexpected_migration_failure"
+    for name in SECRETS:
+        value = os.environ.get(name, "")
+        if value and value in code:
+            return "redacted_failure"
+    return code
+
+
+def check_accounts_only():
+    """Read two account APIs without files, SDK, CUDA, transfer, fitting or Stop."""
+    try:
+        pod = check_destination_identity()
+    except Exception as exc:  # noqa: BLE001 - never serialize private response diagnostics
+        print(json.dumps({"status": "accounts_preflight_failed", "error_code": safe_failure_code(exc),
+                          "new_source_fits": 0, "target_fits": 0}), flush=True)
+        return 1
+    print(json.dumps({"status": "accounts_preflight_verified", "pod_id": pod,
+                      "new_source_fits": 0, "target_fits": 0}), flush=True)
+    return 0
 
 
 def check_destination_identity():
@@ -124,13 +152,17 @@ def install_scientific_runtime(repo, private_log):
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("mode", choices=("backup", "restore", "from-r2"))
-    parser.add_argument("--job-directory", required=True, type=Path)
-    parser.add_argument("--job-id", required=True)
-    parser.add_argument("--private-log", required=True, type=Path)
+    parser.add_argument("mode", choices=("backup", "restore", "from-r2", "check-accounts"))
+    parser.add_argument("--job-directory", type=Path)
+    parser.add_argument("--job-id")
+    parser.add_argument("--private-log", type=Path)
     parser.add_argument("--object-key")
     parser.add_argument("--archive-sha256")
     args = parser.parse_args(argv)
+    if args.mode == "check-accounts":
+        return check_accounts_only()
+    if args.job_directory is None or args.job_id is None or args.private_log is None:
+        parser.error("migration requires --job-directory, --job-id and --private-log")
     job = args.job_directory
     job.mkdir(parents=True, exist_ok=True)
     progress = job / "migration_status.json"
@@ -194,14 +226,7 @@ def main(argv=None):
         return 0
     except Exception as exc:  # noqa: BLE001 - redact all SDK/API failures
         # SDK/network tracebacks can embed endpoint or credential material; never emit them.
-        code = str(exc) if isinstance(exc, MigrationError) else getattr(exc, "safe_code", type(exc).__name__)
-        if not isinstance(code, str) or not re.fullmatch(r"[A-Za-z0-9_: .-]{1,160}", code):
-            code = "unexpected_migration_failure"
-        for name in SECRETS:
-            value = os.environ.get(name, "")
-            if value and value in code:
-                code = "redacted_failure"
-        status(progress, "failed_or_blocked", error_code=code,
+        status(progress, "failed_or_blocked", error_code=safe_failure_code(exc),
                automatic_pod_stop_requested_by_migration_supervisor=False)
         return 1
 

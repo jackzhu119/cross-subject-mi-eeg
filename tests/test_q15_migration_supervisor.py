@@ -1,6 +1,7 @@
 """Orchestration checks use synthetic receipts and APIs; no EEG fitting or network."""
 from __future__ import annotations
 
+import builtins
 import importlib.util
 import json
 import os
@@ -131,9 +132,12 @@ def test_destination_account_queries_use_matching_tokens(supervisor, monkeypatch
     ]
 
 
-@pytest.mark.parametrize("error_kind,expected", [("http", "account_api_http_403"),
-                                                 ("network", "account_api_unreachable")])
-def test_read_api_sanitizes_url_or_response_errors(supervisor, monkeypatch, error_kind, expected):
+@pytest.mark.parametrize("host,provider", [("rest.runpod.io", "runpod"),
+                                         ("api.github.com", "github")])
+@pytest.mark.parametrize("error_kind,suffix", [("http", "http_403"),
+                                             ("network", "unreachable")])
+def test_read_api_sanitizes_provider_specific_errors(supervisor, monkeypatch, host, provider,
+                                                     error_kind, suffix):
     sensitive = FAKE_SECRETS["RUNPOD_API_KEY"]
 
     def failing(*_, **__):
@@ -144,9 +148,135 @@ def test_read_api_sanitizes_url_or_response_errors(supervisor, monkeypatch, erro
 
     monkeypatch.setattr(supervisor.urllib.request, "urlopen", failing)
     with pytest.raises(supervisor.MigrationError) as caught:
-        supervisor.read_api("https://fake.invalid", sensitive)
-    assert str(caught.value) == expected
+        supervisor.read_api("https://" + host + "/fake-test", sensitive)
+    assert str(caught.value) == provider + "_account_api_" + suffix
     assert sensitive not in str(caught.value)
+
+
+def fake_account_queries(supervisor, monkeypatch, rejected_provider=None):
+    """Fake both account endpoints without exposing even synthetic tokens."""
+    calls = []
+
+    class Response:
+        def __init__(self, body):
+            self.body = body
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *_):
+            return False
+
+        def read(self, limit):
+            assert limit == 2 * 1024**2
+            return json.dumps(self.body).encode()
+
+    def read(request, **kwargs):
+        assert kwargs["timeout"] == 30
+        if request.full_url == "https://rest.runpod.io/v1/pods/new_fake_test_pod":
+            provider = "runpod"
+            secret = FAKE_SECRETS["RUNPOD_API_KEY"]
+            body = {"id": "new_fake_test_pod"}
+        elif request.full_url == "https://api.github.com/repos/jackzhu119/cross-subject-mi-eeg":
+            provider = "github"
+            secret = FAKE_SECRETS["GH_TOKEN"]
+            body = {"full_name": "jackzhu119/cross-subject-mi-eeg",
+                    "permissions": {"push": True}}
+        else:
+            pytest.fail("Only the two read-only account endpoints are allowed")
+        assert request.get_method() == "GET"
+        assert request.get_header("Authorization") == "Bearer " + secret
+        calls.append(provider)
+        if provider == rejected_provider:
+            raise urllib.error.HTTPError("https://fake.invalid/" + secret, 403,
+                                         "private diagnostic " + secret, {}, None)
+        return Response(body)
+
+    monkeypatch.setattr(supervisor.urllib.request, "urlopen", read)
+    return calls
+
+
+def prohibit_scientific_and_cloud_actions(supervisor, monkeypatch):
+    def prohibited(*_, **__):
+        pytest.fail("Account preflight must not execute scientific or cloud actions")
+
+    monkeypatch.setattr(supervisor, "check_cuda_template", prohibited)
+    monkeypatch.setattr(supervisor, "install_scientific_runtime", prohibited)
+    monkeypatch.setattr(supervisor, "existing_ready_restore", prohibited)
+    monkeypatch.setattr(supervisor.subprocess, "run", prohibited)
+    install_transport(monkeypatch, prohibited)
+    monkeypatch.setitem(sys.modules, "q15_restore_from_r2", types.SimpleNamespace(
+        restore_from_r2=prohibited))
+
+
+@pytest.mark.parametrize("mode", ["restore", "from-r2"])
+@pytest.mark.parametrize("provider,expected_calls", [("runpod", ["runpod"]),
+                                                   ("github", ["runpod", "github"])])
+def test_account_provider_http_failure_blocks_all_migration_actions(supervisor, sandbox,
+                                                                   monkeypatch, tmp_path,
+                                                                   capsys, mode, provider,
+                                                                   expected_calls):
+    prohibit_scientific_and_cloud_actions(supervisor, monkeypatch)
+    calls = fake_account_queries(supervisor, monkeypatch, provider)
+    assert supervisor.main(launch_args(tmp_path, mode)) == 1
+    report = progress(tmp_path)
+    assert report["stage"] == "failed_or_blocked"
+    assert report["error_code"] == provider + "_account_api_http_403"
+    assert report["new_source_fits"] == report["target_fits"] == 0
+    assert report["automatic_pod_stop_requested_by_migration_supervisor"] is False
+    assert calls == expected_calls
+    output = capsys.readouterr().out + json.dumps(report)
+    assert all(secret not in output for secret in FAKE_SECRETS.values())
+
+
+@pytest.mark.parametrize("provider,expected_calls", [(None, ["runpod", "github"]),
+                                                   ("runpod", ["runpod"]),
+                                                   ("github", ["runpod", "github"])])
+def test_check_accounts_is_read_only_without_job_arguments(supervisor, monkeypatch, tmp_path,
+                                                          capsys, provider, expected_calls):
+    monkeypatch.chdir(tmp_path)
+    prohibit_scientific_and_cloud_actions(supervisor, monkeypatch)
+    calls = fake_account_queries(supervisor, monkeypatch, provider)
+    original_import = builtins.__import__
+
+    def safe_import(name, *args, **kwargs):
+        assert name not in {"q15_migration_transport", "q15_restore_from_r2", "torch", "boto3"}
+        return original_import(name, *args, **kwargs)
+
+    def no_file_change(*_, **__):
+        pytest.fail("check-accounts must not create directories or write status files")
+
+    monkeypatch.setattr(builtins, "__import__", safe_import)
+    monkeypatch.setattr(Path, "mkdir", no_file_change)
+    monkeypatch.setattr(Path, "write_text", no_file_change)
+    monkeypatch.setattr(Path, "replace", no_file_change)
+    assert supervisor.main(["check-accounts"]) == (1 if provider else 0)
+    output = capsys.readouterr().out
+    report = json.loads(output)
+    assert report["status"] == ("accounts_preflight_failed" if provider else
+                                "accounts_preflight_verified")
+    assert report["new_source_fits"] == report["target_fits"] == 0
+    if provider:
+        assert report["error_code"] == provider + "_account_api_http_403"
+    else:
+        assert "error_code" not in report
+    assert calls == expected_calls
+    assert list(tmp_path.iterdir()) == []
+    assert all(secret not in output for secret in FAKE_SECRETS.values())
+
+
+@pytest.mark.parametrize("mode", ["backup", "restore", "from-r2"])
+@pytest.mark.parametrize("missing", ["--job-directory", "--job-id", "--private-log"])
+def test_migration_modes_still_require_all_job_arguments(supervisor, monkeypatch, tmp_path,
+                                                        mode, missing):
+    monkeypatch.setattr(supervisor, "check_destination_identity", lambda: pytest.fail("No API"))
+    args = launch_args(tmp_path, mode)
+    index = args.index(missing)
+    del args[index:index + 2]
+    with pytest.raises(SystemExit) as caught:
+        supervisor.main(args)
+    assert caught.value.code == 2
+    assert not (tmp_path / "job").exists()
 
 
 def test_restore_account_preflight_precedes_transport(supervisor, sandbox, monkeypatch, tmp_path):
