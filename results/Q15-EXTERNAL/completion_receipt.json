@@ -1,0 +1,37 @@
+{
+  "cohort_prediction_sha256": {
+    "Cho2017": "b726ec292c169c55e9b20487cadbc9be36297e216c6e00e6c258f5475b2bba67",
+    "Lee2019_MI": "1c5772d7cd2ddf35e68d3183c2075caf2f95db506685494b696421fe842f0e11"
+  },
+  "cohort_statistics_sha256": {
+    "Cho2017": "c5a92308078c7d653b670b9c85dc77b4f3e910ace4d01238b89871a25463242e",
+    "Lee2019_MI": "52aa5e997c974e2a41a98f813c2e350a7b50963c27ec6822bcb4538f4d126ee5"
+  },
+  "completed_at_utc": "2026-10-05T10:57:19.116979+00:00",
+  "holm_sha256": "eb6965a3ef4be5f10d80fb3c5b568110b3cd2d6e1cfe007a5de597415d1afa12",
+  "inference_freeze_sha256": "e420d8ca9389f5fcefd3ab16229244c0e362770dba8aeecccca73b10c20b29c5",
+  "new_model_fits": 0,
+  "schema_version": 1,
+  "scientific_validation_passed": false,
+  "statistics_plan": {
+    "bootstrap_draws": 20000,
+    "bootstrap_seed": 20260924,
+    "cohort_aggregation": "equal_person_mean",
+    "confidence_interval": "paired_person_bootstrap_percentile",
+    "confidence_level": 0.95,
+    "context_comparator": "CSP4_LDA",
+    "hypothesis_test": "two_sided_paired_person_sign_flip_monte_carlo_plus_one",
+    "inference_unit": "person",
+    "multiplicity": "Holm_two_predeclared_cohorts",
+    "outcome_based_selection": false,
+    "primary_contrast": "MU_BETA_SHARED_minus_BROAD_EEGNET",
+    "schema_version": 1,
+    "session_aggregation": "pool_declared_sessions_within_person_before_balanced_accuracy",
+    "sign_flip_draws": 20000,
+    "sign_flip_seed": 20261003,
+    "target_fits": 0,
+    "within_person_aggregation": "balanced_accuracy_per_seed_then_three_seed_mean"
+  },
+  "status": "inference_complete_pending_independent_raw_prediction_replay",
+  "target_fits": 0
+}
