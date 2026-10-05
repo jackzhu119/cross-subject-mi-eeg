@@ -1,0 +1,361 @@
+"""Orchestration checks use synthetic receipts and APIs; no EEG fitting or network."""
+from __future__ import annotations
+
+import importlib.util
+import json
+import os
+import sys
+import types
+import urllib.error
+from pathlib import Path
+
+import pytest
+
+ROOT = Path(__file__).resolve().parents[1]
+MODULE_PATH = ROOT / "research_runs/Q15-MIGRATION-20261004/q15_migration_supervisor.py"
+FAKE_SECRETS = {
+    "R2_BUCKET": "FAKER2_BUCKET_TEST_ONLY",
+    "R2_ENDPOINT": "FAKER2_ENDPOINT_TEST_ONLY",
+    "R2_ACCESS_KEY_ID": "FAKER2_ACCESS_TEST_ONLY",
+    "R2_SECRET_ACCESS_KEY": "FAKER2_SECRET_TEST_ONLY",
+    "GH_TOKEN": "FAKEGH_TEST_ONLY_MIGRATION",
+    "GITHUB_TOKEN": "FAKEGH_ALIAS_TEST_ONLY_MIGRATION",
+    "RUNPOD_API_KEY": "FAKERUNPOD_TEST_ONLY_MIGRATION",
+}
+
+
+@pytest.fixture
+def supervisor(monkeypatch):
+    spec = importlib.util.spec_from_file_location("q15_test_migration_supervisor", MODULE_PATH)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    for name, value in FAKE_SECRETS.items():
+        monkeypatch.setenv(name, value)
+    monkeypatch.setenv("RUNPOD_POD_ID", "new_fake_test_pod")
+    return module
+
+
+@pytest.fixture
+def sandbox(supervisor, monkeypatch, tmp_path):
+    """Translate only fixed workspace paths; actual server paths are never touched."""
+    workspace = tmp_path / "workspace"
+    workspace.mkdir()
+
+    def mapped_path(value):
+        value = os.fspath(value)
+        if value == "/workspace" or value.startswith("/workspace/"):
+            return workspace / value.removeprefix("/workspace").lstrip("/")
+        return Path(value)
+
+    monkeypatch.setattr(supervisor, "Path", mapped_path)
+    monkeypatch.setattr(supervisor, "check_cuda_template", lambda: None)
+    monkeypatch.setattr(supervisor, "existing_ready_restore", lambda *_: False)
+    return workspace
+
+
+def launch_args(tmp_path, mode="restore", **kwargs):
+    args = [mode, "--job-directory", str(tmp_path / "job"), "--job-id", "new-test-job",
+            "--private-log", str(tmp_path / "private-dependencies.log")]
+    if mode == "restore":
+        args += ["--object-key", kwargs.get("object_key", "q15/migrations/fake/archive.tar"),
+                 "--archive-sha256", kwargs.get("archive_sha256", "a" * 64)]
+    return args
+
+
+def install_transport(monkeypatch, callback):
+    monkeypatch.setitem(sys.modules, "q15_migration_transport", types.SimpleNamespace(main=callback))
+
+
+def progress(tmp_path):
+    return json.loads((tmp_path / "job/migration_status.json").read_text())
+
+
+def ready_receipt(workspace, **changes):
+    receipt = {"schema_version": 1,
+               "kind": "q15_validated_source_and_epochs_restore",
+               "origin_job_id": "20261004T005335Z-9b3bce30277a",
+               "source_fit_count": 15, "new_source_fits": 0, "target_fits": 0,
+               "ready_for_continuation": True, **changes}
+    path = workspace / "q15-migration/restore_receipt.json"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(receipt))
+    return receipt
+
+
+@pytest.mark.parametrize("pod", ["", "hvjo2yy3m3wamh", "bad/pod", "a" * 65])
+def test_destination_preflight_rejects_missing_origin_or_unsafe_identity(supervisor, monkeypatch, pod):
+    monkeypatch.setenv("RUNPOD_POD_ID", pod)
+    monkeypatch.setattr(supervisor, "read_api", lambda *_: pytest.fail("API must not be called"))
+    with pytest.raises(supervisor.MigrationError, match="new_destination_pod_required"):
+        supervisor.check_destination_identity()
+
+
+@pytest.mark.parametrize("missing", ["GH_TOKEN", "RUNPOD_API_KEY"])
+def test_destination_requires_both_account_credentials_before_api(supervisor, monkeypatch, missing):
+    monkeypatch.delenv(missing)
+    monkeypatch.setattr(supervisor, "read_api", lambda *_: pytest.fail("API must not be called"))
+    with pytest.raises(supervisor.MigrationError, match="required_credential_missing:" + missing):
+        supervisor.check_destination_identity()
+
+
+@pytest.mark.parametrize("pod_response,repo_response,error", [
+    ({"id": "wrong_fake_test_pod"}, None, "destination_account_pod_identity_unverified"),
+    ({"id": "new_fake_test_pod"}, {"full_name": "other/repo", "permissions": {"push": True}},
+     "github_publication_access_unverified"),
+    ({"id": "new_fake_test_pod"}, {"full_name": "jackzhu119/cross-subject-mi-eeg",
+                                  "permissions": {"push": False}},
+     "github_publication_access_unverified"),
+])
+def test_wrong_account_or_github_permission_fails(supervisor, monkeypatch,
+                                                 pod_response, repo_response, error):
+    replies = iter([pod_response, repo_response])
+    monkeypatch.setattr(supervisor, "read_api", lambda *_: next(replies))
+    with pytest.raises(supervisor.MigrationError, match=error):
+        supervisor.check_destination_identity()
+
+
+def test_destination_account_queries_use_matching_tokens(supervisor, monkeypatch):
+    calls = []
+
+    def read(url, token):
+        calls.append((url, token))
+        if "rest.runpod.io" in url:
+            return {"id": "new_fake_test_pod"}
+        return {"full_name": "jackzhu119/cross-subject-mi-eeg", "permissions": {"push": True}}
+
+    monkeypatch.setattr(supervisor, "read_api", read)
+    assert supervisor.check_destination_identity() == "new_fake_test_pod"
+    assert calls == [
+        ("https://rest.runpod.io/v1/pods/new_fake_test_pod", FAKE_SECRETS["RUNPOD_API_KEY"]),
+        ("https://api.github.com/repos/jackzhu119/cross-subject-mi-eeg", FAKE_SECRETS["GH_TOKEN"]),
+    ]
+
+
+@pytest.mark.parametrize("error_kind,expected", [("http", "account_api_http_403"),
+                                                 ("network", "account_api_unreachable")])
+def test_read_api_sanitizes_url_or_response_errors(supervisor, monkeypatch, error_kind, expected):
+    sensitive = FAKE_SECRETS["RUNPOD_API_KEY"]
+
+    def failing(*_, **__):
+        if error_kind == "http":
+            raise urllib.error.HTTPError("https://fake.invalid/" + sensitive, 403,
+                                         "body contains " + sensitive, {}, None)
+        raise RuntimeError("network diagnostic contains " + sensitive)
+
+    monkeypatch.setattr(supervisor.urllib.request, "urlopen", failing)
+    with pytest.raises(supervisor.MigrationError) as caught:
+        supervisor.read_api("https://fake.invalid", sensitive)
+    assert str(caught.value) == expected
+    assert sensitive not in str(caught.value)
+
+
+def test_restore_account_preflight_precedes_transport(supervisor, sandbox, monkeypatch, tmp_path):
+    def rejected():
+        raise supervisor.MigrationError("destination_fake_rejected")
+
+    monkeypatch.setattr(supervisor, "check_destination_identity", rejected)
+    install_transport(monkeypatch, lambda *_: pytest.fail("75 GB transport must not start"))
+    monkeypatch.setattr(supervisor, "install_scientific_runtime", lambda *_: pytest.fail("No install"))
+    assert supervisor.main(launch_args(tmp_path)) == 1
+    report = progress(tmp_path)
+    assert report["error_code"] == "destination_fake_rejected"
+    assert report["new_source_fits"] == report["target_fits"] == 0
+    assert report["automatic_pod_stop_requested_by_migration_supervisor"] is False
+
+
+def test_invalid_archive_digest_blocks_transport(supervisor, sandbox, monkeypatch, tmp_path):
+    monkeypatch.setattr(supervisor, "check_destination_identity", lambda: "new_fake_test_pod")
+    install_transport(monkeypatch, lambda *_: pytest.fail("Unverified backup must not be downloaded"))
+    assert supervisor.main(launch_args(tmp_path, archive_sha256="bad")) == 1
+    assert progress(tmp_path)["error_code"] == "verified_backup_locator_required"
+
+
+@pytest.mark.parametrize("transport_result,ready,error", [
+    (1, True, "restore_transport_failed"),
+    (0, False, "restored_originals_not_verified"),
+])
+def test_partial_restore_or_failed_transport_cannot_continue(supervisor, sandbox, monkeypatch,
+                                                           tmp_path, transport_result, ready, error):
+    monkeypatch.setattr(supervisor, "check_destination_identity", lambda: "new_fake_test_pod")
+    monkeypatch.setattr(supervisor, "check_cuda_template", lambda: None)
+
+    def transport(_):
+        ready_receipt(sandbox, ready_for_continuation=ready)
+        return transport_result
+
+    install_transport(monkeypatch, transport)
+    monkeypatch.setattr(supervisor, "install_scientific_runtime", lambda *_: pytest.fail("No install"))
+    monkeypatch.setattr(supervisor.subprocess, "run", lambda *_args, **_kw: pytest.fail("No worker"))
+    assert supervisor.main(launch_args(tmp_path)) == 1
+    assert progress(tmp_path)["error_code"] == error
+
+
+def test_restore_launches_only_verified_continuation_after_runtime_install(supervisor, sandbox,
+                                                                          monkeypatch, tmp_path):
+    events = []
+    monkeypatch.setattr(supervisor, "check_destination_identity",
+                        lambda: events.append("identity") or "new_fake_test_pod")
+    monkeypatch.setattr(supervisor, "check_cuda_template", lambda: events.append("runtime_probe"))
+
+    def transport(args):
+        assert args[0] == "restore"
+        events.append("restore")
+        ready_receipt(sandbox)
+        return 0
+
+    def install(repo, log):
+        assert repo == sandbox / "q15-execution/repo"
+        assert log == tmp_path / "private-dependencies.log"
+        events.append("install")
+
+    def run(command, **kwargs):
+        events.append("continue")
+        assert Path(command[1]).name == "q15_continue_validated.py"
+        assert "--job-id" in command and command[command.index("--job-id") + 1] == "new-test-job"
+        assert "q15_full_job.py" not in command
+        assert "run_source" not in " ".join(command)
+        assert kwargs["check"] is False
+        return types.SimpleNamespace(returncode=0)
+
+    install_transport(monkeypatch, transport)
+    monkeypatch.setattr(supervisor, "install_scientific_runtime", install)
+    monkeypatch.setattr(supervisor.subprocess, "run", run)
+    assert supervisor.main(launch_args(tmp_path)) == 0
+    assert events.index("identity") < events.index("restore") < events.index("install") < events.index("continue")
+    report = progress(tmp_path)
+    assert report["stage"] == "continuation_process_returned"
+    assert report["scientific_completion_requires_job_report"] is True
+    assert report["new_source_fits"] == report["target_fits"] == 0
+
+
+def test_verified_backup_preserves_old_job_and_does_not_stop_or_continue(supervisor, sandbox,
+                                                                      monkeypatch, tmp_path):
+    def transport(args):
+        assert args[0] == "backup"
+        assert args[args.index("--base-commit") + 1] == supervisor.BASE
+        assert args[args.index("--origin-job") + 1] == supervisor.ORIGIN_JOB
+        receipt_path = Path(args[args.index("--receipt") + 1])
+        receipt_path.write_text(json.dumps({"readback_verified": True,
+                                            "object_key": "q15/migrations/fake/archive.tar",
+                                            "archive_sha256": "a" * 64}))
+        return 0
+
+    install_transport(monkeypatch, transport)
+    monkeypatch.setattr(supervisor, "check_destination_identity", lambda: pytest.fail("Backup uses old Pod"))
+    monkeypatch.setattr(supervisor.subprocess, "run", lambda *_args, **_kw: pytest.fail("No scientific worker"))
+    assert supervisor.main(launch_args(tmp_path, "backup")) == 0
+    report = progress(tmp_path)
+    assert report["stage"] == "backup_verified_old_pod_can_be_stopped_manually"
+    assert report["origin_source_fits"] == 15
+    assert report["new_source_fits"] == report["target_fits"] == 0
+
+
+def test_backup_without_readback_cannot_claim_safe_stop(supervisor, sandbox, monkeypatch, tmp_path):
+    def transport(args):
+        Path(args[args.index("--receipt") + 1]).write_text(json.dumps({"readback_verified": False}))
+        return 0
+
+    install_transport(monkeypatch, transport)
+    assert supervisor.main(launch_args(tmp_path, "backup")) == 1
+    assert progress(tmp_path)["error_code"] == "backup_readback_not_verified"
+
+
+@pytest.mark.parametrize("kind,expected", [("sdk", "ValueError"), ("controlled", "redacted_failure")])
+def test_main_error_output_never_contains_credentials(supervisor, sandbox, monkeypatch, tmp_path,
+                                                      capsys, kind, expected):
+    def transport(_):
+        error = "diagnostic with " + FAKE_SECRETS["R2_SECRET_ACCESS_KEY"]
+        raise ValueError(error) if kind == "sdk" else supervisor.MigrationError(error)
+
+    install_transport(monkeypatch, transport)
+    assert supervisor.main(launch_args(tmp_path, "backup")) == 1
+    assert progress(tmp_path)["error_code"] == expected
+    output = capsys.readouterr().out + (tmp_path / "job/migration_status.json").read_text()
+    assert all(value not in output for value in FAKE_SECRETS.values())
+
+
+@pytest.mark.parametrize("returncode", [0, 1])
+def test_dependency_install_strips_all_secrets_and_keeps_output_private(supervisor, monkeypatch,
+                                                                      tmp_path, capsys, returncode):
+    repo = tmp_path / "repo"
+    log = tmp_path / "private-install.log"
+
+    def run(command, **kwargs):
+        assert command[:4] == [sys.executable, "-m", "pip", "install"]
+        assert command[-1] == str(repo / "requirements-q15-runtime.txt")
+        assert all(name not in kwargs["env"] for name in FAKE_SECRETS)
+        assert kwargs["stderr"] == supervisor.subprocess.STDOUT
+        kwargs["stdout"].write(b"synthetic private installation detail\n")
+        return types.SimpleNamespace(returncode=returncode)
+
+    monkeypatch.setattr(supervisor.subprocess, "run", run)
+    if returncode:
+        with pytest.raises(supervisor.MigrationError, match="scientific_dependency_install_failed"):
+            supervisor.install_scientific_runtime(repo, log)
+    else:
+        supervisor.install_scientific_runtime(repo, log)
+    assert "synthetic private" in log.read_text()
+    assert "synthetic private" not in capsys.readouterr().out
+
+
+def test_from_r2_uses_no_archive_and_continues_only_after_ready(supervisor, sandbox, monkeypatch,
+                                                              tmp_path):
+    events = []
+    monkeypatch.setattr(supervisor, 'check_destination_identity',
+                        lambda: events.append('identity') or 'new_fake_test_pod')
+    monkeypatch.setattr(supervisor, 'check_cuda_template', lambda: events.append('gpu'))
+    install_transport(monkeypatch, lambda *_: pytest.fail('No archive transport is needed'))
+
+    def restore(workspace, job_id, job, log, installer):
+        events.append('r2_restore')
+        assert workspace == sandbox and job_id == 'new-test-job'
+        assert job == tmp_path / 'job' and log == tmp_path / 'private-dependencies.log'
+        assert installer is supervisor.install_scientific_runtime
+        return {'ready_for_continuation': True}
+
+    def run(command, **kwargs):
+        events.append('continuation')
+        assert Path(command[1]).name == 'q15_continue_validated.py'
+        assert 'q15_full_job.py' not in command and kwargs['check'] is False
+        return types.SimpleNamespace(returncode=0)
+
+    monkeypatch.setitem(sys.modules, 'q15_restore_from_r2', types.SimpleNamespace(restore_from_r2=restore))
+    monkeypatch.setattr(supervisor.subprocess, 'run', run)
+    assert supervisor.main(launch_args(tmp_path, 'from-r2')) == 0
+    assert events == ['identity', 'gpu', 'r2_restore', 'continuation']
+    assert progress(tmp_path)['scientific_completion_requires_job_report'] is True
+
+
+def test_from_r2_incomplete_restore_never_starts_scientific_worker(supervisor, sandbox,
+                                                                monkeypatch, tmp_path):
+    monkeypatch.setattr(supervisor, 'check_destination_identity', lambda: 'new_fake_test_pod')
+    install_transport(monkeypatch, lambda *_: pytest.fail('No archive transport'))
+    monkeypatch.setitem(sys.modules, 'q15_restore_from_r2', types.SimpleNamespace(
+        restore_from_r2=lambda *_: {'ready_for_continuation': False}))
+    monkeypatch.setattr(supervisor.subprocess, 'run', lambda *_a, **_k: pytest.fail('No worker'))
+    assert supervisor.main(launch_args(tmp_path, 'from-r2')) == 1
+    assert progress(tmp_path)['error_code'] == 'r2_restoration_not_ready'
+
+
+def test_wrong_cuda_template_blocks_r2_download(supervisor, sandbox, monkeypatch, tmp_path):
+    monkeypatch.setattr(supervisor, 'check_destination_identity', lambda: 'new_fake_test_pod')
+
+    def reject():
+        raise supervisor.MigrationError('pinned_pytorch_cuda_template_required')
+
+    monkeypatch.setattr(supervisor, 'check_cuda_template', reject)
+    monkeypatch.setitem(sys.modules, 'q15_restore_from_r2', types.SimpleNamespace(
+        restore_from_r2=lambda *_: pytest.fail('No R2 downloads')))
+    install_transport(monkeypatch, lambda *_: pytest.fail('No archive'))
+    assert supervisor.main(launch_args(tmp_path, 'from-r2')) == 1
+    assert progress(tmp_path)['error_code'] == 'pinned_pytorch_cuda_template_required'
+
+
+def test_child_inherits_existing_migration_lock_descriptor(supervisor, monkeypatch):
+    monkeypatch.setattr(supervisor.os, 'fstat', lambda fd: object() if fd == 9 else pytest.fail())
+    assert supervisor.continuation_descriptor_options() == {'pass_fds': (9,)}
+
+
+def test_no_descriptor_is_required_for_direct_unit_orchestration(supervisor, monkeypatch):
+    monkeypatch.setattr(supervisor.os, 'fstat', lambda _: (_ for _ in ()).throw(OSError()))
+    assert supervisor.continuation_descriptor_options() == {}
