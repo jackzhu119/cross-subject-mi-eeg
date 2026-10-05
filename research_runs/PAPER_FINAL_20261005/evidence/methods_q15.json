@@ -1,0 +1,317 @@
+{
+  "schema_version": 1,
+  "audit_date_utc": "2026-10-05",
+  "repository_head": "7af1a137e2676a018e1e880ab076de6cae4ce30b",
+  "audit_actions": {
+    "new_fits": 0,
+    "new_inference": 0,
+    "new_raw_downloads": 0,
+    "scope": "Read committed scripts, contracts, metadata receipts and result artifacts; no model or raw signal execution."
+  },
+  "evidence_sha256": {
+    "research_runs/Q15-EXECUTION-20261003/EXECUTION_CONTRACT.json": "4db58b7096378fc1a429580600f35dc8df1a98d701cf8bfb081770f8ea721766",
+    "research_runs/PAPER_RELEASE_20260927/Q15_CONTRACT.json": "ef59b23b821f5fadd75b3483540a4bdfbb0afbefe58f6b4835d659aac9f35554",
+    "src/mi_eeg/data/q15_context.py": "849ee22e2a1c1987c2a83ed3a837f9f358b505133ce2ffe13ee876f01adc3d61",
+    "src/mi_eeg/models/q15_csp.py": "b5e4df5428c28688d5163cbb235fad5408cf89324ac4112c6511cdedd25294fd",
+    "scripts/q15_real_metadata.py": "96c00d69d6f7f0ab38707fde696f0d160cb6ebee2169365e1a362fd90f142004",
+    "scripts/q15_preprocess_external.py": "aa5726ce584eb5449c7d71f9884ca10ef0b29b8bfe2f07a29e5024e7f3472c1b",
+    "scripts/q15_source.py": "b0c3a02d757c3b636ec6f312f3d3d8f43d5ce44a0ff14dfbfe10dacef4172648",
+    "scripts/q15_external.py": "6876042faf7fb5bd77a3be122f00fab2b1bbd2f6fb5b302c1745eba28f28a08c",
+    "scripts/q15_validate_external.py": "df688777d51d3d8aec9bd785683859b512024f922ba2805284dfe5fbfc71e8bd",
+    "scripts/q14_source.py": "b70cf5e41474688b22c6a57a068c07edaa22a8bbf640bd2100b8bb616ea05375",
+    "results/Q15-E005/pre_fit_freeze.json": "5d22d76eb823a720b606ff7acc3d118f2a21e4bbc4903dd3fda36270e6ac950d",
+    "results/Q15-E005/source/run_config.json": "771a07519d2d0a4ae36cd92aa93f5091924111d3749b4fd8e1c785e8f5cdb6ba",
+    "results/Q15-E005/source_validation.json": "837bdd6a9a4739bd09c36c1e095b5a7c7bec657768683d70c8968f0fbb81542b",
+    "results/Q15-EXTERNAL/inference_freeze.json": "e420d8ca9389f5fcefd3ab16229244c0e362770dba8aeecccca73b10c20b29c5",
+    "results/Q15-EXTERNAL/validation_report.json": "5c93501626ab3a631f82cdfad5e8ddc722c3414cdd46d3c810977ad968d49ae0"
+  },
+  "q15": {
+    "source_arm": "Q15-E005",
+    "external_arms": {
+      "Cho2017": "Q15-E006",
+      "Lee2019_MI": "Q15-E007"
+    },
+    "source_subjects": 9,
+    "source_sessions_per_person": 2,
+    "source_binary_trials": 2592,
+    "source_artifact_flagged_retained": 246,
+    "source_class_map": {
+      "left_hand": 1,
+      "right_hand": 2
+    },
+    "external_cohorts": {
+      "Cho2017": {
+        "persons": 52,
+        "files": 52,
+        "sessions_per_person": 1,
+        "trials": 10520,
+        "input_fields": [
+          "imagery_left",
+          "imagery_right"
+        ],
+        "trials_per_class": {
+          "default": 100,
+          "subjects_7_9_46": 120
+        },
+        "native_sfreq_hz": 512,
+        "physical_run_ids_reconstructed": false,
+        "channel_labels_in_mat": false,
+        "channel_map": "Original article Figure 1 numbered montage; reviewed prospective row-map assumption",
+        "included_signal_rows": "first 64 EEG rows of 68 total; 4 EMG rows excluded",
+        "cue_rule": "zero-based nonzero imagery_event indices, local trial index 1023, no extra shift",
+        "retained_chunk_samples": 3584
+      },
+      "Lee2019_MI": {
+        "persons": 54,
+        "files": 108,
+        "sessions_per_person": 2,
+        "trials": 10800,
+        "trials_per_file": 100,
+        "input_field": "EEG_MI_train",
+        "excluded_fields": [
+          "EEG_MI_test",
+          "EEG_ERP_train",
+          "EEG_ERP_test",
+          "EEG_SSVEP_train",
+          "EEG_SSVEP_test"
+        ],
+        "role": "offline_train",
+        "native_sfreq_hz": 1000,
+        "native_to_canonical": {
+          "1_right": 2,
+          "2_left": 1
+        },
+        "cue_rule": "stored MATLAB t minus one",
+        "provider_segment_discrepancy": "Supplied smt begins at Python x[t:t+4000]; declared cue is t-1. One-native-sample (1 ms) discrepancy disclosed, with no result-driven correction."
+      }
+    },
+    "preprocessing": {
+      "channels": [
+        "Fz",
+        "FC3",
+        "FC1",
+        "FC2",
+        "FC4",
+        "C5",
+        "C3",
+        "C1",
+        "Cz",
+        "C2",
+        "C4",
+        "C6",
+        "CP3",
+        "CP1",
+        "CPz",
+        "CP2",
+        "CP4",
+        "P1",
+        "Pz",
+        "P2",
+        "POz"
+      ],
+      "reference": "common-average over the selected 21 EEG channels at each native sample",
+      "context_half_open_seconds": [
+        -1.5,
+        4.5
+      ],
+      "cue_epoch_half_open_seconds": [
+        0.5,
+        2.5
+      ],
+      "duration_s": 2,
+      "sampling_rate_hz": 160,
+      "n_times": 320,
+      "shape": "[trials,21,320], float32",
+      "bands_hz": {
+        "broad": [
+          8,
+          30
+        ],
+        "mu": [
+          8,
+          13
+        ],
+        "beta": [
+          13,
+          30
+        ]
+      },
+      "order": "channel selection, 6-second native context extraction, CAR21, separate zero-phase native-rate bandpass filtering, anti-aliased polyphase resampling, crop samples[320:640]",
+      "filter": {
+        "prototype_order": 4,
+        "bandpass_order": 8,
+        "representation": "4 SOS sections",
+        "phase": "forward-backward zero-phase",
+        "padtype": "odd",
+        "padlen_native_samples": 27,
+        "scope": "individual retained trial context, no filtering across artificially concatenated Cho trials"
+      },
+      "resampling": {
+        "method": "scipy.signal.resample_poly",
+        "window": [
+          "kaiser",
+          5.0
+        ],
+        "padtype": "constant",
+        "cval": 0.0,
+        "ratios": {
+          "250_to_160": [
+            16,
+            25
+          ],
+          "512_to_160": [
+            5,
+            16
+          ],
+          "1000_to_160": [
+            4,
+            25
+          ]
+        },
+        "resampled_context_samples": 960
+      },
+      "analysis_units": "Native numeric values interpreted as microvolts by declared convention; physical external export calibration unverified",
+      "target_normalization": false,
+      "target_alignment": false,
+      "target_channel_interpolation": false,
+      "baseline_correction": false,
+      "artifact_policy": "include_all",
+      "incomplete_context_or_schema_failure": "Abort, no silent trial or person exclusion"
+    },
+    "neural_models": {
+      "broad": "One configured Braindecode EEGNet on broad 8–30 Hz data",
+      "shared_mu_beta": "One EEGNet shared between fixed mu and beta views; concatenate views on batch axis, arithmetic mean logits, then cross-entropy/softmax; no learned fusion",
+      "architecture": {
+        "D": 2,
+        "F1": 8,
+        "F2": 16,
+        "drop_prob": 0.25,
+        "kernel_length": 64,
+        "library": "braindecode",
+        "model": "EEGNet",
+        "n_chans": 21,
+        "n_outputs": 2,
+        "n_times": 320
+      },
+      "optimizer": "Adam",
+      "lr": 0.001,
+      "weight_decay": 0,
+      "batch_size": 64,
+      "loss": "cross_entropy",
+      "scheduler": null,
+      "augmentation": null,
+      "seed_everything_deterministic": true,
+      "evaluation_mode": "model.eval() plus inference mode; no target BatchNorm updates"
+    },
+    "model_selection": {
+      "inner_groups": [
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          7,
+          8,
+          9
+        ]
+      ],
+      "inner_fit_seed": 20260923,
+      "max_epochs": 40,
+      "rule": "Within each validation group rank epoch CE with average tie ranks; equal-weight average across four groups; earliest minimum. No target outcomes enter selection.",
+      "selected_epochs": {
+        "BROAD_EEGNET": 14,
+        "MU_BETA_SHARED": 19
+      },
+      "final_seeds": [
+        20260924,
+        20260925,
+        20260926
+      ],
+      "source_fits": {
+        "neural_inner": 8,
+        "neural_final": 6,
+        "CSP": 1,
+        "total": 15
+      },
+      "migration_new_source_fits": 0,
+      "target_fits": 0
+    },
+    "csp": {
+      "band": [
+        8,
+        30
+      ],
+      "fixed_transform": "scipy.linalg.helmert(21, full=False), 21→20 CAR-subspace coordinates, no data-dependent estimation",
+      "n_components": 4,
+      "cov_est": "concat",
+      "reg": null,
+      "log": true,
+      "norm_trace": false,
+      "rank": "full",
+      "component_order": "mutual_info",
+      "scaler": "source-fitted StandardScaler on CSP log-power features",
+      "classifier": "LinearDiscriminantAnalysis(solver=svd)",
+      "interpretation": "Source-only descriptive contextual comparator; not one of the two primary cohort tests"
+    },
+    "statistics": {
+      "bootstrap_draws": 20000,
+      "bootstrap_seed": 20260924,
+      "cohort_aggregation": "equal_person_mean",
+      "confidence_interval": "paired_person_bootstrap_percentile",
+      "confidence_level": 0.95,
+      "context_comparator": "CSP4_LDA",
+      "hypothesis_test": "two_sided_paired_person_sign_flip_monte_carlo_plus_one",
+      "inference_unit": "person",
+      "multiplicity": "Holm_two_predeclared_cohorts",
+      "outcome_based_selection": false,
+      "primary_contrast": "MU_BETA_SHARED_minus_BROAD_EEGNET",
+      "schema_version": 1,
+      "session_aggregation": "pool_declared_sessions_within_person_before_balanced_accuracy",
+      "sign_flip_draws": 20000,
+      "sign_flip_seed": 20261003,
+      "target_fits": 0,
+      "within_person_aggregation": "balanced_accuracy_per_seed_then_three_seed_mean"
+    },
+    "calibration_limitations": [
+      "raw_voltage_calibration_not_independently_verified",
+      "cho_original_hardware_reference_not_verified",
+      "hardware_cue_latency_not_verified"
+    ],
+    "completion_interpretation": "Completed operational adapter benchmark, with calibration limitations. It is not evidence of physical cross-dataset amplitude equivalence or a validated causal rhythm mechanism."
+  },
+  "q14_distinction": {
+    "target": "PhysioNet EEG Motor Movement/Imagery v1.0.0,109 persons,runs4/8/12",
+    "channels": 22,
+    "sampling_rate_hz": 160,
+    "cue_epoch_half_open_seconds": [
+      0.5,
+      3.5
+    ],
+    "n_times": 480,
+    "shared_q15_checkpoints": false,
+    "q15_is_new_model": true,
+    "analysis_instruction": "Separate external analyses. Q14 and Q15 differ in input montage, window, reference, filter scope, source checkpoints, target cohort and study history; do not pool them or call them identical-model cross-cohort replication."
+  },
+  "chronology": {
+    "pre_fit_freeze_commit": "fc0e7d54",
+    "pre_fit_freeze_commit_at_utc": "2026-10-04T01:33:03Z",
+    "source_fit_complete_at_utc": "2026-10-04T01:52:42.771430+00:00",
+    "inference_freeze_commit": "2ad479f5",
+    "inference_freeze_commit_at_utc": "2026-10-05T09:31:05Z",
+    "inference_complete_at_utc": "2026-10-05T10:57:19.116979+00:00",
+    "publication_commit": "bc48",
+    "publication_at_utc": "2026-10-05T11:49:43Z",
+    "provenance": "Times/commit IDs supplied by independent Q15 artifact audit; pre-fit/inference files additionally inspected here. Short commit IDs remain abbreviations.",
+    "allowed_claim": "Adapter decisions informed by complete metadata and primary-source review before Q15 source fitting and external predictions; source-only training and separate committed pre-inference statistical freeze.",
+    "disallowed_claim": "Blind raw-data-unseen design, external institution preregistration, or complete research-program independence from previous BNCI/Q14 outcomes."
+  },
+  "legacy_reused_methods_audit": "Previous manuscript evidence/methods_and_references.json documents Q1–Q14; this audit corrects Q15-specific details and preserves historical method differences."
+}
