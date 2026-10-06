@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "status": "plot_recipe_fixed_before_Q16_power_analysis",
+  "geometry_source": "mne.channels.make_standard_montage(\"standard_1020\").get_positions()[\"ch_pos\"]",
+  "mne_version": "1.13.2",
+  "projection": "orthographic X/Y; plot_x=0.9*standard_1020_x_m/r_max; plot_y=0.9*standard_1020_y_m/r_max; r_max=max over declared 22 sensors sqrt(X^2+Y^2)",
+  "r_max_m": 0.10217822746241001,
+  "channels": [
+    "Fz",
+    "FC3",
+    "FC1",
+    "FCz",
+    "FC2",
+    "FC4",
+    "C5",
+    "C3",
+    "C1",
+    "Cz",
+    "C2",
+    "C4",
+    "C6",
+    "CP3",
+    "CP1",
+    "CPz",
+    "CP2",
+    "CP4",
+    "P1",
+    "Pz",
+    "P2",
+    "POz"
+  ],
+  "geometry_sha256": "b214744a5439a73bdc016387ffd4701f8493b1f173771133f8fe96618c0663a5",
+  "interpolation": "linear Delaunay triangulation within the sensor convex hull only; values outside convex hull stay white",
+  "grid": {
+    "points_per_axis": 161,
+    "plot_x_min": -1,
+    "plot_x_max": 1,
+    "plot_y_min": -1,
+    "plot_y_max": 1
+  },
+  "head_outline_radius": 1,
+  "color_range_db": [
+    -6,
+    6
+  ],
+  "color_map": "RdBu_r (negative blue, positive red)",
+  "out_of_range_values": "clip only display to fixed range; count and report sensor and grid values outside [-6,+6]; retain original numbers",
+  "scalp_map_aggregation": "trial dB within class and session -> equal-session participant mean -> equal-participant cohort mean; no target BA binning",
+  "sensor_marker_style": "all 22 black open sensor points; C3/Cz/C4 labeled",
+  "physiology_units": "10*log10(task integrated band power / baseline integrated band power), dB; no absolute physical-voltage calibration claimed",
+  "not_a_source_localization": "template sensor positions and orthographic interpolation only; no participant-specific registration or cortical inference",
+  "new_model_fits": 0,
+  "new_predictions": 0,
+  "inline_TeX_display_grid": {
+    "points_per_axis": 41,
+    "same_extent_interpolator_and_sensor_values": true,
+    "purpose": "display-only reduction of patches for a self-contained TeX document; scientific summaries and PNG/PDF/SVG use the unchanged values and 161x161 display grid"
+  }
+}
