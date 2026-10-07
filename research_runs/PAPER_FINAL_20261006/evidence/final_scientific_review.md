@@ -1,6 +1,6 @@
 # Current language-refined manuscript delivery review
 
-Status: scientific_and_numerical_review_passed. 107 synthesis checks passed, bound to 229 exact files.
+Status: scientific_and_numerical_review_passed. 107 synthesis checks passed, bound to 230 exact files.
 
 The saved-number review passed 422 checks for 261 display cells; 783 edit-integrity checks cover 112 manuscript prose/caption/note changes and 25 companion replacements. All 16,417 protected scientific files and the frozen tables, quantitative figure assets, equations and references remain byte-identical. Independent current scientific-language, layout and submission-package reviews bind the delivered exports.
 
