@@ -115,7 +115,7 @@ for filename, expected_tables, expected_figures in [('manuscript_main_en.docx', 
     check('split_export_' + filename + '_nonempty_pdf', all(len(p.get_text().strip()) > 30 for p in fitz.open(OUT / filename.replace('.docx', '.pdf'))))
 check('scientific_completion_markers_absent', all(marker not in markdown for marker in ['Q16_PENDING', 'PENDING_Q16', 'WORKFLOW_PENDING']))
 original_paths = [p for p in subprocess.check_output(['git', 'diff', '--name-only', '-z', '124e1b02895b13657b11365d8360c2515800792b'], cwd=ROOT).decode('utf-8').split('\0') if p]
-check('original_scientific_files_preserved', all(p.startswith(('research_runs/PAPER_FINAL_20261006/', 'research_runs/PAPER_FINAL_20261006-PUBLICATION/', 'research_runs/Q16-P001-BNCI-20261006/')) or p in {'scripts/q16_common.py', 'scripts/q16_metadata_audit.py', 'scripts/q16_bnci_analysis.py', 'scripts/validate_q16_independent.py'} for p in original_paths))
+check('original_scientific_files_preserved', all(p.startswith(('research_runs/PAPER_FINAL_20261006/', 'research_runs/PAPER_FINAL_20261006-PUBLICATION/', 'research_runs/Q16-P001-BNCI-20261006/')) or p in {'README.md', 'scripts/q16_common.py', 'scripts/q16_metadata_audit.py', 'scripts/q16_bnci_analysis.py', 'scripts/validate_q16_independent.py'} for p in original_paths))
 
 # Bind the exact reviewed sources and delivered exports, without leaking secrets.
 input_hashes = {}

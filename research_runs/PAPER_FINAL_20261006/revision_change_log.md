@@ -2,8 +2,9 @@
 
 Editorial changes only. All 16,417 protected scientific files, full-precision numerical tables, quantitative figure data, selected epochs, Q15/Q16 results and independent validation receipts remain unchanged. No model fits, checkpoint inference, raw EEG processing or new experimental analysis was performed.
 
-## Modified files — paper revision
+## Modified files — paper and README revision
 
+- `README.md`
 - `research_runs/PAPER_FINAL_20261006/MANIFEST.sha256`
 - `research_runs/PAPER_FINAL_20261006/README.md`
 - `research_runs/PAPER_FINAL_20261006/ai_disclosure_submission_draft.md`
