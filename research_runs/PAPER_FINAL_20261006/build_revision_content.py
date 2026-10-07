@@ -514,10 +514,9 @@ def revise_blocks(original_blocks):
                   'nor an exemption was required for this secondary analysis.'),
         heading('Funding', 1), paragraph('This research received no funding.'),
         heading('Competing interests', 1), paragraph('The author declares no competing interests.'),
+        heading('Author contributions', 1), paragraph('Ziyuan Zhu undertook the study as the sole author, prepared the manuscript, checked and revised its content, and approved the final version.'),
         heading('Acknowledgements', 1), heading('AI assistance disclosure', 2),
-        paragraph('OpenAI Codex assisted source and literature checks, analysis-code development, '
-                  'figure preparation, and manuscript drafting and language revision. The author '
-                  'is responsible for reviewing the final manuscript and for its scientific content.')]
+        paragraph('ChatGPT (GPT-6, as reported by the author) assisted information retrieval, grammar revision, and preparation of instructions for publishing research materials to GitHub. OpenAI Codex assisted source and literature checks, analysis-code and verification-code development, saved-result consistency checks, figure preparation, and manuscript drafting and language revision. The author personally reviewed and revised the final manuscript and takes responsibility for its scientific content.')]
     supplementary = copy.deepcopy(blocks[index('Supplementary material'):])
     supplementary += [heading('S9. Descriptive BNCI-only Physiological Characterization'),
         paragraph('The separate Q16 methods document native raw-file/hash and event gates, fixed '

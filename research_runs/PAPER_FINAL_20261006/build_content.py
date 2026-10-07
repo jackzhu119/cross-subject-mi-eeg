@@ -99,7 +99,7 @@ p('The companion supplementary_methods.md records the 21-channel montage, six-se
 fig('figureS2_q15_participant_heterogeneity', 'Figure S2', 'Participant-level Q15 transfer heterogeneity. Saved seed-averaged shared-minus-broad effects and within-person three-seed sample standard deviations (106 paired effects and 212 dispersion points; CSP omitted) are displayed separately for 52 Cho and 54 Lee people. Participant order is descriptive and does not define subgroups or target selection. Repeated seeds and the two Lee sessions are not additional inference units.'),
 p('Descriptive seed dispersion was larger for shared than broad input: mean within-person seed SD was 6.014 versus 4.550 pp on Cho, and 3.798 versus 2.887 pp on Lee. These values characterize three fixed source-model seeds rather than an estimated population distribution of training randomness. They are not additional confirmatory hypotheses. Full person/seed metrics and class recalls are supplied in q15_external_subjects.csv, q15_seed_metrics.csv, and q15_model_summary.csv.'),
 h('S8. Reproducible manuscript materials'),
-p('The manuscript bundle contains consistent English Markdown, editable DOCX, a PDF layout export, standalone LaTeX source with embedded numerical figure panels, the Chinese companion, figure sources and PNG/PDF/SVG exports, participant tables, a completed-condition inventory, verified references, independent numerical-audit scripts, and an author submission checklist. The main paper reports the retained scientific results; operational cloud failure logs do not substitute for scientific endpoints. All manuscript preparation fits and checkpoint-inference counts are zero. Funding, competing-interest and ethics statements reflect the author’s confirmation; journal-specific formatting and final manuscript approval remain to be completed before submission.'),
+p('The manuscript bundle contains consistent English Markdown, editable DOCX, a PDF layout export, standalone LaTeX source with embedded numerical figure panels, the Chinese companion, figure sources and PNG/PDF/SVG exports, participant tables, a completed-condition inventory, verified references, independent numerical-audit scripts, and an author submission checklist. The main paper reports the retained scientific results; operational cloud failure logs do not substitute for scientific endpoints. All manuscript preparation fits and checkpoint-inference counts are zero. Funding, competing-interest and ethics statements reflect the author’s confirmation; the author has confirmed final manuscript review and approval; journal submission has not been performed.'),
 ]
 
 # Reassemble without fragile in-place insertion offsets.
@@ -148,11 +148,12 @@ refs = [refs[n - 1] for n in first_seen]
 (OUT / 'evidence/reference_order.json').write_text(json.dumps({'source_to_manuscript': mapping, 'ordered_keys': [r['key'] for r in refs]}, indent=2) + '\n')
 
 aff = json.loads((OUT / 'evidence/affiliation_verification.json').read_text())
+author_confirmation = json.loads((OUT / 'evidence/author_finalization/author_confirmations.json').read_text())
 content = {'title': TITLE, 'subtitle': SUBTITLE,
            'authors': [{'name': 'Ziyuan Zhu', 'chinese_name': '朱子元', 'corresponding': True,
-                        'affiliation': aff['recommended_affiliation_en'], 'email': 'zzy2630816871@gmail.com'}],
+                        'affiliation': aff['recommended_affiliation_en'], 'email': 'zzy2630816871@gmail.com', 'postal_address': author_confirmation['postal_address_en'], 'orcid': author_confirmation['orcid']}],
            'date': '7 October 2026', 'blocks': blocks, 'references': [ref_text(r) for r in refs],
            'reference_keys': [r['key'] for r in refs], 'new_fits': 0, 'new_checkpoint_inference': 0,
-           'status': 'structured_revision_q16_complete_core_author_declarations_confirmed_final_approval_pending'}
+           'status': 'structured_revision_q16_complete_author_review_and_metadata_confirmed'}
 (OUT / 'manuscript_content.json').write_text(json.dumps(content, indent=2, ensure_ascii=False) + '\n')
 print(json.dumps({'blocks': len(blocks), 'references': len(refs), 'new_fits': 0}))

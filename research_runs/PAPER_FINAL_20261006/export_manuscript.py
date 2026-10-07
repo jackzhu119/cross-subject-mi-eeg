@@ -31,6 +31,7 @@ NUM=json.loads((OUT/'paper_numbers.json').read_text())
 AUTHOR=DATA['authors'][0]['name']
 AFFILIATION=DATA['authors'][0]['affiliation']
 EMAIL=DATA['authors'][0]['email']
+POSTAL_ADDRESS=DATA['authors'][0].get('postal_address','')
 
 
 def table_column_weights(block):
@@ -57,7 +58,7 @@ def _row_flag(row, tag):
     properties.append(flag)
 
 def markdown():
-    lines=[f'# {TITLE}','',f'*{SUBTITLE}*','',AUTHOR + ' (corresponding author)', '', AFFILIATION, '', 'Correspondence: ' + EMAIL, '', '7 October 2026','']
+    lines=[f'# {TITLE}','',f'*{SUBTITLE}*','',AUTHOR + ' (corresponding author)', '', AFFILIATION, '', 'Correspondence: ' + EMAIL, '', 'Postal address: ' + POSTAL_ADDRESS, '', '7 October 2026','']
     for b in BLOCKS:
         kind=b['type']
         if kind=='heading':lines.extend(['#'*(b['level']+1)+' '+b['text'],''])
@@ -89,7 +90,7 @@ def word(filename='manuscript_en.docx'):
         if style_name.startswith('Heading'):style.paragraph_format.keep_with_next=True
     doc.styles['Subtitle'].font.italic=True
     doc.add_heading(TITLE,0);doc.add_paragraph(SUBTITLE,'Subtitle')
-    doc.add_paragraph(AUTHOR + ' (corresponding author)'); doc.add_paragraph(AFFILIATION); doc.add_paragraph('Correspondence: ' + EMAIL); doc.add_paragraph('7 October 2026')
+    doc.add_paragraph(AUTHOR + ' (corresponding author)'); doc.add_paragraph(AFFILIATION); doc.add_paragraph('Correspondence: ' + EMAIL); doc.add_paragraph('Postal address: ' + POSTAL_ADDRESS); doc.add_paragraph('7 October 2026')
     for paragraph in doc.paragraphs:
         paragraph.alignment=WD_ALIGN_PARAGRAPH.CENTER
         paragraph.paragraph_format.keep_together=True
@@ -170,7 +171,7 @@ def pdf(filename='manuscript_en.pdf'):
     styles.add(ParagraphStyle(name='PaperReference',fontName='Caption',fontSize=8,leading=10.5,spaceAfter=6))
     story=[]
     def p(text,style='PaperBody'):return Paragraph(html.escape(text),styles[style])
-    story.extend([p(TITLE,'PaperTitle'),p(SUBTITLE,'PaperSubtitle'),p(AUTHOR + ' (corresponding author)','PaperSubtitle'), p(AFFILIATION,'PaperSubtitle'), p('Correspondence: ' + EMAIL,'PaperSubtitle'), p('7 October 2026','PaperCaption')])
+    story.extend([p(TITLE,'PaperTitle'),p(SUBTITLE,'PaperSubtitle'),p(AUTHOR + ' (corresponding author)','PaperSubtitle'), p(AFFILIATION,'PaperSubtitle'), p('Correspondence: ' + EMAIL,'PaperSubtitle'), p('Postal address: ' + POSTAL_ADDRESS,'PaperCaption'), p('7 October 2026','PaperCaption')])
     for b in BLOCKS:
         k=b['type']
         if k=='heading':
@@ -227,7 +228,7 @@ def tex_inline_figure(name):
     return render(name,OUT,NUM)
 
 def latex():
-    lines=[r'\documentclass[11pt]{article}',r'\usepackage[T1]{fontenc}',r'\usepackage[utf8]{inputenc}',r'\usepackage[margin=0.9in]{geometry}',r'\usepackage{amsmath,booktabs,array,longtable,graphicx,hyperref,pgfplots}',r'\usepgfplotslibrary{groupplots}',r'\pgfplotsset{compat=1.18}',r'\hypersetup{hidelinks}',r'\setlength{\emergencystretch}{3em}',r'\title{'+tex_escape(TITLE)+r'\\\large '+tex_escape(SUBTITLE)+'}',r'\author{'+tex_escape(AUTHOR)+r'\\\small '+tex_escape(AFFILIATION)+r'\\\small Correspondence: \texttt{'+tex_escape(EMAIL)+'}}',r'\date{7 October 2026}',r'\begin{document}',r'\maketitle']
+    lines=[r'\documentclass[11pt]{article}',r'\usepackage[T1]{fontenc}',r'\usepackage[utf8]{inputenc}',r'\usepackage[margin=0.9in]{geometry}',r'\usepackage{amsmath,booktabs,array,longtable,graphicx,hyperref,pgfplots}',r'\usepgfplotslibrary{groupplots}',r'\pgfplotsset{compat=1.18}',r'\hypersetup{hidelinks}',r'\setlength{\emergencystretch}{3em}',r'\title{'+tex_escape(TITLE)+r'\\\large '+tex_escape(SUBTITLE)+'}',r'\author{'+tex_escape(AUTHOR)+r'\\\small '+tex_escape(AFFILIATION)+r'\\\small Correspondence: \texttt{'+tex_escape(EMAIL)+r'}\\\small '+tex_escape(POSTAL_ADDRESS)+'}',r'\date{7 October 2026}',r'\begin{document}',r'\maketitle']
     for b in BLOCKS:
         k=b['type']
         if k=='heading':

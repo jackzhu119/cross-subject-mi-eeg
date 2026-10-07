@@ -2,7 +2,7 @@
 
 This revision integrates the completed Q15 external decoder evaluation with the BNCI component of the separate Q16 physiological analysis. It separates source-only decoder selection, fixed target inference, scoring and descriptive physiology. The 5 October paper remains an immutable historical delivery; its publication receipt does not verify the bytes of this revision.
 
-Author and corresponding author: **Ziyuan Zhu (朱子元)**. Affiliation: **College of Artificial Intelligence Medicine, Chongqing Medical University, Chongqing, China**. Email: **zzy2630816871@gmail.com**. The English college wording is corroborated by published affiliations; an accessible university-hosted official English naming page was not established.
+Author and corresponding author: **Ziyuan Zhu (朱子元)**. Affiliation: **College of Artificial Intelligence Medicine, Chongqing Medical University, Chongqing, China**. Email: **zzy2630816871@gmail.com**. The author confirms the English college wording, also corroborated by published affiliations; this remains distinct from independent official college-page verification. Postal address: Jinyun Campus, Chongqing Medical University, No. 61, Daxuecheng Middle Road, Shapingba District, Chongqing 401331, China.
 
 ## Read and edit
 
@@ -47,7 +47,7 @@ python package_final_delivery.py
 
 These paper commands read saved numerical artifacts. They do not train a decoder or run a checkpoint. The saved-result rebuild requires neither GPU nor R2/RunPod credentials. Raw Q16 replay is described separately in `reproducibility_readme.md` and requires exact original files and the frozen recipe.
 
-The author has confirmed that the research received no funding, that there are no competing interests, and that neither ethics approval nor an exemption was required for this public-data secondary analysis. The declaration source is retained in `evidence/author_declarations.json`; no committee decision, institutional policy or identifier has been invented. Contributions and final author approval remain to be confirmed. No journal submission, acceptance or physical Pod shutdown is inferred. `MANIFEST.sha256`, the archive checksum and the current publication receipt identify delivered bytes.
+The author has confirmed that the research received no funding, that there are no competing interests, and that neither ethics approval nor an exemption was required for this public-data secondary analysis. The declaration source is retained in `evidence/author_declarations.json`; no committee decision, institutional policy or identifier has been invented. The author has confirmed a sole-author free-text contribution statement and final main/supplement/figure review and approval; actual journal submission remains separate. No journal submission, acceptance or physical Pod shutdown is inferred. `MANIFEST.sha256`, the archive checksum and the current publication receipt identify delivered bytes.
 
 ## Editorial and release revision — 7 October 2026
 
@@ -58,3 +58,7 @@ Two directly relevant 2025 original DG papers were added after primary-source/re
 Word figures fit the printable width, tables repeat headers and prevent row splitting, and searchable PDF layouts keep short tables with their captions. `evidence/quality_update/` records the saved-data numeric review, protected scientific inputs, reference verification and layout review. Follow `release_plan.md` for publication-integrity gates. No repository archive DOI or journal acceptance is asserted.
 
 The final delivery validator intentionally binds the reviewed export bytes. Freshly generated DOCX/PDF files can have different container timestamps or rendering bytes and need a new export/layout review before the exact delivery check passes. Rebuild in a separate checkout, retain the delivered archive, and use the saved-number checker to assess scientific display consistency. Do not overwrite reviewed receipts merely to make a rebuild pass.
+
+## Author finalization — 7 October 2026
+
+The author confirmed sole authorship, final review/approval, personal checking/revision, data-term checks, Github-only public history and no other-journal consideration. JNE is the target. ChatGPT (GPT-6) is author-reported; the actual Codex research/figure/drafting scope remains disclosed. See `author_information_template.md`, `ai_disclosure_submission_draft.md` and `evidence/author_finalization/`. No journal submission or DOI is claimed.

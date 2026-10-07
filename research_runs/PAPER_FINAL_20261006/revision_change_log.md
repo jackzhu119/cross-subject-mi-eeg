@@ -99,3 +99,9 @@ AUTHOR ACTION REQUIRED: final manuscript approval; actual contributions; origina
 ## Remote release records
 
 The publication sibling directory records the immutable paper commit, per-file GitHub readback, homepage commit and candidate release. A default-branch README update and candidate publication record are separate documentation commits; historical scientific branches are preserved.
+
+## Author finalization — 7 October 2026
+
+The author supplied sole-author/no-human-assistance status, institutional English confirmation, no ORCID, personal checking/revision, explicit final main/supplement/figure review and approval, Github-only/no-journal/no-preprint publication history, no other-journal review, data-term checks and JNE target. Official university sources confirm Jinyun Campus address at No.61 Daxuecheng Middle Road, Shapingba District, Chongqing 401331; the English street line is translated.
+
+The author reports ChatGPT (GPT-6) for information retrieval, grammar revision and Github publication help. This author-supplied model identity does not establish every historical runtime version. The actual Codex code, figure, drafting and verification scope remains disclosed. No blanket personal validation of all citations or every code line is asserted. Free-text sole-author contributions are used without inventing a complete CRediT role matrix. Author confirmations and official-policy/address evidence are in `evidence/author_finalization/`. Current exports add correspondence metadata and these declarations only; all scientific paragraphs and table/figure/equation blocks remain unchanged. Original references still require author verification under IOP policy. No journal submission or DOI is created.

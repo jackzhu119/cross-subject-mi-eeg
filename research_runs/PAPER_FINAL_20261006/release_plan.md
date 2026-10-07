@@ -1,6 +1,6 @@
 # Publication release plan and integrity checklist
 
-Prepared before modifying the default homepage or publishing an archive. Intended candidate tag: **paper-v1.0-rc1**; final author approval is still required for journal submission. Preserve all historical branches and avoid force pushes. The paper branch remains `paper/zero-calibration-q16-20261006`.
+Prepared before modifying the default homepage or publishing an archive. Intended candidate tag: **paper-v1.0**; the author has now explicitly confirmed final review/approval; journal submission remains separate. Preserve all historical branches and avoid force pushes. The paper branch remains `paper/zero-calibration-q16-20261006`.
 
 ## Frozen scientific identities
 
@@ -27,11 +27,11 @@ Source Markdown/structured JSON/standalone TeX, PDF, DOCX, separate supplement, 
 
 ## AUTHOR ACTION REQUIRED
 
-Final manuscript approval; actual CRediT roles; originality and exclusive submission; AI model/version and actual personal verification; data/license and institution wording confirmation for the target submission. No committee-issued ethics decision or journal submission is inferred from a repository release.
+The author has supplied final review/approval, a sole-author free-text contribution statement, Github-only publication history, exclusive-submission status, data-term checks, institutional wording confirmation and author-reported ChatGPT/GPT-6 use. No unconfirmed detailed CRediT roles or full historical model set are invented. Complete JNE system declarations and license agreements at actual submission. No committee-issued ethics decision or journal submission is inferred from a repository release.
 
 ## DOI-ready metadata
 
 Title: Source-only model selection and limits of fixed spectral-sharing pipelines in cross-subject motor-imagery EEG decoding.
 Creator: Ziyuan Zhu. Affiliation: College of Artificial Intelligence Medicine, Chongqing Medical University, Chongqing, China.
-Resource: research manuscript and reproducibility materials; candidate version paper-v1.0-rc1.
+Resource: research manuscript and reproducibility materials; version paper-v1.0.
 Existing repository LICENSE does not automatically settle all source-data or manuscript rights. Select and confirm archive licensing before depositing with Zenodo. DOI: **not created**.

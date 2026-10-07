@@ -45,7 +45,9 @@ check('Q16_scope_limits','no p-values' in text and 'No external physiology was c
 workflow=(P/'figures/figure_workflow_zero_calibration.svg').read_text()
 check('workflow_baseline_relative_not_ERD_ERS','Baseline-relative' in workflow and 'ERD / ERS' not in workflow)
 check('workflow_information_roles','Event/class metadata for eligibility' in workflow and 'Ground-truth labels used for scoring only' in workflow and 'No target fitting or model selection' in workflow)
-check('AI_disclosure_responsibility_not_completed_human_review','AI assistance disclosure' in text and 'OpenAI Codex assisted' in text and 'AUTHOR TO CONFIRM MODEL/VERSION' in (P/'ai_disclosure_submission_draft.md').read_text())
+author_finalization=load('evidence/author_finalization/author_confirmations.json')
+check('AI_disclosure_actual_scope_and_author_reported_review','AI assistance disclosure' in text and 'OpenAI Codex assisted' in text and 'ChatGPT (GPT-6, as reported by the author)' in text and 'personally reviewed and revised' in text and author_finalization['author_final_review_and_approval_confirmed'] and not author_finalization['historical_chatgpt_model_identity_independently_verified'] and not author_finalization['personal_verification_of_every_code_line_or_original_reference_asserted'])
+check('author_correspondence_postcode_and_confirmations',c['authors'][0]['postal_address']==author_finalization['postal_address_en'] and '401331' in c['authors'][0]['postal_address'] and author_finalization['target_journal']=='Journal of Neural Engineering' and not author_finalization['journal_or_preprint_publication_reported'] and not author_finalization['other_journal_consideration_reported'])
 for name in ['manuscript_en.docx','manuscript_main_en.docx','supplementary_materials.docx']:
  d=Document(P/name)
  for i,shape in enumerate(d.inline_shapes):

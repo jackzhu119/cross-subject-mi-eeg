@@ -43,6 +43,7 @@ author_declarations = load('evidence/author_declarations.json')
 check('no_funding_author_confirmed', author_declarations['funding'] == 'none')
 check('no_competing_interests_author_confirmed', author_declarations['competing_interests'] == 'none')
 check('no_approval_or_exemption_required_author_confirmed', author_declarations['ethics_approval_required_for_this_secondary_analysis'] is False and author_declarations['ethics_exemption_required_for_this_secondary_analysis'] is False)
+check('author_final_review_approval_confirmed', author_declarations['final_manuscript_author_approval_asserted'] and author_declarations['actual_contributions_author_confirmed'] and author_declarations['originality_and_exclusive_submission_author_confirmed'])
 check('no_ethics_identifier_or_committee_determination_invented', author_declarations['approval_identifier'] is None and author_declarations['exemption_identifier'] is None and not author_declarations['committee_issued_determination_asserted'] and not author_declarations['institutional_policy_independently_verified'])
 tables = [b for b in data['blocks'] if b['type'] == 'table']
 figures = [b for b in data['blocks'] if b['type'] == 'figure']
@@ -129,7 +130,7 @@ report = {'status': 'passed', 'checked_at_utc': datetime.now(timezone.utc).isofo
           'new_fits': 0, 'new_checkpoint_inference': 0, 'raw_EEG_loaded_by_delivery_checker': False,
           'new_Q16_raw_signal_analysis_separately_validated': True,
           'original_scientific_files_modified': False, 'core_author_declarations_confirmed': True,
-          'remaining_author_confirmations': ['final_manuscript_approval', 'actual_contributions', 'journal_originality_and_exclusive_submission'],
+          'remaining_author_confirmations': [], 'author_finalization_record': 'evidence/author_finalization/author_confirmations.json', 'author_supplied_final_confirmations': True,
           'journal_submission_performed': False}
 source = {'paper_base_commit': '7af1a137e2676a018e1e880ab076de6cae4ce30b',
           'previous_reviewed_paper_commit': 'ac75a339c8db2861ff8e7d072e50690c79c602c4',

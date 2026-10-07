@@ -1,17 +1,15 @@
-# JNE / IOP AI disclosure preparation
+# JNE / IOP AI disclosure — prepared for submission
 
-Official policy checked on 7 October 2026: [IOP ethical policy — Generative AI Tools](https://publishingsupport.iopscience.iop.org/ethical-policy-journals/).
+Official policy freshly checked 7 October 2026: https://publishingsupport.iopscience.iop.org/ethical-policy-journals/ . Material assistance must be disclosed in a separate acknowledgement statement, with research use additionally described in Methods.
 
-IOP requires a separate acknowledgement disclosure for material AI use, identifying the tool or model, its role and the extent of author verification. Research use also belongs in Methods. AI is not an author. This project used OpenAI Codex for source/literature checking, analysis and validation code, saved-result consistency checks, schematic and quantitative figure preparation, and manuscript drafting and revision. Figures must preserve existing scientific data. The delivered manuscript records those actual uses and computational validation scope; it does not assert completed human review.
+## Acknowledgement wording
 
-## AUTHOR ACTION REQUIRED
+> ChatGPT (GPT-6, as reported by the author) assisted information retrieval, grammar revision, and preparation of instructions for publishing research materials to GitHub. OpenAI Codex assisted source and literature checks, analysis-code and verification-code development, saved-result consistency checks, figure preparation, and manuscript drafting and language revision. The author personally reviewed and revised the final manuscript and takes responsibility for its scientific content.
 
-- **AUTHOR TO CONFIRM MODEL/VERSION:** OpenAI Codex is established; the full historical model/version set is not reliably established by repository records. Do not infer a version from a later session.
-- Confirm what you personally read, critically revised and verified, including original cited papers, generated code, reported numbers, figures and claim boundaries.
-- Approve the final manuscript and acknowledge scientific responsibility before submission.
+## Provenance and limits
 
-## Submission wording — use only after actual author review
+The author identifies ChatGPT and GPT-6 and reports the listed uses. This is an author-supplied model identity, not an independently recovered historical runtime record. OpenAI Codex usage for code, figures, checks and manuscript preparation is established in the project. No claim that every historical session used GPT-6 is made.
 
-> OpenAI Codex [AUTHOR TO CONFIRM MODEL/VERSION] assisted source and literature checks, analysis-code and verification-code development, saved-result consistency checks, figure preparation, and manuscript drafting and language revision. [AUTHOR TO DESCRIBE ACTUAL PERSONAL VERIFICATION AND CRITICAL REVIEW.] The author takes responsibility for the final manuscript and its scientific content.
+The policy asks to identify the tool or model; its example includes a version. The full historical model/version set could not be reliably established and must not be invented. The author explicitly confirmed final manuscript/supplement/figure approval and personal checking/revision; these are author statements, not a new independent human-review audit. The statement does not assert that every code line, original reference and numerical output was personally validated.
 
-The bracketed fields are submission preparation controls and are deliberately absent from the main manuscript. This statement has not been approved or sent. Do not copy an assertion that all outputs were human-reviewed until it is true.
+GitHub assistance concerns publication of code, derived results and manuscript materials, not redistribution of raw EEG. Research-code AI use remains visible in Methods. This disclosure and cover letter have not been sent to a journal.

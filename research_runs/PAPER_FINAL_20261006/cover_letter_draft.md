@@ -1,4 +1,4 @@
-# Cover letter — unsent draft
+# Cover letter — prepared for submission, unsent
 
 7 October 2026
 
@@ -22,7 +22,7 @@ Code, saved predictions, contracts, event/file provenance and validation receipt
 
 This research received no funding. I declare no competing interests. I confirm that neither ethics approval nor an exemption was required for this secondary analysis of publicly available EEG recordings; no new participants were recruited.
 
-**AUTHOR ACTION REQUIRED:** Confirm originality, related publication/preprint history, exclusive submission, actual contributions and final manuscript approval before sending. Complete `ai_disclosure_submission_draft.md`, including **AUTHOR TO CONFIRM MODEL/VERSION** and actual personal verification. These confirmations have not been supplied.
+I confirm that I am the sole author, have reviewed and approved the final manuscript, and that this work is not under consideration elsewhere. It has not been published in a journal or deposited on a preprint server; a candidate manuscript and reproducibility materials are publicly available on GitHub. AI-assisted work is disclosed in the manuscript Acknowledgements and Methods, including the author-reported use of ChatGPT (GPT-6) and the established OpenAI Codex assistance. No other human assistance is reported.
 
 Thank you for considering the manuscript.
 
@@ -34,4 +34,6 @@ College of Artificial Intelligence Medicine, Chongqing Medical University, Chong
 
 zzy2630816871@gmail.com
 
-This draft has not been submitted or sent. The final letter must agree with the executed result and validation receipts in the submitted release.
+Jinyun Campus, Chongqing Medical University, No. 61, Daxuecheng Middle Road, Shapingba District, Chongqing 401331, China
+
+This letter has not been submitted or sent. Repository publication does not submit the manuscript to JNE.

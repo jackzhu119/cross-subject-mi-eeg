@@ -8,6 +8,8 @@ College of Artificial Intelligence Medicine, Chongqing Medical University, Chong
 
 Correspondence: zzy2630816871@gmail.com
 
+Postal address: Jinyun Campus, Chongqing Medical University, No. 61, Daxuecheng Middle Road, Shapingba District, Chongqing 401331, China
+
 7 October 2026
 
 ## Abstract
@@ -400,11 +402,15 @@ This research received no funding.
 
 The author declares no competing interests.
 
+## Author contributions
+
+Ziyuan Zhu undertook the study as the sole author, prepared the manuscript, checked and revised its content, and approved the final version.
+
 ## Acknowledgements
 
 ### AI assistance disclosure
 
-OpenAI Codex assisted source and literature checks, analysis-code development, figure preparation, and manuscript drafting and language revision. The author is responsible for reviewing the final manuscript and for its scientific content.
+ChatGPT (GPT-6, as reported by the author) assisted information retrieval, grammar revision, and preparation of instructions for publishing research materials to GitHub. OpenAI Codex assisted source and literature checks, analysis-code and verification-code development, saved-result consistency checks, figure preparation, and manuscript drafting and language revision. The author personally reviewed and revised the final manuscript and takes responsibility for its scientific content.
 
 ## Supplementary material
 
@@ -529,7 +535,7 @@ Descriptive seed dispersion was larger for shared than broad input: mean within-
 
 ### S8. Reproducible manuscript materials
 
-The manuscript bundle contains consistent English Markdown, editable DOCX, a PDF layout export, standalone LaTeX source with embedded numerical figure panels, the Chinese companion, figure sources and PNG/PDF/SVG exports, participant tables, a completed-condition inventory, verified references, independent numerical-audit scripts, and an author submission checklist. The main paper reports the retained scientific results; operational cloud failure logs do not substitute for scientific endpoints. All manuscript preparation fits and checkpoint-inference counts are zero. Funding, competing-interest and ethics statements reflect the author’s confirmation; journal-specific formatting and final manuscript approval remain to be completed before submission.
+The manuscript bundle contains consistent English Markdown, editable DOCX, a PDF layout export, standalone LaTeX source with embedded numerical figure panels, the Chinese companion, figure sources and PNG/PDF/SVG exports, participant tables, a completed-condition inventory, verified references, independent numerical-audit scripts, and an author submission checklist. The main paper reports the retained scientific results; operational cloud failure logs do not substitute for scientific endpoints. All manuscript preparation fits and checkpoint-inference counts are zero. Funding, competing-interest and ethics statements reflect the author’s confirmation; the author has confirmed final manuscript review and approval; journal submission has not been performed.
 
 ### S9. Descriptive BNCI-only Physiological Characterization
 

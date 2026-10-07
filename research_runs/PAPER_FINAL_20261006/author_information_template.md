@@ -1,63 +1,45 @@
-# Author information and declarations — author review required
+# Author information and declarations — confirmed 7 October 2026
 
-## Title page
+**Title:** Source-only model selection and limits of fixed spectral-sharing pipelines in cross-subject motor-imagery EEG decoding
 
-**Working title:** Source-only model selection and limits of fixed spectral-sharing pipelines in cross-subject motor-imagery EEG decoding
+**Article type / target:** Original research; Journal of Neural Engineering.
 
-**Short title:** Source-only selection and spectral transfer in MI EEG
-
-**Article type:** Original research; confirm the selected journal's category.
-
-**Author and corresponding author:** Ziyuan Zhu (朱子元)
+**Sole author and corresponding author:** Ziyuan Zhu (朱子元)
 
 **Affiliation:** College of Artificial Intelligence Medicine, Chongqing Medical University, Chongqing, China
 
 **Correspondence email:** zzy2630816871@gmail.com
 
-**ORCID:** [Supply if available]
+**ORCID:** None supplied; the author reports having no ORCID. Register if required by the submission system; no identifier is invented.
 
-**Postal address:** [Supply accurate institutional correspondence address]
+**Postal address:** Jinyun Campus, Chongqing Medical University, No. 61, Daxuecheng Middle Road, Shapingba District, Chongqing 401331, China
 
-The name, sole-author/correspondence status, Chinese affiliation and email were supplied by the user. The English college wording is corroborated by published affiliations. University-hosted official English naming evidence was not independently obtained; confirm the institutional wording before submission.
+**Chinese address:** 重庆医科大学缙云校区，重庆市沙坪坝区大学城中路61号，邮政编码401331。
 
-## CRediT contributions
+University name, campus name, Chinese street address and postcode are checked against official university sources. The English street line is a translation. The author confirms the college English wording; that confirmation is distinct from independent retrieval of a college English naming page. No building/office is added. See `evidence/author_finalization/jinyun_address_verification.md`.
 
-| Author | Roles actually performed — confirm individually | Approval date |
-|---|---|---|
-| Ziyuan Zhu | [Conceptualization; methodology; software; validation; formal analysis; investigation; resources; data curation; writing—original draft; writing—review and editing; visualization; supervision; project administration; funding acquisition: retain only applicable roles] | [Date] |
+## Author contributions and approval
 
-Assign only applicable roles. Authorship eligibility and approval remain the author's responsibility; software assistance is not an author.
+Ziyuan Zhu undertook the study as the sole author, prepared the manuscript, checked and revised its content, and approved the final version.
 
-## Ethics and participant consent
+The author reports no other human assistance and no other person to acknowledge. This free-text contribution statement records the author's account; it does not assign an unconfirmed full CRediT matrix. Final main manuscript, supplementary material and figure review/approval was explicitly confirmed in this conversation. Personal checking/revision is author-reported, not independently observed; no assertion of personal validation of every code line or reference is made.
 
-**Verified study description:** Secondary analysis of previously recorded public EEG datasets; no new recruitment or intervention is reported. Q16 adds a separate analysis of existing BNCI recordings.
+## Ethics, funding and interests
 
-**Ethics requirement — author-confirmed:** The author confirms that neither ethics approval nor an exemption was required for this secondary analysis of public EEG recordings. No new participants were recruited. No approval or exemption identifier is applicable. This statement records the author's confirmation; no committee-issued determination or independently verified institutional policy is asserted.
+Secondary analysis of existing public EEG recordings; no new recruitment or intervention. The author confirms neither ethics approval nor exemption was required for this secondary analysis. No committee determination, institutional-policy verification or approval/exemption identifier is invented. Original collection ethics/consent and secondary-use terms follow the original source papers and provider documentation cited in the manuscript.
 
-**Source consent:** [State only the official source publications/documentation's established collection consent and secondary-use conditions. Preserve the checked source passages.]
+This research received no funding. The author declares no competing interests. The author reports having checked the data terms.
 
-A public dataset alone does not establish ethical exemption or an approval number.
+## Originality, disclosure and submission
 
-## Funding, interests and acknowledgment
+The author confirms that this manuscript has not been published in a journal or deposited on a preprint server and is not under consideration elsewhere. The manuscript candidate and reproducibility materials are already public on GitHub and must be disclosed as such. JNE is the confirmed target. No journal submission or archive DOI has been created. Submission-system declarations/licensing remain to be completed by the author.
 
-**Funding — author-confirmed:** This research received no funding.
+## AI assistance disclosure
 
-**Competing interests — author-confirmed:** The author declares no competing interests.
+ChatGPT (GPT-6, as reported by the author) assisted information retrieval, grammar revision, and preparation of instructions for publishing research materials to GitHub. OpenAI Codex assisted source and literature checks, analysis-code and verification-code development, saved-result consistency checks, figure preparation, and manuscript drafting and language revision. The author personally reviewed and revised the final manuscript and takes responsibility for its scientific content.
 
-**Acknowledgments:** [Actual contributors/resources and permissions where required]
+ChatGPT/GPT-6 identity is supplied by the author; the complete historical model/version set was not independently established. The known Codex research/code/figure/drafting scope is retained. IOP's material-AI policy requires an acknowledgement statement and additional research-use description in Methods; see `evidence/author_finalization/iop_ai_policy_fresh_check.json`.
 
-## Data/code availability — proposed wording
+## Data/code availability
 
-Original EEG is available from [BCI Competition IV dataset 2a/BNCI](https://www.bbci.de/competition/iv/desc_2a.pdf), [PhysioNet EEG Motor Movement/Imagery v1.0.0](https://physionet.org/content/eegmmidb/1.0.0/), [Cho2017](https://doi.org/10.5524/100295) and [Lee2019/OpenBMI](https://doi.org/10.5524/100542), subject to each provider's terms. Public analysis code, saved predictions, contracts, provenance and validation records are in [jackzhu119/cross-subject-mi-eeg](https://github.com/jackzhu119/cross-subject-mi-eeg). Q15 scientific results are inspected at `7af1a137e2676a018e1e880ab076de6cae4ce30b`; its scientific code is `271af288a2f3863430ab80e3145c2dee9bd5571d`. The Q16 BNCI component's protocol, committed pre-power freeze, executed result and independent verification are under `research_runs/Q16-P001-BNCI-20261006/`. Its pre-power commit is `050e01b028aaab8e3d745934b13b2d17e9bb0a7a`. The final paper publication receipt fixes the exact delivered revision.
-
-[Add only a genuinely created archive DOI. Private R2 transport credentials and original EEG copies are not part of the public manuscript release.]
-
-## AI-assisted work — AUTHOR ACTION REQUIRED
-
-OpenAI Codex assisted source and literature checks, analysis and validation code, saved-result consistency checks, figure/material preparation and manuscript drafting/editing. See `ai_disclosure_submission_draft.md` and the official IOP policy check in `evidence/quality_update/iop_ai_policy_check.json`.
-
-**AUTHOR TO CONFIRM MODEL/VERSION.** Describe actual personal critical review and verification before signing the disclosure. No claim of completed human review is prefilled. AI is not an author.
-
-## Approval and submission — AUTHOR ACTION REQUIRED
-
-Confirm actual CRediT contributions, final manuscript approval, originality/related publications and exclusive submission. No journal submission has been performed. Funding, competing-interest and secondary-analysis ethics statements are already author-confirmed.
+Original EEG: BNCI/BCI Competition IV dataset 2a, PhysioNet EEGMMIDB, Cho2017 DOI 10.5524/100295 and Lee2019/OpenBMI DOI 10.5524/100542, under provider terms. Code, derived results, manuscript materials and independent validation records: https://github.com/jackzhu119/cross-subject-mi-eeg . Original EEG and credentials are not included in the public paper bundle. All frozen Q1–Q16 scientific results remain unchanged.

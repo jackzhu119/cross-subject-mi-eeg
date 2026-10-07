@@ -1,22 +1,22 @@
 {
   "status": "PASS_WITH_DOCUMENTED_RENDERING_LIMITS",
-  "checked_at_utc": "2026-10-07T09:41:54.315815+00:00",
+  "checked_at_utc": "2026-10-07T10:26:49.618005+00:00",
   "scope": "Independent publication-layout QA only. Read manuscript/export/figure artifacts; wrote this report only. No source, result, scientific-data, training or inference changes.",
   "file_sha256": {
-    "manuscript_en.md": "8a10c2ee5c089dd1456a521907d3e3721cdabd66440e51982be9d9b93594cd55",
-    "manuscript.tex": "95455f299752352dabbce914df1a2d0f582868ec1373dc768356af8bd7c333f5",
-    "manuscript_content.json": "2a779122b1b97f8a2d495f6572eda77470ff3d9dc3d602c6fb42ced83c856919",
-    "export_manuscript.py": "8f5ebf7dced70fa66c0b800a146fa5686f156ef5e2c4a7a5718b72206bd7fe28",
+    "manuscript_en.md": "83c039e6b9a05df15e7d28afae7761a23f01a5e9f7df00f86face10a85968c84",
+    "manuscript.tex": "1654d1881a548c766f3f4523359d5d92ccd2174b2b6fb8926d004f69ede1e1c9",
+    "manuscript_content.json": "d67e0c52e90ee84bbca96ecd3136ff5b476ed22e59d6d30bbcf46a6b1901ca7f",
+    "export_manuscript.py": "526b1f7bb7c5c0fcf5bb67b188f324c36b92d45b3ac526db68019b219f7b9ff6",
     "build_submission_variants.py": "c641bda6975c7d1c35c848aac7e42df072f2e8673983652f0b10817a03c67501",
     "figures/figure_workflow_zero_calibration.png": "a6377c5cf3949f8eae60f8d91a965f68a735442bee841133bfae5a1da1c6f775",
     "figures/figure_workflow_zero_calibration.svg": "1085e64ac07c551884cee2e1b7aa4b010a62da83d9d6b24663aefbf16e50eb21",
     "figures/figure_workflow_zero_calibration.pdf": "2b620c9488a71bb280a95b9e1e9267b6fe82ff25d04e7f80872a583c953c1b90",
-    "manuscript_en.pdf": "5e965ea4acee0a7ed7da9085ff200db9daa5efdea2d5efc2c99bb10cede3d014",
-    "manuscript_en.docx": "b813d1de02d781e474a78ddf750d954f492bd58c589a5ad2b44467c878956463",
-    "manuscript_main_en.pdf": "0200e5b1ed67b214447b3a3564db9a38cb13a2543ec22c7d81b79e545be9d8e0",
-    "manuscript_main_en.docx": "b16da16289bf732bbc0b4b425d20af22e1f4103425381fdcc6c60e90e8ca3731",
-    "supplementary_materials.pdf": "7c82cbe1db46810a2b31a7c09bf404b9ba5423b74a31fbc4f233174d3dc22d7f",
-    "supplementary_materials.docx": "d5f1ba9fa5ccce1d076cb0214b2e4a051b5e4921dc4a982debe43f2615147f5c"
+    "manuscript_en.pdf": "daedc7fe061e2185819aca97587c7c2fcaf47d478dbd780b536e0163fe8cd47b",
+    "manuscript_en.docx": "54b45dec73dc64eea6f18f33b41a9848611e252bd7bc2224b62f27a1fa19ea77",
+    "manuscript_main_en.pdf": "0292da85747e16369225aee3ed9ef6255b15eb033393611726624d89205ae393",
+    "manuscript_main_en.docx": "1754b080aad1109a1fcfa2efb0d2808580d3d605d737f7cc3c2db3943d908e5d",
+    "supplementary_materials.pdf": "478f6518a6a9d075615591a275d1d88a81a68c979098359fe70d9432cb192329",
+    "supplementary_materials.docx": "539814f81a913544b005e71c9c0f993e21c5a5e06dc500259da7656b27a3c330"
   },
   "pdf": {
     "manuscript_en.pdf": {
@@ -25,7 +25,7 @@
         597.5999755859375,
         842.4000244140625
       ],
-      "text_spans_checked": 1764,
+      "text_spans_checked": 1772,
       "out_of_physical_page_text_spans": [],
       "image_count": 9,
       "images": [
@@ -236,22 +236,45 @@
       ],
       "footer_contains_working_manuscript": false,
       "rendered_contact_sheets": "/workspace/paper-qa-20261007/final_review/manuscript_en_contact_*.png",
-      "full_size_pages_reviewed": [
+      "title_postal_address_401331_present": true,
+      "declaration_pages": [
+        24
+      ],
+      "author_contribution_present": true,
+      "ChatGPT_author_reported_GPT6_Codex_present": true,
+      "full_size_pages_rendered": [
+        1,
+        4,
+        5,
+        6,
+        8,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        24,
         26,
         27,
         29,
+        30,
         31,
         32,
         33
+      ],
+      "enlarged_pages_visually_reviewed_in_refresh": [
+        24
       ]
     },
     "manuscript_main_en.pdf": {
-      "pages": 25,
+      "pages": 26,
       "page_size_pt": [
         597.5999755859375,
         842.4000244140625
       ],
-      "text_spans_checked": 1342,
+      "text_spans_checked": 1352,
       "out_of_physical_page_text_spans": [],
       "image_count": 6,
       "images": [
@@ -379,39 +402,44 @@
       ],
       "all_docx_table_cells_present_in_pdf": true,
       "all_tables_complete_on_caption_page": true,
-      "last_reference_page": 25,
+      "last_reference_page": 26,
       "references_on_last_page": [
-        "9",
-        "10",
-        "11",
-        "12",
-        "13",
-        "14",
-        "15",
-        "16",
-        "17",
-        "18",
-        "19",
-        "20",
-        "21",
-        "22",
-        "23",
-        "24",
-        "25",
         "26",
         "27",
         "28"
       ],
       "footer_contains_working_manuscript": false,
       "rendered_contact_sheets": "/workspace/paper-qa-20261007/final_review/manuscript_main_en_contact_*.png",
-      "full_size_pages_reviewed": [
+      "title_postal_address_401331_present": true,
+      "declaration_pages": [
+        24
+      ],
+      "author_contribution_present": true,
+      "ChatGPT_author_reported_GPT6_Codex_present": true,
+      "full_size_pages_rendered": [
+        1,
+        4,
+        5,
+        6,
+        8,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        24,
+        26
+      ],
+      "enlarged_pages_visually_reviewed_in_refresh": [
+        1,
         4,
         6,
         16,
         18,
-        19,
-        20,
-        25
+        24,
+        26
       ]
     },
     "supplementary_materials.pdf": {
@@ -420,7 +448,7 @@
         597.5999755859375,
         842.4000244140625
       ],
-      "text_spans_checked": 1057,
+      "text_spans_checked": 1059,
       "out_of_physical_page_text_spans": [],
       "image_count": 3,
       "images": [
@@ -520,15 +548,24 @@
       ],
       "footer_contains_working_manuscript": false,
       "rendered_contact_sheets": "/workspace/paper-qa-20261007/final_review/supplementary_materials_contact_*.png",
-      "full_size_pages_reviewed": [
+      "title_postal_address_401331_present": true,
+      "declaration_pages": [],
+      "author_contribution_present": null,
+      "ChatGPT_author_reported_GPT6_Codex_present": null,
+      "full_size_pages_rendered": [
+        1,
         2,
         3,
         5,
+        6,
         7,
         8,
         16,
         17,
         18
+      ],
+      "enlarged_pages_visually_reviewed_in_refresh": [
+        1
       ]
     }
   },
@@ -742,7 +779,10 @@
           "all_cells_on_caption_page": true,
           "all_table_text_9pt": true
         }
-      ]
+      ],
+      "title_postal_address_401331_present": true,
+      "author_contribution_present": true,
+      "ChatGPT_author_reported_GPT6_Codex_present": true
     },
     "manuscript_main_en.docx": {
       "sections": 1,
@@ -890,7 +930,10 @@
           "all_cells_on_caption_page": true,
           "all_table_text_9pt": true
         }
-      ]
+      ],
+      "title_postal_address_401331_present": true,
+      "author_contribution_present": true,
+      "ChatGPT_author_reported_GPT6_Codex_present": true
     },
     "supplementary_materials.docx": {
       "sections": 1,
@@ -1005,7 +1048,10 @@
           "all_cells_on_caption_page": true,
           "all_table_text_9pt": true
         }
-      ]
+      ],
+      "title_postal_address_401331_present": true,
+      "author_contribution_present": null,
+      "ChatGPT_author_reported_GPT6_Codex_present": null
     }
   },
   "figure_1": {
@@ -1039,7 +1085,7 @@
     },
     {
       "id": "PDF_REFERENCE_WIDOW",
-      "result": "Last reference [28] shares final pages with refs9–27 in main/combined and refs12–27 in supplementary; no isolated-reference page."
+      "result": "Last reference [28] shares each final page with at least two other references; no isolated-reference page."
     },
     {
       "id": "FORMAL_FOOTER_STATUS",
@@ -1054,7 +1100,20 @@
     "DOCX checks concern concrete OOXML structure only. Microsoft Word/LibreOffice rendering, actual pagination, clipping and refreshed PAGE fields were not observed.",
     "No native TeX compilation was verified. The built-in handler was unavailable in the parent task; this review checks delivered PDF/DOCX artifacts.",
     "This layout review does not independently validate frozen scientific numbers. All table cell text was present in PDF extraction; numerical/scientific validation remains the separate audit.",
-    "Contact sheets cover all 76 delivered PDF pages; enlarged visual samples cover each unique table/figure layout and reference-ending page. No table-cell clipping, missing glyph/text, label overlap or page-edge cropping was observed in those reviews.",
-    "File hashes bind this report to current final inputs and exports. Further regeneration invalidates the hashes and requires refreshing the audit."
-  ]
+    "File hashes bind this report to current final inputs and exports. Further regeneration invalidates the hashes and requires refreshing the audit.",
+    "Contact sheets cover all 77 PDF pages. Enlarged refresh samples specifically inspect title/address, declarations, Figure 1, Table 2/6/7 and main final reference page; other current table/figure layouts were checked in contact sheets and extraction, with earlier enlarged layout review available. No clipping, missing table-cell text, caption-image separation or label overlap was observed.",
+    "Contribution, final-approval and AI-use statements are checked for artifact presence and layout only; this review does not assert independent knowledge of the author-reported activities or an all-code human-review process."
+  ],
+  "methods": [
+    "Parsed text/image bounds on all 77 actual delivered PDF pages (26 main + 33 combined + 18 supplementary).",
+    "Checked each DOCX table-cell string in the PDF extraction and on its current caption page; checked actual caption/image page pairs.",
+    "Reviewed all unique current page layouts through main/combined/supplementary contact sheets and enlarged changed title/declaration/reference-ending and critical table/figure pages.",
+    "Inspected current DOCX OOXML section size, image widths, all 26 tables, row pagination controls, caption keepNext, fonts and footer PAGE fields."
+  ],
+  "publication_metadata_review": {
+    "postal_address_401331_present_in_all_three_pdf_docx_title_pages": true,
+    "main_combined_author_contribution_and_approval_statement_present": true,
+    "main_combined_disclosure_names_ChatGPT_author_reported_GPT6_and_Codex": true,
+    "visual_result": "Main/combined declaration page 24 keeps contributions and the complete combined disclosure readable on one page. Title address wraps cleanly without crop/overlap. Author-reported wording is preserved; underlying author actions are outside this layout QA."
+  }
 }
