@@ -1,0 +1,11 @@
+# Saved-result arithmetic and manuscript rendering; no decoder/GPU runtime.
+# Q16 raw replay also uses NumPy, pandas and SciPy. Exact execution versions
+# are preserved in Q16-P001-BNCI-20261006/run_manifest.json; this file lists
+# portable dependencies, without a bitwise cross-version equivalence claim.
+numpy
+pandas
+scipy
+matplotlib
+python-docx
+reportlab
+PyMuPDF

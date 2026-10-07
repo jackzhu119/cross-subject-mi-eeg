@@ -1,0 +1,161 @@
+{
+  "schema_version": 1,
+  "review_id": "Q16-P001-BNCI-PRE-EXECUTION-METHOD-REVIEW-20261006",
+  "reviewed_at_utc": "2026-10-06T00:24:05.298508+00:00",
+  "status": "approved_before_raw_power",
+  "approval_scope": "Exact reviewed three-script numerical pipeline, written fixed protocol, template sensor geometry, fixed plot recipe, passed metadata gate and prepared freeze; execution remains contingent on committing and verifying the immutable freeze.",
+  "current_raw_eeg_loaded_by_reviewer": false,
+  "raw_physiological_power_computed_by_reviewer": false,
+  "synthetic_power_computed_by_reviewer": true,
+  "decoder_fits_by_reviewer": 0,
+  "new_decoder_inference_by_reviewer": 0,
+  "reviewed_bindings": [
+    {
+      "bytes": 16251,
+      "path": "scripts/q16_common.py",
+      "sha256": "44e0c31ee1c8786467d36e0e9740be7231e18806ffe6d2e27059feb3a27f2e32"
+    },
+    {
+      "bytes": 10664,
+      "path": "scripts/q16_metadata_audit.py",
+      "sha256": "f69bb16b8c25fa9c5634e11d54a127aaad01bc75fc0103b8c1428ca90a738af0"
+    },
+    {
+      "bytes": 26514,
+      "path": "scripts/q16_bnci_analysis.py",
+      "sha256": "4e26003dd294dd657be25b4b5e97f09b97b0707dd6cbc316a9eaaef6be64b778"
+    },
+    {
+      "bytes": 7912,
+      "path": "research_runs/Q16-P001-BNCI-20261006/raw_source_receipt.json",
+      "sha256": "df2e2a9d3acd00f020d3ce405f1bd21a4987b2374f326ed40c1f1a2caebd6608"
+    },
+    {
+      "bytes": 6833,
+      "path": "research_runs/Q15-EXECUTION-20261003/jobs/20261004T005335Z-9b3bce30277a/bnci_source_receipt.json",
+      "sha256": "fd506bf5f72ce95f2aec117f1065365f4653675929c1061ac72e726ad912b531"
+    },
+    {
+      "bytes": 489538,
+      "path": "research_runs/Q15-EXECUTION-20261003/jobs/20261004T005335Z-9b3bce30277a/bnci_metadata_audit.json",
+      "sha256": "f6bbdf4679900aaebc50da9137eb9f78e010b16eda083a9ef802c4540761843d"
+    },
+    {
+      "bytes": 231244,
+      "path": "research_runs/Q8-E001/results/trial_metadata.csv",
+      "sha256": "3fdf0cb8e7dc86112bf7abc56f007dfdcc09f47de2d69362eb8a857bb8392214"
+    },
+    {
+      "bytes": 8343,
+      "path": "results/Q14-E001/subject_seed_metrics.csv",
+      "sha256": "b756700f8e22f7dcb760c8f9ee7a4e0fa7f42d9f93c237d29ab728a66d4a7de5"
+    },
+    {
+      "bytes": 824,
+      "path": "results/Q14-E001/validation_report.json",
+      "sha256": "f96296e2dec3bb45f1eddca2deb0fa4b200f2ab3066f60e4e646232b6e414d53"
+    },
+    {
+      "bytes": 1178473,
+      "path": "research_runs/Q16-P001-BNCI-20261006/metadata_audit.json",
+      "sha256": "1131b74c165373c3a85a4bcac9f7328fd80d14e6f3decdfa01bd3f1e542c0438"
+    },
+    {
+      "bytes": 8134,
+      "path": "research_runs/Q16-P001-BNCI-20261006/PROTOCOL.md",
+      "sha256": "324de523771d69cfefb45f824e2532b9a5458040d140c237bd4af5a7cc7dfab3"
+    },
+    {
+      "bytes": 1518,
+      "path": "research_runs/PAPER_FINAL_20261006/tables/q16_sensor_geometry.csv",
+      "sha256": "b214744a5439a73bdc016387ffd4701f8493b1f173771133f8fe96618c0663a5"
+    },
+    {
+      "bytes": 2148,
+      "path": "research_runs/PAPER_FINAL_20261006/evidence/q16_plot_recipe.json",
+      "sha256": "1d4d406b3ab69e634e0ef545528919e39a31bcbfe2b7fdb1c62da70021cad71e"
+    }
+  ],
+  "prepared_freeze": {
+    "path": "research_runs/Q16-P001-BNCI-20261006/preprocessing_freeze.json",
+    "sha256": "c07a25e5de0c608cf405e728c0c85d1e0fae74e8e916d36e2cffad17d2ee3c01",
+    "bytes": 12290
+  },
+  "binding_checks_passed": 13,
+  "metadata_receipt_summary": {
+    "status": "metadata_passed_before_raw_power",
+    "metadata_only": true,
+    "raw_power_computed": false,
+    "n_files": 18,
+    "n_labeled_runs": 108,
+    "n_subjects": 9,
+    "n_sessions": 18,
+    "n_all_four_class_trials": 5184,
+    "n_binary_trials": 2592,
+    "n_artifact_flagged_all_classes": 488,
+    "n_artifact_flagged_binary": 246,
+    "n_trial_with_fixed_windows_unavailable": 0,
+    "n_baseline_previous_nominal_imagery_overlaps": 0,
+    "n_previous_trial_checks": 5076,
+    "minimum_gap_after_previous_nominal_imagery_s": 2.08,
+    "signal_amplitude_finiteness_audited_in_metadata_phase": false,
+    "signal_finite_guard_scope_at_analysis": "all 22 EEG channels in each fixed baseline/task window; EOG excluded"
+  },
+  "independent_existing_Q14_audit": {
+    "prediction_hashes_verified": 63,
+    "source_only_final_manifests_verified": 63,
+    "BA_cells_recomputed": 63,
+    "saved_prediction_rows": 18144,
+    "unique_binary_trial_identities": 2592,
+    "all_identities_matched_to_Q8": true,
+    "metrics_sha256": "b756700f8e22f7dcb760c8f9ee7a4e0fa7f42d9f93c237d29ab728a66d4a7de5"
+  },
+  "independent_synthetic_verification": {
+    "native_Welch_grid_and_band_endpoints": true,
+    "periodic_Hann_segment_counts_baseline_1_task_3": true,
+    "gain_invariance_1e_minus_6_and_1e_6": true,
+    "10Hz_amplitude_halving_expected_minus_6_0206_dB": true,
+    "20Hz_amplitude_doubling_expected_plus_6_0206_dB": true,
+    "nonpositive_and_nonfinite_power_guards": true,
+    "matched_C3_C4_trials_exclude_an_unpaired_extreme_value": true,
+    "equal_session_equal_hand_laterality_expected_minus_1_dB": true,
+    "absolute_contralateral_expected_minus_2_5_dB_and_ipsilateral_minus_1_5_dB": true,
+    "missing_hand_session_preserves_subject_with_unavailable_descriptor": true,
+    "actual_frozen_Q14_performance_schema_including_CSP_deterministic_string_seed": true,
+    "exact_six_9_person_signed_Spearman_contexts_without_p_values": true
+  },
+  "issues_resolved_before_freeze": [
+    "CSP deterministic string seed no longer cast to int.",
+    "Native trial upper bound checked before native int64 offset arithmetic.",
+    "Raw class names and simplified loader shape retained alongside normalized map.",
+    "Metadata phase explicitly records that amplitude finite checks occur in fixed analysis windows.",
+    "Artifact strata retain all6336 expected cells, including empty flag strata."
+  ],
+  "geometry_review": {
+    "all_22_declared_sensors_in_correct_order": true,
+    "finite_template_coordinates": true,
+    "projection_matches_frozen_formula": true,
+    "left_C3_right_C4_and_anterior_up": true,
+    "participant_digitized_geometry": false,
+    "fixed_color_limits_db": [
+      -6,
+      6
+    ],
+    "interpolation": "linear Delaunay inside sensor convex hull only; blank outside",
+    "display_grid": 161,
+    "TeX_display_only_grid": 41,
+    "fixed_clipping_counts_required": true,
+    "equal_person_aggregation": true
+  },
+  "unresolved_blocking_issues": [],
+  "required_post_execution_verification": "A separate reviewer must independently recompute raw C3/Cz/C4 power with an independent periodogram implementation, then verify all saved aggregation and six association calculations before manuscript use. This pre-execution review is not that raw numerical validation.",
+  "interpretation_limits": [
+    "BNCI-only component; no external physiological replication.",
+    "Post hoc descriptive physiology\u2013performance associations with nine people; no p-values/tertiles/biomarker validation.",
+    "Negative signed laterality is relative; absolute contralateral/ipsilateral terms must remain visible.",
+    "Baseline1segment versus task3correlated segments can induce a log-ratio offset under stationary power.",
+    "Native numeric microvolt convention does not newly verify physical calibration.",
+    "Scalp maps do not establish cortical sources or decoder mechanism.",
+    "Q14 decoder[0.5,3.5) and Q16 physiology[0.5,2.5) cue windows differ."
+  ]
+}

@@ -1,0 +1,331 @@
+{
+  "aggregations": {
+    "all_six_descriptive_correlations": [
+      {
+        "band": "mu",
+        "eligibility_reason": "eligible",
+        "model": "BROAD_EEGNET",
+        "n_subjects_expected": 9,
+        "n_subjects_with_descriptor": 9,
+        "p_value_computed": false,
+        "primary_descriptive_context": true,
+        "spearman_rho": -0.15
+      },
+      {
+        "band": "beta",
+        "eligibility_reason": "eligible",
+        "model": "BROAD_EEGNET",
+        "n_subjects_expected": 9,
+        "n_subjects_with_descriptor": 9,
+        "p_value_computed": false,
+        "primary_descriptive_context": true,
+        "spearman_rho": 0.6
+      },
+      {
+        "band": "mu",
+        "eligibility_reason": "eligible",
+        "model": "MU_BETA_SHARED",
+        "n_subjects_expected": 9,
+        "n_subjects_with_descriptor": 9,
+        "p_value_computed": false,
+        "primary_descriptive_context": false,
+        "spearman_rho": -0.083333333333333
+      },
+      {
+        "band": "beta",
+        "eligibility_reason": "eligible",
+        "model": "MU_BETA_SHARED",
+        "n_subjects_expected": 9,
+        "n_subjects_with_descriptor": 9,
+        "p_value_computed": false,
+        "primary_descriptive_context": false,
+        "spearman_rho": 0.483333333333333
+      },
+      {
+        "band": "mu",
+        "eligibility_reason": "eligible",
+        "model": "CSP4_LDA",
+        "n_subjects_expected": 9,
+        "n_subjects_with_descriptor": 9,
+        "p_value_computed": false,
+        "primary_descriptive_context": false,
+        "spearman_rho": 0.066666666666667
+      },
+      {
+        "band": "beta",
+        "eligibility_reason": "eligible",
+        "model": "CSP4_LDA",
+        "n_subjects_expected": 9,
+        "n_subjects_with_descriptor": 9,
+        "p_value_computed": false,
+        "primary_descriptive_context": false,
+        "spearman_rho": 0.316666666666667
+      }
+    ],
+    "equal_session_equal_person_aggregation_verified": true,
+    "full_aggregation_absolute_tolerance": 1e-11,
+    "laterality_rows_recomputed": 54,
+    "p_values_computed": false,
+    "paired_trial_laterality_verified": true,
+    "population_rows_recomputed": 24,
+    "table_checks": {
+      "artifact_stratum_band_summary.csv": {
+        "computed_columns_checked": [
+          "subject",
+          "session",
+          "class_name",
+          "channel",
+          "band",
+          "artifact_flagged",
+          "n_trials",
+          "n_eligible",
+          "mean_trial_logratio_db",
+          "median_trial_logratio_db",
+          "ratio_unit"
+        ],
+        "rows": 6336,
+        "sha256": "68c9f91f74051cd497302780e58a424f904636feeadaae7c338206c661d6d15f"
+      },
+      "descriptive_associations.csv": {
+        "computed_columns_checked": [
+          "model",
+          "band",
+          "n_subjects_expected",
+          "n_subjects_with_descriptor",
+          "spearman_rho",
+          "primary_descriptive_context",
+          "eligibility_reason",
+          "p_value_computed"
+        ],
+        "rows": 6,
+        "sha256": "9d94c1345722cf54e2d2205a960a70cc044b4a6656e0cb1a44b71a03ca9333aa"
+      },
+      "frozen_subject_performance.csv": {
+        "computed_columns_checked": [
+          "subject",
+          "model",
+          "n_frozen_seeds",
+          "balanced_accuracy_mean",
+          "balanced_accuracy_min_seed",
+          "balanced_accuracy_max_seed",
+          "balanced_accuracy_sd_across_seeds",
+          "seed_ids",
+          "n_test_trials_per_seed"
+        ],
+        "rows": 27,
+        "sha256": "018f78d09c710a67bdad3d8de0ec2d568a5eba38305267692448641878f90922"
+      },
+      "subject_band_summary.csv": {
+        "computed_columns_checked": [
+          "subject",
+          "class_name",
+          "channel",
+          "band",
+          "n_sessions_expected",
+          "n_sessions_available",
+          "n_trials",
+          "n_eligible",
+          "n_artifact_flagged",
+          "equal_session_mean_trial_logratio_db",
+          "equal_session_mean_of_trial_medians_db",
+          "eligibility_reason",
+          "ratio_unit"
+        ],
+        "rows": 1584,
+        "sha256": "602644fce191b3227cc10505657ee0fbf4eaba024e5c9aec1e576e1cf653089f"
+      },
+      "subject_hand_laterality.csv": {
+        "computed_columns_checked": [
+          "subject",
+          "session",
+          "band",
+          "C3_right_mean_db",
+          "C4_right_mean_db",
+          "C4_left_mean_db",
+          "C3_left_mean_db",
+          "right_C3_minus_C4_db",
+          "left_C4_minus_C3_db",
+          "contralateral_mean_db",
+          "ipsilateral_mean_db",
+          "signed_laterality_db",
+          "n_hand_session_cells_expected",
+          "n_hand_session_cells_available",
+          "n_paired_eligible_trials",
+          "eligibility_reason",
+          "ratio_unit"
+        ],
+        "rows": 18,
+        "sha256": "b5974addf834c72ed0887788cc60e8186ee433817d4f69da99245fe8a9cb265b"
+      },
+      "subject_physiology_performance.csv": {
+        "computed_columns_checked": [
+          "subject",
+          "session",
+          "band",
+          "C3_right_mean_db",
+          "C4_right_mean_db",
+          "C4_left_mean_db",
+          "C3_left_mean_db",
+          "right_C3_minus_C4_db",
+          "left_C4_minus_C3_db",
+          "contralateral_mean_db",
+          "ipsilateral_mean_db",
+          "signed_laterality_db",
+          "n_hand_session_cells_expected",
+          "n_hand_session_cells_available",
+          "n_paired_eligible_trials",
+          "eligibility_reason",
+          "ratio_unit",
+          "model",
+          "n_frozen_seeds",
+          "balanced_accuracy_mean",
+          "balanced_accuracy_min_seed",
+          "balanced_accuracy_max_seed",
+          "balanced_accuracy_sd_across_seeds",
+          "seed_ids",
+          "n_test_trials_per_seed",
+          "primary_descriptive_context"
+        ],
+        "rows": 54,
+        "sha256": "dd629406539748639e0283eed287a5b199985ed4fba4b5a757a583214227b925"
+      },
+      "subject_session_band_summary.csv": {
+        "computed_columns_checked": [
+          "subject",
+          "session",
+          "class_name",
+          "channel",
+          "band",
+          "n_trials",
+          "n_eligible",
+          "n_artifact_flagged",
+          "mean_trial_logratio_db",
+          "median_trial_logratio_db",
+          "mean_baseline_power_native_numeric_squared",
+          "mean_task_power_native_numeric_squared",
+          "ratio_unit"
+        ],
+        "rows": 3168,
+        "sha256": "abe8aba16f175c1efda7520e51b94fd5c2956cc29e169a62811643fd38d32dc3"
+      },
+      "subject_session_hand_laterality.csv": {
+        "computed_columns_checked": [
+          "subject",
+          "session",
+          "band",
+          "C3_right_mean_db",
+          "C4_right_mean_db",
+          "C4_left_mean_db",
+          "C3_left_mean_db",
+          "right_C3_minus_C4_db",
+          "left_C4_minus_C3_db",
+          "contralateral_mean_db",
+          "ipsilateral_mean_db",
+          "signed_laterality_db",
+          "n_hand_session_cells_expected",
+          "n_hand_session_cells_available",
+          "n_paired_eligible_trials",
+          "eligibility_reason",
+          "ratio_unit"
+        ],
+        "rows": 36,
+        "sha256": "9a555435c4b9742864afd45c43d17d1c04233ba8c3e7b743df1ec8f9faab0570"
+      },
+      "subject_session_hand_pair_summary.csv": {
+        "computed_columns_checked": [
+          "subject",
+          "session",
+          "class_name",
+          "band",
+          "n_trials",
+          "n_paired_eligible",
+          "C3_mean_trial_logratio_db",
+          "C4_mean_trial_logratio_db",
+          "C3_median_trial_logratio_db",
+          "C4_median_trial_logratio_db"
+        ],
+        "rows": 72,
+        "sha256": "f6572595f02d798093414a45a88b42f28660b0a60b29ee2eff8a2ee6cea6bffe"
+      }
+    }
+  },
+  "analysis_id": "Q16-P001-BNCI-20261006",
+  "command": [
+    "scripts/validate_q16_independent.py",
+    "--execute",
+    "--data-dir",
+    "/workspace/q16-data/raw/BNCI2014_001",
+    "--freeze-commit",
+    "050e01b028aaab8e3d745934b13b2d17e9bb0a7a"
+  ],
+  "completed_at_utc": "2026-10-06T00:25:52.607162+00:00",
+  "freeze_and_hash_gate": {
+    "freeze_commit": "050e01b028aaab8e3d745934b13b2d17e9bb0a7a",
+    "freeze_manifest": {
+      "bytes": 12290,
+      "path": "research_runs/Q16-P001-BNCI-20261006/preprocessing_freeze.json",
+      "sha256": "c07a25e5de0c608cf405e728c0c85d1e0fae74e8e916d36e2cffad17d2ee3c01"
+    },
+    "metadata_audit": {
+      "bytes": 1178473,
+      "path": "research_runs/Q16-P001-BNCI-20261006/metadata_audit.json",
+      "sha256": "1131b74c165373c3a85a4bcac9f7328fd80d14e6f3decdfa01bd3f1e542c0438"
+    },
+    "n_result_hashes_checked": 11,
+    "run_manifest": {
+      "bytes": 21527,
+      "path": "research_runs/Q16-P001-BNCI-20261006/run_manifest.json",
+      "sha256": "2fe8b8d1df751c440f35c7311691220668857d45ecac6734220fb12c8dc379d5"
+    }
+  },
+  "independent_validator": {
+    "bytes": 39984,
+    "path": "scripts/validate_q16_independent.py",
+    "sha256": "7385c99843692becea1d5334fc51a6ea9c4a8f582fb523d6da35de6926c3ecc7"
+  },
+  "new_checkpoint_inference": 0,
+  "new_decoder_fits": 0,
+  "passed": true,
+  "raw_replay": {
+    "all_class_artifact_flags_retained": 488,
+    "all_trial_channel_band_rows_checked": 228096,
+    "binary_artifact_flags_retained": 246,
+    "eligibility_reason_row_counts": {
+      "eligible": 228096
+    },
+    "independent_algorithm": "closed_form_OLS_linear_detrend_explicit_periodic_Hann_numpy_rFFT_onesided_periodograms_manual_trapezoid",
+    "logratio_absolute_tolerance_db": 1e-10,
+    "manual_baseline_task_power_comparisons": 62208,
+    "manual_central_channel_band_pairs_replayed": 31104,
+    "maximum_absolute_logratio_difference_db": 7.105427357601002e-15,
+    "maximum_relative_power_difference": 1.847193004695259e-15,
+    "minimum_baseline_gap_after_previous_nominal_imagery_samples": 520,
+    "n_labeled_native_runs": 108,
+    "n_nominal_previous_imagery_checks": 5076,
+    "power_relative_tolerance": 1e-10,
+    "raw_event_identities_replayed": 5184,
+    "raw_files_sha256_verified": 18
+  },
+  "saved_performance_replay": {
+    "metric_input_sha256": "b756700f8e22f7dcb760c8f9ee7a4e0fa7f42d9f93c237d29ab728a66d4a7de5",
+    "n_people": 9,
+    "new_checkpoint_inference": 0,
+    "new_decoder_fits": 0,
+    "performance_source": "Q14-E001_binary_BNCI_source_LOSO",
+    "saved_prediction_files_reverified": 63,
+    "saved_prediction_rows_recomputed": 18144,
+    "source_only_fit_manifests_checked": 135,
+    "target_fit_count_from_manifests": 0,
+    "validator_input_sha256": "f96296e2dec3bb45f1eddca2deb0fa4b200f2ab3066f60e4e646232b6e414d53"
+  },
+  "schema_version": 1,
+  "software": {
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "scipy": "1.17.0"
+  },
+  "started_at_utc": "2026-10-06T00:25:23.488416+00:00",
+  "status": "independent_raw_and_saved_evidence_validation_passed"
+}

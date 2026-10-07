@@ -1,0 +1,642 @@
+{
+  "analysis_id": "Q16-P001-BNCI-20261006",
+  "command": [
+    "scripts/q16_bnci_analysis.py",
+    "--execute",
+    "--data-dir",
+    "/workspace/q16-data/raw/BNCI2014_001",
+    "--freeze-commit",
+    "050e01b028aaab8e3d745934b13b2d17e9bb0a7a"
+  ],
+  "completed_at_utc": "2026-10-06T00:23:57.814006+00:00",
+  "counts": {
+    "all_trials": 5184,
+    "artifact_flagged_trials": 488,
+    "binary_artifact_flagged_trials": 246,
+    "binary_trials": 2592,
+    "eligibility_reason_row_counts": {
+      "eligible": 228096
+    },
+    "n_unique_trials_with_any_power_guard_failure": 0,
+    "trial_channel_band_rows": 228096
+  },
+  "external_physiology_computed": false,
+  "figures_computed_by_this_script": false,
+  "freeze": {
+    "frozen_code": [
+      {
+        "bytes": 16251,
+        "path": "scripts/q16_common.py",
+        "sha256": "44e0c31ee1c8786467d36e0e9740be7231e18806ffe6d2e27059feb3a27f2e32"
+      },
+      {
+        "bytes": 10664,
+        "path": "scripts/q16_metadata_audit.py",
+        "sha256": "f69bb16b8c25fa9c5634e11d54a127aaad01bc75fc0103b8c1428ca90a738af0"
+      },
+      {
+        "bytes": 26514,
+        "path": "scripts/q16_bnci_analysis.py",
+        "sha256": "4e26003dd294dd657be25b4b5e97f09b97b0707dd6cbc316a9eaaef6be64b778"
+      }
+    ],
+    "frozen_inputs": [
+      {
+        "bytes": 7912,
+        "path": "research_runs/Q16-P001-BNCI-20261006/raw_source_receipt.json",
+        "sha256": "df2e2a9d3acd00f020d3ce405f1bd21a4987b2374f326ed40c1f1a2caebd6608"
+      },
+      {
+        "bytes": 6833,
+        "path": "research_runs/Q15-EXECUTION-20261003/jobs/20261004T005335Z-9b3bce30277a/bnci_source_receipt.json",
+        "sha256": "fd506bf5f72ce95f2aec117f1065365f4653675929c1061ac72e726ad912b531"
+      },
+      {
+        "bytes": 489538,
+        "path": "research_runs/Q15-EXECUTION-20261003/jobs/20261004T005335Z-9b3bce30277a/bnci_metadata_audit.json",
+        "sha256": "f6bbdf4679900aaebc50da9137eb9f78e010b16eda083a9ef802c4540761843d"
+      },
+      {
+        "bytes": 231244,
+        "path": "research_runs/Q8-E001/results/trial_metadata.csv",
+        "sha256": "3fdf0cb8e7dc86112bf7abc56f007dfdcc09f47de2d69362eb8a857bb8392214"
+      },
+      {
+        "bytes": 8343,
+        "path": "results/Q14-E001/subject_seed_metrics.csv",
+        "sha256": "b756700f8e22f7dcb760c8f9ee7a4e0fa7f42d9f93c237d29ab728a66d4a7de5"
+      },
+      {
+        "bytes": 824,
+        "path": "results/Q14-E001/validation_report.json",
+        "sha256": "f96296e2dec3bb45f1eddca2deb0fa4b200f2ab3066f60e4e646232b6e414d53"
+      },
+      {
+        "bytes": 1178473,
+        "path": "research_runs/Q16-P001-BNCI-20261006/metadata_audit.json",
+        "sha256": "1131b74c165373c3a85a4bcac9f7328fd80d14e6f3decdfa01bd3f1e542c0438"
+      }
+    ],
+    "frozen_protocols": [
+      {
+        "bytes": 8134,
+        "path": "research_runs/Q16-P001-BNCI-20261006/PROTOCOL.md",
+        "sha256": "324de523771d69cfefb45f824e2532b9a5458040d140c237bd4af5a7cc7dfab3"
+      },
+      {
+        "bytes": 1518,
+        "path": "research_runs/PAPER_FINAL_20261006/tables/q16_sensor_geometry.csv",
+        "sha256": "b214744a5439a73bdc016387ffd4701f8493b1f173771133f8fe96618c0663a5"
+      },
+      {
+        "bytes": 2148,
+        "path": "research_runs/PAPER_FINAL_20261006/evidence/q16_plot_recipe.json",
+        "sha256": "1d4d406b3ab69e634e0ef545528919e39a31bcbfe2b7fdb1c62da70021cad71e"
+      }
+    ],
+    "git_commit": "050e01b028aaab8e3d745934b13b2d17e9bb0a7a",
+    "manifest": {
+      "bytes": 12290,
+      "path": "research_runs/Q16-P001-BNCI-20261006/preprocessing_freeze.json",
+      "sha256": "c07a25e5de0c608cf405e728c0c85d1e0fae74e8e916d36e2cffad17d2ee3c01"
+    },
+    "metadata_audit": {
+      "bytes": 1178473,
+      "path": "research_runs/Q16-P001-BNCI-20261006/metadata_audit.json",
+      "sha256": "1131b74c165373c3a85a4bcac9f7328fd80d14e6f3decdfa01bd3f1e542c0438"
+    }
+  },
+  "git_HEAD_at_execution": "050e01b028aaab8e3d745934b13b2d17e9bb0a7a",
+  "high_low_groups_computed": false,
+  "limits": [
+    "BNCI-only physiology; external physiological replication not performed.",
+    "Baseline is a pre-cue fixation interval, not a separately recorded resting state.",
+    "Baseline has one Welch segment and task has three correlated Welch segments; unequal estimator variance can bias a log-power ratio.",
+    "Native numerical voltage calibration was not newly verified; absolute power is native_numeric_squared and only within-recording ratios are gain invariant.",
+    "A negative laterality descriptor indicates relatively stronger contralateral suppression, not proof that absolute contralateral power decreased.",
+    "Scalp channel descriptors do not identify cortical sources or establish decoder mechanism or causality.",
+    "Six n=9 correlations are descriptive contexts without p values, model selection, subgroup thresholds, or independent external validation."
+  ],
+  "new_checkpoint_inference": 0,
+  "new_decoder_fits": 0,
+  "new_decoder_inference": 0,
+  "outputs": [
+    {
+      "bytes": 8178197,
+      "path": "research_runs/Q16-P001-BNCI-20261006/trial_power.csv.gz",
+      "sha256": "527991a3df2fbc8e30a7d0134e7971f2ddf06bee5fc732c6db03a42545cf6fb9"
+    },
+    {
+      "bytes": 359922,
+      "columns": [
+        "subject",
+        "session",
+        "class_name",
+        "channel",
+        "band",
+        "n_trials",
+        "n_eligible",
+        "n_artifact_flagged",
+        "mean_trial_logratio_db",
+        "median_trial_logratio_db",
+        "mean_baseline_power_native_numeric_squared",
+        "mean_task_power_native_numeric_squared",
+        "ratio_unit"
+      ],
+      "path": "research_runs/Q16-P001-BNCI-20261006/subject_session_band_summary.csv",
+      "rows": 3168,
+      "sha256": "abe8aba16f175c1efda7520e51b94fd5c2956cc29e169a62811643fd38d32dc3"
+    },
+    {
+      "bytes": 134274,
+      "columns": [
+        "subject",
+        "class_name",
+        "channel",
+        "band",
+        "n_sessions_expected",
+        "n_sessions_available",
+        "n_trials",
+        "n_eligible",
+        "n_artifact_flagged",
+        "equal_session_mean_trial_logratio_db",
+        "equal_session_mean_of_trial_medians_db",
+        "eligibility_reason",
+        "ratio_unit"
+      ],
+      "path": "research_runs/Q16-P001-BNCI-20261006/subject_band_summary.csv",
+      "rows": 1584,
+      "sha256": "602644fce191b3227cc10505657ee0fbf4eaba024e5c9aec1e576e1cf653089f"
+    },
+    {
+      "bytes": 490784,
+      "columns": [
+        "subject",
+        "session",
+        "class_name",
+        "channel",
+        "band",
+        "artifact_flagged",
+        "n_trials",
+        "n_eligible",
+        "mean_trial_logratio_db",
+        "median_trial_logratio_db",
+        "ratio_unit"
+      ],
+      "path": "research_runs/Q16-P001-BNCI-20261006/artifact_stratum_band_summary.csv",
+      "rows": 6336,
+      "sha256": "68c9f91f74051cd497302780e58a424f904636feeadaae7c338206c661d6d15f"
+    },
+    {
+      "bytes": 8124,
+      "columns": [
+        "subject",
+        "session",
+        "class_name",
+        "band",
+        "n_trials",
+        "n_paired_eligible",
+        "C3_mean_trial_logratio_db",
+        "C4_mean_trial_logratio_db",
+        "C3_median_trial_logratio_db",
+        "C4_median_trial_logratio_db"
+      ],
+      "path": "research_runs/Q16-P001-BNCI-20261006/subject_session_hand_pair_summary.csv",
+      "rows": 72,
+      "sha256": "f6572595f02d798093414a45a88b42f28660b0a60b29ee2eff8a2ee6cea6bffe"
+    },
+    {
+      "bytes": 8104,
+      "columns": [
+        "subject",
+        "session",
+        "band",
+        "C3_right_mean_db",
+        "C4_right_mean_db",
+        "C4_left_mean_db",
+        "C3_left_mean_db",
+        "right_C3_minus_C4_db",
+        "left_C4_minus_C3_db",
+        "contralateral_mean_db",
+        "ipsilateral_mean_db",
+        "signed_laterality_db",
+        "n_hand_session_cells_expected",
+        "n_hand_session_cells_available",
+        "n_paired_eligible_trials",
+        "eligibility_reason",
+        "ratio_unit"
+      ],
+      "path": "research_runs/Q16-P001-BNCI-20261006/subject_session_hand_laterality.csv",
+      "rows": 36,
+      "sha256": "9a555435c4b9742864afd45c43d17d1c04233ba8c3e7b743df1ec8f9faab0570"
+    },
+    {
+      "bytes": 4352,
+      "columns": [
+        "subject",
+        "session",
+        "band",
+        "C3_right_mean_db",
+        "C4_right_mean_db",
+        "C4_left_mean_db",
+        "C3_left_mean_db",
+        "right_C3_minus_C4_db",
+        "left_C4_minus_C3_db",
+        "contralateral_mean_db",
+        "ipsilateral_mean_db",
+        "signed_laterality_db",
+        "n_hand_session_cells_expected",
+        "n_hand_session_cells_available",
+        "n_paired_eligible_trials",
+        "eligibility_reason",
+        "ratio_unit"
+      ],
+      "path": "research_runs/Q16-P001-BNCI-20261006/subject_hand_laterality.csv",
+      "rows": 18,
+      "sha256": "b5974addf834c72ed0887788cc60e8186ee433817d4f69da99245fe8a9cb265b"
+    },
+    {
+      "bytes": 4352,
+      "columns": [
+        "subject",
+        "model",
+        "n_frozen_seeds",
+        "balanced_accuracy_mean",
+        "balanced_accuracy_min_seed",
+        "balanced_accuracy_max_seed",
+        "balanced_accuracy_sd_across_seeds",
+        "seed_ids",
+        "performance_source",
+        "n_test_trials_per_seed"
+      ],
+      "path": "research_runs/Q16-P001-BNCI-20261006/frozen_subject_performance.csv",
+      "rows": 27,
+      "sha256": "018f78d09c710a67bdad3d8de0ec2d568a5eba38305267692448641878f90922"
+    },
+    {
+      "bytes": 21173,
+      "columns": [
+        "subject",
+        "session",
+        "band",
+        "C3_right_mean_db",
+        "C4_right_mean_db",
+        "C4_left_mean_db",
+        "C3_left_mean_db",
+        "right_C3_minus_C4_db",
+        "left_C4_minus_C3_db",
+        "contralateral_mean_db",
+        "ipsilateral_mean_db",
+        "signed_laterality_db",
+        "n_hand_session_cells_expected",
+        "n_hand_session_cells_available",
+        "n_paired_eligible_trials",
+        "eligibility_reason",
+        "ratio_unit",
+        "model",
+        "n_frozen_seeds",
+        "balanced_accuracy_mean",
+        "balanced_accuracy_min_seed",
+        "balanced_accuracy_max_seed",
+        "balanced_accuracy_sd_across_seeds",
+        "seed_ids",
+        "performance_source",
+        "n_test_trials_per_seed",
+        "primary_descriptive_context"
+      ],
+      "path": "research_runs/Q16-P001-BNCI-20261006/subject_physiology_performance.csv",
+      "rows": 54,
+      "sha256": "dd629406539748639e0283eed287a5b199985ed4fba4b5a757a583214227b925"
+    },
+    {
+      "bytes": 1191,
+      "columns": [
+        "model",
+        "band",
+        "n_subjects_expected",
+        "n_subjects_with_descriptor",
+        "spearman_rho",
+        "primary_descriptive_context",
+        "eligibility_reason",
+        "statistic",
+        "p_value_computed",
+        "performance_aggregation",
+        "physiology_descriptor"
+      ],
+      "path": "research_runs/Q16-P001-BNCI-20261006/descriptive_associations.csv",
+      "rows": 6,
+      "sha256": "9d94c1345722cf54e2d2205a960a70cc044b4a6656e0cb1a44b71a03ca9333aa"
+    },
+    {
+      "bytes": 13199,
+      "path": "research_runs/Q16-P001-BNCI-20261006/summary.json",
+      "sha256": "9d2e4a646742d9e84393d6bf92febd4248824796fe34ce7178caa045bf0d27ea"
+    }
+  ],
+  "p_values_computed": false,
+  "performance_input": {
+    "bytes": 8343,
+    "path": "results/Q14-E001/subject_seed_metrics.csv",
+    "sha256": "b756700f8e22f7dcb760c8f9ee7a4e0fa7f42d9f93c237d29ab728a66d4a7de5"
+  },
+  "performance_validator": {
+    "bytes": 824,
+    "path": "results/Q14-E001/validation_report.json",
+    "sha256": "f96296e2dec3bb45f1eddca2deb0fa4b200f2ab3066f60e4e646232b6e414d53"
+  },
+  "physiological_power_computed": true,
+  "raw_files": [
+    {
+      "bytes": 43772146,
+      "file_id": "A01E.mat",
+      "official_url": "https://bnci-horizon-2020.eu/database/data-sets/001-2014/A01E.mat",
+      "path": "/workspace/q16-data/raw/BNCI2014_001/A01E.mat",
+      "session": "1test",
+      "sha256": "53d415f39c3d7b0c88b894d7b08d99bcdfe855ede63831d3691af1a45607fb62",
+      "subject": 1
+    },
+    {
+      "bytes": 42806453,
+      "file_id": "A01T.mat",
+      "official_url": "https://bnci-horizon-2020.eu/database/data-sets/001-2014/A01T.mat",
+      "path": "/workspace/q16-data/raw/BNCI2014_001/A01T.mat",
+      "session": "0train",
+      "sha256": "054f02e70cf9c4ada1517e9b9864f45407939c1062c6793516585c6f511d0325",
+      "subject": 1
+    },
+    {
+      "bytes": 44218409,
+      "file_id": "A02E.mat",
+      "official_url": "https://bnci-horizon-2020.eu/database/data-sets/001-2014/A02E.mat",
+      "path": "/workspace/q16-data/raw/BNCI2014_001/A02E.mat",
+      "session": "1test",
+      "sha256": "d63c454005d3a9b41d8440629482e855afc823339bdd0b5721842a7ee9cc7b12",
+      "subject": 2
+    },
+    {
+      "bytes": 43068077,
+      "file_id": "A02T.mat",
+      "official_url": "https://bnci-horizon-2020.eu/database/data-sets/001-2014/A02T.mat",
+      "path": "/workspace/q16-data/raw/BNCI2014_001/A02T.mat",
+      "session": "0train",
+      "sha256": "5ddd5cb520b1692c3ba1363f48d98f58f0e46f3699ee50d749947950fc39db27",
+      "subject": 2
+    },
+    {
+      "bytes": 42316292,
+      "file_id": "A03E.mat",
+      "official_url": "https://bnci-horizon-2020.eu/database/data-sets/001-2014/A03E.mat",
+      "path": "/workspace/q16-data/raw/BNCI2014_001/A03E.mat",
+      "session": "1test",
+      "sha256": "d4229267ec7624fa8bd3af5cbebac17f415f7c722de6cb676748f8cb3b717d97",
+      "subject": 3
+    },
+    {
+      "bytes": 44057065,
+      "file_id": "A03T.mat",
+      "official_url": "https://bnci-horizon-2020.eu/database/data-sets/001-2014/A03T.mat",
+      "path": "/workspace/q16-data/raw/BNCI2014_001/A03T.mat",
+      "session": "0train",
+      "sha256": "7e731ee8b681d5da6ecb11ae1d4e64b1653c7f15aad5d6b7620b25ce53141e80",
+      "subject": 3
+    },
+    {
+      "bytes": 41730824,
+      "file_id": "A04E.mat",
+      "official_url": "https://bnci-horizon-2020.eu/database/data-sets/001-2014/A04E.mat",
+      "path": "/workspace/q16-data/raw/BNCI2014_001/A04E.mat",
+      "session": "1test",
+      "sha256": "81916dff2c12997974ba50ffc311da006ea66e525010d010765f0047e771c86a",
+      "subject": 4
+    },
+    {
+      "bytes": 37150377,
+      "file_id": "A04T.mat",
+      "official_url": "https://bnci-horizon-2020.eu/database/data-sets/001-2014/A04T.mat",
+      "path": "/workspace/q16-data/raw/BNCI2014_001/A04T.mat",
+      "session": "0train",
+      "sha256": "15850d81b95fc88cc8b9589eb9b713d49fa071e28adaf32d675b3eaa30591d6e",
+      "subject": 4
+    },
+    {
+      "bytes": 44392496,
+      "file_id": "A05E.mat",
+      "official_url": "https://bnci-horizon-2020.eu/database/data-sets/001-2014/A05E.mat",
+      "path": "/workspace/q16-data/raw/BNCI2014_001/A05E.mat",
+      "session": "1test",
+      "sha256": "8b357470865610c28b2f1d351beac247a56a856f02b2859d650736eb2ef77808",
+      "subject": 5
+    },
+    {
+      "bytes": 42452392,
+      "file_id": "A05T.mat",
+      "official_url": "https://bnci-horizon-2020.eu/database/data-sets/001-2014/A05T.mat",
+      "path": "/workspace/q16-data/raw/BNCI2014_001/A05T.mat",
+      "session": "0train",
+      "sha256": "77387d3b669f4ed9a7c1dac4dcba4c2c40c8910bae20fb961bb7cf5a94912950",
+      "subject": 5
+    },
+    {
+      "bytes": 43395510,
+      "file_id": "A06E.mat",
+      "official_url": "https://bnci-horizon-2020.eu/database/data-sets/001-2014/A06E.mat",
+      "path": "/workspace/q16-data/raw/BNCI2014_001/A06E.mat",
+      "session": "1test",
+      "sha256": "bf67a40621b74b6af7a986c2f6edfff7fc2bbbca237aadd07b575893032998d1",
+      "subject": 6
+    },
+    {
+      "bytes": 44581256,
+      "file_id": "A06T.mat",
+      "official_url": "https://bnci-horizon-2020.eu/database/data-sets/001-2014/A06T.mat",
+      "path": "/workspace/q16-data/raw/BNCI2014_001/A06T.mat",
+      "session": "0train",
+      "sha256": "4dc3be1b0d60279134d1220323c73c68cf73799339a7fb224087a3c560a9a7e2",
+      "subject": 6
+    },
+    {
+      "bytes": 42242294,
+      "file_id": "A07E.mat",
+      "official_url": "https://bnci-horizon-2020.eu/database/data-sets/001-2014/A07E.mat",
+      "path": "/workspace/q16-data/raw/BNCI2014_001/A07E.mat",
+      "session": "1test",
+      "sha256": "b9aaec73dcee002fab84ee98e938039a67bf6a3cbf4fc86d5d8df198cfe4c323",
+      "subject": 7
+    },
+    {
+      "bytes": 42809746,
+      "file_id": "A07T.mat",
+      "official_url": "https://bnci-horizon-2020.eu/database/data-sets/001-2014/A07T.mat",
+      "path": "/workspace/q16-data/raw/BNCI2014_001/A07T.mat",
+      "session": "0train",
+      "sha256": "43b6bbef0be78f0ac2b66cb2d9679091f1f5b7f0a5d4ebef73d2c7cc8e11aa96",
+      "subject": 7
+    },
+    {
+      "bytes": 46282127,
+      "file_id": "A08E.mat",
+      "official_url": "https://bnci-horizon-2020.eu/database/data-sets/001-2014/A08E.mat",
+      "path": "/workspace/q16-data/raw/BNCI2014_001/A08E.mat",
+      "session": "1test",
+      "sha256": "0eedbd89790c7d621c8eef68065ddecf80d437bbbcf60321d9253e2305f294f7",
+      "subject": 8
+    },
+    {
+      "bytes": 45032065,
+      "file_id": "A08T.mat",
+      "official_url": "https://bnci-horizon-2020.eu/database/data-sets/001-2014/A08T.mat",
+      "path": "/workspace/q16-data/raw/BNCI2014_001/A08T.mat",
+      "session": "0train",
+      "sha256": "7a4b3bd602d5bc307d3f4527fca2cf076659e94aca584dd64f6286fd413a82f2",
+      "subject": 8
+    },
+    {
+      "bytes": 44780912,
+      "file_id": "A09E.mat",
+      "official_url": "https://bnci-horizon-2020.eu/database/data-sets/001-2014/A09E.mat",
+      "path": "/workspace/q16-data/raw/BNCI2014_001/A09E.mat",
+      "session": "1test",
+      "sha256": "5d79649a42df9d51215def8ffbdaf1c3f76c54b88b9bbaae721e8c6fd972cc36",
+      "subject": 9
+    },
+    {
+      "bytes": 44785478,
+      "file_id": "A09T.mat",
+      "official_url": "https://bnci-horizon-2020.eu/database/data-sets/001-2014/A09T.mat",
+      "path": "/workspace/q16-data/raw/BNCI2014_001/A09T.mat",
+      "session": "0train",
+      "sha256": "b28d8a262c779c8cad9cc80ee6aa9c5691cfa6617c03befe490a090347ebd15c",
+      "subject": 9
+    }
+  ],
+  "raw_receipt": {
+    "bytes": 7912,
+    "path": "research_runs/Q16-P001-BNCI-20261006/raw_source_receipt.json",
+    "sha256": "df2e2a9d3acd00f020d3ce405f1bd21a4987b2374f326ed40c1f1a2caebd6608"
+  },
+  "recipe": {
+    "additional_filter": null,
+    "additional_reference": null,
+    "additional_scaler": null,
+    "artifacts": "include_all_native_flags_preserved",
+    "associations": {
+      "bands": [
+        "mu",
+        "beta"
+      ],
+      "high_low_groups": false,
+      "model_selection": false,
+      "models": [
+        "BROAD_EEGNET",
+        "MU_BETA_SHARED",
+        "CSP4_LDA"
+      ],
+      "n_subjects": 9,
+      "p_values": false,
+      "performance_aggregation": "mean_three_frozen_neural_seeds_per_subject_CSP_one_frozen_fit",
+      "primary_model": "BROAD_EEGNET",
+      "statistic": "Spearman_correlation_of_average_ranks"
+    },
+    "band_integration": "numpy.trapezoid(PSD[low<=frequency<=high], frequency)",
+    "bands_hz_inclusive": {
+      "beta": [
+        13.0,
+        30.0
+      ],
+      "mu": [
+        8.0,
+        13.0
+      ]
+    },
+    "baseline_cue_relative_s_half_open": [
+      -1.5,
+      -0.5
+    ],
+    "baseline_trial_relative_samples_half_open": [
+      125,
+      375
+    ],
+    "channels": [
+      "Fz",
+      "FC3",
+      "FC1",
+      "FCz",
+      "FC2",
+      "FC4",
+      "C5",
+      "C3",
+      "C1",
+      "Cz",
+      "C2",
+      "C4",
+      "C6",
+      "CP3",
+      "CP1",
+      "CPz",
+      "CP2",
+      "CP4",
+      "P1",
+      "Pz",
+      "P2",
+      "POz"
+    ],
+    "cue_offset_native_samples": 500,
+    "epsilon_or_clipping": null,
+    "integrated_power_unit": "native_numeric_squared",
+    "laterality_aggregation": "mean_trial_dB_within_subject_hand_session_then_equal_session_means_then_equal_hand_signed_descriptor",
+    "laterality_formula": "0.5*((C3_right-C4_right)+(C4_left-C3_left))",
+    "laterality_pairing": "C3_and_C4_both_eligible_in_same_trial_band",
+    "native_eeg_columns_half_open": [
+      0,
+      22
+    ],
+    "native_eog_columns_skipped": [
+      22,
+      23,
+      24
+    ],
+    "negative_laterality_means": "relatively_more_contralateral_suppression_not_absolute_ERD",
+    "new_decoder_fits": 0,
+    "new_decoder_inference": 0,
+    "provider_acquisition_filtering_retained": true,
+    "psd_unit": "native_numeric_squared_per_Hz",
+    "ratio": "10*log10(task_power/baseline_power)",
+    "ratio_unit": "dB",
+    "sampling_rate_hz": 250,
+    "task_cue_relative_s_half_open": [
+      0.5,
+      2.5
+    ],
+    "task_trial_relative_samples_half_open": [
+      625,
+      1125
+    ],
+    "trial_anchor": "MATLAB_trial_minus_1",
+    "voltage_calibration_newly_verified": false,
+    "welch": {
+      "average": "mean",
+      "axis": -1,
+      "baseline_segments": 1,
+      "detrend": "linear",
+      "implementation": "scipy.signal.welch",
+      "nfft": 250,
+      "noverlap": 125,
+      "nperseg": 250,
+      "return_onesided": true,
+      "scaling": "density",
+      "task_segments": 3,
+      "window": "scipy.signal.get_window('hann',250,fftbins=True)"
+    }
+  },
+  "schema_version": 1,
+  "software": {
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "python_executable": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "scipy": "1.17.0"
+  },
+  "started_at_utc": "2026-10-06T00:23:38.371208+00:00",
+  "status": "complete"
+}
