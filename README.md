@@ -1,107 +1,66 @@
-# Cross-Subject Motor Imagery EEG Decoding
+# Source-only model selection and limits of fixed spectral-sharing pipelines in cross-subject motor-imagery EEG decoding
 
-中文题目：**基于空频特征与深度学习的跨被试运动想象脑电解码研究**
+**Ziyuan Zhu (朱子元)** · College of Artificial Intelligence Medicine, Chongqing Medical University, Chongqing, China · Correspondence: **zzy2630816871@gmail.com**
 
-## 核心科研问题
+Updated **7 October 2026**. The completed decoder results and BNCI physiological characterization are preserved. This is an audited manuscript candidate for author approval; no journal submission, acceptance, clinical validation or archive DOI is claimed.
 
-如何在严格避免数据泄漏的前提下，提高运动想象 EEG 在不同受试者之间的泛化能力？
+## Latest manuscript and frozen versions
 
-## 当前状态
+- Paper branch: [`paper/zero-calibration-q16-20261006`](https://github.com/jackzhu119/cross-subject-mi-eeg/tree/paper/zero-calibration-q16-20261006).
+- Candidate archive: [`paper-v1.0-rc1`](https://github.com/jackzhu119/cross-subject-mi-eeg/releases/tag/paper-v1.0-rc1). It remains a prerelease while author actions are pending.
+- Manuscript directory: [`research_runs/PAPER_FINAL_20261006/`](https://github.com/jackzhu119/cross-subject-mi-eeg/tree/paper-v1.0-rc1/research_runs/PAPER_FINAL_20261006).
+- Q15 scientific code: [`271af288a2f3863430ab80e3145c2dee9bd5571d`](https://github.com/jackzhu119/cross-subject-mi-eeg/commit/271af288a2f3863430ab80e3145c2dee9bd5571d).
+- Q15 validated result publication: [`bc48b257eb44f412ad069f50d0f1a72a33c3c520`](https://github.com/jackzhu119/cross-subject-mi-eeg/commit/bc48b257eb44f412ad069f50d0f1a72a33c3c520).
+- Q16 pre-power parameter freeze: [`050e01b028aaab8e3d745934b13b2d17e9bb0a7a`](https://github.com/jackzhu119/cross-subject-mi-eeg/commit/050e01b028aaab8e3d745934b13b2d17e9bb0a7a). Completed outputs and their hashes: [`Q16-P001-BNCI-20261006`](https://github.com/jackzhu119/cross-subject-mi-eeg/tree/paper-v1.0-rc1/research_runs/Q16-P001-BNCI-20261006).
+- Artifact preservation evidence: [current publication receipts](https://github.com/jackzhu119/cross-subject-mi-eeg/tree/paper/zero-calibration-q16-20261006/research_runs/PAPER_FINAL_20261006-PUBLICATION). Each receipt applies to its exact immutable commit.
 
-- 更新时间：2026-09-23。已完成真实二分类传统基线、探索性空频/眼电实验、完整四分类九人 LOSO 传统对照与后续特征维数探索；Q4-E001 和 Q4-A001 均通过独立验证，详见 [四分类结果](docs/q4_e001_results.md) 与 [维数消融](docs/q4_a001_capacity_results.md)。
-- 已完成：独立 Python 3.12 环境、18 个源 MAT 文件、Subject 1 结构审计、9 人 CSP+LDA/SVM、within-session / cross-session / LOSO、Welch PSD 空频消融、源拟合 EOG 回归、预测与源文件哈希核验。
-- 当前边界：四分类已有一个真实的传统基线，但九频带方法平均没有超过宽频 LDA；没有确认创新性、没有 EEGNet 结果、没有外部数据集验证，也未达到投稿就绪。
-- 权威进度入口：[Research Progress](docs/research_progress.md)、[文献矩阵](references/literature_matrix.md) 与 [研究定位](docs/research_gap_and_next_experiments.md)。现有两份论文样例保留为历史工作稿；正式写作入口改为 [paper outline](paper/outline.md)。
-- 下一模型阶段已有 [EEGNet 源端验证协议草案](docs/q5_eegnet_protocol_draft.md)，尚未训练或产生分数。
+| Read / edit | File |
+|---|---|
+| Main manuscript | [PDF](https://github.com/jackzhu119/cross-subject-mi-eeg/blob/paper-v1.0-rc1/research_runs/PAPER_FINAL_20261006/manuscript_main_en.pdf) · [DOCX](https://github.com/jackzhu119/cross-subject-mi-eeg/blob/paper-v1.0-rc1/research_runs/PAPER_FINAL_20261006/manuscript_main_en.docx) |
+| Supplement | [PDF](https://github.com/jackzhu119/cross-subject-mi-eeg/blob/paper-v1.0-rc1/research_runs/PAPER_FINAL_20261006/supplementary_materials.pdf) · [DOCX](https://github.com/jackzhu119/cross-subject-mi-eeg/blob/paper-v1.0-rc1/research_runs/PAPER_FINAL_20261006/supplementary_materials.docx) |
+| Complete text and source | [Markdown](https://github.com/jackzhu119/cross-subject-mi-eeg/blob/paper-v1.0-rc1/research_runs/PAPER_FINAL_20261006/manuscript_en.md) · [TeX](https://github.com/jackzhu119/cross-subject-mi-eeg/blob/paper-v1.0-rc1/research_runs/PAPER_FINAL_20261006/manuscript.tex) |
+| Complete archive | [ZIP](https://github.com/jackzhu119/cross-subject-mi-eeg/blob/paper-v1.0-rc1/research_runs/PAPER_FINAL_20261006/paper_bundle_zero_calibration_q16_20261006.zip) · [manifest](https://github.com/jackzhu119/cross-subject-mi-eeg/blob/paper-v1.0-rc1/research_runs/PAPER_FINAL_20261006/MANIFEST.sha256) |
+| Reproduction and interpretation | [Reproducibility guide](https://github.com/jackzhu119/cross-subject-mi-eeg/blob/paper-v1.0-rc1/research_runs/PAPER_FINAL_20261006/reproducibility_readme.md) · [中文说明](https://github.com/jackzhu119/cross-subject-mi-eeg/blob/paper-v1.0-rc1/research_runs/PAPER_FINAL_20261006/%E4%B8%AD%E6%96%87%E8%AF%B4%E6%98%8E.md) |
 
-## 目录导航
+## Results and interpretation
 
-```text
-configs/                 固定实验参数；每次运行复制到对应输出目录
-data/                    数据说明；原始数据和处理中间物不提交版本库
-docs/                    路线图、课程和实验协议
-experiments/             全项目实验登记表
-logs/                    Research Log
-notebooks/               只做探索；稳定逻辑迁移到 src/
-outputs/<experiment_id>/ 每次实验的参数、指标、预测、图和日志
-references/              官方资料和论文索引
-scripts/                 可直接运行的入口脚本
-src/mi_eeg/              可复用研究代码
-tests/                   数据形状、切分和泄漏防护测试
-sources/                 ChatGPT 项目同步资料，只读
-```
+The following binary cohorts are evaluated separately. Balanced accuracy (BA) averages class recalls within each person; reported cohort means give each person equal weight, and the intervals resample people. These are complete frozen-pipeline contrasts with unequal source-selected durations, rather than isolated causal tests of sharing.
 
-## 可复现环境
+| Cohort | People / trials | Broad BA | Shared BA | Shared − broad (pp), 95% interval |
+|---|---:|---:|---:|---|
+| PhysioNet | 109 / 4,918 | 61.81% | 62.39% | +0.573 [−0.097, +1.242] |
+| Cho2017 | 52 / 10,520 | 59.82% | 58.31% | −1.513 [−2.249, −0.804] |
+| Lee2019 offline-training runs | 54 / 10,800 | 65.51% | 65.72% | +0.204 [−0.515, +0.969] |
 
-本项目已使用独立 Python 3.12 环境和 `uv.lock`。恢复同一依赖版本：
+Cho2017 retains the adverse shared-input result (two-cohort Holm p ≈ 0.000100). Lee2019 is uncertain (Holm p ≈ 0.604), without an equivalence conclusion; PhysioNet superiority is not established. No pooled cross-provider score or independently verified identity nonoverlap is asserted.
 
-```powershell
-uv sync --locked --python 3.12 --extra dev
-.\.venv\Scripts\python.exe -m pytest -q
-```
+The internal nine-person mean-rank development gain remains exploratory: 33.72% → 42.67% BA, with S3/S8 supplying 87.57% of the aggregate gain. The matched-runtime fixed-duration mean gain did not represent typical-person improvement: four improved and five worsened. Corrected robustness gains were not established.
 
-元数据检查：
+The BNCI-only physiological characterization retained 18 source files, nine people, two sessions and all 5,184 four-class trials; 2,592 hand trials supplied the hand summaries. Signed mean laterality was −0.250 dB in mu and −0.168 dB in beta. These post-decoder-outcome, baseline-relative sensor descriptions and six n=9 correlations have no physiological p-values, causal decoder attribution or external physiological replication. Negative signed laterality does not alone establish absolute contralateral ERD. Q16's BNCI component is complete; the proposed external physiological programme is not claimed complete.
 
-```powershell
-.\.venv\Scripts\python.exe scripts\inspect_bnci2014_001.py
-```
+## Information budget and verification
 
-Subject 1 真实结构检查（已有结果在 `outputs/P1-E001/`）：
+Zero calibration means **no target-dependent parameter fitting or target-based model selection**. Event/class metadata support documented eligibility and mapping; ground truth supplies scoring. The separate physiological analysis uses class metadata without decoder feedback. Fixed channel maps, reference operations and resampling are not target-fitted statistics. This does not establish universal label-free operation, calibrated physical voltage, online/real-time control or clinical utility.
 
-```powershell
-.\.venv\Scripts\python.exe scripts\inspect_bnci2014_001.py --load-data --subject 1
-```
+Q15 used 15 original source fits (14 neural, one shallow), with zero new migration fits and zero target fits. The editorial revision and Q16 add no decoder fits or checkpoint inference. Source-duration validation groups contain 2/2/2/3 participants with equal fold weighting; grouping sensitivity was not evaluated prospectively.
 
-本机数据缓存位于 `data/raw/`，18 个 MAT 合计约 780 MB。重复实验请指定新的输出目录；不要覆盖既有结果。
+The release contains saved-number audits, independent original scientific validators, current review bindings and layout reports. The editorial revision protected 16,417 scientific files and checked 261 displayed numeric cells against saved evidence. Raw/model scientific experiments were not rerun for manuscript editing. The TeX source is preserved; native compiler handlers were unavailable. The searchable PDFs are independently checked ReportLab exports.
 
-完整四分类的固定实验配置和方法解释见 [Q4 配置](configs/q4_e001_fourclass_filterbank.json) 与 [傅里叶及滤波器组说明](docs/fourier_filterbank_lesson.md)。程序入口：
+## Reproduction and original data
 
-```powershell
-.\.venv\Scripts\python.exe scripts\run_fourclass_filterbank.py --output-dir outputs\NEW-RUN-ID
-.\.venv\Scripts\python.exe scripts\validate_fourclass_filterbank.py outputs\NEW-RUN-ID
-```
+Original EEG is **not included** in the repository or manuscript ZIP. Acquire it directly from the providers under their terms:
 
-`NEW-RUN-ID` 必须是一个尚无内容的新目录；实际运行的配置、代码快照与文件哈希保存在该输出目录。
+- [BCI Competition IV dataset 2a / BNCI](https://bnci-horizon-2020.eu/database/data-sets) and [original task description](https://www.bbci.de/competition/iv/desc_2a.pdf).
+- [PhysioNet EEG Motor Movement/Imagery v1.0.0](https://physionet.org/content/eegmmidb/1.0.0/).
+- [Cho2017 original dataset](https://doi.org/10.5524/100295).
+- [Lee2019 / OpenBMI original dataset](https://doi.org/10.5524/100542).
 
-## 科研底线
+Read the [reproducibility guide](https://github.com/jackzhu119/cross-subject-mi-eeg/blob/paper-v1.0-rc1/research_runs/PAPER_FINAL_20261006/reproducibility_readme.md) for frozen processing/model identities and validation coverage. Reading and checking manuscript numbers requires no GPU, R2 credentials or new training. Fresh document exports need their own review because container/rendering bytes may differ even when numeric results agree. Keep delivered receipts intact.
 
-1. 先固定 research question、数据划分和主指标，再比较模型。
-2. 受试者级测试集在建模全程不可见。
-3. 标准化、CSP、特征选择和超参数搜索只能在训练数据内拟合。
-4. 保存每个受试者的结果、均值、标准差和失败运行，不只保存最好结果。
-5. 未真实运行的数据、图表和指标不得写成实验结果。
+## Submission preparation
 
-详细计划见 [ROADMAP.md](ROADMAP.md)，第一课见 [docs/lessons/01_eeg_data_structure.md](docs/lessons/01_eeg_data_structure.md)。
+Funding, competing interests and the secondary-analysis ethics requirement reflect the author's confirmation: no funding, no competing interests, and neither approval nor exemption required for this secondary analysis. No committee decision or approval identifier is invented. The English college wording is corroborated by published affiliations; a current official university English naming page was not established.
 
-## Q5 EEGNet 更新（2026-09-23）
+**AUTHOR ACTION REQUIRED:** final manuscript approval, actual contributions, originality/exclusive submission, AI model/version and actual personal verification. [Submission checklist](https://github.com/jackzhu119/cross-subject-mi-eeg/blob/paper-v1.0-rc1/research_runs/PAPER_FINAL_20261006/submission_checklist_zh.md) · [IOP AI disclosure preparation](https://github.com/jackzhu119/cross-subject-mi-eeg/blob/paper-v1.0-rc1/research_runs/PAPER_FINAL_20261006/ai_disclosure_submission_draft.md). Journal of Neural Engineering is the primary fit considered; no ranking, acceptance probability or SOTA claim is supplied.
 
-Q5-E001 已在 NVIDIA RTX 5090 云端完成。
-
-- 数据集：BNCI2014_001
-- 9 人 LOSO
-- 4 个 inner fits / fold
-- 3 个 final seeds / subject
-- 共 36 次 inner fits
-- 共 27 个 final fits
-- Q5 status: complete
-- 独立 validator: passed
-
-三个 seed 的 LOSO mean balanced accuracy：
-
-- 20260924: 0.331597
-- 20260925: 0.336227
-- 20260926: 0.343750
-
-整体 seed-level mean BA 约为 0.3372。
-
-结果目录：
-
-`results/Q5-E001/`
-
-后续科研应优先分析：
-1. subject-wise 泛化差异
-2. seed 稳定性
-3. confusion matrix
-4. epoch selection
-5. 与 CSP+LDA/SVM baseline 的比较
-6. spatial-spectral / cross-subject deep learning 改进
+Historical experiment branches and results remain intact. Earlier drafts and development notes are historical records; the candidate paper and immutable publication receipts identify the current delivery.
