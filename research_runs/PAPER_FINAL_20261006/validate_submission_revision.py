@@ -40,7 +40,10 @@ for b in c['blocks']:
  main.append(b)
 text='\n'.join(b.get('text','')+b.get('caption','')+b.get('note','') for b in main)
 check('no_project_draft_title_metadata','Scientific draft for author review' not in (P/'manuscript_en.md').read_text())
-check('unequal_source_grouping_limitation','2/2/2/3' in text and 'equal fold weighting' in text and 'Grouping sensitivity was not evaluated prospectively' in text)
+grouping_sensitivity_not_tested = any(sentence in text for sentence in [
+    'Grouping sensitivity was not evaluated prospectively',
+    'Its sensitivity was not tested prospectively'])
+check('unequal_source_grouping_limitation','2/2/2/3' in text and 'equal fold weighting' in text and grouping_sensitivity_not_tested)
 check('Q16_scope_limits','no p-values' in text and 'No external physiology was calculated' in text and 'does not alone establish absolute contralateral ERD' in text and '[0.5,3.5)' in text and '[0.5,2.5)' in text)
 workflow=(P/'figures/figure_workflow_zero_calibration.svg').read_text()
 check('workflow_baseline_relative_not_ERD_ERS','Baseline-relative' in workflow and 'ERD / ERS' not in workflow)

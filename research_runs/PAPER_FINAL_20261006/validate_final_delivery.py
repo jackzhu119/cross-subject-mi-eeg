@@ -43,7 +43,11 @@ author_declarations = load('evidence/author_declarations.json')
 check('no_funding_author_confirmed', author_declarations['funding'] == 'none')
 check('no_competing_interests_author_confirmed', author_declarations['competing_interests'] == 'none')
 check('no_approval_or_exemption_required_author_confirmed', author_declarations['ethics_approval_required_for_this_secondary_analysis'] is False and author_declarations['ethics_exemption_required_for_this_secondary_analysis'] is False)
-check('author_final_review_approval_confirmed', author_declarations['final_manuscript_author_approval_asserted'] and author_declarations['actual_contributions_author_confirmed'] and author_declarations['originality_and_exclusive_submission_author_confirmed'])
+check('prior_scientific_candidate_author_approval_confirmed', author_declarations['final_manuscript_author_approval_asserted'] and author_declarations['actual_contributions_author_confirmed'] and author_declarations['originality_and_exclusive_submission_author_confirmed'])
+language_revision_present = (OUT / 'language_refinement.json').is_file()
+if language_revision_present:
+    language_integrity = load('evidence/language_refinement/edit_integrity.json')
+    check('new_editorial_version_author_approval_not_invented', language_integrity['new_editorial_version_author_approval_received'] is False)
 check('no_ethics_identifier_or_committee_determination_invented', author_declarations['approval_identifier'] is None and author_declarations['exemption_identifier'] is None and not author_declarations['committee_issued_determination_asserted'] and not author_declarations['institutional_policy_independently_verified'])
 tables = [b for b in data['blocks'] if b['type'] == 'table']
 figures = [b for b in data['blocks'] if b['type'] == 'figure']
@@ -128,12 +132,16 @@ report = {'status': 'passed', 'checked_at_utc': datetime.now(timezone.utc).isofo
           'pdf_export_engine': 'ReportLab', 'native_latex_compilation': load('evidence/native_latex_check.json'),
           'input_sha256': input_hashes, 'runtime_distributions': versions,
           'new_fits': 0, 'new_checkpoint_inference': 0, 'raw_EEG_loaded_by_delivery_checker': False,
-          'new_Q16_raw_signal_analysis_separately_validated': True,
+          'archived_Q16_raw_signal_analysis_separately_validated': True,
           'original_scientific_files_modified': False, 'core_author_declarations_confirmed': True,
-          'remaining_author_confirmations': [], 'author_finalization_record': 'evidence/author_finalization/author_confirmations.json', 'author_supplied_final_confirmations': True,
+          'remaining_author_confirmations': ['read_revised_wording_before_actual_submission'] if language_revision_present else [],
+          'new_editorial_version_author_approval_received': False if language_revision_present else None,
+          'prior_scientific_candidate_author_approval_retained': True,
+          'author_finalization_record': 'evidence/author_finalization/author_confirmations.json', 'author_supplied_final_confirmations': True,
           'journal_submission_performed': False}
 source = {'paper_base_commit': '7af1a137e2676a018e1e880ab076de6cae4ce30b',
           'previous_reviewed_paper_commit': 'ac75a339c8db2861ff8e7d072e50690c79c602c4',
+          'language_revision_baseline_commit': '52351083affa26dd7507a1c266bc605a41be3585' if language_revision_present else None,
           'q15_scientific_code_revision': '271af288a2f3863430ab80e3145c2dee9bd5571d',
           'q15_verified_results_commit': 'bc48b257eb44f412ad069f50d0f1a72a33c3c520',
           'q15_results_branch': 'q15/run-20261005T050511Z-migration-from-r2-b82ad79b',

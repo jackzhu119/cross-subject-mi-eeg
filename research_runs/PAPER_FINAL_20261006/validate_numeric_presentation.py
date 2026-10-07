@@ -235,7 +235,10 @@ text = '\n'.join(b.get('text','') for b in content['blocks'])
 check('Author confirmed three declarations, no committee document invented', author['funding']=='none' and author['competing_interests']=='none' and not author['ethics_approval_required_for_this_secondary_analysis'] and not author['ethics_exemption_required_for_this_secondary_analysis'] and not author['committee_issued_determination_asserted'])
 for sentence in ['This research received no funding.', 'The author declares no competing interests.', 'The author confirms that neither ethics approval nor an exemption was required for this secondary analysis.']:
     check('Declaration sentence present ' + sentence, sentence in text)
-check('Q16 relative-versus-absolute interpretation and unequal-window bias disclosed', 'negative descriptor can coexist with increased power on both sides' in text and 'Unequal log-power estimator variance' in text and 'less-negative' in text)
+relative_absolute_boundary = any(sentence in text for sentence in [
+    'negative descriptor can coexist with increased power on both sides',
+    'negative relative descriptor can still accompany increased power on both sides'])
+check('Q16 relative-versus-absolute interpretation and unequal-window bias disclosed', relative_absolute_boundary and 'Unequal log-power estimator variance' in text and 'less-negative' in text)
 check('Primary nonzero Cho raw and adjusted p-values and finite Monte Carlo resolution stated',
       '0.000049998' in text and '0.000099995' in text and '1/20,001' in text)
 

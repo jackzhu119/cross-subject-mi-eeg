@@ -35,3 +35,7 @@ Title: Source-only model selection and limits of fixed spectral-sharing pipeline
 Creator: Ziyuan Zhu. Affiliation: College of Artificial Intelligence Medicine, Chongqing Medical University, Chongqing, China.
 Resource: research manuscript and reproducibility materials; version paper-v1.0.
 Existing repository LICENSE does not automatically settle all source-data or manuscript rights. Select and confirm archive licensing before depositing with Zenodo. DOI: **not created**.
+
+## Language-refined candidate
+
+Next immutable candidate: **paper-v1.0.1**, a prerelease of the edited manuscript. The prior author-approved paper-v1.0 and its receipts remain intact. Pass current prose/claim, numeric/citation, export/layout, archive and GitHub readback checks before release or homepage updates. Preserve the author confirmations at their original scope; a new human read of the edited version is required before actual submission. No frozen scientific result or statistical procedure changes.

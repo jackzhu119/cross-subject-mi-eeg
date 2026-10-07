@@ -1,6 +1,7 @@
 """Split editable manuscript and expand supplementary methods; no science run."""
 import copy
 import json
+import re
 from pathlib import Path
 import hashlib
 from datetime import datetime, timezone
@@ -51,8 +52,11 @@ while line_index < len(method_lines):
         flush()
         export.BLOCKS.append({'type': 'heading', 'level': 2, 'text': line.lstrip('# ').strip()})
     else:
-        # Inline code and bold syntax are typographical Markdown conventions.
-        paragraph.append(line.replace('`', '').replace('**', '').strip())
+        # Render Markdown emphasis as plain words in the expanded methods.
+        # Word-boundary guards retain mathematical asterisk operators.
+        plain = line.replace('`', '').replace('**', '')
+        plain = re.sub(r'(?<![\w*])\*([^*\n]+)\*(?![\w*])', r'\1', plain)
+        paragraph.append(plain.strip())
     line_index += 1
 flush()
 export.word('supplementary_materials.docx')

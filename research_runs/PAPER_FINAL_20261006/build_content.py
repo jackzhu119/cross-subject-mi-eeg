@@ -155,5 +155,7 @@ content = {'title': TITLE, 'subtitle': SUBTITLE,
            'date': '7 October 2026', 'blocks': blocks, 'references': [ref_text(r) for r in refs],
            'reference_keys': [r['key'] for r in refs], 'new_fits': 0, 'new_checkpoint_inference': 0,
            'status': 'structured_revision_q16_complete_author_review_and_metadata_confirmed'}
+from apply_language_refinement import apply_language_refinement
+content = apply_language_refinement(content, OUT)
 (OUT / 'manuscript_content.json').write_text(json.dumps(content, indent=2, ensure_ascii=False) + '\n')
 print(json.dumps({'blocks': len(blocks), 'references': len(refs), 'new_fits': 0}))

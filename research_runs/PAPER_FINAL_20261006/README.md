@@ -62,3 +62,9 @@ The final delivery validator intentionally binds the reviewed export bytes. Fres
 ## Author finalization — 7 October 2026
 
 The author confirmed sole authorship, final review/approval, personal checking/revision, data-term checks, Github-only public history and no other-journal consideration. JNE is the target. ChatGPT (GPT-6) is author-reported; the actual Codex research/figure/drafting scope remains disclosed. See `author_information_template.md`, `ai_disclosure_submission_draft.md` and `evidence/author_finalization/`. No journal submission or DOI is claimed.
+
+## Language refinement and contribution framing — 7 October 2026
+
+The candidate `paper-v1.0.1` revises narrative prose, captions, supplementary text and cover letters. Its principal contributions are the source-only selection audit, participant-level interpretation of concentrated gains, and retained frozen external adverse/uncertain results. Class-specific recalls, conditional uncertainty and the distinction between computational validation and sensor physiology provide support. `contribution_evidence_zh.md` links these claims to existing evidence and states their limits.
+
+`language_refinement.json` contains the accepted exact replacements; `apply_language_refinement.py` applies them after conventional citation numbering and checks every changed numeric/citation literal sequence. Table data, equations, references, figures, model selections and Q15/Q16 frozen results are unchanged. The prior author approval applies to the preceding scientific candidate; the newly revised wording needs the author's final read before submission. No AI-detector score, guaranteed acceptance, journal submission or new scientific experiment is claimed.

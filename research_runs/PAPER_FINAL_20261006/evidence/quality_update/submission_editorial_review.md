@@ -1,7 +1,5 @@
-# Current author-finalization editorial review
+# Current independent editorial review
 
-The current independent review passed 34 checks, bound to the delivered author materials and exports. Author approval, sole authorship, personal checking/revision, JNE choice and GitHub-only public history have been confirmed by the author. ChatGPT GPT-6 is identified as author-reported; actual Codex research/code/figure/drafting use is retained. No human verification of every original citation or code line is invented.
+40 current checks passed, bound to 59 exact inputs. The reviewed language distinguishes exploratory development from frozen external pipeline contrasts, mean benefit from participant distributions, and sensor descriptions from mechanisms. No new statistics, experiments, raw processing or inference were performed.
 
-The prior scientific and reference review is preserved at `evidence/author_finalization/prior_evidence__quality_update__submission_editorial_review.json`. Its scientific checks apply to unchanged manuscript paragraphs, tables, equations, references and figures. Old pending-author assertions in that historical receipt are superseded by the current confirmations, rather than claimed to remain current. No raw EEG, model fitting or inference was rerun.
-
-The author completes the actual JNE portal submission, checks original cited sources against IOP requirements, reviews the portal-generated PDF and accepts the relevant submission/licensing agreements. No submission or archive DOI is asserted.
+Original titles and technical strings are retained; ordinary narrative uses British spelling with Oxford -ize/-ization. The author approved the preceding scientific candidate. The edited wording still requires an author read before actual submission. Real AI assistance remains disclosed and historical model identity remains author-reported.

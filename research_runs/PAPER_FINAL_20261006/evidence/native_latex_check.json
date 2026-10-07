@@ -1,11 +1,11 @@
 {
   "status": "unavailable_unverified",
-  "attempt_date_utc": "2026-10-07T10:25:53.217364+00:00",
+  "attempt_date_utc": "2026-10-07T15:23:22.013297+00:00",
   "tools_attempted": [
     "codex_app.open_in_codex",
     "codex_app.compile_latex_document"
   ],
-  "latest_attempt_result": "Native editor and compiler each returned No handler registered; source retained, PDFs are ReportLab exports.",
+  "latest_attempt_result": "Editor-open and native-compile calls yielded no completion in bounded waits and were terminated. Current source retained; delivered PDFs use ReportLab. Native LaTeX compilation is unverified.",
   "previous_attempt": {
     "status": "unavailable_unverified",
     "tool": "codex_app.compile_latex_document",
@@ -18,7 +18,7 @@
     "terminal_compilation_used_by_root": false,
     "figure_snippet_note": "Figure agent checked the two new standalone PGFPlots snippets with an already installed local engine; that is not a native full-document compilation."
   },
-  "source_sha256": "1654d1881a548c766f3f4523359d5d92ccd2174b2b6fb8926d004f69ede1e1c9",
+  "source_sha256": "a33e07de65f66358f3cadf9fadbadf5ea21a2a3bd8eee7a36ffcf988a34f094f",
   "standalone_source_preserved": true,
   "pdf_export_engine": "ReportLab",
   "latex_compilation_confirmed": false,
@@ -42,5 +42,14 @@
     "editor_result": "No handler registered for tool: codex_app.open_in_codex",
     "compiler_result": "No handler registered for tool: codex_app.compile_latex_document",
     "latex_compilation_confirmed": false
+  },
+  "language_revision_native_check": {
+    "status": "unavailable_unverified",
+    "editor_result": "no returned completion; pending tool call terminated after bounded wait",
+    "compiler_result": "no returned completion; pending tool call terminated after bounded wait",
+    "latex_compilation_confirmed": false,
+    "latest_source_spelling_revision_only": "No TeX scientific or structural changes; native compilation remains unverified.",
+    "tool_attempt_preceded_final_spelling_only_source_revision": true,
+    "current_source_hash_identifies_preserved_source_not_successful_compilation": true
   }
 }
