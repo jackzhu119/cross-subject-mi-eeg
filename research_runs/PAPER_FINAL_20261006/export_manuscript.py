@@ -30,7 +30,7 @@ AFFILIATION=DATA['authors'][0]['affiliation']
 EMAIL=DATA['authors'][0]['email']
 
 def markdown():
-    lines=[f'# {TITLE}','',f'*{SUBTITLE}*','',AUTHOR + ' (corresponding author)', '', AFFILIATION, '', 'Correspondence: ' + EMAIL, '', 'Scientific draft for author review — 7 October 2026. Declarations pending.','']
+    lines=[f'# {TITLE}','',f'*{SUBTITLE}*','',AUTHOR + ' (corresponding author)', '', AFFILIATION, '', 'Correspondence: ' + EMAIL, '', 'Scientific draft for author review — 7 October 2026.','']
     for b in BLOCKS:
         kind=b['type']
         if kind=='heading':lines.extend(['#'*(b['level']+1)+' '+b['text'],''])
@@ -49,7 +49,7 @@ def word(filename='manuscript_en.docx'):
     normal=doc.styles['Normal'];normal.font.name='Times New Roman';normal.font.size=Pt(11)
     normal.paragraph_format.space_after=Pt(7)
     doc.add_heading(TITLE,0);doc.add_paragraph(SUBTITLE,'Subtitle')
-    doc.add_paragraph(AUTHOR + ' (corresponding author)'); doc.add_paragraph(AFFILIATION); doc.add_paragraph('Correspondence: ' + EMAIL); doc.add_paragraph('Scientific draft for author review — 7 October 2026. Declarations pending.')
+    doc.add_paragraph(AUTHOR + ' (corresponding author)'); doc.add_paragraph(AFFILIATION); doc.add_paragraph('Correspondence: ' + EMAIL); doc.add_paragraph('Scientific draft for author review — 7 October 2026.')
     for b in BLOCKS:
         if b['type']=='heading':doc.add_heading(b['text'],b['level'])
         elif b['type'] in ('paragraph','equation'):doc.add_paragraph(b['text'])
@@ -83,7 +83,7 @@ def pdf(filename='manuscript_en.pdf'):
     styles.add(ParagraphStyle(name='PaperCell',fontName='Caption',fontSize=7.5,leading=10))
     story=[]
     def p(text,style='PaperBody'):return Paragraph(html.escape(text),styles[style])
-    story.extend([p(TITLE,'PaperTitle'),p(SUBTITLE,'PaperSubtitle'),p(AUTHOR + ' (corresponding author)','PaperSubtitle'), p(AFFILIATION,'PaperSubtitle'), p('Correspondence: ' + EMAIL,'PaperSubtitle'), p('Scientific draft for author review • 7 October 2026 • Declarations pending','PaperCaption')])
+    story.extend([p(TITLE,'PaperTitle'),p(SUBTITLE,'PaperSubtitle'),p(AUTHOR + ' (corresponding author)','PaperSubtitle'), p(AFFILIATION,'PaperSubtitle'), p('Correspondence: ' + EMAIL,'PaperSubtitle'), p('Scientific draft for author review • 7 October 2026','PaperCaption')])
     for b in BLOCKS:
         k=b['type']
         if k=='heading':

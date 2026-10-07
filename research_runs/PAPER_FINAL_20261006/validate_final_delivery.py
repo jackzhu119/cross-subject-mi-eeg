@@ -39,6 +39,11 @@ for name in ['manuscript_content.json', 'references.json', 'supplementary_method
     check('current_review_covers_' + name, name in reviewed_hashes)
 check('author_correspondence', data['authors'][0]['name'] == 'Ziyuan Zhu' and data['authors'][0]['email'] == 'zzy2630816871@gmail.com' and data['authors'][0]['corresponding'])
 check('published_affiliation_usage', data['authors'][0]['affiliation'] == load('evidence/affiliation_verification.json')['recommended_affiliation_en'])
+author_declarations = load('evidence/author_declarations.json')
+check('no_funding_author_confirmed', author_declarations['funding'] == 'none')
+check('no_competing_interests_author_confirmed', author_declarations['competing_interests'] == 'none')
+check('no_approval_or_exemption_required_author_confirmed', author_declarations['ethics_approval_required_for_this_secondary_analysis'] is False and author_declarations['ethics_exemption_required_for_this_secondary_analysis'] is False)
+check('no_ethics_identifier_or_committee_determination_invented', author_declarations['approval_identifier'] is None and author_declarations['exemption_identifier'] is None and not author_declarations['committee_issued_determination_asserted'] and not author_declarations['institutional_policy_independently_verified'])
 tables = [b for b in data['blocks'] if b['type'] == 'table']
 figures = [b for b in data['blocks'] if b['type'] == 'figure']
 check('nine_figures_twelve_tables', len(figures) == 9 and len(tables) == 12)
@@ -61,6 +66,8 @@ for b in data['blocks']:
         check('PDF_paragraph_' + hashlib.sha256(b['text'].encode()).hexdigest()[:12], normalized(b['text']) in normalized(pdf_text))
 check('PDF_all_pages_nonempty', all(len(p.get_text().strip()) > 30 for p in pdf))
 check('PDF_author_email', data['authors'][0]['name'] in pdf_text and data['authors'][0]['email'] in pdf_text)
+for statement in ['This research received no funding.', 'The author declares no competing interests.', 'The author confirms that neither ethics approval nor an exemption was required for this secondary analysis.']:
+    check('author_statement_all_exports_' + hashlib.sha256(statement.encode()).hexdigest()[:12], all(statement in text for text in [markdown, doc_text, tex]) and normalized(statement) in normalized(pdf_text))
 check('LaTeX_standalone_source', '\\begin{document}' in tex and '\\end{document}' in tex and '\\input{' not in tex and '\\includegraphics{' not in tex and '\\bibliography{' not in tex)
 check('LaTeX_all_embedded_figures', tex.count('\\begin{figure}') == len(figures) and tex.count('\\begin{tikzpicture}') == len(figures))
 check('no_obsolete_author_placeholders', 'Author details pending' not in markdown and ', ;' not in markdown)
@@ -107,12 +114,12 @@ for filename, expected_tables, expected_figures in [('manuscript_main_en.docx', 
     check('split_export_' + filename, len(variant.tables) == expected_tables and len(variant.inline_shapes) == expected_figures)
     check('split_export_' + filename + '_nonempty_pdf', all(len(p.get_text().strip()) > 30 for p in fitz.open(OUT / filename.replace('.docx', '.pdf'))))
 check('scientific_completion_markers_absent', all(marker not in markdown for marker in ['Q16_PENDING', 'PENDING_Q16', 'WORKFLOW_PENDING']))
-original_paths = subprocess.check_output(['git', 'diff', '--name-only', '124e1b02895b13657b11365d8360c2515800792b'], cwd=ROOT, text=True).splitlines()
-check('original_scientific_files_preserved', all(p.startswith(('research_runs/PAPER_FINAL_20261006/', 'research_runs/Q16-P001-BNCI-20261006/')) or p in {'scripts/q16_common.py', 'scripts/q16_metadata_audit.py', 'scripts/q16_bnci_analysis.py', 'scripts/validate_q16_independent.py'} for p in original_paths))
+original_paths = [p for p in subprocess.check_output(['git', 'diff', '--name-only', '-z', '124e1b02895b13657b11365d8360c2515800792b'], cwd=ROOT).decode('utf-8').split('\0') if p]
+check('original_scientific_files_preserved', all(p.startswith(('research_runs/PAPER_FINAL_20261006/', 'research_runs/PAPER_FINAL_20261006-PUBLICATION/', 'research_runs/Q16-P001-BNCI-20261006/')) or p in {'scripts/q16_common.py', 'scripts/q16_metadata_audit.py', 'scripts/q16_bnci_analysis.py', 'scripts/validate_q16_independent.py'} for p in original_paths))
 
 # Bind the exact reviewed sources and delivered exports, without leaking secrets.
 input_hashes = {}
-for name in ['manuscript_content.json', 'build_content.py', 'build_revision_content.py', 'export_manuscript.py', 'references.json', 'tables/q15_model_summary.csv', 'evidence/q15_numbers.json', 'evidence/internal_review.json', 'evidence/final_scientific_review.json', 'evidence/q16_analysis/independent_validation.json', 'evidence/q16_analysis/run_manifest.json', 'manuscript_en.md', 'manuscript_en.docx', 'manuscript_en.pdf', 'manuscript.tex', 'manuscript_main_en.docx', 'manuscript_main_en.pdf', 'supplementary_materials.docx', 'supplementary_materials.pdf']:
+for name in ['manuscript_content.json', 'build_content.py', 'build_revision_content.py', 'export_manuscript.py', 'references.json', 'tables/q15_model_summary.csv', 'evidence/q15_numbers.json', 'evidence/internal_review.json', 'evidence/final_scientific_review.json', 'evidence/author_declarations.json', 'evidence/q16_analysis/independent_validation.json', 'evidence/q16_analysis/run_manifest.json', 'manuscript_en.md', 'manuscript_en.docx', 'manuscript_en.pdf', 'manuscript.tex', 'manuscript_main_en.docx', 'manuscript_main_en.pdf', 'supplementary_materials.docx', 'supplementary_materials.pdf']:
     input_hashes[name] = sha(OUT / name)
 versions = {name: importlib.metadata.version(name) for name in ['numpy', 'pandas', 'scipy', 'matplotlib', 'python-docx', 'reportlab', 'PyMuPDF']}
 report = {'status': 'passed', 'checked_at_utc': datetime.now(timezone.utc).isoformat(), 'checks': checks, 'failed_checks': [], 'pdf_pages': len(pdf),
@@ -121,9 +128,9 @@ report = {'status': 'passed', 'checked_at_utc': datetime.now(timezone.utc).isofo
           'input_sha256': input_hashes, 'runtime_distributions': versions,
           'new_fits': 0, 'new_checkpoint_inference': 0, 'raw_EEG_loaded_by_delivery_checker': False,
           'new_Q16_raw_signal_analysis_separately_validated': True,
-          'original_scientific_files_modified': False, 'author_declarations_pending': True,
+          'original_scientific_files_modified': False, 'core_author_declarations_confirmed': True,
+          'remaining_author_confirmations': ['final_manuscript_approval', 'actual_contributions', 'journal_originality_and_exclusive_submission'],
           'journal_submission_performed': False}
-(OUT / 'evidence/delivery_validation.json').write_text(json.dumps(report, indent=2, ensure_ascii=False) + '\n')
 source = {'paper_base_commit': '7af1a137e2676a018e1e880ab076de6cae4ce30b',
           'previous_reviewed_paper_commit': 'ac75a339c8db2861ff8e7d072e50690c79c602c4',
           'q15_scientific_code_revision': '271af288a2f3863430ab80e3145c2dee9bd5571d',
@@ -135,4 +142,6 @@ source = {'paper_base_commit': '7af1a137e2676a018e1e880ab076de6cae4ce30b',
           'source_fit_count': 15, 'target_fit_count': 0, 'new_model_fits': 0, 'new_checkpoint_inference': 0,
           'input_evidence_sha256': input_hashes, 'raw_data_redistributed': False}
 (OUT / 'evidence/source_snapshot.json').write_text(json.dumps(source, indent=2) + '\n')
+check('review_bindings_still_match_after_generated_delivery_outputs', all(sha(OUT / name) == digest for name, digest in reviewed_hashes.items()))
+(OUT / 'evidence/delivery_validation.json').write_text(json.dumps(report, indent=2, ensure_ascii=False) + '\n')
 print(json.dumps({'status': report['status'], 'checks': len(checks), 'pages': len(pdf), 'new_fits': 0}))

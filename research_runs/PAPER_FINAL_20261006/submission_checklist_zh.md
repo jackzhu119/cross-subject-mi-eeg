@@ -21,8 +21,8 @@
 |---|---|---|
 | 作者与隶属 | 核对唯一作者、通讯作者、学院英文署名、ORCID、通讯地址与实际贡献 | `author_information_template.md` |
 | 目标期刊 | 优先考虑 JNE 的学科适配；若冲刺 TNSRE，评估创新门槛与风险；核验投稿当天的 JCR 及本单位口径 | `journal_strategy_zh.md` |
-| 伦理与原数据同意 | 填写机构对实际二次分析的决定或政策，核对原始采集同意 | `author_information_template.md` |
-| 资助/利益冲突/致谢 | 核对真实资助及项目编号、利益冲突、致谢许可 | `author_information_template.md` |
+| 伦理与原数据同意 | 作者已确认本次二次分析无需伦理审批或豁免；原始采集伦理与同意以来源文献为准 | `author_information_template.md` |
+| 资助/利益冲突/致谢 | 作者已确认无资助、无利益冲突；致谢如有仍须核对许可 | `author_information_template.md` |
 | 人工科学审校 | 审读正文、图表、补充、负结果与推断边界，承担最终稿责任 | 主稿和 supplement |
 | 使用与发表权利 | 分别核对数据条款与仓库 LICENSE，保留官方原始数据入口 | `reproducibility_readme.md` |
 | AI 披露 | 如实记录 Codex 用于分析代码、资料核对、起草及图表材料的范围；按期刊要求写工具/模型信息 | 作者模板 |

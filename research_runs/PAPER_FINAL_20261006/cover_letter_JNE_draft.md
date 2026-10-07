@@ -20,7 +20,9 @@ Code, saved predictions, contracts, event/file provenance and validation receipt
 
 Journal of Neural Engineering provides a relevant audience for reliable BCI evaluation and physiological interpretation. The manuscript shows how source-only duration decisions can produce concentrated gains and how a plausible spectral representation can lose accuracy under frozen transfer. Its separate sensor-level analysis provides physiological context while retaining the limits of retrospective association. The study does not evaluate online assistive control, patients or rehabilitation outcomes.
 
-[Supply author-confirmed originality, related publication/preprint history, exclusive submission, manuscript approval, secondary-use ethics, funding, competing interests and the journal-required AI-assistance disclosure. These declarations have not been supplied.]
+This research received no funding. I declare no competing interests. I confirm that neither ethics approval nor an exemption was required for this secondary analysis of publicly available EEG recordings; no new participants were recruited.
+
+[Confirm originality, related publication/preprint history, exclusive submission, final manuscript approval and the journal-required AI-assistance disclosure before sending. These remaining confirmations have not been supplied.]
 
 Thank you for considering the manuscript.
 

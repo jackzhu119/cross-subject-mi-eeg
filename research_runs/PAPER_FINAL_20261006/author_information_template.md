@@ -32,7 +32,7 @@ Assign only applicable roles. Authorship eligibility and approval remain the aut
 
 **Verified study description:** Secondary analysis of previously recorded public EEG datasets; no new recruitment or intervention is reported. Q16 adds a separate analysis of existing BNCI recordings.
 
-**Institutional determination:** [Supply the institution's applicable decision/policy. If approval or exemption was issued, name the actual committee, identifier and date. If review is not required under an institutional rule, identify that rule accurately.]
+**Ethics requirement — author-confirmed:** The author confirms that neither ethics approval nor an exemption was required for this secondary analysis of public EEG recordings. No new participants were recruited. No approval or exemption identifier is applicable. This statement records the author's confirmation; no committee-issued determination or independently verified institutional policy is asserted.
 
 **Source consent:** [State only the official source publications/documentation's established collection consent and secondary-use conditions. Preserve the checked source passages.]
 
@@ -40,9 +40,9 @@ A public dataset alone does not establish ethical exemption or an approval numbe
 
 ## Funding, interests and acknowledgment
 
-**Funding:** [Actual sources and grant numbers, or author-confirmed no-specific-funding wording]
+**Funding — author-confirmed:** This research received no funding.
 
-**Competing interests:** [Author-confirmed financial and nonfinancial interests, or a verified statement of none]
+**Competing interests — author-confirmed:** The author declares no competing interests.
 
 **Acknowledgments:** [Actual contributors/resources and permissions where required]
 
