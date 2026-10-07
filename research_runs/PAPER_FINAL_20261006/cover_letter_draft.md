@@ -8,11 +8,11 @@
 
 Dear [Editor name / Editor],
 
-Please consider my manuscript, "Source-only model selection and limits of shared spectral representations in cross-subject motor-imagery EEG decoding," for publication as [journal-appropriate article type].
+Please consider my manuscript, "Source-only model selection and limits of fixed spectral-sharing pipelines in cross-subject motor-imagery EEG decoding," for publication as [journal-appropriate article type].
 
 The study examines source-only model selection and fixed spectral sharing in cross-subject motor-imagery EEG. It combines a documented BNCI development programme with separately frozen binary evaluations on PhysioNet, Cho2017 and Lee2019_MI. Zero calibration is defined as absence of target-dependent parameter fitting or target-based model selection. Target labels used for metadata and scoring are distinguished from learning; participant-level uncertainty is retained throughout.
 
-The completed Q15 evaluation covers 52 Cho2017 and 54 Lee2019_MI participants under a prespecified common 21-channel adapter. Shared μ/β reduced balanced accuracy on Cho2017 by 1.51 percentage points (95% paired-person bootstrap interval −2.25 to −0.80), while the Lee2019_MI difference was small and uncertain (+0.20 points, interval −0.52 to +0.97). The adverse result is reported directly. Comparisons reflect complete frozen pipelines, including their selected training durations.
+The completed Q15 evaluation covers 52 Cho2017 and 54 Lee2019_MI participants under a prespecified common 21-channel adapter. The shared-input pipeline had 1.513 percentage points lower balanced accuracy on Cho2017 (95% paired-person bootstrap interval −2.249 to −0.804), while the Lee2019_MI difference was small and uncertain (+0.204 points, interval −0.515 to +0.969). The adverse result is reported directly. Comparisons reflect complete frozen pipelines, including their selected training durations.
 
 The revision adds a separately frozen BNCI sensor-level physiological characterization, with fixed baseline/task intervals and participant-level μ/β descriptors. It examines these descriptions alongside saved source-LOSO performance without feeding them back into model selection. The manuscript distinguishes physiological signal description from evidence about what a decoder learned. This component covers nine BNCI participants and does not assert external physiological replication.
 
@@ -22,7 +22,7 @@ Code, saved predictions, contracts, event/file provenance and validation receipt
 
 This research received no funding. I declare no competing interests. I confirm that neither ethics approval nor an exemption was required for this secondary analysis of publicly available EEG recordings; no new participants were recruited.
 
-[Confirm originality, related publication/preprint history, exclusive submission, final manuscript approval and the journal-required AI-assistance disclosure before sending. These remaining confirmations have not been supplied.]
+**AUTHOR ACTION REQUIRED:** Confirm originality, related publication/preprint history, exclusive submission, actual contributions and final manuscript approval before sending. Complete `ai_disclosure_submission_draft.md`, including **AUTHOR TO CONFIRM MODEL/VERSION** and actual personal verification. These confirmations have not been supplied.
 
 Thank you for considering the manuscript.
 

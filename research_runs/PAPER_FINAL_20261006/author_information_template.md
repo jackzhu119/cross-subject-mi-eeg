@@ -2,7 +2,7 @@
 
 ## Title page
 
-**Working title:** Source-only model selection and limits of shared spectral representations in cross-subject motor-imagery EEG decoding
+**Working title:** Source-only model selection and limits of fixed spectral-sharing pipelines in cross-subject motor-imagery EEG decoding
 
 **Short title:** Source-only selection and spectral transfer in MI EEG
 
@@ -52,21 +52,12 @@ Original EEG is available from [BCI Competition IV dataset 2a/BNCI](https://www.
 
 [Add only a genuinely created archive DOI. Private R2 transport credentials and original EEG copies are not part of the public manuscript release.]
 
-## AI-assisted work — accurate disclosure draft
+## AI-assisted work — AUTHOR ACTION REQUIRED
 
-OpenAI Codex assisted repository inspection, literature/source checks, analysis and validation code, numerical consistency checks, figure/material production, and manuscript drafting/editing. Adapt the scope to the actual work used in the final submission and the chosen journal's current policy. A possible declaration after actual review is:
+OpenAI Codex assisted source and literature checks, analysis and validation code, saved-result consistency checks, figure/material preparation and manuscript drafting/editing. See `ai_disclosure_submission_draft.md` and the official IOP policy check in `evidence/quality_update/iop_ai_policy_check.json`.
 
-> During preparation of this manuscript, I used OpenAI Codex to assist with repository inspection, analysis-code development and consistency checks, figure preparation, and drafting and editing. I reviewed and edited the resulting material, verified scientific statements against the source data and analysis records, and take responsibility for the final manuscript.
+**AUTHOR TO CONFIRM MODEL/VERSION.** Describe actual personal critical review and verification before signing the disclosure. No claim of completed human review is prefilled. AI is not an author.
 
-The review/responsibility sentence depends on the author's actual review. Supply required tool/model/date details without guessing an unknown model version. Describe substantive drafting and code assistance accurately. Readable prose is not a claim of detector avoidance.
+## Approval and submission — AUTHOR ACTION REQUIRED
 
-## Final confirmations
-
-- [ ] Names, affiliation, correspondence and contribution statements are accurate.
-- [ ] I have read and approved the complete paper, supplements, figures and numerical results.
-- [ ] Institutional secondary-use requirements and original-source consent wording are verified.
-- [ ] Funding, interests, acknowledgments, permissions and licenses are accurate.
-- [ ] Disclosure and reporting meet the selected journal's current requirements.
-- [ ] Originality, overlap/preprints and exclusive-submission statements are accurate.
-
-No journal submission or author approval is asserted by this preparation template.
+Confirm actual CRediT contributions, final manuscript approval, originality/related publications and exclusive submission. No journal submission has been performed. Funding, competing-interest and secondary-analysis ethics statements are already author-confirmed.

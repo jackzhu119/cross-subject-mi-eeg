@@ -40,9 +40,9 @@ WORKFLOW_ROWS = (
         'label': 'B  Fixed target evaluation',
         'color': TARGET_COLOR,
         'boxes': (
-            ('Target adapter + gate', 'Metadata-defined channel / event map\nCommitted inference freeze'),
+            ('Target adapter + gate', 'Event/class metadata for eligibility\nand mapping\nCommitted inference freeze'),
             ('Fixed source inference', 'Frozen checkpoints + transforms\nDeterministic operators only'),
-            ('Saved predictions → score', 'Target labels for eligibility / scoring\nNo target parameter fitting'),
+            ('Saved predictions → score', 'Ground-truth labels used for scoring only\nNo target fitting or model selection'),
         ),
         'note': 'No target-based model selection, optimization, normalization fit, or feedback to source learning.',
     },
@@ -52,7 +52,7 @@ WORKFLOW_ROWS = (
         'boxes': (
             ('BNCI raw audit', '9 participants × 2 sessions\nPhysiological window eligibility'),
             ('Frozen signal recipe', 'Native-rate Welch band power\nFixed baseline / imagery windows'),
-            ('ERD / ERS + association', 'Participant-level μ / β descriptors\nAssociation with saved Q14 BA'),
+            ('Baseline-relative μ/β power\n+ association', 'Participant-level descriptors\nAssociation with saved binary LOSO BA'),
         ),
         'note': 'No tuning of decoders; a descriptive association does not identify a learned physiological mechanism.',
     },
@@ -94,10 +94,10 @@ def workflow(out=HERE):
             box = FancyBboxPatch((x, y), width, height, boxstyle='round,pad=.045,rounding_size=.08',
                 linewidth=.8, edgecolor=color, facecolor=color + '0D')
             ax.add_patch(box)
-            ax.text(x + width/2, y + .84, heading, color='#182024', fontsize=7.6,
+            ax.text(x + width/2, y + .84, heading, color='#182024', fontsize=7.1,
                     fontweight='bold', ha='center', va='center')
-            ax.text(x + width/2, y + .39, body, color='#283238', fontsize=7.25,
-                    linespacing=1.4, ha='center', va='center')
+            ax.text(x + width/2, y + .30, body, color='#283238', fontsize=7.25,
+                    linespacing=1.2, ha='center', va='center')
         for left, right in zip(xs[:-1], xs[1:]):
             ax.add_patch(FancyArrowPatch((left+width+.07, y+.56), (right-.07,y+.56),
                 arrowstyle='-|>', mutation_scale=8.5, linewidth=.9, color=color))

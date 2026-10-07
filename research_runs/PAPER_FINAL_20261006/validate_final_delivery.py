@@ -30,8 +30,8 @@ check('original_source_fits15_new_source0_target0', q15['original_source_fits'] 
 check('earlier_saved_prediction_review', internal['arm_count_recomputed'] == 38 and internal['prediction_rows_rescored_sum'] == 809434)
 check('final_scientific_review', review['status'] == 'scientific_and_numerical_review_passed' and not review['checks_failed'])
 refs = load('references.json')['references']
-check('26_verified_unique_references', len(refs) == len({r['key'] for r in refs}) == 26 and all(r['verified'] for r in refs))
-check('26_manuscript_references_cited', len(data['references']) == len(set(data['reference_keys'])) == 26)
+check('28_verified_unique_references', len(refs) == len({r['key'] for r in refs}) == 28 and all(r['verified'] for r in refs))
+check('28_manuscript_references_cited', len(data['references']) == len(set(data['reference_keys'])) == 28)
 reviewed_hashes = review['input_sha256']
 for name, digest in reviewed_hashes.items():
     check('review_binding_' + name, sha(OUT / name) == digest)

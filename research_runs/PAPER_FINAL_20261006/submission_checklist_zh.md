@@ -15,7 +15,7 @@
 - [ ] C3/C4 laterality 附绝对通道值；负的侧化差不自动代表绝对 ERD。生理与 BA 关联 n=9、六个描述性相关无 p 值，不作为机制证明，不反向调整模型。
 - [ ] Q16 BNCI 组件不等于外部 Cho/Lee 生理方案完成。模板传感器图不等于个体电极测量或皮层定位；常数增益不变性不能修复采集参考、提示时序或物理标定。
 
-## 必须由作者确认的信息
+## AUTHOR ACTION REQUIRED — 必须由作者确认的信息
 
 | 项目 | 作者需完成的操作 | 文件 |
 |---|---|---|
@@ -39,3 +39,13 @@
 - [ ] DOI 归档只在真实创建、元数据和许可确认后填写；本次没有 journal submission 或 archive DOI。
 
 当前材料提供作者可审阅的投稿稿件基础。自然语言质量应来自准确叙述、具体证据与人工修改；如实披露实际辅助范围，不承诺规避 AI 检测。
+
+## 本次文字与发布复核
+
+- [ ] 标题使用 fixed spectral-sharing pipelines；外部比较不暗示 parameter-sharing 的单因素因果。
+- [ ] Figure 1 使用 baseline-relative μ/β power，并区分 eligibility/mapping metadata、scoring-only ground truth 和 no target fitting/selection。
+- [ ] 主文说明 source validation 为 2/2/2/3 人四组、等 fold 权重；未重新评估 grouping sensitivity。
+- [ ] 新增两篇直接相关的 2025 DG 原始论文，保留其信息预算和选择流程的核查边界，不作 SOTA 对比。
+- [ ] 28 条引用连续、全部被引用；EEGPT 按官方会议页和 PDF 保留 Guagnyu Wang。
+- [ ] **AUTHOR TO CONFIRM MODEL/VERSION** 与本人实际审阅范围见 `ai_disclosure_submission_draft.md`。
+- [ ] 发布前执行 `release_plan.md`：冻结文件保护、当前数字和文档检查、包校验、GitHub 逐文件读回，均通过后才更新首页/归档；DOI 未创建时不填写。

@@ -94,3 +94,9 @@ Do not substitute Q14's 22×480 tensors, Lee `EEG_MI_test`/`smt`, changed event 
 Q16 covers BNCI only. It does not establish external sensor-level physiology, cortical localization, a learned decoder mechanism, behavioral compliance or neural recovery during a nominal pre-cue baseline. Constant-gain invariance of a dB ratio does not solve reference, montage or cue-timing differences. Q15 voltage calibration, Cho acquisition reference and hardware cue latency remain unverified.
 
 Use public result tables, protocols, code and receipts under the repository's actual LICENSE. Check each provider's current terms and citations separately; do not infer a common license or redistribute private transport copies. A DOI archive can be added after author, metadata and licensing review. No archive DOI or journal submission is claimed here.
+
+## Editorial release verification without scientific reruns
+
+The 7 October revision changes manuscript wording, reference metadata, schematic Figure 1 labels and export layout only. Run `validate_numeric_presentation.py` and `validate_final_delivery.py` in the paper directory to check saved numerical evidence and artifacts. `evidence/quality_update/protected_scientific_inputs.json` binds the prior scientific files. Do not execute the raw/model replay commands above merely to regenerate the manuscript.
+
+The external duration designs use fixed source-validation groups S1–S2, S3–S4, S5–S6 and S7–S9 with equal fold weighting despite group sizes 2/2/2/3. No new grouping-sensitivity experiment is introduced. `release_plan.md` describes candidate-tag, archive and GitHub readback gates; source data are linked at their original providers and are not redistributed. Submission approval and a DOI remain separate author/deposit actions.

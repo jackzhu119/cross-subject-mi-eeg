@@ -11,9 +11,9 @@
     "evidence/q16_plot_recipe.json": "1d4d406b3ab69e634e0ef545528919e39a31bcbfe2b7fdb1c62da70021cad71e"
   },
   "artifact_sha256": {
-    "figures/figure_workflow_zero_calibration.png": "5ced66cc08a07551542df2ee78fbab37572e390d899cc72bfdae455d60329784",
-    "figures/figure_workflow_zero_calibration.pdf": "148b7bfdebf2f3147f7ca06d13d32b04f3a1a5ad33bd668550e52c7b8cbf7601",
-    "figures/figure_workflow_zero_calibration.svg": "c4eddd6a7c4b6436b1e627a88c797c38022fa9912dd9bcaa43fbafdfdd405bd8",
+    "figures/figure_workflow_zero_calibration.png": "a6377c5cf3949f8eae60f8d91a965f68a735442bee841133bfae5a1da1c6f775",
+    "figures/figure_workflow_zero_calibration.pdf": "2b620c9488a71bb280a95b9e1e9267b6fe82ff25d04e7f80872a583c953c1b90",
+    "figures/figure_workflow_zero_calibration.svg": "1085e64ac07c551884cee2e1b7aa4b010a62da83d9d6b24663aefbf16e50eb21",
     "figures/figure_q16_bnci_physiology.png": "654db651727f7f0c73626a86abf4e1e9d69cf17a1f73dde324183d17a11fbeaf",
     "figures/figure_q16_bnci_physiology.pdf": "aa06d80460a072237a184064557b9e62c948e495f1cbf9de3998b9275aa90e56",
     "figures/figure_q16_bnci_physiology.svg": "9cdc59e7efb6dae6c1d2b367e28775a147aef7c0143bdc7f4756e57282c5720b",
@@ -82,5 +82,13 @@
     ],
     "fixed_color_clipped_values": 0,
     "layout_errors_observed": 0
+  },
+  "workflow_editorial_revision": {
+    "date_utc": "2026-10-07",
+    "change": "Baseline-relative mu/beta power terminology; eligibility/mapping metadata separate from scoring-only ground truth and no target fitting/selection",
+    "raw_EEG_loaded": false,
+    "scientific_data_changed": false,
+    "review": "PNG visually inspected by root: three separated lanes, readable box text, no feedback arrow or scientific-data change",
+    "script_sha256": "44b762941df2184a385c09a3b728a8e2af5c24470ecd5557b16fcfd592968cc5"
   }
 }
