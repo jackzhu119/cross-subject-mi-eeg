@@ -1,0 +1,824 @@
+{
+  "schema_version": 6,
+  "status": "scientific_and_numerical_review_passed",
+  "scope": "Current text/claim, export/presentation and saved-number consistency review. No frozen scientific result changed; archived raw and checkpoint validations retain their original scope and were not rerun.",
+  "created_at_utc": "2026-10-07T15:46:57.990270+00:00",
+  "checks": {
+    "language_exact_reviewed_prose_edit_map": {
+      "passed": true,
+      "evidence": [
+        "manuscript_content.json",
+        "language_refinement.json",
+        "evidence/language_refinement/prior_manuscript_content.json"
+      ],
+      "details": "Compared all 176 manuscript blocks and reviewed every accepted replacement: the 111 earlier semantic/editorial edits plus one spelling-only note replacement at index 163. Current exact map has 112 replacements, with no unlisted content difference."
+    },
+    "language_numbers_signs_and_citations_preserved": {
+      "passed": true,
+      "evidence": [
+        "manuscript_content.json",
+        "language_refinement.json"
+      ],
+      "details": "Every changed prose field preserves the ordered literal numeric sequence, including signs, p-values, intervals, n, trials, epochs, and citation tokens; semantic readings were also inspected."
+    },
+    "language_tables_equations_and_figure_specifications_unchanged": {
+      "passed": true,
+      "evidence": [
+        "manuscript_content.json",
+        "evidence/language_refinement/prior_manuscript_content.json"
+      ],
+      "details": "All table headers, rows and labels, all three equations including LaTeX, and all figure names/data references are unchanged. Only reviewed captions and table notes changed."
+    },
+    "language_references_28_unchanged": {
+      "passed": true,
+      "evidence": [
+        "manuscript_content.json",
+        "references.json",
+        "references.bib"
+      ],
+      "details": "Reference strings, ordering and keys are identical; this review introduces no literature-priority claim or new citation."
+    },
+    "language_scientific_display_and_source_assets_byte_preserved": {
+      "passed": true,
+      "evidence": [
+        "evidence/language_refinement/baseline_assets.json"
+      ],
+      "details": "Independently hashed all 66 frozen scientific display/source assets selected by the baseline inventory: tables, figure exports, archived Q16 files, primary number files and references; no mismatch."
+    },
+    "language_companion_edits_preserve_existing_numbers": {
+      "passed": true,
+      "evidence": [
+        "language_refinement.json",
+        "cover_letter_draft.md",
+        "cover_letter_JNE_draft.md",
+        "supplementary_methods.md"
+      ],
+      "details": "All 25 mapped companion replacements preserve ordered numeric/citation literals and occur in current files; manually reviewed scientific boundaries and the seven spelling-only additions."
+    },
+    "language_edited_prose_present_in_manuscript_en_exports": {
+      "passed": true,
+      "evidence": [
+        "manuscript_en.docx",
+        "manuscript_en.pdf"
+      ],
+      "details": "All 112 current accepted replacements occur in DOCX text and 33-page PDF text. Matching only normalizes whitespace/Unicode and removes recurring page footers; no scientific calculation is performed. Visual QA/native TeX compilation remain separate."
+    },
+    "language_edited_prose_present_in_manuscript_main_en_exports": {
+      "passed": true,
+      "evidence": [
+        "manuscript_main_en.docx",
+        "manuscript_main_en.pdf"
+      ],
+      "details": "All 96 current accepted replacements occur in DOCX text and 26-page PDF text. Matching only normalizes whitespace/Unicode and removes recurring page footers; no scientific calculation is performed. Visual QA/native TeX compilation remain separate."
+    },
+    "language_edited_prose_present_in_supplementary_materials_exports": {
+      "passed": true,
+      "evidence": [
+        "supplementary_materials.docx",
+        "supplementary_materials.pdf"
+      ],
+      "details": "All 16 current accepted replacements occur in DOCX text and 18-page PDF text. Matching only normalizes whitespace/Unicode and removes recurring page footers; no scientific calculation is performed. Visual QA/native TeX compilation remain separate."
+    },
+    "language_cover_contribution_precision_repaired": {
+      "passed": true,
+      "evidence": [
+        "cover_letter_JNE_draft.md",
+        "language_refinement.json"
+      ],
+      "details": "The independent review flagged ambiguity between selection-rule transfer and complete-pipeline transfer. The final journal-fit sentence now attributes transfer limits specifically to fixed spectral-sharing pipelines."
+    },
+    "language_chinese_mean_recovery_wording_repaired": {
+      "passed": true,
+      "evidence": [
+        "contribution_evidence_zh.md"
+      ],
+      "details": "The independent review flagged the potentially inferential word 显著. The repaired wording describes larger recoveries in a few participants without suggesting new individual/subgroup significance."
+    },
+    "language_repaired_cover_wording_in_exports": {
+      "passed": true,
+      "evidence": [
+        "cover_letter_JNE.docx",
+        "cover_letter_JNE.pdf"
+      ],
+      "details": "Both rendered submission-cover exports contain the precise repaired contribution statement."
+    },
+    "language_source_only_is_per_fit_not_outcome_blind": {
+      "passed": true,
+      "evidence": [
+        "manuscript_content.json: blocks 5, 17, 26–29, 37, 126–128",
+        "supplementary_methods.md"
+      ],
+      "details": "Target people are excluded from their corresponding fits/selection and frozen BatchNorm; deterministic signal processing, metadata and scoring remain permitted. Repeated outcome-informed BNCI development is explicitly exploratory; cross-provider identity nonoverlap and independent preregistration are not claimed."
+    },
+    "language_selection_diagnostic_not_general_rank_superiority": {
+      "passed": true,
+      "evidence": [
+        "manuscript_content.json: blocks 35, 37–39, 78–79, 113–114",
+        "evidence/paper_internal_numbers.json",
+        "paper_numbers.json"
+      ],
+      "details": "The S3 raw/normalized two-versus-16-epoch diagnostic supports a participant-specific duration explanation. Mean-rank invariance removes within-fold loss scale while discarding magnitude; nine-person outcome-informed development and concentration in S3/S8 limit generalization. Neither external stage compared rank with mean-loss selection."
+    },
+    "language_aggregate_gain_and_typical_person_distinguished": {
+      "passed": true,
+      "evidence": [
+        "manuscript_content.json: blocks 79, 83, 114, 122",
+        "evidence/paper_internal_numbers.json",
+        "tables/internal_subjects.csv",
+        "tables/q13_contrasts.csv"
+      ],
+      "details": "Frozen rank values 33.72%→42.67%, seven improvements/two ties, 87.57% S3/S8 share remain intact. Matched-runtime fixed duration retains +10.06 pp mean, −0.174 pp median, four improvements/five worsenings, interval [+0.68,+21.53] pp and p=0.125; no new heterogeneity or subgroup estimator is claimed."
+    },
+    "language_negative_null_and_adverse_internal_findings_retained": {
+      "passed": true,
+      "evidence": [
+        "manuscript_content.json: blocks 77, 84, 87–91, 122",
+        "tables/q13_contrasts.csv",
+        "tables/robustness_models.csv",
+        "paper_numbers.json"
+      ],
+      "details": "Normalization uncertainty/negative transfer, no internal sharing gain, all corrected-null source-count/session/selection and robustness families, and the adverse exploratory GroupDRO estimate remain. GroupDRO Holm p=0.140625 is not promoted to corrected discovery or general harm."
+    },
+    "language_original_small_sample_tests_and_intervals_not_interchanged": {
+      "passed": true,
+      "evidence": [
+        "manuscript_content.json: blocks 67–68, 83, 122, 158–159",
+        "evidence/paper_internal_numbers.json",
+        "tables/q13_contrasts.csv"
+      ],
+      "details": "Original versus supplementary bootstrap draws remain identified; archived nine-person sign sensitivity p=0.1797, conventional tie-excluding p=0.015625 and paired-t p=0.111 remain distinct. An unadjusted interval excluding zero does not override an exact/randomization or Holm-corrected null test."
+    },
+    "language_person_level_unit_and_conditional_uncertainty_retained": {
+      "passed": true,
+      "evidence": [
+        "manuscript_content.json: blocks 66–69, 101–102, 121",
+        "supplementary_methods.md",
+        "evidence/q15_numbers.json"
+      ],
+      "details": "Seeds and source subsets are averaged within person; Lee sessions are pooled before person/seed balanced accuracy. Target-person bootstrap intervals condition on frozen source models and omit source-cohort, adapter and development-history uncertainty. Sessions, seeds and prediction rows do not increase n."
+    },
+    "language_external_contrasts_are_complete_pipelines": {
+      "passed": true,
+      "evidence": [
+        "manuscript_content.json: blocks 18, 50, 54–57, 116–119, 127",
+        "evidence/q15_numbers.json",
+        "paper_numbers.json"
+      ],
+      "details": "Q14 broad/shared schedules 18/17 and Q15 schedules 14/19 remain. Separate montage/window/reference/checkpoints, two-view computation and BatchNorm exposure prevent isolated causal attribution to sharing, band decomposition or acquisition provider. External evaluations do not validate the internal selection-rule gain."
+    },
+    "language_external_adverse_uncertain_and_nonequivalence_preserved": {
+      "passed": true,
+      "evidence": [
+        "manuscript_content.json: blocks 94–104, 116, 122, 134",
+        "evidence/q15_numbers.json",
+        "tables/q15_model_summary.csv"
+      ],
+      "details": "PhysioNet +0.573 pp [−0.097,+1.242], p=0.06446 remains uncertain; Cho −1.513 pp [−2.249,−0.804], Holm p≈0.000100 remains adverse; Lee +0.204 pp [−0.515,+0.969], p≈0.604 remains uncertain and explicitly does not establish equivalence."
+    },
+    "language_monte_carlo_resolution_and_multiplicity_not_extended": {
+      "passed": true,
+      "evidence": [
+        "manuscript_content.json: blocks 67, 100–102, 122",
+        "evidence/q15_numbers.json"
+      ],
+      "details": "Q15 retains 20,000 sign flips, plus-one correction, raw Cho floor 1/20,001 and Holm family of exactly Cho/Lee primary contrasts; unadjusted bootstrap intervals are identified. Q15 does not silently include PhysioNet/internal hypotheses and different cohort significance is explicitly not a cohort-by-pipeline interaction test."
+    },
+    "language_class_recall_and_seed_diagnostics_remain_descriptive": {
+      "passed": true,
+      "evidence": [
+        "manuscript_content.json: blocks 103, 117, 169",
+        "tables/q15_model_summary.csv",
+        "tables/q15_seed_metrics.csv"
+      ],
+      "details": "Both Q15 cohorts retain decreased left-hand and increased right-hand mean recall under shared input. BA is a correct class-balanced summary; recall disaggregation does not prove label error, threshold miscalibration or a physiological/acquisition cause. Three fixed-seed SDs characterize those seeds and do not estimate the whole training-randomness population."
+    },
+    "language_post_outcome_bnci_only_physiology_scope": {
+      "passed": true,
+      "evidence": [
+        "manuscript_content.json: blocks 60–63, 69, 106–110, 123–124, 132, 173–175",
+        "evidence/q16_analysis/preprocessing_freeze.json",
+        "evidence/q16_analysis/summary.json"
+      ],
+      "details": "Q16 parameters follow known decoder outcomes and precede raw power calculation. All 5,184 trials including 488 flagged trials, 2,592 hand trials including 246 flags, nine people and six descriptive correlations are retained. No physiology p-values, external physiology, subgroup threshold or decoder feedback is introduced."
+    },
+    "language_physiology_window_precision_limit_retained": {
+      "passed": true,
+      "evidence": [
+        "manuscript_content.json: blocks 63, 109, 132, 175",
+        "supplementary_methods.md",
+        "evidence/q16_analysis/preprocessing_freeze.json"
+      ],
+      "details": "Fixed baseline [−1.5,−0.5) s has one Welch segment versus task [0.5,2.5) s with three overlapping segments. Unequal log-power precision can bias the ratio; it is not an unbiased ERD or mechanistic estimator. Linked decoder task window [0.5,3.5) s remains different."
+    },
+    "language_signed_laterality_and_correlation_direction_preserved": {
+      "passed": true,
+      "evidence": [
+        "manuscript_content.json: blocks 107–110, 123, 132, 174–175",
+        "evidence/q16_analysis/summary.json",
+        "evidence/q16_analysis/subject_hand_laterality.csv",
+        "evidence/q16_analysis/descriptive_associations.csv"
+      ],
+      "details": "Negative contralateral-minus-ipsilateral change need not mean absolute contralateral suppression: S2 mu remains −0.203 dB with both components positive (+1.491/+1.694). Broad beta rho=+0.600 means higher BA with larger/less-negative signed laterality, not benefit from stronger suppression. All six existing coefficients/signs and n=9 remain."
+    },
+    "language_physiology_replay_scope_not_inflated": {
+      "passed": true,
+      "evidence": [
+        "manuscript_content.json: blocks 173–175",
+        "cover_letter_JNE_draft.md",
+        "contribution_evidence_zh.md",
+        "evidence/q16_analysis/independent_validation.json"
+      ],
+      "details": "Archived independent raw spectral replay covers C3/Cz/C4 central sensors (31,104 trial/channel/band pairs), while identity/eligibility and saved-table aggregation cover the full population. No claim of all-22-channel raw algorithm replay, independent laboratory replication, cortical localization, biomarker or learned decoder mechanism was introduced."
+    },
+    "language_computational_validation_and_physical_calibration_separated": {
+      "passed": true,
+      "evidence": [
+        "manuscript_content.json: blocks 28, 51–52, 55, 58, 71, 129–132",
+        "cover_letter_JNE_draft.md",
+        "supplementary_methods.md",
+        "evidence/q15_numbers.json"
+      ],
+      "details": "Q14 saved-output portability validation is distinct from Q15 archived raw-to-prediction replay. Native numerical-as-microvolt convention, Cho hardware reference/cue latency and Lee one-sample indexing discrepancy remain disclosed. Passing numerical consistency cannot establish physical voltage equivalence, mechanistic attribution or online/clinical reliability."
+    },
+    "language_frozen_contribution_source_report_grounded": {
+      "passed": true,
+      "evidence": [
+        "evidence/language_refinement/frozen_statistical_contributions.json",
+        "evidence/language_refinement/frozen_statistical_contributions.md"
+      ],
+      "details": "Verified all 11 source-report input digests against its named baseline commit. The five candidate themes are existing selection diagnostics, mean/median/sign concentration, retained external adversity, class recalls and validation/physiology limits. No new inferential statistic, endpoint or experiment appears."
+    },
+    "language_three_primary_contributions_and_supporting_themes_proportionate": {
+      "passed": true,
+      "evidence": [
+        "contribution_evidence_zh.md",
+        "manuscript_content.json: blocks 7, 12, 113–134",
+        "cover_letter_JNE_draft.md"
+      ],
+      "details": "Current framing foregrounds three empirical contributions; class/seed diagnostics and validation/physiology supply support. Novel DG algorithm, first/SOTA, universal rank superiority, external physiological replication, equivalence and individualized clinical usefulness are not claimed. Evidence positions and limitations are inspectable."
+    },
+    "language_scholarly_language_and_meaning_review_complete": {
+      "passed": true,
+      "evidence": [
+        "language_refinement.json",
+        "manuscript_content.json",
+        "cover_letter_draft.md",
+        "cover_letter_JNE_draft.md",
+        "supplementary_methods.md"
+      ],
+      "details": "Reviewed all 112 manuscript replacements and 25 companion replacements: all earlier semantic edits retain their reviewed meaning, and exact prior-version hash reconstruction proves the final 13 manuscript/seven supplementary additions change ordinary spellings only. Concrete observations, estimands, counterexamples and adverse/null qualifications remain; language naturalness is an editorial judgment, not an AI-detection guarantee."
+    },
+    "language_author_ethics_and_ai_declarations_unchanged": {
+      "passed": true,
+      "evidence": [
+        "manuscript_content.json: blocks 73, 136, 138, 140, 142, 144, 147, 171",
+        "evidence/author_finalization/author_confirmations.json",
+        "ai_disclosure_submission_draft.md"
+      ],
+      "details": "All eight protected declaration/data/AI blocks are unchanged, including material Codex drafting/code/figure assistance and author-reported ChatGPT GPT-6; ethics/funding/conflicts/sole-author declarations remain author-confirmed rather than independently observed."
+    },
+    "language_current_edit_integrity_receipt_bound": {
+      "passed": true,
+      "evidence": [
+        "evidence/language_refinement/edit_integrity.json",
+        "validate_language_refinement.py"
+      ],
+      "details": "Current 783-check edit-integrity receipt has no failures and every input digest matches current bytes. This independent refresh also verifies exact edits, numeric/citation literals, frozen assets and reconstructed prior-version hashes."
+    },
+    "language_current_numeric_receipt_bound": {
+      "passed": true,
+      "evidence": [
+        "evidence/quality_update/numeric_review.json",
+        "validate_numeric_presentation.py"
+      ],
+      "details": "Existing current saved-evidence numeric receipt records 422 checks and 261 display cells and matches all 51 current input digests. This review reads that receipt and frozen values; it does not regenerate bootstrap/sign-flip tests, fit models or replay inference."
+    },
+    "language_new_editorial_author_approval_not_asserted": {
+      "passed": true,
+      "evidence": [
+        "evidence/language_refinement/edit_integrity.json",
+        "evidence/author_finalization/author_confirmations.json",
+        "submission_checklist_zh.md",
+        "contribution_evidence_zh.md"
+      ],
+      "details": "Prior scientific-candidate author approval remains recorded. No new author approval for this wording is independently observed or received; the current checklist explicitly requires the author to read the updated main paper, supplement and cover before submission."
+    },
+    "language_final_spelling_only_changes_exactly_reconstruct_prior_review": {
+      "passed": true,
+      "evidence": [
+        "manuscript_content.json",
+        "evidence/language_refinement/prior_manuscript_content.json",
+        "evidence/language_refinement/language_intro_methods.json",
+        "evidence/language_refinement/language_transfer_physiology.json",
+        "evidence/language_refinement/language_discussion_contributions.json",
+        "evidence/language_refinement/language_captions_submission.json"
+      ],
+      "details": "Reversing only the 13 final spelling edits, including new block-163 labelled-calibration note, exactly reproduces the prior reviewed manuscript SHA-256 ca62be762996f120596f40166f4a8f16d9cf6da3a9741a4beef372009e054838. Ordinary labelled/favourable/favoured/behaviour/Colours spellings change no scientific proposition; Oxford -ize forms, references, technical identifiers, frozen table/figure labels and eight declarations remain preserved."
+    },
+    "language_final_companion_spelling_only_changes_reconstruct_prior_review": {
+      "passed": true,
+      "evidence": [
+        "language_refinement.json",
+        "supplementary_methods.md",
+        "cover_letter_draft.md",
+        "cover_letter_JNE_draft.md"
+      ],
+      "details": "Reversing the seven added supplementary spelling-only replacements exactly reproduces its prior reviewed SHA-256 b03496a7006125e57ee367a24eeee93788ef9dd2be9ae36b84fa4f49c0447aac. Both cover drafts remain byte-identical to the preceding independent review. Current map contains 25 companion replacements in total."
+    },
+    "language_expanded_supplement_title_italics_markers_removed": {
+      "passed": true,
+      "evidence": [
+        "build_submission_variants.py",
+        "supplementary_methods.md",
+        "supplementary_materials.docx",
+        "supplementary_materials.pdf"
+      ],
+      "details": "Inspected the guarded exporter regex and verified that the expanded companion title is rendered without literal Markdown italics markers in both supplementary exports. Source title text and scientific content remain unchanged."
+    },
+    "language_protected_scientific_file_receipt_current": {
+      "passed": true,
+      "evidence": [
+        "evidence/quality_update/submission_integrity.json",
+        "validate_submission_revision.py"
+      ],
+      "details": "Current protected-scientific integrity receipt records 106 passing checks over 16,417 protected scientific files; no fitting/inference/experiment rerun. Independent 66-asset hashing above supplies a direct display/source subset cross-check."
+    },
+    "language_delivery_validator_separates_prior_approval_and_new_reading": {
+      "passed": true,
+      "evidence": [
+        "validate_final_delivery.py",
+        "evidence/language_refinement/edit_integrity.json",
+        "evidence/author_finalization/author_confirmations.json",
+        "submission_checklist_zh.md"
+      ],
+      "details": "Read-only inspection verifies delivery logic explicitly preserves prior scientific-candidate approval, rejects invented new editorial approval, and records author reading of revised wording before submission as remaining. No new author approval is claimed by this report; delivery validator was not executed here."
+    },
+    "language_current_submission_archive_contains_current_exports": {
+      "passed": true,
+      "evidence": [
+        "JNE_submission_package.zip",
+        "JNE_submission_package.zip.sha256",
+        "evidence/author_finalization/submission_package_review.json"
+      ],
+      "details": "Read-only archive inspection verifies 28 payload members plus MANIFEST.sha256 (29 physical file members). Every payload digest matches both the internal manifest and current source bytes; ZIP size is 6,360,371 bytes and archive/external SHA receipts match. Corrected split exports and journal cover are included; preparation is not journal submission."
+    },
+    "package_ZIP_exact_expected_28_payload_plus_one_manifest": true,
+    "package_ZIP_unique_safe_relative_paths": true,
+    "package_ZIP_CRC_integrity_passed": true,
+    "package_manifest_exactly_binds_expected_28_payload_members": true,
+    "package_all_28_member_SHA256_equal_embedded_manifest_and_current_files": true,
+    "package_manifest_matches_current_preparation_receipt_inputs": true,
+    "package_ZIP_SHA256_and_bytes_match_preparation_receipt": true,
+    "package_ZIP_checksum_sidecar_matches": true,
+    "package_preparation_receipt_builder_SHA256_matches": true,
+    "package_no_raw_EEG_checkpoints_credentials_private_runtime_members": true,
+    "package_DOCX_and_PDF_have_no_embedded_objects_or_payloads": true,
+    "package_no_common_credential_signatures_in_package_text_XML_PDF": true,
+    "package_separate_main_supplement_cover_bib_docs_and_18_figure_exports": true,
+    "package_combined_manuscript_not_duplicated_in_submission_ZIP": true,
+    "package_formal_DOCX_PDF_and_source_submission_body_identical": true,
+    "package_formal_cover_has_no_internal_placeholders_actions_or_draft_notes": true,
+    "package_formal_cover_English_signature_no_CJK_missing_or_replacement_glyphs": true,
+    "package_formal_cover_correct_contact_affiliation_address": true,
+    "package_formal_cover_two_pages_both_freshly_visually_inspected_no_boxes": true,
+    "package_cover_audits_source_only_selection_and_fixed_pipeline_transfer_limits": true,
+    "package_cover_retains_adverse_external_results_and_descriptive_physiology_limits": true,
+    "package_README_requires_author_reread_of_new_wording_before_actual_submission": true,
+    "package_README_records_remaining_portal_ORCID_licensing_and_review_PDF_actions": true,
+    "package_README_reports_unverified_native_TeX_and_ReportLab_exports": true,
+    "package_all_eight_protected_AI_author_ethics_and_declaration_blocks_unchanged": true,
+    "package_main_DOCX_PDF_retain_full_actual_Codex_scope_and_author_reported_GPT6": true,
+    "package_disclosure_no_fabricated_all_session_GPT6_or_personal_full_validation_claim": true,
+    "package_cover_AI_scope_retains_author_reported_ChatGPT_and_established_Codex": true,
+    "package_references_unchanged_and_exactly_28": true,
+    "package_all_18_archive_figure_exports_byte_unchanged": true,
+    "package_paper_numbers_byte_unchanged": true,
+    "package_refinement_evidence_reports_zero_new_fits_inference_statistics_and_pending_author_read": true,
+    "package_refinement_integrity_receipt_binds_current_manuscript_and_edit_map": true,
+    "package_main_and_supplement_hashes_page_counts_match_current_export_receipt": true,
+    "package_independent_report_excluded_from_archive_inputs_and_no_self_circular_binding": true,
+    "layout_pdf_text_spans_within_physical_pages": true,
+    "layout_pdf_images_within_physical_pages": true,
+    "layout_pdf_images_within_manuscript_printable_width": true,
+    "layout_pdf_no_replacement_or_null_text_glyphs": true,
+    "layout_all_docx_body_paragraph_strings_present_in_pdf": true,
+    "layout_all_docx_table_cell_strings_present_in_pdf": true,
+    "layout_all_pdf_tables_complete_on_caption_page": true,
+    "layout_all_pdf_figure_captions_share_image_page": true,
+    "layout_docx_images_within_printable_width": true,
+    "layout_docx_table_header_repeat_enabled": true,
+    "layout_docx_all_table_rows_prevent_split": true,
+    "layout_docx_table_captions_keep_next": true,
+    "layout_docx_table_text_explicit_9pt": true,
+    "layout_main_combined_supplementary_docx_page_fields": true,
+    "layout_no_working_manuscript_footer": true,
+    "layout_last_reference_shares_page_with_other_references": true,
+    "layout_author_and_contact_details_present_pdf_docx": true,
+    "layout_main_combined_author_contribution_and_AI_disclosure_present": true,
+    "layout_all_current_pdf_pages_visually_inspected_in_contact_sheets": true,
+    "layout_current_visual_samples_no_text_or_box_clipping": true,
+    "layout_current_scientific_figure_labels_complete": true,
+    "layout_supplementary_companion_title_no_literal_markdown_asterisks": true,
+    "layout_UK_ordinary_narrative_matches_declared_convention": true,
+    "numeric_422_checks_261_display_cells_passed": true,
+    "protected_16417_scientific_files_unchanged": true,
+    "current_language_numeric_citation_and_asset_checks_passed": true,
+    "current_106_integrity_checks_passed": true,
+    "all_secondary_review_bindings_current": true,
+    "JNE_package_current_member_hashes_verified": true,
+    "native_TeX_compilation_unverified_not_claimed": true,
+    "prior_author_approval_retained_new_approval_not_invented": true,
+    "no_journal_submission_acceptance_or_DOI_claim": true
+  },
+  "checks_failed": [],
+  "input_sha256": {
+    "../../README.md": "e384836d8dd132981ec1473a6f650bf47e420983bbc044535200e3cc378a9fdb",
+    "JNE_submission_README.md": "c3315773e307cb66fa15e1675332ed1544b86c663a4f71ab640f2a37ccec86e2",
+    "JNE_submission_package.zip": "a6785695d74877f22101e979bee19c4980e1e8a95cae9d9a6f57013cb89d0e64",
+    "JNE_submission_package.zip.sha256": "d23a280fbf5a7fb64097d41f06215762a9d53f5201dc76becb95b9ee18df1c52",
+    "README.md": "d967ca4ae30d811b65fd5b9605c9f65676142dac867a4b3ded09b842e554b172",
+    "ai_disclosure_submission_draft.md": "d0c8834c8259b6a492c4944595fe7efef84ce064f913ae15f131374879be4f61",
+    "apply_language_refinement.py": "0578ef79f01292001101332d8c79c7a50e50152b98f83f989d8e37160b113e50",
+    "audit_q15_numbers.py": "32fc42c39f81571c84ca40bb3c9a53d2e70abbb4d9217d80cf24979a08cf1a2a",
+    "author_information_template.md": "39f324ef4fed0c99d02fb579998dff51e1a3edef83af42633d9a213327ff0662",
+    "build_bibliography.py": "abb58eb4e601f127c6dc2226195b450ba10047b4a63fd516d54b7c2a6011d799",
+    "build_content.py": "4551ecc7f1c6eb5f917f2dd8616711b69d0d72d9dc89b92de5684dc27bb8167b",
+    "build_figures.py": "4e731497d16f4d320dc4dc113e91558eeaec0e3a270803619813539076bae8d5",
+    "build_q15_figures.py": "e5f6d12732b97c782fdfab8d451376da93997dae7203c48b4ba0698c33ab3251",
+    "build_q16_figures.py": "44b762941df2184a385c09a3b728a8e2af5c24470ecd5557b16fcfd592968cc5",
+    "build_revision_content.py": "b9da7e116d550bc3b60991b56a3136374551fb20d2bed7d87342fb77cb94c3ab",
+    "build_submission_variants.py": "75208440d3f15e014e51813f1efe7223e63a18d7dfade4fede8400ab2eb1045e",
+    "contribution_evidence_zh.md": "22da75fe55b243f73e27f30d10abb4ef9dd6dd6e631e98b2b0a5bdf7e3dd7a89",
+    "cover_letter_JNE.docx": "f32570677788c8f43aad9c6385ae718a1d6eeaec8b24dbce1ce0e637f0efda03",
+    "cover_letter_JNE.pdf": "98e12f06fb0ceeb6a6e1d58667eedd79ca6e62fc52f79271ebc257528d0f5f23",
+    "cover_letter_JNE_draft.md": "b3269a8d2bed303a730b4ee95eba25633ac2062b610e9b79dd5f5d8ab7f38b5a",
+    "cover_letter_draft.md": "a286162a4880a14b1160dbed11c10f6526f65617de379df4b934fd31652e5ec4",
+    "evidence/affiliation_official_recheck_20261007.json": "e2f302871f0bd74bf1fe3dd0eebb37f32c33b0ea60ae5f00ed41f3ff3b906ba6",
+    "evidence/affiliation_official_recheck_20261007.md": "8fe5952e9c8dd6c3057f64818e12528146ada07225853e744a55c56dfae41507",
+    "evidence/affiliation_verification.json": "ad138a449b126883e6f8b7c05c4faa4c4d34ee1c0cfb9ec27debf2421b1382a0",
+    "evidence/affiliation_verification.md": "69eae7d2810d6d0c75778d6c9430009c16c3de96a0b19a49b479c0e9e039bb54",
+    "evidence/author_declarations.json": "617a2ed6e87fcc41303f4ee540b8a44a46cf42a75497e1f40000622e5cce6359",
+    "evidence/author_finalization/author_confirmations.json": "35bbbd0ed7e36791c7180778a2b7d4c01fd0c8e49e838bf0691175e34747aea0",
+    "evidence/author_finalization/author_editorial_review.json": "034973b67b9ff539727e923ca26d8afafe5fe73708016d6f70bfccfb5bdcca18",
+    "evidence/author_finalization/author_editorial_review.md": "b27ff30cdf9ef4028c3dc9f367de6b2ad06f2ac53b44f73e3e7b52cda858837e",
+    "evidence/author_finalization/content_diff_review.json": "3ab0c9ec2f885cf8b276dc3ca7af7c84335b75a3687a30b6e87d0f34cd961ba3",
+    "evidence/author_finalization/iop_ai_policy_fresh_check.json": "662c7c2e007fc7933255307ef57a07ae41341ff5787ee0b0fa19e4882b00a7b8",
+    "evidence/author_finalization/jinyun_address_summary.json": "f6ff09d37c8e865b036a83e3983f83085f54ce1f3301958244185cbc7eb3c84b",
+    "evidence/author_finalization/jinyun_address_verification.md": "7da1a8268331de9573e5e963b64d8cee66653c0cc7a51b852f3b1f2f2cc80455",
+    "evidence/author_finalization/jinyun_official_sources.json": "ca5a25f9785d54f28febe62ca23c4017c39416c4dc99f0641bfe27898c1d78ed",
+    "evidence/author_finalization/prior_evidence__author_declarations.json": "7a6a06046c6d2d36bd897f5bebde0b9da44837bdd395c77350f87a798b75060f",
+    "evidence/author_finalization/prior_evidence__final_scientific_review.json": "ac207331c0f9fe43c10ef13c423227d3767eb87005aed5934b9727abf4d8f051",
+    "evidence/author_finalization/prior_evidence__final_scientific_review.md": "11eac53fe8cad7eaaa5198444b88151c12180eaad3b6e7c7ed3dee37f537a19e",
+    "evidence/author_finalization/prior_evidence__quality_update__layout_review.json": "b2c894a8797a59a4ae574b0243ba890017f13d28e80107876c5455213180bf5f",
+    "evidence/author_finalization/prior_evidence__quality_update__layout_review.md": "e7cd6eb454fb2f42b14c40d4d941e2d4baef38c9af2fa13497d20879386a8b6a",
+    "evidence/author_finalization/prior_evidence__quality_update__submission_editorial_review.json": "64d51058633d29df3d1dcb9c345329b4abb9877bf2ae160c370411474235e4ba",
+    "evidence/author_finalization/prior_evidence__quality_update__submission_editorial_review.md": "6bf71d5887468df27ec55938a1426407ae2075cfa8a6f728eca4967967cdae7d",
+    "evidence/author_finalization/prior_manuscript_content.json": "2a779122b1b97f8a2d495f6572eda77470ff3d9dc3d602c6fb42ced83c856919",
+    "evidence/author_finalization/submission_package_independent_review.json": "39ff1517da1ad788533e9c09ce348740be7c55c12915e64f194ad8fefd2d4af6",
+    "evidence/author_finalization/submission_package_independent_review.md": "246f0d986a7c25b434df67943f24b1e72518011d5ea026246fdbdb007f6033b2",
+    "evidence/author_finalization/submission_package_review.json": "329084139b1c65055402c9e07fe7e044690651775a3516f8ccea17f5e3d6c4cc",
+    "evidence/declaration_update/prior_final_scientific_review.json": "6d909380e5fd522f7e6d38a74148e0ca533cf7e7d9070f55f168e9d13902d52a",
+    "evidence/declaration_update/prior_final_scientific_review.md": "ee374970b3fd812d24a959d18a0fa2993db2c2b9294717dc04b699ac8799d756",
+    "evidence/declaration_update/prior_manuscript_content.json": "9aaba666ab04a29fad1dcc3ef98ff215fc96c81d2646097dbbaa1e413615accb",
+    "evidence/export_report.json": "4181e43275672938700d6ec79d291f191075ffbb7f6419cbe84faa6b9db074e0",
+    "evidence/figures_q15.json": "363d108567a13906d148838aa4c2f13d1dcd5bf535c65edf0dd8329f7a519371",
+    "evidence/figures_q16.json": "7c59bb10d2abff53656a28baf71b076268afb47faaa52a983eb8f6325163aa36",
+    "evidence/internal_review.json": "eca7b28dbd835ce4c723af0fc1f2d0e4d93d365826af9af8835570e01510a1de",
+    "evidence/internal_review.md": "983f04cf9f33aa3b9caa10edf68383d819c9759c9ae1fe785814b6a621155f9b",
+    "evidence/journal_sources.json": "70f2ec0cb4fd9175336312ab1395034a8c04cfd411ca6dea1f6c3d1c1cc8dfb0",
+    "evidence/language_refinement/baseline_assets.json": "8dd6323ada111c01c4b7028841115acd77451286dd9edaddd632ff7fefb88b9c",
+    "evidence/language_refinement/edit_integrity.json": "04367f58e184157fa78b143f7c8fa85a6c8a0d13c95918b108cbec9275c5fb2f",
+    "evidence/language_refinement/frozen_statistical_contributions.json": "3e3d0e4824de9e49a082b7d0989a047567c61364862d8ac7fcd2fe60d4503f65",
+    "evidence/language_refinement/frozen_statistical_contributions.md": "f8d978e4a6c22705a9ce14831b94752f2612369f23373d2bd4ea1a0944cc3371",
+    "evidence/language_refinement/independent_scientific_language_review.json": "832020945e7bfe9262656cec25d9a324d90a549394e1df114f14bf23624d1cc8",
+    "evidence/language_refinement/independent_scientific_language_review.md": "848f06ac3e32e85dba531fc9bb067b4643d65aaeedafe290277142c2b9e4bc42",
+    "evidence/language_refinement/language_captions_submission.json": "be155f37edc7aeb4ec26fc0eee417ddb2feaad24e5de54d9babdd6bd8f183a34",
+    "evidence/language_refinement/language_discussion_contributions.json": "c2679d7252ec3ab0d1cb24e8ddb198f5fa350afb9787e766b629ef4d4f40d2e9",
+    "evidence/language_refinement/language_intro_methods.json": "0bae0ae031be3ce07f7c2ccde29b9c59e1e93b8dd03dc02fd504a52aff4b92d2",
+    "evidence/language_refinement/language_transfer_physiology.json": "f449a87533c94ed635c083f4454353d48e24eaf5d215c95a9f1f43cfe5ae3a2d",
+    "evidence/language_refinement/layout_binding_correction.json": "ef350a39a5fdd5b39fac0ca467ffdd62171f17ff65aa200bdc879e4436686fb9",
+    "evidence/language_refinement/prior_cover_letter_JNE_draft.md": "af924b41e5fd99a8a287da78910a479e636750cf6c86833f56d7ca414b884626",
+    "evidence/language_refinement/prior_cover_letter_draft.md": "8366ad65d1e99c431a89ade4d24f508c26ae77d6b23770918a2f5c93a75ad3c9",
+    "evidence/language_refinement/prior_evidence__author_finalization__author_editorial_review.json": "034973b67b9ff539727e923ca26d8afafe5fe73708016d6f70bfccfb5bdcca18",
+    "evidence/language_refinement/prior_evidence__author_finalization__submission_package_independent_review.json": "39ff1517da1ad788533e9c09ce348740be7c55c12915e64f194ad8fefd2d4af6",
+    "evidence/language_refinement/prior_evidence__delivery_validation.json": "f8cb331f3340f59fade3f58c005211bf52f5cf60a5628084d6e5daa5e71a8e44",
+    "evidence/language_refinement/prior_evidence__final_scientific_review.json": "3fd9cef9e6781c04f1cf9a8e41a963b0ce9abd1b3ccbdf35621994e08aefc415",
+    "evidence/language_refinement/prior_evidence__final_scientific_review.md": "e721b8e857da12b7c138b75ec36395ab47fd7b9a459cc150566a5cb8736ccdec",
+    "evidence/language_refinement/prior_evidence__quality_update__layout_review.json": "59466d79cd938eb7811d47b3e5f2f0b117c3edc90bef207f37829d704fb54e69",
+    "evidence/language_refinement/prior_evidence__quality_update__layout_review.md": "e4f1be2783827c0b6ade82f059500c1d817bcdf47207fc6905c70bed57f468fb",
+    "evidence/language_refinement/prior_evidence__quality_update__numeric_review.json": "30555f942c3202338f721d746c3e29edab5df60fb52493f9cc5d9459ced09f1c",
+    "evidence/language_refinement/prior_evidence__quality_update__submission_editorial_review.json": "58a6b98c25c037f06f65aa0e31bf9f5d74a1ece6e16daf2377cd0795550239a4",
+    "evidence/language_refinement/prior_evidence__quality_update__submission_editorial_review.md": "57fff26841bbba3aba7be707b6cc82c522b0c2efb60737f15955145c000aa621",
+    "evidence/language_refinement/prior_evidence__quality_update__submission_integrity.json": "fa843e2b9f6358086096e16750c46447844653610c8d9eb501eee0b16cbf0081",
+    "evidence/language_refinement/prior_manuscript_content.json": "d67e0c52e90ee84bbca96ecd3136ff5b476ed22e59d6d30bbcf46a6b1901ca7f",
+    "evidence/language_refinement/prior_supplementary_methods.md": "8af81c769768d645e6e36abda1c13d912b5895d918a5c379788796cd0885b35b",
+    "evidence/language_refinement/submission_package_independent_review.json": "a9d1328888d2c4f7fe90c2a407821f77bdf21e733d179f5c621c1ac91bde6929",
+    "evidence/language_refinement/submission_package_independent_review.md": "867b81eaea0e0018c862e73c50706fe7e662dbfbc8a8f630094f48c73c2d98e6",
+    "evidence/methods_q15.json": "1ab8d541f28266271d1b03862307418bc0727e02475503a99c6e6c39c84ef117",
+    "evidence/methods_q15.md": "fb85941c6b0fa9e7585d3e6b246f1f7bd031159341e1c77496981ea566f18ad7",
+    "evidence/native_latex_check.json": "36e28dbd05f11bade4ba5266e8bdd5569e74542f5e41e4f02530019c483dfe00",
+    "evidence/paper_internal_numbers.json": "ee80adf3b0d30cc286f966cff0461ae8dc70506ad259503b37c9c32d803de03a",
+    "evidence/physiology_reference_verification.json": "588821f00ac4cd4f86a1f7968f2f8b962662da6dabf078776cd5bd688286fa64",
+    "evidence/previous_draft/claim_ledger.json": "8577df0db14760ea04d375ef2d901fbf8bb2a5138b24710a47881219e16a8f15",
+    "evidence/previous_draft/independent_numbers.json": "d46a5b32c2285126950b13d9fe8be805f0e460d8e71a145b8fda633e84d7c108",
+    "evidence/previous_draft/independent_numbers.md": "3ce7838e7ce5945ec7cac32f52978abf94d65fe79ccb6746da43b672b95793f1",
+    "evidence/previous_draft/inventory_provenance.json": "ad19a74ef9e4bcddc2e45e9bfce8b4ab35102dbb76109414a405a89c97416cc7",
+    "evidence/previous_draft/latex_editor_status.json": "86a4200bc20e21fb30c86c1800e7fcd96116ecf907bd58d9867140eb176b94f0",
+    "evidence/previous_draft/manuscript_content.json": "40f9a9d85814a27350ad39b16805879ac63815b1241de3733ea8238d611b85d8",
+    "evidence/previous_draft/methods_and_references.json": "852aa49c9e48f4acf532de7ae49e3995e8dae8757335f1ee472189eac66c5e7e",
+    "evidence/previous_draft/methods_and_references.md": "135154aeae819fe7d71cdfbe0299906fa74c268e7594a4c09f549c86f14dfa57",
+    "evidence/previous_draft/q12_q14_review.json": "9dfc00c38308d041b9c4e92cced8b05f2879e672ac9b234603d182168dcec587",
+    "evidence/previous_draft/q12_q14_review.md": "7182ac19c98f96a3822b1c91ffaad722a83e4e9b5f7317a82318a78c2c55fe16",
+    "evidence/previous_draft/q4_q11_review.json": "77abe68abfd6ac957fbbb2422dab18ffffc91b12fb500fd1b5a3573a13f5d835",
+    "evidence/previous_draft/q4_q11_review.md": "751823fe50b264cf0c05307d92fb2056b71add481b7d6b04c207c3f4bc536a58",
+    "evidence/previous_draft/reference_details.json": "b2e0f79f6eb59f52a44730295b82352f65809a3f33fdcb99a1b6160d4610566a",
+    "evidence/previous_draft/source_snapshot.json": "1d4ac4f7c12a9991037cd6949d3cdb7336b3f98768a9301a382087f0430ff7da",
+    "evidence/q15_numbers.json": "b8fccf6b5361652dc962017b0ce9caf2523362524b38be8ac9db6ce66db05f4f",
+    "evidence/q15_numbers.md": "7768bc53ca41ebc9da3414d5e39d50cc459fb706d293085a3db9f09b3b73f706",
+    "evidence/q16_analysis/PROTOCOL.md": "324de523771d69cfefb45f824e2532b9a5458040d140c237bd4af5a7cc7dfab3",
+    "evidence/q16_analysis/analysis_method_review.json": "8444a46e7186f84503f998d25dc5a892b67e9b51f8277fa9f472c8ae851536fc",
+    "evidence/q16_analysis/analysis_method_review.md": "d8149ba0388ce5029b0e7fd1d4acaec3277c8207c89392931e67ea5621657818",
+    "evidence/q16_analysis/artifact_stratum_band_summary.csv": "68c9f91f74051cd497302780e58a424f904636feeadaae7c338206c661d6d15f",
+    "evidence/q16_analysis/descriptive_associations.csv": "9d94c1345722cf54e2d2205a960a70cc044b4a6656e0cb1a44b71a03ca9333aa",
+    "evidence/q16_analysis/freeze_publication_receipt.json": "3dbe8a34f8f44dc2663b16f089a5648ac023ab4b021524125f776e6ff187e214",
+    "evidence/q16_analysis/frozen_subject_performance.csv": "018f78d09c710a67bdad3d8de0ec2d568a5eba38305267692448641878f90922",
+    "evidence/q16_analysis/independent_validation.json": "e687d09f0cd7f55e1a172bd631f47d660674909ffa1ad5ffee5df14917dc1615",
+    "evidence/q16_analysis/independent_validation.md": "3828b68b5d2571a604a983e342139674c8241c15dcbc4cbfa997ea6ab6d47f6e",
+    "evidence/q16_analysis/metadata_audit.json": "1131b74c165373c3a85a4bcac9f7328fd80d14e6f3decdfa01bd3f1e542c0438",
+    "evidence/q16_analysis/pre_execution_method_review.json": "8444a46e7186f84503f998d25dc5a892b67e9b51f8277fa9f472c8ae851536fc",
+    "evidence/q16_analysis/pre_execution_method_review.md": "d8149ba0388ce5029b0e7fd1d4acaec3277c8207c89392931e67ea5621657818",
+    "evidence/q16_analysis/preprocessing_freeze.json": "c07a25e5de0c608cf405e728c0c85d1e0fae74e8e916d36e2cffad17d2ee3c01",
+    "evidence/q16_analysis/raw_source_receipt.json": "df2e2a9d3acd00f020d3ce405f1bd21a4987b2374f326ed40c1f1a2caebd6608",
+    "evidence/q16_analysis/run_manifest.json": "2fe8b8d1df751c440f35c7311691220668857d45ecac6734220fb12c8dc379d5",
+    "evidence/q16_analysis/subject_band_summary.csv": "602644fce191b3227cc10505657ee0fbf4eaba024e5c9aec1e576e1cf653089f",
+    "evidence/q16_analysis/subject_hand_laterality.csv": "b5974addf834c72ed0887788cc60e8186ee433817d4f69da99245fe8a9cb265b",
+    "evidence/q16_analysis/subject_physiology_performance.csv": "dd629406539748639e0283eed287a5b199985ed4fba4b5a757a583214227b925",
+    "evidence/q16_analysis/subject_session_band_summary.csv": "abe8aba16f175c1efda7520e51b94fd5c2956cc29e169a62811643fd38d32dc3",
+    "evidence/q16_analysis/subject_session_hand_laterality.csv": "9a555435c4b9742864afd45c43d17d1c04233ba8c3e7b743df1ec8f9faab0570",
+    "evidence/q16_analysis/subject_session_hand_pair_summary.csv": "f6572595f02d798093414a45a88b42f28660b0a60b29ee2eff8a2ee6cea6bffe",
+    "evidence/q16_analysis/summary.json": "9d2e4a646742d9e84393d6bf92febd4248824796fe34ce7178caa045bf0d27ea",
+    "evidence/q16_analysis/trial_power.csv.gz": "527991a3df2fbc8e30a7d0134e7971f2ddf06bee5fc732c6db03a42545cf6fb9",
+    "evidence/q16_plot_recipe.json": "1d4d406b3ab69e634e0ef545528919e39a31bcbfe2b7fdb1c62da70021cad71e",
+    "evidence/quality_update/crossref_10.1109_JBHI.2024.3431230.json": "3845245cb5779c053d0c52f02de7aa4f0b98f0f81a02ba5273f3394800237d0b",
+    "evidence/quality_update/crossref_10.3390_bioengineering12050495.json": "bd3910ffc1155cba4f306007a14b5ee2d3393d3f67349ae95b64beb910e90cf5",
+    "evidence/quality_update/iop_ai_policy_check.json": "87fd0af4ad8df56e046e754b083812ac457cf69cc39d6a9e0312a53ff0187be2",
+    "evidence/quality_update/layout_review.json": "5ab57d24999e933d82e098df983fdbd8b6416d56aa0b303777f1c45a42606f72",
+    "evidence/quality_update/layout_review.md": "7edc1dae36e8516d67ddfa32606858ddde8bef371d3fa18a6c1db16657360ebe",
+    "evidence/quality_update/numeric_review.json": "3e89ad46faf814158f6352e5146562af58d71dc00cd7aaaea26b58f758abc562",
+    "evidence/quality_update/numeric_review.md": "a5524cf301b9d57a1aa009becee3b30e1b6e28e458d8132d82e3d782263fafc0",
+    "evidence/quality_update/prior_figures_q16.json": "b0765dc4565c3dea967309b60baa4e55e4d1bc6f4c57610569043f42ed95704f",
+    "evidence/quality_update/prior_final_scientific_review.json": "240ca7b61452c05ce876b2711e9430c548a8fcef442f921787f3bde0dea0c5b4",
+    "evidence/quality_update/prior_final_scientific_review.md": "f9d37367e9832310ffa25137ed7477376033d3672914539bde7ba2135b3df153",
+    "evidence/quality_update/prior_manuscript_content.json": "6d9fe12c7639ac5999c96436a442b363b900667595537312d44262ca8f93ddc4",
+    "evidence/quality_update/protected_scientific_inputs.json": "0478253e5d3548f4ebbc811eea7d4ecbced73afc48e26bf40313f44982ce4c30",
+    "evidence/quality_update/recent_dg_literature.json": "84ade90dac8d5348ccb69fb0572ab04c2df02bb9e239cbc32b678a940d5b456b",
+    "evidence/quality_update/recent_dg_literature.md": "b475c5c8bce553f7b3e9a35f08cb6eaac33265ccfda9739e653679d562558bf9",
+    "evidence/quality_update/submission_editorial_review.json": "f08364cda1090e20397aa197d7714ee34ee58e8e9f0e3dbded349d4800dd53df",
+    "evidence/quality_update/submission_editorial_review.md": "02c51858273d8a3f1f757de2e8cee74a96c3c63715a83bdb4811d09a5b5c5521",
+    "evidence/quality_update/submission_integrity.json": "6e49e8557b71d4d9afb2549eca479f63c9ad9c40ece3b8c94fbe3c4ec2cdb66a",
+    "evidence/recent_eeg_reference_verification.json": "7e32c01dce75420792ce5dd336c98332449f537e47bbcf0b5592a6d7da3af654",
+    "evidence/reference_order.json": "1eb84f2ee9df3dbdd4844ebbb693bc3cf40c3b1ca1edc42a9e71ce111be483cf",
+    "evidence/render_checks/current_author_declarations.png": "7d4f3c1eae372f8a709a141f2fa6653aedfad55dc47936c16fb61662f12da3be",
+    "evidence/render_checks/current_page_01.png": "34ae440697392c3e797eb47213372ea4958d0e3501a8277055c4407f7d4eaeb0",
+    "evidence/render_checks/current_page_04.png": "452735747ec9a7bb4a7766710af5152a3f7a3afc865410d7a64fbf2969e00a0f",
+    "evidence/render_checks/current_page_08.png": "2cfe6e49f5abae9e7016bc8d3f6fe3f8c47939a5ff16a8d3eca469ec354ece9d",
+    "evidence/render_checks/current_page_19.png": "4147130049403cc7b19b29ea90970181cba427818007b236f34c478eda277da1",
+    "evidence/render_checks/current_page_20.png": "a43650b9ba3fa84864f41931b80dcbe1be443103393533f7a3a6383cd5261e6e",
+    "evidence/render_checks/current_page_31.png": "22bb1c0691ac0bef792c5558ae74da346a51d8d0bbbef6c389cb930f03d15021",
+    "evidence/render_checks/supp_methods_page_15.png": "340104dd19335df4c0592f5802f9926266b97bd914d4f35aba5446cb8f4c4cab",
+    "evidence/render_checks/supp_methods_page_16.png": "da3625d8d734622ef7a32b42d37bab7e4cbdd742bd0451988da3017028920903",
+    "evidence/render_checks/supp_pipe_page.png": "bd43ac465022b8712bde7a93f2a8528e8355b734f497c13423379c73f905424d",
+    "evidence/render_checks/visual_review.json": "0357dc1e8d82e0408d60536f0909c6a400ee2102cc8c209acbeeb0d03bb764a3",
+    "evidence/submission_exports.json": "b7cdef0f944159fad22adee9de2e56f819f592b856cd742ada97f8e236b68614",
+    "export_jne_submission_package.py": "560e5cffb069617c15d3b657faff6e1741726085e0db50b1b39b8743f05c9323",
+    "export_manuscript.py": "526b1f7bb7c5c0fcf5bb67b188f324c36b92d45b3ac526db68019b219f7b9ff6",
+    "figures/figure1_selection_and_s3.pdf": "874c375cfaa87970a970bd2d64e22097d56945831dabf923fd3a5e1242dd9b64",
+    "figures/figure1_selection_and_s3.png": "86538328564c0062c1d9dabf21251071e1a02cc3ccde5a0d46d9884ee0eb733e",
+    "figures/figure1_selection_and_s3.svg": "67e260ab97cce4831efda9fb5fd51a083dc35090c501a3af4eedca4eaeacdefb",
+    "figures/figure2_source_count_and_runtime.pdf": "436e1f17c7bf84734de9f35ec69fdab6b84604e9b2b1fa941ffdabefa544a245",
+    "figures/figure2_source_count_and_runtime.png": "dcb1dc20e344a4110428d4eadbfb77634d7ba19d0cd1c9146c76e14818c15098",
+    "figures/figure2_source_count_and_runtime.svg": "3a30c05065c2ba5b7acb6c069267da1581c25f833c8b1f77250311fbe7e0a7cc",
+    "figures/figure3_external_primary.pdf": "023149d604b03ca01901a602635a82876c1b5a7aac50f86edab458171cb87bf3",
+    "figures/figure3_external_primary.png": "8ebc12054a9132b2661917bbf02b8965bb648c9bf09f16bff9e45d7a2202db40",
+    "figures/figure3_external_primary.svg": "c81c087962ab7f3c29808740fa5a5328b6074a50757260dbe50bd81362f96acb",
+    "figures/figure4_q15_external_transfer.pdf": "c4fddd82de9085711950a8a574aa73372cb4e84e9dc8e41607359c6f8a9df29f",
+    "figures/figure4_q15_external_transfer.png": "14ad3b5fa1a9eff99fd063d6d86872f3efd0550d3747e0b280122f59e8b04a80",
+    "figures/figure4_q15_external_transfer.svg": "b2f41164e6d417cfbfc6209bf05b882fbce783a1eb4f17506efa848612db3f50",
+    "figures/figureS1_robustness_heterogeneity.pdf": "1c2bc2544a434298fe5b211d8d7f3b275945553780f014795a8c81dcb426544d",
+    "figures/figureS1_robustness_heterogeneity.png": "aefbbe338c8440ed9eaee95b5a487ebb9e89c0091885f65aa7d08eea54760a51",
+    "figures/figureS1_robustness_heterogeneity.svg": "b1a9c57d10b18d0641df65fc41577c0054baec13451212fc047ac43778490a8f",
+    "figures/figureS2_q15_participant_heterogeneity.pdf": "c07251603556c28f4822522b7a8024b22a400a3779a86e323912d94cdb7a82a1",
+    "figures/figureS2_q15_participant_heterogeneity.png": "16c7535df988daf34ef6d08fc861e55d2b1d5ea8d8ee984a09e8831c5570c749",
+    "figures/figureS2_q15_participant_heterogeneity.svg": "34fe69ad6830755935ff52bcb44bd5ce8709889de9e3001eb6c5574f966e006f",
+    "figures/figureS_q16_physiology_associations.pdf": "da1a96996c47be79f450ba59c3a0a4424218841a03a0302d27ed275326fe9338",
+    "figures/figureS_q16_physiology_associations.png": "3a6c45c05302195fe8af6cb59c7c2332d0c37d57cfb44c44e6df01135101018d",
+    "figures/figureS_q16_physiology_associations.svg": "57b8165b6ea3023511686197100b162c34a0f962357e8b017d3ca8596ec9f81e",
+    "figures/figure_q16_bnci_physiology.pdf": "aa06d80460a072237a184064557b9e62c948e495f1cbf9de3998b9275aa90e56",
+    "figures/figure_q16_bnci_physiology.png": "654db651727f7f0c73626a86abf4e1e9d69cf17a1f73dde324183d17a11fbeaf",
+    "figures/figure_q16_bnci_physiology.svg": "9cdc59e7efb6dae6c1d2b367e28775a147aef7c0143bdc7f4756e57282c5720b",
+    "figures/figure_workflow_zero_calibration.pdf": "2b620c9488a71bb280a95b9e1e9267b6fe82ff25d04e7f80872a583c953c1b90",
+    "figures/figure_workflow_zero_calibration.png": "a6377c5cf3949f8eae60f8d91a965f68a735442bee841133bfae5a1da1c6f775",
+    "figures/figure_workflow_zero_calibration.svg": "1085e64ac07c551884cee2e1b7aa4b010a62da83d9d6b24663aefbf16e50eb21",
+    "finalize_language_review.py": "78aa94ee80e53b53a3f482fc0a5594863cb5140c35cc3a7f64c99de628c32c5d",
+    "journal_strategy_zh.md": "3e39d0daa8e39ca203055c9bda03eff0bd13886356665dbf25a00d2e00c0b8f7",
+    "language_refinement.json": "b500a639139f58500c50a1e2bc774693daa45957e6f97e129ab3a807ed3cfcbd",
+    "manuscript.tex": "a33e07de65f66358f3cadf9fadbadf5ea21a2a3bd8eee7a36ffcf988a34f094f",
+    "manuscript_content.json": "29d4d2acb993fc66f790588d8fdab6b5bc6d9330328f835c30363c038bb1052d",
+    "manuscript_en.docx": "355fc95b55943955a3442e9e99a2912810b40ded856b673254dd1f97ae43b3e8",
+    "manuscript_en.md": "14005a2115f4dc2fffa30c7047048b8b058a8e67888d77427c1974d98fe79556",
+    "manuscript_en.pdf": "be556789234c8ff4cbd8f6fbc7a211d0de41aa7b04e2056d9bde0db88350683d",
+    "manuscript_main_en.docx": "b08aeb397d8f3dc5d82ca4391bedf9d8b04a6f7f3021cb42833c41a371287fda",
+    "manuscript_main_en.pdf": "e9726d6d2cab9fec1f75689a7236c59d87c62d462e1ed82ad9596c1b6688108d",
+    "package_final_delivery.py": "a4b49232a5892ab4a6e21d29424172c3adf8b70fc84486eff8cd20cd9a44b044",
+    "paper_numbers.json": "852358d70b6d600be0be0d246938301eb6a79e80de0db5663dbdd94ff365e571",
+    "references.bib": "1b3c041c3afaff39ef5731f836036887042331260923ae95f7dcaa28d5333226",
+    "references.json": "70a76cc2f8fc2ae6d284fb3dee912b964bdd51c34f94a69edb0daf7827f761a0",
+    "release_plan.md": "fbc207a412418c058bc3ea7a600cd2094033ecab77ddbdfaf6e0963f226f3801",
+    "reproducibility_readme.md": "9c9fb0819b4594ac4a03cf2d556f59110c9e41c25a907e2711c1e7835a2c5c39",
+    "requirements-paper.txt": "412078023c7da006a77f76c34c9d3e0bdfe844383aab9ae12cab8431780d0a2b",
+    "revision_change_log.md": "829a63311fbf1611488d2954318c59997ee550df26f8ef53680af4dddba4f4e0",
+    "submission_checklist_zh.md": "ccf50f8bca690b54c65f95de07b14b857636e0ec3539cdb5481fa8de854c1fb7",
+    "supplementary_inventory.md": "d3378beba4e9e0f7791a223a4ce5239e38c5472493dbb1ff6d9ddf0f29f14935",
+    "supplementary_materials.docx": "040ac6b650aa9d722de8e5d9b49c57db02a2222ba376fb2bf95b153b6bf613ac",
+    "supplementary_materials.pdf": "319cb29eab0c310ae018fba3b9271ee8a0c7830460beccd4235a8ee1c078f439",
+    "supplementary_methods.md": "a8e979007246aa5de6ae6766e62c4d977aebff199502148f4cd441abf9fc4e3d",
+    "tables/completed_experiment_inventory.csv": "244e1d996b4d857d12145443bad14723a9b85e96ae4c2fc88f3609bd2285fd91",
+    "tables/completed_internal_inventory.csv": "763c20a5a8bf3857f37ab9e727523039b9c2ac476c7c026b44e9675ff0a23fa5",
+    "tables/early_binary_qc_inventory.csv": "285074ac1a9e747e1e7b63022120548b91b7b9510cd01fe8f190052081db7d28",
+    "tables/external_subjects.csv": "e1d39bcb10486abd70935665ceee11721cc04f6741ef9de79e2498825d449f2a",
+    "tables/four_class_models.csv": "6200e6f65473c0b64add5e3ca3635410f8351f6b00941e3bad74d5bb60bbe6da",
+    "tables/internal_subjects.csv": "a2c2a1d9e6c8f7cae94365d0b122bc370b806ea603f55a76e9f7c530bd081832",
+    "tables/q13_contrasts.csv": "4cddc6e6e0df996cc8720d8d0ea43dac3632f4dcd34c7e4ac31d2fa4d2e3a669",
+    "tables/q15_external_subjects.csv": "bb770dc0397002eac8bc108183c2d2df29b2b3a2cbc2cc7aeb10500c149825e6",
+    "tables/q15_model_summary.csv": "61826db3053e7784949c4900f31eefe4c1db9f878337feed2f0ccc9721acc76c",
+    "tables/q15_seed_metrics.csv": "8234536458eb3e5788f5c14ccbea1b94eb0b2dd94e7e9327e1211707026ed551",
+    "tables/q16_sensor_geometry.csv": "b214744a5439a73bdc016387ffd4701f8493b1f173771133f8fe96618c0663a5",
+    "tables/robustness_models.csv": "fdd0ab1635d583f4165783b6d9cf03e9112bec6440f1969feca855122418bb14",
+    "tex_figures.py": "b8d4b7fc0ed24976d565e42d0fd2ab95180d27a0c6c9c2635a28ccdd4da88dc9",
+    "tex_q15_figures.py": "f0f945806fbbde121e3bb990598dcdc84f7f67d8b699e8761097984430db063d",
+    "tex_q16_figures.py": "9206819d52004a82534e210651e835b2c37de1b93ad207e408849e93893b916e",
+    "validate_final_delivery.py": "19e7a0637fe972f25443f9830103fad8328df901fc2f233479a76e4e740b028b",
+    "validate_language_refinement.py": "4efe9e01d10bbebfab475985ca0b341ff4f728d70a68de689926fa0d1aee200d",
+    "validate_numeric_presentation.py": "8672a2bebb06471141f757eaecf2cc5ceffec21dfe7909593a8c25dc7ac28ab4",
+    "validate_submission_revision.py": "14573b9a70d46cbcf667f3324a051151d31b0c59d4bd8196e32f401c99c2251a",
+    "中文说明.md": "70c105ad834d01c069e797756678456bd2db3fb25853588b6339189cd43348a9"
+  },
+  "bound_artifact_count": 230,
+  "manuscript_block_count": 176,
+  "reference_count": 28,
+  "new_fits": 0,
+  "new_checkpoint_inference": 0,
+  "new_decoder_inference": 0,
+  "new_statistical_outputs": 0,
+  "raw_EEG_processed": false,
+  "checkpoints_deserialized": false,
+  "archived_Q16_independent_raw_replay": {
+    "status": "independent_raw_and_saved_evidence_validation_passed",
+    "raw_replay": {
+      "all_class_artifact_flags_retained": 488,
+      "all_trial_channel_band_rows_checked": 228096,
+      "binary_artifact_flags_retained": 246,
+      "eligibility_reason_row_counts": {
+        "eligible": 228096
+      },
+      "independent_algorithm": "closed_form_OLS_linear_detrend_explicit_periodic_Hann_numpy_rFFT_onesided_periodograms_manual_trapezoid",
+      "logratio_absolute_tolerance_db": 1e-10,
+      "manual_baseline_task_power_comparisons": 62208,
+      "manual_central_channel_band_pairs_replayed": 31104,
+      "maximum_absolute_logratio_difference_db": 7.105427357601002e-15,
+      "maximum_relative_power_difference": 1.847193004695259e-15,
+      "minimum_baseline_gap_after_previous_nominal_imagery_samples": 520,
+      "n_labeled_native_runs": 108,
+      "n_nominal_previous_imagery_checks": 5076,
+      "power_relative_tolerance": 1e-10,
+      "raw_event_identities_replayed": 5184,
+      "raw_files_sha256_verified": 18
+    },
+    "saved_performance_replay": {
+      "metric_input_sha256": "b756700f8e22f7dcb760c8f9ee7a4e0fa7f42d9f93c237d29ab728a66d4a7de5",
+      "n_people": 9,
+      "new_checkpoint_inference": 0,
+      "new_decoder_fits": 0,
+      "performance_source": "Q14-E001_binary_BNCI_source_LOSO",
+      "saved_prediction_files_reverified": 63,
+      "saved_prediction_rows_recomputed": 18144,
+      "source_only_fit_manifests_checked": 135,
+      "target_fit_count_from_manifests": 0,
+      "validator_input_sha256": "f96296e2dec3bb45f1eddca2deb0fa4b200f2ab3066f60e4e646232b6e414d53"
+    },
+    "aggregations_summary": {
+      "all_six_descriptive_correlations": [
+        {
+          "band": "mu",
+          "eligibility_reason": "eligible",
+          "model": "BROAD_EEGNET",
+          "n_subjects_expected": 9,
+          "n_subjects_with_descriptor": 9,
+          "p_value_computed": false,
+          "primary_descriptive_context": true,
+          "spearman_rho": -0.15
+        },
+        {
+          "band": "beta",
+          "eligibility_reason": "eligible",
+          "model": "BROAD_EEGNET",
+          "n_subjects_expected": 9,
+          "n_subjects_with_descriptor": 9,
+          "p_value_computed": false,
+          "primary_descriptive_context": true,
+          "spearman_rho": 0.6
+        },
+        {
+          "band": "mu",
+          "eligibility_reason": "eligible",
+          "model": "MU_BETA_SHARED",
+          "n_subjects_expected": 9,
+          "n_subjects_with_descriptor": 9,
+          "p_value_computed": false,
+          "primary_descriptive_context": false,
+          "spearman_rho": -0.083333333333333
+        },
+        {
+          "band": "beta",
+          "eligibility_reason": "eligible",
+          "model": "MU_BETA_SHARED",
+          "n_subjects_expected": 9,
+          "n_subjects_with_descriptor": 9,
+          "p_value_computed": false,
+          "primary_descriptive_context": false,
+          "spearman_rho": 0.483333333333333
+        },
+        {
+          "band": "mu",
+          "eligibility_reason": "eligible",
+          "model": "CSP4_LDA",
+          "n_subjects_expected": 9,
+          "n_subjects_with_descriptor": 9,
+          "p_value_computed": false,
+          "primary_descriptive_context": false,
+          "spearman_rho": 0.066666666666667
+        },
+        {
+          "band": "beta",
+          "eligibility_reason": "eligible",
+          "model": "CSP4_LDA",
+          "n_subjects_expected": 9,
+          "n_subjects_with_descriptor": 9,
+          "p_value_computed": false,
+          "primary_descriptive_context": false,
+          "spearman_rho": 0.316666666666667
+        }
+      ],
+      "equal_session_equal_person_aggregation_verified": true,
+      "full_aggregation_absolute_tolerance": 1e-11,
+      "laterality_rows_recomputed": 54,
+      "p_values_computed": false,
+      "paired_trial_laterality_verified": true,
+      "population_rows_recomputed": 24
+    }
+  },
+  "claim_boundaries": [
+    "The analysis supports implementation-specific source-selected pipelines, rather than an isolated causal effect of sharing or a state-of-the-art method comparison.",
+    "Internal duration-selection results remain exploratory and concentrated; source-only fitting does not erase prior benchmark outcome access or overlapping LOSO source cohorts.",
+    "Q14 and Q15 retain separate protocols, fits, populations and tests; Q14 includes a post-partial-run metadata amendment.",
+    "Q15 bootstrap intervals condition on frozen source artifacts and exclude source-cohort, adapter and development-history uncertainty; Lee is not an equivalence result.",
+    "Q16 was specified after decoder outcomes but frozen before new raw-power computation; all six nine-person associations remain descriptive.",
+    "The archived independent Q16 raw FFT replay covers central C3/Cz/C4 pairs only. All 22-channel saved rows are checked for keys, guards and arithmetic, not independently recomputed from raw signal by this final reviewer.",
+    "Baseline Welch precision differs from task precision. Scalp ratios are fixed-estimator native-numeric descriptions, not unbiased ERD estimates, calibrated physical powers or cortical-source claims.",
+    "Negative signed laterality alone is not absolute contralateral suppression; positive beta rho relates higher balanced accuracy to a larger, less-negative descriptor.",
+    "External physiology, artifact-free mechanism, decoder attribution, biomarkers, online or clinical performance, independently verified cross-provider identities and physical server shutdown are outside the evidence.",
+    "No funding, no competing interests and no required ethics approval/exemption remain author-confirmed. Prior sole-authorship, originality/exclusive-submission and scientific-candidate approval declarations are retained. New editorial wording requires author reading before actual submission; no new human approval is invented."
+  ],
+  "remaining_author_confirmation_items": [
+    "read_revised_wording_before_actual_submission"
+  ],
+  "prior_scientific_candidate_author_approval_retained": true,
+  "new_editorial_version_author_approval_received": false,
+  "remaining_submission_actions": [
+    "Author reads and approves the revised wording before actual submission; prior scientific-candidate approval is retained.",
+    "Author verifies original cited sources in accordance with IOP requirements.",
+    "Author completes the JNE portal submission, checks the generated review PDF and accepts the relevant submission/licensing agreements.",
+    "Register ORCID if required by the submission portal; no ORCID identifier is invented."
+  ],
+  "historical_scientific_review": {
+    "path": "evidence/language_refinement/prior_evidence__final_scientific_review.json",
+    "sha256": "3fd9cef9e6781c04f1cf9a8e41a963b0ce9abd1b3ccbdf35621994e08aefc415",
+    "fresh_raw_or_checkpoint_replay": false,
+    "prior_exact_export_bindings_are_historical_not_current": true
+  },
+  "fresh_secondary_reviews": {
+    "numeric_checks": 422,
+    "numeric_cells": 261,
+    "language_integrity_checks": 783,
+    "edited_blocks": 112,
+    "companion_edits": 25,
+    "independent_language_checks": 40,
+    "independent_package_checks": 35,
+    "layout_checks": 23,
+    "protected_scientific_files": 16417,
+    "submission_integrity_checks": 106
+  },
+  "native_TeX_compilation_confirmed": false,
+  "journal_submission_performed": false,
+  "archive_DOI_created": false
+}

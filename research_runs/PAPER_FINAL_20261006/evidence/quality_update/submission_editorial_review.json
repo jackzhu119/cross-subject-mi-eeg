@@ -1,0 +1,441 @@
+{
+  "schema_version": 3,
+  "status": "submission_editorial_semantic_review_passed",
+  "reviewed_at_utc": "2026-10-07T15:46:57.990270+00:00",
+  "scope": "Current independent prose/claim review. Older author/scientific receipts remain historical; changed paragraphs are reviewed by the current report, not certified through stale hashes.",
+  "checks": {
+    "exact_reviewed_prose_edit_map": {
+      "passed": true,
+      "evidence": [
+        "manuscript_content.json",
+        "language_refinement.json",
+        "evidence/language_refinement/prior_manuscript_content.json"
+      ],
+      "details": "Compared all 176 manuscript blocks and reviewed every accepted replacement: the 111 earlier semantic/editorial edits plus one spelling-only note replacement at index 163. Current exact map has 112 replacements, with no unlisted content difference."
+    },
+    "numbers_signs_and_citations_preserved": {
+      "passed": true,
+      "evidence": [
+        "manuscript_content.json",
+        "language_refinement.json"
+      ],
+      "details": "Every changed prose field preserves the ordered literal numeric sequence, including signs, p-values, intervals, n, trials, epochs, and citation tokens; semantic readings were also inspected."
+    },
+    "tables_equations_and_figure_specifications_unchanged": {
+      "passed": true,
+      "evidence": [
+        "manuscript_content.json",
+        "evidence/language_refinement/prior_manuscript_content.json"
+      ],
+      "details": "All table headers, rows and labels, all three equations including LaTeX, and all figure names/data references are unchanged. Only reviewed captions and table notes changed."
+    },
+    "references_28_unchanged": {
+      "passed": true,
+      "evidence": [
+        "manuscript_content.json",
+        "references.json",
+        "references.bib"
+      ],
+      "details": "Reference strings, ordering and keys are identical; this review introduces no literature-priority claim or new citation."
+    },
+    "scientific_display_and_source_assets_byte_preserved": {
+      "passed": true,
+      "evidence": [
+        "evidence/language_refinement/baseline_assets.json"
+      ],
+      "details": "Independently hashed all 66 frozen scientific display/source assets selected by the baseline inventory: tables, figure exports, archived Q16 files, primary number files and references; no mismatch."
+    },
+    "companion_edits_preserve_existing_numbers": {
+      "passed": true,
+      "evidence": [
+        "language_refinement.json",
+        "cover_letter_draft.md",
+        "cover_letter_JNE_draft.md",
+        "supplementary_methods.md"
+      ],
+      "details": "All 25 mapped companion replacements preserve ordered numeric/citation literals and occur in current files; manually reviewed scientific boundaries and the seven spelling-only additions."
+    },
+    "edited_prose_present_in_manuscript_en_exports": {
+      "passed": true,
+      "evidence": [
+        "manuscript_en.docx",
+        "manuscript_en.pdf"
+      ],
+      "details": "All 112 current accepted replacements occur in DOCX text and 33-page PDF text. Matching only normalizes whitespace/Unicode and removes recurring page footers; no scientific calculation is performed. Visual QA/native TeX compilation remain separate."
+    },
+    "edited_prose_present_in_manuscript_main_en_exports": {
+      "passed": true,
+      "evidence": [
+        "manuscript_main_en.docx",
+        "manuscript_main_en.pdf"
+      ],
+      "details": "All 96 current accepted replacements occur in DOCX text and 26-page PDF text. Matching only normalizes whitespace/Unicode and removes recurring page footers; no scientific calculation is performed. Visual QA/native TeX compilation remain separate."
+    },
+    "edited_prose_present_in_supplementary_materials_exports": {
+      "passed": true,
+      "evidence": [
+        "supplementary_materials.docx",
+        "supplementary_materials.pdf"
+      ],
+      "details": "All 16 current accepted replacements occur in DOCX text and 18-page PDF text. Matching only normalizes whitespace/Unicode and removes recurring page footers; no scientific calculation is performed. Visual QA/native TeX compilation remain separate."
+    },
+    "cover_contribution_precision_repaired": {
+      "passed": true,
+      "evidence": [
+        "cover_letter_JNE_draft.md",
+        "language_refinement.json"
+      ],
+      "details": "The independent review flagged ambiguity between selection-rule transfer and complete-pipeline transfer. The final journal-fit sentence now attributes transfer limits specifically to fixed spectral-sharing pipelines."
+    },
+    "chinese_mean_recovery_wording_repaired": {
+      "passed": true,
+      "evidence": [
+        "contribution_evidence_zh.md"
+      ],
+      "details": "The independent review flagged the potentially inferential word 显著. The repaired wording describes larger recoveries in a few participants without suggesting new individual/subgroup significance."
+    },
+    "repaired_cover_wording_in_exports": {
+      "passed": true,
+      "evidence": [
+        "cover_letter_JNE.docx",
+        "cover_letter_JNE.pdf"
+      ],
+      "details": "Both rendered submission-cover exports contain the precise repaired contribution statement."
+    },
+    "source_only_is_per_fit_not_outcome_blind": {
+      "passed": true,
+      "evidence": [
+        "manuscript_content.json: blocks 5, 17, 26–29, 37, 126–128",
+        "supplementary_methods.md"
+      ],
+      "details": "Target people are excluded from their corresponding fits/selection and frozen BatchNorm; deterministic signal processing, metadata and scoring remain permitted. Repeated outcome-informed BNCI development is explicitly exploratory; cross-provider identity nonoverlap and independent preregistration are not claimed."
+    },
+    "selection_diagnostic_not_general_rank_superiority": {
+      "passed": true,
+      "evidence": [
+        "manuscript_content.json: blocks 35, 37–39, 78–79, 113–114",
+        "evidence/paper_internal_numbers.json",
+        "paper_numbers.json"
+      ],
+      "details": "The S3 raw/normalized two-versus-16-epoch diagnostic supports a participant-specific duration explanation. Mean-rank invariance removes within-fold loss scale while discarding magnitude; nine-person outcome-informed development and concentration in S3/S8 limit generalization. Neither external stage compared rank with mean-loss selection."
+    },
+    "aggregate_gain_and_typical_person_distinguished": {
+      "passed": true,
+      "evidence": [
+        "manuscript_content.json: blocks 79, 83, 114, 122",
+        "evidence/paper_internal_numbers.json",
+        "tables/internal_subjects.csv",
+        "tables/q13_contrasts.csv"
+      ],
+      "details": "Frozen rank values 33.72%→42.67%, seven improvements/two ties, 87.57% S3/S8 share remain intact. Matched-runtime fixed duration retains +10.06 pp mean, −0.174 pp median, four improvements/five worsenings, interval [+0.68,+21.53] pp and p=0.125; no new heterogeneity or subgroup estimator is claimed."
+    },
+    "negative_null_and_adverse_internal_findings_retained": {
+      "passed": true,
+      "evidence": [
+        "manuscript_content.json: blocks 77, 84, 87–91, 122",
+        "tables/q13_contrasts.csv",
+        "tables/robustness_models.csv",
+        "paper_numbers.json"
+      ],
+      "details": "Normalization uncertainty/negative transfer, no internal sharing gain, all corrected-null source-count/session/selection and robustness families, and the adverse exploratory GroupDRO estimate remain. GroupDRO Holm p=0.140625 is not promoted to corrected discovery or general harm."
+    },
+    "original_small_sample_tests_and_intervals_not_interchanged": {
+      "passed": true,
+      "evidence": [
+        "manuscript_content.json: blocks 67–68, 83, 122, 158–159",
+        "evidence/paper_internal_numbers.json",
+        "tables/q13_contrasts.csv"
+      ],
+      "details": "Original versus supplementary bootstrap draws remain identified; archived nine-person sign sensitivity p=0.1797, conventional tie-excluding p=0.015625 and paired-t p=0.111 remain distinct. An unadjusted interval excluding zero does not override an exact/randomization or Holm-corrected null test."
+    },
+    "person_level_unit_and_conditional_uncertainty_retained": {
+      "passed": true,
+      "evidence": [
+        "manuscript_content.json: blocks 66–69, 101–102, 121",
+        "supplementary_methods.md",
+        "evidence/q15_numbers.json"
+      ],
+      "details": "Seeds and source subsets are averaged within person; Lee sessions are pooled before person/seed balanced accuracy. Target-person bootstrap intervals condition on frozen source models and omit source-cohort, adapter and development-history uncertainty. Sessions, seeds and prediction rows do not increase n."
+    },
+    "external_contrasts_are_complete_pipelines": {
+      "passed": true,
+      "evidence": [
+        "manuscript_content.json: blocks 18, 50, 54–57, 116–119, 127",
+        "evidence/q15_numbers.json",
+        "paper_numbers.json"
+      ],
+      "details": "Q14 broad/shared schedules 18/17 and Q15 schedules 14/19 remain. Separate montage/window/reference/checkpoints, two-view computation and BatchNorm exposure prevent isolated causal attribution to sharing, band decomposition or acquisition provider. External evaluations do not validate the internal selection-rule gain."
+    },
+    "external_adverse_uncertain_and_nonequivalence_preserved": {
+      "passed": true,
+      "evidence": [
+        "manuscript_content.json: blocks 94–104, 116, 122, 134",
+        "evidence/q15_numbers.json",
+        "tables/q15_model_summary.csv"
+      ],
+      "details": "PhysioNet +0.573 pp [−0.097,+1.242], p=0.06446 remains uncertain; Cho −1.513 pp [−2.249,−0.804], Holm p≈0.000100 remains adverse; Lee +0.204 pp [−0.515,+0.969], p≈0.604 remains uncertain and explicitly does not establish equivalence."
+    },
+    "monte_carlo_resolution_and_multiplicity_not_extended": {
+      "passed": true,
+      "evidence": [
+        "manuscript_content.json: blocks 67, 100–102, 122",
+        "evidence/q15_numbers.json"
+      ],
+      "details": "Q15 retains 20,000 sign flips, plus-one correction, raw Cho floor 1/20,001 and Holm family of exactly Cho/Lee primary contrasts; unadjusted bootstrap intervals are identified. Q15 does not silently include PhysioNet/internal hypotheses and different cohort significance is explicitly not a cohort-by-pipeline interaction test."
+    },
+    "class_recall_and_seed_diagnostics_remain_descriptive": {
+      "passed": true,
+      "evidence": [
+        "manuscript_content.json: blocks 103, 117, 169",
+        "tables/q15_model_summary.csv",
+        "tables/q15_seed_metrics.csv"
+      ],
+      "details": "Both Q15 cohorts retain decreased left-hand and increased right-hand mean recall under shared input. BA is a correct class-balanced summary; recall disaggregation does not prove label error, threshold miscalibration or a physiological/acquisition cause. Three fixed-seed SDs characterize those seeds and do not estimate the whole training-randomness population."
+    },
+    "post_outcome_bnci_only_physiology_scope": {
+      "passed": true,
+      "evidence": [
+        "manuscript_content.json: blocks 60–63, 69, 106–110, 123–124, 132, 173–175",
+        "evidence/q16_analysis/preprocessing_freeze.json",
+        "evidence/q16_analysis/summary.json"
+      ],
+      "details": "Q16 parameters follow known decoder outcomes and precede raw power calculation. All 5,184 trials including 488 flagged trials, 2,592 hand trials including 246 flags, nine people and six descriptive correlations are retained. No physiology p-values, external physiology, subgroup threshold or decoder feedback is introduced."
+    },
+    "physiology_window_precision_limit_retained": {
+      "passed": true,
+      "evidence": [
+        "manuscript_content.json: blocks 63, 109, 132, 175",
+        "supplementary_methods.md",
+        "evidence/q16_analysis/preprocessing_freeze.json"
+      ],
+      "details": "Fixed baseline [−1.5,−0.5) s has one Welch segment versus task [0.5,2.5) s with three overlapping segments. Unequal log-power precision can bias the ratio; it is not an unbiased ERD or mechanistic estimator. Linked decoder task window [0.5,3.5) s remains different."
+    },
+    "signed_laterality_and_correlation_direction_preserved": {
+      "passed": true,
+      "evidence": [
+        "manuscript_content.json: blocks 107–110, 123, 132, 174–175",
+        "evidence/q16_analysis/summary.json",
+        "evidence/q16_analysis/subject_hand_laterality.csv",
+        "evidence/q16_analysis/descriptive_associations.csv"
+      ],
+      "details": "Negative contralateral-minus-ipsilateral change need not mean absolute contralateral suppression: S2 mu remains −0.203 dB with both components positive (+1.491/+1.694). Broad beta rho=+0.600 means higher BA with larger/less-negative signed laterality, not benefit from stronger suppression. All six existing coefficients/signs and n=9 remain."
+    },
+    "physiology_replay_scope_not_inflated": {
+      "passed": true,
+      "evidence": [
+        "manuscript_content.json: blocks 173–175",
+        "cover_letter_JNE_draft.md",
+        "contribution_evidence_zh.md",
+        "evidence/q16_analysis/independent_validation.json"
+      ],
+      "details": "Archived independent raw spectral replay covers C3/Cz/C4 central sensors (31,104 trial/channel/band pairs), while identity/eligibility and saved-table aggregation cover the full population. No claim of all-22-channel raw algorithm replay, independent laboratory replication, cortical localization, biomarker or learned decoder mechanism was introduced."
+    },
+    "computational_validation_and_physical_calibration_separated": {
+      "passed": true,
+      "evidence": [
+        "manuscript_content.json: blocks 28, 51–52, 55, 58, 71, 129–132",
+        "cover_letter_JNE_draft.md",
+        "supplementary_methods.md",
+        "evidence/q15_numbers.json"
+      ],
+      "details": "Q14 saved-output portability validation is distinct from Q15 archived raw-to-prediction replay. Native numerical-as-microvolt convention, Cho hardware reference/cue latency and Lee one-sample indexing discrepancy remain disclosed. Passing numerical consistency cannot establish physical voltage equivalence, mechanistic attribution or online/clinical reliability."
+    },
+    "frozen_contribution_source_report_grounded": {
+      "passed": true,
+      "evidence": [
+        "evidence/language_refinement/frozen_statistical_contributions.json",
+        "evidence/language_refinement/frozen_statistical_contributions.md"
+      ],
+      "details": "Verified all 11 source-report input digests against its named baseline commit. The five candidate themes are existing selection diagnostics, mean/median/sign concentration, retained external adversity, class recalls and validation/physiology limits. No new inferential statistic, endpoint or experiment appears."
+    },
+    "three_primary_contributions_and_supporting_themes_proportionate": {
+      "passed": true,
+      "evidence": [
+        "contribution_evidence_zh.md",
+        "manuscript_content.json: blocks 7, 12, 113–134",
+        "cover_letter_JNE_draft.md"
+      ],
+      "details": "Current framing foregrounds three empirical contributions; class/seed diagnostics and validation/physiology supply support. Novel DG algorithm, first/SOTA, universal rank superiority, external physiological replication, equivalence and individualized clinical usefulness are not claimed. Evidence positions and limitations are inspectable."
+    },
+    "scholarly_language_and_meaning_review_complete": {
+      "passed": true,
+      "evidence": [
+        "language_refinement.json",
+        "manuscript_content.json",
+        "cover_letter_draft.md",
+        "cover_letter_JNE_draft.md",
+        "supplementary_methods.md"
+      ],
+      "details": "Reviewed all 112 manuscript replacements and 25 companion replacements: all earlier semantic edits retain their reviewed meaning, and exact prior-version hash reconstruction proves the final 13 manuscript/seven supplementary additions change ordinary spellings only. Concrete observations, estimands, counterexamples and adverse/null qualifications remain; language naturalness is an editorial judgment, not an AI-detection guarantee."
+    },
+    "author_ethics_and_ai_declarations_unchanged": {
+      "passed": true,
+      "evidence": [
+        "manuscript_content.json: blocks 73, 136, 138, 140, 142, 144, 147, 171",
+        "evidence/author_finalization/author_confirmations.json",
+        "ai_disclosure_submission_draft.md"
+      ],
+      "details": "All eight protected declaration/data/AI blocks are unchanged, including material Codex drafting/code/figure assistance and author-reported ChatGPT GPT-6; ethics/funding/conflicts/sole-author declarations remain author-confirmed rather than independently observed."
+    },
+    "current_edit_integrity_receipt_bound": {
+      "passed": true,
+      "evidence": [
+        "evidence/language_refinement/edit_integrity.json",
+        "validate_language_refinement.py"
+      ],
+      "details": "Current 783-check edit-integrity receipt has no failures and every input digest matches current bytes. This independent refresh also verifies exact edits, numeric/citation literals, frozen assets and reconstructed prior-version hashes."
+    },
+    "current_numeric_receipt_bound": {
+      "passed": true,
+      "evidence": [
+        "evidence/quality_update/numeric_review.json",
+        "validate_numeric_presentation.py"
+      ],
+      "details": "Existing current saved-evidence numeric receipt records 422 checks and 261 display cells and matches all 51 current input digests. This review reads that receipt and frozen values; it does not regenerate bootstrap/sign-flip tests, fit models or replay inference."
+    },
+    "new_editorial_author_approval_not_asserted": {
+      "passed": true,
+      "evidence": [
+        "evidence/language_refinement/edit_integrity.json",
+        "evidence/author_finalization/author_confirmations.json",
+        "submission_checklist_zh.md",
+        "contribution_evidence_zh.md"
+      ],
+      "details": "Prior scientific-candidate author approval remains recorded. No new author approval for this wording is independently observed or received; the current checklist explicitly requires the author to read the updated main paper, supplement and cover before submission."
+    },
+    "final_spelling_only_changes_exactly_reconstruct_prior_review": {
+      "passed": true,
+      "evidence": [
+        "manuscript_content.json",
+        "evidence/language_refinement/prior_manuscript_content.json",
+        "evidence/language_refinement/language_intro_methods.json",
+        "evidence/language_refinement/language_transfer_physiology.json",
+        "evidence/language_refinement/language_discussion_contributions.json",
+        "evidence/language_refinement/language_captions_submission.json"
+      ],
+      "details": "Reversing only the 13 final spelling edits, including new block-163 labelled-calibration note, exactly reproduces the prior reviewed manuscript SHA-256 ca62be762996f120596f40166f4a8f16d9cf6da3a9741a4beef372009e054838. Ordinary labelled/favourable/favoured/behaviour/Colours spellings change no scientific proposition; Oxford -ize forms, references, technical identifiers, frozen table/figure labels and eight declarations remain preserved."
+    },
+    "final_companion_spelling_only_changes_reconstruct_prior_review": {
+      "passed": true,
+      "evidence": [
+        "language_refinement.json",
+        "supplementary_methods.md",
+        "cover_letter_draft.md",
+        "cover_letter_JNE_draft.md"
+      ],
+      "details": "Reversing the seven added supplementary spelling-only replacements exactly reproduces its prior reviewed SHA-256 b03496a7006125e57ee367a24eeee93788ef9dd2be9ae36b84fa4f49c0447aac. Both cover drafts remain byte-identical to the preceding independent review. Current map contains 25 companion replacements in total."
+    },
+    "expanded_supplement_title_italics_markers_removed": {
+      "passed": true,
+      "evidence": [
+        "build_submission_variants.py",
+        "supplementary_methods.md",
+        "supplementary_materials.docx",
+        "supplementary_materials.pdf"
+      ],
+      "details": "Inspected the guarded exporter regex and verified that the expanded companion title is rendered without literal Markdown italics markers in both supplementary exports. Source title text and scientific content remain unchanged."
+    },
+    "protected_scientific_file_receipt_current": {
+      "passed": true,
+      "evidence": [
+        "evidence/quality_update/submission_integrity.json",
+        "validate_submission_revision.py"
+      ],
+      "details": "Current protected-scientific integrity receipt records 106 passing checks over 16,417 protected scientific files; no fitting/inference/experiment rerun. Independent 66-asset hashing above supplies a direct display/source subset cross-check."
+    },
+    "delivery_validator_separates_prior_approval_and_new_reading": {
+      "passed": true,
+      "evidence": [
+        "validate_final_delivery.py",
+        "evidence/language_refinement/edit_integrity.json",
+        "evidence/author_finalization/author_confirmations.json",
+        "submission_checklist_zh.md"
+      ],
+      "details": "Read-only inspection verifies delivery logic explicitly preserves prior scientific-candidate approval, rejects invented new editorial approval, and records author reading of revised wording before submission as remaining. No new author approval is claimed by this report; delivery validator was not executed here."
+    },
+    "current_submission_archive_contains_current_exports": {
+      "passed": true,
+      "evidence": [
+        "JNE_submission_package.zip",
+        "JNE_submission_package.zip.sha256",
+        "evidence/author_finalization/submission_package_review.json"
+      ],
+      "details": "Read-only archive inspection verifies 28 payload members plus MANIFEST.sha256 (29 physical file members). Every payload digest matches both the internal manifest and current source bytes; ZIP size is 6,360,371 bytes and archive/external SHA receipts match. Corrected split exports and journal cover are included; preparation is not journal submission."
+    }
+  },
+  "checks_failed": [],
+  "input_sha256": {
+    "manuscript_content.json": "29d4d2acb993fc66f790588d8fdab6b5bc6d9330328f835c30363c038bb1052d",
+    "language_refinement.json": "b500a639139f58500c50a1e2bc774693daa45957e6f97e129ab3a807ed3cfcbd",
+    "manuscript_en.md": "14005a2115f4dc2fffa30c7047048b8b058a8e67888d77427c1974d98fe79556",
+    "manuscript.tex": "a33e07de65f66358f3cadf9fadbadf5ea21a2a3bd8eee7a36ffcf988a34f094f",
+    "manuscript_en.docx": "355fc95b55943955a3442e9e99a2912810b40ded856b673254dd1f97ae43b3e8",
+    "manuscript_en.pdf": "be556789234c8ff4cbd8f6fbc7a211d0de41aa7b04e2056d9bde0db88350683d",
+    "manuscript_main_en.docx": "b08aeb397d8f3dc5d82ca4391bedf9d8b04a6f7f3021cb42833c41a371287fda",
+    "manuscript_main_en.pdf": "e9726d6d2cab9fec1f75689a7236c59d87c62d462e1ed82ad9596c1b6688108d",
+    "supplementary_materials.docx": "040ac6b650aa9d722de8e5d9b49c57db02a2222ba376fb2bf95b153b6bf613ac",
+    "supplementary_materials.pdf": "319cb29eab0c310ae018fba3b9271ee8a0c7830460beccd4235a8ee1c078f439",
+    "cover_letter_draft.md": "a286162a4880a14b1160dbed11c10f6526f65617de379df4b934fd31652e5ec4",
+    "cover_letter_JNE_draft.md": "b3269a8d2bed303a730b4ee95eba25633ac2062b610e9b79dd5f5d8ab7f38b5a",
+    "cover_letter_JNE.docx": "f32570677788c8f43aad9c6385ae718a1d6eeaec8b24dbce1ce0e637f0efda03",
+    "cover_letter_JNE.pdf": "98e12f06fb0ceeb6a6e1d58667eedd79ca6e62fc52f79271ebc257528d0f5f23",
+    "supplementary_methods.md": "a8e979007246aa5de6ae6766e62c4d977aebff199502148f4cd441abf9fc4e3d",
+    "contribution_evidence_zh.md": "22da75fe55b243f73e27f30d10abb4ef9dd6dd6e631e98b2b0a5bdf7e3dd7a89",
+    "submission_checklist_zh.md": "ccf50f8bca690b54c65f95de07b14b857636e0ec3539cdb5481fa8de854c1fb7",
+    "ai_disclosure_submission_draft.md": "d0c8834c8259b6a492c4944595fe7efef84ce064f913ae15f131374879be4f61",
+    "evidence/author_finalization/author_confirmations.json": "35bbbd0ed7e36791c7180778a2b7d4c01fd0c8e49e838bf0691175e34747aea0",
+    "evidence/language_refinement/prior_manuscript_content.json": "d67e0c52e90ee84bbca96ecd3136ff5b476ed22e59d6d30bbcf46a6b1901ca7f",
+    "evidence/language_refinement/prior_cover_letter_draft.md": "8366ad65d1e99c431a89ade4d24f508c26ae77d6b23770918a2f5c93a75ad3c9",
+    "evidence/language_refinement/prior_cover_letter_JNE_draft.md": "af924b41e5fd99a8a287da78910a479e636750cf6c86833f56d7ca414b884626",
+    "evidence/language_refinement/prior_supplementary_methods.md": "8af81c769768d645e6e36abda1c13d912b5895d918a5c379788796cd0885b35b",
+    "evidence/language_refinement/baseline_assets.json": "8dd6323ada111c01c4b7028841115acd77451286dd9edaddd632ff7fefb88b9c",
+    "evidence/language_refinement/frozen_statistical_contributions.json": "3e3d0e4824de9e49a082b7d0989a047567c61364862d8ac7fcd2fe60d4503f65",
+    "evidence/language_refinement/frozen_statistical_contributions.md": "f8d978e4a6c22705a9ce14831b94752f2612369f23373d2bd4ea1a0944cc3371",
+    "evidence/language_refinement/edit_integrity.json": "04367f58e184157fa78b143f7c8fa85a6c8a0d13c95918b108cbec9275c5fb2f",
+    "evidence/quality_update/numeric_review.json": "3e89ad46faf814158f6352e5146562af58d71dc00cd7aaaea26b58f758abc562",
+    "validate_language_refinement.py": "4efe9e01d10bbebfab475985ca0b341ff4f728d70a68de689926fa0d1aee200d",
+    "validate_numeric_presentation.py": "8672a2bebb06471141f757eaecf2cc5ceffec21dfe7909593a8c25dc7ac28ab4",
+    "paper_numbers.json": "852358d70b6d600be0be0d246938301eb6a79e80de0db5663dbdd94ff365e571",
+    "evidence/paper_internal_numbers.json": "ee80adf3b0d30cc286f966cff0461ae8dc70506ad259503b37c9c32d803de03a",
+    "evidence/q15_numbers.json": "b8fccf6b5361652dc962017b0ce9caf2523362524b38be8ac9db6ce66db05f4f",
+    "evidence/q16_analysis/preprocessing_freeze.json": "c07a25e5de0c608cf405e728c0c85d1e0fae74e8e916d36e2cffad17d2ee3c01",
+    "evidence/q16_analysis/summary.json": "9d2e4a646742d9e84393d6bf92febd4248824796fe34ce7178caa045bf0d27ea",
+    "evidence/q16_analysis/independent_validation.json": "e687d09f0cd7f55e1a172bd631f47d660674909ffa1ad5ffee5df14917dc1615",
+    "evidence/q16_analysis/subject_hand_laterality.csv": "b5974addf834c72ed0887788cc60e8186ee433817d4f69da99245fe8a9cb265b",
+    "evidence/q16_analysis/descriptive_associations.csv": "9d94c1345722cf54e2d2205a960a70cc044b4a6656e0cb1a44b71a03ca9333aa",
+    "tables/internal_subjects.csv": "a2c2a1d9e6c8f7cae94365d0b122bc370b806ea603f55a76e9f7c530bd081832",
+    "tables/q13_contrasts.csv": "4cddc6e6e0df996cc8720d8d0ea43dac3632f4dcd34c7e4ac31d2fa4d2e3a669",
+    "tables/q15_model_summary.csv": "61826db3053e7784949c4900f31eefe4c1db9f878337feed2f0ccc9721acc76c",
+    "tables/q15_external_subjects.csv": "bb770dc0397002eac8bc108183c2d2df29b2b3a2cbc2cc7aeb10500c149825e6",
+    "tables/q15_seed_metrics.csv": "8234536458eb3e5788f5c14ccbea1b94eb0b2dd94e7e9327e1211707026ed551",
+    "tables/robustness_models.csv": "fdd0ab1635d583f4165783b6d9cf03e9112bec6440f1969feca855122418bb14",
+    "references.json": "70a76cc2f8fc2ae6d284fb3dee912b964bdd51c34f94a69edb0daf7827f761a0",
+    "references.bib": "1b3c041c3afaff39ef5731f836036887042331260923ae95f7dcaa28d5333226",
+    "evidence/figures_q15.json": "363d108567a13906d148838aa4c2f13d1dcd5bf535c65edf0dd8329f7a519371",
+    "evidence/figures_q16.json": "7c59bb10d2abff53656a28baf71b076268afb47faaa52a983eb8f6325163aa36",
+    "evidence/language_refinement/language_intro_methods.json": "0bae0ae031be3ce07f7c2ccde29b9c59e1e93b8dd03dc02fd504a52aff4b92d2",
+    "evidence/language_refinement/language_transfer_physiology.json": "f449a87533c94ed635c083f4454353d48e24eaf5d215c95a9f1f43cfe5ae3a2d",
+    "evidence/language_refinement/language_discussion_contributions.json": "c2679d7252ec3ab0d1cb24e8ddb198f5fa350afb9787e766b629ef4d4f40d2e9",
+    "evidence/language_refinement/language_captions_submission.json": "be155f37edc7aeb4ec26fc0eee417ddb2feaad24e5de54d9babdd6bd8f183a34",
+    "validate_final_delivery.py": "19e7a0637fe972f25443f9830103fad8328df901fc2f233479a76e4e740b028b",
+    "validate_submission_revision.py": "14573b9a70d46cbcf667f3324a051151d31b0c59d4bd8196e32f401c99c2251a",
+    "evidence/quality_update/submission_integrity.json": "6e49e8557b71d4d9afb2549eca479f63c9ad9c40ece3b8c94fbe3c4ec2cdb66a",
+    "evidence/author_finalization/submission_package_review.json": "329084139b1c65055402c9e07fe7e044690651775a3516f8ccea17f5e3d6c4cc",
+    "JNE_submission_package.zip": "a6785695d74877f22101e979bee19c4980e1e8a95cae9d9a6f57013cb89d0e64",
+    "JNE_submission_package.zip.sha256": "d23a280fbf5a7fb64097d41f06215762a9d53f5201dc76becb95b9ee18df1c52",
+    "build_submission_variants.py": "75208440d3f15e014e51813f1efe7223e63a18d7dfade4fede8400ab2eb1045e"
+  },
+  "bound_inputs": 59,
+  "remaining_submission_actions": [
+    "Author reads and approves the revised wording before actual submission; prior scientific-candidate approval is retained.",
+    "Author verifies original cited sources in accordance with IOP requirements.",
+    "Author completes the JNE portal submission, checks the generated review PDF and accepts the relevant submission/licensing agreements.",
+    "Register ORCID if required by the submission portal; no ORCID identifier is invented."
+  ],
+  "new_decoder_fits": 0,
+  "new_checkpoint_inference": 0,
+  "raw_EEG_read": false,
+  "prior_scientific_candidate_author_approval_retained": true,
+  "new_editorial_version_author_approval_received": false,
+  "journal_submission_performed": false
+}

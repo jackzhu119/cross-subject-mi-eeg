@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "status": "rendered_and_visually_inspected",
+  "input_sha256": {
+    "tables/q15_external_subjects.csv": "bb770dc0397002eac8bc108183c2d2df29b2b3a2cbc2cc7aeb10500c149825e6",
+    "tables/q15_model_summary.csv": "61826db3053e7784949c4900f31eefe4c1db9f878337feed2f0ccc9721acc76c"
+  },
+  "artifact_sha256": {
+    "figures/figure4_q15_external_transfer.png": "14ad3b5fa1a9eff99fd063d6d86872f3efd0550d3747e0b280122f59e8b04a80",
+    "figures/figure4_q15_external_transfer.pdf": "c4fddd82de9085711950a8a574aa73372cb4e84e9dc8e41607359c6f8a9df29f",
+    "figures/figure4_q15_external_transfer.svg": "b2f41164e6d417cfbfc6209bf05b882fbce783a1eb4f17506efa848612db3f50",
+    "figures/figureS2_q15_participant_heterogeneity.png": "16c7535df988daf34ef6d08fc861e55d2b1d5ea8d8ee984a09e8831c5570c749",
+    "figures/figureS2_q15_participant_heterogeneity.pdf": "c07251603556c28f4822522b7a8024b22a400a3779a86e323912d94cdb7a82a1",
+    "figures/figureS2_q15_participant_heterogeneity.svg": "34fe69ad6830755935ff52bcb44bd5ce8709889de9e3001eb6c5574f966e006f"
+  },
+  "participants": {
+    "Cho2017": 52,
+    "Lee2019_MI": 54
+  },
+  "unit_of_inference": "participant; three-seed mean after pooling declared sessions",
+  "primary_contrast": "MU_BETA_SHARED_minus_BROAD_EEGNET",
+  "model_point_count_main_panel": 318,
+  "descriptive_error_bar": "sample SD of participant seed means, not confidence interval",
+  "primary_interval": "95% paired-person percentile bootstrap from independently checked table",
+  "multiplicity": "Holm over two prespecified external cohorts; no pooled estimate",
+  "figureS2": {
+    "paired_difference_points": 106,
+    "seed_sample_sd_points": 212,
+    "seed_count": 3,
+    "deterministic_CSP_seed_SD": "not applicable and omitted"
+  },
+  "formats": {
+    "png_dpi": 300,
+    "pdf": "vector with embedded TrueType fonts",
+    "svg": "vector and editable text"
+  },
+  "inline_TeX": "tex_q15_figures.tex_inline_figure(name, out, numbers=None); no external figure files",
+  "new_model_fits": 0,
+  "new_predictions": 0,
+  "checked_at_utc": "2026-10-05T12:26:39.428078+00:00",
+  "code_sha256": {
+    "build_q15_figures.py": "e5f6d12732b97c782fdfab8d451376da93997dae7203c48b4ba0698c33ab3251",
+    "tex_q15_figures.py": "f0f945806fbbde121e3bb990598dcdc84f7f67d8b699e8761097984430db063d"
+  },
+  "visual_quality_checks": {
+    "color_and_grayscale_png_inspected": true,
+    "participant_markers_preserved": true,
+    "model_identity_redundant_encoding": "Broad: filled circle; shared: open triangle; CSP4+LDA: open square",
+    "no_legends_occlude_data_points": true,
+    "no_clipped_axes_or_annotations": true,
+    "physical_width_inches": 7.1,
+    "intended_layout": "double-column scientific figure; retain full width rather than one-column shrink",
+    "main_font_pt": 8.5,
+    "annotation_font_pt": 6.8,
+    "single_column_legibility": "not claimed; provide vector exports at double-column width",
+    "true_color_vision_deficiency_simulation": "not performed; grayscale and redundant markers checked"
+  },
+  "pdf_object_checks": {
+    "all_exported_PDFs_raster_image_count": 0,
+    "fonts": "DejaVuSans CID TrueType; embedded/subset/unicode yes",
+    "all_PDF_text_blocks_inside_page_bounds": true,
+    "figure4_page_size_pt": [
+      511.2,
+      280.8
+    ],
+    "figureS2_page_size_pt": [
+      511.2,
+      374.4
+    ]
+  },
+  "inline_TeX_validation": {
+    "isolated_local_pgfplots_compilation": "passed with existing pdflatex; no TeX installed",
+    "groupplot_key_font_fixed": "TikZ font option plus PGFPlots tick/axis-label font styles",
+    "main_panels": 2,
+    "supplement_panels": 4,
+    "rendered_local_PGFPlots_counterparts_visually_inspected": true,
+    "compiler_log_errors_warnings_overfull": 0,
+    "full_manuscript_native_editor_compilation": "to be verified by parent manuscript workflow",
+    "external_images_or_input_files": false
+  }
+}

@@ -1,0 +1,71 @@
+# Recent MI-EEG domain-generalization reference check
+
+Checked 7 October 2026. Two formal 2025 journal articles were selected from a 2024–2026 search. This is a bibliographic and method-scope check, not an independent implementation/model-selection audit.
+
+## zhong2025eegdg
+
+Xiao-Cong Zhong; Qisong Wang; Dan Liu; Zhihuang Chen; Jing-Xiao Liao; Jinwei Sun; Yudong Zhang; Feng-Lei Fan.
+
+EEG-DG: A Multi-Source Domain Generalization Framework for Motor Imagery EEG Classification.
+
+IEEE Journal of Biomedical and Health Informatics (2025), 29(4), 2484–2495. DOI: 10.1109/JBHI.2024.3431230.
+
+**Verification.** Full author list and title match author manuscript PDF first page, Crossref publisher-deposited metadata, and PubMed metadata. Final journal/volume/issue/pages/year/DOI verified with Crossref and author institutional final-publication record.
+
+**Method scope.** Original author manuscript describes marginal and conditional distribution alignment across source domains and states that target EEG data are inaccessible during training. Final indexed abstract likewise states a multi-source DG model for unseen target EEG data.
+
+**Boundary.** IEEE version-of-record PDF was not retrievable through the available network (418/anti-bot). Accessible PDF is arXiv v1 (2023), not the final 2025 article, and describes recording maximum per-subject accuracy. Cite only method objective; do not infer or endorse an audited target-independent model-selection protocol, claim calibration-free operational validation, reproduce benchmark numbers, or make a cross-paper superiority comparison.
+
+**Conservative sentence.** Zhong et al. developed EEG-DG to learn domain-invariant MI-EEG features by aligning marginal and conditional distributions across multiple source domains, with the stated aim of generalizing to unseen target EEG data.
+
+**Primary/source links.**
+
+- https://doi.org/10.1109/JBHI.2024.3431230
+- https://api.crossref.org/works/10.1109/JBHI.2024.3431230
+- https://pubmed.ncbi.nlm.nih.gov/39052465/
+- https://arxiv.org/abs/2311.05415
+- https://arxiv.org/pdf/2311.05415
+- https://scholars.cityu.edu.hk/en/publications/eeg-dg-a-multi-source-domain-generalization-framework-for-motor-i/
+
+**Cached verification files (SHA-256).**
+
+- `JBHI.2024.3431230.crossref.json`: `38bc585ecc7f557c4a38e38dd1560620a2d629f6ca8e268346c7f57079013bb0`
+- `eeegdg_pubmedcore.json`: `7ec3a3c114bffa7eba02a2781eda3e65fa74d315488f4a20b53e7e8d662c0449`
+- `eegdg_arxiv.pdf`: `5b6e220dee77cef043266a8432727839c1621d6f3613d39ce682be1059e8b1a7`
+- `eegdg_arxiv.txt`: `9f2b690697da6e46cf18f9ff0bf7836eafa49bcc1445fb41cf920f01dca66756`
+
+## zheng2025dg
+
+Yanyan Zheng; Senxiang Wu; Jie Chen; Qiong Yao; Siyu Zheng.
+
+Cross-Subject Motor Imagery Electroencephalogram Decoding with Domain Generalization.
+
+Bioengineering (2025), 12(5), 495. DOI: 10.3390/bioengineering12050495.
+
+**Verification.** Title, all five authors, 2025 publication date, journal, volume 12, article 495, and DOI verified directly on official published PDF first page and matched Crossref publisher-deposited metadata; issue 5 matched publisher URL and Crossref.
+
+**Method scope.** Official PDF pp.3–4 explicitly excludes unseen target-domain data from model training and validation. It combines spectral-feature knowledge distillation, pairwise source-domain CORAL alignment and regularization. Section 3.2 pp.8–9 describes LOSO, source-domain groups, source 80/20 training/validation and two-stage early stopping.
+
+**Boundary.** Use only the published method objective and stated information budget. This check is not an independent audit of the implementation or all hyperparameter/model-selection decisions, and does not support cross-paper performance comparability or deployment/clinical claims.
+
+**Conservative sentence.** Zheng et al. combined spectral-feature knowledge distillation and alignment among source-subject groups to learn invariant MI-EEG representations; their stated domain-generalization setting excludes target data from training and validation.
+
+**Primary/source links.**
+
+- https://doi.org/10.3390/bioengineering12050495
+- https://www.mdpi.com/2306-5354/12/5/495
+- https://www.mdpi.com/2306-5354/12/5/495/pdf
+- https://api.crossref.org/works/10.3390/bioengineering12050495
+
+**Cached verification files (SHA-256).**
+
+- `bioengineering12050495.crossref.json`: `7aa5e01ec048bb93a88f6f1b94ce5c533a16c2dde3640523e02270011d58309e`
+- `mdpi.html`: `1b784ad79674f4ae463fb9f4b6d25e874f065b5a7e8516e46daa97f6e342c51c`
+- `mdpi.pdf`: `37f8bcd96960703c2e56e7c5e5e7df90274d5aa12fe6637e7a65e585dea2daa9`
+- `mdpi.txt`: `ea03297e19d198a3d3ccb07e0066282e21f8d6287cffaefd7accd1980b2cbe0a`
+
+## Proposed short related-work paragraph
+
+Recent MI-EEG domain-generalization studies seek representations that transfer to unseen subjects without target-domain training. Zhong et al. developed EEG-DG to align marginal and conditional distributions across multiple source domains [NEW_ZHONG]. Zheng et al. combined spectral-feature knowledge distillation with alignment among source-subject groups, explicitly excluding target data from training and validation in their stated setting [NEW_ZHENG]. The present study does not introduce a new domain-generalization algorithm or benchmark superiority against these methods. Its contribution is a source-only model-selection audit, participant-level heterogeneity analysis, frozen external evaluation with adverse and null results retained, complete-pipeline comparisons, and a reproducible evidence chain.
+
+Cached PDFs are for private verification only; do not commit the copyrighted PDFs to the project repository. Metadata, short paraphrases, URLs and file hashes may be copied into audit materials.
