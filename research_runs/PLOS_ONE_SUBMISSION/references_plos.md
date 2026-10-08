@@ -1,0 +1,28 @@
+1. Brunner C, Leeb R, Müller-Putz GR, Schlögl A, Pfurtscheller G. BCI Competition 2008 – Graz data set A. Official competition dataset description. 2008. Available from: https://www.bbci.de/competition/iv/desc_2a.pdf [cited 2026 Oct 8].
+2. Tangermann M, Müller KR, Aertsen A, Birbaumer N, Braun C, Brunner C, et al. Review of the BCI Competition IV. Front Neurosci. 2012;6. doi:10.3389/fnins.2012.00055
+3. Jayaram V, Barachant A. MOABB: trustworthy algorithm benchmarking for BCIs. J Neural Eng. 2018;15(6):066011. doi:10.1088/1741-2552/aadea0
+4. Lotte F, Bougrain L, Cichocki A, Clerc M, Congedo M, Rakotomamonjy A, et al. A review of classification algorithms for EEG-based brain–computer interfaces: a 10 year update. J Neural Eng. 2018;15(3):031005. doi:10.1088/1741-2552/aab2f2
+5. Schalk G, McFarland DJ, Hinterberger T, Birbaumer N, Wolpaw JR. EEG Motor Movement/Imagery Dataset. dataset. 2009. doi:10.13026/C28G6P
+6. Schalk G, McFarland DJ, Hinterberger T, Birbaumer N, Wolpaw JR. BCI2000: A General-Purpose Brain-Computer Interface (BCI) System. IEEE Trans Biomed Eng. 2004;51(6):1034-1043. doi:10.1109/TBME.2004.827072
+7. Cho H, Ahn M, Ahn S, Kwon M, Jun SC. EEG datasets for motor imagery brain–computer interface. GigaScience. 2017;6(7). doi:10.1093/gigascience/gix034
+8. Cho H, Ahn M, Ahn S, Kwon M, Jun SC. Supporting data for "EEG datasets for motor imagery brain computer interface". dataset. 2017. doi:10.5524/100295
+9. Lee MH, Kwon OY, Kim YJ, Kim HK, Lee YE, Williamson J, et al. EEG dataset and OpenBMI toolbox for three BCI paradigms: an investigation into BCI illiteracy. GigaScience. 2019;8(5). doi:10.1093/gigascience/giz002
+10. Lee MH, Kwon OY, Kim YJ, Kim HK, Lee YE, Williamson J, et al. Supporting data for "EEG Dataset and OpenBMI Toolbox for Three BCI Paradigms: An Investigation into BCI Illiteracy". dataset. 2019. doi:10.5524/100542
+11. Gulrajani I, Lopez-Paz D. In Search of Lost Domain Generalization. International Conference on Learning Representations. 2021. Available from: https://iclr.cc/virtual/2021/poster/2998 [cited 2026 Oct 8].
+12. Ramoser H, Muller-Gerking J, Pfurtscheller G. Optimal spatial filtering of single trial EEG during imagined hand movement. IEEE Trans Rehabil Eng. 2000;8(4):441-446. doi:10.1109/86.895946
+13. Ang KK, Chin ZY, Wang C, Guan C, Zhang H. Filter Bank Common Spatial Pattern Algorithm on BCI Competition IV Datasets 2a and 2b. Front Neurosci. 2012;6. doi:10.3389/fnins.2012.00039
+14. Ang KK, Chin ZY, Zhang H, Guan C. Filter Bank Common Spatial Pattern (FBCSP) in Brain-Computer Interface. 2008 IEEE International Joint Conference on Neural Networks (IEEE World Congress on Computational Intelligence). 2008:2390-2397. doi:10.1109/IJCNN.2008.4634130
+15. Lawhern VJ, Solon AJ, Waytowich NR, Gordon SM, Hung CP, Lance BJ. EEGNet: a compact convolutional neural network for EEG-based brain–computer interfaces. J Neural Eng. 2018;15(5):056013. doi:10.1088/1741-2552/aace8c
+16. Schirrmeister RT, Springenberg JT, Fiederer LDJ, Glasstetter M, Eggensperger K, Tangermann M, et al. Deep learning with convolutional neural networks for EEG decoding and visualization. Hum Brain Mapp. 2017;38(11):5391-5420. doi:10.1002/hbm.23730
+17. Zhong XC, Wang Q, Liu D, Chen Z, Liao JX, Sun J, et al. EEG-DG: A Multi-Source Domain Generalization Framework for Motor Imagery EEG Classification. IEEE J Biomed Health Inform. 2025;29(4):2484-2495. doi:10.1109/jbhi.2024.3431230
+18. Zheng Y, Wu S, Chen J, Yao Q, Zheng S. Cross-Subject Motor Imagery Electroencephalogram Decoding with Domain Generalization. Bioengineering (Basel). 2025;12(5):495. doi:10.3390/bioengineering12050495
+19. Jiang WB, Zhao LM, Lu BL. Large Brain Model for Learning Generic Representations with Tremendous EEG Data in BCI. The Twelfth International Conference on Learning Representations. 2024. Available from: https://openreview.net/forum?id=QzTpTRVtrP [cited 2026 Oct 8].
+20. Wang G, Liu W, He Y, Xu C, Ma L, Li H. EEGPT: Pretrained Transformer for Universal and Reliable Representation of EEG Signals. Advances in Neural Information Processing Systems. 2024;37. doi:10.52202/079017-1239
+21. Pfurtscheller G, Lopes da Silva FH. Event-related EEG/MEG synchronization and desynchronization: basic principles. Clin Neurophysiol. 1999;110(11):1842-1857. doi:10.1016/s1388-2457(99)00141-8
+22. Pfurtscheller G, Neuper C. Motor imagery activates primary sensorimotor area in humans. Neurosci Lett. 1997;239(2-3):65-68. doi:10.1016/s0304-3940(97)00889-6
+23. Sagawa S, Koh PW, Hashimoto TB, Liang P. Distributionally Robust Neural Networks for Group Shifts: On the Importance of Regularization for Worst-Case Generalization. International Conference on Learning Representations. 2020. Available from: https://openreview.net/forum?id=ryxGuJrFvS [cited 2026 Oct 8].
+24. Efron B. Bootstrap Methods: Another Look at the Jackknife. Ann Stat. 1979;7(1). doi:10.1214/aos/1176344552
+25. Winkler AM, Ridgway GR, Webster MA, Smith SM, Nichols TE. Permutation inference for the general linear model. Neuroimage. 2014;92:381-397. doi:10.1016/j.neuroimage.2014.01.060
+26. Holm S. A Simple Sequentially Rejective Multiple Test Procedure. Scand J Stat. 1979;6(2):65–70. Available from: https://www.jstor.org/stable/4615733 [cited 2026 Oct 8].
+27. Goldberger AL, Amaral LAN, Glass L, Hausdorff JM, Ivanov PC, Mark RG, et al. PhysioBank, PhysioToolkit, and PhysioNet: Components of a New Research Resource for Complex Physiologic Signals. Circulation. 2000;101(23). doi:10.1161/01.CIR.101.23.e215
+28. Pollard T, Moody BE, Lehman LwH, Gow BJ, Fernandes C, Xie C, et al. PhysioNet as a global platform for biomedical research. Nat Health. 2026;1(8):792-795. doi:10.1038/s44360-026-00096-z
