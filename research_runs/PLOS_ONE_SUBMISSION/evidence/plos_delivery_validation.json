@@ -1,10 +1,10 @@
 {
   "status": "passed",
   "scope": "Editorial preservation, frozen-byte and package checks only; no new model/scientific experiment execution or independent institutional determination.",
-  "checked_at_utc": "2026-10-08T13:16:49.349624+00:00",
+  "checked_at_utc": "2026-10-09T07:32:23.832254+00:00",
   "checks": {
     "scientific_files_all_hashes_unchanged": true,
-    "jne_files_all_hashes_unchanged": true,
+    "immutable_source_archive_all_hashes_verified": true,
     "source_prose_4": true,
     "source_prose_5": true,
     "source_prose_6": true,
@@ -104,7 +104,7 @@
     "source_prose_167": true,
     "source_prose_169": true,
     "source_prose_173": true,
-    "archived_submission_statement_updated_only_in_new_appendix": true,
+    "appendix_scientific_delivery_statement": true,
     "table_24_exists": true,
     "table_24_all_cells": true,
     "table_29_exists": true,
@@ -328,8 +328,6 @@
     "data_byte_copy_validation/paper_internal_numbers.json": true,
     "data_byte_copy_validation/internal_review.json": true,
     "data_byte_copy_validation/methods_q15.json": true,
-    "data_byte_copy_validation/final_scientific_review.json": true,
-    "data_byte_copy_validation/delivery_validation.json": true,
     "data_byte_copy_q15/Q15-E006/predictions.csv": true,
     "data_byte_copy_q15/Q15-E006/statistics.json": true,
     "data_byte_copy_q15/Q15-E007/predictions.csv": true,
@@ -363,38 +361,53 @@
     "PLOS_ONE_Cover_Letter.pdf_no_page_overflow": true,
     "PLOS_ONE_Cover_Letter.pdf_text_present": true,
     "cover_letter_one_page": true,
-    "cover_explicit_JNE_block": true,
+    "cover_current_PLOS_target_only": true,
     "SupportingInformation/S1_Appendix.pdf_no_page_overflow": true,
     "SupportingInformation/S1_Appendix.pdf_text_present": true,
-    "JNE_status_author_report_and_no_portal_claim": true,
-    "no_new_scientific_execution": true
+    "current_status_no_previous_journal_block": true,
+    "no_new_scientific_execution": true,
+    "current_target_hygiene_PLOS_ONE_Manuscript.docx": true,
+    "current_target_hygiene_PLOS_ONE_Cover_Letter.docx": true,
+    "current_target_hygiene_SupportingInformation/S1_Appendix.docx": true,
+    "active_admin_target_hygiene_README.md": true,
+    "active_admin_target_hygiene_PLOS_ONE_Submission_Checklist_zh.md": true,
+    "active_admin_target_hygiene_PLOS_ONE_Submission_Fields.md": true,
+    "active_admin_target_hygiene_PLOS_ONE_APC_Assistance_Guide_zh.md": true,
+    "active_admin_target_hygiene_PLOS_ONE_Official_Requirements.md": true,
+    "active_admin_target_hygiene_PLOS_ONE_Data_Availability.md": true,
+    "active_admin_target_hygiene_Ethics_and_Author_Boundaries.md": true,
+    "active_admin_target_hygiene_Changes_and_Preservation.md": true,
+    "S1_Data_no_obsolete_editorial_reports": true,
+    "S1_Data_no_previous_target_status": true,
+    "official_human_data_checklist_original_bytes": true,
+    "required_human_data_dates_and_identifiability_action": true
   },
   "failed_checks": [],
-  "check_count": 365,
+  "check_count": 378,
   "protected_scientific_files": 16417,
-  "preserved_JNE_files": 237,
+  "immutable_source_archive_files_verified": 237,
   "displayed_scientific_table_cells_checked": 453,
   "pdfs": {
     "PLOS_ONE_Manuscript_Review.pdf": {
       "pages": 41,
-      "sha256": "468b509874f62f57205b794d2299f7788b5ef850b24d2c212c0d407b7bb781ba",
+      "sha256": "9c35acaed3b9ccf3af410b88139a87eb613b08786078b2a0e04c0118ea6e5ca0",
       "bytes": 333711
     },
     "PLOS_ONE_Cover_Letter.pdf": {
       "pages": 1,
-      "sha256": "d72ab5e533b19adad654a05ac937850333c49da7374d15fe54958853f55f388e",
-      "bytes": 30803
+      "sha256": "86d25c6e62bea1a462ad62c14f4e1b7046c11c54f570756ce690786a72280203",
+      "bytes": 30080
     },
     "SupportingInformation/S1_Appendix.pdf": {
       "pages": 29,
-      "sha256": "299b1b34086f3b85a462cbb6e14a1b46fc914fa6c205fadba8cbffc803d33c1f",
-      "bytes": 932546
+      "sha256": "ee1b2ada6afd0d8e0aac621176c021cdb933b1792b51b0a38c0b9da34b7194ed",
+      "bytes": 931607
     }
   },
-  "formal_submission_allowed": false,
-  "reason": "JNE under review (author reported)",
+  "journal_submission_performed": false,
+  "prior_journal_consideration_block": false,
+  "author_final_checks_pending": true,
   "author_actions": [
-    "JNE consideration must end before PLOS submission",
     "ORCID",
     "PLOS-format author reading/approval",
     "Institutional secondary-analysis ethics requirements",

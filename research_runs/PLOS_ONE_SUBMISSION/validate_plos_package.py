@@ -1,6 +1,6 @@
 """Read-only editorial/package checks; no scientific execution."""
 from pathlib import Path
-import hashlib,json,re,zipfile,collections
+import hashlib,json,re,zipfile,collections,subprocess
 from datetime import datetime,timezone
 from docx import Document
 from lxml import etree
@@ -10,9 +10,20 @@ P=Path(__file__).resolve().parent;ROOT=P.parents[1];S=ROOT/'research_runs/PAPER_
 h=lambda p:hashlib.sha256(p.read_bytes()).hexdigest();checks={}
 def check(k,v):checks[k]=bool(v)
 baseline=json.loads((P/'evidence/source_protection_baseline.json').read_text())
-for typ,mapping in baseline.items():
- bad=[k for k,v in mapping.items() if not (ROOT/k).is_file() or h(ROOT/k)!=v];check(typ+'_all_hashes_unchanged',not bad)
- if bad:print(typ,bad[:5])
+scientific=baseline['scientific_files']
+bad=[k for k,v in scientific.items() if not (ROOT/k).is_file() or h(ROOT/k)!=v]
+check('scientific_files_all_hashes_unchanged',not bad)
+if bad:print('scientific_files',bad[:5])
+archived=json.loads(subprocess.check_output(['git','show','e377c116cb09edafb7be13bde9d85212ca7c8952:research_runs/PLOS_ONE_SUBMISSION/evidence/source_protection_baseline.json'],cwd=ROOT))['jne_files'];revision='0c7146895dc46850e4fe7db38bd69d9aea2b41c3'
+proc=subprocess.Popen(['git','cat-file','--batch'],cwd=ROOT,stdin=subprocess.PIPE,stdout=subprocess.PIPE)
+archived_bad=[]
+for key,expected in archived.items():
+ proc.stdin.write((revision+':'+key+'\n').encode());proc.stdin.flush();header=proc.stdout.readline().decode().split()
+ if len(header)!=3:archived_bad.append(key);continue
+ size=int(header[2]);payload=proc.stdout.read(size);proc.stdout.read(1)
+ if hashlib.sha256(payload).hexdigest()!=expected:archived_bad.append(key)
+proc.stdin.close();proc.wait()
+check('immutable_source_archive_all_hashes_verified',not archived_bad)
 d=json.loads((S/'manuscript_content.json').read_text());t=json.loads((P/'evidence/editorial_transformations.json').read_text());mapping={int(k):v for k,v in t['citation_old_to_new'].items()};cite=re.compile(r'\[(\d+(?:\s*,\s*\d+)*)\]')
 def transform(text):
  if 'validation groups [1,2]' not in text:text=cite.sub(lambda m:'['+','.join(str(mapping[int(v)]) for v in m.group(1).replace(' ','').split(','))+']',text)
@@ -23,7 +34,7 @@ main=t['main_blocks'];ap=t['appendix_blocks'];allblocks=main+ap
 for i,b in enumerate(d['blocks']):
  if b['type'] in ['paragraph','equation'] and (3<=i<=134 or 149<=i) and i!=171:
   expected=transform(b['text']);check('source_prose_'+str(i),any(x.get('text')==expected for x in allblocks))
-check('archived_submission_statement_updated_only_in_new_appendix',any('under consideration at Journal of Neural Engineering'in x.get('text','') and 'PLOS-formatted files require separate author review'in x.get('text','') for x in ap))
+check('appendix_scientific_delivery_statement',any('All manuscript-preparation model fits and checkpoint-inference counts are zero.'in x.get('text','') for x in ap))
 # Full scientific tables remain identical, including notes and all displayed p/CI/sample/epoch cells.
 science_cells=0
 for i,b in enumerate(d['blocks']):
@@ -90,9 +101,22 @@ for name in ['PLOS_ONE_Manuscript_Review.pdf','PLOS_ONE_Cover_Letter.pdf','Suppo
      if box[0]<50 and span['text'].isdigit():lines.append(int(span['text']))
  check(name+'_no_page_overflow',not outside);check(name+'_text_present',len(''.join(pg.get_text()for pg in pdf))>500)
  if 'Manuscript'in name:check('pdf_continuous_gutter_line_numbers',len(lines)>500 and lines==list(range(lines[0],lines[-1]+1)));check('review_pdf_no_figure_images',all(not pg.get_images()for pg in pdf))
- if 'Cover'in name:check('cover_letter_one_page',len(pdf)==1);check('cover_explicit_JNE_block','NOT FOR SUBMISSION'in pdf[0].get_text() and 'Journal of Neural Engineering'in pdf[0].get_text())
+ if 'Cover'in name:check('cover_letter_one_page',len(pdf)==1);check('cover_current_PLOS_target_only','PLOS ONE'in pdf[0].get_text() and not re.search(r'JNE|Journal of Neural Engineering|under consideration|NOT FOR SUBMISSION',pdf[0].get_text()))
  pdf_info[name]={'pages':len(pdf),'sha256':h(P/name),'bytes':(P/name).stat().st_size}
-check('JNE_status_author_report_and_no_portal_claim',json.loads((P/'evidence/source_version.json').read_text())['plos_formal_submission']=='BLOCKED');check('no_new_scientific_execution',d['new_fits']==0 and d['new_checkpoint_inference']==0)
+status=json.loads((P/'evidence/source_version.json').read_text());check('current_status_no_previous_journal_block',status['target_journal']=='PLOS ONE' and status['previous_journal_decision']=='REJECTED_AUTHOR_REPORTED' and status['prior_journal_consideration_block'] is False and status['live_submission_portal_accessed'] is False);check('no_new_scientific_execution',d['new_fits']==0 and d['new_checkpoint_inference']==0)
+# Current journal-facing files are free from obsolete prior-submission status.
+obsolete=re.compile(r'JNE|under consideration at Journal of Neural Engineering|NOT FOR SUBMISSION|JNE under review|plos-one-preparation-v0\.1')
+for name in ['PLOS_ONE_Manuscript.docx','PLOS_ONE_Cover_Letter.docx','SupportingInformation/S1_Appendix.docx']:
+ doc=Document(P/name);text='\n'.join(p.text for p in doc.paragraphs)
+ check('current_target_hygiene_'+name,not obsolete.search(text))
+for name in ['README.md','PLOS_ONE_Submission_Checklist_zh.md','PLOS_ONE_Submission_Fields.md','PLOS_ONE_APC_Assistance_Guide_zh.md','PLOS_ONE_Official_Requirements.md','PLOS_ONE_Data_Availability.md','Ethics_and_Author_Boundaries.md','Changes_and_Preservation.md']:
+ check('active_admin_target_hygiene_'+name,not obsolete.search((P/name).read_text()))
+with zipfile.ZipFile(P/'SupportingInformation/S1_Data.zip') as z:
+ check('S1_Data_no_obsolete_editorial_reports',not any(x in z.namelist() for x in ['validation/delivery_validation.json','validation/final_scientific_review.json']))
+ check('S1_Data_no_previous_target_status',all(not obsolete.search(z.read(n).decode('utf-8')) for n in z.namelist() if n.endswith(('.json','.md','.txt','.csv'))))
+blank=P/'AuthorForms/PLOS_Human_Participants_Checklist_2026_blank.pdf'
+check('official_human_data_checklist_original_bytes',h(blank)=='ebf2a9913fe2926669dfb60c1ba5f9f98130b00b9e858bf9b1d243b3707162e4')
+check('required_human_data_dates_and_identifiability_action',all(x in (P/'AuthorForms/README_zh.md').read_text() for x in ['日期','识别','Methods']))
 failed=[k for k,v in checks.items()if not v]
-report={'status':'passed'if not failed else'failed','scope':'Editorial preservation, frozen-byte and package checks only; no new model/scientific experiment execution or independent institutional determination.','checked_at_utc':datetime.now(timezone.utc).isoformat(),'checks':checks,'failed_checks':failed,'check_count':len(checks),'protected_scientific_files':len(baseline['scientific_files']),'preserved_JNE_files':len(baseline['jne_files']),'displayed_scientific_table_cells_checked':science_cells,'pdfs':pdf_info,'formal_submission_allowed':False,'reason':'JNE under review (author reported)','author_actions':['JNE consideration must end before PLOS submission','ORCID','PLOS-format author reading/approval','Institutional secondary-analysis ethics requirements','Actual CRediT roles and output licensing','APC funding/assistance answers','Actual portal confirmations'],'new_model_fits':0,'new_checkpoint_inference':0,'new_q16_scientific_execution':0}
+report={'status':'passed'if not failed else'failed','scope':'Editorial preservation, frozen-byte and package checks only; no new model/scientific experiment execution or independent institutional determination.','checked_at_utc':datetime.now(timezone.utc).isoformat(),'checks':checks,'failed_checks':failed,'check_count':len(checks),'protected_scientific_files':len(baseline['scientific_files']),'immutable_source_archive_files_verified':len(archived),'displayed_scientific_table_cells_checked':science_cells,'pdfs':pdf_info,'journal_submission_performed':False,'prior_journal_consideration_block':False,'author_final_checks_pending':True,'author_actions':['ORCID','PLOS-format author reading/approval','Institutional secondary-analysis ethics requirements','Actual CRediT roles and output licensing','APC funding/assistance answers','Actual portal confirmations'],'new_model_fits':0,'new_checkpoint_inference':0,'new_q16_scientific_execution':0}
 (P/'evidence/plos_delivery_validation.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps({'status':report['status'],'checks':len(checks),'failed':failed,'pdf_pages':{k:v['pages']for k,v in pdf_info.items()}}));raise SystemExit(bool(failed))

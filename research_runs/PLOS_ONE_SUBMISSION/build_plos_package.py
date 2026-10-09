@@ -14,7 +14,7 @@ import cairosvg
 OUT=Path(__file__).resolve().parent; ROOT=OUT.parents[1]; SRC=ROOT/'research_runs/PAPER_FINAL_20261006'
 DATA=json.loads((SRC/'manuscript_content.json').read_text()); TITLE=DATA['title']
 SHORT='Source-only selection and fixed spectral-sharing pipelines in motor-imagery EEG'
-SHA='0c7146895dc46850e4fe7db38bd69d9aea2b41c3'; TAG='plos-one-preparation-v0.1'
+SHA='0c7146895dc46850e4fe7db38bd69d9aea2b41c3'; TAG='plos-one-submission-v1.0'
 BASE='https://github.com/jackzhu119/cross-subject-mi-eeg'; IMM=BASE+'/tree/'+SHA
 AUTHOR=DATA['authors'][0]; NOW=datetime.now(timezone.utc).isoformat()
 for folder in ['Figures','SupportingInformation','evidence','FigureSources']:(OUT/folder).mkdir(exist_ok=True)
@@ -59,7 +59,7 @@ while idx<len(lines):
 flush()
 for b in appendix:
  if b.get('text','').startswith('The manuscript bundle contains'):
-  b['text']=b['text'].replace('The manuscript bundle contains','The source manuscript bundle contains').replace('the author has confirmed final manuscript review and approval; journal submission has not been performed.', 'the author confirmed review and approval of the source scientific manuscript. The PLOS-formatted files require separate author review and approval. The author now reports that the manuscript is under consideration at Journal of Neural Engineering; this preparation package is not a PLOS ONE submission.')
+  b['text']='The submission materials contain the manuscript, supporting information, standalone figures, frozen derived data and validation evidence. All manuscript-preparation model fits and checkpoint-inference counts are zero. Operational cloud logs are not scientific endpoints. Author declarations and final submission checks are maintained separately from the scientific results.'
 
 # Vancouver order of first appearance after moving data/ethics into Methods.
 CITE=re.compile(r'\[(\d+(?:\s*,\s*\d+)*)\]'); order=[]
@@ -117,8 +117,13 @@ jdump('evidence/editorial_transformations.json',{'source_commit':SHA,'source_tag
 
 # Six TIFFs are rendered from source vectors; only text family/size is changed.
 # Paths, images, coordinates, values, color scales and error bars remain unchanged.
-figreport=[];ns={'s':'http://www.w3.org/2000/svg'}
+existing_figures=(OUT/'evidence/figure_conversion.json').exists() and all((OUT/'Figures'/f'Fig{n}.tif').exists() and (OUT/'FigureSources'/f'Fig{n}.svg').exists() for n in range(1,7))
+figreport=json.loads((OUT/'evidence/figure_conversion.json').read_text()) if existing_figures else [];ns={'s':'http://www.w3.org/2000/svg'}
 for n,b in enumerate([b for b in main if b['type']=='figure'],1):
+ if existing_figures:
+  assert digest(OUT/'Figures'/f'Fig{n}.tif')==figreport[n-1]['tiff_sha256']
+  assert digest(OUT/'FigureSources'/f'Fig{n}.svg')==figreport[n-1]['edited_svg_sha256']
+  continue
  orig=SRC/'figures'/(b['name']+'.svg');tree=etree.fromstring(orig.read_bytes());vb=list(map(float,tree.attrib['viewBox'].split()));w,h=vb[2:];scale=min(540/w,630/h);width=w*scale;height=h*scale
  for e in tree.xpath('.//s:text | .//s:tspan',namespaces=ns):
   st=e.get('style','');st=re.sub(r"font-family:\s*[^;]+",'font-family: Arial',st)
@@ -233,7 +238,7 @@ for f in sorted((SRC/'tables').glob('*.csv')):entries.append((f,'tables/'+f.name
 for f in sorted((SRC/'evidence/q16_analysis').iterdir()):
  if f.is_file() and f.suffix in ['.csv','.json','.md','.gz']:entries.append((f,'q16/'+f.name))
 for name in ['paper_numbers.json'] : entries.append((SRC/name,name))
-for name in ['q15_numbers.json','q15_numbers.md','paper_internal_numbers.json','internal_review.json','methods_q15.json','final_scientific_review.json','delivery_validation.json'] :entries.append((SRC/'evidence'/name,'validation/'+name))
+for name in ['q15_numbers.json','q15_numbers.md','paper_internal_numbers.json','internal_review.json','methods_q15.json'] :entries.append((SRC/'evidence'/name,'validation/'+name))
 for code in ['Q15-E006','Q15-E007']:
  for name in ['predictions.csv','statistics.json']:entries.append((ROOT/'results/Q15-EXTERNAL'/code/name,f'q15/{code}/{name}'))
 # Literal figure-renderer inputs are copied, not executed or reaggregated.
@@ -249,14 +254,13 @@ with zipfile.ZipFile(OUT/'SupportingInformation/S1_Data.zip','w',compression=zip
 assert (OUT/'SupportingInformation/S1_Data.zip').stat().st_size<20_000_000
 jdump('evidence/derived_data_inventory.json',{'source_commit':SHA,'archive':'SupportingInformation/S1_Data.zip','archive_sha256':digest(OUT/'SupportingInformation/S1_Data.zip'),'files':{dst:{'source_path':str(f.relative_to(ROOT)),'sha256':digest(f)} for f,dst in entries}})
 
-cover=[{'type':'paragraph','text':'PREPARED DRAFT — NOT FOR SUBMISSION: the author reports that the same manuscript is currently under consideration at Journal of Neural Engineering. Formal PLOS ONE submission is blocked until that consideration has ended.'},
- {'type':'paragraph','text':'Dear Editors,'},
- {'type':'paragraph','text':'This prepared Research Article, “'+TITLE+'”, examines how source-only training-duration selection, participant heterogeneity and frozen external evaluation constrain claims about calibration-free motor-imagery EEG decoding.'},
- {'type':'paragraph','text':'The study audits completed source-only development conditions and retains all participant-level and adverse or uncertain external results. Its contribution is an inspectable model-selection and evaluation evidence chain, rather than a new state-of-the-art domain-generalization algorithm. The separate BNCI sensor-level analysis is descriptive and does not attribute decoder mechanisms. The manuscript reports reproducible methods, uncertainty and limitations relevant to the technically sound, evidence-supported research considered by PLOS ONE.'},
- {'type':'paragraph','text':'Manuscript candidates, code and frozen results are publicly accessible on GitHub. The author reports no prior journal or preprint-platform publication. Original EEG remains accessible from the third-party providers; saved predictions, derived summaries and validation evidence are supplied or linked. AI assistance is disclosed in the Methods. Funding and competing-interest statements are provided separately for the submission system.'},
- {'type':'paragraph','text':'No PLOS ONE submission is being made with this draft. The exclusivity declaration, final approval of the PLOS-formatted files and any fee-assistance application must be completed by the author after the JNE status permits submission.'},
+cover=[{'type':'paragraph','text':'Dear Editors,'},
+ {'type':'paragraph','text':'Please consider this Research Article, “'+TITLE+'”, for publication in PLOS ONE.'},
+ {'type':'paragraph','text':'The study examines how source-only training-duration selection and participant heterogeneity constrain claims about calibration-free motor-imagery EEG decoding. It combines a model-selection audit with frozen external evaluation and retains adverse and uncertain findings. The contribution is a reproducible selection and evaluation evidence chain, rather than a new state-of-the-art domain-generalization algorithm. A separate sensor-level physiological analysis is descriptive and does not establish a decoder mechanism.'},
+ {'type':'paragraph','text':'The manuscript provides documented methods, participant-level outcomes, uncertainty estimates and explicit limitations. Code, manuscript candidates and frozen research outputs are publicly accessible on GitHub. The author reports no prior journal or preprint-platform publication. Original EEG is obtained from the original providers; saved predictions, derived summaries and validation evidence are supplied or linked. AI assistance and author verification are disclosed in the Methods. Funding and competing-interest statements are provided in the submission fields.'},
+ {'type':'paragraph','text':'I am the sole and corresponding author and take responsibility for the scientific content. Please address correspondence to the contact details below.'},
  {'type':'paragraph','text':'Sincerely,\n'+AUTHOR['name']+'\n'+AUTHOR['affiliation']+'\n'+AUTHOR['email']}]
-document('PLOS ONE cover letter — prepared draft',cover,'PLOS_ONE_Cover_Letter.docx',bibliography=False,cover=True)
+document('Cover letter — PLOS ONE Research Article',cover,'PLOS_ONE_Cover_Letter.docx',bibliography=False,cover=True)
 save('PLOS_ONE_Cover_Letter.md',mdblocks(cover))
-jdump('evidence/source_version.json',{'checked_at_utc':NOW,'source_branch':'paper/zero-calibration-q16-20261006','source_branch_commit':SHA,'latest_verified_manuscript_tag':'paper-v1.0.2','artifact_commit':'b23480d996dd6c78e386686e1110e272decf166f','fresh_github_inventory_checked':True,'scientific_protected_count':16417,'source_validation_bindings_checked':230,'source_delivery_checks':680,'jne_status':'SUBMITTED_UNDER_REVIEW_AUTHOR_REPORTED','live_submission_portal_accessed':False,'plos_formal_submission':'BLOCKED','new_model_fits':0,'new_checkpoint_inference':0,'new_q16_scientific_execution':0})
+jdump('evidence/source_version.json',{'checked_at_utc':NOW,'target_journal':'PLOS ONE','source_branch':'paper/zero-calibration-q16-20261006','source_branch_commit':SHA,'latest_verified_manuscript_tag':'paper-v1.0.2','artifact_commit':'b23480d996dd6c78e386686e1110e272decf166f','scientific_protected_count':16417,'source_validation_bindings_checked':230,'source_delivery_checks':680,'previous_journal_decision':'REJECTED_AUTHOR_REPORTED','decision_report_date':'2026-10-09','live_submission_portal_accessed':False,'prior_journal_consideration_block':False,'plos_formal_submission':'NOT_SUBMITTED_AUTHOR_FINAL_CHECKS_PENDING','new_formatted_version_author_approval':'PENDING','new_model_fits':0,'new_checkpoint_inference':0,'new_q16_scientific_execution':0})
 print(json.dumps({'main_blocks':len(main),'appendix_blocks':len(appendix),'abstract_words':len(main[1]['text'].split()),'refs':len(refs),'data_archive_bytes':(OUT/'SupportingInformation/S1_Data.zip').stat().st_size,'new_fits':0}))

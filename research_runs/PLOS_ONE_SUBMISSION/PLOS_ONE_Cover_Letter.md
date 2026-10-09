@@ -1,14 +1,12 @@
-PREPARED DRAFT — NOT FOR SUBMISSION: the author reports that the same manuscript is currently under consideration at Journal of Neural Engineering. Formal PLOS ONE submission is blocked until that consideration has ended.
-
 Dear Editors,
 
-This prepared Research Article, “Source-only model selection and limits of fixed spectral-sharing pipelines in cross-subject motor-imagery EEG decoding”, examines how source-only training-duration selection, participant heterogeneity and frozen external evaluation constrain claims about calibration-free motor-imagery EEG decoding.
+Please consider this Research Article, “Source-only model selection and limits of fixed spectral-sharing pipelines in cross-subject motor-imagery EEG decoding”, for publication in PLOS ONE.
 
-The study audits completed source-only development conditions and retains all participant-level and adverse or uncertain external results. Its contribution is an inspectable model-selection and evaluation evidence chain, rather than a new state-of-the-art domain-generalization algorithm. The separate BNCI sensor-level analysis is descriptive and does not attribute decoder mechanisms. The manuscript reports reproducible methods, uncertainty and limitations relevant to the technically sound, evidence-supported research considered by PLOS ONE.
+The study examines how source-only training-duration selection and participant heterogeneity constrain claims about calibration-free motor-imagery EEG decoding. It combines a model-selection audit with frozen external evaluation and retains adverse and uncertain findings. The contribution is a reproducible selection and evaluation evidence chain, rather than a new state-of-the-art domain-generalization algorithm. A separate sensor-level physiological analysis is descriptive and does not establish a decoder mechanism.
 
-Manuscript candidates, code and frozen results are publicly accessible on GitHub. The author reports no prior journal or preprint-platform publication. Original EEG remains accessible from the third-party providers; saved predictions, derived summaries and validation evidence are supplied or linked. AI assistance is disclosed in the Methods. Funding and competing-interest statements are provided separately for the submission system.
+The manuscript provides documented methods, participant-level outcomes, uncertainty estimates and explicit limitations. Code, manuscript candidates and frozen research outputs are publicly accessible on GitHub. The author reports no prior journal or preprint-platform publication. Original EEG is obtained from the original providers; saved predictions, derived summaries and validation evidence are supplied or linked. AI assistance and author verification are disclosed in the Methods. Funding and competing-interest statements are provided in the submission fields.
 
-No PLOS ONE submission is being made with this draft. The exclusivity declaration, final approval of the PLOS-formatted files and any fee-assistance application must be completed by the author after the JNE status permits submission.
+I am the sole and corresponding author and take responsibility for the scientific content. Please address correspondence to the contact details below.
 
 Sincerely,
 Ziyuan Zhu

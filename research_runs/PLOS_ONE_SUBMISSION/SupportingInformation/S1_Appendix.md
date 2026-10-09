@@ -176,7 +176,7 @@ Shared input had greater descriptive seed dispersion than broad input: mean with
 
 ### S8. Reproducible manuscript materials
 
-The source manuscript bundle contains consistent English Markdown, editable DOCX, a PDF layout export, standalone LaTeX source with embedded numerical figure panels, the Chinese companion, figure sources and PNG/PDF/SVG exports, participant tables, a completed-condition inventory, verified references, independent numerical-audit scripts, and an author submission checklist. The main paper reports the retained scientific results; operational cloud failure logs do not substitute for scientific endpoints. All manuscript preparation fits and checkpoint-inference counts are zero. Funding, competing-interest and ethics statements reflect the author’s confirmation; the author confirmed review and approval of the source scientific manuscript. The PLOS-formatted files require separate author review and approval. The author now reports that the manuscript is under consideration at Journal of Neural Engineering; this preparation package is not a PLOS ONE submission.
+The submission materials contain the manuscript, supporting information, standalone figures, frozen derived data and validation evidence. All manuscript-preparation model fits and checkpoint-inference counts are zero. Operational cloud logs are not scientific endpoints. Author declarations and final submission checks are maintained separately from the scientific results.
 
 ### S9. Descriptive BNCI-only Physiological Characterization
 

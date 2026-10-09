@@ -1,14 +1,14 @@
 # Editorial changes and scientific preservation
 
-- Based on the fresh GitHub inventory and current verified paper branch at 0c7146895dc46850e4fe7db38bd69d9aea2b41c3. The latest verified manuscript artifact is paper-v1.0.2, rather than the earlier stable paper-v1.0 release. The newer branch commit adds publication receipts only.
-- Created a separate PLOS folder/branch; no JNE source file or frozen Q1–Q16 output is changed.
-- Removed only JNE abstract category labels: 241 words, unchanged scientific sentences/numbers.
-- Changed numbering-dependent headings into semantic PLOS headings; related work becomes an Introduction subsection; Conclusions retained.
-- Moved data access, ethics and the truthful full AI disclosure into Methods; funding/conflicts and contribution answers are prepared separately for the system. Ethics now names only the Cho/Lee collection statements actually verified and separates them from the author's secondary-analysis declaration.
-- Removed embedded main figures from DOCX, retaining all six captions and placing figures/tables immediately after first citation. Added only neutral table/figure navigation sentences where the source did not explicitly cite a float.
-- Converted 28 references to Vancouver, preserving verified author/title/year/DOI records, and kept all references cited. Bracketed source-validation participant groups are scientific group labels, not citations; these remain [1,2], [3,4], [5,6], [7,8,9].
-- Figure conversions change Arial text/physical size and Fig 2 legend layout only. Scientific graphical elements and text remain unchanged, including Q16 color scale.
-- Removed duplicated caption title phrases in exports without deleting their scientific descriptions.
-- Corrected the new appendix's administrative statement that journal submission had not occurred: JNE is now under review according to the author; this package itself is not a PLOS submission. Approval of the new format is not asserted.
-- Created S1 Data by frozen byte copies; no p-value, CI, participant/trial/epoch count, effect, descriptor, model weight, prediction or analysis rule is modified.
-- No model fit, checkpoint inference, prediction recomputation, physiological experiment or new statistical analysis was executed. Frozen audits are preserved, not falsely described as repeated raw replication during this task.
+- Current target: PLOS ONE. The active manuscript, supporting information, cover letter, submission fields and repository entry points are aligned with this target. Superseded submission wording and old under-review blocking instructions have been removed from current materials; historical commits and tags remain traceable.
+- Scientific text derives from the verified source snapshot `0c7146895dc46850e4fe7db38bd69d9aea2b41c3` and its manuscript artifacts. Q1–Q16 frozen outputs, numerical audit inputs, result manifests and scientific figure data remain protected.
+- Removed structured abstract category labels only: 241 words, unchanged scientific sentences and numbers.
+- Changed numbering-dependent headings to semantic PLOS headings; related work forms an Introduction subsection; Conclusions retained.
+- Moved data access, ethics and the truthful full AI disclosure into Methods. Funding/conflicts and contribution answers are prepared separately for the system. Ethics names only the original collection statements actually verified, distinct from the author's secondary-analysis declaration.
+- Removed embedded main figures from DOCX, retaining all six captions and placing figures/tables immediately after first citation. Added only neutral navigation sentences where the source did not explicitly cite a float.
+- Converted 28 references to Vancouver without changing verified author/title/year/DOI records; all references remain cited. Scientific source-validation group labels remain [1,2], [3,4], [5,6], [7,8,9], rather than being converted into citation numbers. Valid cited journal titles are retained.
+- Figure conversion changes Arial text, physical size and Fig 2 legend layout only. Scientific graphical elements and text are preserved, including the frozen Q16 color scale; current editorial status changes do not alter figure data.
+- Removed duplicated caption title phrases in exports without deleting scientific descriptions.
+- Updated administrative status, current package links and author requirements. Approval of the new formatted files, a valid ORCID, accurate current declarations and financial/permissions answers remain author actions. No rejection letter, live portal decision or new institutional ruling is claimed.
+- S1 Data consists of frozen byte copies. No p-value, confidence interval, participant/trial/epoch count, effect, physiology descriptor, model weight, saved prediction or analysis rule has been changed.
+- No model fit, checkpoint inference, prediction recomputation, physiology experiment or new statistical analysis was executed. Saved-output and document checks do not imply that the raw scientific experiments were repeated.

@@ -8,7 +8,7 @@ S1 Data contains byte copies of frozen outputs, with per-file SHA-256 and source
 
 ## More stable archive plan — not executed
 
-After the author confirms licensing, deposit the source revision, derived-output package, metadata and checksums with Zenodo or another appropriate repository. Inspect the deposited files and actual assigned DOI before substituting it in the statement. GitHub tags identify frozen source; a DOI has not been registered for this preparation package.
+After the author confirms licensing, deposit the source revision, derived-output package, metadata and checksums with Zenodo or another appropriate repository. Inspect the deposited files and actual assigned DOI before substituting it in the statement. GitHub tags identify frozen source; a DOI has not been registered for this submission package.
 
 ## Key result paths
 
@@ -16,3 +16,7 @@ After the author confirms licensing, deposit the source revision, derived-output
 - Q16 derived data and validation: `research_runs/Q16-P001-BNCI-20261006/`.
 - Internal/PhysioNet saved-run paths and grain: `research_runs/PAPER_FINAL_20261006/tables/completed_experiment_inventory.csv` and the source reproducibility guide.
 - Source final numbers: `research_runs/PAPER_FINAL_20261006/paper_numbers.json`.
+
+## Current manuscript package
+
+The PLOS ONE manuscript and submission-file revision is identified by branch `paper/plos-one-submission-20261009` and release tag `plos-one-submission-v1.0`. This editorial revision does not replace the scientific result commits listed above or change the underlying frozen outputs.

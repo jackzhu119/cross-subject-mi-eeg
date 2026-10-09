@@ -1,6 +1,6 @@
 # PLOS ONE submission fields — prepared English answers
 
-**BLOCKED FOR FORMAL SUBMISSION:** the author confirms JNE is submitted and still under review. No authenticated PLOS ONE submission screen was accessed. The fields below follow public journal guidance; the portal's actual labels and required controls must be checked at login. No draft submission or manuscript ID has been created.
+Target journal: PLOS ONE. Article files are prepared for author review and submission; no authenticated submission screen has been accessed, and no manuscript ID or submission record has been created. Confirm the portal's current labels and required fields at login. Author confirmations below remain personal actions at final submission.
 
 ## Article type
 
@@ -43,11 +43,11 @@ Original EEG recordings are available from their third-party providers: BNCI2014
 
 This study involved secondary analysis of public EEG recordings and recruited no new participants. The Cho2017 and Lee2019 source publications report collection ethics review and written informed consent. Those collection approvals are not approvals for this secondary analysis. The author confirms that neither ethics approval nor an exemption was required for this secondary analysis.
 
-AUTHOR / INSTITUTION VERIFICATION REQUIRED: this records the author's assertion, not an independently verified institutional ruling. Source collection ethics belong to the original providers. Do not enter a Cho/Lee source-collection identifier as approval for this secondary analysis.
+AUTHOR / INSTITUTION VERIFICATION REQUIRED: this records the author's assertion, not an independently verified institutional ruling. Retain the basis for that assertion under applicable institutional and journal requirements. Do not enter a Cho/Lee source-collection identifier as approval for this secondary analysis. The unfilled original form is supplied in `AuthorForms/PLOS_Human_Participants_Checklist_2026_blank.pdf`; see `AuthorForms/README_zh.md`. Complete the official [Human Participants Checklist](https://journals.plos.org/plosone/s/file?id=ba3b%2FPLOS_Human_Participants_Research_Checklist_2026.pdf) according to the actual classification and provide applicable documentation requested by the journal; do not invent an institutional exemption. The official checklist also asks retrospective studies to report the actual research-access dates (day, month and year) and access to potentially identifying participant information in Methods, with the corresponding line numbers. AUTHOR ACTION REQUIRED: verify those facts from actual records, add the applicable wording, and complete the form; do not infer first access from a later backup/export timestamp.
 
 ## CRediT contributions
 
-Confirmed basis: sole author; manuscript preparation, personal checking/revision and prior final approval are author-reported.
+Confirmed basis: sole author; manuscript preparation, personal checking/revision and approval of the earlier scientific manuscript are author-reported. Approval of the current PLOS-formatted files remains pending.
 
 Confirmed applicable roles: Writing – original draft; Writing – review & editing.
 
@@ -61,25 +61,26 @@ The underlying Codex model version is not reliably documented in the project rec
 
 ## Prior dissemination / related manuscript
 
-The manuscript and research outputs have been publicly available on GitHub. The author reports no journal or preprint-platform publication. The same manuscript is currently under consideration at Journal of Neural Engineering. **Do not affirm that it is not under consideration elsewhere.** Before a future PLOS submission, the author must confirm the actual end of JNE consideration and update this answer and the cover letter accurately.
+The manuscript and research outputs have been publicly available on GitHub. The author reports no prior journal or preprint-platform publication. The earlier consideration has ended without acceptance according to the author. At final submission, personally confirm that this manuscript, or any related manuscript, is not currently under consideration or accepted elsewhere. Supply related manuscripts and accurate previous-submission information if the portal requests them; do not invent manuscript IDs or correspondence.
 
-## Editor / reviewer suggestions
+## Editor / reviewer suggestions and prior PLOS interactions
 
-AUTHOR ACTION REQUIRED: choose a current appropriate Academic Editor and, if the portal requests them, qualified reviewers without recent collaboration, shared institution or other conflicts. No names/contact details or conflict checks have been invented.
+AUTHOR ACTION REQUIRED: select appropriate current Academic Editors from the official editorial board and check for recent collaboration, a shared institution or other conflicts. Confirm whether any reviewers should be opposed and whether there have been prior interactions with PLOS about this manuscript. No names, contact details, absence-of-conflict declarations or correspondence histories have been invented. Add applicable information to the one-page cover letter and portal fields.
 
 ## Upload mapping
 
 - Manuscript: `PLOS_ONE_Manuscript.docx` (no embedded main figures).
-- Cover Letter: `PLOS_ONE_Cover_Letter.docx` (currently blocked draft; revise after JNE ends).
+- Cover Letter: `PLOS_ONE_Cover_Letter.docx`; review and add applicable verified editor/reviewer/interaction information before submission.
 - Figures: `Figures/Fig1.tif` through `Fig6.tif`, each separately.
 - Supporting Information: `SupportingInformation/S1_Appendix.pdf`, `SupportingInformation/S1_Data.zip`.
 - `PLOS_ONE_Manuscript_Review.pdf` is for author review; inspect the portal's own compiled PDF too.
-- Do not upload the full preparation ZIP as the main manuscript, and do not upload internal checklists as research supporting files.
+- Do not upload the full preparation ZIP as the main manuscript or internal checklists as research supporting files.
+- Complete the separate official Human Participants Checklist in `AuthorForms/` and provide it as required by the journal; the blank form and answer guide are not scientific Supporting Information.
 
 ## Publication fee assistance
 
-Only request it at initial submission if needed and if truthful financial answers are complete. School/library funding availability, amount the author can pay and assistance evidence remain author-provided. No fee waiver has been requested or granted.
+Only request it at initial submission if needed and if truthful financial answers are complete. School/library funding availability, the amount the author can pay and assistance evidence remain author-provided. No fee waiver has been requested or granted; no payment has been made by this assistant.
 
 ## Final declarations
 
-AUTHOR ACTION REQUIRED: final PLOS-formatted manuscript and supplement approval; exclusive submission after JNE ends; accurate contributions; research ethics/permissions; licensing; CC BY publication conditions; financial responsibility or granted assistance. No final Submit has been clicked.
+AUTHOR ACTION REQUIRED: current PLOS-formatted manuscript and supplement approval; real-time exclusive submission and related-work confirmation; accurate contributions; research ethics/permissions; licensing and CC BY publication conditions; financial responsibility or fee-assistance application. No final Submit has been clicked.
