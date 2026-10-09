@@ -12,8 +12,8 @@ The current manuscript files and submission materials follow PLOS ONE public gui
 | Supporting files | S-number/type labels; file <20 MB; captions after references | https://journals.plos.org/plosone/s/supporting-information |
 | References | Vancouver, first-citation order, first six authors then et al., standard journal abbreviations | submission guidelines |
 | Funding / conflicts | Separate submission-system statements | submission guidelines |
-| Corresponding author | ORCID required; author action pending | submission guidelines |
-| CRediT / approval | At least one accurate contribution per author; personal confirmations required | submission guidelines |
+| Corresponding author | ORCID supplied (0009-0005-1153-4926); author must correct reversed public name fields and link the iD in the portal | submission guidelines |
+| CRediT / approval | Ten sole-author roles and current approval author-confirmed; portal confirmations remain personal | submission guidelines |
 | Data | Underlying results accessible; third-party access routes, applicable permissions and terms specified | https://journals.plos.org/plosone/s/data-availability |
 | AI | Tool names, affected content and validity evaluation disclosed in the article; no AI authors | https://journals.plos.org/plosone/s/ethical-publishing-practice |
 | Ethics | Original collection ethics/consent distinguished from the secondary-analysis requirement; applicable institutional requirements and Human Participants Checklist must be checked; retrospective research-access dates, identifiability and Methods line numbers require actual records | https://journals.plos.org/plosone/s/human-subjects-research |

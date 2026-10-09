@@ -1,28 +1,202 @@
 {
+  "schema_version": 1,
+  "scope": "Independent read-only historical-source, frozen-byte, reference, DOCX table and PDF bounds review. No raw EEG read, model execution, inference, statistics or Q16 experiment rerun.",
+  "checked_at_utc": "2026-10-09T12:38:55.514907+00:00",
+  "source_revision": "0c7146895dc46850e4fe7db38bd69d9aea2b41c3",
+  "comparison_tag": "plos-one-submission-v1.0",
+  "observed_worktree_head": "fba2cf7d02e061357639f5689d34623f9edce964",
   "status": "passed",
-  "reviewed_at_utc": "2026-10-09T07:31:16.467799+00:00",
-  "scope": "Independent read-only manuscript preservation, references, journal-target hygiene and PDF layout review; no experimental reruns.",
-  "protected_scientific_files_verified": 16417,
-  "main_markdown_abstract_references_byte_identical_to_previous_package": true,
-  "main_docx_paragraphs_and_eight_tables_unchanged": true,
-  "appendix_six_tables_unchanged": true,
-  "appendix_administrative_paragraph_only_changed": true,
-  "six_TIFF_files_byte_identical": true,
-  "S1_data_scientific_members_byte_identical": 66,
-  "removed_S1_data_editorial_reports": [
-    "validation/final_scientific_review.json",
-    "validation/delivery_validation.json"
-  ],
-  "continuous_cited_references": 28,
-  "pdf_pages_inspected": {
-    "main": 41,
-    "appendix": 29,
-    "cover": 1
+  "check_count": 30,
+  "checks": {
+    "all_16417_frozen_scientific_files_byte_identical_to_v1_0_baseline": true,
+    "scientific_source_prose_equations_preserved_in_blocks": true,
+    "scientific_source_prose_equations_preserved_in_markdown": true,
+    "scientific_source_prose_equations_preserved_in_docx": true,
+    "all_source_scientific_table_cells_preserved": true,
+    "appendix_markdown_exactly_unchanged_from_v1_0": true,
+    "v1_0_scientific_section_exact_##_Abstract": true,
+    "v1_0_scientific_section_exact_##_Introduction": true,
+    "v1_0_scientific_section_exact_##_Results": true,
+    "v1_0_scientific_section_exact_##_Discussion": true,
+    "v1_0_scientific_section_exact_##_Conclusion": true,
+    "v1_0_scientific_section_exact_##_References": true,
+    "28_reference_metadata_match_immutable_source": true,
+    "references_and_abstract_byte_identical_to_v1_0": true,
+    "all_28_references_cited_continuous_first_appearance": true,
+    "six_TIFFs_byte_identical_to_v1_0": true,
+    "66_scientific_S1_members_byte_identical_to_v1_0_and_frozen_sources": true,
+    "S1_archive_names_identical_and_only_readme_metadata_changed": true,
+    "S1_zip_crc_passed": true,
+    "rendered_DOCX_tables_exact_cells": true,
+    "PLOS_ONE_Manuscript_Review.pdf_exists_nonempty_correct_pages": true,
+    "PLOS_ONE_Manuscript_Review.pdf_no_text_outside_page_bounds": true,
+    "main_pdf_gutter_lines_continuous": true,
+    "main_pdf_no_embedded_figure_images": true,
+    "current_ORCID_access_dates_identity_ethics_metadata_rendered": true,
+    "SupportingInformation/S1_Appendix.pdf_exists_nonempty_correct_pages": true,
+    "SupportingInformation/S1_Appendix.pdf_no_text_outside_page_bounds": true,
+    "PLOS_ONE_Cover_Letter.pdf_exists_nonempty_correct_pages": true,
+    "PLOS_ONE_Cover_Letter.pdf_no_text_outside_page_bounds": true,
+    "cover_current_PLOS_target_and_no_previous_journal_status": true
   },
-  "out_of_page_text_spans": 0,
-  "old_submission_target_or_status_in_journal_files": false,
-  "final_material_ZIP_requires_separate_manifest_and_remote_readback": true,
+  "details": {
+    "all_16417_frozen_scientific_files_byte_identical_to_v1_0_baseline": {
+      "count": 16417,
+      "mismatches": []
+    },
+    "scientific_source_prose_equations_preserved_in_blocks": {
+      "count": 99,
+      "missing": []
+    },
+    "scientific_source_prose_equations_preserved_in_markdown": [],
+    "scientific_source_prose_equations_preserved_in_docx": [],
+    "all_source_scientific_table_cells_preserved": {
+      "displayed_cells": 453,
+      "mismatches": []
+    },
+    "appendix_markdown_exactly_unchanged_from_v1_0": true,
+    "v1_0_scientific_section_exact_##_Abstract": true,
+    "v1_0_scientific_section_exact_##_Introduction": true,
+    "v1_0_scientific_section_exact_##_Results": true,
+    "v1_0_scientific_section_exact_##_Discussion": true,
+    "v1_0_scientific_section_exact_##_Conclusion": true,
+    "v1_0_scientific_section_exact_##_References": true,
+    "28_reference_metadata_match_immutable_source": [],
+    "references_and_abstract_byte_identical_to_v1_0": [],
+    "all_28_references_cited_continuous_first_appearance": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28
+    ],
+    "six_TIFFs_byte_identical_to_v1_0": [
+      {
+        "file": "Fig1.tif",
+        "sha256": "e3938c955565b2dc587b869f10a6e1489598aa1ea52d7d311a27077ccc87d541",
+        "byte_identical": true
+      },
+      {
+        "file": "Fig2.tif",
+        "sha256": "66c02a4aa12e82bba535912b3c6a4ac884d6fee96be9343468828f128037f399",
+        "byte_identical": true
+      },
+      {
+        "file": "Fig3.tif",
+        "sha256": "37ac09debc32ca8aa88f740aca931bbabb597aada784166bafbfe9243f562e29",
+        "byte_identical": true
+      },
+      {
+        "file": "Fig4.tif",
+        "sha256": "32403a1c19396b0b392a32aee41fb70e50ac59d0f0017976fe0710f5b9e4e615",
+        "byte_identical": true
+      },
+      {
+        "file": "Fig5.tif",
+        "sha256": "c6c1051c528845bcd34371b980acb890ea9bae5169476271b3ff024d2176f3dc",
+        "byte_identical": true
+      },
+      {
+        "file": "Fig6.tif",
+        "sha256": "be77e27833a1e48e2119aeb0f21fb6fd12a6ce5c854877959a6ca437651ab480",
+        "byte_identical": true
+      }
+    ],
+    "66_scientific_S1_members_byte_identical_to_v1_0_and_frozen_sources": {
+      "count": 66,
+      "mismatches": []
+    },
+    "S1_archive_names_identical_and_only_readme_metadata_changed": [
+      "README.txt"
+    ],
+    "S1_zip_crc_passed": true,
+    "rendered_DOCX_tables_exact_cells": [],
+    "PLOS_ONE_Manuscript_Review.pdf_exists_nonempty_correct_pages": true,
+    "PLOS_ONE_Manuscript_Review.pdf_no_text_outside_page_bounds": [],
+    "main_pdf_gutter_lines_continuous": {
+      "count": 918,
+      "min": 10,
+      "max": 927
+    },
+    "main_pdf_no_embedded_figure_images": true,
+    "current_ORCID_access_dates_identity_ethics_metadata_rendered": {
+      "normalized_PDF_whitespace_for_wrapped_prose": true,
+      "terms": {
+        "0009-0005-1153-4926": true,
+        "21 September": true,
+        "6 October 2026": true,
+        "25 September 2026": true,
+        "3 to 5 October 2026": true,
+        "No formal approval or exemption": true,
+        "No direct identifying information": true
+      }
+    },
+    "SupportingInformation/S1_Appendix.pdf_exists_nonempty_correct_pages": true,
+    "SupportingInformation/S1_Appendix.pdf_no_text_outside_page_bounds": [],
+    "PLOS_ONE_Cover_Letter.pdf_exists_nonempty_correct_pages": true,
+    "PLOS_ONE_Cover_Letter.pdf_no_text_outside_page_bounds": [],
+    "cover_current_PLOS_target_and_no_previous_journal_status": true
+  },
+  "failed_checks": [],
+  "pdfs": {
+    "PLOS_ONE_Manuscript_Review.pdf": {
+      "pages": 42,
+      "expected_pages": 42,
+      "sha256": "78d41ffbfb4ca3d6b935cfc3bfec18c7c1c90deb03c2e9ff0532883e5897a55c",
+      "page_overflow": [],
+      "gutter_line_count": 918,
+      "bytes": 336389
+    },
+    "SupportingInformation/S1_Appendix.pdf": {
+      "pages": 29,
+      "expected_pages": 29,
+      "sha256": "b5fc9aa4279839186d0347c97f484db5942854db56b4cb4e34a902cb3f4afa71",
+      "page_overflow": [],
+      "gutter_line_count": 564,
+      "bytes": 931607
+    },
+    "PLOS_ONE_Cover_Letter.pdf": {
+      "pages": 1,
+      "expected_pages": 1,
+      "sha256": "82e3e9bd839d9ad664026d5985f96313bb7e5e5d1e4ecff76ce4d1cc264cf080",
+      "page_overflow": [],
+      "gutter_line_count": 0,
+      "bytes": 31187
+    }
+  },
   "new_model_fits": 0,
   "new_checkpoint_inference": 0,
-  "new_q16_scientific_execution": 0
+  "new_Q16_execution": 0,
+  "allowable_changes_observed": [
+    "Added author ORCID",
+    "Secondary ethics assessment expressly lacks formal approval/exemption document",
+    "Historical research-access date and provenance qualification",
+    "Author-reported absence of direct identifying information",
+    "Original-output licensing and current version links",
+    "Administrative cover/checklist/author form status; not scientific results"
+  ],
+  "limit": "PDF bounds checks do not substitute for full author proof approval. Institutional ethics applicability and online journal acceptance were not independently determined."
 }

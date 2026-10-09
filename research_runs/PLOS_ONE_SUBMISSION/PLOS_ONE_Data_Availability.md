@@ -4,11 +4,11 @@ Original EEG recordings are available from their third-party providers: BNCI2014
 
 ## Access and rights boundaries
 
-S1 Data contains byte copies of frozen outputs, with per-file SHA-256 and source paths. Saved internal and PhysioNet results remain accessible in the immutable full repository snapshot and its experiment inventories; they are not re-estimated here. The study uses no private participant identifiers. Public accessibility is not itself an open-data or software license: no repository-level LICENSE was found in the inspected snapshot. The author must confirm permissions and apply an appropriate explicit license to original code/derived outputs if required before depositing an archive. Third-party recordings retain their providers' terms. These access links do not imply that every provider has the same license.
+S1 Data contains byte copies of frozen outputs, with per-file SHA-256 and source paths. Saved internal and PhysioNet results remain accessible in the immutable scientific snapshot and its inventories; they are not re-estimated here. The author reports access only to participant codes and basic demographics, without direct identifying information. Author-owned original code is now licensed under MIT; author-owned original text, figures and derived outputs under CC BY 4.0. See the current release's LICENSE, LICENSE-DATA.md and LICENSING.md. Third-party recordings, metadata, software, fonts and publisher forms retain their original rights. This grant does not infer ownership or a common license for provider materials.
 
 ## More stable archive plan — not executed
 
-After the author confirms licensing, deposit the source revision, derived-output package, metadata and checksums with Zenodo or another appropriate repository. Inspect the deposited files and actual assigned DOI before substituting it in the statement. GitHub tags identify frozen source; a DOI has not been registered for this submission package.
+After reviewing the now-explicit licensing and archive contents, the author may deposit the source revision, derived-output package, metadata and checksums with Zenodo or another appropriate repository. Inspect the deposited files and actual assigned DOI before substituting it in the statement. GitHub tags identify frozen source; a DOI has not been registered for this submission package.
 
 ## Key result paths
 
@@ -19,4 +19,4 @@ After the author confirms licensing, deposit the source revision, derived-output
 
 ## Current manuscript package
 
-The PLOS ONE manuscript and submission-file revision is identified by branch `paper/plos-one-submission-20261009` and release tag `plos-one-submission-v1.0`. This editorial revision does not replace the scientific result commits listed above or change the underlying frozen outputs.
+The PLOS ONE manuscript and submission-file revision is identified by branch `paper/plos-one-author-finalization-20261009` and release tag `plos-one-submission-v1.1`. This editorial revision does not replace the scientific result commits listed above or change the underlying frozen outputs.

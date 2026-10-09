@@ -6,6 +6,7 @@ from docx import Document
 from lxml import etree
 from PIL import Image
 import fitz
+from urllib.request import urlopen
 P=Path(__file__).resolve().parent;ROOT=P.parents[1];S=ROOT/'research_runs/PAPER_FINAL_20261006'
 h=lambda p:hashlib.sha256(p.read_bytes()).hexdigest();checks={}
 def check(k,v):checks[k]=bool(v)
@@ -116,7 +117,45 @@ with zipfile.ZipFile(P/'SupportingInformation/S1_Data.zip') as z:
  check('S1_Data_no_previous_target_status',all(not obsolete.search(z.read(n).decode('utf-8')) for n in z.namelist() if n.endswith(('.json','.md','.txt','.csv'))))
 blank=P/'AuthorForms/PLOS_Human_Participants_Checklist_2026_blank.pdf'
 check('official_human_data_checklist_original_bytes',h(blank)=='ebf2a9913fe2926669dfb60c1ba5f9f98130b00b9e858bf9b1d243b3707162e4')
-check('required_human_data_dates_and_identifiability_action',all(x in (P/'AuthorForms/README_zh.md').read_text() for x in ['日期','识别','Methods']))
+check('required_human_data_dates_and_identifiability_action',all(x in (P/'AuthorForms/README_zh.md').read_text() for x in ['日期','身份','Methods']))
+author=json.loads((P/'evidence/author_confirmations_20261009.json').read_text())
+access=json.loads((P/'evidence/research_access_dates.json').read_text())
+check('author_confirmed_current_approval_and_scope',author['current_PLOS_version_approved'] is True and author['incorporation_of_supplied_author_details_authorized'] is True and author['sole_human_author'] is True)
+check('author_confirmed_APC_license_no_opposed_reviewers',author['original_output_licensing_authorized'] is True and author['opposed_reviewers']=='None, author confirmed' and 'personally pays' in author['apc_payment'])
+check('author_no_formal_secondary_ethics_document',author['formal_secondary_analysis_ethics_document'] is False and any('No formal approval or exemption documentation' in p for p in paragraphs) and any('author’s assessment' in p and 'institutional or committee determination' in p for p in paragraphs))
+check('current_author_ORCID_and_names',any('0009-0005-1153-4926' in p for p in paragraphs) and any('Ziyuan Zhu' in p for p in paragraphs) and 'reversed' in (P/'PLOS_ONE_Submission_Fields.md').read_text())
+check('audited_access_and_identity_exact_paragraphs',all(access[k] in paragraphs for k in ['methods_access_paragraph','methods_identifiability_paragraph']))
+records=access['bnci_physionet_evidence']['sources']+access['cho_lee_evidence']['evidence']
+check('fourteen_historical_record_GitHub_readbacks_verified',len(records)==14 and all(x['public_github_bytes_match'] and x['public_github_http_status']==200 for x in records))
+for n,x in enumerate(records):
+ commit=x.get('first_archive_commit',x.get('commit'))
+ saved=subprocess.run(['git','show',commit+':'+x['path']],cwd=ROOT,capture_output=True)
+ # Some immutable cloud receipts live on retained run branches, outside a main-only clone.
+ # Read their public record bytes, never credentials or original EEG, when Git lacks the object.
+ if saved.returncode==0:blob=saved.stdout
+ else:
+  with urlopen(x['raw_url'],timeout=60) as response:blob=response.read()
+ check('historical_access_evidence_'+str(n)+'_archived_bytes',hashlib.sha256(blob).hexdigest()==x['sha256'])
+check('access_dates_not_first_download_or_push_claim',all(k in access['methods_access_paragraph'] for k in ['first-ever download','Git commit, publication and backup timestamps were not substituted']))
+check('original_rights_scoped_licenses',all((P/name).read_bytes()==(ROOT/name).read_bytes() for name in ['LICENSE','LICENSE-DATA.md','LICENSING.md']) and 'MIT License' in (ROOT/'LICENSE').read_text() and 'CC BY 4.0' in (ROOT/'LICENSE-DATA.md').read_text() and 'third-party' in (ROOT/'LICENSING.md').read_text().lower())
+form=json.loads((P/'AuthorForms/form_completion_receipt.json').read_text())
+check('completed_human_form_bound_to_current_manuscript',form['manuscript_docx_sha256']==h(P/'PLOS_ONE_Manuscript.docx') and form['manuscript_review_pdf_sha256']==h(P/'PLOS_ONE_Manuscript_Review.pdf') and form['completed_form_sha256']==h(P/'AuthorForms/PLOS_Human_Participants_Checklist_2026_completed.pdf'))
+filled=fitz.open(P/'AuthorForms/PLOS_Human_Participants_Checklist_2026_completed.pdf')
+actual={(pg.number+1,w.field_name):w.field_value for pg in filled for w in pg.widgets()}
+check('completed_human_form_fields_match_receipt',len(actual)==9 and all(actual[(x['page'],x['field'])]==x['value'] for x in form['fields']))
+check('completed_human_form_correct_Completed_NA_boxes',actual[(1,'NA')]=='X' and not actual[(1,'Uploaded')] and actual[(2,'Completed')]=='X' and not actual[(2,'Please state the line numbers in the Methods where this is reported 2')] and actual[(2,'Please state the line numbers in the Methods where this is reported 2_2')]=='X' and not actual[(2,'Completed_2')] and actual[(2,'Please state the line numbers in the Methods where this is reported 1_2')]=='477–487')
+line_text={}
+for pg in fitz.open(P/'PLOS_ONE_Manuscript_Review.pdf'):
+ lines=[l for b in pg.get_text('dict')['blocks'] if 'lines' in b for l in b['lines']]
+ gutters=[l for l in lines if l['bbox'][0]<50 and ''.join(s['text'] for s in l['spans']).isdigit()]
+ body=[l for l in lines if l['bbox'][0]>=60 and l['bbox'][1]<780]
+ for g in gutters:
+  match=min(body,key=lambda l:abs(l['bbox'][1]-g['bbox'][1]))
+  if abs(match['bbox'][1]-g['bbox'][1])<2:line_text[int(''.join(s['text'] for s in g['spans']))]=''.join(s['text'] for s in match['spans'])
+normalize=lambda s:re.sub(r'\s+',' ',s).strip()
+check('Methods_477_483_exact_audited_dates',normalize(' '.join(line_text[k] for k in range(477,484)))==normalize(access['methods_access_paragraph']))
+check('Methods_484_487_exact_author_identity_scope',normalize(' '.join(line_text[k] for k in range(484,488)))==normalize(access['methods_identifiability_paragraph']))
+check('Methods_470_476_ethics_assessment_boundaries','No formal approval or exemption documentation' in ' '.join(line_text[k] for k in range(470,477)) and 'author’s assessment' in ' '.join(line_text[k] for k in range(470,477)))
 failed=[k for k,v in checks.items()if not v]
-report={'status':'passed'if not failed else'failed','scope':'Editorial preservation, frozen-byte and package checks only; no new model/scientific experiment execution or independent institutional determination.','checked_at_utc':datetime.now(timezone.utc).isoformat(),'checks':checks,'failed_checks':failed,'check_count':len(checks),'protected_scientific_files':len(baseline['scientific_files']),'immutable_source_archive_files_verified':len(archived),'displayed_scientific_table_cells_checked':science_cells,'pdfs':pdf_info,'journal_submission_performed':False,'prior_journal_consideration_block':False,'author_final_checks_pending':True,'author_actions':['ORCID','PLOS-format author reading/approval','Institutional secondary-analysis ethics requirements','Actual CRediT roles and output licensing','APC funding/assistance answers','Actual portal confirmations'],'new_model_fits':0,'new_checkpoint_inference':0,'new_q16_scientific_execution':0}
+report={'status':'passed'if not failed else'failed','scope':'Editorial preservation, frozen-byte and package checks only; no new model/scientific experiment execution or independent institutional determination.','checked_at_utc':datetime.now(timezone.utc).isoformat(),'checks':checks,'failed_checks':failed,'check_count':len(checks),'protected_scientific_files':len(baseline['scientific_files']),'immutable_source_archive_files_verified':len(archived),'displayed_scientific_table_cells_checked':science_cells,'pdfs':pdf_info,'journal_submission_performed':False,'prior_journal_consideration_block':False,'current_version_approval_author_confirmed':True,'author_portal_actions_pending':True,'author_actions':['Correct reversed public ORCID given/family-name fields and link identifier in portal','Check portal-generated PDF and form line numbers/file classifications','Supply accurate ethics-assessment basis if requested; no formal document or institutional ruling exists','Verify optional editor relationships and disclose prior PLOS interactions if applicable','Confirm current exclusivity, related manuscripts and final portal publication declarations'],'new_model_fits':0,'new_checkpoint_inference':0,'new_q16_scientific_execution':0}
 (P/'evidence/plos_delivery_validation.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps({'status':report['status'],'checks':len(checks),'failed':failed,'pdf_pages':{k:v['pages']for k,v in pdf_info.items()}}));raise SystemExit(bool(failed))

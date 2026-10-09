@@ -4,6 +4,8 @@ Ziyuan Zhu
 
 College of Artificial Intelligence Medicine, Chongqing Medical University, Chongqing, China
 
+ORCID: https://orcid.org/0009-0005-1153-4926
+
 ## Abstract
 
 We audited source-only training-duration selection and evaluated fixed shared mu/beta input pipelines for cross-subject motor-imagery EEG decoding. An exploratory four-class study used nine BNCI2014_001 participants, excluding both target sessions from each corresponding model fit and duration selection. Separate frozen binary pipelines were evaluated on PhysioNet (109 people), Cho2017 (52) and Lee2019 offline-training runs (54, two sessions), without target fitting or adaptation. We re-audited saved predictions and source partitions. A BNCI signal analysis, specified after decoder outcomes were known, described baseline-relative mu/beta power and associations with saved binary LOSO balanced accuracy. Mean-rank duration selection increased internal balanced accuracy from 33.72% to 42.67% compared with mean-loss selection; S3 and S8 contributed 87.57% of the aggregate gain. A matched-runtime fixed-duration control improved four of nine people despite a positive mean. Shared-minus-broad external differences were +0.573 percentage points (pp) on PhysioNet (95% person-bootstrap interval [−0.097,1.242]), −1.513 pp on Cho2017 [−2.249,−0.804] and +0.204 pp on Lee2019 [−0.515,0.969]. Cho2017 and Lee2019 Holm-adjusted permutation p-values were 0.000100 and 0.604. These complete-pipeline contrasts used unequal source-selected durations. The BNCI signal analysis retained all 5,184 trials; its 2,592 hand-imagery trials gave mean signed laterality of −0.250 dB in mu and −0.168 dB in beta, with signs varying between people. Training-duration choices yielded large but concentrated gains in this development benchmark. Shared-input pipelines showed no consistent external advantage. BNCI sensor patterns provide descriptive context; nine-person associations do not establish a decoder mechanism. Unknown voltage calibration and offline evaluation limit deployment conclusions.
@@ -232,11 +234,17 @@ OpenAI Codex assisted analysis-code development and verification-code preparatio
 
 ### Ethics statement
 
-This study involved secondary analysis of public EEG recordings and recruited no new participants. The Cho2017 and Lee2019 source publications report collection ethics review and written informed consent [7,9]. Those collection approvals are not approvals for this secondary analysis. The author confirms that neither ethics approval nor an exemption was required for this secondary analysis.
+This study involved secondary analysis of public EEG recordings and recruited no new participants. The Cho2017 and Lee2019 source publications report collection ethics review and written informed consent [7,9]. Those collection approvals are not approvals for this secondary analysis. The author confirms that neither ethics approval nor an exemption was required for this secondary analysis. No formal approval or exemption documentation was obtained for this secondary analysis; this statement records the author’s assessment rather than an institutional or committee determination.
+
+The retained research records document access to BNCI2014_001 recordings from 21 September to 6 October 2026, to PhysioNet EEG Motor Movement/Imagery recordings on 25 September 2026, and raw-data auditing and external evaluation of Cho2017 and Lee2019 MI from 3 to 5 October 2026. Dates refer to the recorded research-access periods in UTC; the calendar dates are the same in China Standard Time. They do not establish first-ever download dates or exclude access outside the retained records. Git commit, publication and backup timestamps were not substituted for recorded data-use events.
+
+The author reports access only to the recordings, provider-assigned participant codes and basic demographic metadata, such as age, without names, contact details or an identity linkage key. No direct identifying information was available to the author; public participant codes were retained for within-dataset grouping and scoring.
 
 ### Data and code availability
 
 Public BNCI2014_001, PhysioNet, Cho2017 and Lee2019 recordings are available from the original providers [1,2,5,6,7,8,9,10], subject to their licenses and terms of use. PhysioNet platform publications are cited separately [27,28]. Analysis code, saved predictions, participant-level summaries, parameter specifications and numerical validation reports are available at https://github.com/jackzhu119/cross-subject-mi-eeg. The supplementary reproducibility documentation identifies the exact source and result revisions. Raw EEG is not redistributed in the manuscript bundle.
+
+The current submission materials and licensing notices are available at https://github.com/jackzhu119/cross-subject-mi-eeg/tree/plos-one-submission-v1.1. Author-owned original software is licensed under MIT; author-owned original manuscript material and derived outputs are licensed under CC BY 4.0. Third-party recordings, software, fonts and other incorporated materials retain their original terms. These permissions do not alter frozen scientific results or grant third-party rights.
 
 ### AI assistance and verification
 

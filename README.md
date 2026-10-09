@@ -6,10 +6,10 @@ The current manuscript and submission materials are prepared for **PLOS ONE**. T
 
 ## Current manuscript and submission files
 
-- Current editorial branch: [`paper/plos-one-submission-20261009`](https://github.com/jackzhu119/cross-subject-mi-eeg/tree/paper/plos-one-submission-20261009).
-- Publication tag: [`plos-one-submission-v1.0`](https://github.com/jackzhu119/cross-subject-mi-eeg/releases/tag/plos-one-submission-v1.0).
+- Current editorial branch: [`paper/plos-one-author-finalization-20261009`](https://github.com/jackzhu119/cross-subject-mi-eeg/tree/paper/plos-one-author-finalization-20261009).
+- Publication tag: [`plos-one-submission-v1.1`](https://github.com/jackzhu119/cross-subject-mi-eeg/releases/tag/plos-one-submission-v1.1).
 - Manuscript directory: [`research_runs/PLOS_ONE_SUBMISSION/`](research_runs/PLOS_ONE_SUBMISSION/).
-- Delivery and preservation evidence: [`research_runs/PLOS_ONE_PUBLICATION_20261009/`](research_runs/PLOS_ONE_PUBLICATION_20261009/).
+- Delivery and preservation evidence: [`research_runs/PLOS_ONE_AUTHOR_FINAL_PUBLICATION_20261009/`](research_runs/PLOS_ONE_AUTHOR_FINAL_PUBLICATION_20261009/).
 
 | Purpose | File |
 |---|---|
@@ -22,7 +22,7 @@ The current manuscript and submission materials are prepared for **PLOS ONE**. T
 | Author checklist and fees | [中文投稿检查表](research_runs/PLOS_ONE_SUBMISSION/PLOS_ONE_Submission_Checklist_zh.md) · [费用与资助说明](research_runs/PLOS_ONE_SUBMISSION/PLOS_ONE_APC_Assistance_Guide_zh.md) |
 | Evidence and integrity | [Numerical validation](research_runs/PLOS_ONE_SUBMISSION/Numerical_Validation_Report.md) · [Checksums](research_runs/PLOS_ONE_SUBMISSION/MANIFEST.sha256) · [Package guide](research_runs/PLOS_ONE_SUBMISSION/README.md) |
 
-The package guide identifies which files to upload separately. The main review PDF is a reading copy; PLOS ONE accepts the Word manuscript. Funding and competing-interest statements are supplied through the submission fields. The author must review the current PLOS-formatted files, provide the corresponding-author ORCID and confirm the remaining portal declarations before submitting. No submission is performed by this repository.
+The package guide identifies which files to upload separately. The main review PDF is a reading copy; PLOS ONE accepts the Word manuscript. Funding and competing-interest statements are supplied through the submission fields. The author has approved the current materials, supplied ORCID 0009-0005-1153-4926, confirmed sole authorship and authorized the stated original-output licenses. The public ORCID given/family-name fields require correction to Ziyuan/Zhu; the author must link the iD and check the portal-generated PDF and final declarations before submitting. No submission is performed by this repository.
 
 ## Frozen scientific identities
 
@@ -76,4 +76,11 @@ Install the editorial dependencies listed in [`requirements-editorial.txt`](rese
 
 The author reports no research funding, no competing interests and no additional acknowledgments. The statement that neither approval nor exemption was required for this secondary analysis is the author's confirmation; no institutional determination or committee identifier is invented. Original collection approvals are distinct from the requirements for this secondary analysis.
 
-ChatGPT (GPT-6, author reported) and OpenAI Codex assistance are disclosed according to their actual recorded scope. The author reports personal checking and revision of the scientific content. The current author checklist retains final PLOS-format approval, ORCID, actual CRediT roles, licensing/data-term checks, ethics-policy confirmation and submission declarations as author responsibilities.
+ChatGPT (GPT-6, author reported) and OpenAI Codex assistance are disclosed according to their actual recorded scope. The author reports personal checking and revision of the scientific content. The current author checklist records approval, sole-author contribution roles, original-output licensing, self-payment of the publication charge if accepted and no opposed reviewers. No formal secondary-analysis ethics document exists. The official human-data form has been prepared against Methods lines 470–487; portal checks and any journal-requested explanation remain personal author actions.
+
+
+## Recorded research access and permissions
+
+Historical GitHub/cloud research receipts document BNCI2014_001 access during 21 September–6 October 2026, PhysioNet access on 25 September 2026, and Cho2017/Lee2019 raw auditing and external evaluation during 3–5 October 2026. These are retained-record access intervals, not proven first-ever downloads or dates inferred from backups. See the [audited evidence](research_runs/PLOS_ONE_SUBMISSION/evidence/research_access_dates.md) and [completed official human-data checklist](research_runs/PLOS_ONE_SUBMISSION/AuthorForms/PLOS_Human_Participants_Checklist_2026_completed.pdf).
+
+Original author-owned software is licensed under [MIT](LICENSE); original author-owned manuscript and derived outputs use [CC BY 4.0](LICENSE-DATA.md). [Scope and exclusions](LICENSING.md) preserve original third-party terms for raw EEG, incorporated software, fonts, provider materials and official forms. No third-party rights are re-granted.

@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "checked_at_utc": "2026-10-09T12:42:39.040259+00:00",
+  "scope": "Read-only cross-artifact final review of author support, companion licenses, official completed administrative form and current manuscript Methods. No scientific experiments or statistical validation rerun. Reviewer previously authored administrative Markdown files but not the form completion or manuscript export.",
+  "status": "PASS",
+  "check_count": 35,
+  "checks": {
+    "form_two_pages": true,
+    "q1_uploaded_unmarked": true,
+    "q1_na_selected": true,
+    "q1_reason_no_formal_institutional_claim": true,
+    "q1_reason_provider_approval_not_secondary_approval": true,
+    "q1_methods_lines_reference_correct": true,
+    "q2_completed_unmarked": true,
+    "q2_na_selected": true,
+    "q2_line_field_na": true,
+    "q3_completed_selected": true,
+    "q3_na_unmarked": true,
+    "q3_line_range_correct": true,
+    "manuscript_page22_ethics_and_dates": true,
+    "manuscript_page23_identifiers_no_direct_information": true,
+    "manuscript_page22_expected_line_numbers": true,
+    "manuscript_page23_expected_line_numbers": true,
+    "form_receipt_line_ranges_match": true,
+    "form_visual_page1_readable_no_clipped_answer": true,
+    "form_visual_page2_q2_NA_q3_completed_and_line_range_legible": true,
+    "package_readme_supplied_facts_not_missing": true,
+    "root_readme_supplied_facts_not_missing": true,
+    "official_requirements_supplied_orcid_and_confirmed_roles": true,
+    "forms_guide_describes_completed_answers": true,
+    "fields_access_audit_completed": true,
+    "ethics_boundary_access_audit_completed": true,
+    "reproducibility_license_present_not_pending": true,
+    "orcid_public_name_correction_not_identifier_missing": true,
+    "truthful_AI_disclosure_retained": true,
+    "license_material_scope_excludes_third_parties": true,
+    "CC_BY_no_added_license_restrictions": true,
+    "copied_license_documents_match": true,
+    "receipt_official_blank_sha256_matches": true,
+    "receipt_completed_form_sha256_matches": true,
+    "receipt_manuscript_docx_sha256_matches": true,
+    "receipt_manuscript_review_pdf_sha256_matches": true
+  },
+  "issues": [],
+  "official_form_visual_review": {
+    "rendered_images": [
+      "/workspace/plos-author-qa-20261009/completed_form_page1.png",
+      "/workspace/plos-author-qa-20261009/completed_form_page2.png"
+    ],
+    "page1": "N/A is selected at the original ethics-document upload field; explanatory answer is legible and not clipped. It expressly records the author assessment and does not claim an institutional determination or formal exemption.",
+    "page2": "Prospective recruitment (Q2) N/A is selected; retrospective study (Q3) Completed is selected and Methods 477–487 is legible.",
+    "field_name_warning": "Underlying AcroForm names do not follow visual labels: field named Completed at (189.12,269.04) occupies the Q2 N/A position, while field named Completed_2 at (189.12,466.32) occupies Q3 N/A. Selection correctness was assessed from rendered label positions and coordinates, not misleading field names."
+  },
+  "method_line_verification": {
+    "review_pdf_pages": [
+      22,
+      23
+    ],
+    "secondary_analysis_ethics": [
+      470,
+      476
+    ],
+    "record_documented_access_dates": [
+      477,
+      483
+    ],
+    "no_direct_identifier_access_author_report": [
+      484,
+      487
+    ],
+    "boundary": "These line numbers bind the delivered PDF hash. A portal-generated PDF must be checked for any changed line numbering."
+  },
+  "confirmed_not_missing": [
+    "ORCID identifier supplied and checksum-valid",
+    "Current PLOS manuscript approval and authorized factual updates",
+    "Sole human author with ten reported study/writing CRediT roles, not all fourteen",
+    "No direct identifier/identity-key access as author report",
+    "No formal secondary-analysis ethics documentation; no institutional ruling invented",
+    "Self-paid APC with no PFA request",
+    "No opposed reviewers",
+    "MIT author-owned original software and CC BY 4.0 original manuscript/derived outputs with third-party exclusions",
+    "Record-documented research access intervals incorporated into Methods and checklist"
+  ],
+  "remaining_personal_portal_actions": [
+    "Correct ORCID given/family name fields to Ziyuan/Zhu and link iD in portal",
+    "Review final portal PDF and filled form, updating Methods line numbers if changed",
+    "Truthfully respond to applicable ethics-rule/basis questions and supply only real documents if requested",
+    "Confirm current exclusive submission, related manuscripts, publication conditions and any requested prior PLOS interactions",
+    "Check suggested editor conflicts if selecting a candidate and click Submit personally"
+  ],
+  "temporarily_excluded": "Numerical_Validation_Report.md body was excluded because parent is regenerating it from validated delivery results; no pass is claimed for its temporary stale sentence.",
+  "reviewed_sha256": {
+    "README.md": "e976ff5b28118eba8e86c4086ba39f0d81128f2d5d4bfdece1bf31daa330b5e6",
+    "LICENSE": "962e9292bbb78c4227db75dcda2f4b36ca1f354ec38992112d5829a72204f87c",
+    "LICENSE-DATA.md": "e098c10e14fa8aa05f4ac5b369931e0feb6a7f68f7fca9685f71dc2c8c4a8c1f",
+    "LICENSING.md": "d4f9240d0562cdec8c0ee5467a3f5c095b2f7cbd13d640ad485b25a0f2e1aa96",
+    "research_runs/PLOS_ONE_SUBMISSION/README.md": "ca84a777d32801af4b76e0425c22efba52d674f94bb27a125c3fffddd830b12a",
+    "research_runs/PLOS_ONE_SUBMISSION/PLOS_ONE_Submission_Checklist_zh.md": "5a5a5d567681987f6c7749ab6750899a7f7b15e445fc132cee3c6e9d0f46b43a",
+    "research_runs/PLOS_ONE_SUBMISSION/PLOS_ONE_Submission_Fields.md": "1fac3cd8923288a33d3d59ec9472908997c69ec2baadaf5816d707fd6b8d3a3b",
+    "research_runs/PLOS_ONE_SUBMISSION/PLOS_ONE_APC_Assistance_Guide_zh.md": "a6eb516dd2f3ef96a4a57f029ecffe7c01d05d751e16b9ad3975e45dd0fff620",
+    "research_runs/PLOS_ONE_SUBMISSION/Ethics_and_Author_Boundaries.md": "79a3aa255e7c3672a6932e5c34dec3c9f951f495c80066aac77b549bd302b11c",
+    "research_runs/PLOS_ONE_SUBMISSION/PLOS_ONE_Official_Requirements.md": "fb351818e1061babb80620e078fbbebfc6771a8a0cfdf3f7795775fa3bac7775",
+    "research_runs/PLOS_ONE_SUBMISSION/REPRODUCIBILITY.md": "c55063cff97921604d6d832aa46ccb597628614c8f4435b30cc3fb98323c7519",
+    "research_runs/PLOS_ONE_SUBMISSION/PLOS_ONE_Manuscript.md": "2d6b26c5bfb5b3a4503c85c7df2d83e7f3655af23e03f2d8a334e518025fcfef",
+    "research_runs/PLOS_ONE_SUBMISSION/PLOS_ONE_Manuscript.docx": "b92d13b039532c0dbf657dfddcf6756e5a94f463ffbc6560cb058c61a983779f",
+    "research_runs/PLOS_ONE_SUBMISSION/PLOS_ONE_Manuscript_Review.pdf": "78d41ffbfb4ca3d6b935cfc3bfec18c7c1c90deb03c2e9ff0532883e5897a55c",
+    "research_runs/PLOS_ONE_SUBMISSION/PLOS_ONE_Cover_Letter.md": "17b66cf79cc44f25e7a35a3b13b368e3a056e4a1242c6e144428a3a9d5b61a59",
+    "research_runs/PLOS_ONE_SUBMISSION/PLOS_ONE_Data_Availability.md": "1380f7e0c49a4f63de4ab8f33425ead0e516f0a02f2543f4836e318dfeb41b02",
+    "research_runs/PLOS_ONE_SUBMISSION/AuthorForms/README_zh.md": "3f5f37844cdc6a5908e4c1989f41769693bb726f5c5eefa7ae95a7190fa4afd4",
+    "research_runs/PLOS_ONE_SUBMISSION/AuthorForms/form_completion_receipt.json": "c85d582885241025419d525041a4a59cf345adf909f9237c6bbb0b421b7c22e3",
+    "research_runs/PLOS_ONE_SUBMISSION/AuthorForms/PLOS_Human_Participants_Checklist_2026_completed.pdf": "28e96c33630edb779601e4cdcaf8377a80496d7435c0d66dbecc82718f4a64c9",
+    "research_runs/PLOS_ONE_SUBMISSION/AuthorForms/PLOS_Human_Participants_Checklist_2026_blank.pdf": "ebf2a9913fe2926669dfb60c1ba5f9f98130b00b9e858bf9b1d243b3707162e4",
+    "research_runs/PLOS_ONE_SUBMISSION/evidence/source_version.json": "9ab104a24da8f81474965501c62ee34973c228ebdb13230312853e0b07d3c70f",
+    "research_runs/PLOS_ONE_SUBMISSION/evidence/author_confirmations_20261009.json": "cf6adc389f2b4b0434866b18de9e2a3b4520cad874dfcdf7eb77cdc4af534ad7",
+    "research_runs/PLOS_ONE_SUBMISSION/evidence/orcid_verification.json": "2636996cdfb4e65e7adbcaf9820f15be5fafd385c17245777004743e1dbce2c8",
+    "research_runs/PLOS_ONE_SUBMISSION/evidence/research_access_dates.json": "084c8e8e7f578b0d5a7dc8bc48900a484071c8bc19f091fe1d0f0b5d1a6a0a9a"
+  },
+  "new_model_fits": 0,
+  "new_model_inference": 0,
+  "scientific_files_modified": 0,
+  "repository_files_written_by_this_review": 0
+}

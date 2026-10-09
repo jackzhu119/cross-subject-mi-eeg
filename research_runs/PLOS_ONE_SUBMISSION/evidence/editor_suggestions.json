@@ -1,0 +1,83 @@
+{
+  "checked_at_utc": "2026-10-09T12:27:12.481491+00:00",
+  "board_status": "current_official_public_board_api_verified",
+  "board_frontend_url": "https://journals.plos.org/plosone/static/editorial-board",
+  "board_frontend_statement": "The list of Editorial Board members syncs daily with Editorial Manager.",
+  "official_board_api_url": "https://api.plos.org/edboardsearch?q=ae_name%3A%28%22Marie-Constance+Corsi%22+OR+%22Cota+Navin+Gupta%22+OR+%22Wajid+Mumtaz%22%29&wt=json&fq=doc_type%3A%28section_editor+OR+academic_editor%29+journal_key%3A%22PLoSONE%22&rows=10&fl=doc_type%2Cae_name%2Cae_institute%2Cae_country%2Cae_subject%2Cae_section%2Cae_ORCID",
+  "official_board_api_response": "editors_board_response.json",
+  "candidates": [
+    {
+      "name": "Marie-Constance Corsi",
+      "affiliation_as_official_board": "Inria Centre de Recherche de Paris",
+      "country": "France",
+      "official_board_url": "https://journals.plos.org/plosone/static/editorial-board?ae_name=Marie-Constance+Corsi",
+      "ORCID": "0000-0002-6262-5036",
+      "reason": "Motor-imagery EEG/MEG classification, covariance-based BCI pipelines and functional connectivity methodology; directly relevant to transfer evaluation and physiological interpretation boundaries.",
+      "original_work": {
+        "title": "Functional Connectivity Ensemble Method to Enhance BCI Performance (FUCONE)",
+        "authors": [
+          "Marie-Constance Corsi",
+          "Sylvain Chevallier",
+          "Fabrizio De Vico Fallani",
+          "Florian Yger"
+        ],
+        "journal": "IEEE Transactions on Biomedical Engineering",
+        "year": 2022,
+        "doi": "10.1109/TBME.2022.3154885",
+        "url": "https://doi.org/10.1109/TBME.2022.3154885",
+        "metadata": "corsi_paper_crossref.json",
+        "additional_index_url": "https://pubmed.ncbi.nlm.nih.gov/35226599/"
+      }
+    },
+    {
+      "name": "Cota Navin Gupta",
+      "affiliation_as_official_board": "Indian Institute of Technology Guwahati",
+      "country": "India",
+      "official_board_url": "https://journals.plos.org/plosone/static/editorial-board?ae_name=Cota+Navin+Gupta",
+      "ORCID": "0000-0001-7402-4038",
+      "reason": "EEG analysis of motor imagery and BCI signal processing; relevant to subject heterogeneity and the sensor-level descriptive physiology component.",
+      "original_work": {
+        "title": "Understanding effects of observing affordance-driven action during motor imagery through EEG analysis",
+        "authors": [
+          "Supriya Bordoloi",
+          "Cota Navin Gupta",
+          "Shyamanta M. Hazarika"
+        ],
+        "journal": "Experimental Brain Research",
+        "year": 2024,
+        "doi": "10.1007/s00221-024-06912-w",
+        "url": "https://doi.org/10.1007/s00221-024-06912-w",
+        "metadata": "gupta_paper_crossref.json",
+        "additional_index_url": "https://pubmed.ncbi.nlm.nih.gov/39180699/"
+      }
+    },
+    {
+      "name": "Wajid Mumtaz",
+      "affiliation_as_official_board": "National University of Sciences and Technology",
+      "country": "Pakistan",
+      "official_board_url": "https://journals.plos.org/plosone/static/editorial-board?ae_name=Wajid+Mumtaz",
+      "ORCID": "0000-0001-6468-8666",
+      "reason": "Machine learning and EEG-based decoding, including a published motor-imagery classifier; relevant to neural decoder evaluation and reproducible model selection.",
+      "original_work": {
+        "title": "Development of a Deep Learning Model for Motor-Imagery Classification",
+        "authors": [
+          "Aiman Maqsood",
+          "Wajid Mumtaz"
+        ],
+        "conference": "2022 IEEE International Conference on Data Science and Information System (ICDSIS)",
+        "year": 2022,
+        "doi": "10.1109/ICDSIS55133.2022.9915873",
+        "url": "https://doi.org/10.1109/ICDSIS55133.2022.9915873",
+        "metadata": "mumtaz_paper_crossref.json",
+        "additional_institution_url": "https://seecs.nust.edu.pk/faculty/wajid-mumtaz/"
+      }
+    }
+  ],
+  "boundary": "Optional editorial suggestions only; not contacted or entered in the submission portal. The author must check recent collaboration, institutional, personal or other competing interests before selecting any candidate. No confidential relationship information is known. Board membership may change and should be rechecked on submission day. Do not add these works to the manuscript reference list merely to recommend an editor.",
+  "evidence_sha256": {
+    "gupta_paper_crossref.json": "0b17ba92d10065d2c0f805e9b889d3d8b24c706eb7133af5ddc9af82c27c5230",
+    "corsi_paper_crossref.json": "d2834225312efc12496a4d2f09fadfa945b6e70c43a20c48c9afdd0bbbb496bc",
+    "mumtaz_paper_crossref.json": "f81f092772d7a38f3e7953d5decad9a579471ef04f55000eb403a5a5383bf8d6",
+    "editors_board_response.json": "227062944afec44437f4bcb2b5af01df6b8e6e5ee407d34881144930f5234c93"
+  }
+}

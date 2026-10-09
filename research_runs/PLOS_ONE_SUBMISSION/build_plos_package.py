@@ -14,9 +14,9 @@ import cairosvg
 OUT=Path(__file__).resolve().parent; ROOT=OUT.parents[1]; SRC=ROOT/'research_runs/PAPER_FINAL_20261006'
 DATA=json.loads((SRC/'manuscript_content.json').read_text()); TITLE=DATA['title']
 SHORT='Source-only selection and fixed spectral-sharing pipelines in motor-imagery EEG'
-SHA='0c7146895dc46850e4fe7db38bd69d9aea2b41c3'; TAG='plos-one-submission-v1.0'
+SHA='0c7146895dc46850e4fe7db38bd69d9aea2b41c3'; TAG='plos-one-submission-v1.1'
 BASE='https://github.com/jackzhu119/cross-subject-mi-eeg'; IMM=BASE+'/tree/'+SHA
-AUTHOR=DATA['authors'][0]; NOW=datetime.now(timezone.utc).isoformat()
+AUTHOR=copy.deepcopy(DATA['authors'][0]); AUTHOR['orcid']='0009-0005-1153-4926'; NOW=datetime.now(timezone.utc).isoformat()
 for folder in ['Figures','SupportingInformation','evidence','FigureSources']:(OUT/folder).mkdir(exist_ok=True)
 def save(name,text): (OUT/name).write_text(text.rstrip()+'\n')
 def jdump(name,d):save(name,json.dumps(d,ensure_ascii=False,indent=2))
@@ -34,8 +34,13 @@ for b in main:
 main[1]['text']=re.sub(r'\b(?:Objective|Approach|Main results|Significance)\.\s*','',main[1]['text'])
 # Add ethics/data at the end of Methods; no false institutional determination.
 pos=next(i for i,b in enumerate(main) if b.get('text')=='Results')
-added=[{'type':'heading','level':2,'text':'Ethics statement'},{'type':'paragraph','text':'This study involved secondary analysis of public EEG recordings and recruited no new participants. The Cho2017 and Lee2019 source publications report collection ethics review and written informed consent [7,9]. Those collection approvals are not approvals for this secondary analysis. The author confirms that neither ethics approval nor an exemption was required for this secondary analysis.'},
+access=json.loads((OUT/'evidence/research_access_dates.json').read_text())
+added=[{'type':'heading','level':2,'text':'Ethics statement'},
+ {'type':'paragraph','text':'This study involved secondary analysis of public EEG recordings and recruited no new participants. The Cho2017 and Lee2019 source publications report collection ethics review and written informed consent [7,9]. Those collection approvals are not approvals for this secondary analysis. The author confirms that neither ethics approval nor an exemption was required for this secondary analysis. No formal approval or exemption documentation was obtained for this secondary analysis; this statement records the author’s assessment rather than an institutional or committee determination.'},
+ {'type':'paragraph','text':access['methods_access_paragraph']},
+ {'type':'paragraph','text':access['methods_identifiability_paragraph']},
  {'type':'heading','level':2,'text':'Data and code availability'},copy.deepcopy(source[136]),
+ {'type':'paragraph','text':'The current submission materials and licensing notices are available at https://github.com/jackzhu119/cross-subject-mi-eeg/tree/'+TAG+'. Author-owned original software is licensed under MIT; author-owned original manuscript material and derived outputs are licensed under CC BY 4.0. Third-party recordings, software, fonts and other incorporated materials retain their original terms. These permissions do not alter frozen scientific results or grant third-party rights.'},
  {'type':'heading','level':2,'text':'AI assistance and verification'},copy.deepcopy(source[147]),
  {'type':'paragraph','text':'The underlying Codex model version is not reliably documented in the project records. Saved-result checks compared reported numbers with frozen outputs and archived independent validation reports; these checks did not rerun models or physiology experiments during manuscript preparation. The author reports personal review and revision of the scientific content. No AI tool is an author.'}]
 main[pos:pos]=added
@@ -185,7 +190,7 @@ def document(title,blocks,filename,images=False,bibliography=True,cover=False):
  footer=s.footer.paragraphs[0];footer.alignment=1;field=OxmlElement('w:fldSimple');field.set(qn('w:instr'),'PAGE');footer._p.append(field)
  doc.add_heading(title,0)
  if filename.startswith('PLOS_ONE_Manuscript'):
-  for t in ['Short title: '+SHORT,AUTHOR['name']+'*',AUTHOR['affiliation'],'*Corresponding author: '+AUTHOR['email'],'Postal address: '+AUTHOR.get('postal_address','')]:doc.add_paragraph(t)
+  for t in ['Short title: '+SHORT,AUTHOR['name']+'*',AUTHOR['affiliation'],'*Corresponding author: '+AUTHOR['email'],'ORCID: https://orcid.org/'+AUTHOR['orcid'],'Postal address: '+AUTHOR.get('postal_address','')]:doc.add_paragraph(t)
   doc.add_page_break()
  elif images:doc.add_paragraph('Supporting information for: '+TITLE)
  for b in blocks:
@@ -226,7 +231,7 @@ def mdblocks(blocks):
   elif b['type']=='table':ss += ['**'+b['label']+'**','| '+' | '.join(b['headers'])+' |','| '+' | '.join(['---']*len(b['headers']))+' |']+['| '+' | '.join(row)+' |' for row in b['rows']]+[b['note']]
  return '\n\n'.join(ss)
 document(TITLE,main,'PLOS_ONE_Manuscript.docx')
-save('PLOS_ONE_Manuscript.md','# '+TITLE+'\n\n'+AUTHOR['name']+'\n\n'+AUTHOR['affiliation']+'\n\n'+mdblocks(main)+'\n\n## References\n\n'+(OUT/'references_plos.md').read_text()+'\n\n## Supporting information captions\n\nS1 Appendix. Supplementary results and detailed reproducible methods.\n\nS1 Data. Frozen derived data and validation evidence.')
+save('PLOS_ONE_Manuscript.md','# '+TITLE+'\n\n'+AUTHOR['name']+'\n\n'+AUTHOR['affiliation']+'\n\nORCID: https://orcid.org/'+AUTHOR['orcid']+'\n\n'+mdblocks(main)+'\n\n## References\n\n'+(OUT/'references_plos.md').read_text()+'\n\n## Supporting information captions\n\nS1 Appendix. Supplementary results and detailed reproducible methods.\n\nS1 Data. Frozen derived data and validation evidence.')
 document('S1 Appendix',appendix,'SupportingInformation/S1_Appendix.docx',images=True)
 save('SupportingInformation/S1_Appendix.md',mdblocks(appendix))
 save('PLOS_ONE_Abstract.txt',main[1]['text'])
@@ -250,7 +255,7 @@ for name in ['figures_q15.json','figures_q16.json','q16_plot_recipe.json','sourc
 with zipfile.ZipFile(OUT/'SupportingInformation/S1_Data.zip','w',compression=zipfile.ZIP_DEFLATED,compresslevel=9) as z:
  for f,dst in entries:z.write(f,dst)
  z.writestr('SOURCE_MANIFEST.json',json.dumps({'source_commit':SHA,'files':{dst:{'source_path':str(f.relative_to(ROOT)),'sha256':digest(f),'bytes':f.stat().st_size} for f,dst in entries},'new_scientific_results':False,'raw_eeg_included':False},indent=2))
- z.writestr('README.txt','Frozen byte copies only. Original sources and code are at '+IMM+'. No raw EEG or model weights.\nThese are publicly accessible research outputs; no new copyright license is inferred from GitHub visibility.\n')
+ z.writestr('README.txt','Frozen byte copies only. Original scientific sources and code are at '+IMM+'. No raw EEG or model weights.\nAuthor-owned original derived outputs are licensed under CC BY 4.0; author-owned original code is MIT-licensed. Third-party provider material and dependencies retain their terms. See the current '+TAG+' release LICENSING.md for scope. No scientific members were recomputed.\n')
 assert (OUT/'SupportingInformation/S1_Data.zip').stat().st_size<20_000_000
 jdump('evidence/derived_data_inventory.json',{'source_commit':SHA,'archive':'SupportingInformation/S1_Data.zip','archive_sha256':digest(OUT/'SupportingInformation/S1_Data.zip'),'files':{dst:{'source_path':str(f.relative_to(ROOT)),'sha256':digest(f)} for f,dst in entries}})
 
@@ -258,9 +263,9 @@ cover=[{'type':'paragraph','text':'Dear Editors,'},
  {'type':'paragraph','text':'Please consider this Research Article, “'+TITLE+'”, for publication in PLOS ONE.'},
  {'type':'paragraph','text':'The study examines how source-only training-duration selection and participant heterogeneity constrain claims about calibration-free motor-imagery EEG decoding. It combines a model-selection audit with frozen external evaluation and retains adverse and uncertain findings. The contribution is a reproducible selection and evaluation evidence chain, rather than a new state-of-the-art domain-generalization algorithm. A separate sensor-level physiological analysis is descriptive and does not establish a decoder mechanism.'},
  {'type':'paragraph','text':'The manuscript provides documented methods, participant-level outcomes, uncertainty estimates and explicit limitations. Code, manuscript candidates and frozen research outputs are publicly accessible on GitHub. The author reports no prior journal or preprint-platform publication. Original EEG is obtained from the original providers; saved predictions, derived summaries and validation evidence are supplied or linked. AI assistance and author verification are disclosed in the Methods. Funding and competing-interest statements are provided in the submission fields.'},
- {'type':'paragraph','text':'I am the sole and corresponding author and take responsibility for the scientific content. Please address correspondence to the contact details below.'},
- {'type':'paragraph','text':'Sincerely,\n'+AUTHOR['name']+'\n'+AUTHOR['affiliation']+'\n'+AUTHOR['email']}]
+ {'type':'paragraph','text':'I am the sole and corresponding author and have approved the manuscript. I take responsibility for its scientific content. I have no opposed reviewers. Suggested Academic Editors are Marie-Constance Corsi (Inria Centre de Recherche de Paris) and Cota Navin Gupta (Indian Institute of Technology Guwahati), whose expertise covers EEG motor imagery, decoding and signal analysis.'},
+ {'type':'paragraph','text':'Sincerely,\n'+AUTHOR['name']+'\n'+AUTHOR['affiliation']+'\n'+AUTHOR['email']+'\nORCID: https://orcid.org/'+AUTHOR['orcid']}]
 document('Cover letter — PLOS ONE Research Article',cover,'PLOS_ONE_Cover_Letter.docx',bibliography=False,cover=True)
 save('PLOS_ONE_Cover_Letter.md',mdblocks(cover))
-jdump('evidence/source_version.json',{'checked_at_utc':NOW,'target_journal':'PLOS ONE','source_branch':'paper/zero-calibration-q16-20261006','source_branch_commit':SHA,'latest_verified_manuscript_tag':'paper-v1.0.2','artifact_commit':'b23480d996dd6c78e386686e1110e272decf166f','scientific_protected_count':16417,'source_validation_bindings_checked':230,'source_delivery_checks':680,'previous_journal_decision':'REJECTED_AUTHOR_REPORTED','decision_report_date':'2026-10-09','live_submission_portal_accessed':False,'prior_journal_consideration_block':False,'plos_formal_submission':'NOT_SUBMITTED_AUTHOR_FINAL_CHECKS_PENDING','new_formatted_version_author_approval':'PENDING','new_model_fits':0,'new_checkpoint_inference':0,'new_q16_scientific_execution':0})
+jdump('evidence/source_version.json',{'checked_at_utc':NOW,'target_journal':'PLOS ONE','source_branch':'paper/zero-calibration-q16-20261006','source_branch_commit':SHA,'latest_verified_manuscript_tag':'paper-v1.0.2','artifact_commit':'b23480d996dd6c78e386686e1110e272decf166f','scientific_protected_count':16417,'source_validation_bindings_checked':230,'source_delivery_checks':680,'previous_journal_decision':'REJECTED_AUTHOR_REPORTED','decision_report_date':'2026-10-09','live_submission_portal_accessed':False,'prior_journal_consideration_block':False,'plos_formal_submission':'NOT_SUBMITTED_PORTAL_ACTIONS_REMAIN','new_formatted_version_author_approval':'APPROVED_AUTHOR_REPORTED_WITH_AUTHORIZED_DECLARATION_UPDATES','orcid':AUTHOR['orcid'],'no_direct_identifying_information_author_reported':True,'formal_secondary_analysis_ethics_document':False,'self_paid_publication_charge':True,'original_output_licensing_authorized':True,'new_model_fits':0,'new_checkpoint_inference':0,'new_q16_scientific_execution':0})
 print(json.dumps({'main_blocks':len(main),'appendix_blocks':len(appendix),'abstract_words':len(main[1]['text'].split()),'refs':len(refs),'data_archive_bytes':(OUT/'SupportingInformation/S1_Data.zip').stat().st_size,'new_fits':0}))

@@ -8,7 +8,7 @@ Scientific experiments and frozen results are separate from manuscript export. T
 - Q15 scientific code: `271af288a2f3863430ab80e3145c2dee9bd5571d`.
 - Q16 pre-power freeze: `050e01b028aaab8e3d745934b13b2d17e9bb0a7a`.
 - Source manuscript and prior independent checks: `0c7146895dc46850e4fe7db38bd69d9aea2b41c3`.
-- Active submission tag: `plos-one-submission-v1.0`.
+- Active submission tag: `plos-one-submission-v1.1`.
 
 The source scientific files retain their original paths and bytes. `evidence/source_protection_baseline.json` binds 16,417 of them. `SupportingInformation/S1_Data.zip` contains 66 frozen data/provenance files plus its README and manifest; raw EEG and model weights are excluded. Provider acquisition links and terms are in `PLOS_ONE_Data_Availability.md`.
 
@@ -20,7 +20,7 @@ Clone the repository with its history, check out the release tag, install the ed
 python research_runs/PLOS_ONE_SUBMISSION/validate_plos_package.py
 ```
 
-The validator reads saved bytes, manuscript text, references, figure vectors, DOCX tables and PDFs. It also verifies the previous manuscript snapshot directly against immutable Git objects; obsolete submission files need not remain in the active tree. It writes a new local editorial validation report. It does not execute EEG/scientific experiments. Preserve the delivered reports before generating local replacements.
+The validator reads saved bytes, manuscript text, references, figure vectors, DOCX tables and PDFs. It also checks 14 dated historical research receipts; if an immutable cloud run-branch commit is absent from the local clone, it reads only that public GitHub receipt over HTTPS and checks its recorded SHA-256. Network access is therefore required in a main-only clone; no credentials or original EEG are read. It also verifies the previous manuscript snapshot directly against immutable Git objects; obsolete submission files need not remain in the active tree. It writes a new local editorial validation report. It does not execute EEG/scientific experiments. Preserve the delivered reports before generating local replacements.
 
 ## Document export
 
@@ -30,4 +30,4 @@ Original raw/model replay instructions are preserved at [the immutable source re
 
 ## Public delivery verification
 
-SHA-256 and CRC checks validate archive delivery, not journal acceptance. The publication evidence outside this package records remote readback at the exact tagged artifact commit. Existing Git history and scientific tags are retained. No persistent archive DOI is claimed; licensing and any DOI deposit remain distinct author actions.
+SHA-256 and CRC checks validate archive delivery, not journal acceptance. The publication evidence outside this package records remote readback at the exact tagged artifact commit. Existing Git history and scientific tags are retained. Original author-owned code uses MIT and original author-owned manuscript/derived outputs use CC BY 4.0; third-party rights remain unchanged (see LICENSING.md). No persistent archive DOI is claimed; any optional DOI deposit is a separate action and has not been performed.
