@@ -1,0 +1,31 @@
+{
+  "code_commit": "271af288a2f3863430ab80e3145c2dee9bd5571d",
+  "credential_fix_targeted_tests_passed": 45,
+  "credential_fix_terminal_tests_passed": 20,
+  "credential_fix_validation": "LAUNCHER_CREDENTIAL_FIX_VALIDATION_20261004.json",
+  "default_recovery_for_current_missing_credential_report": "--reset-credentials",
+  "expected_completion_status": "completed_with_calibration_limitations",
+  "fits_started": 0,
+  "launcher_commit": "e1aa2130c96b1ddd7ab65f9e03b95c74a6c36711",
+  "launcher_sha256": "b628c6da7a0df9de35f71456546f4a4265576c56afd7a679d615bf027ad752b0",
+  "launcher_url": "https://raw.githubusercontent.com/jackzhu119/cross-subject-mi-eeg/e1aa2130c96b1ddd7ab65f9e03b95c74a6c36711/research_runs/Q15-EXECUTION-20261003/LAUNCH_Q15_ON_RUNPOD.sh",
+  "manual_command": "curl -fSsL --retry 3 https://raw.githubusercontent.com/jackzhu119/cross-subject-mi-eeg/e1aa2130c96b1ddd7ab65f9e03b95c74a6c36711/research_runs/Q15-EXECUTION-20261003/LAUNCH_Q15_ON_RUNPOD.sh -o /tmp/q15-full-launch.sh && bash /tmp/q15-full-launch.sh --reset-credentials",
+  "pr_url": "https://github.com/jackzhu119/cross-subject-mi-eeg/pull/2",
+  "published_bytes_verified": 23,
+  "published_script_readback_verified": true,
+  "r2_credentials_required_for_this_launcher": false,
+  "real_q15_training_started": false,
+  "real_target_predictions_started": false,
+  "released_at_utc": "2026-10-04T00:42:54.807162+00:00",
+  "required_server_credentials": [
+    "GH_TOKEN",
+    "RUNPOD_API_KEY"
+  ],
+  "result_branch_pattern": "q15/run-JOB_ID",
+  "runtime": "Python3.12 / Torch2.8.0+cu128 / matching TorchAudio / CUDA12.8",
+  "schema_version": 1,
+  "server_gpu_verified": false,
+  "status": "prepared_published_waiting_for_user_manual_launch",
+  "stop_after_verified_results_backup": true,
+  "validation_tests_passed": 344
+}

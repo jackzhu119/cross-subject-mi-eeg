@@ -37,6 +37,25 @@ Use the immutable launch URL in `RELEASE.json`. Download the script to
 bash /tmp/q15-full-launch.sh
 ```
 
+Credential prompts now occur before repository/dependency setup. Hidden input
+shows no characters, including no asterisks: paste the token value and press
+Enter. Blank or whitespace-containing input retries up to three times and then
+reports the specific missing variable. Valid inherited environment values are
+retained; their presence is not a successful API authentication check.
+
+To replace both inherited credentials and prompt for each explicitly:
+
+```bash
+bash /tmp/q15-full-launch.sh --reset-credentials
+```
+
+For `GH_TOKEN`, create a fine-grained token at
+<https://github.com/settings/personal-access-tokens/new>, select resource owner
+`jackzhu119` and repository `cross-subject-mi-eeg`, and grant **Contents: Read and
+write**. Enter the token value, not the repository URL or account password.
+For `RUNPOD_API_KEY`, use **RunPod → Credentials → API Keys** and a key with
+permission to read and stop this Pod. Do not send either value in chat.
+
 After the hidden prompts, wait for `detached_worker_startup_verified` and
 `gpu_runtime_preflight_verified: true`. Then the terminal/browser/local computer
 can be closed. The supervisor continues on the running Pod. Closing the local
@@ -141,3 +160,7 @@ GitHub 与 RunPod 密钥各输入一次，输入时不回显。本版本会真�
 当前代码的本地验证不等于新服务器 GPU 已验证，也不等于 Q15 已训练完成。
 完整真实审计、CUDA 运行和科学结果将在服务器执行时验证。原始电压标定等
 已知限制会保留在结果中，完成状态会注明 calibration limitations。
+
+如果提示密钥为空：输入时完全没有字符显示是正常的，需粘贴密钥值再回车，
+不要直接空回车。新版会逐项重试，并在安装依赖前检查输入。使用
+`--reset-credentials` 可以强制重新输入两项；这不会清除原始数据或训练结果。
