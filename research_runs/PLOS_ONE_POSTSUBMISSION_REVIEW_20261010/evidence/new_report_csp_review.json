@@ -1,0 +1,384 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-10-11T00:19:50.179278+00:00",
+  "reviewer_role": "Independent read-only provenance/numerical editorial audit",
+  "new_report": {
+    "path": "/workspace/attachments/808051ff-39eb-407c-af9e-8d2677324177/Q15_CSP崩溃_验证报告.md",
+    "bytes": 5596,
+    "sha256": "ed7d49e6ae6c33590b89646621751dd951d725d951939ac9ee8cece957dc6b27",
+    "stated_date": "2026-10-10",
+    "named_author": null,
+    "run_id": null,
+    "machine_readable_execution_receipt": false,
+    "new_code_hash": null,
+    "nine_fold_predictions_or_manifests_supplied": false,
+    "demeaning_rule_and_artifacts_supplied": false,
+    "diagnostic_figure_named_but_not_supplied": "csp_diagnostic_chain.png",
+    "historical_paths_named_are_not_new_execution_provenance": true
+  },
+  "baseline_commit": "d9a11926076bd348696f6e690078955921dac3f8",
+  "historical_bnci_receipt_vs_q8": {
+    "file_count": 18,
+    "all_18_hash_and_byte_count_records_match": true,
+    "not_a_new_raw_file_replay": true
+  },
+  "evidence_matrix": [
+    {
+      "id": "M1-01",
+      "claim": "New raw BNCI download: 18/18 files match frozen Q8 provenance",
+      "status": "report_reported_new_execution_not_independently_verified",
+      "independently_verified_boundary": "Historical committed Q15 BNCI receipt contains 18 file hashes and byte counts, all identical to Q8 source_files.json. No new 2026-10-10 download manifests, local raw files or replay logs accompany the report.",
+      "required_evidence": "New download/hash receipt, 18 filenames/hash/byte counts, raw loader and context-transform code hash, run ID/runtime/epoch/sample-ID provenance."
+    },
+    {
+      "id": "M1-02",
+      "claim": "Source resubstitution BA 63.04%, recalls 0.721/0.539; LDA coefficients/intercept/classes",
+      "status": "report_reported_unverified",
+      "independently_verified_boundary": "Actual frozen 9365-byte model hash matches the source manifest and external inference freeze; no source prediction CSV/score or coefficients are archived in the original source validation. The model was not deserialized or executed in this editorial audit.",
+      "required_evidence": "Resubstitution prediction table for 2592 original sample IDs, frozen model hash, source raw/epoch hashes, exact scoring code and runtime receipt. Present this only as in-sample resubstitution, never held-out source efficacy."
+    },
+    {
+      "id": "M1-03",
+      "claim": "New same-Q15 nine-fold LOSO: mean BA 61.65%, SD14.1, range49.3–94.4; class recalls by four held-out persons",
+      "status": "report_reported_unverified_new_source_fits",
+      "independently_verified_boundary": "Report describes nine fitted source models. No nine fold manifests/models/predictions/partitions/hash bindings, exact sample exclusions, or runtime/code records supplied. Historical Q14 CSP mean61.5354938272% is not this experiment. Historical P3 all-trial shrinkage-LDA mean61.6512345679% has different SD/range/pipeline and cannot substitute.",
+      "required_evidence": "All nine held-out trial-level predictions and training/sample partitions, fold-level models or authenticated model hashes, pipeline parameters/versions, raw-to-epoch provenance and independent aggregation/SD convention. Any additions are post-hoc source-only diagnostic fits, not part of primary frozen source fitting count15."
+    },
+    {
+      "id": "M1-04",
+      "claim": "External CSP balanced accuracy Cho51.99%, Lee52.77%",
+      "status": "independently_verified",
+      "independently_verified_boundary": "Equal-person means from original frozen predictions: 51.9903846154% and 52.7685185185%; 52 and54 persons, 10520 and10800 trials.",
+      "required_evidence": "Already available: original predictions/statistics hashes and independent archived-output script."
+    },
+    {
+      "id": "M1-05",
+      "claim": "Left-prediction proportions92.07%/83.21%; median p_left0.669/0.633",
+      "status": "independently_verified_with_aggregation_caveat",
+      "independently_verified_boundary": "Trial-pooled left shares92.0722433460%/83.2129629630%; pooled median0.669354232975/0.632938736955. Cho equal-person mean left share92.1121794872%, so label the reported92.07% as trial-pooled. Medians are not probability-calibration evidence.",
+      "required_evidence": "Already available: per-person confusion CSV and original stored probabilities."
+    },
+    {
+      "id": "M1-06",
+      "claim": "De-mean/shift-adjusted BA52.39%/54.18%",
+      "status": "report_reported_unverified_target_input_adaptation",
+      "independently_verified_boundary": "No centering definition or transformed-feature predictions, fitted shifts, group boundaries, unit conventions, exact threshold, model state check, timing or hashes supplied. Text ambiguously says cohort-level or per-person. Even unlabeled target-input centering is target adaptation and cannot replace the primary frozen no-target-adaptation result.",
+      "required_evidence": "Exact code, whether feature/decision/EEG centering, cohort vs person/session grain, labels used or not, timing relative to outcomes, all estimated shift parameters and input/output hashes; explicitly post-hoc intervention, no primary result replacement."
+    },
+    {
+      "id": "M1-07",
+      "claim": "Prediction-label flip BA48.02%/47.22%",
+      "status": "partially_verified_arithmetic_with_numerical_discrepancy",
+      "independently_verified_boundary": "For binary outputs BA_flip=1−BA_original algebraically. Cho pooled48.0228136882% supports48.02 but primary equal-person complement48.0096153846% rounds48.01. Lee complement47.2314814815% rounds47.23, not47.22; report input/aggregation missing. No new flip intervention or inference performed.",
+      "required_evidence": "Input/model hashes and scoring grain for report47.22 if retained. Do not change frozen primary results; optional SI algebraic audit must state its grain and descriptive nature."
+    },
+    {
+      "id": "M1-08",
+      "claim": "10–17% of trials have p_left within0.5±0.05",
+      "status": "independently_verified_descriptive_from_saved_probabilities",
+      "independently_verified_boundary": "For explicit closed interval[0.45,0.55], Cho1073/10520=10.1996197719%; Lee1803/10800=16.6944444444%. This summarizes frozen probabilities, not calibrated confidence or feature-shift cause.",
+      "required_evidence": "Read-only calculation recorded in review_new_csp_report.py."
+    },
+    {
+      "id": "M1-09",
+      "claim": "All labels/channel/preprocessing errors ruled out; actual cross-device CSP vulnerability proven",
+      "status": "overstated_not_established",
+      "independently_verified_boundary": "Declared label/channel mappings and deterministic frozen transforms are operationally consistent and original independent raw-to-prediction replay passed. Cho physical MAT row order remains a prospectively reviewed diagram-based assumption; raw voltage calibration, original Cho hardware reference and cue hardware latency are unverified. Shared function does not remove native acquisition differences. Neural BA above50% cannot logically exclude every mapping or implementation error or establish a CSP-specific causal mechanism.",
+      "required_evidence": "Narrow conclusion to observed class-asymmetric near-chance transfer of this pipeline, plausible domain shift, and no mismatch detected in recorded checks; retain outstanding physical/calibration boundaries."
+    },
+    {
+      "id": "M1-10",
+      "claim": "Primary zero-calibration results remain frozen",
+      "status": "independently_verified_for_archived_originals",
+      "independently_verified_boundary": "Prior independent audit checked52 source and221 external artifact hashes; no model reload/refit/inference/threshold or primary prediction edits this audit. New report-described source fitting/target centering lacks traceable artifacts and stays outside primary evidence.",
+      "required_evidence": "Submitted-package preservation and final candidate validation are parent task responsibilities."
+    }
+  ],
+  "cohorts": {
+    "Cho2017": {
+      "experiment_id": "Q15-E006",
+      "n_persons": 52,
+      "n_sessions": 52,
+      "n_original_prediction_rows_all_models": 73640,
+      "n_csp_trials": 10520,
+      "equal_person_mean_balanced_accuracy": 0.5199038461538461,
+      "equal_person_mean_left_prediction_proportion": 0.9211217948717947,
+      "equal_person_mean_left_recall": 0.9410256410256411,
+      "equal_person_mean_right_recall": 0.09878205128205128,
+      "pooled_trial_metrics": {
+        "n_trials": 10520,
+        "class_counts": {
+          "left": 5260,
+          "right": 5260
+        },
+        "balanced_accuracy": 0.5197718631178707,
+        "left_recall": 0.9404942965779468,
+        "right_recall": 0.09904942965779467,
+        "left_prediction_proportion": 0.9207224334600761,
+        "median_p_left": 0.6693542329753803,
+        "confusion_rows_actual_left_right_columns_predicted_left_right": [
+          [
+            4947,
+            313
+          ],
+          [
+            4739,
+            521
+          ]
+        ]
+      },
+      "binary_label_flip_arithmetic_only_no_new_predictions": {
+        "formula": "For two classes, complementing each stored predicted label gives BA_flip = 1 - BA_original. This is an algebraic identity, not a new intervention/replay.",
+        "equal_person_ba_complement": 0.4800961538461539,
+        "pooled_trial_ba_complement": 0.4802281368821293,
+        "new_label_flip_experiment_performed": false
+      },
+      "all_original_person_csp_confusion_matrices_and_ba_match": true,
+      "p_left_is_stored_model_output_not_verified_calibrated_probability": true,
+      "saved_probabilities_and_canonical_argmax_mapping_consistent": true
+    },
+    "Lee2019_MI": {
+      "experiment_id": "Q15-E007",
+      "n_persons": 54,
+      "n_sessions": 108,
+      "n_original_prediction_rows_all_models": 75600,
+      "n_csp_trials": 10800,
+      "equal_person_mean_balanced_accuracy": 0.5276851851851853,
+      "equal_person_mean_left_prediction_proportion": 0.8321296296296296,
+      "equal_person_mean_left_recall": 0.8598148148148148,
+      "equal_person_mean_right_recall": 0.19555555555555554,
+      "pooled_trial_metrics": {
+        "n_trials": 10800,
+        "class_counts": {
+          "left": 5400,
+          "right": 5400
+        },
+        "balanced_accuracy": 0.5276851851851851,
+        "left_recall": 0.8598148148148148,
+        "right_recall": 0.19555555555555557,
+        "left_prediction_proportion": 0.8321296296296297,
+        "median_p_left": 0.6329387369548158,
+        "confusion_rows_actual_left_right_columns_predicted_left_right": [
+          [
+            4643,
+            757
+          ],
+          [
+            4344,
+            1056
+          ]
+        ]
+      },
+      "binary_label_flip_arithmetic_only_no_new_predictions": {
+        "formula": "For two classes, complementing each stored predicted label gives BA_flip = 1 - BA_original. This is an algebraic identity, not a new intervention/replay.",
+        "equal_person_ba_complement": 0.47231481481481474,
+        "pooled_trial_ba_complement": 0.47231481481481485,
+        "new_label_flip_experiment_performed": false
+      },
+      "all_original_person_csp_confusion_matrices_and_ba_match": true,
+      "p_left_is_stored_model_output_not_verified_calibrated_probability": true,
+      "saved_probabilities_and_canonical_argmax_mapping_consistent": true
+    }
+  },
+  "near_threshold_descriptive_summary": {
+    "Cho2017": {
+      "definition": "Fraction of original CSP trials with 0.45 <= stored p_left <= 0.55; trial-pooled, post-hoc descriptive only",
+      "count": 1073,
+      "denominator": 10520,
+      "proportion": 0.10199619771863118,
+      "minimum_p_left": 0.0888990019301951,
+      "maximum_p_left": 0.9454347446529474
+    },
+    "Lee2019_MI": {
+      "definition": "Fraction of original CSP trials with 0.45 <= stored p_left <= 0.55; trial-pooled, post-hoc descriptive only",
+      "count": 1803,
+      "denominator": 10800,
+      "proportion": 0.16694444444444445,
+      "minimum_p_left": 0.0713068259405108,
+      "maximum_p_left": 0.9735466994197268
+    }
+  },
+  "frozen_csp_parameters_verified_from_code": {
+    "fixed_car_basis": "21-channel CAR to20 fixed Helmert coordinates",
+    "n_components": 4,
+    "reg": null,
+    "log": true,
+    "cov_est": "concat",
+    "norm_trace": false,
+    "rank": "full",
+    "component_order": "mutual_info",
+    "scaler": "source-fitted StandardScaler",
+    "lda_solver": "svd",
+    "broad_band_hz": [
+      8,
+      30
+    ],
+    "output_samples": 320,
+    "rate_hz": 160,
+    "crop_cue_relative_half_open_s": [
+      0.5,
+      2.5
+    ],
+    "uniform_context_function": "src/mi_eeg/data/q15_context.py:transform_context",
+    "not_authentication_of_new_report_execution": true
+  },
+  "recommended_text": {
+    "methods": "After completion of the frozen transfer evaluation, we inspected the archived CSP predictions for class imbalance and probability asymmetry. These descriptive checks used the original stored predictions and their ground-truth labels for scoring only; no model was refitted, no new prediction inference was run, and no target-derived threshold, centering transformation or label mapping replaced the frozen outputs. Balanced accuracy remained the equally weighted mean across participants. Pooled confusion counts, proportions of predicted left-hand trials and median stored left-hand probabilities were reported separately as trial-level summaries.",
+    "results": "The frozen CSP comparator yielded participant-mean balanced accuracies of 51.99% on Cho2017 and 52.77% on Lee2019. In a post-hoc audit of the archived outputs, 92.07% of Cho2017 trials and 83.21% of Lee2019 trials were predicted as left hand; the corresponding pooled median stored left-hand probabilities were 0.669 and 0.633. Pooled confusion matrices showed pronounced class asymmetry rather than uniformly one-class output. These trial-level diagnostics use a different aggregation from the participant-level primary endpoint and did not alter any original prediction.",
+    "discussion": "The CSP outputs indicate limited transfer and strong class asymmetry under this particular frozen source-trained pipeline. The recorded checks found no disagreement in the declared label mapping, channel selections or deterministic preprocessing implementation, and the original independent audit reproduced the frozen raw-to-prediction results. These checks do not establish the cause of the transfer failure or rule out every acquisition or adapter limitation. Covariance or feature-distribution shifts are plausible explanations, but the present evidence does not isolate them from differences in device, reference, cue timing and preprocessing assumptions. We therefore treat CSP as a contextual comparator and make no general claim of intrinsic CSP inferiority.",
+    "supplement_unverified_diagnostics": "The separately supplied 10 October 2026 diagnostic report states a 63.04% source resubstitution score, a 61.65% mean score from nine new source-only leave-one-participant-out fits, and 52.39%/54.18% scores after target centering. Trial-level predictions, fold/transform manifests and execution/hash records for these new evaluations were not supplied with the report. These numbers are not part of the independently verified candidate results and are withheld from the scientific results until their evidence chain is available. Resubstitution would not constitute held-out validation; the reported leave-one-participant-out evaluation would add new source fits, and centering derived from target inputs would constitute target adaptation even without target labels.",
+    "safe_short_conclusion": "Archived-output diagnostics document strong class-asymmetric CSP transfer in this frozen benchmark; they do not prove a unique failure mechanism or the absence of all implementation errors."
+  },
+  "m1_status": "PARTIALLY ADDRESSED: original saved-output diagnostics independently verified; new source/centering report claims lack execution artifacts; categorical error-exclusion/mechanism conclusions rejected",
+  "new_scientific_experiments_this_audit": 0,
+  "new_model_fits": 0,
+  "new_prediction_inference": 0,
+  "target_adaptation_executed": false,
+  "raw_eeg_access": false,
+  "model_deserialized": false,
+  "repository_modified": false,
+  "output_files": [
+    "/workspace/q15-postsubmission-qa-20261010/new_report_csp_review.json",
+    "/workspace/q15-postsubmission-qa-20261010/new_report_csp_review.md",
+    "/workspace/q15-postsubmission-qa-20261010/new_report_csp_per_person_confusion.csv"
+  ],
+  "provenance_inputs": {
+    "results/Q15-E005/source_validation.json": {
+      "sha256": "837bdd6a9a4739bd09c36c1e095b5a7c7bec657768683d70c8968f0fbb81542b",
+      "bytes": 10043
+    },
+    "results/Q15-EXTERNAL/validation_report.json": {
+      "sha256": "5c93501626ab3a631f82cdfad5e8ddc722c3414cdd46d3c810977ad968d49ae0",
+      "bytes": 35744
+    },
+    "results/Q15-EXTERNAL/Q15-E006/predictions.csv": {
+      "sha256": "b726ec292c169c55e9b20487cadbc9be36297e216c6e00e6c258f5475b2bba67",
+      "bytes": 14851254
+    },
+    "results/Q15-EXTERNAL/Q15-E006/statistics.json": {
+      "sha256": "c5a92308078c7d653b670b9c85dc77b4f3e910ace4d01238b89871a25463242e",
+      "bytes": 330492
+    },
+    "results/Q15-EXTERNAL/Q15-E007/predictions.csv": {
+      "sha256": "1c5772d7cd2ddf35e68d3183c2075caf2f95db506685494b696421fe842f0e11",
+      "bytes": 18108920
+    },
+    "results/Q15-EXTERNAL/Q15-E007/statistics.json": {
+      "sha256": "52aa5e997c974e2a41a98f813c2e350a7b50963c27ec6822bcb4538f4d126ee5",
+      "bytes": 485095
+    },
+    "results/Q14-E001/subject_seed_metrics.csv": {
+      "sha256": "b756700f8e22f7dcb760c8f9ee7a4e0fa7f42d9f93c237d29ab728a66d4a7de5",
+      "bytes": 8343
+    },
+    "results/Q14-E001/CSP4_LDA/target_01/predictions.csv": {
+      "sha256": "260ff218d43ab990a703ed8e84dd113b35d1aaa3e87b23fd5367f624e802f807",
+      "bytes": 32116
+    },
+    "results/Q14-E001/CSP4_LDA/target_02/predictions.csv": {
+      "sha256": "21e510c284667dbb109012025cea192cbe39a447ea4154d2c50e4ac3c475ab51",
+      "bytes": 32076
+    },
+    "results/Q14-E001/CSP4_LDA/target_03/predictions.csv": {
+      "sha256": "7bf5836ff53ee95301b1dffc136edb0feb5da767c1992d61cfc2e3813120d413",
+      "bytes": 32174
+    },
+    "results/Q14-E001/CSP4_LDA/target_04/predictions.csv": {
+      "sha256": "300ca64f42e0cdf367ccd0a0fced7ad9eb692e787c3125558a5f1f8393def722",
+      "bytes": 32068
+    },
+    "results/Q14-E001/CSP4_LDA/target_05/predictions.csv": {
+      "sha256": "9ef97f26931d1e5cfe826bc371e9d5e8df3d56de36269bcd1ba3c95a3607c688",
+      "bytes": 32067
+    },
+    "results/Q14-E001/CSP4_LDA/target_06/predictions.csv": {
+      "sha256": "3989a59b1d57b6acf366f06eed52cafcc40b8bd069980499122b613a5c12aa13",
+      "bytes": 32124
+    },
+    "results/Q14-E001/CSP4_LDA/target_07/predictions.csv": {
+      "sha256": "345c7134569c25ece7c82355ef7ab07e7ebdf3c8e321fc0b70498578210cc015",
+      "bytes": 32090
+    },
+    "results/Q14-E001/CSP4_LDA/target_08/predictions.csv": {
+      "sha256": "acdf0e6792eb3a1441f699f140d77c89726168fce5625fd97dc25c2341ea7146",
+      "bytes": 32136
+    },
+    "results/Q14-E001/CSP4_LDA/target_09/predictions.csv": {
+      "sha256": "c52fc580aabf7fb75d567910cf3ded59bd0efba5dde76f8387cc589ee09fb889",
+      "bytes": 32138
+    },
+    "results/Q15-E005/source/CSP4_LDA/all_source/manifest.json": {
+      "sha256": "5fae836fdf4172bc174e00de347722e70772b68ca54961accb133c65754c4d4f",
+      "bytes": 469
+    },
+    "results/Q15-EXTERNAL/inference_freeze.json": {
+      "sha256": "e420d8ca9389f5fcefd3ab16229244c0e362770dba8aeecccca73b10c20b29c5",
+      "bytes": 14902
+    },
+    "results/Q15-EXTERNAL/completion_receipt.json": {
+      "sha256": "38195cc985ad79db3231303411814da435da2c6cabba745000ccfc9eb73ebfb5",
+      "bytes": 1654
+    },
+    "results/Q15-V001/metadata_audit_receipt.json": {
+      "sha256": "f7f253ae721db39ec26473f9ed3aab827140035975878b9efc4e587e0a3f045b",
+      "bytes": 2787438
+    },
+    "results/Q15-V002/metadata_audit_receipt.json": {
+      "sha256": "5593d194397d905ce3535deea362ffe10655eecb7b9fad7e124746b8d21cac16",
+      "bytes": 2852927
+    },
+    "scripts/q15_source.py": {
+      "sha256": "b0c3a02d757c3b636ec6f312f3d3d8f43d5ce44a0ff14dfbfe10dacef4172648",
+      "bytes": 28530
+    },
+    "scripts/q15_validate_source.py": {
+      "sha256": "4b5dc7b848eb91a5644d8c45d99a03361a2d5063302f59c95bd88be97e763663",
+      "bytes": 47419
+    },
+    "scripts/q15_external.py": {
+      "sha256": "6876042faf7fb5bd77a3be122f00fab2b1bbd2f6fb5b302c1745eba28f28a08c",
+      "bytes": 29823
+    },
+    "scripts/q15_validate_external.py": {
+      "sha256": "df688777d51d3d8aec9bd785683859b512024f922ba2805284dfe5fbfc71e8bd",
+      "bytes": 36406
+    },
+    "scripts/q15_real_metadata.py": {
+      "sha256": "96c00d69d6f7f0ab38707fde696f0d160cb6ebee2169365e1a362fd90f142004",
+      "bytes": 19579
+    },
+    "src/mi_eeg/data/q15_context.py": {
+      "sha256": "849ee22e2a1c1987c2a83ed3a837f9f358b505133ce2ffe13ee876f01adc3d61",
+      "bytes": 21289
+    },
+    "src/mi_eeg/models/q15_csp.py": {
+      "sha256": "b5e4df5428c28688d5163cbb235fad5408cf89324ac4112c6511cdedd25294fd",
+      "bytes": 1144
+    },
+    "scripts/q14_source.py": {
+      "sha256": "b70cf5e41474688b22c6a57a068c07edaa22a8bbf640bd2100b8bb616ea05375",
+      "bytes": 22822
+    },
+    "research_runs/Q15-EXECUTION-20261003/EXECUTION_CONTRACT.json": {
+      "sha256": "4db58b7096378fc1a429580600f35dc8df1a98d701cf8bfb081770f8ea721766",
+      "bytes": 4860
+    },
+    "research_runs/PAPER_FINAL_20261006/evidence/methods_q15.json": {
+      "sha256": "1ab8d541f28266271d1b03862307418bc0727e02475503a99c6e6c39c84ef117",
+      "bytes": 11745
+    },
+    "research_runs/PAPER_FINAL_20261006/evidence/q15_numbers.json": {
+      "sha256": "b8fccf6b5361652dc962017b0ce9caf2523362524b38be8ac9db6ce66db05f4f",
+      "bytes": 94105
+    },
+    "results/Q15-E005/source/CSP4_LDA/all_source/model.joblib": {
+      "sha256": "15ee57321177bca17472bd0fe211f1a42557291203b4e5700caf74a093bdd61f",
+      "bytes": 9365
+    }
+  },
+  "archived_outputs_audit": {
+    "path": "/workspace/q15-postsubmission-qa-20261010/m1_csp_audit.json",
+    "bytes": 78185,
+    "sha256": "6c244b19239700abaae58c4152b9a4d6ada2538f6124a5d45d4efb14513d3d08"
+  }
+}

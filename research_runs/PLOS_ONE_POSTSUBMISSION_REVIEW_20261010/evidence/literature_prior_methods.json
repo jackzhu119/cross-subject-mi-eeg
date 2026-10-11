@@ -1,0 +1,319 @@
+{
+  "schema_version": 1,
+  "audit_type": "read_only_original_literature_protocol_audit",
+  "verified_at_utc": "2026-10-10T12:50:40.951223+00:00",
+  "scientific_experiments_run": false,
+  "fits_run": 0,
+  "predictions_run": 0,
+  "repository_files_modified": false,
+  "current_reference_count_before_revision": 28,
+  "papers_already_in_current_reference_list": false,
+  "scope": "Three specifically requested original papers; bibliographic metadata verified against formal publisher DOI records. Protocol facts checked in publisher fulltext or explicitly identified institutional author postprint. No scores or target-label budgets inferred from title/abstract alone.",
+  "studies": [
+    {
+      "id": "Roots2020",
+      "bibliography": {
+        "title": "Fusion Convolutional Neural Network for Cross-Subject EEG Motor Imagery Classification",
+        "authors": [
+          "Karel Roots",
+          "Yar Muhammad",
+          "Naveed Muhammad"
+        ],
+        "journal": "Computers",
+        "year": 2020,
+        "doi": "10.3390/computers9030072",
+        "volume": "9",
+        "issue": "3",
+        "article_or_page": "72",
+        "formal_publisher_url": "https://www.mdpi.com/2073-431X/9/3/72",
+        "formal_published_online": [
+          2020,
+          9,
+          5
+        ],
+        "metadata_source": "Crossref publisher-deposited metadata, corroborated by publisher fulltext or institutional author postprint"
+      },
+      "fulltext_review_status": "publisher_version_of_record_retrieved",
+      "primary_fulltext_url": "https://mdpi-res.com/d_attachment/computers/computers-09-00072/article_deploy/computers-09-00072.pdf",
+      "task_and_cohort": "PhysioNet EEG Motor Movement/Imagery dataset; separate binary left/right executed-movement and imagined-movement subsets; 103 of 109 participants after excluding 38, 88, 89, 92, 100 and 104.",
+      "evaluation_design": "Published §2.5 randomly assigns 70% / 10% / 20% of 37,080 pooled labelled samples/windows to train / validation / test with fixed seed. This is not a documented participant-disjoint held-out-subject evaluation, despite the title. No cross-dataset transfer experiment is reported.",
+      "target_label_and_calibration_boundary": "Labels are used for the pooled training and validation samples. There is no designated unseen target cohort or zero-target-participant-label calibration budget in this protocol; therefore classify this budget as not applicable / not established, not as zero. Test labels are used for scoring.",
+      "unlabelled_target_statistics": "Paper reports notch60Hz and bandpass2–60Hz preprocessing and learned BatchNorm layers. No explicit target-domain distribution adaptation stage is described; no independently inspected code or normalization-statistics provenance audit was performed, so do not assert target-statistics exclusion.",
+      "model_selection": "Best validation-accuracy checkpoint retained/loaded (§2.5). The paper evaluates branch hyperparameter choices but does not provide a prospectively frozen participant-disjoint source-only selection and target-inference evidence chain.",
+      "architecture_and_filters": "Three separately parameterized EEGNet-style branches with temporal kernel lengths64/128/256 and differing filter counts; learned branch features are concatenated before classification. All branches receive the same bandpass-preprocessed input. This is multiscale/multibranch fusion, not fixed μ/β views sharing one backbone parameter set.",
+      "metrics_and_unit": "Ordinary classification accuracy (correct labels / total), precision, recall, F1 and runtime per sample. Original4-second trials are divided into eight nonoverlapping0.5-second windows, each with the trial label; no participant-level BA estimand in §2.5.",
+      "limitations_for_current_paper": "Do not quantitatively compare its headline ordinary sample/window accuracy with the current participant-level balanced-accuracy transfer estimates. Cite as architecture precedent while stating protocol non-equivalence. Pooled-window random splitting also gives no guarantee of trial-level or participant-level disjointness.",
+      "evidence_locators": [
+        "Publisher PDF §§2.1–2.2 (pp3–4), §2.3 (pp4–5), §2.5 (p5)"
+      ],
+      "excerpts": [
+        {
+          "label": "cohort_preprocessing",
+          "local_path": "literature_sources/primary_excerpts/roots_cohort_preprocessing.txt",
+          "sha256": "d030684aa9bc1fda9611c27f24e91b9fed05d12c39601a49c7b72042f9f62e0a",
+          "extraction_text_file": "roots_pdf.txt",
+          "extraction_lines_inclusive": [
+            170,
+            230
+          ]
+        },
+        {
+          "label": "branches",
+          "local_path": "literature_sources/primary_excerpts/roots_branches.txt",
+          "sha256": "18d0f427058e0b51b42f10d15fc915e0eb66080443bf73f808f8994605881662",
+          "extraction_text_file": "roots_pdf.txt",
+          "extraction_lines_inclusive": [
+            315,
+            395
+          ]
+        },
+        {
+          "label": "split_selection_metrics",
+          "local_path": "literature_sources/primary_excerpts/roots_split_selection_metrics.txt",
+          "sha256": "caa5c41bccb4137368724cfc2cc171e262200c7eff570565e73250888e99f673",
+          "extraction_text_file": "roots_pdf.txt",
+          "extraction_lines_inclusive": [
+            450,
+            466
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SmedemarkMargulies2024",
+      "bibliography": {
+        "title": "Improving subject transfer in EEG classification with divergence estimation",
+        "authors": [
+          "Niklas Smedemark-Margulies",
+          "Ye Wang",
+          "Toshiaki Koike-Akino",
+          "Jing Liu",
+          "Kieran Parsons",
+          "Yunus Bicer",
+          "Deniz Erdoğmuş"
+        ],
+        "journal": "Journal of Neural Engineering",
+        "year": 2024,
+        "doi": "10.1088/1741-2552/ad9777",
+        "volume": "21",
+        "issue": "6",
+        "article_or_page": "066031",
+        "formal_publisher_url": "https://iopscience.iop.org/article/10.1088/1741-2552/ad9777",
+        "formal_published_online": [
+          2024,
+          12,
+          16
+        ],
+        "metadata_source": "Crossref publisher-deposited metadata, corroborated by publisher fulltext or institutional author postprint"
+      },
+      "fulltext_review_status": "formal_metadata_verified_institutional_author_postprint_retrieved_publisher_pdf_challenge_blocked",
+      "primary_fulltext_url": "https://www.merl.com/publications/docs/TR2025-044.pdf",
+      "fulltext_version_note": "MERL TR2025-044 institutional cover is dated2April2025 and says JNE2025, but publisher-deposited DOI metadata and PubMed39591745 identify the formal article as JNE21(6):066031 (2024), online16December2024. Use formal2024 bibliography, not technical-report/preprint year. The institutional postprint abstract matches publisher-deposited formal abstract; direct publisher PDF returned an anti-bot challenge, so the VoR fulltext itself was not independently recovered.",
+      "task_and_cohort": "RSVP binary target/non-target stimulus classification, not motor imagery; just over1million trials,64participants with two sessions. Data recorded1000Hz and provided250Hz; non-target trials subsampled to10:1 relative to target trials.",
+      "evaluation_design": "Within-dataset zero-shot subject transfer. Main experiments use28training and4test participants for100epochs. Ten partially overlapping subject splits ×10random seeds; within each split subject sets are disjoint. No cross-dataset MI transfer experiment.",
+      "target_label_and_calibration_boundary": "§2.1 describes training on source participants and at test time receiving only X from unseen test participants to infer Y. No target-subject fitting is described in these zero-shot experiments. Test labels nevertheless support performance evaluation; optimal λ/peak comparisons are selected from test performance (§§3.2 and6.2.2). Thus zero-shot target fitting does not imply fully source-only selection of reported optimal configurations.",
+      "unlabelled_target_statistics": "Censoring penalties estimate dependence between source latent features and subject/session IDs, with optional task-label conditioning, using training batches. No explicit test-subject adaptation/distribution alignment stage is described. Preprocessing and empirical exclusion of all target-derived normalization statistics are not established by the inspected Methods; mark that narrower detail unverified.",
+      "model_selection": "Main fixed100epoch hyperparameter sweep; optimal-λ peak comparisons pooled across censor modes/projection choices. Appendix6.2 uses24training/4validation/4test participants, best validation-performance checkpoint, max30epochs. Appendix6.2.2 explicitly selects λ giving best mean test performance; distinguish this peak analysis from prospectively source-only frozen model selection.",
+      "architecture_and_filters": "1D CNN encoder, MLP task classifier, optional MLP projector and auxiliary censor network. Density-ratio mutual-information or Wasserstein critic censoring with marginal/conditional/complementary modes. Not a fixed overlapping-filter-bank or shared μ/β branch architecture.",
+      "metrics_and_unit": "Balanced accuracy and test/train balanced-accuracy generalization ratio; variability across seeds/splits/hyperparameters. Quantitative results are not comparable to current MI cross-dataset cohorts/tasks.",
+      "limitations_for_current_paper": "Cite as general EEG zero-shot subject-transfer and selection-sensitivity precedent, explicitly RSVP rather than MI. Do not label its ideal-parameter results a source-only frozen selection benchmark. Do not cite2023 arXiv title Stabilizing Subject Transfer in EEG Classification with Divergence Estimation as the final formal title/year.",
+      "evidence_locators": [
+        "Institutional postprint §2.1 (printedp4), §2.9 (pp10–11), §3.2 (p12), Appendix6.2/6.2.2 (pp19–20); formal metadata Crossref +PubMed39591745"
+      ],
+      "excerpts": [
+        {
+          "label": "problem_statement",
+          "local_path": "literature_sources/primary_excerpts/smed_problem_statement.txt",
+          "sha256": "a978e1ef2aa56d925365da4bc8aa5ea1c15e2dcfc868c6f7075f81856fa62522",
+          "extraction_text_file": "smed_merl.txt",
+          "extraction_lines_inclusive": [
+            260,
+            281
+          ]
+        },
+        {
+          "label": "rsvp_cohort_training_and_metric",
+          "local_path": "literature_sources/primary_excerpts/smed_rsvp_cohort_training_and_metric.txt",
+          "sha256": "d48f874c164e2615846ac38bb2660857dd43b0f0a8c175a1ed122ebcb6e1b1c9",
+          "extraction_text_file": "smed_merl.txt",
+          "extraction_lines_inclusive": [
+            612,
+            706
+          ]
+        },
+        {
+          "label": "peak_selection",
+          "local_path": "literature_sources/primary_excerpts/smed_peak_selection.txt",
+          "sha256": "2256700e4bc6ba61e84aa4deeeb30f0591681f724f11e7857ad6c3d9e4b80bcf",
+          "extraction_text_file": "smed_merl.txt",
+          "extraction_lines_inclusive": [
+            758,
+            790
+          ]
+        },
+        {
+          "label": "early_stopping_and_test_peak_selection",
+          "local_path": "literature_sources/primary_excerpts/smed_early_stopping_and_test_peak_selection.txt",
+          "sha256": "8e7ce06dd72efd573593d6830f8994f5c4e36ccc4618b005111af27b878de67a",
+          "extraction_text_file": "smed_merl.txt",
+          "extraction_lines_inclusive": [
+            1160,
+            1196
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Luo2023",
+      "bibliography": {
+        "title": "Overlapping filter bank convolutional neural network for multisubject multicategory motor imagery brain-computer interface",
+        "authors": [
+          "Jing Luo",
+          "Jundong Li",
+          "Qi Mao",
+          "Zhenghao Shi",
+          "Haiqin Liu",
+          "Xiaoyong Ren",
+          "Xinhong Hei"
+        ],
+        "journal": "BioData Mining",
+        "year": 2023,
+        "doi": "10.1186/s13040-023-00336-y",
+        "volume": "16",
+        "issue": "1",
+        "article_or_page": "19",
+        "formal_publisher_url": "https://biodatamining.biomedcentral.com/articles/10.1186/s13040-023-00336-y",
+        "formal_published_online": [
+          2023,
+          7,
+          11
+        ],
+        "metadata_source": "Crossref publisher-deposited metadata, corroborated by publisher fulltext or institutional author postprint"
+      },
+      "fulltext_review_status": "publisher_version_of_record_retrieved",
+      "primary_fulltext_url": "https://link.springer.com/content/pdf/10.1186/s13040-023-00336-y.pdf",
+      "task_and_cohort": "BCIIV2a/BNCI2014_001:9participants/four MIclasses; High-Gamma:14participants/four motor-execution/rest classes (not MI); OpenBMI:21selected of54participants/binary left-right MI after excluding33 designated MI-blind subjects.",
+      "evaluation_design": "Pooled multisubject within-dataset recognition. All9BNCI participants contribute training and test-session data; all14High-Gamma participants contribute earlier-run training and later-run testing. OpenBMI uses selected21participants and recordedtrain/test sets. No participant-disjoint unseen-target design or cross-dataset frozen transfer is described.",
+      "target_label_and_calibration_boundary": "Dataset participants contribute labelled training data; future test-session participants are represented in the training cohort. Therefore not zero-target-participant-label fitting. No distinct unseen target-participant calibration budget is defined; mark not applicable rather than zero.",
+      "unlabelled_target_statistics": "Exponential running channel standardization is applied to filtered EEG (Experimentalsetup,p8). This is input-dependent preprocessing, not evidence of a source-only fixed normalization-statistics contract. The paper does not document a separate target adaptation stage; exact training-versus-test running-statistics reset/fit provenance was not verified from execution.",
+      "model_selection": "BNCI/High-Gamma maximum500epochs; OpenBMI300epochs; average test accuracy/F1/AUC over final100epochs reported. Frequency-step sensitivity study selects4Hz as an empirical choice based on reported test results(Table4/Fig5,p13), not a prospectively source-only locked validation selection. No separate validation-fold checkpoint selection described in reviewed Experimentalsetup.",
+      "architecture_and_filters": "Multiple independent CNN models, one per overlapping bandpass-filtered view, trained separately with cross-entropy; output probabilities summed beforeargmax(Eqs2–4). Backbones shallow/deepConvNet,EEGNet,ATCNet. Table1 fixed low-cut examples0–8,0–12,…0–36Hz and4–12,4–16,…4–36Hz; sliding examples0–12,4–16,…24–36Hz. Explicitly separate models, not parameter-sharing μ/β backbone.",
+      "metrics_and_unit": "Ordinary accuracy(%),F1,AUC and test-accuracy variance averaged over the last100training epochs. No participant-level BA matched to current zero-calibration transfer estimand.",
+      "limitations_for_current_paper": "Relevant overlapping-filter-bank/ensemble precedent, not a direct unseen-subject or cross-dataset source-only comparator. Do not imply superiority or numerical equivalence across unequal class counts, tasks, cohort exclusions, metrics, split and epoch-selection rules. Formal2023 paper has7authors, includingJundongLi andHaiqinLiu; ResearchSquare preprints have different authorlists/name spelling and must not supply final citation metadata.",
+      "evidence_locators": [
+        "PublisherPDF Table1/Eqs2–4(pp5–6); Experimentaldata(pp7–8); Experimentalsetup(p8); performancecomparison(p9); sensitivitystudy(Table4/Fig5,p13)"
+      ],
+      "excerpts": [
+        {
+          "label": "bands_and_separate_models",
+          "local_path": "literature_sources/primary_excerpts/luo_bands_and_separate_models.txt",
+          "sha256": "0336a2c4f528c7db5cd17bb961e915df6a5d2424c0a0a8bac2415f1ffea71be9",
+          "extraction_text_file": "luo_pdf.txt",
+          "extraction_lines_inclusive": [
+            258,
+            312
+          ]
+        },
+        {
+          "label": "cohorts_split_and_normalization",
+          "local_path": "literature_sources/primary_excerpts/luo_cohorts_split_and_normalization.txt",
+          "sha256": "ab774b2c63d2100746efe546d9f2962764db7e17801beffb5bb11b1d5433d39e",
+          "extraction_text_file": "luo_pdf.txt",
+          "extraction_lines_inclusive": [
+            343,
+            409
+          ]
+        },
+        {
+          "label": "epoch_reporting",
+          "local_path": "literature_sources/primary_excerpts/luo_epoch_reporting.txt",
+          "sha256": "ab473f260085fd1b21b42f077a275df14d174ebdaed2f5017c939b93ccebab91",
+          "extraction_text_file": "luo_pdf.txt",
+          "extraction_lines_inclusive": [
+            419,
+            437
+          ]
+        },
+        {
+          "label": "frequency_step_selection",
+          "local_path": "literature_sources/primary_excerpts/luo_frequency_step_selection.txt",
+          "sha256": "a1d28e2f091bd8afee8c5c65a8e1d615068899672770e9f120c93b5ed85b41df",
+          "extraction_text_file": "luo_pdf.txt",
+          "extraction_lines_inclusive": [
+            604,
+            618
+          ]
+        }
+      ]
+    }
+  ],
+  "primary_source_hashes": [
+    {
+      "path": "literature_sources/luo_crossref.json",
+      "sha256": "7b7364d4654fce902ea8cd28efe9f354075bf9687cf6d4ea9e2245e958295022",
+      "bytes": 17770
+    },
+    {
+      "path": "literature_sources/luo_epmc.json",
+      "sha256": "d77a1742be571bae5d9b706be8f3f893f29b499f306846664bffdc69f785695b",
+      "bytes": 1001
+    },
+    {
+      "path": "literature_sources/luo_pdf.pdf",
+      "sha256": "6ece3e537aff78fcf7380cdb75e4f9d35cbd93008e7547c3cd114a64db20257b",
+      "bytes": 1448066
+    },
+    {
+      "path": "literature_sources/roots_crossref.json",
+      "sha256": "49c2654be292b9a886ad02c61570aa662da37cd797688d9b3207e168c9859bb7",
+      "bytes": 10508
+    },
+    {
+      "path": "literature_sources/roots_pdf.pdf",
+      "sha256": "3814bf9b3691b6a33456e6d8858ae9440b658c182fa3c7d2fd37bf598c5800b6",
+      "bytes": 650901
+    },
+    {
+      "path": "literature_sources/smed_arxiv.pdf",
+      "sha256": "af800963c04842e6de022d1bd66592d47b62996d0a85ef0254e3916cb3f60167",
+      "bytes": 5016443
+    },
+    {
+      "path": "literature_sources/smed_crossref.json",
+      "sha256": "c627302d4c83ab468675440cddb1cdd9bf49ec2a70a3f364afcb4968710668a5",
+      "bytes": 20663
+    },
+    {
+      "path": "literature_sources/smed_epmc.json",
+      "sha256": "e3880b30f1959eb9c27a95c2fd0d84573b8a414749034b2de63d65058bc144d9",
+      "bytes": 899
+    },
+    {
+      "path": "literature_sources/smed_merl.pdf",
+      "sha256": "cbb671b5394b4f3354418823da9ee483f6f474fb1fee24d2cd0bf4b43829e657",
+      "bytes": 6281749
+    },
+    {
+      "path": "literature_sources/smed_merl_http.pdf",
+      "sha256": "cbb671b5394b4f3354418823da9ee483f6f474fb1fee24d2cd0bf4b43829e657",
+      "bytes": 6281749
+    },
+    {
+      "path": "literature_sources/smed_merl_shadow_pdf.pdf",
+      "sha256": "cbb671b5394b4f3354418823da9ee483f6f474fb1fee24d2cd0bf4b43829e657",
+      "bytes": 6281749
+    }
+  ],
+  "download_provenance_files": [
+    "literature_sources/initial_downloads.json",
+    "literature_sources/smed_downloads.json",
+    "literature_sources/smed_alternative_downloads.json"
+  ],
+  "safe_synthesis": "Multibranch fusion and overlapping-filter-bank ensembles are established EEG approaches, and dependence-censoring has been studied for zero-shot EEG subject transfer. The current study should therefore frame its contribution as a source-only model-selection audit with participant heterogeneity, frozen cross-dataset evaluation, retention of adverse/null results, and a reproducible evidence chain, not as the first multibranch representation or a new state-of-the-art domain-generalization algorithm. The three precedents do not provide a protocol-matched performance ranking: Roots uses a pooled-window random split; Luo uses same-cohort multisubject train/test sessions; Smedemark-Margulies studies RSVP with test-based optimal-λ peak analyses.",
+  "remaining_boundaries": [
+    "DirectSmedemark-Margulies publisherVoR fulltext unavailable duechallenge; institutional postprint used with formalmetadata.",
+    "Noauthorcodeexecuted ortraining-statistics provenance empirically audited for anypriorpaper.",
+    "No cross-study numerical performancecomparison warranted.",
+    "No newmethods citationsare added to already-submitted files automatically."
+  ]
+}

@@ -1,0 +1,1748 @@
+{
+  "status": "ok",
+  "message-type": "work-list",
+  "message-version": "1.0.0",
+  "message": {
+    "facets": {},
+    "total-results": 8398066,
+    "items": [
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              9,
+              30
+            ]
+          ],
+          "date-time": "2026-09-30T21:30:23Z",
+          "timestamp": 1790803823078,
+          "version": "4.1.0"
+        },
+        "reference-count": 54,
+        "publisher": "Public Library of Science (PLoS)",
+        "issue": "10",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2025,
+                  10,
+                  23
+                ]
+              ],
+              "date-time": "2025-10-23T00:00:00Z",
+              "timestamp": 1761177600000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "http://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "funder": [
+          {
+            "DOI": "10.13039/501100007129",
+            "name": "Natural Science Foundation of Shandong Province",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "ZR2022MF236"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "ZR2022MF236"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/501100007129",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/501100001809",
+            "name": "National Natural Science Foundation of China",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "62173207"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "62173207"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/501100001809",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/501100001809",
+            "name": "National Natural Science Foundation of China",
+            "doi-asserted-by": "crossref",
+            "award": [
+              "62073187"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "62073187"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/501100001809",
+                "id-type": "DOI",
+                "asserted-by": "crossref"
+              }
+            ]
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "www.plosone.org"
+          ],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "PLoS One"
+        ],
+        "abstract": "<jats:p>Motor imagery (MI) is a brain-computer interface (BCI) technology with the potential to change human life in the future. MI signals have been widely applied in various BCI applications, including neurorehabilitation, smart home control, and prosthetic control. However, the limited accuracy of MI signals decoding remains a significant barrier to the broader growth of the BCI applications. In this study, we propose the SMMTM model, which combines spatiotemporal convolution (SC), multi-branch separable convolution (MSC), multi-head self-attention (MSA), temporal convolution network (TCN), and multimodal feature fusion (MFF). Specifically, we use the SC module to capture both temporal and spatial features. We design a MSC to capture temporal features at multiple scales. In addition, MSA is designed to extract valuable global features with long-term dependence. The TCN is employed to capture higher-level temporal features. The MFF consists of feature fusion and decision fusion, using the features output from the SMMTM to improve robustness. The SMMTM was evaluated on the public benchmark BCI Comparison IV 2a and 2b datasets, the results showed that the within-subject classification accuracies for the datasets were 84.96% and 89.26% respectively, with kappa values of 0.797 and 0.756. The cross-subject classification accuracy for the 2a dataset was 69.21%, with a kappa value of 0.584. These results indicate that the SMMTM significantly enhances decoding performance, providing a strong foundation for advancing practical BCI implementations.</jats:p>",
+        "DOI": "10.1371/journal.pone.0333805",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              10,
+              23
+            ]
+          ],
+          "date-time": "2025-10-23T17:46:02Z",
+          "timestamp": 1761241562000
+        },
+        "page": "e0333805",
+        "update-policy": "https://doi.org/10.1371/journal.pone.corrections_policy",
+        "source": "Crossref",
+        "is-referenced-by-count": 1,
+        "title": [
+          "SMMTM: Motor imagery EEG decoding algorithm using a hybrid multi-branch separable convolutional self-attention temporal convolutional network"
+        ],
+        "prefix": "10.1371",
+        "volume": "20",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0002-6179-2991",
+            "authenticated-orcid": true,
+            "given": "DianGuo",
+            "family": "Cao",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "ZhenYuan",
+            "family": "Yu",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Jinqiang",
+            "family": "Wang",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Yuqiang",
+            "family": "Wu",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "340",
+        "published-online": {
+          "date-parts": [
+            [
+              2025,
+              10,
+              23
+            ]
+          ]
+        },
+        "reference": [
+          {
+            "issue": "6",
+            "key": "pone.0333805.ref001",
+            "doi-asserted-by": "crossref",
+            "first-page": "767",
+            "DOI": "10.1016/S1388-2457(02)00057-3",
+            "article-title": "Brain-computer interfaces for communication and control",
+            "volume": "113",
+            "author": "JR Wolpaw",
+            "year": "2002",
+            "journal-title": "Clin Neurophysiol."
+          },
+          {
+            "key": "pone.0333805.ref002",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Condori KA, Urquizo EC, Diaz DA. Embedded brain machine interface based on motor imagery paradigm to control prosthetic hand. In: 2016 IEEE ANDESCON. IEEE; 2016. p. 1–4.",
+            "DOI": "10.1109/ANDESCON.2016.7836266"
+          },
+          {
+            "key": "pone.0333805.ref003",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Cho W, Guger C, Heilinger A, Ortner R, Murovec N, Xu R, et al. Motor rehabilitation for hemiparetic stroke patients using a brain-computer interface method. In: 2018 IEEE International Conference on Systems, Man, and Cybernetics (SMC). IEEE; 2018. p. 1001–5. https://doi.org/10.1109/smc.2018.00178",
+            "DOI": "10.1109/SMC.2018.00178"
+          },
+          {
+            "key": "pone.0333805.ref004",
+            "doi-asserted-by": "crossref",
+            "first-page": "464",
+            "DOI": "10.1109/TNSRE.2023.3237375",
+            "article-title": "Schizo-net: a novel schizophrenia diagnosis framework using late fusion multimodal deep learning on electroencephalogram-based brain connectivity indices",
+            "volume": "31",
+            "author": "N Grover",
+            "year": "2023",
+            "journal-title": "IEEE Trans Neural Syst Rehabil Eng."
+          },
+          {
+            "key": "pone.0333805.ref005",
+            "doi-asserted-by": "crossref",
+            "first-page": "93",
+            "DOI": "10.1016/j.neuroscience.2020.04.006",
+            "article-title": "EEG-based classification of lower limb motor imagery with brain network analysis",
+            "volume": "436",
+            "author": "L Gu",
+            "year": "2020",
+            "journal-title": "Neuroscience."
+          },
+          {
+            "key": "pone.0333805.ref006",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Xiong M, Brandenberger A, Bulger M, Chien W, Doyle A, Hao W, et al. A low-cost, semi-autonomous wheelchair controlled by motor imagery and jaw muscle activation. In: 2019 IEEE International Conference on Systems, Man and Cybernetics (SMC). IEEE; 2019. p. 2180–5. https://doi.org/10.1109/smc.2019.8914544",
+            "DOI": "10.1109/SMC.2019.8914544"
+          },
+          {
+            "issue": "3",
+            "key": "pone.0333805.ref007",
+            "doi-asserted-by": "crossref",
+            "first-page": "331",
+            "DOI": "10.1109/TNSRE.2004.834627",
+            "article-title": "Conversion of EEG activity into cursor movement by a brain-computer interface (BCI)",
+            "volume": "12",
+            "author": "GE Fabiani",
+            "year": "2004",
+            "journal-title": "IEEE Trans Neural Syst Rehabil Eng."
+          },
+          {
+            "issue": "7",
+            "key": "pone.0333805.ref008",
+            "doi-asserted-by": "crossref",
+            "first-page": "1908",
+            "DOI": "10.1161/STROKEAHA.116.016304",
+            "article-title": "Contralesional brain-computer interface control of a powered exoskeleton for motor recovery in chronic stroke survivors",
+            "volume": "48",
+            "author": "DT Bundy",
+            "year": "2017",
+            "journal-title": "Stroke."
+          },
+          {
+            "key": "pone.0333805.ref009",
+            "doi-asserted-by": "crossref",
+            "first-page": "109612",
+            "DOI": "10.1109/ACCESS.2019.2934018",
+            "article-title": "A deep learning framework for decoding motor imagery tasks of the same hand using EEG signals",
+            "volume": "7",
+            "author": "R Alazrai",
+            "year": "2019",
+            "journal-title": "IEEE Access."
+          },
+          {
+            "issue": "5",
+            "key": "pone.0333805.ref010",
+            "doi-asserted-by": "crossref",
+            "first-page": "1301",
+            "DOI": "10.1109/JBHI.2015.2450196",
+            "article-title": "The removal of EOG artifacts from EEG signals using independent component analysis and multivariate empirical mode decomposition",
+            "volume": "20",
+            "author": "G Wang",
+            "year": "2016",
+            "journal-title": "IEEE J Biomed Health Inform."
+          },
+          {
+            "key": "pone.0333805.ref011",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Hernández D, Trujillo L, Z-Flores E, Villanueva O, Romo-Fewell O. Detecting epilepsy in EEG signals using time, frequency and time-frequency domain features. Computer science and engineering—theory and applications. 2018. p. 167–82.",
+            "DOI": "10.1007/978-3-319-74060-7_9"
+          },
+          {
+            "issue": "2",
+            "key": "pone.0333805.ref012",
+            "doi-asserted-by": "crossref",
+            "first-page": "117",
+            "DOI": "10.1109/TITB.2006.879600",
+            "article-title": "Multiclass support vector machines for EEG-signals classification",
+            "volume": "11",
+            "author": "I Güler",
+            "year": "2007",
+            "journal-title": "IEEE Trans Inf Technol Biomed."
+          },
+          {
+            "issue": "3",
+            "key": "pone.0333805.ref013",
+            "doi-asserted-by": "crossref",
+            "first-page": "1007",
+            "DOI": "10.1007/s13246-020-00897-w",
+            "article-title": "Major depressive disorder assessment via enhanced k-nearest neighbor method and EEG signals",
+            "volume": "43",
+            "author": "M Saeedi",
+            "year": "2020",
+            "journal-title": "Phys Eng Sci Med."
+          },
+          {
+            "key": "pone.0333805.ref014",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Nedelcu E, Portase R, Tolas R, Muresan R, Dinsoreanu M, Potolea R. Artifact detection in EEG using machine learning. In: 2017 13th IEEE International Conference on Intelligent Computer Communication and Processing (ICCP). 2017. p. 77–83. https://doi.org/10.1109/iccp.2017.8116986",
+            "DOI": "10.1109/ICCP.2017.8116986"
+          },
+          {
+            "key": "pone.0333805.ref015",
+            "doi-asserted-by": "crossref",
+            "first-page": "532",
+            "DOI": "10.1016/j.eswa.2018.08.031",
+            "article-title": "An end-to-end deep learning approach to MI-EEG signal classification for BCIs",
+            "volume": "114",
+            "author": "H Dose",
+            "year": "2018",
+            "journal-title": "Expert Systems with Applications."
+          },
+          {
+            "issue": "3",
+            "key": "pone.0333805.ref016",
+            "doi-asserted-by": "crossref",
+            "first-page": "031001",
+            "DOI": "10.1088/1741-2552/ab0ab5",
+            "article-title": "Deep learning for electroencephalogram (EEG) classification tasks: a review",
+            "volume": "16",
+            "author": "A Craik",
+            "year": "2019",
+            "journal-title": "J Neural Eng."
+          },
+          {
+            "key": "pone.0333805.ref017",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.7717/peerj-cs.375",
+            "article-title": "OPTICAL+: a frequency-based deep learning scheme for recognizing brain wave signals",
+            "volume": "7",
+            "author": "S Kumar",
+            "year": "2021",
+            "journal-title": "PeerJ Comput Sci."
+          },
+          {
+            "issue": "12",
+            "key": "pone.0333805.ref018",
+            "doi-asserted-by": "crossref",
+            "first-page": "3496",
+            "DOI": "10.3390/s20123496",
+            "article-title": "Recognition of EEG signal motor imagery intention based on deep multi-view feature learning",
+            "volume": "20",
+            "author": "J Xu",
+            "year": "2020",
+            "journal-title": "Sensors (Basel)."
+          },
+          {
+            "key": "pone.0333805.ref019",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Wang J, Yu G, Zhong L, Chen W, Sun Y. Classification of EEG signal using convolutional neural networks. In: 2019 14th IEEE Conference on Industrial Electronics and Applications (ICIEA). IEEE; 2019. p. 1694–8. https://doi.org/10.1109/iciea.2019.8834381",
+            "DOI": "10.1109/ICIEA.2019.8834381"
+          },
+          {
+            "key": "pone.0333805.ref020",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Heilmeyer FA, Schirrmeister RT, Fiederer LDJ, Volker M, Behncke J, Ball T. A large-scale evaluation framework for EEG deep learning architectures. In: 2018 IEEE International Conference on Systems, Man, and Cybernetics (SMC). 2018. p. 1039–45. https://doi.org/10.1109/smc.2018.00185",
+            "DOI": "10.1109/SMC.2018.00185"
+          },
+          {
+            "issue": "5",
+            "key": "pone.0333805.ref021",
+            "doi-asserted-by": "crossref",
+            "first-page": "056013",
+            "DOI": "10.1088/1741-2552/aace8c",
+            "article-title": "EEGNet: a compact convolutional neural network for EEG-based brain-computer interfaces",
+            "volume": "15",
+            "author": "VJ Lawhern",
+            "year": "2018",
+            "journal-title": "J Neural Eng."
+          },
+          {
+            "key": "pone.0333805.ref022",
+            "doi-asserted-by": "crossref",
+            "first-page": "102826",
+            "DOI": "10.1016/j.bspc.2021.102826",
+            "article-title": "Electroencephalography-based motor imagery classification using temporal convolutional network fusion",
+            "volume": "69",
+            "author": "YK Musallam",
+            "year": "2021",
+            "journal-title": "Biomedical Signal Processing and Control."
+          },
+          {
+            "key": "pone.0333805.ref023",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Ingolfsson TM, Hersche M, Wang X, Kobayashi N, Cavigelli L, Benini L. EEG-TCNet: an accurate temporal convolutional network for embedded motor-imagery brain–machine interfaces. In: 2020 IEEE International Conference on Systems, Man, and Cybernetics (SMC). IEEE; 2020. https://doi.org/10.1109/smc42975.2020.9283028",
+            "DOI": "10.1109/SMC42975.2020.9283028"
+          },
+          {
+            "key": "pone.0333805.ref024",
+            "doi-asserted-by": "crossref",
+            "first-page": "104066",
+            "DOI": "10.1016/j.bspc.2022.104066",
+            "article-title": "A parallel multi-scale time-frequency block convolutional neural network based on channel attention module for motor imagery classification",
+            "volume": "79",
+            "author": "H Li",
+            "year": "2023",
+            "journal-title": "Biomedical Signal Processing and Control."
+          },
+          {
+            "key": "pone.0333805.ref025",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Riyad M, Khalil M, Adib A. Incep-eegnet: a convnet for motor imagery decoding. In: Image, Signal Processing: 9th International Conference and ICISP 2020, Marrakesh, Morocco, June 4–6, 2020, Proceedings 9. Springer; 2020. p. 103–11.",
+            "DOI": "10.1007/978-3-030-51935-3_11"
+          },
+          {
+            "issue": "21",
+            "key": "pone.0333805.ref026",
+            "doi-asserted-by": "crossref",
+            "first-page": "11255",
+            "DOI": "10.3390/app122111255",
+            "article-title": "EEG-based emotion recognition using convolutional recurrent neural network with multi-head self-attention",
+            "volume": "12",
+            "author": "Z Hu",
+            "year": "2022",
+            "journal-title": "Applied Sciences."
+          },
+          {
+            "issue": "2",
+            "key": "pone.0333805.ref027",
+            "doi-asserted-by": "crossref",
+            "first-page": "2249",
+            "DOI": "10.1109/TII.2022.3197419",
+            "article-title": "Physics-informed attention temporal convolutional network for EEG-based motor imagery classification",
+            "volume": "19",
+            "author": "H Altaheri",
+            "year": "2023",
+            "journal-title": "IEEE Trans Ind Inf."
+          },
+          {
+            "issue": "5",
+            "key": "pone.0333805.ref028",
+            "doi-asserted-by": "crossref",
+            "first-page": "2365",
+            "DOI": "10.1109/JBHI.2023.3243698",
+            "article-title": "AutoEncoder filter bank common spatial patterns to decode motor imagery from EEG",
+            "volume": "27",
+            "author": "N Mammone",
+            "year": "2023",
+            "journal-title": "IEEE J Biomed Health Inform."
+          },
+          {
+            "issue": "2",
+            "key": "pone.0333805.ref029",
+            "doi-asserted-by": "crossref",
+            "first-page": "2350068",
+            "DOI": "10.1142/S0129065723500685",
+            "article-title": "A few-shot transfer learning approach for motion intention decoding from electroencephalographic signals",
+            "volume": "34",
+            "author": "N Mammone",
+            "year": "2024",
+            "journal-title": "Int J Neural Syst."
+          },
+          {
+            "key": "pone.0333805.ref030",
+            "doi-asserted-by": "crossref",
+            "first-page": "105464",
+            "DOI": "10.1016/j.cmpb.2020.105464",
+            "article-title": "Motor imagery EEG classification based on ensemble support vector learning",
+            "volume": "193",
+            "author": "J Luo",
+            "year": "2020",
+            "journal-title": "Comput Methods Programs Biomed."
+          },
+          {
+            "key": "pone.0333805.ref031",
+            "doi-asserted-by": "crossref",
+            "first-page": "103718",
+            "DOI": "10.1016/j.bspc.2022.103718",
+            "article-title": "A novel multi-branch hybrid neural network for motor imagery EEG signal classification",
+            "volume": "77",
+            "author": "W Ma",
+            "year": "2022",
+            "journal-title": "Biomedical Signal Processing and Control."
+          },
+          {
+            "issue": "3",
+            "key": "pone.0333805.ref032",
+            "doi-asserted-by": "crossref",
+            "first-page": "2238",
+            "DOI": "10.1109/TAFFC.2022.3169001",
+            "article-title": "TSception: capturing temporal dynamics and spatial asymmetry from EEG for emotion recognition",
+            "volume": "14",
+            "author": "Y Ding",
+            "year": "2023",
+            "journal-title": "IEEE Trans Affective Comput."
+          },
+          {
+            "issue": "4",
+            "key": "pone.0333805.ref033",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.1007/s42979-024-02773-w",
+            "article-title": "Emerging trends in EEG signal processing: a systematic review",
+            "volume": "5",
+            "author": "R Sharma",
+            "year": "2024",
+            "journal-title": "SN COMPUT SCI."
+          },
+          {
+            "key": "pone.0333805.ref034",
+            "doi-asserted-by": "crossref",
+            "first-page": "2126",
+            "DOI": "10.1109/TNSRE.2022.3194600",
+            "article-title": "A transformer-based approach combining deep learning network and spatial-temporal information for raw EEG classification",
+            "volume": "30",
+            "author": "J Xie",
+            "year": "2022",
+            "journal-title": "IEEE Trans Neural Syst Rehabil Eng."
+          },
+          {
+            "key": "pone.0333805.ref035",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Liang G, Cao D, Wang J, Zhang Z, Wu Y. Eisatc-fusion: inception self-attention temporal convolutional network fusion for motor imagery EEG decoding. TechRxiv. 2023.",
+            "DOI": "10.36227/techrxiv.24003582"
+          },
+          {
+            "key": "pone.0333805.ref036",
+            "article-title": "Attention is all you need",
+            "volume": "30",
+            "author": "A Vaswani",
+            "year": "2017",
+            "journal-title": "Advances in neural information processing systems."
+          },
+          {
+            "key": "pone.0333805.ref037",
+            "unstructured": "Dosovitskiy A, Beyer L, Kolesnikov A, Weissenborn D, Zhai X, Unterthiner T. An image is worth 16x16 words: transformers for image recognition at scale. arXiv preprint. 2020. https://arxiv.org/abs/2010.11929"
+          },
+          {
+            "key": "pone.0333805.ref038",
+            "unstructured": "Ioffe S, Szegedy C. Batch normalization: accelerating deep network training by reducing internal covariate shift. In: International conference on machine learning. PMLR; 2015. p. 448–56."
+          },
+          {
+            "key": "pone.0333805.ref039",
+            "unstructured": "Oord A v d, Dieleman S, Zen H, Simonyan K, Vinyals O, Graves A. Wavenet: a generative model for raw audio. arXiv preprint 2016. https://arxiv.org/abs/1609.03499"
+          },
+          {
+            "key": "pone.0333805.ref040",
+            "unstructured": "Yu F, Koltun V. Multi-scale context aggregation by dilated convolutions. arXiv preprint 2015. https://arxiv.org/abs/1511.07122"
+          },
+          {
+            "key": "pone.0333805.ref041",
+            "first-page": "1",
+            "article-title": "BCI competition 2008 –Graz data set A",
+            "volume": "16",
+            "author": "C Brunner",
+            "year": "2008",
+            "journal-title": "Institute for Knowledge Discovery (Laboratory of Brain-Computer Interfaces), Graz University of Technology."
+          },
+          {
+            "key": "pone.0333805.ref042",
+            "article-title": "BCI competition 2008 –Graz data set B",
+            "author": "R Leeb",
+            "year": "2008",
+            "journal-title": "Putz."
+          },
+          {
+            "key": "pone.0333805.ref043",
+            "doi-asserted-by": "crossref",
+            "first-page": "1535",
+            "DOI": "10.1109/TNSRE.2024.3382226",
+            "article-title": "EISATC-fusion: inception self-attention temporal convolutional network fusion for motor imagery EEG decoding",
+            "volume": "32",
+            "author": "G Liang",
+            "year": "2024",
+            "journal-title": "IEEE Trans Neural Syst Rehabil Eng."
+          },
+          {
+            "issue": "11",
+            "key": "pone.0333805.ref044",
+            "doi-asserted-by": "crossref",
+            "first-page": "5391",
+            "DOI": "10.1002/hbm.23730",
+            "article-title": "Deep learning with convolutional neural networks for EEG decoding and visualization",
+            "volume": "38",
+            "author": "RT Schirrmeister",
+            "year": "2017",
+            "journal-title": "Hum Brain Mapp."
+          },
+          {
+            "key": "pone.0333805.ref045",
+            "doi-asserted-by": "crossref",
+            "first-page": "3988",
+            "DOI": "10.1109/TNSRE.2023.3323325",
+            "article-title": "A multi-domain convolutional neural network for EEG-based motor imagery decoding",
+            "volume": "31",
+            "author": "H Zhi",
+            "year": "2023",
+            "journal-title": "IEEE Trans Neural Syst Rehabil Eng."
+          },
+          {
+            "key": "pone.0333805.ref046",
+            "doi-asserted-by": "crossref",
+            "first-page": "109953",
+            "DOI": "10.1016/j.jneumeth.2023.109953",
+            "article-title": "Self-attention-based convolutional neural network and time-frequency common spatial pattern for enhanced motor imagery classification",
+            "volume": "398",
+            "author": "R Zhang",
+            "year": "2023",
+            "journal-title": "J Neurosci Methods."
+          },
+          {
+            "key": "pone.0333805.ref047",
+            "doi-asserted-by": "crossref",
+            "first-page": "8325",
+            "DOI": "10.1109/ACCESS.2024.3351204",
+            "article-title": "MSFNet: a multi-scale space-time frequency fusion network for motor imagery EEG classification",
+            "volume": "12",
+            "author": "C Wang",
+            "year": "2024",
+            "journal-title": "IEEE Access."
+          },
+          {
+            "key": "pone.0333805.ref048",
+            "doi-asserted-by": "crossref",
+            "first-page": "401",
+            "DOI": "10.1109/TNSRE.2024.3351863",
+            "article-title": "M-FANet: multi-feature attention convolutional neural network for motor imagery decoding",
+            "volume": "32",
+            "author": "Y Qin",
+            "year": "2024",
+            "journal-title": "IEEE Trans Neural Syst Rehabil Eng."
+          },
+          {
+            "issue": "13",
+            "key": "pone.0333805.ref049",
+            "doi-asserted-by": "crossref",
+            "first-page": "2854",
+            "DOI": "10.3390/s19132854",
+            "article-title": "Motor imagery EEG classification using capsule networks",
+            "volume": "19",
+            "author": "K-W Ha",
+            "year": "2019",
+            "journal-title": "Sensors (Basel)."
+          },
+          {
+            "key": "pone.0333805.ref050",
+            "doi-asserted-by": "crossref",
+            "first-page": "1208",
+            "DOI": "10.1109/TNSRE.2023.3242280",
+            "article-title": "Motor imagery EEG decoding based on multi-scale hybrid networks and feature enhancement",
+            "volume": "31",
+            "author": "X Tang",
+            "year": "2023",
+            "journal-title": "IEEE Trans Neural Syst Rehabil Eng."
+          },
+          {
+            "key": "pone.0333805.ref051",
+            "doi-asserted-by": "crossref",
+            "first-page": "1343249",
+            "DOI": "10.3389/fnbot.2024.1343249",
+            "article-title": "Bidirectional feature pyramid attention-based temporal convolutional network model for motor imagery electroencephalogram classification",
+            "volume": "18",
+            "author": "X Xie",
+            "year": "2024",
+            "journal-title": "Front Neurorobot."
+          },
+          {
+            "key": "pone.0333805.ref052",
+            "doi-asserted-by": "crossref",
+            "first-page": "542",
+            "DOI": "10.1016/j.future.2019.06.027",
+            "article-title": "Deep learning for EEG motor imagery classification based on multi-layer CNNs feature fusion",
+            "volume": "101",
+            "author": "SU Amin",
+            "year": "2019",
+            "journal-title": "Future Generation Computer Systems."
+          },
+          {
+            "issue": "5",
+            "key": "pone.0333805.ref053",
+            "doi-asserted-by": "crossref",
+            "first-page": "715",
+            "DOI": "10.1109/LSP.2019.2906824",
+            "article-title": "A convolutional recurrent attention model for subject-independent EEG signal analysis",
+            "volume": "26",
+            "author": "D Zhang",
+            "year": "2019",
+            "journal-title": "IEEE Signal Process Lett."
+          },
+          {
+            "issue": "9",
+            "key": "pone.0333805.ref054",
+            "doi-asserted-by": "crossref",
+            "first-page": "2570",
+            "DOI": "10.1109/JBHI.2020.2967128",
+            "article-title": "Motor imagery classification via temporal attention cues of graph embedded EEG signals",
+            "volume": "24",
+            "author": "D Zhang",
+            "year": "2020",
+            "journal-title": "IEEE J Biomed Health Inform."
+          }
+        ],
+        "container-title": [
+          "PLOS One"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://dx.plos.org/10.1371/journal.pone.0333805",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              10,
+              23
+            ]
+          ],
+          "date-time": "2025-10-23T17:46:11Z",
+          "timestamp": 1761241571000
+        },
+        "score": 58.166824,
+        "resource": {
+          "primary": {
+            "URL": "https://dx.plos.org/10.1371/journal.pone.0333805"
+          }
+        },
+        "editor": [
+          {
+            "given": "Cosimo",
+            "family": "Ieracitano",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "editor"
+              }
+            ]
+          }
+        ],
+        "issued": {
+          "date-parts": [
+            [
+              2025,
+              10,
+              23
+            ]
+          ]
+        },
+        "references-count": 54,
+        "journal-issue": {
+          "issue": "10",
+          "published-online": {
+            "date-parts": [
+              [
+                2025,
+                10,
+                23
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.1371/journal.pone.0333805",
+        "ISSN": [
+          "1932-6203"
+        ],
+        "issn-type": [
+          {
+            "value": "1932-6203",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2025,
+              10,
+              23
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              8,
+              15
+            ]
+          ],
+          "date-time": "2025-08-15T00:41:50Z",
+          "timestamp": 1755218510253,
+          "version": "3.43.0"
+        },
+        "reference-count": 18,
+        "publisher": "IEEE",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2025,
+                  5,
+                  16
+                ]
+              ],
+              "date-time": "2025-05-16T00:00:00Z",
+              "timestamp": 1747353600000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-029"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2025,
+                  5,
+                  16
+                ]
+              ],
+              "date-time": "2025-05-16T00:00:00Z",
+              "timestamp": 1747353600000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-037"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2025,
+              5,
+              16
+            ]
+          ]
+        },
+        "DOI": "10.1109/ccdc65474.2025.11090560",
+        "type": "proceedings-article",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              8,
+              5
+            ]
+          ],
+          "date-time": "2025-08-05T18:00:15Z",
+          "timestamp": 1754416815000
+        },
+        "page": "1972-1977",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "EEG-MCLANet: A Multi-Branch CNN-LSTM Network for Motor Imagery EEG Decoding"
+        ],
+        "prefix": "10.1109",
+        "author": [
+          {
+            "given": "Jiangying",
+            "family": "Huang",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "School of Electrical Engineering and Automation, Xiamen University of Technology,Xiamen,China"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Jiaxiang",
+            "family": "Zou",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "School of Electrical Engineering and Automation, Xiamen University of Technology,Xiamen,China"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Zihao",
+            "family": "Yu",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "School of Electrical Engineering and Automation, Xiamen University of Technology,Xiamen,China"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Xiner",
+            "family": "Li",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "School of Electrical Engineering and Automation, Xiamen University of Technology,Xiamen,China"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "263",
+        "reference": [
+          {
+            "key": "ref1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/TSMCA.2011.2159589"
+          },
+          {
+            "key": "ref2",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/CAC59555.2023.10452095"
+          },
+          {
+            "key": "ref3",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1002/jdn.10166"
+          },
+          {
+            "key": "ref4",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/CCDC62350.2024.10588064"
+          },
+          {
+            "key": "ref5",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1007/s00521-021-06352-5"
+          },
+          {
+            "key": "ref6",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/CCDC62350.2024.10588217"
+          },
+          {
+            "key": "ref7",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/ICASSP49357.2023.10096697"
+          },
+          {
+            "key": "ref8",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1088/1741-2552/aace8c"
+          },
+          {
+            "key": "ref9",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1002/hbm.23730"
+          },
+          {
+            "key": "ref10",
+            "article-title": "Fbcnet: A multi-view convolutional neural network for brain-computer interface",
+            "author": "Mane",
+            "year": "2021",
+            "journal-title": "arXiv preprint"
+          },
+          {
+            "key": "ref11",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1016/j.bspc.2021.103342"
+          },
+          {
+            "key": "ref12",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1016/j.bspc.2023.104627"
+          },
+          {
+            "key": "ref13",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.3389/fnins.2012.00055"
+          },
+          {
+            "key": "ref14",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/ACCESS.2024.3369891"
+          },
+          {
+            "key": "ref15",
+            "article-title": "Attention is all you need",
+            "author": "Vaswani",
+            "year": "2017",
+            "journal-title": "Advances in Neural Information Processing Systems"
+          },
+          {
+            "key": "ref16",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1007/s00500-019-04515-0"
+          },
+          {
+            "key": "ref17",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/TNNLS.2016.2582924"
+          },
+          {
+            "key": "ref18",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1038/s41598-024-55483-x"
+          }
+        ],
+        "event": {
+          "name": "2025 37th Chinese Control and Decision Conference (CCDC)",
+          "start": {
+            "date-parts": [
+              [
+                2025,
+                5,
+                16
+              ]
+            ]
+          },
+          "location": "Xiamen, China",
+          "end": {
+            "date-parts": [
+              [
+                2025,
+                5,
+                19
+              ]
+            ]
+          }
+        },
+        "container-title": [
+          "2025 37th Chinese Control and Decision Conference (CCDC)"
+        ],
+        "link": [
+          {
+            "URL": "http://xplorestaging.ieee.org/ielx8/11090124/11090125/11090560.pdf?arnumber=11090560",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              8,
+              6
+            ]
+          ],
+          "date-time": "2025-08-06T05:47:01Z",
+          "timestamp": 1754459221000
+        },
+        "score": 48.302048,
+        "resource": {
+          "primary": {
+            "URL": "https://ieeexplore.ieee.org/document/11090560/"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2025,
+              5,
+              16
+            ]
+          ]
+        },
+        "references-count": 18,
+        "URL": "https://doi.org/10.1109/ccdc65474.2025.11090560",
+        "published": {
+          "date-parts": [
+            [
+              2025,
+              5,
+              16
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              8,
+              27
+            ]
+          ],
+          "date-time": "2026-08-27T22:24:11Z",
+          "timestamp": 1787869451948,
+          "version": "build-2784847793"
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2026
+            ]
+          ]
+        },
+        "group-title": "SSRN",
+        "reference-count": 42,
+        "publisher": "Elsevier BV",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  1,
+                  1
+                ]
+              ],
+              "date-time": "2026-01-01T00:00:00Z",
+              "timestamp": 1767225600000
+            },
+            "content-version": "unspecified",
+            "delay-in-days": 0,
+            "URL": "https://www.uspto.gov/ip-policy/copyright-policy/copyright-basics"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "abstract": "<jats:p>Multi-scale temporal-spatial feature extraction and adaptive fusion remain open challenges for motor imagery (MI) electroencephalography (EEG) decoding. Existing multi-branch convolutional networks typically employ homogeneous branch structures and fuse features through simple concatenation, lacking both complementary receptive-field design and channel-adaptive interaction. This paper proposes CHBNet, an end-to-end network that addresses these limitations through three functional modules. First, a heterogeneous dual-branch structure extracts complementary temporal-spatial features. Branch I applies large-kernel temporal convolution (1 × 50), followed by depthwise spatial convolution, to capture low-frequency mu-rhythm patterns, whereas Branch II adopts spatial-first processing and small-kernel temporal convolution (1 × 30) to capture higher-frequency beta-rhythm components. Second, a hierarchical attention mechanism combines Squeeze-and-Excitation within Branch I for intra-branch recalibration and Efficient Channel Attention at the fusion stage for cross-branch interaction, replacing fixed concatenation with adaptive channel weighting. Third, a depthwise temporal convolution module refines local temporal dynamics in the fused representation. On the BCI Competition IV-2a and IV-2b datasets, CHBNet achieves average classification accuracies of 82.79% and 88.81%, respectively, outperforming all evaluated baselines. Frequency-domain visualization of the learned temporal kernels further confirms the intended mu/beta complementarity between the two branches.</jats:p>",
+        "DOI": "10.2139/ssrn.7361256",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              8,
+              27
+            ]
+          ],
+          "date-time": "2026-08-27T21:41:15Z",
+          "timestamp": 1787866875000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Complementary Heterogeneous-Branch Network for Motor Imagery EEG Decoding"
+        ],
+        "prefix": "10.2139",
+        "author": [
+          {
+            "given": "lyk",
+            "family": "lyk",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Hao",
+            "family": "Jia",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0009-0009-6034-1521",
+            "authenticated-orcid": true,
+            "given": "Zhao",
+            "family": "Zhang",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-3264-9619",
+            "authenticated-orcid": true,
+            "given": "Yabao",
+            "family": "Hu",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-8268-4455",
+            "authenticated-orcid": true,
+            "given": "Yelin",
+            "family": "Xia",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Hanning",
+            "family": "Chen",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "reference": [
+          {
+            "issue": "5",
+            "key": "ref1",
+            "doi-asserted-by": "crossref",
+            "first-page": "517",
+            "DOI": "10.1111/j.1469-8986.2006.00456.x",
+            "article-title": "Breaking the silence: Brain-computer interfaces (bci) for communication and motor control",
+            "volume": "43",
+            "author": "N Birbaumer",
+            "year": "2006",
+            "journal-title": "Psychophysiology"
+          },
+          {
+            "key": "ref2",
+            "first-page": "62",
+            "volume": "83",
+            "author": "G Pfurtscheller",
+            "year": "1992",
+            "journal-title": "Event-related synchronization (ers): an electrophysiological correlate of cortical areas at rest, Electroencephalography and clinical neurophysiology"
+          },
+          {
+            "key": "ref3",
+            "first-page": "1",
+            "article-title": "A bci challenge for the signal processing community: considering the user in the loop",
+            "author": "F Lotte",
+            "year": "2018",
+            "journal-title": "Signal Processing and Machine Learning for Brain-Machine Interfaces"
+          },
+          {
+            "key": "ref4",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.3389/fnbot.2020.00025",
+            "article-title": "Current status, challenges, and possible solutions of eeg-based brain-computer interface: a comprehensive review",
+            "volume": "14",
+            "author": "M Rashid",
+            "year": "2020",
+            "journal-title": "Frontiers in neurorobotics"
+          },
+          {
+            "issue": "4",
+            "key": "ref5",
+            "doi-asserted-by": "crossref",
+            "first-page": "1801",
+            "DOI": "10.1109/JBHI.2023.3238421",
+            "article-title": "Subjectinvariant deep neural networks based on baseline correction for eeg motor imagery bci",
+            "volume": "27",
+            "author": "Y Kwak",
+            "year": "2023",
+            "journal-title": "IEEE Journal of Biomedical and Health Informatics"
+          },
+          {
+            "issue": "20",
+            "key": "ref6",
+            "doi-asserted-by": "crossref",
+            "first-page": "14681",
+            "DOI": "10.1007/s00521-021-06352-5",
+            "article-title": "Deep learning techniques for classification of electroencephalogram (eeg) motor imagery (mi) signals: A review",
+            "volume": "35",
+            "author": "H Altaheri",
+            "year": "2023",
+            "journal-title": "Neural Comput. Appl"
+          },
+          {
+            "issue": "5",
+            "key": "ref7",
+            "doi-asserted-by": "crossref",
+            "first-page": "787",
+            "DOI": "10.1016/S1388-2457(98)00038-8",
+            "article-title": "Designing optimal spatial filters for single-trial eeg classification in a movement task",
+            "volume": "110",
+            "author": "J M�ller-Gerking",
+            "year": "1999",
+            "journal-title": "Clinical Neurophysiology"
+          },
+          {
+            "key": "ref8",
+            "first-page": "2390",
+            "article-title": "Filter bank common spatial pattern (fbcsp) in brain-computer interface",
+            "author": "K K Ang",
+            "year": "2008",
+            "journal-title": "2008 IEEE International Joint Conference on Neural Networks (IEEE World Congress on Computational Intelligence)"
+          },
+          {
+            "issue": "5",
+            "key": "ref9",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.1088/1741-2552/aace8c",
+            "article-title": "Eegnet: A compact convolutional neural network for eeg-based brain-computer interfaces",
+            "volume": "15",
+            "author": "V Lawhern",
+            "year": "2018",
+            "journal-title": "Journal of Neural Engineering"
+          },
+          {
+            "issue": "11",
+            "key": "ref10",
+            "doi-asserted-by": "crossref",
+            "first-page": "5391",
+            "DOI": "10.1002/hbm.23730",
+            "article-title": "Deep learning with convolutional neural networks for eeg decoding and visualization",
+            "volume": "38",
+            "author": "R Schirrmeister",
+            "year": "2017",
+            "journal-title": "Human Brain Mapping"
+          },
+          {
+            "key": "ref11",
+            "first-page": "2950",
+            "article-title": "A multi view cnn with novel variance layer for motor imagery brain computer interface",
+            "author": "R Mane",
+            "year": "2020",
+            "journal-title": "Proc. 42nd Annu. Int. Conf"
+          },
+          {
+            "key": "ref12",
+            "doi-asserted-by": "crossref",
+            "first-page": "1900",
+            "DOI": "10.1109/TNSRE.2023.3257319",
+            "article-title": "Ifnet: An interactive frequency convolutional neural network for enhancing motor imagery decoding from eeg",
+            "volume": "31",
+            "author": "J Wang",
+            "year": "2023",
+            "journal-title": "IEEE Trans. Neural Syst. Rehabil. Eng"
+          },
+          {
+            "key": "ref13",
+            "first-page": "906",
+            "article-title": "A convolution neural networks scheme for classification of motor imagery eeg based on wavelet time-frequency image",
+            "author": "H K Lee",
+            "year": "2018",
+            "journal-title": "Proc. Int. Conf. Inf. Netw. (ICOIN)"
+          },
+          {
+            "key": "ref14",
+            "doi-asserted-by": "crossref",
+            "first-page": "710",
+            "DOI": "10.1109/TNSRE.2022.3230250",
+            "article-title": "Eeg conformer: Convolutional transformer for eeg decoding and visualization",
+            "volume": "31",
+            "author": "Y Song",
+            "year": "2022",
+            "journal-title": "IEEE Trans. Neural Syst. Rehabil. Eng"
+          },
+          {
+            "key": "ref15",
+            "doi-asserted-by": "crossref",
+            "first-page": "3075",
+            "DOI": "10.1109/TNSRE.2023.3294815",
+            "article-title": "Classification of motor imagery based on multi-scale feature extraction and the channel-temporal attention module",
+            "volume": "31",
+            "author": "R Wu",
+            "year": "2023",
+            "journal-title": "IEEE Trans. Neural Syst. Rehabil. Eng"
+          },
+          {
+            "issue": "10",
+            "key": "ref16",
+            "doi-asserted-by": "crossref",
+            "first-page": "2164",
+            "DOI": "10.1109/TNSRE.2019.2938295",
+            "article-title": "A multi branch 3d convolutional neural network for eegbased motor imagery classification",
+            "volume": "27",
+            "author": "X Zhao",
+            "year": "2019",
+            "journal-title": "IEEE Trans. Neural Syst. Rehabil. Eng"
+          },
+          {
+            "issue": "1",
+            "key": "ref17",
+            "article-title": "Hs-cnn: A cnn with hybrid convolution scale for eeg motor imagery classification",
+            "volume": "17",
+            "author": "G Dai",
+            "year": "2020",
+            "journal-title": "Journal of Neural Engineering"
+          },
+          {
+            "key": "ref18",
+            "first-page": "736",
+            "article-title": "Mmcnn: A multi-branch multi-scale convolutional neural network for motor imagery classification",
+            "author": "Z Jia",
+            "year": "2021"
+          },
+          {
+            "issue": "1",
+            "key": "ref19",
+            "doi-asserted-by": "crossref",
+            "first-page": "2423",
+            "DOI": "10.1109/TCE.2023.3330423",
+            "article-title": "Attention-based multiscale spatial-temporal convolutional network for motor imagery eeg decoding",
+            "volume": "70",
+            "author": "Y Zhang",
+            "year": "2023",
+            "journal-title": "IEEE Transactions on Consumer Electronics"
+          },
+          {
+            "key": "ref20",
+            "doi-asserted-by": "crossref",
+            "first-page": "401",
+            "DOI": "10.1109/TNSRE.2024.3351863",
+            "article-title": "M-fanet: Multi-feature attention convolutional neural network for motor imagery decoding",
+            "volume": "32",
+            "author": "Y Qin",
+            "year": "2024",
+            "journal-title": "IEEE Trans. Neural Syst. Rehabil. Eng"
+          },
+          {
+            "issue": "9",
+            "key": "ref21",
+            "doi-asserted-by": "crossref",
+            "first-page": "5565",
+            "DOI": "10.1109/TCYB.2024.3390805",
+            "article-title": "Mocnn: A multiscale deep convolutional neural network for erp-based brain-computer interfaces",
+            "volume": "54",
+            "author": "J Jin",
+            "year": "2024",
+            "journal-title": "IEEE Transactions on Cybernetics"
+          },
+          {
+            "issue": "21",
+            "key": "ref22",
+            "doi-asserted-by": "crossref",
+            "first-page": "18579",
+            "DOI": "10.1109/JIOT.2023.3281911",
+            "article-title": "Dynamic convolution with multilevel attention for eeg-based motor imagery decoding",
+            "volume": "10",
+            "author": "H Altaheri",
+            "year": "2023",
+            "journal-title": "IEEE Internet of Things Journal"
+          },
+          {
+            "issue": "4",
+            "key": "ref23",
+            "doi-asserted-by": "crossref",
+            "first-page": "1985",
+            "DOI": "10.1109/TAFFC.2024.3392904",
+            "article-title": "Mast-gcn: Multi-scale adaptive spatial-temporal graph convolutional network for eegbased depression recognition",
+            "volume": "15",
+            "author": "H Lu",
+            "year": "2024",
+            "journal-title": "IEEE Trans. Affect. Comput"
+          },
+          {
+            "issue": "3",
+            "key": "ref24",
+            "doi-asserted-by": "crossref",
+            "first-page": "183",
+            "DOI": "10.62762/CJIF.2024.876830",
+            "article-title": "A survey of spatio-temporal eeg data analysis: From models to applications",
+            "volume": "1",
+            "author": "P Wang",
+            "year": "2024",
+            "journal-title": "Chin. J. Inf. Fusion"
+          },
+          {
+            "key": "ref25",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.1016/j.neucom.2024.129255",
+            "article-title": "Mcmtnet: Advanced network architectures for eeg-based motor imagery classification",
+            "volume": "620",
+            "author": "Y Yang",
+            "year": "2025",
+            "journal-title": "Neurocomputing"
+          },
+          {
+            "issue": "3",
+            "key": "ref26",
+            "doi-asserted-by": "crossref",
+            "first-page": "2238",
+            "DOI": "10.1109/TAFFC.2022.3169001",
+            "article-title": "Tsception: Capturing temporal dynamics and spatial asymmetry from eeg for emotion recognition",
+            "volume": "14",
+            "author": "Y Ding",
+            "year": "2022",
+            "journal-title": "IEEE Transactions on Affective Computing"
+          },
+          {
+            "key": "ref27",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.1016/j.bspc.2024.107189",
+            "article-title": "Tmsa-net: A novel attention mechanism for improved motor imagery eeg signal processing",
+            "volume": "102",
+            "author": "Q Zhao",
+            "year": "2025",
+            "journal-title": "Biomedical Signal Processing and Control"
+          },
+          {
+            "key": "ref28",
+            "doi-asserted-by": "crossref",
+            "first-page": "3188",
+            "DOI": "10.1109/TNSRE.2023.3299355",
+            "article-title": "A temporal dependency learning cnn with attention mechanism for mi-eeg decoding",
+            "volume": "31",
+            "author": "X Ma",
+            "year": "2023",
+            "journal-title": "IEEE Trans. Neural Syst. Rehabil. Eng"
+          },
+          {
+            "issue": "1",
+            "key": "ref29",
+            "doi-asserted-by": "crossref",
+            "first-page": "382",
+            "DOI": "10.1109/TAFFC.2020.3025777",
+            "article-title": "Eeg-based emotion recognition via channel-wise attention and self attention",
+            "volume": "14",
+            "author": "W Tao",
+            "year": "2023",
+            "journal-title": "IEEE Trans. Affect. Comput"
+          },
+          {
+            "key": "ref30",
+            "first-page": "1",
+            "article-title": "Eeg-transformer: Self-attention from transformer architecture for decoding eeg of imagined speech",
+            "author": "Y Lee",
+            "year": "2022",
+            "journal-title": "2022 10th International winter conference on braincomputer interface (BCI)"
+          },
+          {
+            "issue": "12",
+            "key": "ref31",
+            "doi-asserted-by": "crossref",
+            "first-page": "7126",
+            "DOI": "10.1109/JBHI.2024.3450753",
+            "article-title": "Msvtnet: Multi-scale vision transformer neural network for eeg-based motor imagery decoding",
+            "volume": "28",
+            "author": "K Liu",
+            "year": "2024",
+            "journal-title": "IEEE J. Biomed. Health Inform"
+          },
+          {
+            "key": "ref32",
+            "first-page": "5998",
+            "article-title": "Attention is all you need",
+            "volume": "30",
+            "author": "A Vaswani",
+            "year": "2017",
+            "journal-title": "Proc"
+          },
+          {
+            "key": "ref33",
+            "article-title": "An attention-based multiple band interaction network for motor imagery eeg decoding",
+            "author": "W Dang",
+            "year": "2025",
+            "journal-title": "Applied Soft Computing"
+          },
+          {
+            "key": "ref34",
+            "first-page": "7132",
+            "article-title": "Squeeze-and-excitation networks",
+            "author": "J Hu",
+            "year": "2018",
+            "journal-title": "Proc. IEEE Conf. Comput. Vis. Pattern Recognit"
+          },
+          {
+            "key": "ref35",
+            "first-page": "11531",
+            "article-title": "Eca-net: Efficient channel attention for deep convolutional neural networks",
+            "author": "Q Wang",
+            "year": "2020",
+            "journal-title": "Proc. IEEE/CVF Conf. Comput. Vis. Pattern Recognit. (CVPR)"
+          },
+          {
+            "key": "ref36",
+            "article-title": "Bci competition 2008-graz data set a",
+            "author": "C Brunner",
+            "journal-title": "Tech. rep., Inst. Knowl. Discovery (Lab. Brain-Comput"
+          },
+          {
+            "key": "ref37",
+            "author": "R Leeb",
+            "year": "2008",
+            "journal-title": "Bci competition 2008-graz data set b"
+          },
+          {
+            "key": "ref38",
+            "doi-asserted-by": "crossref",
+            "first-page": "542",
+            "DOI": "10.1016/j.future.2019.06.027",
+            "article-title": "Deep learning for eeg motor imagery classification based on multi-layer cnns feature fusion",
+            "volume": "101",
+            "author": "S Amin",
+            "year": "2019",
+            "journal-title": "Future Gener. Comput. Syst"
+          },
+          {
+            "key": "ref39",
+            "article-title": "Parallel spatial-temporal self-attention cnn-based motor imagery classification for bci",
+            "volume": "14",
+            "author": "X Liu",
+            "year": "2020",
+            "journal-title": "Frontiers Neuroscience"
+          },
+          {
+            "issue": "9",
+            "key": "ref40",
+            "doi-asserted-by": "crossref",
+            "first-page": "4466",
+            "DOI": "10.1109/JBHI.2023.3292909",
+            "article-title": "Multi-band cnn with band-dependent kernels and amalgamated cross entropy loss for motor imagery classification",
+            "volume": "27",
+            "author": "J Shin",
+            "year": "2023",
+            "journal-title": "IEEE J. Biomed. Health Inform"
+          },
+          {
+            "key": "ref41",
+            "doi-asserted-by": "crossref",
+            "first-page": "154",
+            "DOI": "10.1109/TNSRE.2023.3342331",
+            "article-title": "Adfcnn: Attention-based dual-scale fusion convolutional neural network for motor imagery brain-computer interface",
+            "volume": "32",
+            "author": "W Tao",
+            "year": "2023",
+            "journal-title": "IEEE transactions on neural systems and rehabilitation engineering"
+          },
+          {
+            "issue": "11",
+            "key": "ref42",
+            "doi-asserted-by": "crossref",
+            "first-page": "3071",
+            "DOI": "10.1109/TBME.2024.3406603",
+            "article-title": "Leveraging transfer superposition theory for stable-state visual evoked potential cross-subject frequency recognition",
+            "volume": "71",
+            "author": "X He",
+            "year": "2024",
+            "journal-title": "IEEE Trans. Biomed. Eng"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              8,
+              27
+            ]
+          ],
+          "date-time": "2026-08-27T21:45:16Z",
+          "timestamp": 1787867116000
+        },
+        "score": 46.989285,
+        "resource": {
+          "primary": {
+            "URL": "https://www.ssrn.com/abstract=7361256"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026
+            ]
+          ]
+        },
+        "references-count": 42,
+        "URL": "https://doi.org/10.2139/ssrn.7361256",
+        "published": {
+          "date-parts": [
+            [
+              2026
+            ]
+          ]
+        },
+        "subtype": "preprint"
+      }
+    ],
+    "items-per-page": 3,
+    "query": {
+      "start-index": 0,
+      "search-terms": null
+    }
+  }
+}

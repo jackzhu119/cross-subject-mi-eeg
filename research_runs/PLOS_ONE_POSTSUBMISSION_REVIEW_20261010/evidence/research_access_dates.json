@@ -1,0 +1,341 @@
+{
+  "schema_version": 1,
+  "audit_kind": "historical_record_documented_research_access_only",
+  "checked_at_utc": "2026-10-09T12:27:48.561516+00:00",
+  "source_repo": "jackzhu119/cross-subject-mi-eeg",
+  "dataset_dates": {
+    "BNCI2014_001": {
+      "start": "2026-09-21",
+      "end": "2026-10-06"
+    },
+    "PhysioNet_EEGMMIDB": {
+      "start": "2026-09-25",
+      "end": "2026-09-25"
+    },
+    "Cho2017": {
+      "start": "2026-10-03",
+      "end": "2026-10-05"
+    },
+    "Lee2019_MI": {
+      "start": "2026-10-03",
+      "end": "2026-10-05"
+    }
+  },
+  "calendar_basis": "UTC, with date-equivalent Asia/Shanghai conversion verified",
+  "methods_access_paragraph": "The retained research records document access to BNCI2014_001 recordings from 21 September to 6 October 2026, to PhysioNet EEG Motor Movement/Imagery recordings on 25 September 2026, and raw-data auditing and external evaluation of Cho2017 and Lee2019 MI from 3 to 5 October 2026. Dates refer to the recorded research-access periods in UTC; the calendar dates are the same in China Standard Time. They do not establish first-ever download dates or exclude access outside the retained records. Git commit, publication and backup timestamps were not substituted for recorded data-use events.",
+  "methods_identifiability_paragraph": "The author reports access only to the recordings, provider-assigned participant codes and basic demographic metadata, such as age, without names, contact details or an identity linkage key. No direct identifying information was available to the author; public participant codes were retained for within-dataset grouping and scoring.",
+  "bnci_physionet_evidence": {
+    "audit_kind": "historical_artifact_read_only_documented_research_access_dates",
+    "checked_at_utc": "2026-10-09T12:22:39.926554+00:00",
+    "repo": "jackzhu119/cross-subject-mi-eeg",
+    "observed_worktree_head": "fba2cf7d02e061357639f5689d34623f9edce964",
+    "datasets": {
+      "BNCI2014_001": {
+        "documented_research_access_date_span_utc": [
+          "2026-09-21",
+          "2026-10-06"
+        ],
+        "documented_research_access_date_span_asia_shanghai": [
+          "2026-09-21",
+          "2026-10-06"
+        ],
+        "earliest_archived_real_data_observation": {
+          "event": "actual MOABB loading of subject 1 recordings, followed by channel/event metadata inspection",
+          "source_path": "outputs/P1-E001/data_audit.json",
+          "timestamp_field": "created_at_utc",
+          "utc": "2026-09-21T10:35:05.967276+00:00",
+          "asia_shanghai": "2026-09-21T18:35:05.967276+08:00",
+          "producer_path": "scripts/inspect_bnci2014_001.py",
+          "producer_check": "dataset.get_data executed before created_at_utc assignment; metadata-only mode does not write this audit"
+        },
+        "latest_archived_raw_signal_computation": {
+          "event": "independent Q16 raw-signal and saved-result validation, including 18 original MAT hashes, 5184 raw events, central sensor power replay",
+          "source_path": "research_runs/Q16-P001-BNCI-20261006/independent_validation.json",
+          "started": {
+            "utc": "2026-10-06T00:25:23.488416+00:00",
+            "asia_shanghai": "2026-10-06T08:25:23.488416+08:00"
+          },
+          "completed": {
+            "utc": "2026-10-06T00:25:52.607162+00:00",
+            "asia_shanghai": "2026-10-06T08:25:52.607162+08:00"
+          },
+          "earlier_main_analysis_completed": {
+            "utc": "2026-10-06T00:23:57.814006+00:00",
+            "asia_shanghai": "2026-10-06T08:23:57.814006+08:00"
+          }
+        }
+      },
+      "PhysioNet_eegmmidb_1.0.0": {
+        "documented_research_access_dates_utc": [
+          "2026-09-25"
+        ],
+        "documented_research_access_dates_asia_shanghai": [
+          "2026-09-25"
+        ],
+        "earliest_cloud_access_operation": {
+          "event": "external data access stage start followed by official EDF download messages for S001 and inference result",
+          "source_path": "results/Q14-BATCH/e002_external.log",
+          "stage_started": {
+            "utc": "2026-09-25T03:07:47.222161+00:00",
+            "asia_shanghai": "2026-09-25T11:07:47.222161+08:00"
+          },
+          "limitation": "stage timestamp is a job-stage start and does not individually time the first completed file read"
+        },
+        "first_actual_subject_inference_receipt": {
+          "event": "subject 001 completed raw-EDF preprocessing and frozen-model inference, 45 trials and 315 prediction rows",
+          "source_path": "results/Q14-E002/external/subject_001/receipt.json",
+          "timestamp_field": "completed_at_utc",
+          "utc": "2026-09-25T03:09:17.493704+00:00",
+          "asia_shanghai": "2026-09-25T11:09:17.493704+08:00"
+        },
+        "last_actual_subject_inference_receipt": {
+          "event": "subject 109 completed raw-EDF preprocessing and frozen-model inference under R2 amendment",
+          "source_path": "results/Q14-E002R2/external/subject_109/receipt.json",
+          "timestamp_field": "completed_at_utc",
+          "utc": "2026-09-25T14:29:01.571007+00:00",
+          "asia_shanghai": "2026-09-25T22:29:01.571007+08:00"
+        },
+        "all_109_inference_completion_receipt": {
+          "source_path": "results/Q14-E002R2/external/completion_receipt.json",
+          "timestamp_field": "completed_at_utc",
+          "utc": "2026-09-25T14:29:14.940698+00:00",
+          "asia_shanghai": "2026-09-25T22:29:14.940698+08:00",
+          "note": "aggregate completion follows last raw-data subject inference; later saved-output audits are not raw data access"
+        }
+      }
+    },
+    "sources": [
+      {
+        "path": "outputs/P1-E001/data_audit.json",
+        "first_archive_commit": "5014000c7e05f213986bc84d0b1e3e7c2110808d",
+        "git_author_timestamp": "2026-09-23T09:14:31Z",
+        "git_committer_timestamp": "2026-09-23T09:14:31Z",
+        "sha256": "8493aef7dcc0272ee8e10ac46c1e4c4657fb1ba1af0d6b392626638dd6c1eb6e",
+        "source_bytes": 14451,
+        "current_equals_first_archive": true,
+        "github_url": "https://github.com/jackzhu119/cross-subject-mi-eeg/blob/5014000c7e05f213986bc84d0b1e3e7c2110808d/outputs/P1-E001/data_audit.json",
+        "raw_url": "https://raw.githubusercontent.com/jackzhu119/cross-subject-mi-eeg/5014000c7e05f213986bc84d0b1e3e7c2110808d/outputs/P1-E001/data_audit.json",
+        "public_github_http_status": 200,
+        "public_github_bytes_match": true
+      },
+      {
+        "path": "research_runs/Q16-P001-BNCI-20261006/run_manifest.json",
+        "first_archive_commit": "f8adb9c33ce580c0ce859ad1a5fe0c9aaa9d1757",
+        "git_author_timestamp": "2026-10-07T04:29:12Z",
+        "git_committer_timestamp": "2026-10-07T04:29:12Z",
+        "sha256": "2fe8b8d1df751c440f35c7311691220668857d45ecac6734220fb12c8dc379d5",
+        "source_bytes": 21527,
+        "current_equals_first_archive": true,
+        "github_url": "https://github.com/jackzhu119/cross-subject-mi-eeg/blob/f8adb9c33ce580c0ce859ad1a5fe0c9aaa9d1757/research_runs/Q16-P001-BNCI-20261006/run_manifest.json",
+        "raw_url": "https://raw.githubusercontent.com/jackzhu119/cross-subject-mi-eeg/f8adb9c33ce580c0ce859ad1a5fe0c9aaa9d1757/research_runs/Q16-P001-BNCI-20261006/run_manifest.json",
+        "public_github_http_status": 200,
+        "public_github_bytes_match": true
+      },
+      {
+        "path": "research_runs/Q16-P001-BNCI-20261006/independent_validation.json",
+        "first_archive_commit": "f8adb9c33ce580c0ce859ad1a5fe0c9aaa9d1757",
+        "git_author_timestamp": "2026-10-07T04:29:12Z",
+        "git_committer_timestamp": "2026-10-07T04:29:12Z",
+        "sha256": "e687d09f0cd7f55e1a172bd631f47d660674909ffa1ad5ffee5df14917dc1615",
+        "source_bytes": 11024,
+        "current_equals_first_archive": true,
+        "github_url": "https://github.com/jackzhu119/cross-subject-mi-eeg/blob/f8adb9c33ce580c0ce859ad1a5fe0c9aaa9d1757/research_runs/Q16-P001-BNCI-20261006/independent_validation.json",
+        "raw_url": "https://raw.githubusercontent.com/jackzhu119/cross-subject-mi-eeg/f8adb9c33ce580c0ce859ad1a5fe0c9aaa9d1757/research_runs/Q16-P001-BNCI-20261006/independent_validation.json",
+        "public_github_http_status": 200,
+        "public_github_bytes_match": true
+      },
+      {
+        "path": "results/Q14-BATCH/e002_external.log",
+        "first_archive_commit": "7bba8498db4fabe625491d26c9690d233d091228",
+        "git_author_timestamp": "2026-09-25T16:35:02+08:00",
+        "git_committer_timestamp": "2026-09-25T16:35:02+08:00",
+        "sha256": "57fb56daabacabdba2d2c691a99bdec88849d058712ad3fbdef7463cab713dcd",
+        "source_bytes": 31422,
+        "current_equals_first_archive": true,
+        "github_url": "https://github.com/jackzhu119/cross-subject-mi-eeg/blob/7bba8498db4fabe625491d26c9690d233d091228/results/Q14-BATCH/e002_external.log",
+        "raw_url": "https://raw.githubusercontent.com/jackzhu119/cross-subject-mi-eeg/7bba8498db4fabe625491d26c9690d233d091228/results/Q14-BATCH/e002_external.log",
+        "public_github_http_status": 200,
+        "public_github_bytes_match": true
+      },
+      {
+        "path": "results/Q14-E002/external/subject_001/receipt.json",
+        "first_archive_commit": "18e0118f27c680c7ffe30d80a6fab885174cc880",
+        "git_author_timestamp": "2026-09-25T16:35:18+08:00",
+        "git_committer_timestamp": "2026-09-25T16:35:18+08:00",
+        "sha256": "966d982857b84f82c50124d266e90ff72a527d087a4d6be0411efa2a32a3968f",
+        "source_bytes": 1259,
+        "current_equals_first_archive": true,
+        "github_url": "https://github.com/jackzhu119/cross-subject-mi-eeg/blob/18e0118f27c680c7ffe30d80a6fab885174cc880/results/Q14-E002/external/subject_001/receipt.json",
+        "raw_url": "https://raw.githubusercontent.com/jackzhu119/cross-subject-mi-eeg/18e0118f27c680c7ffe30d80a6fab885174cc880/results/Q14-E002/external/subject_001/receipt.json",
+        "public_github_http_status": 200,
+        "public_github_bytes_match": true
+      },
+      {
+        "path": "results/Q14-E002R2/external/subject_109/receipt.json",
+        "first_archive_commit": "9874781caead94c646d69c2a3d9f6c544b60d0f2",
+        "git_author_timestamp": "2026-09-25T22:29:05+08:00",
+        "git_committer_timestamp": "2026-09-25T22:29:05+08:00",
+        "sha256": "a200b0bd04a4588b6b69db8352e577c1b05a49cfbe8a84560815e47e4f2f9bd3",
+        "source_bytes": 1567,
+        "current_equals_first_archive": true,
+        "github_url": "https://github.com/jackzhu119/cross-subject-mi-eeg/blob/9874781caead94c646d69c2a3d9f6c544b60d0f2/results/Q14-E002R2/external/subject_109/receipt.json",
+        "raw_url": "https://raw.githubusercontent.com/jackzhu119/cross-subject-mi-eeg/9874781caead94c646d69c2a3d9f6c544b60d0f2/results/Q14-E002R2/external/subject_109/receipt.json",
+        "public_github_http_status": 200,
+        "public_github_bytes_match": true
+      },
+      {
+        "path": "results/Q14-E002R2/external/completion_receipt.json",
+        "first_archive_commit": "c7e4d85a145f5a2a54fbcddc8cd608872f8f3edc",
+        "git_author_timestamp": "2026-09-25T22:29:37+08:00",
+        "git_committer_timestamp": "2026-09-25T22:29:37+08:00",
+        "sha256": "b3199f751049b10a1a8b6751cbbab9d4722b4b91602e119c02ec2decdf4fd7b2",
+        "source_bytes": 877,
+        "current_equals_first_archive": true,
+        "github_url": "https://github.com/jackzhu119/cross-subject-mi-eeg/blob/c7e4d85a145f5a2a54fbcddc8cd608872f8f3edc/results/Q14-E002R2/external/completion_receipt.json",
+        "raw_url": "https://raw.githubusercontent.com/jackzhu119/cross-subject-mi-eeg/c7e4d85a145f5a2a54fbcddc8cd608872f8f3edc/results/Q14-E002R2/external/completion_receipt.json",
+        "public_github_http_status": 200,
+        "public_github_bytes_match": true
+      }
+    ],
+    "limitations": [
+      "These are earliest and latest retained documented research-data access observations, not a claim that they establish first-ever access or deletion/non-access after these dates.",
+      "Git commit/push timestamps establish archival chronology only and were not substituted for embedded actual computation/access timestamps.",
+      "Cloud upload/download to R2, migration, publication readback, protocol freezes, metadata-only provider-page inspection and later saved-prediction audits were not treated as new scientific raw-data access.",
+      "BNCI span does not imply daily continuous access. PhysioNet recorded raw-to-inference access is documented on a single calendar date.",
+      "Embedded timestamps are producer/runtime recorded timestamps, not independently authenticated provider access logs.",
+      "No raw EEG was read, no model fits or inference executed, and no result calculations rerun for this historical evidence audit."
+    ],
+    "recommended_methods_wording": "The retained research records document access to BNCI2014_001 recordings from 21 September to 6 October 2026 and to PhysioNet EEG Motor Movement/Imagery recordings on 25 September 2026. These dates describe the documented research-access period, not the original recording dates or an independently established first-ever download date."
+  },
+  "cho_lee_evidence": {
+    "schema_version": 1,
+    "audit_scope": "Read-only public GitHub and frozen cloud receipt audit; no raw EEG files read and no scientific analyses executed for this date reconstruction.",
+    "datasets": [
+      "Cho2017",
+      "Lee2019_MI"
+    ],
+    "recommended_record_supported_date_range_utc": {
+      "start": "2026-10-03",
+      "end": "2026-10-05"
+    },
+    "recommended_record_supported_date_range_asia_shanghai": {
+      "start": "2026-10-03",
+      "end": "2026-10-05"
+    },
+    "date_range_scope": "Documented original-signal metadata reads and external evaluation/replay period. Not proven to be the first-ever acquisition date or the entire research access period.",
+    "earliest_published_actual_read_boundary_utc": "2026-10-03T04:37:48.239019+00:00",
+    "earliest_published_actual_read_boundary_shanghai": "2026-10-03T12:37:48.239019+08:00",
+    "evidence": [
+      {
+        "path": "research_runs/Q15-PREPARATION/20261003T042211Z-5b8bf5833b9f/external_observations.json",
+        "commit": "8482deb89eee1420332f2bcb626d7d9f4f0b8fb7",
+        "sha256": "667c79466de65988d558a894818e1717db69e71db58fb24e9882ea2629d11eee",
+        "role": "Actual original-container hashes and signal metadata read for all 52 Cho files and 108 Lee files; not merely inventory access. No per-file observation timestamps.",
+        "event_timestamp_utc": null,
+        "public_github_bytes_match": true,
+        "public_github_http_status": 200,
+        "raw_url": "https://raw.githubusercontent.com/jackzhu119/cross-subject-mi-eeg/8482deb89eee1420332f2bcb626d7d9f4f0b8fb7/research_runs/Q15-PREPARATION/20261003T042211Z-5b8bf5833b9f/external_observations.json",
+        "github_url": "https://github.com/jackzhu119/cross-subject-mi-eeg/blob/8482deb89eee1420332f2bcb626d7d9f4f0b8fb7/research_runs/Q15-PREPARATION/20261003T042211Z-5b8bf5833b9f/external_observations.json",
+        "bytes": 265901
+      },
+      {
+        "path": "research_runs/Q15-PREPARATION/20261003T042211Z-5b8bf5833b9f/preparation_status.json",
+        "commit": "8482deb89eee1420332f2bcb626d7d9f4f0b8fb7",
+        "sha256": "9c1a03a5d4a55fa8726016307f7f2223b76ca15afb5dc4f3c0660237de945088",
+        "role": "Cohort metadata-observation job status; 160/160 actual file observations successful; completion boundary for prior evidence.",
+        "event_timestamp_utc": "2026-10-03T04:37:48.239019+00:00",
+        "public_github_bytes_match": true,
+        "public_github_http_status": 200,
+        "raw_url": "https://raw.githubusercontent.com/jackzhu119/cross-subject-mi-eeg/8482deb89eee1420332f2bcb626d7d9f4f0b8fb7/research_runs/Q15-PREPARATION/20261003T042211Z-5b8bf5833b9f/preparation_status.json",
+        "github_url": "https://github.com/jackzhu119/cross-subject-mi-eeg/blob/8482deb89eee1420332f2bcb626d7d9f4f0b8fb7/research_runs/Q15-PREPARATION/20261003T042211Z-5b8bf5833b9f/preparation_status.json",
+        "bytes": 642
+      },
+      {
+        "path": "research_runs/Q15-EXECUTION-20261003/LOCAL_SAMPLE_METADATA_OBSERVATION.json",
+        "commit": "271af288a2f3863430ab80e3145c2dee9bd5571d",
+        "sha256": "f6ad9da28dc16f0117f959369f0db58e384d921b58d21eac5c7bfc18f2dd176b",
+        "role": "Two independently observed actual native original signals; one Cho and one Lee, hash authenticated.",
+        "event_timestamp_utc": "2026-10-03T07:26:42.559095+00:00",
+        "public_github_bytes_match": true,
+        "public_github_http_status": 200,
+        "raw_url": "https://raw.githubusercontent.com/jackzhu119/cross-subject-mi-eeg/271af288a2f3863430ab80e3145c2dee9bd5571d/research_runs/Q15-EXECUTION-20261003/LOCAL_SAMPLE_METADATA_OBSERVATION.json",
+        "github_url": "https://github.com/jackzhu119/cross-subject-mi-eeg/blob/271af288a2f3863430ab80e3145c2dee9bd5571d/research_runs/Q15-EXECUTION-20261003/LOCAL_SAMPLE_METADATA_OBSERVATION.json",
+        "bytes": 7576
+      },
+      {
+        "path": "results/Q15-EXTERNAL/completion_receipt.json",
+        "commit": "bc48b257eb44f412ad069f50d0f1a72a33c3c520",
+        "sha256": "38195cc985ad79db3231303411814da435da2c6cabba745000ccfc9eb73ebfb5",
+        "role": "Cohort inference complete; timestamp is analysis-output completion, not download date.",
+        "event_timestamp_utc": "2026-10-05T10:57:19.116979+00:00",
+        "public_github_bytes_match": true,
+        "public_github_http_status": 200,
+        "raw_url": "https://raw.githubusercontent.com/jackzhu119/cross-subject-mi-eeg/bc48b257eb44f412ad069f50d0f1a72a33c3c520/results/Q15-EXTERNAL/completion_receipt.json",
+        "github_url": "https://github.com/jackzhu119/cross-subject-mi-eeg/blob/bc48b257eb44f412ad069f50d0f1a72a33c3c520/results/Q15-EXTERNAL/completion_receipt.json",
+        "bytes": 1654
+      },
+      {
+        "path": "results/Q15-EXTERNAL/validation_report.json",
+        "commit": "bc48b257eb44f412ad069f50d0f1a72a33c3c520",
+        "sha256": "5c93501626ab3a631f82cdfad5e8ddc722c3414cdd46d3c810977ad968d49ae0",
+        "role": "Independent actual raw auditor and raw-to-epoch replay passed; no explicit validation timestamp. Commit timestamp 2026-10-05T11:49:43+00:00 is a publication boundary, not exact raw read time.",
+        "event_timestamp_utc": null,
+        "public_github_bytes_match": true,
+        "public_github_http_status": 200,
+        "raw_url": "https://raw.githubusercontent.com/jackzhu119/cross-subject-mi-eeg/bc48b257eb44f412ad069f50d0f1a72a33c3c520/results/Q15-EXTERNAL/validation_report.json",
+        "github_url": "https://github.com/jackzhu119/cross-subject-mi-eeg/blob/bc48b257eb44f412ad069f50d0f1a72a33c3c520/results/Q15-EXTERNAL/validation_report.json",
+        "bytes": 35744
+      },
+      {
+        "path": "research_runs/Q15-MIGRATION-20261004/jobs/20261005T050511Z-migration-from-r2-b82ad79b/restored_migration_provenance.json",
+        "commit": "bc48b257eb44f412ad069f50d0f1a72a33c3c520",
+        "sha256": "f879b51cb28c00cedc2fb8a390d7f6596cb395af09e4ff41492aa1d346bde424",
+        "role": "Restoration used pinned GitHub source and R2 raw data to regenerate epochs; all 160 raw originals verified; 106 person epoch files. No separate raw-read event timestamp.",
+        "event_timestamp_utc": null,
+        "public_github_bytes_match": true,
+        "public_github_http_status": 200,
+        "raw_url": "https://raw.githubusercontent.com/jackzhu119/cross-subject-mi-eeg/bc48b257eb44f412ad069f50d0f1a72a33c3c520/research_runs/Q15-MIGRATION-20261004/jobs/20261005T050511Z-migration-from-r2-b82ad79b/restored_migration_provenance.json",
+        "github_url": "https://github.com/jackzhu119/cross-subject-mi-eeg/blob/bc48b257eb44f412ad069f50d0f1a72a33c3c520/research_runs/Q15-MIGRATION-20261004/jobs/20261005T050511Z-migration-from-r2-b82ad79b/restored_migration_provenance.json",
+        "bytes": 854
+      },
+      {
+        "path": "research_runs/Q15-MIGRATION-20261004/jobs/20261005T050511Z-migration-from-r2-b82ad79b/job_status.json",
+        "commit": "7af1a137e2676a018e1e880ab076de6cae4ce30b",
+        "sha256": "4297e457117c441a1d894dcf20fd8d7aa5f92770e236c805fa3ea79ced1baf8b",
+        "role": "Post-validation and GitHub-backup status. Not itself a raw-read or original download date.",
+        "event_timestamp_utc": "2026-10-05T11:53:26.854857+00:00",
+        "public_github_bytes_match": true,
+        "public_github_http_status": 200,
+        "raw_url": "https://raw.githubusercontent.com/jackzhu119/cross-subject-mi-eeg/7af1a137e2676a018e1e880ab076de6cae4ce30b/research_runs/Q15-MIGRATION-20261004/jobs/20261005T050511Z-migration-from-r2-b82ad79b/job_status.json",
+        "github_url": "https://github.com/jackzhu119/cross-subject-mi-eeg/blob/7af1a137e2676a018e1e880ab076de6cae4ce30b/research_runs/Q15-MIGRATION-20261004/jobs/20261005T050511Z-migration-from-r2-b82ad79b/job_status.json",
+        "bytes": 2297
+      }
+    ],
+    "excluded_as_first_signal_access_evidence": [
+      {
+        "path": "research_runs/Q15-EXECUTION-20261003/evidence/lee_transfer_manifest.json",
+        "timestamp": "2026-09-30T14:54:47.782639+00:00",
+        "reason": "Created transfer manifest with provider object listing and provider inventory source; metadata phrase snapshot downloaded 2026-09-30 does not identify a signal-container read event and is not cohort download completion proof."
+      },
+      {
+        "path": "research_runs/Q15-EXECUTION-20261003/evidence/cho_transfer_manifest.json",
+        "timestamp": "2026-09-30",
+        "reason": "Official current bucket inventory snapshot version, not proof of original EEG content access."
+      },
+      {
+        "reason": "Provider 2017/2018/2019 release dates and 2023 S3 LastModified times describe provider records, not this author's research access."
+      }
+    ],
+    "recommended_methods_sentence": "Saved audit and cloud-analysis records document access to Cho2017 and Lee2019 MI data during 3–5 October 2026 (UTC), covering original-file metadata inspection, preprocessing, external evaluation, and independent raw-data replay. These dates describe the documented research-processing window rather than a verified first-ever download date.",
+    "more_compact_methods_sentence": "Record-documented raw-data auditing and external evaluation of Cho2017 and Lee2019 MI took place from 3 to 5 October 2026 (UTC).",
+    "limitations": "No currently inspected retained public record establishes the precise first-ever original-EEG acquisition date. Cloud commit/push, R2 migration, and provider object timestamps were not silently treated as research access dates."
+  },
+  "limitations": [
+    "Documented research-use intervals, not independently established first-ever acquisition or exhaustive lifetime access.",
+    "Embedded runtime event times supply dates; Git publication times supply provenance only.",
+    "No current raw EEG access, model inference, statistical recomputation or physiology replay was performed."
+  ],
+  "new_model_fits": 0,
+  "new_checkpoint_inference": 0,
+  "new_q16_scientific_execution": 0
+}

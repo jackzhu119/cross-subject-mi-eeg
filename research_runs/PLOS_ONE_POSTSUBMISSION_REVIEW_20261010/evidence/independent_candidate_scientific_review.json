@@ -1,0 +1,407 @@
+{
+  "schema_version": 1,
+  "reviewed_at_utc": "2026-10-11T00:26:28.399284+00:00",
+  "reviewer_role": "Independent scientific/editorial static review of actual candidate main/SI",
+  "candidate_path": "/workspace/plos-one-postsubmission-20261010/research_runs/PLOS_ONE_POSTSUBMISSION_REVIEW_20261010/revision_content.json",
+  "candidate_sha256": "6048c25d6e39f5f49100f5c80231b088dd0639f3131dcc7308186011aef0cfd6",
+  "baseline_submitted_main_path": "/workspace/q15-postsubmission-qa-20261010/submitted_main_block_index.json",
+  "review_scope": "Full actual candidate main/SI paragraphs affecting CSP, source/target fit boundaries, external pipeline interpretation and Q16; all eight main tables cell-by-cell. Existing scientific records used only for consistency, no new science calculation.",
+  "checks": [
+    {
+      "id": "SCI-01",
+      "scope": "main Tables1–8",
+      "passed": true,
+      "evidence": "All cells compared with submitted manuscript. Tables4/6/7/8 are identical; other changes are semantic experiment names only. Original counts, trial/tensor dimensions, epoch durations, model means, p-values, confidence intervals, recalls and physiology values remain unchanged."
+    },
+    {
+      "id": "SCI-02",
+      "scope": "M1 Methods main74",
+      "passed": true,
+      "evidence": "Explicitly reads original frozen prediction tables/probability/identity/hash bindings; no loading/refitting/new inference/threshold/map updates. Primary equal-person BA distinguished from pooled proportions/medians."
+    },
+    {
+      "id": "SCI-03",
+      "scope": "M1 Results main118; SI94–95",
+      "passed": true,
+      "evidence": "Cho left92.07%, Lee83.21%; medians0.669/0.633 agree with independently audited saved outputs. TableS5 gives exact equal-person vs pooled BA. Pooled confusion matrices match original stored tables."
+    },
+    {
+      "id": "SCI-04",
+      "scope": "M1 scientific provenance main135; SI93/97",
+      "passed": true,
+      "evidence": "Source63.04%, newLOSO61.65%, targetcentering52.39/54.18 are not presented as verified results. Missing code/prediction/partition/centering/hash records stated. Report existence is acknowledged separately from artifact availability."
+    },
+    {
+      "id": "SCI-05",
+      "scope": "fit-count boundary main59/114; SI61/93/97",
+      "passed": true,
+      "evidence": "Original15 fits and migration0 remain primary historical counts. New source-held-out report evaluation is explicitly distinguished as requiring additional source fitting. Candidate audit itself does not claim to have performed those fits."
+    },
+    {
+      "id": "SCI-06",
+      "scope": "target-information boundary main30/60/74; SI97",
+      "passed": true,
+      "evidence": "No target fitting/adaptation in primary frozen evaluation. Target-input centering, even without labels, is explicitly a different target-adaptation budget, not equivalent zero-calibration follow-up."
+    },
+    {
+      "id": "SCI-07",
+      "scope": "binary complement SI96",
+      "passed": true,
+      "evidence": "BA complement values agree with exact original two-class arithmetic: Cho equal-person48.0096153846%, pooled48.0228136882%; Lee47.2314814815%. Report47.22 is identified as a discrepancy rather than replacing frozen values. No outcome-driven complement selected."
+    },
+    {
+      "id": "SCI-08",
+      "scope": "CSP mechanism main74/135/151; SI93/95/98",
+      "passed": true,
+      "evidence": "No claim to prove spatial-filter/device causal mechanism or exclude every implementation error. Numerical consistency is separated from physical acquisition truth."
+    },
+    {
+      "id": "SCI-09",
+      "scope": "source/target adapter boundaries main58/61/146; SI98",
+      "passed": true,
+      "evidence": "Cho diagram-based row order, physical voltage calibration, native reference and cue latency remain limitations. Neural scores are not used as proof that all label/channel errors are impossible."
+    },
+    {
+      "id": "SCI-10",
+      "scope": "complete-pipeline comparison main21/48/59/134/151",
+      "passed": true,
+      "evidence": "Broad/shared18/17Phys and14/19Cho/Lee remain exact. Views, BatchNorm/normalization exposure and computation confounds disclosed; no isolated parameter-sharing/band-decomposition attribution."
+    },
+    {
+      "id": "SCI-11",
+      "scope": "matched-duration availability main134",
+      "passed": true,
+      "evidence": "No frozen final all-source matched-duration neural pair claimed. Additional source fitting would be needed if new comparison pursued; none performed here."
+    },
+    {
+      "id": "SCI-12",
+      "scope": "development heterogeneity main1/98/128/129",
+      "passed": true,
+      "evidence": "Exploratory33.72→42.67 and S3/S8 87.57% retained. Fixed20 four improved/five worsened and negative median retained; no typical-person/generaloptimal20 inference."
+    },
+    {
+      "id": "SCI-13",
+      "scope": "robustness main105/106",
+      "passed": true,
+      "evidence": "No corrected improvement claimed; adverseGroupDRO and uncorrected interval vs Holmnull remain distinct. Runtime confounding retained."
+    },
+    {
+      "id": "SCI-14",
+      "scope": "external primary conclusions main109/115/116/131/138/151",
+      "passed": true,
+      "evidence": "Phys superiority not established; Cho corrected adverse−1.513pp retained; Lee+0.204uncertain/non-equivalence; no implied cohort interaction or universalzero-calibration/SOTA conclusion."
+    },
+    {
+      "id": "SCI-15",
+      "scope": "Q16 Methods main63–66/72",
+      "passed": true,
+      "evidence": "BNCIonly nine persons/native250Hz, post-decoder-outcome descriptive specification; one baseline vs three overlapping task segments; not unbiasedERD; no decoder feedback/physiology p-values/outcome-driven bands/models."
+    },
+    {
+      "id": "SCI-16",
+      "scope": "Q16 Results main122–125",
+      "passed": true,
+      "evidence": "Negative signed laterality separated from absolutecontralateral suppression; S2positiveabsolute components preserved; allsixcoefficients retained; rho+0.600 means larger/lessnegativeL, no causalbenefit."
+    },
+    {
+      "id": "SCI-17",
+      "scope": "Q16 Discussion/Conclusions main139/140/149/151",
+      "passed": true,
+      "evidence": "Sensor-level descriptive conclusions, no cortical source localization/decoderattribution/biomarker/clinicalmechanism; no externalphysiology replication; decoderwindowdifference retained."
+    },
+    {
+      "id": "SCI-18",
+      "scope": "Q16 Fig6 caption main124",
+      "passed": true,
+      "evidence": "±6dB frozen scale, no clipping claim retained from frozen figureaudit, sensorgeometrynotcorticalsource. Onevs3Welch estimator precision caveat retained. Circle/trianglereadability statement is editorial, notnewdata."
+    },
+    {
+      "id": "SCI-19",
+      "scope": "source validation grouping main53/59/145",
+      "passed": true,
+      "evidence": "Unequal2/2/2/3 fixedgroups equalfold weighting and no prospective grouping sensitivity expressly stated."
+    },
+    {
+      "id": "SCI-20",
+      "scope": "reproducibility scope main55/61/76/77; SI65/84",
+      "passed": true,
+      "evidence": "PriorQ15raw-to-prediction replay and Q16rawspectral replay are historicalcompleted validation, not claimednew experiments in thisrevision. Savedoutputaudit remains checkpoint-free; no independentlabreplication claim."
+    }
+  ],
+  "table_cell_review": [
+    {
+      "table": 1,
+      "old_rows": 6,
+      "new_rows": 6,
+      "changed_cells": [
+        {
+          "row": 1,
+          "column": 0,
+          "old": "Q14 binary BNCI source",
+          "new": "PhysioNet-stage binary BNCI source"
+        },
+        {
+          "row": 2,
+          "column": 0,
+          "old": "Q14 external PhysioNet",
+          "new": "External PhysioNet"
+        },
+        {
+          "row": 3,
+          "column": 0,
+          "old": "Q15 binary BNCI source",
+          "new": "Cho/Lee-stage binary BNCI source"
+        },
+        {
+          "row": 4,
+          "column": 0,
+          "old": "Q15 external Cho2017",
+          "new": "External Cho2017"
+        },
+        {
+          "row": 5,
+          "column": 0,
+          "old": "Q15 external Lee2019",
+          "new": "External Lee2019"
+        }
+      ],
+      "all_numeric_results_unchanged_after_manual_cell_review": true
+    },
+    {
+      "table": 2,
+      "old_rows": 7,
+      "new_rows": 7,
+      "changed_cells": [
+        {
+          "row": 1,
+          "column": 0,
+          "old": "Filtering, resampling, crop and Q15 CAR",
+          "new": "Filtering, resampling, crop and Cho/Lee common-average reference"
+        },
+        {
+          "row": 2,
+          "column": 0,
+          "old": "Q15 Helmert coordinates",
+          "new": "Cho/Lee fixed Helmert coordinates"
+        },
+        {
+          "row": 5,
+          "column": 0,
+          "old": "Scoring and separate Q16 characterization",
+          "new": "Scoring and separate BNCI physiology characterization"
+        },
+        {
+          "row": 6,
+          "column": 0,
+          "old": "P2 within-person or cross-session models",
+          "new": "Within-person or cross-session calibrated models"
+        }
+      ],
+      "all_numeric_results_unchanged_after_manual_cell_review": true
+    },
+    {
+      "table": 3,
+      "old_rows": 14,
+      "new_rows": 14,
+      "changed_cells": [
+        {
+          "row": 0,
+          "column": 0,
+          "old": "Q5 mean-loss vs Q8 mean-rank",
+          "new": "Mean-loss versus mean-rank duration selection"
+        },
+        {
+          "row": 1,
+          "column": 0,
+          "old": "Q5 raw vs Q6 source normalization",
+          "new": "Raw versus source-normalized input"
+        },
+        {
+          "row": 2,
+          "column": 0,
+          "old": "Q7 S3 raw/normalized ×2/16 epochs",
+          "new": "S3 raw/normalized ×2/16 epochs"
+        },
+        {
+          "row": 3,
+          "column": 0,
+          "old": "Q9 broad vs shared, reselected durations",
+          "new": "Broad versus shared, reselected durations"
+        },
+        {
+          "row": 4,
+          "column": 0,
+          "old": "Q9-E002 fixed-schedule broad/shared",
+          "new": "Broad/shared, fixed per-target schedule"
+        },
+        {
+          "row": 4,
+          "column": 1,
+          "old": "Same targets and frozen Q8 per-target epochs",
+          "new": "Same targets and frozen mean-rank per-target epochs"
+        },
+        {
+          "row": 5,
+          "column": 0,
+          "old": "Q10 CSP vs PCA neural projections",
+          "new": "CSP versus PCA neural projections"
+        },
+        {
+          "row": 6,
+          "column": 0,
+          "old": "Q11 independent branches vs capacity comparator",
+          "new": "Independent branches versus capacity comparator"
+        },
+        {
+          "row": 7,
+          "column": 0,
+          "old": "Q12 GroupDRO vs balanced ERM",
+          "new": "GroupDRO versus balanced ERM"
+        },
+        {
+          "row": 8,
+          "column": 0,
+          "old": "Q12 whitening/augmentation vs historical Q8",
+          "new": "Whitening/augmentation versus historical mean-rank"
+        },
+        {
+          "row": 9,
+          "column": 0,
+          "old": "Q13 fixed20 vs matched-runtime CE schedule",
+          "new": "Fixed20 versus matched-runtime CE schedule"
+        },
+        {
+          "row": 10,
+          "column": 0,
+          "old": "Q13 source-session 0train vs 1test",
+          "new": "Source-session 0train versus 1test"
+        },
+        {
+          "row": 11,
+          "column": 0,
+          "old": "Q14 external broad vs shared",
+          "new": "PhysioNet broad versus shared"
+        },
+        {
+          "row": 12,
+          "column": 0,
+          "old": "Q15 external broad vs shared",
+          "new": "Cho2017/Lee2019 broad versus shared"
+        },
+        {
+          "row": 13,
+          "column": 0,
+          "old": "Q14/Q15 CSP4+LDA context",
+          "new": "External CSP4+LDA context"
+        },
+        {
+          "row": 13,
+          "column": 2,
+          "old": "One shallow model vs three neural seeds; Q15 Helmert; differs from Q4 CSP8/OAS",
+          "new": "One shallow model vs three neural seeds; Cho/Lee fixed Helmert; differs from traditional-baseline CSP8/OAS"
+        }
+      ],
+      "all_numeric_results_unchanged_after_manual_cell_review": true
+    },
+    {
+      "table": 4,
+      "old_rows": 8,
+      "new_rows": 8,
+      "changed_cells": [],
+      "all_numeric_results_unchanged_after_manual_cell_review": true
+    },
+    {
+      "table": 5,
+      "old_rows": 6,
+      "new_rows": 6,
+      "changed_cells": [
+        {
+          "row": 0,
+          "column": 2,
+          "old": "Q8 historical",
+          "new": "Historical mean-rank"
+        },
+        {
+          "row": 1,
+          "column": 2,
+          "old": "Q8 historical",
+          "new": "Historical mean-rank"
+        },
+        {
+          "row": 3,
+          "column": 2,
+          "old": "Q8 historical",
+          "new": "Historical mean-rank"
+        },
+        {
+          "row": 4,
+          "column": 2,
+          "old": "Q8 historical",
+          "new": "Historical mean-rank"
+        },
+        {
+          "row": 5,
+          "column": 2,
+          "old": "Q8 historical",
+          "new": "Historical mean-rank"
+        }
+      ],
+      "all_numeric_results_unchanged_after_manual_cell_review": true
+    },
+    {
+      "table": 6,
+      "old_rows": 3,
+      "new_rows": 3,
+      "changed_cells": [],
+      "all_numeric_results_unchanged_after_manual_cell_review": true
+    },
+    {
+      "table": 7,
+      "old_rows": 6,
+      "new_rows": 6,
+      "changed_cells": [],
+      "all_numeric_results_unchanged_after_manual_cell_review": true
+    },
+    {
+      "table": 8,
+      "old_rows": 2,
+      "new_rows": 2,
+      "changed_cells": [],
+      "all_numeric_results_unchanged_after_manual_cell_review": true
+    }
+  ],
+  "issues": [
+    {
+      "severity": "minor_editorial",
+      "location": "main22 caption; main27/48 notes; main31/144 paragraphs",
+      "finding": "Some sentence-initial lowercase \"the\" remains after semantic Q-number substitutions.",
+      "recommendation": "Capitalize sentence starts while preserving technical variable names and frozen numbers."
+    },
+    {
+      "severity": "minor_editorial",
+      "location": "main73 heading",
+      "finding": "\"Post-submission audit of archived CSP outputs\" puts manuscript-process terminology in the scientific Methods.",
+      "recommendation": "Prefer \"Archived-output CSP diagnostic audit\"; retain actual post-submission timing transparently in Methods prose or candidate README/SI."
+    }
+  ],
+  "scientific_wording_corrections_required": false,
+  "further_scientific_evidence_required": [
+    "Authenticated source resubstitution prediction/score record for new report63.04% if author wants to include it.",
+    "Nine newQ15LOSO fold predictions/model/partition/code/runtime/hash records for report61.65%,SD14.1,range49.3–94.4.",
+    "Exact targetcentering rule/parameters/timing/input/outputhash records for report52.39%/54.18%, with explicitposthocadaptation scope."
+  ],
+  "m1_acceptance": "PARTIALLY ADDRESSED; frozen-output diagnostics independently verified, additional reported evaluations remain unverified. Candidate does not claim M1 fullyresolved or allerrorsruledout.",
+  "status": "NO SCIENTIFIC WORDING BLOCKER IN REVIEWED CANDIDATE; minor editorial fixes; further M1 evidence documentation remains required",
+  "repository_modified": false,
+  "new_model_fits": 0,
+  "new_prediction_inference": 0,
+  "new_physiology_runs": 0,
+  "raw_eeg_access": false,
+  "new_scientific_calculations": false,
+  "not_reviewed": [
+    "Generated DOCX/PDF pagination/caption/equation rendering",
+    "Publication archive members and public GitHub readback",
+    "Fullreference DOI/metadata audit handled by separate reviewer",
+    "Global16417scientific-file hash preservation handled by finaldeliveryvalidator"
+  ]
+}

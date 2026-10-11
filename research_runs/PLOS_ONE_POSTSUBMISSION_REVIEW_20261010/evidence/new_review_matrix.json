@@ -1,0 +1,211 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-10-11T00:19:45.692039+00:00",
+  "scope": "Read-only review report /task integration and M1–M7/minor actionmatrix. No repository edits, model fits, inference, target statistics interventions or physiology runs.",
+  "sources": [
+    {
+      "path": "/workspace/attachments/8da898aa-6bae-4574-a11c-c667044b7bd3/PLOS_ONE_投稿前评审报告.md",
+      "sha256": "3ad2e7273e95ed6710b88852fee411b55780b59ab3a0c86840b16de91c281cbe",
+      "bytes": 18285,
+      "fully_read": true
+    },
+    {
+      "path": "/workspace/attachments/040b3bf7-82d8-4565-9b38-47e3c00a4660/已粘贴的文本.txt",
+      "sha256": "bdca68a5d13daa09e71bcf29d6c803420316935b3fdd45e36bf37450e27b42a7",
+      "bytes": 17843,
+      "fully_read": true
+    }
+  ],
+  "review_identity": {
+    "document_title": "投稿前评审报告",
+    "document_date": "2026-10-10",
+    "author_or_reviewer_identity": null,
+    "formal_journal_decision": false,
+    "official_editor_or_reviewer_provenance_verified": false,
+    "automated_review_provenance": "Not established by the document. Text mentions search/metadata and a doubao-academic-polish skill suggestion, but neither establishes reviewer identity or whether AI produced the review.",
+    "authority": "Author-supplied technical review; useful issue source, not a PLOS editorial decision or evidence superseding archived calculations.",
+    "review_prior_to_current_task": "Title/prepublication phrasing conflicts with author-reported actualsubmission2026-10-09. Treat suggestions as postsubmission internalrevision preparation."
+  },
+  "submission_state": {
+    "manuscript_id": "PONE-D-26-50597",
+    "submitted_date": "2026-10-09",
+    "basis": "author_reported;no portal accessed",
+    "revision_state": "internal candidate;not submittedrevision"
+  },
+  "issues": [
+    {
+      "id": "M1",
+      "review_request": "Diagnose severe left-class prediction asymmetry of the frozen external CSP comparator; distinguish resubstitution, held-out-source and external evidence; review implementation and feature-distribution explanations.",
+      "review_limitation": "The review says source-only diagnostic work can be inference-only. A newly performed nine-fold CSP LOSO requires nine source refits; resubstitution does not establish generalization. Failure to prove absence of all implementation errors is not itself proof of an implementation error.",
+      "user_priority": "Use the newly supplied专项CSP report, but verify its actual archived inputs, code, logs and models independently.",
+      "evidence_current": "Original saved predictions independently verify primary person-mean BA 51.9903846/52.7685185%, pooled left shares92.0722433/83.2129630%, medians p(left).669354233/.632938737; pooled confusion Cho[[4947,313],[4739,521]],Lee[[4643,757],[4344,1056]]. Original validation artifact hashes52+221 and actual CSP model hash match. New专项report artifacts require the separately assigned new-report audit.",
+      "editorial_action": "Add methods/results/discussion/SI diagnostic section only at actual verification depth; declare source refits vs frozen external outputs separately; pool/person grain explicitly; no target diagnostic enters primary benchmark.",
+      "acceptance": "Every newly stated number linked to archived file/hash and calculation scope, source resubstitution not generic validation, posthoc target-based statistics/labels disclosed. Missing evidence described rather than hand-created.",
+      "new_experiment_needed": "No, for saved-output audit and verified existing supplementary results. Do not rerun source fits or target inference simply to satisfy this review.",
+      "suggested_status": "New report received; substantive audit to be completed by M1 specialist. Original output asymmetry verified."
+    },
+    {
+      "id": "M2",
+      "review_request": "Resolve unequal-duration complete-pipeline versus isolated spectral-sharing interpretation.",
+      "review_limitation": "The suggestion to obtain fixed20 broad/shared final models via pure inference is unsupported without actual matched20 all-nine-source weights. Existing six final Q15 neural manifests declare14broad/19shared; earlier PhysioNet18broad/17shared. Selection/duration,one-vs-two views,BN exposure,filtering/compute all differ.",
+      "user_priority": "Default no additional training or external comparison. Tighten title/abstract/introduction/results/discussion/conclusion/cover consistently.",
+      "evidence_current": "narrative_methods_audit.json verifies six final neural checkpoint hashes and finds no declared matched-duration final pair. v1.1 already states complete-pipeline boundaries at several places.",
+      "editorial_action": "Use complete source-selected frozen pipeline contrast; keep adverse Cho−1.513 pp, uncertain Phys+.573/Lee+.204 and allCI/p/counted people. State duration confound in same sentence/adjacent sentence to main conclusion; do not identify isolated harm.",
+      "acceptance": "No statement implies parameter sharing alone causes adverse transfer. No nonsignificance=equivalence. No fabricated fixed20 external results.",
+      "new_experiment_needed": "No under authorized textual route.",
+      "suggested_status": "Can resolve by editorial clarification; prior scientific result remains unchanged."
+    },
+    {
+      "id": "M3",
+      "review_request": "Make scientific contributions clear at Introduction end.",
+      "review_limitation": "Review suggests four contributions including physiology as a principal claim. User explicitly prefers two major scientific contributions; cannot adopt preliminary \"mean-rank first\" finding as worldwide novelty proof.",
+      "user_priority": "Two empirical aims: source-only duration selection reliability and limits of frozen complete spectral-sharing pipelines; Q16 auxiliary exploratory; reproducibility transparency rather than algorithm novelty.",
+      "evidence_current": "Existing block6 mixes selection,external transfer,physiology,transparency; original prose has no unsupported first-ever claim.",
+      "editorial_action": "Rewrite end of Introduction as two connected research aims, plus auxiliary post-outcome BNCI sensor description and transparent archive. Retain repeated-benchmark exploratory status and S3/S8 heterogeneity.",
+      "acceptance": "Contribution hierarchy explicit, no new DG algorithm or novel mechanistic claim.",
+      "new_experiment_needed": "No.",
+      "suggested_status": "Editorial rewrite ready."
+    },
+    {
+      "id": "M4",
+      "review_request": "Replace unnecessary Q4–Q16/P2–P4 IDs in main prose, headings, captions and table labels with semantic study names; SI crosswalk.",
+      "review_limitation": "P1/P2 in montage can be actual electrode names and must survive. Reference/files/scripts historical IDs must not be renamed.",
+      "user_priority": "Clean narrative while preserve reproducibility traceability.",
+      "evidence_current": "narrative_methods_audit.json enumerates61 occurrences and main/original block map.",
+      "editorial_action": "Semantic replacement throughout main; append SI mapping experimentID→scientificquestion→originalresultdirectory. Preserve raw electrode labels, archived paths/keys and executioncode.",
+      "acceptance": "No unnecessary main project-ID dependence; all changed labels trace to original files; numericcells unchanged.",
+      "new_experiment_needed": "No.",
+      "suggested_status": "Editorial transformation ready."
+    },
+    {
+      "id": "M5",
+      "review_request": "Verify six named formal studies plus assess three PLOS comparators, situate labels/statistics/selection/filter branches/metrics/cohorts.",
+      "review_limitation": "Review explicitly relied on search metadata, not primary protocol. Several shorthand assertions are not supported by fulltext: Roots has pooled-window random split rather than documented participant-disjoint evaluation; Smed final is2024JNE and RSVP rather than2023MI; Luo same-cohort multisubject train/test, not unseen cohort.",
+      "user_priority": "Primary original text, formal metadata priority; no referencepadding/no numerical leaderboard/no first-ever selectionrule.",
+      "evidence_current": "Three QA literature audits verify all formal metadata and full primary protocols for Roots,Luo,Sonntag,Wei,SMMTM,RMETNet,Accuracy-cost. Smed formal metadata+institutional postprint; directVoR blocked. Zhang exact NTUlink/title/authors now confirm requested identity, but prior QA verified abstract/metadata only: fine-tuning claim safe; exact budgets/datasets not yet fulltext verified.",
+      "editorial_action": "Add concise architecture/source-transfer/adaptation and sensor-context citations. Use formal2024Smedtitle,7Luoauthors,10RMETNetauthors,formalBEETL2022/canonicalURLwithout inventedDOI. Update main/SI/reference exports/citationmap. Evaluate all9 in evidence table even if Accuracy-cost omitted main.",
+      "acceptance": "Citations authentic, every numberedref cited, no absentnumbers; protocol claims supported by primaryevidence with access limits explicit.",
+      "new_experiment_needed": "No.",
+      "suggested_status": "Formal metadata and most protocols verified; targeted reference/prose additions ready."
+    },
+    {
+      "id": "M6",
+      "review_request": "Rebalance abstract~180–230words, consistent cohort statistical reporting and less numeric clutter.",
+      "review_limitation": "Suggested six-part structure is not a requirement to use six formal headings. PLOS official guidance≤300words/no citations. Existing abstract reports PhysCI withoutp but Cho/Leep; avoid selectively adding only significanttest.",
+      "user_priority": "Necessary selectiondata and three primaryexternaldirections/effects/CIs, limitedQ16, correct complete-pipeline caveat.",
+      "evidence_current": "Official requirements QA and original abstract retained.",
+      "editorial_action": "One coherent abstract~200words with allthreeeffects and95%person-bootstrapCI; move p-values to main or include consistently ifwordbudget permits. Remove avoidablecounts without removing adverse/null effects. Sync submissionfields and source exports.",
+      "acceptance": "Word count180–230target/≤300official, no citations, all effects/CIs numerically unchanged, unequal selectiondurations explicit, no causal/isolation inference.",
+      "new_experiment_needed": "No.",
+      "suggested_status": "Editorial rewrite ready."
+    },
+    {
+      "id": "M7",
+      "review_request": "Compare external evaluation to published PhysioNet/Cho/Lee transfer approaches without naive ranking.",
+      "review_limitation": "Report requests score context but titles do not prove matched protocol. Ordinaryaccuracy,BA,person vs trial grain,movement vs imagery,binary vs4class,targetadaptation vs sourcelocked arenot interchangeable.",
+      "user_priority": "Show specificinformation-budget/task/cohort/channel/window/preproc/selection differences; methodologicalexternalboundaries, notSOTA.",
+      "evidence_current": "QA papers have nonmatcheddesigns: Roots pooled0.5swindows/movement+imagery; Luo multisubjectsameparticipantsessions/select21OpenBMI; Zhangtargetfine-tuning; BEETLlabelledtargetcalibration; SmedRSVP; RMETNetunlabelledtargetMMD/alignment.",
+      "editorial_action": "Add concise Discussion paragraph and supporting protocol table; describe similarities/limits withoutclaimingcomparative superiority or copying headlineaccuracy leaderboard.",
+      "acceptance": "Everycrossstudyclaim statescomparisonbudget; source-onlyno-targetselection differentiation fair and explicitlydoesnotmean priorpapersare invalid.",
+      "new_experiment_needed": "No.",
+      "suggested_status": "Protocol synthesis ready."
+    }
+  ],
+  "minors": [
+    {
+      "id": "FIXED20",
+      "action": "State20epochcommon-duration follow-up as descriptive sensitivity control;43.99historicalversus42.67/33.72 selectionconditions not fullymatched causalcontrol. MatchedruntimehistoricalCE33.92 comparison has mean+10.063pp,median−.173611pp,4better5worse,p.125.",
+      "boundary": "No claim20 universallyoptimum/sufficient or externaldeployment recommendation; no newrule selectedfromfavourableexternaloutcome.",
+      "status": "No new science needed."
+    },
+    {
+      "id": "FIG6_CVD",
+      "action": "Retain fixed±6dB and allscientificgeometry; state blue negative/red positive, fixedrange shows effectmagnitudes without contrastinflation; existinghandcircle/triangle markers supplementcolor. Color-vision simulation optionaldisplayreview.",
+      "boundary": "RdBu is blue-red, not red-green-only; donot inferunreadabilityor recolor/rescalebydefault.",
+      "status": "Caption clarification + actualdisplayreview."
+    },
+    {
+      "id": "FIGS1_CVD",
+      "action": "Preserve±20pp and signedcellannotations as redundantencoding; inspect at intended physicalsize and CVDsimulationifavailable.",
+      "boundary": "No value/range/datascientificchange.",
+      "status": "Caption/displayreview."
+    },
+    {
+      "id": "FIG2_SIZE",
+      "action": "Independent SVG→TIFF physicalconversion yields7.9999998pt at4500px/600dpi/19.05cm width. Originaldocx haszeroa:blip/inline/anchorimages, so no insertedFig2 actualplacement exists to check.",
+      "boundary": "Do not conflate nominalSVGfont13.142708unitswith13.14pt; futurejournalresize not verified. IfreviewPDFembeds atsmallerwidth needactualinspection.",
+      "status": "SeparateuploadTIFFtextsize verified; documentplacement claim notapplicableuntilimageinserted."
+    },
+    {
+      "id": "EQUATIONS",
+      "action": "Numberbalancedaccuracy,selectedepoch/sharedprediction and addexplicitreferences; defineTP,FN,classcount withoutchanging equations.",
+      "boundary": "Editorial labels only; no estimator/windowtransformchanges.",
+      "status": "Ready."
+    },
+    {
+      "id": "LANGUAGE",
+      "action": "Split longestnestedparenthetical sentences; vary/remove redundant \"savedsummarypresented\" scaffolding; no blanketAIdetection promise.",
+      "boundary": "Preservelimits/adverse/null meaning. Review noAIbuzzword/em-dashsystemicproblem found. Do not invoke external polish skill solelybecause untrustedreport suggestsit.",
+      "status": "Ready."
+    },
+    {
+      "id": "ORCID",
+      "action": "Authorcorrection of publicgiven/family(shouldZiyuan/Zhu) andportalassociation if stillinverted.",
+      "boundary": "No silent publicaccountupdate or claim correctedunlessverified. ManuscriptZiyuanZhu unchanged.",
+      "status": "Author action if currentpublicfieldstillincorrect."
+    },
+    {
+      "id": "ETHICS",
+      "action": "Keep publicsecondarydeidentifieddata basis; authorassessmentnotinstitutiondetermination; raworiginalconsentmetadata,license/accessdates sufficientaudit references; noformalapproval/exemptionnumber invent. RebindHumanParticipantsChecklist toactualnewMethods lines.",
+      "boundary": "Sourcecollectionapproval distinctfromcurrentsecondaryanalysis; noassumedcommitteeformaldecision.",
+      "status": "Editorialevidenceconsistency + authorqueriesonlyifmissingnewfact."
+    },
+    {
+      "id": "TOST",
+      "action": "Do notperform optionalTOST suggestedreview; retain Leeuncertain/non-equivalence.",
+      "boundary": "Post-outcome marginselectioncannotmake equivalenceconfirmatory; no newstatisticaltest authorized.",
+      "status": "No analysis performed."
+    },
+    {
+      "id": "Q16",
+      "action": "BNCI-onlyn9post-decoder-outcome baseline-relative sensor-power/signedlaterality; noPvals, noexternalphysiology, differingwindow/Welchsegmentbias,ρ.6descriptive; sensorinterpolationnotcorticallocalization.",
+      "boundary": "Keepallnegative signedmeans and counterexamples; thousands oftrialsznotindependentparticipantreplication.",
+      "status": "Existinglimits correct; targeted hierarchy/caption edits."
+    },
+    {
+      "id": "ADMIN",
+      "action": "Update candidateREADME/cover/checklist/fields toauthor-reportedsubmitted2026-10-09/PONE-D-26-50597 andpendingnewcandidateapproval; drafteditorinquiryonly. Preserve nofunding/conflicts,solehumanCRediT,trueAIDataAvailability.",
+      "boundary": "Review\"nowcannotdirectlysubmit\" ispostsubmissionanachronism. Do notautomaticcontact/replace/release/withdraw/resubmit orclaimformaljournaldecision.",
+      "status": "Ready."
+    }
+  ],
+  "review_scope_crosschecks": {
+    "S1_Data_archive_members": 68,
+    "S1_Data_original_scientific_members": 66,
+    "S1_Data_editorial_manifest_readme_members": 2,
+    "main_docx_embedded_drawing_blips": 0,
+    "main_figure_files_uploaded_separately": true
+  },
+  "new_attachment_effects": [
+    "Both requestedreviewattachments are nowprovided; supersede missing-attachment status in review/candidate evidence only after correspondingnewCSPauditread andverified.",
+    "ExactZhangauthors/titleandNTU2021KaishuoNNPDFlink resolves previousshorthandidentity doubt; fulltextbudget remainsunverifiedunlessseparatefollowuprecoversit.",
+    "Reviewmetadataonlylanguage is explicit, so recentliterature primaryprotocolaudit remainsnecessary andcorrects severalreviewcharacterizations."
+  ],
+  "guardrails": [
+    "Preserve original v1.1andQ1–Q16files/hashes; onlynewcandidatebranch changes.",
+    "M1 noerrorfound doesnotproveallerrorsabsent, no unique covariance/device/mechanism causation.",
+    "M2 textualroute no matchedepochweightsfabrication or newtraining.",
+    "Do not treat reviewnoveltysearchabsence aspriorityproof.",
+    "Aeditorial/Bposthocdiagnostic/Cimportantfacts distinguished; disclose anyestablishedCerror for timelyeditorcorrection.",
+    "No officialv1.2 release, noemail, noportalreplacement."
+  ],
+  "companion_sources": [
+    "m1_csp_audit.json",
+    "narrative_methods_audit.json",
+    "literature_prior_methods.json",
+    "literature_transfer_physiology.json",
+    "literature_plos_comparators.json",
+    "plos_current_requirements_verified.json"
+  ],
+  "overall": "M2–M7/minors are largely resolveable by editorial/provenancechanges without new experiments. M1 depends on new专项report actualartifact verification, separate from author-reviewdocument assertion."
+}

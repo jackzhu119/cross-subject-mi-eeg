@@ -1,0 +1,237 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-10-10T12:50:25.310196+00:00",
+  "purpose": "Read-only primary-literature verification for PLOS ONE postsubmission revision preparation; no scientific reruns or frozen-result modifications.",
+  "new_model_fits": 0,
+  "new_prediction_inference": 0,
+  "papers": [
+    {
+      "title": "Adaptive transfer learning for EEG motor imagery classification with deep Convolutional Neural Network",
+      "authors": [
+        "Kaishuo Zhang",
+        "Neethu Robinson",
+        "Seong-Whan Lee",
+        "Cuntai Guan"
+      ],
+      "year": 2021,
+      "container": "Neural Networks",
+      "volume": "136",
+      "pages": "1-10",
+      "article_number": null,
+      "doi": "10.1016/j.neunet.2020.12.013",
+      "url": "https://doi.org/10.1016/j.neunet.2020.12.013",
+      "requested_identity": "Zhang et al., Adaptive Transfer Learning for Motor Imagery EEG (shorthand only)",
+      "identity_resolution": "Exact requested Zhang/Robinson/Lee/Guan2021 paper confirmed by supplied report authors/year/NTU publication link; full-text protocol access remains unavailable.",
+      "metadata_verified": true,
+      "primary_full_text_verified": false,
+      "primary_abstract_verified": true,
+      "identity_confirmed_from_user_review": true,
+      "citation_key_suggested": "Zhang2021AdaptiveTransfer",
+      "bibliographic_date_note": "2021 journal volume136, pages1–10; indexed first-publication date2020-12-23. Cite formal volume year2021, do not mistake SemanticScholar2020 for print year.",
+      "protocol_verified_scope": [
+        "The indexed authors' abstract states five schemes for adaptation of a deep CNN EEG-BCI system for hand MI.",
+        "Each scheme fine-tunes an extensively trained, pre-trained model and adapts it for a target subject."
+      ],
+      "protocol_not_verified": [
+        "Exact train/test/calibration split and target-label counts",
+        "Which source-target datasets and settings correspond to reported84.19%",
+        "No-target-fitting arm details versus adapted arms"
+      ],
+      "excerpts": [
+        {
+          "source": "Europe PMC indexed original abstract, PMID33401114",
+          "text": "Each scheme fine-tunes an extensively trained, pre-trained model and adapt it to enhance the evaluation performance on a target subject."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://api.crossref.org/works/10.1016%2Fj.neunet.2020.12.013",
+          "retrieved_at_utc": "2026-10-10T12:50:25.310196+00:00",
+          "role": "Formal bibliographic registry metadata",
+          "local_evidence_file": "/workspace/q15-postsubmission-qa-20261010/zhang_crossref.json",
+          "sha256": "2dfcc187be5a7cfc06e664511d0cfd4c4d2ecfe48b8aff17ff693e97e0862f5d",
+          "bytes": 17960
+        },
+        {
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI:10.1016/j.neunet.2020.12.013&resultType=core&format=json",
+          "retrieved_at_utc": "2026-10-10T12:50:25.310196+00:00",
+          "role": "Original abstract indexed by EuropePMC; fulltext explicitly subscription required",
+          "local_evidence_file": "/workspace/q15-postsubmission-qa-20261010/zhang_europepmc_core.json",
+          "sha256": "b805b1d54e9c2533bc5ab8b52ec8d5effe7b9f46656c4934a2bb767437fac772",
+          "bytes": 6954
+        }
+      ],
+      "access_limitations": [
+        "Elsevier publisher and text-mining routes returned network403.",
+        "DR-NTU handle10356/160766 returned HTTP405.",
+        "OpenAlex/SemanticScholar secondary records used only to locate potential fulltext, not to establish protocol."
+      ],
+      "safe_related_work_claim": "Adaptive transfer-learning work has studied target-subject fine-tuning of pretrained CNNs; this differs from evaluating an already frozen source-only pipeline with no target fitting. This statement relies on the verified original abstract and does not specify unverified calibration amounts.",
+      "inclusion_recommendation": "Candidate citation may support only the abstract-level target-adaptation distinction. Do not call full protocol audited; exact requested-paper identity should be confirmed against supplied review when available."
+    },
+    {
+      "title": "Neurophysiological predictors of deep learning based unilateral upper limb motor imagery classification",
+      "authors": [
+        "Justin Sonntag",
+        "Lin Yu",
+        "Xilu Wang",
+        "Thomas Schack"
+      ],
+      "year": 2025,
+      "container": "Frontiers in Human Neuroscience",
+      "volume": "19",
+      "pages": null,
+      "article_number": "1617748",
+      "doi": "10.3389/fnhum.2025.1617748",
+      "url": "https://doi.org/10.3389/fnhum.2025.1617748",
+      "requested_identity": "Sonntag et al., Neurophysiological Predictors of Deep-Learning-Based MI Classification (shorthand)",
+      "identity_resolution": "Exact formal paper found and authors/title/DOI verified against publisher and registry.",
+      "metadata_verified": true,
+      "primary_full_text_verified": true,
+      "citation_key_suggested": "Sonntag2025Neurophysiological",
+      "protocol_verified_scope": [
+        "26 right-handed participants; unilateral right elbow flexion/extension plus non-task state, a three-class paradigm.",
+        "Models trained for each participant;80%training/20%validation and mean fivefold accuracy; three deep models EEGNet/FBCNet/NFEEG and CSP-based SVM/LDA.",
+        "Prior eyes-open and eyes-closed180s resting recordings; absolute and relative alpha8–13Hz/beta13–30Hz power.",
+        "Pearson associations between resting features and model accuracy, with explicitly exploratory treatment and no FDR correction."
+      ],
+      "excerpts": [
+        {
+          "section": "2.1 Participants",
+          "text": "Twenty-six participants ... were recruited in the experiment."
+        },
+        {
+          "section": "2.5 Data analysis",
+          "text": "Three different neural networks were chosen to be trained for each participant."
+        },
+        {
+          "section": "2.5 Data analysis",
+          "text": "Each model was trained on 80% of the dataset and the other 20% were used for validation. The final reported accuracy of each model will be the average of a fivefold cross validation."
+        },
+        {
+          "section": "2.5 Data analysis",
+          "text": "Given the exploratory nature of this study ... we chose not to apply False Discovery Rate (FDR) correction at this initial stage."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://api.crossref.org/works/10.3389%2Ffnhum.2025.1617748",
+          "retrieved_at_utc": "2026-10-10T12:50:25.310196+00:00",
+          "role": "Registry metadata",
+          "local_evidence_file": "/workspace/q15-postsubmission-qa-20261010/sonntag_crossref.json",
+          "sha256": "22834392bad2ba77ab3b768be0ae2302612e67a51199140ac527b9d67fa2fc82",
+          "bytes": 22977
+        },
+        {
+          "url": "https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2025.1617748/full",
+          "retrieved_at_utc": "2026-10-10T12:50:25.310196+00:00",
+          "role": "Official version-of-record fulltext",
+          "local_evidence_file": "/workspace/q15-postsubmission-qa-20261010/sonntag_publisher.html",
+          "sha256": "a2d34c3ffe1a051f197187cb40ee97ac82bea9f52acbf7da74b11b10409b7495",
+          "bytes": 1154096
+        },
+        {
+          "url": "https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2025.1617748/pdf",
+          "retrieved_at_utc": "2026-10-10T12:50:25.310196+00:00",
+          "role": "Official version-of-record PDF",
+          "local_evidence_file": "/workspace/q15-postsubmission-qa-20261010/sonntag_pdf.pdf",
+          "sha256": "ef2e585cb8ba97b2f8d258fcdbf6e54eca4dfd84021b03a8ad659283021563b1",
+          "bytes": 689244
+        }
+      ],
+      "protocol_caution": "The paper has conflicting hyperparameter prose/table descriptions (batch sizes and NFEEG learning rate). Do not copy these details into our text; no need to correct or rely on them. Resting spectral correlations are not equivalent to prospective biomarker or mechanistic validation.",
+      "safe_related_work_claim": "Sonntag et al. related resting-state alpha/beta features to participant-specific classification performance in a distinct unilateral elbow-imagery task. Our BNCI-only nine-person analysis instead describes baseline-relative sensor-level task power after decoder outcomes are fixed, without decoder feedback, confirmatory p-values or mechanistic attribution.",
+      "inclusion_recommendation": "Suitable concise physiology-context citation; retain different paradigm/resting metric and exploratory boundaries."
+    },
+    {
+      "requested_identity": "Wei et al., BEETL Competition",
+      "identity_resolution": "Formal published competition paper, not a proposed challenge/preprint.",
+      "metadata_verified": true,
+      "primary_full_text_verified": true,
+      "title": "2021 BEETL Competition: Advancing Transfer Learning for Subject Independence and Heterogenous EEG Data Sets",
+      "authors": [
+        "Xiaoxi Wei",
+        "A. Aldo Faisal",
+        "Moritz Grosse-Wentrup",
+        "Alexandre Gramfort",
+        "Sylvain Chevallier",
+        "Vinay Jayaram",
+        "Camille Jeunet",
+        "Stylianos Bakas",
+        "Siegfried Ludwig",
+        "Konstantinos Barmpas",
+        "Mehdi Bahri",
+        "Yannis Panagakis",
+        "Nikolaos Laskaris",
+        "Dimitrios A. Adamos",
+        "Stefanos Zafeiriou",
+        "William C. Duong",
+        "Stephen M. Gordon",
+        "Vernon J. Lawhern",
+        "Maciej Śliwowski",
+        "Vincent Rouanne",
+        "Piotr Tempczyk"
+      ],
+      "year": 2022,
+      "conference": "Proceedings of the NeurIPS 2021 Competitions and Demonstrations Track",
+      "container": "Proceedings of Machine Learning Research",
+      "volume": "176",
+      "pages": "205–219",
+      "doi": null,
+      "doi_status": "No DOI displayed in formal PMLR publisher metadata/BibTeX; use canonical URL rather than inventing a DOI.",
+      "url": "https://proceedings.mlr.press/v176/wei22a.html",
+      "citation_key_suggested": "Wei2022BEETL",
+      "title_spelling_note": "Publisher spells Heterogenous; preserve it. PDF title uses & while canonical PMLR title uses and.",
+      "protocol_verified_scope": [
+        "Task2three-wayMI(left-hand,right-hand,reject); labelled source data Cho2017,BNCI2014,PhysioNetMI.",
+        "Target data Weibo2014/CybathlonIC, with some labelled data provided per test subject. Hence target calibration/adaptation permitted, not zero-calibration source-only.",
+        "Leaderboardphase and finalrankingphase use different target-subject subsets.",
+        "Reported winning schemes include training simultaneously on source and calibration data and domain/label adaptation."
+      ],
+      "excerpts": [
+        {
+          "section": "§2 competitiondesign, PDFpage3",
+          "text": "new users that need to be up and running with only minutes worth of calibration data"
+        },
+        {
+          "section": "§3 Training, validation and test set, PDFpage5",
+          "text": "In both the Weibo2014 and CybathlonIC data sets, we provide some data with labels per test subject."
+        },
+        {
+          "section": "§4.1 First-place method, PDFpage6",
+          "text": "The models are trained on the source and calibration data simultaneously"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://proceedings.mlr.press/v176/wei22a.html",
+          "retrieved_at_utc": "2026-10-10T12:50:25.310196+00:00",
+          "role": "Formal proceedings metadata and BibTeX",
+          "local_evidence_file": "/workspace/q15-postsubmission-qa-20261010/beetl_pmlr.html",
+          "sha256": "3b5af81fc48e45bdfaeb03d9b36bb1e309a242dd74c4991a83f9c4031f48e00a",
+          "bytes": 19548
+        },
+        {
+          "url": "https://proceedings.mlr.press/v176/wei22a/wei22a.pdf",
+          "retrieved_at_utc": "2026-10-10T12:50:25.310196+00:00",
+          "role": "Formal proceedings PDF fulltext",
+          "local_evidence_file": "/workspace/q15-postsubmission-qa-20261010/beetl_pmlr.pdf",
+          "sha256": "7e5c264358e4f8a9ea812bf1c6da926e048ca9466b58d01acac4ed12a80f72a1",
+          "bytes": 1015101
+        }
+      ],
+      "safe_related_work_claim": "BEETL extended evaluation across subjects and heterogeneous MI datasets while providing labelled target-subject calibration examples. Its protocol therefore illustrates cross-dataset transfer under target adaptation and is not a matched source-only comparator for our frozen external evaluation.",
+      "inclusion_recommendation": "Suitable benchmark/protocol-context citation; never present its calibration-assisted accuracy as directly comparable to our no-target-fit balanced accuracy or assert superiority."
+    }
+  ],
+  "candidate_related_work_paragraph": "Transfer-learning studies often permit adaptation using target-subject data. Zhang et al. proposed target-subject fine-tuning of pretrained CNNs [candidate identity: Zhang2021AdaptiveTransfer], and the BEETL motor-imagery challenge supplied labelled calibration examples for its target participants [Wei2022BEETL]. These protocols differ from the present frozen source-only evaluation, which prohibits target fitting and target-driven model selection. The present contribution is an audit of source-only selection, participant-level heterogeneity and complete-pipeline transfer, rather than a new domain-generalization algorithm or a claim of superiority over adaptation methods.",
+  "candidate_physiology_context_sentence": "Resting-state alpha/beta associations with participant-specific decoding have also been investigated in unilateral elbow imagery [Sonntag2025Neurophysiological]. Our BNCI-only nine-person characterization uses baseline-relative sensor-level task power after decoder outcomes are fixed; it is neither a prospective predictor nor evidence of a learned decoder mechanism.",
+  "editorial_guardrails": [
+    "NoSOTA/first/superiorityclaim",
+    "No cross-study numerical ranking with differenttargetcalibration/labels/classes",
+    "No resting-power/ERS/ERD/localization conflation",
+    "No prospective/confirmatory/causalmechanismupgrade forQ16",
+    "Preserve all frozen numerical results and all28existingreferenceentries; citation additions require contiguous renumbering by root authoring workflow."
+  ],
+  "post_report_update_20261011": "Requested paper identities checked against received author-supplied review; original primary full-text/abstract access limitations remain."
+}

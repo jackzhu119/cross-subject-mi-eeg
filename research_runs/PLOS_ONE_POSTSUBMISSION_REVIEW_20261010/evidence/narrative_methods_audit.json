@@ -1,0 +1,2211 @@
+{
+  "reviewed_at_utc": "2026-10-10T12:49:57.801060+00:00",
+  "review_type": "independent_read_only_editorial_and_methodological_review",
+  "source_root": "/workspace/cross-subject-mi-eeg",
+  "source_revision": "plos-one-submission-v1.1",
+  "source_main_sha256": "2d6b26c5bfb5b3a4503c85c7df2d83e7f3655af23e03f2d8a334e518025fcfef",
+  "no_repository_edits": true,
+  "new_fits": 0,
+  "new_inference_rows": 0,
+  "new_physiology_runs": 0,
+  "new_scientific_numbers_computed": false,
+  "checks": [
+    {
+      "issue": "M2",
+      "status": "existing_boundaries_correct_targeted_clarity_recommended",
+      "blocks": [
+        1,
+        10,
+        17,
+        41,
+        44,
+        49,
+        55,
+        109,
+        110,
+        125,
+        126,
+        127,
+        128,
+        136,
+        143
+      ],
+      "findings": [
+        "Q15 durations broad14/shared19 and Q14 broad18/shared17 already disclosed.",
+        "Complete-pipeline rather than isolated spectral-sharing causal effect is already stated.",
+        "Two views/shared BatchNorm/forward compute differences are disclosed.",
+        "Within-cohort band-design differences and between-protocol montage/window/reference/preprocessing differences must remain separate.",
+        "Cho -1.513 pp adverse retained; PhysioNet +0.573 and Lee +0.204 remain uncertain; Lee does not establish equivalence."
+      ],
+      "new_training_required": false
+    },
+    {
+      "issue": "M3",
+      "status": "rewrite_introduction_contribution_paragraph",
+      "blocks": [
+        5,
+        6
+      ],
+      "findings": [
+        "Existing end of Introduction combines selection, external transfer, transparency and physiology without explicit two-primary-contribution hierarchy.",
+        "Use two empirical contributions; Q16 supplementary/descriptive, evidence chain transparency contribution, no original algorithm or selection-rule priority claim."
+      ]
+    },
+    {
+      "issue": "M4",
+      "status": "semantic_replacements_and_SI_crosswalk_required",
+      "blocks": [
+        16,
+        17,
+        18,
+        23,
+        26,
+        27,
+        28,
+        38,
+        44,
+        48,
+        52,
+        53,
+        54,
+        55,
+        58,
+        62,
+        65,
+        66,
+        68,
+        96,
+        100,
+        108,
+        111,
+        113,
+        114,
+        127,
+        128,
+        131,
+        136,
+        138,
+        139,
+        140
+      ],
+      "findings": [
+        "Internal Q/P IDs still occur in main headings, paragraphs, captions and table labels.",
+        "Replace main narrative IDs with scientific names; preserve all archive filenames and establish semantic-name-to-ID-to-path SI table.",
+        "Montage channel labels P1/P2 are real electrodes and must not be replaced as project IDs."
+      ]
+    },
+    {
+      "issue": "Q16",
+      "status": "existing_scientific_boundaries_correct_preserve",
+      "blocks": [
+        59,
+        60,
+        61,
+        62,
+        68,
+        71,
+        115,
+        116,
+        117,
+        118,
+        119,
+        132,
+        133,
+        141,
+        143
+      ],
+      "findings": [
+        "BNCI only, nine people, post-decoder-outcome, no p-values, no external physiology and no decoder feedback already stated.",
+        "1-s baseline one Welch segment / 2-s task three overlapping segments and log-power bias disclosed.",
+        "Signed laterality is contra minus ipsi, not absolute contralateral ERD; S2 counterexample retained.",
+        "rho +0.600 is descriptive and higher BA with less-negative laterality, not evidence of stronger suppression.",
+        "All sensors/profiles/trials/artifact flags and negative means must remain; sensor interpolation does not locate cortical sources."
+      ]
+    },
+    {
+      "issue": "MINOR_FIGURE2",
+      "status": "no_font_failure_found_at_recorded_output_size",
+      "findings": [
+        "Every observed text element corresponds to approximately 8.000 pt at the TIFF physical width 19.05 cm; SVG nominal 13.142708 is not the delivered point size.",
+        "Figure is legible in direct preview; legends have no visible overlap.",
+        "Keep output width or increase fonts if journal reduces width; do not assert future typesetter scale verified."
+      ]
+    },
+    {
+      "issue": "MINOR_CVD",
+      "status": "existing_redundant_encoding_present_caption_strengthening_and_simulation_optional",
+      "findings": [
+        "Fig6 scalp color map RdBu_r, negative blue/positive red, fixed +/-6dB. Profile left/right already use circle/triangle and blue-green/brown.",
+        "FigS1 robustness heatmap RdBu, fixed +/-20pp, every cell has signed numeric annotation.",
+        "Do not equate RdBu with red-green-only palette and do not rescale ranges to make near-zero signals visually stronger.",
+        "Add caption descriptions of color direction and shape/numeric redundancy; if CVD simulation is performed, retain it as display review and not mathematical guarantee for all viewers."
+      ]
+    },
+    {
+      "issue": "MINOR_FIXED20",
+      "status": "clarifying_sentence_recommended",
+      "blocks": [
+        37,
+        92,
+        93,
+        123
+      ],
+      "findings": [
+        "Already described as later matched-runtime sensitivity control, four improve/five worsen, negative median and no universal optimum.",
+        "Clarify fixed20 provides a common-duration control and is not an external-outcome-selected deployment rule; no new justification from favourable average."
+      ]
+    },
+    {
+      "issue": "MINOR_EQUATIONS",
+      "status": "definitions_and_explicit_crossreferences_recommended",
+      "blocks": [
+        34,
+        35,
+        41,
+        42,
+        60,
+        61,
+        64,
+        65
+      ],
+      "findings": [
+        "Rank and shared-logit equations exist without numeric labels. Balanced accuracy equation lacks explicit TP/FN/C definitions in its adjacent prose.",
+        "Add editorial equation labels/references and define symbols, keeping algorithms/bounds unchanged.",
+        "Power ratio and signed laterality may remain inline with explicit symbols defined; no estimator changes."
+      ]
+    }
+  ],
+  "main_qp_occurrences": [
+    {
+      "main_block_index_0based": 16,
+      "section": "Experimental Design",
+      "field": "text",
+      "ids": [
+        "Q14",
+        "Q15"
+      ],
+      "text": "The study comprises exploratory development and two external-evaluation stages. In the four-class BNCI2014_001 development stage, both sessions of each target person are excluded from the corresponding fitting and duration selection. Earlier benchmark outcomes informed later candidates, so the nine-person comparisons remain exploratory. The earlier PhysioNet external evaluation (Q14) applies separately fitted binary BNCI models to PhysioNet; a metadata-driven sampling-rate amendment followed partial target execution. The frozen Cho2017/Lee2019 transfer experiment (Q15) uses a new binary source pipeline with a different montage, crop and reference, evaluating its frozen broad, shared-input and CSP models on Cho2017 and Lee2019 offline-training segments. These datasets are external to fitting, but participant identity nonoverlap across providers was not independently established."
+    },
+    {
+      "main_block_index_0based": 17,
+      "section": "Experimental Design",
+      "field": "text",
+      "ids": [
+        "Q16"
+      ],
+      "text": "The primary external estimand is the mean paired balanced-accuracy difference between the frozen shared-input and broad pipelines, with equal weight for each person and separate estimates for each cohort. The PhysioNet evaluation uses 17 shared and 18 broad epochs; the frozen Cho2017/Lee2019 evaluation uses 19 shared and 14 broad epochs, all selected on source data. Each contrast therefore evaluates complete selected pipelines rather than the isolated effect of sharing. CSP provides context, and neither external stage compares rank with mean-loss selection. The descriptive BNCI physiological analysis (Q16) was defined after decoder results were known and uses BNCI signals only. Its raw-signal summaries and associations provide no feedback into the decoders and cannot establish their physiological mechanism."
+    },
+    {
+      "main_block_index_0based": 18,
+      "section": "Experimental Design",
+      "field": "caption",
+      "ids": [
+        "Q14",
+        "Q15",
+        "Q14"
+      ],
+      "text": "Study workflow and information boundaries. Both sessions of each internal target person are excluded from the corresponding source fit; these development analyses remain exploratory. Q14 and Q15 use separate binary models and preprocessing contracts. At inference, deterministic adapters and frozen source-derived transformations are applied without fitting, adaptation or BatchNorm updates. Event and class metadata establish eligibility and canonical label mapping; ground-truth labels are used for scoring. The separate BNCI-only physiological analysis reads native signals and labels after decoder outcomes are known, without feeding back into fitting or selection. Results are aggregated by person. Q14's post-partial-run amendment and the external differences in selected duration are described in the Methods and comparison-fairness table."
+    },
+    {
+      "main_block_index_0based": 23,
+      "section": "Datasets, Populations and Task Separation",
+      "field": "note",
+      "ids": [
+        "Q14",
+        "Q15"
+      ],
+      "text": "Both sessions of each BNCI outer target are held out. Q14 and Q15 have separate binary source fits and preprocessing contracts, and neural inputs contain EEG channels only. Prediction rows repeat trials across models and seeds; they are not independent participants. Lee sessions are pooled within person for the primary endpoint."
+    },
+    {
+      "main_block_index_0based": 23,
+      "section": "Datasets, Populations and Task Separation",
+      "field": "rows[1][0]",
+      "ids": [
+        "Q14"
+      ],
+      "text": "Q14 binary BNCI source"
+    },
+    {
+      "main_block_index_0based": 23,
+      "section": "Datasets, Populations and Task Separation",
+      "field": "rows[2][0]",
+      "ids": [
+        "Q14"
+      ],
+      "text": "Q14 external PhysioNet"
+    },
+    {
+      "main_block_index_0based": 23,
+      "section": "Datasets, Populations and Task Separation",
+      "field": "rows[3][0]",
+      "ids": [
+        "Q15"
+      ],
+      "text": "Q15 binary BNCI source"
+    },
+    {
+      "main_block_index_0based": 23,
+      "section": "Datasets, Populations and Task Separation",
+      "field": "rows[4][0]",
+      "ids": [
+        "Q15"
+      ],
+      "text": "Q15 external Cho2017"
+    },
+    {
+      "main_block_index_0based": 23,
+      "section": "Datasets, Populations and Task Separation",
+      "field": "rows[5][0]",
+      "ids": [
+        "Q15"
+      ],
+      "text": "Q15 external Lee2019"
+    },
+    {
+      "main_block_index_0based": 26,
+      "section": "Strict Zero-calibration Information Contract",
+      "field": "text",
+      "ids": [
+        "Q15"
+      ],
+      "text": "Target EEG provides model inputs; event and class metadata determine declared eligibility and canonical label mappings. Labels are then used to score saved predictions. Cho recordings are stored in class-specific containers, so the adapter has access to native class metadata. Fixed filtering, channel selection, resampling and common-average referencing operate on target signals without fitting a target-dependent decoder. The Q15 Helmert basis depends only on channel count; scalers, CSP/PCA, whitening and EOG-regression coefficients, where used, are estimated on source-training data and applied unchanged. Separate physiological summaries use raw signals and labels but provide no feedback into bands, crops, weights, thresholds, schedules or model choice."
+    },
+    {
+      "main_block_index_0based": 27,
+      "section": "Strict Zero-calibration Information Contract",
+      "field": "text",
+      "ids": [
+        "Q15",
+        "P2",
+        "P4"
+      ],
+      "text": "The absence of target fitting does not establish physical acquisition calibration. Q15’s native-numeric-as-microvolt convention does not verify the exported voltage units. Earlier within-person and cross-session P2 models use target-person labelled calibration and remain outside the strict zero-calibration endpoints. The source-fitted P4 EOG regression requires synchronous target EOG and thus additional sensors, although it fits no target coefficients."
+    },
+    {
+      "main_block_index_0based": 28,
+      "section": "Strict Zero-calibration Information Contract",
+      "field": "rows[1][0]",
+      "ids": [
+        "Q15"
+      ],
+      "text": "Filtering, resampling, crop and Q15 CAR"
+    },
+    {
+      "main_block_index_0based": 28,
+      "section": "Strict Zero-calibration Information Contract",
+      "field": "rows[2][0]",
+      "ids": [
+        "Q15"
+      ],
+      "text": "Q15 Helmert coordinates"
+    },
+    {
+      "main_block_index_0based": 28,
+      "section": "Strict Zero-calibration Information Contract",
+      "field": "rows[5][0]",
+      "ids": [
+        "Q16"
+      ],
+      "text": "Scoring and separate Q16 characterization"
+    },
+    {
+      "main_block_index_0based": 28,
+      "section": "Strict Zero-calibration Information Contract",
+      "field": "rows[6][0]",
+      "ids": [
+        "P2"
+      ],
+      "text": "P2 within-person or cross-session models"
+    },
+    {
+      "main_block_index_0based": 38,
+      "section": "Training-duration Selection and Diagnostic Controls",
+      "field": "text",
+      "ids": [
+        "Q5/Q6",
+        "Q7"
+      ],
+      "text": "The population raw-versus-source-normalized Q5/Q6 comparison also changes the selected duration for S3 from 2 to 16 epochs and S5 from 13 to 12. Its aggregate difference therefore cannot be attributed solely to normalization. The fixed-duration Q7 four-cell diagnostic separates normalization and duration more directly, but only for S3."
+    },
+    {
+      "main_block_index_0based": 44,
+      "section": "Neural Representation and Baseline Fairness",
+      "field": "note",
+      "ids": [
+        "Q14/Q15"
+      ],
+      "text": "Each comparison controls the aspects listed, while retaining the stated implementation differences. Q14/Q15 therefore compare complete frozen pipelines. Matching selected aspects does not isolate every causal factor, and the CSP comparisons remain descriptive."
+    },
+    {
+      "main_block_index_0based": 44,
+      "section": "Neural Representation and Baseline Fairness",
+      "field": "rows[0][0]",
+      "ids": [
+        "Q5",
+        "Q8"
+      ],
+      "text": "Q5 mean-loss vs Q8 mean-rank"
+    },
+    {
+      "main_block_index_0based": 44,
+      "section": "Neural Representation and Baseline Fairness",
+      "field": "rows[1][0]",
+      "ids": [
+        "Q5",
+        "Q6"
+      ],
+      "text": "Q5 raw vs Q6 source normalization"
+    },
+    {
+      "main_block_index_0based": 44,
+      "section": "Neural Representation and Baseline Fairness",
+      "field": "rows[2][0]",
+      "ids": [
+        "Q7"
+      ],
+      "text": "Q7 S3 raw/normalized ×2/16 epochs"
+    },
+    {
+      "main_block_index_0based": 44,
+      "section": "Neural Representation and Baseline Fairness",
+      "field": "rows[3][0]",
+      "ids": [
+        "Q9"
+      ],
+      "text": "Q9 broad vs shared, reselected durations"
+    },
+    {
+      "main_block_index_0based": 44,
+      "section": "Neural Representation and Baseline Fairness",
+      "field": "rows[4][0]",
+      "ids": [
+        "Q9-E002"
+      ],
+      "text": "Q9-E002 fixed-schedule broad/shared"
+    },
+    {
+      "main_block_index_0based": 44,
+      "section": "Neural Representation and Baseline Fairness",
+      "field": "rows[4][1]",
+      "ids": [
+        "Q8"
+      ],
+      "text": "Same targets and frozen Q8 per-target epochs"
+    },
+    {
+      "main_block_index_0based": 44,
+      "section": "Neural Representation and Baseline Fairness",
+      "field": "rows[5][0]",
+      "ids": [
+        "Q10"
+      ],
+      "text": "Q10 CSP vs PCA neural projections"
+    },
+    {
+      "main_block_index_0based": 44,
+      "section": "Neural Representation and Baseline Fairness",
+      "field": "rows[6][0]",
+      "ids": [
+        "Q11"
+      ],
+      "text": "Q11 independent branches vs capacity comparator"
+    },
+    {
+      "main_block_index_0based": 44,
+      "section": "Neural Representation and Baseline Fairness",
+      "field": "rows[7][0]",
+      "ids": [
+        "Q12"
+      ],
+      "text": "Q12 GroupDRO vs balanced ERM"
+    },
+    {
+      "main_block_index_0based": 44,
+      "section": "Neural Representation and Baseline Fairness",
+      "field": "rows[8][0]",
+      "ids": [
+        "Q12",
+        "Q8"
+      ],
+      "text": "Q12 whitening/augmentation vs historical Q8"
+    },
+    {
+      "main_block_index_0based": 44,
+      "section": "Neural Representation and Baseline Fairness",
+      "field": "rows[9][0]",
+      "ids": [
+        "Q13"
+      ],
+      "text": "Q13 fixed20 vs matched-runtime CE schedule"
+    },
+    {
+      "main_block_index_0based": 44,
+      "section": "Neural Representation and Baseline Fairness",
+      "field": "rows[10][0]",
+      "ids": [
+        "Q13"
+      ],
+      "text": "Q13 source-session 0train vs 1test"
+    },
+    {
+      "main_block_index_0based": 44,
+      "section": "Neural Representation and Baseline Fairness",
+      "field": "rows[11][0]",
+      "ids": [
+        "Q14"
+      ],
+      "text": "Q14 external broad vs shared"
+    },
+    {
+      "main_block_index_0based": 44,
+      "section": "Neural Representation and Baseline Fairness",
+      "field": "rows[12][0]",
+      "ids": [
+        "Q15"
+      ],
+      "text": "Q15 external broad vs shared"
+    },
+    {
+      "main_block_index_0based": 44,
+      "section": "Neural Representation and Baseline Fairness",
+      "field": "rows[13][0]",
+      "ids": [
+        "Q14/Q15"
+      ],
+      "text": "Q14/Q15 CSP4+LDA context"
+    },
+    {
+      "main_block_index_0based": 44,
+      "section": "Neural Representation and Baseline Fairness",
+      "field": "rows[13][2]",
+      "ids": [
+        "Q15",
+        "Q4"
+      ],
+      "text": "One shallow model vs three neural seeds; Q15 Helmert; differs from Q4 CSP8/OAS"
+    },
+    {
+      "main_block_index_0based": 48,
+      "section": "Earlier Binary Source Freeze and PhysioNet Evaluation (Q14)",
+      "field": "text",
+      "ids": [
+        "Q14"
+      ],
+      "text": "Earlier Binary Source Freeze and PhysioNet Evaluation (Q14)"
+    },
+    {
+      "main_block_index_0based": 52,
+      "section": "Frozen Cho2017/Lee2019 Transfer (Q15)",
+      "field": "text",
+      "ids": [
+        "Q15"
+      ],
+      "text": "Frozen Cho2017/Lee2019 Transfer (Q15)"
+    },
+    {
+      "main_block_index_0based": 53,
+      "section": "Frozen Cho2017/Lee2019 Transfer (Q15)",
+      "field": "text",
+      "ids": [
+        "Q14",
+        "P2",
+        "Q14"
+      ],
+      "text": "The frozen Cho2017/Lee2019 study is a separate binary transfer experiment using different checkpoints from Q14. All nine BNCI participants supply 2,592 left/right trials. The common ordered montage comprises Fz, FC3, FC1, FC2, FC4, C5, C3, C1, Cz, C2, C4, C6, CP3, CP1, CPz, CP2, CP4, P1, Pz, P2, and POz. Each trial is processed in a fixed native-rate context from −1.5 to +4.5 s relative to the cue. Common-average reference is computed across these 21 selected channels, followed by native-rate zero-phase second-order-section Butterworth filtering with prototype order four. Broad input uses 8–30 Hz; the shared views use 8–13 and 13–30 Hz. Deterministic polyphase resampling yields 160 Hz, followed by the half-open cue crop [0.5,2.5) s, equivalent to samples [320,640) of the resampled six-second context. The resulting model tensor is 21 × 320. These preprocessing and input differences preclude interpreting a comparison with Q14 as an effect of external provider alone."
+    },
+    {
+      "main_block_index_0based": 54,
+      "section": "Frozen Cho2017/Lee2019 Transfer (Q15)",
+      "field": "text",
+      "ids": [
+        "Q15"
+      ],
+      "text": "The Q15 adapter interprets native numeric values as microvolts by convention. Physical voltage calibration, the original Cho hardware reference, and hardware cue latency have not been independently verified. The first 64 of the Cho payload’s 68 rows are EEG; four EMG rows are excluded. Channel mapping follows the publication’s numbered montage because the payload does not supply names. Cho native labels left = 1 and right = 2 are retained. Lee native labels left = 2 and right = 1 are deterministically mapped to canonical left = 1 and right = 2. Lee MATLAB cue indices are converted using t − 1; the provider’s stored segments align with Python t, leaving a disclosed one-sample (1-ms) indexing discrepancy that was not changed using outcome scores. The supplement documents these adapter assumptions and the file-level checks."
+    },
+    {
+      "main_block_index_0based": 55,
+      "section": "Frozen Cho2017/Lee2019 Transfer (Q15)",
+      "field": "text",
+      "ids": [
+        "Q15"
+      ],
+      "text": "Source-only duration selection uses four groups comprising people 1–2, 3–4, 5–6, and 7–9, candidate epochs 1–40, equally weighted mean within-fold cross-entropy ranks, and the earliest minimum. Final durations are 14 broad epochs and 19 shared epochs. The selection seed is 20260923, and final seeds are 20260924–20260926. Training uses the same configured EEGNet family, optimizer, and fixed-band logit averaging described above, with the Q15 channel/time dimensions. A source-fitted CSP4 + LDA comparator applies a fixed 21-to-20 Helmert coordinate transform after common-average reference, followed by source-only fitting. The external neural comparison evaluates two complete frozen pipelines with different source-selected durations and cannot isolate parameter sharing or band decomposition alone. Source training comprises eight inner neural fits, six final neural fits, and one shallow fit: 15 in total. Migration reused these artifacts without additional source or target fitting."
+    },
+    {
+      "main_block_index_0based": 58,
+      "section": "BNCI-only Physiological Signal Characterization (Q16)",
+      "field": "text",
+      "ids": [
+        "Q16"
+      ],
+      "text": "BNCI-only Physiological Signal Characterization (Q16)"
+    },
+    {
+      "main_block_index_0based": 62,
+      "section": "BNCI-only Physiological Signal Characterization (Q16)",
+      "field": "text",
+      "ids": [
+        "Q14-E001",
+        "Q16-P001-BNCI-20261006"
+      ],
+      "text": "The physiological parameters were fixed on 6 October 2026 after the decoder outcomes were known and before the physiological calculations. The analysis is therefore descriptive and does not provide independent confirmation. Associations use existing matched-binary Q14-E001 BNCI LOSO scores, averaged over the three fixed neural seeds within each of the same nine people; all-nine-source fits and external-cohort scores are excluded. The broad EEGNet score is the designated descriptive endpoint. Six Spearman coefficients cover the three fixed models and two fixed bands, with no p-values, tertile groups or outcome-selected bands/models. Decoder imagery covers [0.5,3.5) s, whereas the physiological power analysis covers [0.5,2.5) s. No external physiology was calculated, and no physiological output was used to fit, select or update a decoder. The parameter freeze is commit 050e01b028aaab8e3d745934b13b2d17e9bb0a7a; its public readback preceded raw-power calculation. The preprocessing freeze, raw-data receipt, execution manifest and final independent validation link the specification and inputs to the completed tables in Q16-P001-BNCI-20261006."
+    },
+    {
+      "main_block_index_0based": 65,
+      "section": "Statistical Analysis",
+      "field": "text",
+      "ids": [
+        "Q14",
+        "Q15"
+      ],
+      "text": "The held-out person is the unit of statistical inference. Paired seeds are averaged within person; predefined source-identity subsets are averaged within person and source count. Shallow conditions have one prediction per trial rather than three independent neural seeds. Paired differences are expressed in balanced-accuracy percentage points (pp). Person-bootstrap percentile intervals resample people, not trials, sessions, seeds, or source subsets. External intervals describe variation across target people conditional on the frozen source models; they do not quantify source-cohort sampling uncertainty. Internal analyses remain exploratory because benchmark outcomes informed the research program and outer training sets overlap. For Lee2019, the two retained sessions are pooled before calculating each person/seed balanced accuracy. The three neural-seed scores are then averaged within person, giving an average of scores rather than an ensemble of probabilities. A single CSP score is retained per person. Cross-cohort score differences are descriptive because Q14 and Q15 differ in source preprocessing and checkpoints."
+    },
+    {
+      "main_block_index_0based": 66,
+      "section": "Statistical Analysis",
+      "field": "text",
+      "ids": [
+        "Q15",
+        "Q15"
+      ],
+      "text": "For each archived experiment, we report its original statistics and the interval resampling procedure. Rank-selection intervals use 20,000 person-bootstrap draws with seed 20260923. The archived shared-minus-broad representation contrast and robustness intervals use 20,000 draws with seed 20260924. Source-composition and matched-runtime intervals use 10,000 draws with seed 20260926 and exhaustive two-sided sign flips over nine participant differences; familywise exploratory p-values use Holm correction within the frozen families. The earlier PhysioNet primary contrast uses 20,000 draws with seed 20260924 and an exact two-sided binomial sign test excluding exact zero differences. Its primary hypothesis is shared-minus-broad; contextual comparisons with CSP do not replace it. A supplementary numerical audit uses 200,000 draws with seed 20261002 and is labelled separately. An interval excluding zero need not agree with every small-sample test. For Q15, the predeclared family contains exactly two shared-minus-broad contrasts, one for each external cohort. Percentile person-bootstrap intervals use 20,000 draws with seed 20260924 [24]. Two-sided person-level sign-flip tests use 20,000 Monte Carlo draws with seed 20261003, assuming sign exchangeability of paired person effects under the null, evaluating the absolute mean, and applying the (exceedances + 1)/(20,000 + 1) correction [25]. Holm adjustment controls this two-contrast family [26]; it does not retroactively include the earlier PhysioNet or internal hypotheses. The smallest attainable Monte Carlo p-value is 1/20,001. The intervals are unadjusted 95% intervals, and CSP comparisons are descriptive context. Descriptive Q15 counts of positive, negative, and tied person effects use an absolute 10^−15 tolerance for ties; the frozen primary bootstrap and sign-flip calculations retain the saved numerical effects."
+    },
+    {
+      "main_block_index_0based": 68,
+      "section": "Statistical Analysis",
+      "field": "text",
+      "ids": [
+        "Q15"
+      ],
+      "text": "The physiological characterization was specified after decoder outcomes were known and remains descriptive. Physiological aggregation and decoder associations use nine person-level records; channels, trials, sessions and seeds are not treated as independent people. The six Spearman coefficients have no physiological p-values or confirmatory testing family. They are separate from Q15’s frozen two-cohort tests and cannot retrospectively confirm the decoder contrasts."
+    },
+    {
+      "main_block_index_0based": 96,
+      "section": "Spectral, spatial, and architectural interventions",
+      "field": "text",
+      "ids": [
+        "Q10-V001"
+      ],
+      "text": "The internal shared mu/beta condition achieved 42.19% balanced accuracy, compared with 42.67% for the broad mean-rank baseline, a −0.48 pp mean difference. The archived Q10-V001 exploratory paired interval is [−3.21,+1.41] pp (20,000 draws, seed 20260924), with exact sign-flip p = 0.914. This comparison did not demonstrate a spectral-sharing gain. The restricted broad band and individual bands provide descriptive frequency controls, while fixed-duration representation controls retain their declared schedules."
+    },
+    {
+      "main_block_index_0based": 100,
+      "section": "Source-only robustness has no corrected established gain",
+      "field": "note",
+      "ids": [
+        "Q8"
+      ],
+      "text": "Intervals are the archived, unadjusted person-bootstrap intervals; p-values use the declared within-family Holm correction. Every comparison with Q8 crosses runtimes. GroupDRO versus balanced ERM matches batching within the same runtime. Neither intervals nor p-values are used to select a model on target outcomes."
+    },
+    {
+      "main_block_index_0based": 100,
+      "section": "Source-only robustness has no corrected established gain",
+      "field": "rows[0][2]",
+      "ids": [
+        "Q8"
+      ],
+      "text": "Q8 historical"
+    },
+    {
+      "main_block_index_0based": 100,
+      "section": "Source-only robustness has no corrected established gain",
+      "field": "rows[1][2]",
+      "ids": [
+        "Q8"
+      ],
+      "text": "Q8 historical"
+    },
+    {
+      "main_block_index_0based": 100,
+      "section": "Source-only robustness has no corrected established gain",
+      "field": "rows[3][2]",
+      "ids": [
+        "Q8"
+      ],
+      "text": "Q8 historical"
+    },
+    {
+      "main_block_index_0based": 100,
+      "section": "Source-only robustness has no corrected established gain",
+      "field": "rows[4][2]",
+      "ids": [
+        "Q8"
+      ],
+      "text": "Q8 historical"
+    },
+    {
+      "main_block_index_0based": 100,
+      "section": "Source-only robustness has no corrected established gain",
+      "field": "rows[5][2]",
+      "ids": [
+        "Q8"
+      ],
+      "text": "Q8 historical"
+    },
+    {
+      "main_block_index_0based": 108,
+      "section": "Completed Cho2017 and Lee2019 transfer: lower balanced accuracy on Cho2017 and an uncertain Lee2019 contrast",
+      "field": "text",
+      "ids": [
+        "Q15"
+      ],
+      "text": "The completed Q15 outputs cover 21,320 unique external trials and 149,240 saved model/seed prediction rows, seven per trial. Independent checks verified canonical labels and event identities, person-level confusion matrices, aggregate balanced accuracies, frozen statistical outputs, and links to the declared artifacts. Original source fits remained 15, with zero new migration fits and zero target fits. These counts confirm source-only fitting; they do not constitute independent repetitions of the external experiment."
+    },
+    {
+      "main_block_index_0based": 111,
+      "section": "Completed Cho2017 and Lee2019 transfer: lower balanced accuracy on Cho2017 and an uncertain Lee2019 contrast",
+      "field": "label",
+      "ids": [
+        "Q15"
+      ],
+      "text": "Table 7. New external binary evaluation under the Q15 freeze."
+    },
+    {
+      "main_block_index_0based": 113,
+      "section": "Completed Cho2017 and Lee2019 transfer: lower balanced accuracy on Cho2017 and an uncertain Lee2019 contrast",
+      "field": "caption",
+      "ids": [
+        "Q15",
+        "Q14"
+      ],
+      "text": "Frozen Q15 external evaluation. Cohorts are shown separately: person/model scores, equal-person means and person standard deviations, and frozen paired person-bootstrap 95% intervals. Deep-model scores average three seeds within person; Lee sessions are pooled before person scoring. Holm p-values refer to the predeclared two-cohort shared-minus-broad family. The common 21-channel, two-second pipeline differs from Q14, and no pooled cross-cohort test was specified."
+    },
+    {
+      "main_block_index_0based": 114,
+      "section": "Descriptive BNCI Sensor Physiology and Decoder Associations (Q16)",
+      "field": "text",
+      "ids": [
+        "Q16"
+      ],
+      "text": "Descriptive BNCI Sensor Physiology and Decoder Associations (Q16)"
+    },
+    {
+      "main_block_index_0based": 127,
+      "section": "Complete Spectral Pipelines Have Cohort-dependent Outcomes",
+      "field": "text",
+      "ids": [
+        "Q15"
+      ],
+      "text": "One shared parameter set does not imply a cheaper computation: the network processes two band views and pools their BatchNorm exposure. Independent-branch controls alter both capacity and normalization, and the broadband capacity comparator retains a small disclosed parameter mismatch. The source-fitted CSP model also transfers poorly and asymmetrically in Q15. Performance above this contextual comparator does not establish practical or clinical reliability. Contemporary adaptation and foundation-model methods were not compared under a common budget, so the results support no state-of-the-art claim."
+    },
+    {
+      "main_block_index_0based": 128,
+      "section": "Complete Spectral Pipelines Have Cohort-dependent Outcomes",
+      "field": "text",
+      "ids": [
+        "Q14",
+        "Q15"
+      ],
+      "text": "The external schedules are part of the pipeline contrast: broad/shared fits used 18/17 epochs in Q14 and 14/19 in Q15. Paired differences therefore combine the selected training durations, input views and shared normalization. They do not identify the causal contribution of parameter sharing alone."
+    },
+    {
+      "main_block_index_0based": 131,
+      "section": "Person-level Evidence and Descriptive Signal Characterization",
+      "field": "text",
+      "ids": [
+        "Q15"
+      ],
+      "text": "A few large recoveries can improve a mean without producing consistent benefit across people, so tests of average change and directional consistency need not agree. The original rank-selection sign calculation retained exact ties; excluding them conventionally gives a different result from both the archived calculation and the paired t-test. The discrepancy must remain visible rather than be hidden under an incorrect test label. The later internal families retain their corrected null findings. Percentile bootstrap intervals and randomization tests also need not agree in a small sample; an interval excluding zero does not override a corrected null test. Q15 uses a separately frozen two-cohort family: Cho2017 survives correction, whereas Lee2019 establishes neither benefit nor equivalence. These separate tests do not establish a cohort-by-pipeline interaction. PhysioNet has a different archived primary test and an amended protocol; its p-value belongs to that evaluation rather than the newer family."
+    },
+    {
+      "main_block_index_0based": 136,
+      "section": "Limitations",
+      "field": "text",
+      "ids": [
+        "Q14",
+        "Q15",
+        "Q14"
+      ],
+      "text": "Q14 and Q15 differ in montages, windows, references, filtering scope and source checkpoints. Q14’s metadata amendment followed partial execution. In the frozen transfer experiment, repository freezes preceded fitting or inference but followed metadata inspection; they are not independently registered preregistration. Cross-provider participant identities remain unverified. The external bootstrap intervals condition on one frozen source cohort and omit source-sampling, adapter and development-history uncertainty."
+    },
+    {
+      "main_block_index_0based": 138,
+      "section": "Limitations",
+      "field": "text",
+      "ids": [
+        "Q15"
+      ],
+      "text": "Q15 used a common operational tensor and a committed adapter for transfer across three providers. Matching tensor dimensions does not make the physical measurements equivalent. Native export voltage calibration, the original Cho acquisition reference and hardware cue latency were not independently verified. The Cho channel order was mapped from the publication montage because the MATLAB payload has no channel-name strings. Lee event indexing retains a one-native-sample convention discrepancy. Numerical consistency checks cannot resolve these acquisition uncertainties."
+    },
+    {
+      "main_block_index_0based": 139,
+      "section": "Limitations",
+      "field": "text",
+      "ids": [
+        "Q14",
+        "Q15",
+        "Q15"
+      ],
+      "text": "Q14 and Q15 also differ in the extent of verification. The earlier PhysioNet evaluation required a sampling-rate amendment after partial execution; its later portability check examined saved outputs without replaying inference. Q15 froze preprocessing before source fitting and the inference contract before external prediction, and its completed scientific validator reports independent raw-to-prediction replay. The manuscript checks recalculate saved outputs and verify hash bindings. These provide different levels of reproducibility and should not be treated as interchangeable."
+    },
+    {
+      "main_block_index_0based": 140,
+      "section": "Limitations",
+      "field": "text",
+      "ids": [
+        "Q15"
+      ],
+      "text": "Evaluation was offline and used zero-phase filtering. Online latency, prospective assistive control, clinical populations and patient benefit were not tested. The two-second Q15 crop omits part of each imagery interval and differs from the providers’ original benchmarks. A subsequent study could preregister a calibrated adapter and frozen source-only models for another cohort, specifying per-class and per-person outcomes before access. Retuning on the present held-out cohorts would be further development, not independent external confirmation."
+    }
+  ],
+  "semantic_name_map": {
+    "Q5": "mean-loss duration selection",
+    "Q6": "source-only per-channel normalization",
+    "Q7": "single-participant fixed-duration normalization diagnostic",
+    "Q8": "mean-rank duration-selection follow-up",
+    "Q9": "spectral-input controls",
+    "Q9-E002": "fixed-schedule spectral-input control",
+    "Q10": "source-fitted spatial and covariance controls",
+    "Q10-V001": "archived paired spectral-input validation",
+    "Q11": "architecture and capacity controls",
+    "Q12": "source-only robustness controls",
+    "Q13": "matched-runtime duration and source-composition controls",
+    "Q14": "frozen PhysioNet transfer evaluation",
+    "Q14-E001": "saved matched-binary BNCI LOSO evaluation",
+    "Q15": "frozen Cho2017/Lee2019 transfer evaluation",
+    "Q16": "descriptive BNCI sensor-level physiological characterization",
+    "Q16-P001-BNCI-20261006": "descriptive BNCI physiology archive",
+    "P2": "earlier calibrated/binary evaluation",
+    "P4": "source-fitted EOG-regression control"
+  },
+  "main_to_original_block_map": [
+    {
+      "main_block_index_0based": 0,
+      "type": "heading",
+      "section": "Abstract",
+      "source_block_indices_0based": [
+        0
+      ],
+      "text_preview": "Abstract   "
+    },
+    {
+      "main_block_index_0based": 1,
+      "type": "paragraph",
+      "section": "Abstract",
+      "source_block_indices_0based": [],
+      "text_preview": "We audited source-only training-duration selection and evaluated fixed shared mu/beta input pipelines for cross-subject motor-imagery EEG decoding. An explorato"
+    },
+    {
+      "main_block_index_0based": 2,
+      "type": "heading",
+      "section": "Introduction",
+      "source_block_indices_0based": [],
+      "text_preview": "Introduction   "
+    },
+    {
+      "main_block_index_0based": 3,
+      "type": "paragraph",
+      "section": "Introduction",
+      "source_block_indices_0based": [
+        4
+      ],
+      "text_preview": "Motor-imagery EEG decoding must distinguish imagined actions in scalp recordings whose spatial and spectral structure varies between people. A calibration-free "
+    },
+    {
+      "main_block_index_0based": 4,
+      "type": "paragraph",
+      "section": "Introduction",
+      "source_block_indices_0based": [
+        5
+      ],
+      "text_preview": "A decoder that predicts predominantly one class can have balanced accuracy near chance even when the same architecture performs well after a different training "
+    },
+    {
+      "main_block_index_0based": 5,
+      "type": "paragraph",
+      "section": "Introduction",
+      "source_block_indices_0based": [
+        6
+      ],
+      "text_preview": "We address three questions. First, can heterogeneous source-validation loss curves lead to very short training schedules, and does within-fold rank aggregation "
+    },
+    {
+      "main_block_index_0based": 6,
+      "type": "paragraph",
+      "section": "Introduction",
+      "source_block_indices_0based": [
+        7
+      ],
+      "text_preview": "Here, we audit source-only model selection as part of cross-subject decoder evaluation [11]. The development analyses trace how training-duration decisions affe"
+    },
+    {
+      "main_block_index_0based": 7,
+      "type": "heading",
+      "section": "Related Work",
+      "source_block_indices_0based": [],
+      "text_preview": "Related Work   "
+    },
+    {
+      "main_block_index_0based": 8,
+      "type": "paragraph",
+      "section": "Related Work",
+      "source_block_indices_0based": [
+        9
+      ],
+      "text_preview": "Classical motor-imagery decoders use spatial and spectral structure. CSP estimates discriminative spatial projections from class covariance structure [12], and "
+    },
+    {
+      "main_block_index_0based": 9,
+      "type": "paragraph",
+      "section": "Related Work",
+      "source_block_indices_0based": [
+        10
+      ],
+      "text_preview": "EEGNet combines temporal filtering, depthwise spatial filtering and separable convolutions in a compact architecture [15]; broader CNN work investigates learned"
+    },
+    {
+      "main_block_index_0based": 10,
+      "type": "paragraph",
+      "section": "Related Work",
+      "source_block_indices_0based": [
+        11
+      ],
+      "text_preview": "Algorithm reviews and multi-dataset benchmarks document performance variation between methods, people and datasets [3,4]. Domain-generalization evaluation must "
+    },
+    {
+      "main_block_index_0based": 11,
+      "type": "paragraph",
+      "section": "Related Work",
+      "source_block_indices_0based": [
+        12
+      ],
+      "text_preview": "Recent domain-generalization studies seek invariance across source domains for unseen-subject motor-imagery decoding. EEG-DG aligns marginal and conditional dis"
+    },
+    {
+      "main_block_index_0based": 12,
+      "type": "paragraph",
+      "section": "Related Work",
+      "source_block_indices_0based": [
+        13
+      ],
+      "text_preview": "EEG pretraining offers another route to transferable representations. LaBraM learns generic representations from large EEG collections [19], while EEGPT uses pr"
+    },
+    {
+      "main_block_index_0based": 13,
+      "type": "paragraph",
+      "section": "Related Work",
+      "source_block_indices_0based": [
+        14
+      ],
+      "text_preview": "Event-related desynchronization and synchronization describe decreases and increases in spectral power relative to a reference interval [21]. Earlier motor-imag"
+    },
+    {
+      "main_block_index_0based": 14,
+      "type": "heading",
+      "section": "Materials and Methods",
+      "source_block_indices_0based": [],
+      "text_preview": "Materials and Methods   "
+    },
+    {
+      "main_block_index_0based": 15,
+      "type": "heading",
+      "section": "Experimental Design",
+      "source_block_indices_0based": [],
+      "text_preview": "Experimental Design   "
+    },
+    {
+      "main_block_index_0based": 16,
+      "type": "paragraph",
+      "section": "Experimental Design",
+      "source_block_indices_0based": [
+        17
+      ],
+      "text_preview": "The study comprises exploratory development and two external-evaluation stages. In the four-class BNCI2014_001 development stage, both sessions of each target p"
+    },
+    {
+      "main_block_index_0based": 17,
+      "type": "paragraph",
+      "section": "Experimental Design",
+      "source_block_indices_0based": [
+        18
+      ],
+      "text_preview": "The primary external estimand is the mean paired balanced-accuracy difference between the frozen shared-input and broad pipelines, with equal weight for each pe"
+    },
+    {
+      "main_block_index_0based": 18,
+      "type": "figure",
+      "section": "Experimental Design",
+      "source_block_indices_0based": [
+        19
+      ],
+      "text_preview": " Study workflow and information boundaries. Both sessions of each internal target person are excluded from the corresponding source fit; these development analy"
+    },
+    {
+      "main_block_index_0based": 19,
+      "type": "heading",
+      "section": "Datasets, Populations and Task Separation",
+      "source_block_indices_0based": [],
+      "text_preview": "Datasets, Populations and Task Separation   "
+    },
+    {
+      "main_block_index_0based": 20,
+      "type": "paragraph",
+      "section": "Datasets, Populations and Task Separation",
+      "source_block_indices_0based": [
+        21
+      ],
+      "text_preview": "BNCI2014_001 corresponds to BCI Competition IV dataset 2a [1,2]. Nine participants completed two recording sessions, each containing six runs of 48 trials: 12 e"
+    },
+    {
+      "main_block_index_0based": 21,
+      "type": "paragraph",
+      "section": "Datasets, Populations and Task Separation",
+      "source_block_indices_0based": [
+        22
+      ],
+      "text_preview": "The external EEG Motor Movement/Imagery Database version 1.0.0 [5] provides a separate binary task. We include all 109 subjects and only imagery runs 4, 8, and "
+    },
+    {
+      "main_block_index_0based": 22,
+      "type": "paragraph",
+      "section": "Datasets, Populations and Task Separation",
+      "source_block_indices_0based": [
+        23
+      ],
+      "text_preview": "Cho2017 [7,8] provides left/right-hand imagery recordings from 52 people at a native sampling rate of 512 Hz. The audited evaluation retains 10,520 imagery tria"
+    },
+    {
+      "main_block_index_0based": 23,
+      "type": "table",
+      "section": "Datasets, Populations and Task Separation",
+      "source_block_indices_0based": [
+        24
+      ],
+      "text_preview": "  Both sessions of each BNCI outer target are held out. Q14 and Q15 have separate binary source fits and preprocessing contracts, and neural inputs contain EEG "
+    },
+    {
+      "main_block_index_0based": 24,
+      "type": "heading",
+      "section": "Strict Zero-calibration Information Contract",
+      "source_block_indices_0based": [],
+      "text_preview": "Strict Zero-calibration Information Contract   "
+    },
+    {
+      "main_block_index_0based": 25,
+      "type": "paragraph",
+      "section": "Strict Zero-calibration Information Contract",
+      "source_block_indices_0based": [
+        26
+      ],
+      "text_preview": "Within each evaluation fit, strict zero-calibration means that no parameter, state, preprocessing coefficient, hyperparameter, duration, seed, decision threshol"
+    },
+    {
+      "main_block_index_0based": 26,
+      "type": "paragraph",
+      "section": "Strict Zero-calibration Information Contract",
+      "source_block_indices_0based": [
+        27
+      ],
+      "text_preview": "Target EEG provides model inputs; event and class metadata determine declared eligibility and canonical label mappings. Labels are then used to score saved pred"
+    },
+    {
+      "main_block_index_0based": 27,
+      "type": "paragraph",
+      "section": "Strict Zero-calibration Information Contract",
+      "source_block_indices_0based": [
+        28
+      ],
+      "text_preview": "The absence of target fitting does not establish physical acquisition calibration. Q15’s native-numeric-as-microvolt convention does not verify the exported vol"
+    },
+    {
+      "main_block_index_0based": 28,
+      "type": "table",
+      "section": "Strict Zero-calibration Information Contract",
+      "source_block_indices_0based": [
+        29
+      ],
+      "text_preview": "  The restriction applies to fitting and selecting the corresponding decoder. It permits deterministic computation on target signals, metadata inspection, and l"
+    },
+    {
+      "main_block_index_0based": 29,
+      "type": "heading",
+      "section": "Offline Preprocessing and Source-only Partitions",
+      "source_block_indices_0based": [],
+      "text_preview": "Offline Preprocessing and Source-only Partitions   "
+    },
+    {
+      "main_block_index_0based": 30,
+      "type": "paragraph",
+      "section": "Offline Preprocessing and Source-only Partitions",
+      "source_block_indices_0based": [
+        31
+      ],
+      "text_preview": "For internal BNCI analyses, fourth-order zero-phase Butterworth filters are applied within each native recording run before epoch extraction. The half-open inte"
+    },
+    {
+      "main_block_index_0based": 31,
+      "type": "paragraph",
+      "section": "Offline Preprocessing and Source-only Partitions",
+      "source_block_indices_0based": [
+        32
+      ],
+      "text_preview": "The broad mean-loss and mean-rank EEGNet conditions use 4–40 Hz input. Restricted broad input uses 8–30 Hz, and the shared representation uses fixed mu (8–13 Hz"
+    },
+    {
+      "main_block_index_0based": 32,
+      "type": "paragraph",
+      "section": "Offline Preprocessing and Source-only Partitions",
+      "source_block_indices_0based": [
+        33
+      ],
+      "text_preview": "Each primary four-class outer split holds out both sessions of one participant. The eight source people contribute 4,608 trials and the target contributes 576. "
+    },
+    {
+      "main_block_index_0based": 33,
+      "type": "heading",
+      "section": "Training-duration Selection and Diagnostic Controls",
+      "source_block_indices_0based": [],
+      "text_preview": "Training-duration Selection and Diagnostic Controls   "
+    },
+    {
+      "main_block_index_0based": 34,
+      "type": "paragraph",
+      "section": "Training-duration Selection and Diagnostic Controls",
+      "source_block_indices_0based": [
+        35
+      ],
+      "text_preview": "The mean-loss rule selects the earliest epoch that minimizes validation cross-entropy averaged with equal weight across the four inner folds. Candidate epochs a"
+    },
+    {
+      "main_block_index_0based": 35,
+      "type": "equation",
+      "section": "Training-duration Selection and Diagnostic Controls",
+      "source_block_indices_0based": [
+        36
+      ],
+      "text_preview": "Selected epoch = earliest argmin over e of (1/K) Σ_k rank_k[L_k(e)].   "
+    },
+    {
+      "main_block_index_0based": 36,
+      "type": "paragraph",
+      "section": "Training-duration Selection and Diagnostic Controls",
+      "source_block_indices_0based": [
+        37
+      ],
+      "text_preview": "The rank candidate was motivated by earlier results on the same BNCI participants, so the internal comparison remains exploratory despite source-only selection "
+    },
+    {
+      "main_block_index_0based": 37,
+      "type": "paragraph",
+      "section": "Training-duration Selection and Diagnostic Controls",
+      "source_block_indices_0based": [
+        38
+      ],
+      "text_preview": "Later controls compare fixed 20-epoch training with raw-loss-selected schedules. A matched-runtime experiment retains the historical source-selected epoch count"
+    },
+    {
+      "main_block_index_0based": 38,
+      "type": "paragraph",
+      "section": "Training-duration Selection and Diagnostic Controls",
+      "source_block_indices_0based": [
+        39
+      ],
+      "text_preview": "The population raw-versus-source-normalized Q5/Q6 comparison also changes the selected duration for S3 from 2 to 16 epochs and S5 from 13 to 12. Its aggregate d"
+    },
+    {
+      "main_block_index_0based": 39,
+      "type": "heading",
+      "section": "Neural Representation and Baseline Fairness",
+      "source_block_indices_0based": [],
+      "text_preview": "Neural Representation and Baseline Fairness   "
+    },
+    {
+      "main_block_index_0based": 40,
+      "type": "paragraph",
+      "section": "Neural Representation and Baseline Fairness",
+      "source_block_indices_0based": [
+        41
+      ],
+      "text_preview": "The four-class model is Braindecode 1.5.1 EEGNet with 22 input channels, 750 samples, F1 = 8, depth multiplier D = 2, F2 = 16, temporal kernel length 64 samples"
+    },
+    {
+      "main_block_index_0based": 41,
+      "type": "paragraph",
+      "section": "Neural Representation and Baseline Fairness",
+      "source_block_indices_0based": [
+        42
+      ],
+      "text_preview": "For shared mu/beta input, both band views pass through the same EEGNet in one concatenated mini-batch. Their class logits are averaged before cross-entropy duri"
+    },
+    {
+      "main_block_index_0based": 42,
+      "type": "equation",
+      "section": "Neural Representation and Baseline Fairness",
+      "source_block_indices_0based": [
+        43
+      ],
+      "text_preview": "Shared prediction: p = softmax[(fθ(Xμ) + fθ(Xβ))/2].   "
+    },
+    {
+      "main_block_index_0based": 43,
+      "type": "paragraph",
+      "section": "Neural Representation and Baseline Fairness",
+      "source_block_indices_0based": [
+        44
+      ],
+      "text_preview": "Controls include individual frequency bands; fixed source-selected durations; Welch log-bandpower with source-fitted shallow classifiers; eight source-only CSP "
+    },
+    {
+      "main_block_index_0based": 44,
+      "type": "table",
+      "section": "Neural Representation and Baseline Fairness",
+      "source_block_indices_0based": [
+        45
+      ],
+      "text_preview": "  Each comparison controls the aspects listed, while retaining the stated implementation differences. Q14/Q15 therefore compare complete frozen pipelines. Match"
+    },
+    {
+      "main_block_index_0based": 45,
+      "type": "heading",
+      "section": "Source-only Robustness Interventions",
+      "source_block_indices_0based": [],
+      "text_preview": "Source-only Robustness Interventions   "
+    },
+    {
+      "main_block_index_0based": 46,
+      "type": "paragraph",
+      "section": "Source-only Robustness Interventions",
+      "source_block_indices_0based": [
+        47
+      ],
+      "text_preview": "The six completed robustness conditions are source-pooled whitening, source-balanced empirical risk minimization (ERM), source-group distributionally robust opt"
+    },
+    {
+      "main_block_index_0based": 47,
+      "type": "paragraph",
+      "section": "Source-only Robustness Interventions",
+      "source_block_indices_0based": [
+        48
+      ],
+      "text_preview": "Whitening and augmentation conditions are compared with the previously frozen broad rank-selected baseline. The historical baseline ran on a different runtime f"
+    },
+    {
+      "main_block_index_0based": 48,
+      "type": "heading",
+      "section": "Earlier Binary Source Freeze and PhysioNet Evaluation (Q14)",
+      "source_block_indices_0based": [],
+      "text_preview": "Earlier Binary Source Freeze and PhysioNet Evaluation (Q14)   "
+    },
+    {
+      "main_block_index_0based": 49,
+      "type": "paragraph",
+      "section": "Earlier Binary Source Freeze and PhysioNet Evaluation (Q14)",
+      "source_block_indices_0based": [
+        50
+      ],
+      "text_preview": "The binary BNCI source population contains 2,592 left/right trials, 288 per person. Filtering and epoching occur at 250 Hz before deterministic polyphase resamp"
+    },
+    {
+      "main_block_index_0based": 50,
+      "type": "paragraph",
+      "section": "Earlier Binary Source Freeze and PhysioNet Evaluation (Q14)",
+      "source_block_indices_0based": [
+        51
+      ],
+      "text_preview": "A partial external run stopped at S88 because its 128-Hz header violated the original 160-Hz assumption. A versioned amendment used metadata from the remaining "
+    },
+    {
+      "main_block_index_0based": 51,
+      "type": "paragraph",
+      "section": "Earlier Binary Source Freeze and PhysioNet Evaluation (Q14)",
+      "source_block_indices_0based": [
+        52
+      ],
+      "text_preview": "The original aggregate validation failed because it applied an inappropriate exact floating-point equality check to re-serialized CSV probabilities. A separate "
+    },
+    {
+      "main_block_index_0based": 52,
+      "type": "heading",
+      "section": "Frozen Cho2017/Lee2019 Transfer (Q15)",
+      "source_block_indices_0based": [],
+      "text_preview": "Frozen Cho2017/Lee2019 Transfer (Q15)   "
+    },
+    {
+      "main_block_index_0based": 53,
+      "type": "paragraph",
+      "section": "Frozen Cho2017/Lee2019 Transfer (Q15)",
+      "source_block_indices_0based": [
+        54
+      ],
+      "text_preview": "The frozen Cho2017/Lee2019 study is a separate binary transfer experiment using different checkpoints from Q14. All nine BNCI participants supply 2,592 left/rig"
+    },
+    {
+      "main_block_index_0based": 54,
+      "type": "paragraph",
+      "section": "Frozen Cho2017/Lee2019 Transfer (Q15)",
+      "source_block_indices_0based": [
+        55
+      ],
+      "text_preview": "The Q15 adapter interprets native numeric values as microvolts by convention. Physical voltage calibration, the original Cho hardware reference, and hardware cu"
+    },
+    {
+      "main_block_index_0based": 55,
+      "type": "paragraph",
+      "section": "Frozen Cho2017/Lee2019 Transfer (Q15)",
+      "source_block_indices_0based": [
+        56
+      ],
+      "text_preview": "Source-only duration selection uses four groups comprising people 1–2, 3–4, 5–6, and 7–9, candidate epochs 1–40, equally weighted mean within-fold cross-entropy"
+    },
+    {
+      "main_block_index_0based": 56,
+      "type": "paragraph",
+      "section": "Frozen Cho2017/Lee2019 Transfer (Q15)",
+      "source_block_indices_0based": [
+        57
+      ],
+      "text_preview": "Official raw metadata for 18 BNCI files and all declared Cho/Lee files were audited before the preprocessing specification was committed; its pre-fit publicatio"
+    },
+    {
+      "main_block_index_0based": 57,
+      "type": "paragraph",
+      "section": "Frozen Cho2017/Lee2019 Transfer (Q15)",
+      "source_block_indices_0based": [
+        58
+      ],
+      "text_preview": "All 52 Cho2017 and 54 Lee2019 participants were processed under the declared adapters. The archived independent computational validator replays processing from "
+    },
+    {
+      "main_block_index_0based": 58,
+      "type": "heading",
+      "section": "BNCI-only Physiological Signal Characterization (Q16)",
+      "source_block_indices_0based": [],
+      "text_preview": "BNCI-only Physiological Signal Characterization (Q16)   "
+    },
+    {
+      "main_block_index_0based": 59,
+      "type": "paragraph",
+      "section": "BNCI-only Physiological Signal Characterization (Q16)",
+      "source_block_indices_0based": [
+        60
+      ],
+      "text_preview": "The BNCI characterization separately describes native BNCI2014_001 recordings: 18 files, 108 motor-imagery runs, nine people and both sessions, retaining all 5,"
+    },
+    {
+      "main_block_index_0based": 60,
+      "type": "paragraph",
+      "section": "BNCI-only Physiological Signal Characterization (Q16)",
+      "source_block_indices_0based": [
+        61
+      ],
+      "text_preview": "Welch power is defined separately within each trial’s baseline and task windows using float64 native numeric values, a periodic Hann taper, 250-sample segments,"
+    },
+    {
+      "main_block_index_0based": 61,
+      "type": "paragraph",
+      "section": "BNCI-only Physiological Signal Characterization (Q16)",
+      "source_block_indices_0based": [
+        62
+      ],
+      "text_preview": "Arithmetic mean trial dB is aggregated within person, session, class, channel and band, followed by equal averaging of the two sessions. This averages log ratio"
+    },
+    {
+      "main_block_index_0based": 62,
+      "type": "paragraph",
+      "section": "BNCI-only Physiological Signal Characterization (Q16)",
+      "source_block_indices_0based": [
+        63
+      ],
+      "text_preview": "The physiological parameters were fixed on 6 October 2026 after the decoder outcomes were known and before the physiological calculations. The analysis is there"
+    },
+    {
+      "main_block_index_0based": 63,
+      "type": "heading",
+      "section": "Statistical Analysis",
+      "source_block_indices_0based": [],
+      "text_preview": "Statistical Analysis   "
+    },
+    {
+      "main_block_index_0based": 64,
+      "type": "equation",
+      "section": "Statistical Analysis",
+      "source_block_indices_0based": [
+        65
+      ],
+      "text_preview": "Balanced accuracy = (1/C) Σ_c TP_c/(TP_c + FN_c).   "
+    },
+    {
+      "main_block_index_0based": 65,
+      "type": "paragraph",
+      "section": "Statistical Analysis",
+      "source_block_indices_0based": [
+        66
+      ],
+      "text_preview": "The held-out person is the unit of statistical inference. Paired seeds are averaged within person; predefined source-identity subsets are averaged within person"
+    },
+    {
+      "main_block_index_0based": 66,
+      "type": "paragraph",
+      "section": "Statistical Analysis",
+      "source_block_indices_0based": [
+        67
+      ],
+      "text_preview": "For each archived experiment, we report its original statistics and the interval resampling procedure. Rank-selection intervals use 20,000 person-bootstrap draw"
+    },
+    {
+      "main_block_index_0based": 67,
+      "type": "paragraph",
+      "section": "Statistical Analysis",
+      "source_block_indices_0based": [
+        68
+      ],
+      "text_preview": "One historical rank-selection script labelled a nine-person binomial calculation as a sign test while retaining two unchanged participants in its denominator. W"
+    },
+    {
+      "main_block_index_0based": 68,
+      "type": "paragraph",
+      "section": "Statistical Analysis",
+      "source_block_indices_0based": [
+        69
+      ],
+      "text_preview": "The physiological characterization was specified after decoder outcomes were known and remains descriptive. Physiological aggregation and decoder associations u"
+    },
+    {
+      "main_block_index_0based": 69,
+      "type": "heading",
+      "section": "Reproducibility and Validation Scope",
+      "source_block_indices_0based": [],
+      "text_preview": "Reproducibility and Validation Scope   "
+    },
+    {
+      "main_block_index_0based": 70,
+      "type": "paragraph",
+      "section": "Reproducibility and Validation Scope",
+      "source_block_indices_0based": [
+        71
+      ],
+      "text_preview": "Saved predictions were independently reaggregated to check trial identities, scoring populations, person-level confusion matrices, seed-averaged scores and repo"
+    },
+    {
+      "main_block_index_0based": 71,
+      "type": "paragraph",
+      "section": "Reproducibility and Validation Scope",
+      "source_block_indices_0based": [
+        72
+      ],
+      "text_preview": "The physiological analysis was checked independently against native BNCI recordings. An explicit detrending, periodic-Hann FFT and trapezoidal integration calcu"
+    },
+    {
+      "main_block_index_0based": 72,
+      "type": "paragraph",
+      "section": "Reproducibility and Validation Scope",
+      "source_block_indices_0based": [
+        73
+      ],
+      "text_preview": "OpenAI Codex assisted analysis-code development and verification-code preparation. The computations use explicitly specified algorithms; the archived validation"
+    },
+    {
+      "main_block_index_0based": 73,
+      "type": "heading",
+      "section": "Ethics statement",
+      "source_block_indices_0based": [
+        137
+      ],
+      "text_preview": "Ethics statement   "
+    },
+    {
+      "main_block_index_0based": 74,
+      "type": "paragraph",
+      "section": "Ethics statement",
+      "source_block_indices_0based": [],
+      "text_preview": "This study involved secondary analysis of public EEG recordings and recruited no new participants. The Cho2017 and Lee2019 source publications report collection"
+    },
+    {
+      "main_block_index_0based": 75,
+      "type": "paragraph",
+      "section": "Ethics statement",
+      "source_block_indices_0based": [],
+      "text_preview": "The retained research records document access to BNCI2014_001 recordings from 21 September to 6 October 2026, to PhysioNet EEG Motor Movement/Imagery recordings"
+    },
+    {
+      "main_block_index_0based": 76,
+      "type": "paragraph",
+      "section": "Ethics statement",
+      "source_block_indices_0based": [],
+      "text_preview": "The author reports access only to the recordings, provider-assigned participant codes and basic demographic metadata, such as age, without names, contact detail"
+    },
+    {
+      "main_block_index_0based": 77,
+      "type": "heading",
+      "section": "Data and code availability",
+      "source_block_indices_0based": [
+        135
+      ],
+      "text_preview": "Data and code availability   "
+    },
+    {
+      "main_block_index_0based": 78,
+      "type": "paragraph",
+      "section": "Data and code availability",
+      "source_block_indices_0based": [
+        136
+      ],
+      "text_preview": "Public BNCI2014_001, PhysioNet, Cho2017 and Lee2019 recordings are available from the original providers [1,2,5,6,7,8,9,10], subject to their licenses and terms"
+    },
+    {
+      "main_block_index_0based": 79,
+      "type": "paragraph",
+      "section": "Data and code availability",
+      "source_block_indices_0based": [],
+      "text_preview": "The current submission materials and licensing notices are available at https://github.com/jackzhu119/cross-subject-mi-eeg/tree/plos-one-submission-v1.1. Author"
+    },
+    {
+      "main_block_index_0based": 80,
+      "type": "heading",
+      "section": "AI assistance and verification",
+      "source_block_indices_0based": [],
+      "text_preview": "AI assistance and verification   "
+    },
+    {
+      "main_block_index_0based": 81,
+      "type": "paragraph",
+      "section": "AI assistance and verification",
+      "source_block_indices_0based": [
+        147
+      ],
+      "text_preview": "ChatGPT (GPT-6, as reported by the author) assisted information retrieval, grammar revision, and preparation of instructions for publishing research materials t"
+    },
+    {
+      "main_block_index_0based": 82,
+      "type": "paragraph",
+      "section": "AI assistance and verification",
+      "source_block_indices_0based": [],
+      "text_preview": "The underlying Codex model version is not reliably documented in the project records. Saved-result checks compared reported numbers with frozen outputs and arch"
+    },
+    {
+      "main_block_index_0based": 83,
+      "type": "heading",
+      "section": "Results",
+      "source_block_indices_0based": [],
+      "text_preview": "Results   "
+    },
+    {
+      "main_block_index_0based": 84,
+      "type": "heading",
+      "section": "Traditional baselines and heterogeneous duration selection",
+      "source_block_indices_0based": [],
+      "text_preview": "Traditional baselines and heterogeneous duration selection   "
+    },
+    {
+      "main_block_index_0based": 85,
+      "type": "paragraph",
+      "section": "Traditional baselines and heterogeneous duration selection",
+      "source_block_indices_0based": [
+        76
+      ],
+      "text_preview": "The all-trial four-class broad CSP8 + LDA baseline achieved 39.04% balanced accuracy; broad CSP + SVM and the full filter-bank LDA comparator achieved 37.50% an"
+    },
+    {
+      "main_block_index_0based": 86,
+      "type": "paragraph",
+      "section": "Traditional baselines and heterogeneous duration selection",
+      "source_block_indices_0based": [
+        77
+      ],
+      "text_preview": "Source-only per-channel normalization increased mean balanced accuracy to 37.93%, a +4.21 pp difference. The archived paired 95% interval spans −1.12 to +13.49 "
+    },
+    {
+      "main_block_index_0based": 87,
+      "type": "paragraph",
+      "section": "Traditional baselines and heterogeneous duration selection",
+      "source_block_indices_0based": [
+        78
+      ],
+      "text_preview": "The S3 diagnostic separates normalization from training duration. With two epochs, raw input gave 26.10% balanced accuracy and source-normalized input gave 25.6"
+    },
+    {
+      "main_block_index_0based": 88,
+      "type": "paragraph",
+      "section": "Traditional baselines and heterogeneous duration selection",
+      "source_block_indices_0based": [
+        79
+      ],
+      "text_preview": "Mean-rank selection increased equal-person mean balanced accuracy to 42.67%, a +8.95 pp change over raw mean-loss selection. The archived bootstrap interval is "
+    },
+    {
+      "main_block_index_0based": 89,
+      "type": "figure",
+      "section": "Traditional baselines and heterogeneous duration selection",
+      "source_block_indices_0based": [
+        80
+      ],
+      "text_preview": " Training-duration selection and participant-level internal results. A: archived source-selected epochs. B: each participant’s all-trial balanced accuracy avera"
+    },
+    {
+      "main_block_index_0based": 90,
+      "type": "table",
+      "section": "Traditional baselines and heterogeneous duration selection",
+      "source_block_indices_0based": [
+        81
+      ],
+      "text_preview": "  The primary population includes all trials. Neural scores are averaged over three fixed seeds within person before population summaries. Rows span different e"
+    },
+    {
+      "main_block_index_0based": 91,
+      "type": "heading",
+      "section": "Matched-runtime duration and source-composition controls",
+      "source_block_indices_0based": [],
+      "text_preview": "Matched-runtime duration and source-composition controls   "
+    },
+    {
+      "main_block_index_0based": 92,
+      "type": "paragraph",
+      "section": "Matched-runtime duration and source-composition controls",
+      "source_block_indices_0based": [
+        83
+      ],
+      "text_preview": "In the additive matched-runtime experiment, the historical mean-loss duration schedule gave 33.92% balanced accuracy, compared with 43.99% for fixed 20 epochs. "
+    },
+    {
+      "main_block_index_0based": 93,
+      "type": "paragraph",
+      "section": "Matched-runtime duration and source-composition controls",
+      "source_block_indices_0based": [
+        84
+      ],
+      "text_preview": "Mean balanced accuracy increased descriptively with source count. Broad fixed-duration models gave 32.96%, 38.89%, 43.16%, and 43.99% at k = 2, 4, 6, and 8; sha"
+    },
+    {
+      "main_block_index_0based": 94,
+      "type": "figure",
+      "section": "Matched-runtime duration and source-composition controls",
+      "source_block_indices_0based": [
+        85
+      ],
+      "text_preview": " Source composition and matched-runtime controls. A: thick lines show equal-person means; thin lines show individual target-person trajectories averaged over th"
+    },
+    {
+      "main_block_index_0based": 95,
+      "type": "heading",
+      "section": "Spectral, spatial, and architectural interventions",
+      "source_block_indices_0based": [],
+      "text_preview": "Spectral, spatial, and architectural interventions   "
+    },
+    {
+      "main_block_index_0based": 96,
+      "type": "paragraph",
+      "section": "Spectral, spatial, and architectural interventions",
+      "source_block_indices_0based": [
+        87
+      ],
+      "text_preview": "The internal shared mu/beta condition achieved 42.19% balanced accuracy, compared with 42.67% for the broad mean-rank baseline, a −0.48 pp mean difference. The "
+    },
+    {
+      "main_block_index_0based": 97,
+      "type": "paragraph",
+      "section": "Spectral, spatial, and architectural interventions",
+      "source_block_indices_0based": [
+        88
+      ],
+      "text_preview": "The source-only CSP8 and PCA8 neural projections achieved 41.48% and 42.06% balanced accuracy. Architectural controls achieved 42.99% for independent two-band n"
+    },
+    {
+      "main_block_index_0based": 98,
+      "type": "heading",
+      "section": "Source-only robustness has no corrected established gain",
+      "source_block_indices_0based": [],
+      "text_preview": "Source-only robustness has no corrected established gain   "
+    },
+    {
+      "main_block_index_0based": 99,
+      "type": "paragraph",
+      "section": "Source-only robustness has no corrected established gain",
+      "source_block_indices_0based": [
+        90
+      ],
+      "text_preview": "Source-pooled whitening, source-balanced ERM, and gain perturbation had positive point estimates relative to the historical broad rank baseline, whereas dropout"
+    },
+    {
+      "main_block_index_0based": 100,
+      "type": "table",
+      "section": "Source-only robustness has no corrected established gain",
+      "source_block_indices_0based": [
+        91
+      ],
+      "text_preview": "  Intervals are the archived, unadjusted person-bootstrap intervals; p-values use the declared within-family Holm correction. Every comparison with Q8 crosses r"
+    },
+    {
+      "main_block_index_0based": 101,
+      "type": "heading",
+      "section": "Earlier PhysioNet transfer: a small, uncertain primary effect",
+      "source_block_indices_0based": [],
+      "text_preview": "Earlier PhysioNet transfer: a small, uncertain primary effect   "
+    },
+    {
+      "main_block_index_0based": 102,
+      "type": "paragraph",
+      "section": "Earlier PhysioNet transfer: a small, uncertain primary effect",
+      "source_block_indices_0based": [
+        93
+      ],
+      "text_preview": "In binary BNCI development, broad, shared, and CSP models achieved 68.21%, 67.35%, and 61.54% balanced accuracy. These development outcomes cannot be pooled wit"
+    },
+    {
+      "main_block_index_0based": 103,
+      "type": "paragraph",
+      "section": "Earlier PhysioNet transfer: a small, uncertain primary effect",
+      "source_block_indices_0based": [
+        94
+      ],
+      "text_preview": "External equal-person balanced accuracy was 61.81% for broad EEGNet, 62.39% for shared mu/beta, and 54.46% for CSP4 + LDA. The predeclared shared-minus-broad pr"
+    },
+    {
+      "main_block_index_0based": 104,
+      "type": "paragraph",
+      "section": "Earlier PhysioNet transfer: a small, uncertain primary effect",
+      "source_block_indices_0based": [
+        95
+      ],
+      "text_preview": "Individual performance varied widely. The shared model ranged from 39.33% to 97.07% balanced accuracy, with a median of 58.73%. Differences averaged across thre"
+    },
+    {
+      "main_block_index_0based": 105,
+      "type": "table",
+      "section": "Earlier PhysioNet transfer: a small, uncertain primary effect",
+      "source_block_indices_0based": [
+        96
+      ],
+      "text_preview": "  Deep-model scores are averaged over seeds within person. The primary shared-minus-broad contrast is +0.573 pp, 95% CI [−0.097,+1.242], p = 0.06446. CSP provid"
+    },
+    {
+      "main_block_index_0based": 106,
+      "type": "figure",
+      "section": "Earlier PhysioNet transfer: a small, uncertain primary effect",
+      "source_block_indices_0based": [
+        97
+      ],
+      "text_preview": " Separate-cohort binary transfer. A: empirical cumulative distributions of three-seed person-mean balanced accuracy, with one CSP score per person; the dotted v"
+    },
+    {
+      "main_block_index_0based": 107,
+      "type": "heading",
+      "section": "Completed Cho2017 and Lee2019 transfer: lower balanced accuracy on Cho2017 and an uncertain Lee2019 contrast",
+      "source_block_indices_0based": [],
+      "text_preview": "Completed Cho2017 and Lee2019 transfer: lower balanced accuracy on Cho2017 and an uncertain Lee2019 contrast   "
+    },
+    {
+      "main_block_index_0based": 108,
+      "type": "paragraph",
+      "section": "Completed Cho2017 and Lee2019 transfer: lower balanced accuracy on Cho2017 and an uncertain Lee2019 contrast",
+      "source_block_indices_0based": [
+        99
+      ],
+      "text_preview": "The completed Q15 outputs cover 21,320 unique external trials and 149,240 saved model/seed prediction rows, seven per trial. Independent checks verified canonic"
+    },
+    {
+      "main_block_index_0based": 109,
+      "type": "paragraph",
+      "section": "Completed Cho2017 and Lee2019 transfer: lower balanced accuracy on Cho2017 and an uncertain Lee2019 contrast",
+      "source_block_indices_0based": [
+        100
+      ],
+      "text_preview": "On Cho2017, equal-person balanced accuracy was 59.82% for broad EEGNet and 58.31% for shared mu/beta EEGNet. The primary shared-minus-broad mean was −1.513 pp ("
+    },
+    {
+      "main_block_index_0based": 110,
+      "type": "paragraph",
+      "section": "Completed Cho2017 and Lee2019 transfer: lower balanced accuracy on Cho2017 and an uncertain Lee2019 contrast",
+      "source_block_indices_0based": [
+        101
+      ],
+      "text_preview": "On Lee2019, broad and shared models achieved 65.51% and 65.72% balanced accuracy. The primary difference was +0.204 pp (95% interval [−0.515,+0.969] pp); raw an"
+    },
+    {
+      "main_block_index_0based": 111,
+      "type": "table",
+      "section": "Completed Cho2017 and Lee2019 transfer: lower balanced accuracy on Cho2017 and an uncertain Lee2019 contrast",
+      "source_block_indices_0based": [
+        102
+      ],
+      "text_preview": "  Neural scores and class recalls are averaged over three seeds within person, then equally over people. Person SD describes heterogeneity, not a standard error"
+    },
+    {
+      "main_block_index_0based": 112,
+      "type": "paragraph",
+      "section": "Completed Cho2017 and Lee2019 transfer: lower balanced accuracy on Cho2017 and an uncertain Lee2019 contrast",
+      "source_block_indices_0based": [
+        103
+      ],
+      "text_preview": "The CSP comparator was near binary chance on both cohorts and strongly favoured left-hand labels. On Cho2017, mean left-hand recall fell from 46.79% with broad "
+    },
+    {
+      "main_block_index_0based": 113,
+      "type": "figure",
+      "section": "Completed Cho2017 and Lee2019 transfer: lower balanced accuracy on Cho2017 and an uncertain Lee2019 contrast",
+      "source_block_indices_0based": [
+        104
+      ],
+      "text_preview": " Frozen Q15 external evaluation. Cohorts are shown separately: person/model scores, equal-person means and person standard deviations, and frozen paired person-"
+    },
+    {
+      "main_block_index_0based": 114,
+      "type": "heading",
+      "section": "Descriptive BNCI Sensor Physiology and Decoder Associations (Q16)",
+      "source_block_indices_0based": [],
+      "text_preview": "Descriptive BNCI Sensor Physiology and Decoder Associations (Q16)   "
+    },
+    {
+      "main_block_index_0based": 115,
+      "type": "paragraph",
+      "section": "Descriptive BNCI Sensor Physiology and Decoder Associations (Q16)",
+      "source_block_indices_0based": [],
+      "text_preview": "All 18 raw files, 108 labelled runs and 5,184 trials passed the fixed coverage checks. All 228,096 trial-channel-band rows had finite, positive baseline and tas"
+    },
+    {
+      "main_block_index_0based": 116,
+      "type": "table",
+      "section": "Descriptive BNCI Sensor Physiology and Decoder Associations (Q16)",
+      "source_block_indices_0based": [
+        107
+      ],
+      "text_preview": "  Each of nine people receives equal weight, using equal-session mean trial dB from both hands. Contra. and ipsi. average the corresponding C3/C4 hand component"
+    },
+    {
+      "main_block_index_0based": 117,
+      "type": "paragraph",
+      "section": "Descriptive BNCI Sensor Physiology and Decoder Associations (Q16)",
+      "source_block_indices_0based": [
+        108
+      ],
+      "text_preview": "Mu signed laterality averaged −0.250 dB, with six negative and three positive person descriptors; beta averaged −0.168 dB, with eight negative and one positive "
+    },
+    {
+      "main_block_index_0based": 118,
+      "type": "figure",
+      "section": "Descriptive BNCI Sensor Physiology and Decoder Associations (Q16)",
+      "source_block_indices_0based": [
+        109
+      ],
+      "text_preview": " Descriptive native BNCI task/baseline power changes. A–D: equal-person hand-imagery means for mu (8–13 Hz) and beta (13–30 Hz) at all 22 EEG sensors. In the sc"
+    },
+    {
+      "main_block_index_0based": 119,
+      "type": "paragraph",
+      "section": "Descriptive BNCI Sensor Physiology and Decoder Associations (Q16)",
+      "source_block_indices_0based": [],
+      "text_preview": "For the designated broad-EEGNet endpoint, descriptive associations between signed laterality and saved binary LOSO balanced accuracy were rho = −0.150 for mu an"
+    },
+    {
+      "main_block_index_0based": 120,
+      "type": "heading",
+      "section": "Discussion",
+      "source_block_indices_0based": [],
+      "text_preview": "Discussion   "
+    },
+    {
+      "main_block_index_0based": 121,
+      "type": "heading",
+      "section": "Training-duration Sensitivity in a Small Development Benchmark",
+      "source_block_indices_0based": [],
+      "text_preview": "Training-duration Sensitivity in a Small Development Benchmark   "
+    },
+    {
+      "main_block_index_0based": 122,
+      "type": "paragraph",
+      "section": "Training-duration Sensitivity in a Small Development Benchmark",
+      "source_block_indices_0based": [
+        113
+      ],
+      "text_preview": "Training duration was a major source of internal performance variation. At two epochs, S3 remained near chance with either raw or source-normalized inputs; at 1"
+    },
+    {
+      "main_block_index_0based": 123,
+      "type": "paragraph",
+      "section": "Training-duration Sensitivity in a Small Development Benchmark",
+      "source_block_indices_0based": [
+        114
+      ],
+      "text_preview": "These findings do not establish rank selection as a general solution. Within-fold ranks remove loss-scale differences but discard the size of those differences;"
+    },
+    {
+      "main_block_index_0based": 124,
+      "type": "heading",
+      "section": "Complete Spectral Pipelines Have Cohort-dependent Outcomes",
+      "source_block_indices_0based": [],
+      "text_preview": "Complete Spectral Pipelines Have Cohort-dependent Outcomes   "
+    },
+    {
+      "main_block_index_0based": 125,
+      "type": "paragraph",
+      "section": "Complete Spectral Pipelines Have Cohort-dependent Outcomes",
+      "source_block_indices_0based": [
+        116
+      ],
+      "text_preview": "The frozen evaluations limit claims of a consistent shared-input advantage. Shared mu/beta input gave no internal advantage, a small uncertain positive estimate"
+    },
+    {
+      "main_block_index_0based": 126,
+      "type": "paragraph",
+      "section": "Complete Spectral Pipelines Have Cohort-dependent Outcomes",
+      "source_block_indices_0based": [
+        117
+      ],
+      "text_preview": "The class recalls reveal a trade-off hidden by the cohort means. On Cho2017, the shared-input pipeline reduced mean left-hand recall while increasing right-hand"
+    },
+    {
+      "main_block_index_0based": 127,
+      "type": "paragraph",
+      "section": "Complete Spectral Pipelines Have Cohort-dependent Outcomes",
+      "source_block_indices_0based": [
+        118
+      ],
+      "text_preview": "One shared parameter set does not imply a cheaper computation: the network processes two band views and pools their BatchNorm exposure. Independent-branch contr"
+    },
+    {
+      "main_block_index_0based": 128,
+      "type": "paragraph",
+      "section": "Complete Spectral Pipelines Have Cohort-dependent Outcomes",
+      "source_block_indices_0based": [
+        119
+      ],
+      "text_preview": "The external schedules are part of the pipeline contrast: broad/shared fits used 18/17 epochs in Q14 and 14/19 in Q15. Paired differences therefore combine the "
+    },
+    {
+      "main_block_index_0based": 129,
+      "type": "heading",
+      "section": "Person-level Evidence and Descriptive Signal Characterization",
+      "source_block_indices_0based": [],
+      "text_preview": "Person-level Evidence and Descriptive Signal Characterization   "
+    },
+    {
+      "main_block_index_0based": 130,
+      "type": "paragraph",
+      "section": "Person-level Evidence and Descriptive Signal Characterization",
+      "source_block_indices_0based": [
+        121
+      ],
+      "text_preview": "Additional seeds assess sensitivity to stochastic fitting; they do not increase the number of participants. Lee2019 sessions and source-identity subsets likewis"
+    },
+    {
+      "main_block_index_0based": 131,
+      "type": "paragraph",
+      "section": "Person-level Evidence and Descriptive Signal Characterization",
+      "source_block_indices_0based": [
+        122
+      ],
+      "text_preview": "A few large recoveries can improve a mean without producing consistent benefit across people, so tests of average change and directional consistency need not ag"
+    },
+    {
+      "main_block_index_0based": 132,
+      "type": "paragraph",
+      "section": "Person-level Evidence and Descriptive Signal Characterization",
+      "source_block_indices_0based": [
+        123
+      ],
+      "text_preview": "The BNCI signals describe measured sensor activity, not the cause of the decoder contrasts. Mean signed hand laterality was negative in both bands: six of nine "
+    },
+    {
+      "main_block_index_0based": 133,
+      "type": "paragraph",
+      "section": "Person-level Evidence and Descriptive Signal Characterization",
+      "source_block_indices_0based": [
+        124
+      ],
+      "text_preview": "Neither a lateralized scalp mean nor its correlation with LOSO balanced accuracy locates a cortical source, excludes ocular or muscle contributions, or demonstr"
+    },
+    {
+      "main_block_index_0based": 134,
+      "type": "heading",
+      "section": "Limitations",
+      "source_block_indices_0based": [],
+      "text_preview": "Limitations   "
+    },
+    {
+      "main_block_index_0based": 135,
+      "type": "paragraph",
+      "section": "Limitations",
+      "source_block_indices_0based": [
+        126
+      ],
+      "text_preview": "Successive development conditions used the same nine BNCI people. Excluding the target from each fit does not remove outcome-informed candidate design or depend"
+    },
+    {
+      "main_block_index_0based": 136,
+      "type": "paragraph",
+      "section": "Limitations",
+      "source_block_indices_0based": [
+        127
+      ],
+      "text_preview": "Q14 and Q15 differ in montages, windows, references, filtering scope and source checkpoints. Q14’s metadata amendment followed partial execution. In the frozen "
+    },
+    {
+      "main_block_index_0based": 137,
+      "type": "paragraph",
+      "section": "Limitations",
+      "source_block_indices_0based": [
+        128
+      ],
+      "text_preview": "The external duration schedules were selected using four fixed BNCI validation groups with unequal participant counts (2/2/2/3) and equal fold weighting. The gr"
+    },
+    {
+      "main_block_index_0based": 138,
+      "type": "paragraph",
+      "section": "Limitations",
+      "source_block_indices_0based": [
+        129
+      ],
+      "text_preview": "Q15 used a common operational tensor and a committed adapter for transfer across three providers. Matching tensor dimensions does not make the physical measurem"
+    },
+    {
+      "main_block_index_0based": 139,
+      "type": "paragraph",
+      "section": "Limitations",
+      "source_block_indices_0based": [
+        130
+      ],
+      "text_preview": "Q14 and Q15 also differ in the extent of verification. The earlier PhysioNet evaluation required a sampling-rate amendment after partial execution; its later po"
+    },
+    {
+      "main_block_index_0based": 140,
+      "type": "paragraph",
+      "section": "Limitations",
+      "source_block_indices_0based": [
+        131
+      ],
+      "text_preview": "Evaluation was offline and used zero-phase filtering. Online latency, prospective assistive control, clinical populations and patient benefit were not tested. T"
+    },
+    {
+      "main_block_index_0based": 141,
+      "type": "paragraph",
+      "section": "Limitations",
+      "source_block_indices_0based": [
+        132
+      ],
+      "text_preview": "The physiology estimates compare a one-segment baseline with a three-segment task estimator; unequal log-power variance can bias the dB difference. Negative sig"
+    },
+    {
+      "main_block_index_0based": 142,
+      "type": "heading",
+      "section": "Conclusions",
+      "source_block_indices_0based": [],
+      "text_preview": "Conclusions   "
+    },
+    {
+      "main_block_index_0based": 143,
+      "type": "paragraph",
+      "section": "Conclusions",
+      "source_block_indices_0based": [
+        134
+      ],
+      "text_preview": "Training-duration selection was consequential in this nine-person BNCI development benchmark, but its gains were concentrated rather than broadly shared. Fixed "
+    },
+    {
+      "main_block_index_0based": 144,
+      "type": "heading",
+      "section": "Acknowledgments",
+      "source_block_indices_0based": [],
+      "text_preview": "Acknowledgments   "
+    },
+    {
+      "main_block_index_0based": 145,
+      "type": "paragraph",
+      "section": "Acknowledgments",
+      "source_block_indices_0based": [],
+      "text_preview": "No additional acknowledgments are reported.   "
+    }
+  ],
+  "figure_physical_text_checks": [
+    {
+      "figure": "Fig2",
+      "tiff_pixels": [
+        4500,
+        1244
+      ],
+      "dpi": [
+        600.0,
+        600.0
+      ],
+      "physical_width_inches": 7.5,
+      "actual_text_pt_min": 7.99999980160806,
+      "actual_text_pt_max": 7.99999980160806,
+      "computed_from": "SVG font size multiplied by final TIFF physical width (points) / SVG viewBox width",
+      "svg_sha256": "3b979d866c747cc8d97534592109dcdd978da0646f0c3bd3671d5b48aa8f3b25",
+      "tiff_sha256": "66c02a4aa12e82bba535912b3c6a4ac884d6fee96be9343468828f128037f399"
+    },
+    {
+      "figure": "Fig6",
+      "tiff_pixels": [
+        4500,
+        3454
+      ],
+      "dpi": [
+        600.0,
+        600.0
+      ],
+      "physical_width_inches": 7.5,
+      "actual_text_pt_min": 7.999999647887324,
+      "actual_text_pt_max": 8.97887323943662,
+      "computed_from": "SVG font size multiplied by final TIFF physical width (points) / SVG viewBox width",
+      "svg_sha256": "205784d38ce33062cd717bd7370fc178f49119267050fd7a11634dfba062f8b7",
+      "tiff_sha256": "be77e27833a1e48e2119aeb0f21fb6fd12a6ce5c854877959a6ca437651ab480"
+    }
+  ],
+  "proposed_targeted_transformations": [
+    {
+      "main_block_index_0based": 6,
+      "field": "text",
+      "issue": "M3",
+      "replacement": "We make two empirical contributions. First, we audit the reliability of source-only training-duration selection in cross-subject EEGNet, examining short selected schedules, heterogeneous source-validation trajectories and gains concentrated in a few participants. This is an exploratory analysis within a repeatedly used development benchmark, not independent confirmation of a new selection algorithm. Second, we evaluate complete, frozen broad and shared-input pipelines on external binary motor-imagery cohorts, retaining adverse and uncertain results at the participant level. A separate post-outcome BNCI sensor analysis provides descriptive context rather than a third mechanistic contribution. Open code, saved predictions and linked validation evidence make these analyses auditable [11]."
+    },
+    {
+      "main_block_index_0based": 128,
+      "field": "text",
+      "issue": "M2",
+      "replacement": "The external schedules are part of the pipeline contrast: broad/shared fits used 18/17 epochs for PhysioNet and 14/19 for Cho2017 and Lee2019. Within each cohort, the paired contrast therefore combines selected duration with one-view versus two-view input, band filtering, shared BatchNorm exposure and forward-pass computation. Across the two external protocols, montage, crop, reference, filtering scope and source checkpoints also differ. These comparisons do not identify the causal contribution of parameter sharing or band decomposition alone."
+    },
+    {
+      "main_block_index_0based": 37,
+      "field": "text_append",
+      "issue": "MINOR_FIXED20",
+      "replacement": "The fixed 20-epoch condition is a common-duration sensitivity control, not a prospectively validated stopping rule or a recommendation selected from external outcomes."
+    },
+    {
+      "main_block_index_0based": 118,
+      "field": "caption_append",
+      "issue": "MINOR_CVD",
+      "replacement": "The signed colour scale uses blue for negative and red for positive values. Hand profiles are additionally distinguished by circle and triangle markers."
+    },
+    {
+      "appendix_block_index_0based": 4,
+      "field": "caption_append",
+      "issue": "MINOR_CVD",
+      "replacement": "Signed numerical cell labels provide an interpretation independent of the blue–red colour encoding."
+    }
+  ],
+  "notes": [
+    "Original source/table numeric cells and scientific figure data must remain fixed.",
+    "Block indices are zero-based indices in v1.1 editorial_transformations.json, not PDF line numbers.",
+    "Late author/date paragraphs affect Methods lines but original scientific content is unchanged.",
+    "This review does not independently regenerate EEG results or verify new CSP diagnostic audit claims."
+  ],
+  "frozen_q15_final_checkpoint_inventory": {
+    "checked_artifacts": [
+      {
+        "path": "results/Q15-E005/source/BROAD_EEGNET/all_source/final_seed_20260924/manifest.json",
+        "model": "BROAD_EEGNET",
+        "seed": 20260924,
+        "epochs": 14,
+        "checkpoint_sha256": "29e895aa32ad0dab8df1647d12b9be1b48ec58eef10a87271b60180d8dd07e87",
+        "checkpoint_hash_match": true,
+        "train_subjects": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "manifest_sha256": "e0aa76bc3b25ccfc5ce41c2d4f1b80b102098decaab0fa4bd15006ddc98365e0"
+      },
+      {
+        "path": "results/Q15-E005/source/BROAD_EEGNET/all_source/final_seed_20260925/manifest.json",
+        "model": "BROAD_EEGNET",
+        "seed": 20260925,
+        "epochs": 14,
+        "checkpoint_sha256": "c560b444fd0cd984382dfcc787e7eb7dd50aba9c4569454c6b4cbadc02c6af68",
+        "checkpoint_hash_match": true,
+        "train_subjects": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "manifest_sha256": "b6a749b82eb624c6d8b616553197e3c08bdb349846902979c716235ec29a94b7"
+      },
+      {
+        "path": "results/Q15-E005/source/BROAD_EEGNET/all_source/final_seed_20260926/manifest.json",
+        "model": "BROAD_EEGNET",
+        "seed": 20260926,
+        "epochs": 14,
+        "checkpoint_sha256": "8539fa7e1b500b1c319acd84723eea0856ff6dd224ba09b0fc989df870c24f6f",
+        "checkpoint_hash_match": true,
+        "train_subjects": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "manifest_sha256": "6d3eee8ba83a00b2989fe2417fa4c2a5fb1eccccddb1cc51f570669a8f6632bd"
+      },
+      {
+        "path": "results/Q15-E005/source/MU_BETA_SHARED/all_source/final_seed_20260924/manifest.json",
+        "model": "MU_BETA_SHARED",
+        "seed": 20260924,
+        "epochs": 19,
+        "checkpoint_sha256": "4de9a6d54a49d9cd52c76a54857364d8da11fd39ed787d47cebab1133419892f",
+        "checkpoint_hash_match": true,
+        "train_subjects": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "manifest_sha256": "51bc31114831620e1d2b3389c910405f44a363a6b3f2bf7db7eea4165bd58225"
+      },
+      {
+        "path": "results/Q15-E005/source/MU_BETA_SHARED/all_source/final_seed_20260925/manifest.json",
+        "model": "MU_BETA_SHARED",
+        "seed": 20260925,
+        "epochs": 19,
+        "checkpoint_sha256": "ebfdacad2f96c2b3d44f36eda9c82e3a225ce930d79eed06f86cd852891e16f2",
+        "checkpoint_hash_match": true,
+        "train_subjects": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "manifest_sha256": "cf9b8ff1bb5cf45392167c4890d4ed904385ea21f135003276786bf6f0ea3078"
+      },
+      {
+        "path": "results/Q15-E005/source/MU_BETA_SHARED/all_source/final_seed_20260926/manifest.json",
+        "model": "MU_BETA_SHARED",
+        "seed": 20260926,
+        "epochs": 19,
+        "checkpoint_sha256": "99ae34a372f54d283ad8b8fdd26755e6d859381f1e744da6ea4b8e2f470299b0",
+        "checkpoint_hash_match": true,
+        "train_subjects": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "manifest_sha256": "aa5e8ff08ebc1310617b3f56414fd496cac98c669fabcd7a5e23f2b739ede14f"
+      }
+    ],
+    "verified_broad_duration_epochs": 14,
+    "verified_shared_duration_epochs": 19,
+    "matched_duration_all_nine_source_final_pair_found_in_declared_artifacts": false,
+    "scope": "Only the six declared all-nine-source Q15 final neural artifacts; no global claim about every historical checkpoint. Inner validation checkpoints have different training populations and cannot substitute as matched final models.",
+    "checkpoint_loading_or_inference_performed": false,
+    "new_fit_performed": false
+  }
+}

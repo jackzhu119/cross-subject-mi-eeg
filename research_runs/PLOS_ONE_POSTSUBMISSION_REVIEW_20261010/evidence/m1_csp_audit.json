@@ -1,0 +1,2880 @@
+{
+  "schema_version": 1,
+  "scope": "Read-only independent audit of archived original predictions and frozen receipts; no EEG execution",
+  "created_at_utc": "2026-10-10T12:51:52.067198+00:00",
+  "repository": "jackzhu119/cross-subject-mi-eeg",
+  "baseline_commit": "d9a11926076bd348696f6e690078955921dac3f8",
+  "cohorts": {
+    "Cho2017": {
+      "experiment_id": "Q15-E006",
+      "n_persons": 52,
+      "n_sessions": 52,
+      "n_original_prediction_rows_all_models": 73640,
+      "n_csp_trials": 10520,
+      "equal_person_mean_balanced_accuracy": 0.5199038461538461,
+      "equal_person_mean_left_prediction_proportion": 0.9211217948717947,
+      "equal_person_mean_left_recall": 0.9410256410256411,
+      "equal_person_mean_right_recall": 0.09878205128205128,
+      "pooled_trial_metrics": {
+        "n_trials": 10520,
+        "class_counts": {
+          "left": 5260,
+          "right": 5260
+        },
+        "balanced_accuracy": 0.5197718631178707,
+        "left_recall": 0.9404942965779468,
+        "right_recall": 0.09904942965779467,
+        "left_prediction_proportion": 0.9207224334600761,
+        "median_p_left": 0.6693542329753803,
+        "confusion_rows_actual_left_right_columns_predicted_left_right": [
+          [
+            4947,
+            313
+          ],
+          [
+            4739,
+            521
+          ]
+        ]
+      },
+      "binary_label_flip_arithmetic_only_no_new_predictions": {
+        "formula": "For two classes, complementing each stored predicted label gives BA_flip = 1 - BA_original. This is an algebraic identity, not a new intervention/replay.",
+        "equal_person_ba_complement": 0.4800961538461539,
+        "pooled_trial_ba_complement": 0.4802281368821293,
+        "new_label_flip_experiment_performed": false
+      },
+      "per_person": [
+        {
+          "subject": 1,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.505,
+          "left_recall": 1.0,
+          "right_recall": 0.01,
+          "left_prediction_proportion": 0.995,
+          "median_p_left": 0.7787054647636911,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              100,
+              0
+            ],
+            [
+              99,
+              1
+            ]
+          ]
+        },
+        {
+          "subject": 2,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.495,
+          "left_recall": 0.99,
+          "right_recall": 0.0,
+          "left_prediction_proportion": 0.995,
+          "median_p_left": 0.748198451762195,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              99,
+              1
+            ],
+            [
+              100,
+              0
+            ]
+          ]
+        },
+        {
+          "subject": 3,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.73,
+          "left_recall": 0.92,
+          "right_recall": 0.54,
+          "left_prediction_proportion": 0.69,
+          "median_p_left": 0.5805562172173516,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              92,
+              8
+            ],
+            [
+              46,
+              54
+            ]
+          ]
+        },
+        {
+          "subject": 4,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.53,
+          "left_recall": 0.99,
+          "right_recall": 0.07,
+          "left_prediction_proportion": 0.96,
+          "median_p_left": 0.6725640447302167,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              99,
+              1
+            ],
+            [
+              93,
+              7
+            ]
+          ]
+        },
+        {
+          "subject": 5,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.5,
+          "left_recall": 0.99,
+          "right_recall": 0.01,
+          "left_prediction_proportion": 0.99,
+          "median_p_left": 0.6734615421821776,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              99,
+              1
+            ],
+            [
+              99,
+              1
+            ]
+          ]
+        },
+        {
+          "subject": 6,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.445,
+          "left_recall": 0.85,
+          "right_recall": 0.04,
+          "left_prediction_proportion": 0.905,
+          "median_p_left": 0.6270402571305103,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              85,
+              15
+            ],
+            [
+              96,
+              4
+            ]
+          ]
+        },
+        {
+          "subject": 7,
+          "n_trials": 240,
+          "class_counts": {
+            "left": 120,
+            "right": 120
+          },
+          "balanced_accuracy": 0.48333333333333334,
+          "left_recall": 0.8916666666666667,
+          "right_recall": 0.075,
+          "left_prediction_proportion": 0.9083333333333333,
+          "median_p_left": 0.6333230985912903,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              107,
+              13
+            ],
+            [
+              111,
+              9
+            ]
+          ]
+        },
+        {
+          "subject": 8,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.525,
+          "left_recall": 0.9,
+          "right_recall": 0.15,
+          "left_prediction_proportion": 0.875,
+          "median_p_left": 0.6161398330289098,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              90,
+              10
+            ],
+            [
+              85,
+              15
+            ]
+          ]
+        },
+        {
+          "subject": 9,
+          "n_trials": 240,
+          "class_counts": {
+            "left": 120,
+            "right": 120
+          },
+          "balanced_accuracy": 0.5125,
+          "left_recall": 0.9416666666666667,
+          "right_recall": 0.08333333333333333,
+          "left_prediction_proportion": 0.9291666666666667,
+          "median_p_left": 0.6266267422221582,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              113,
+              7
+            ],
+            [
+              110,
+              10
+            ]
+          ]
+        },
+        {
+          "subject": 10,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.505,
+          "left_recall": 0.99,
+          "right_recall": 0.02,
+          "left_prediction_proportion": 0.985,
+          "median_p_left": 0.6523393186430174,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              99,
+              1
+            ],
+            [
+              98,
+              2
+            ]
+          ]
+        },
+        {
+          "subject": 11,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.5,
+          "left_recall": 1.0,
+          "right_recall": 0.0,
+          "left_prediction_proportion": 1.0,
+          "median_p_left": 0.699495752482302,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              100,
+              0
+            ],
+            [
+              100,
+              0
+            ]
+          ]
+        },
+        {
+          "subject": 12,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.505,
+          "left_recall": 1.0,
+          "right_recall": 0.01,
+          "left_prediction_proportion": 0.995,
+          "median_p_left": 0.8071838615182028,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              100,
+              0
+            ],
+            [
+              99,
+              1
+            ]
+          ]
+        },
+        {
+          "subject": 13,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.495,
+          "left_recall": 0.96,
+          "right_recall": 0.03,
+          "left_prediction_proportion": 0.965,
+          "median_p_left": 0.6399042544520773,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              96,
+              4
+            ],
+            [
+              97,
+              3
+            ]
+          ]
+        },
+        {
+          "subject": 14,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.7749999999999999,
+          "left_recall": 0.96,
+          "right_recall": 0.59,
+          "left_prediction_proportion": 0.685,
+          "median_p_left": 0.5889881877714405,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              96,
+              4
+            ],
+            [
+              41,
+              59
+            ]
+          ]
+        },
+        {
+          "subject": 15,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.49,
+          "left_recall": 0.97,
+          "right_recall": 0.01,
+          "left_prediction_proportion": 0.98,
+          "median_p_left": 0.6577837298302274,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              97,
+              3
+            ],
+            [
+              99,
+              1
+            ]
+          ]
+        },
+        {
+          "subject": 16,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.5,
+          "left_recall": 1.0,
+          "right_recall": 0.0,
+          "left_prediction_proportion": 1.0,
+          "median_p_left": 0.6673213246122386,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              100,
+              0
+            ],
+            [
+              100,
+              0
+            ]
+          ]
+        },
+        {
+          "subject": 17,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.5,
+          "left_recall": 1.0,
+          "right_recall": 0.0,
+          "left_prediction_proportion": 1.0,
+          "median_p_left": 0.7493022399915703,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              100,
+              0
+            ],
+            [
+              100,
+              0
+            ]
+          ]
+        },
+        {
+          "subject": 18,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.495,
+          "left_recall": 0.99,
+          "right_recall": 0.0,
+          "left_prediction_proportion": 0.995,
+          "median_p_left": 0.7377739266142875,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              99,
+              1
+            ],
+            [
+              100,
+              0
+            ]
+          ]
+        },
+        {
+          "subject": 19,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.52,
+          "left_recall": 0.95,
+          "right_recall": 0.09,
+          "left_prediction_proportion": 0.93,
+          "median_p_left": 0.6291974676982536,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              95,
+              5
+            ],
+            [
+              91,
+              9
+            ]
+          ]
+        },
+        {
+          "subject": 20,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.5,
+          "left_recall": 1.0,
+          "right_recall": 0.0,
+          "left_prediction_proportion": 1.0,
+          "median_p_left": 0.702467893196661,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              100,
+              0
+            ],
+            [
+              100,
+              0
+            ]
+          ]
+        },
+        {
+          "subject": 21,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.505,
+          "left_recall": 1.0,
+          "right_recall": 0.01,
+          "left_prediction_proportion": 0.995,
+          "median_p_left": 0.7390981837665891,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              100,
+              0
+            ],
+            [
+              99,
+              1
+            ]
+          ]
+        },
+        {
+          "subject": 22,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.605,
+          "left_recall": 0.76,
+          "right_recall": 0.45,
+          "left_prediction_proportion": 0.655,
+          "median_p_left": 0.5484806918077403,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              76,
+              24
+            ],
+            [
+              55,
+              45
+            ]
+          ]
+        },
+        {
+          "subject": 23,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.47500000000000003,
+          "left_recall": 0.92,
+          "right_recall": 0.03,
+          "left_prediction_proportion": 0.945,
+          "median_p_left": 0.6411449058509959,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              92,
+              8
+            ],
+            [
+              97,
+              3
+            ]
+          ]
+        },
+        {
+          "subject": 24,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.585,
+          "left_recall": 0.53,
+          "right_recall": 0.64,
+          "left_prediction_proportion": 0.445,
+          "median_p_left": 0.48202725694272786,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              53,
+              47
+            ],
+            [
+              36,
+              64
+            ]
+          ]
+        },
+        {
+          "subject": 25,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.5549999999999999,
+          "left_recall": 0.87,
+          "right_recall": 0.24,
+          "left_prediction_proportion": 0.815,
+          "median_p_left": 0.6104388306979454,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              87,
+              13
+            ],
+            [
+              76,
+              24
+            ]
+          ]
+        },
+        {
+          "subject": 26,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.51,
+          "left_recall": 0.99,
+          "right_recall": 0.03,
+          "left_prediction_proportion": 0.98,
+          "median_p_left": 0.6247751934523937,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              99,
+              1
+            ],
+            [
+              97,
+              3
+            ]
+          ]
+        },
+        {
+          "subject": 27,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.495,
+          "left_recall": 0.99,
+          "right_recall": 0.0,
+          "left_prediction_proportion": 0.995,
+          "median_p_left": 0.599677965911313,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              99,
+              1
+            ],
+            [
+              100,
+              0
+            ]
+          ]
+        },
+        {
+          "subject": 28,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.52,
+          "left_recall": 0.98,
+          "right_recall": 0.06,
+          "left_prediction_proportion": 0.96,
+          "median_p_left": 0.6255222801533635,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              98,
+              2
+            ],
+            [
+              94,
+              6
+            ]
+          ]
+        },
+        {
+          "subject": 29,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.5,
+          "left_recall": 1.0,
+          "right_recall": 0.0,
+          "left_prediction_proportion": 1.0,
+          "median_p_left": 0.7051627976789545,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              100,
+              0
+            ],
+            [
+              100,
+              0
+            ]
+          ]
+        },
+        {
+          "subject": 30,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.5,
+          "left_recall": 1.0,
+          "right_recall": 0.0,
+          "left_prediction_proportion": 1.0,
+          "median_p_left": 0.7201239342275925,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              100,
+              0
+            ],
+            [
+              100,
+              0
+            ]
+          ]
+        },
+        {
+          "subject": 31,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.5,
+          "left_recall": 1.0,
+          "right_recall": 0.0,
+          "left_prediction_proportion": 1.0,
+          "median_p_left": 0.7637131378770332,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              100,
+              0
+            ],
+            [
+              100,
+              0
+            ]
+          ]
+        },
+        {
+          "subject": 32,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.47,
+          "left_recall": 0.76,
+          "right_recall": 0.18,
+          "left_prediction_proportion": 0.79,
+          "median_p_left": 0.5526324499499249,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              76,
+              24
+            ],
+            [
+              82,
+              18
+            ]
+          ]
+        },
+        {
+          "subject": 33,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.51,
+          "left_recall": 0.9,
+          "right_recall": 0.12,
+          "left_prediction_proportion": 0.89,
+          "median_p_left": 0.5868983385343771,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              90,
+              10
+            ],
+            [
+              88,
+              12
+            ]
+          ]
+        },
+        {
+          "subject": 34,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.475,
+          "left_recall": 0.95,
+          "right_recall": 0.0,
+          "left_prediction_proportion": 0.975,
+          "median_p_left": 0.6559273137494923,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              95,
+              5
+            ],
+            [
+              100,
+              0
+            ]
+          ]
+        },
+        {
+          "subject": 35,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.5,
+          "left_recall": 0.98,
+          "right_recall": 0.02,
+          "left_prediction_proportion": 0.98,
+          "median_p_left": 0.712423666633635,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              98,
+              2
+            ],
+            [
+              98,
+              2
+            ]
+          ]
+        },
+        {
+          "subject": 36,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.635,
+          "left_recall": 0.56,
+          "right_recall": 0.71,
+          "left_prediction_proportion": 0.425,
+          "median_p_left": 0.47650500291236064,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              56,
+              44
+            ],
+            [
+              29,
+              71
+            ]
+          ]
+        },
+        {
+          "subject": 37,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.495,
+          "left_recall": 0.99,
+          "right_recall": 0.0,
+          "left_prediction_proportion": 0.995,
+          "median_p_left": 0.7137959701327393,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              99,
+              1
+            ],
+            [
+              100,
+              0
+            ]
+          ]
+        },
+        {
+          "subject": 38,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.5,
+          "left_recall": 1.0,
+          "right_recall": 0.0,
+          "left_prediction_proportion": 1.0,
+          "median_p_left": 0.751429536276391,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              100,
+              0
+            ],
+            [
+              100,
+              0
+            ]
+          ]
+        },
+        {
+          "subject": 39,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.505,
+          "left_recall": 1.0,
+          "right_recall": 0.01,
+          "left_prediction_proportion": 0.995,
+          "median_p_left": 0.7821503220077197,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              100,
+              0
+            ],
+            [
+              99,
+              1
+            ]
+          ]
+        },
+        {
+          "subject": 40,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.495,
+          "left_recall": 0.99,
+          "right_recall": 0.0,
+          "left_prediction_proportion": 0.995,
+          "median_p_left": 0.6950286529838902,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              99,
+              1
+            ],
+            [
+              100,
+              0
+            ]
+          ]
+        },
+        {
+          "subject": 41,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.5,
+          "left_recall": 1.0,
+          "right_recall": 0.0,
+          "left_prediction_proportion": 1.0,
+          "median_p_left": 0.688850333827608,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              100,
+              0
+            ],
+            [
+              100,
+              0
+            ]
+          ]
+        },
+        {
+          "subject": 42,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.495,
+          "left_recall": 0.98,
+          "right_recall": 0.01,
+          "left_prediction_proportion": 0.985,
+          "median_p_left": 0.6544410970759066,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              98,
+              2
+            ],
+            [
+              99,
+              1
+            ]
+          ]
+        },
+        {
+          "subject": 43,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.505,
+          "left_recall": 1.0,
+          "right_recall": 0.01,
+          "left_prediction_proportion": 0.995,
+          "median_p_left": 0.6954120723861095,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              100,
+              0
+            ],
+            [
+              99,
+              1
+            ]
+          ]
+        },
+        {
+          "subject": 44,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.5,
+          "left_recall": 1.0,
+          "right_recall": 0.0,
+          "left_prediction_proportion": 1.0,
+          "median_p_left": 0.7694681354791306,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              100,
+              0
+            ],
+            [
+              100,
+              0
+            ]
+          ]
+        },
+        {
+          "subject": 45,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.515,
+          "left_recall": 0.88,
+          "right_recall": 0.15,
+          "left_prediction_proportion": 0.865,
+          "median_p_left": 0.5901541931120093,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              88,
+              12
+            ],
+            [
+              85,
+              15
+            ]
+          ]
+        },
+        {
+          "subject": 46,
+          "n_trials": 240,
+          "class_counts": {
+            "left": 120,
+            "right": 120
+          },
+          "balanced_accuracy": 0.5291666666666667,
+          "left_recall": 0.85,
+          "right_recall": 0.20833333333333334,
+          "left_prediction_proportion": 0.8208333333333333,
+          "median_p_left": 0.5930313480179565,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              102,
+              18
+            ],
+            [
+              95,
+              25
+            ]
+          ]
+        },
+        {
+          "subject": 47,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.575,
+          "left_recall": 0.84,
+          "right_recall": 0.31,
+          "left_prediction_proportion": 0.765,
+          "median_p_left": 0.5829184356141535,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              84,
+              16
+            ],
+            [
+              69,
+              31
+            ]
+          ]
+        },
+        {
+          "subject": 48,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.525,
+          "left_recall": 1.0,
+          "right_recall": 0.05,
+          "left_prediction_proportion": 0.975,
+          "median_p_left": 0.7172577151885748,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              100,
+              0
+            ],
+            [
+              95,
+              5
+            ]
+          ]
+        },
+        {
+          "subject": 49,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.525,
+          "left_recall": 1.0,
+          "right_recall": 0.05,
+          "left_prediction_proportion": 0.975,
+          "median_p_left": 0.6580055132873125,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              100,
+              0
+            ],
+            [
+              95,
+              5
+            ]
+          ]
+        },
+        {
+          "subject": 50,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.5,
+          "left_recall": 1.0,
+          "right_recall": 0.0,
+          "left_prediction_proportion": 1.0,
+          "median_p_left": 0.7353452283947872,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              100,
+              0
+            ],
+            [
+              100,
+              0
+            ]
+          ]
+        },
+        {
+          "subject": 51,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.515,
+          "left_recall": 0.92,
+          "right_recall": 0.11,
+          "left_prediction_proportion": 0.905,
+          "median_p_left": 0.6271564110556795,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              92,
+              8
+            ],
+            [
+              89,
+              11
+            ]
+          ]
+        },
+        {
+          "subject": 52,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.505,
+          "left_recall": 1.0,
+          "right_recall": 0.01,
+          "left_prediction_proportion": 0.995,
+          "median_p_left": 0.6956695741899037,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              100,
+              0
+            ],
+            [
+              99,
+              1
+            ]
+          ]
+        }
+      ],
+      "all_original_person_csp_confusion_matrices_and_ba_match": true,
+      "p_left_is_stored_model_output_not_verified_calibrated_probability": true,
+      "saved_probabilities_and_canonical_argmax_mapping_consistent": true
+    },
+    "Lee2019_MI": {
+      "experiment_id": "Q15-E007",
+      "n_persons": 54,
+      "n_sessions": 108,
+      "n_original_prediction_rows_all_models": 75600,
+      "n_csp_trials": 10800,
+      "equal_person_mean_balanced_accuracy": 0.5276851851851853,
+      "equal_person_mean_left_prediction_proportion": 0.8321296296296296,
+      "equal_person_mean_left_recall": 0.8598148148148148,
+      "equal_person_mean_right_recall": 0.19555555555555554,
+      "pooled_trial_metrics": {
+        "n_trials": 10800,
+        "class_counts": {
+          "left": 5400,
+          "right": 5400
+        },
+        "balanced_accuracy": 0.5276851851851851,
+        "left_recall": 0.8598148148148148,
+        "right_recall": 0.19555555555555557,
+        "left_prediction_proportion": 0.8321296296296297,
+        "median_p_left": 0.6329387369548158,
+        "confusion_rows_actual_left_right_columns_predicted_left_right": [
+          [
+            4643,
+            757
+          ],
+          [
+            4344,
+            1056
+          ]
+        ]
+      },
+      "binary_label_flip_arithmetic_only_no_new_predictions": {
+        "formula": "For two classes, complementing each stored predicted label gives BA_flip = 1 - BA_original. This is an algebraic identity, not a new intervention/replay.",
+        "equal_person_ba_complement": 0.47231481481481474,
+        "pooled_trial_ba_complement": 0.47231481481481485,
+        "new_label_flip_experiment_performed": false
+      },
+      "per_person": [
+        {
+          "subject": 1,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.525,
+          "left_recall": 0.88,
+          "right_recall": 0.17,
+          "left_prediction_proportion": 0.855,
+          "median_p_left": 0.675392553432013,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              88,
+              12
+            ],
+            [
+              83,
+              17
+            ]
+          ]
+        },
+        {
+          "subject": 2,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.525,
+          "left_recall": 0.94,
+          "right_recall": 0.11,
+          "left_prediction_proportion": 0.915,
+          "median_p_left": 0.5970524534831991,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              94,
+              6
+            ],
+            [
+              89,
+              11
+            ]
+          ]
+        },
+        {
+          "subject": 3,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.52,
+          "left_recall": 0.97,
+          "right_recall": 0.07,
+          "left_prediction_proportion": 0.95,
+          "median_p_left": 0.6915849451440944,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              97,
+              3
+            ],
+            [
+              93,
+              7
+            ]
+          ]
+        },
+        {
+          "subject": 4,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.5,
+          "left_recall": 0.98,
+          "right_recall": 0.02,
+          "left_prediction_proportion": 0.98,
+          "median_p_left": 0.7100602519599751,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              98,
+              2
+            ],
+            [
+              98,
+              2
+            ]
+          ]
+        },
+        {
+          "subject": 5,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.58,
+          "left_recall": 0.75,
+          "right_recall": 0.41,
+          "left_prediction_proportion": 0.67,
+          "median_p_left": 0.5397412775042983,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              75,
+              25
+            ],
+            [
+              59,
+              41
+            ]
+          ]
+        },
+        {
+          "subject": 6,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.51,
+          "left_recall": 0.94,
+          "right_recall": 0.08,
+          "left_prediction_proportion": 0.93,
+          "median_p_left": 0.6647315093182034,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              94,
+              6
+            ],
+            [
+              92,
+              8
+            ]
+          ]
+        },
+        {
+          "subject": 7,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.54,
+          "left_recall": 0.25,
+          "right_recall": 0.83,
+          "left_prediction_proportion": 0.21,
+          "median_p_left": 0.4076261363204156,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              25,
+              75
+            ],
+            [
+              17,
+              83
+            ]
+          ]
+        },
+        {
+          "subject": 8,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.5800000000000001,
+          "left_recall": 0.25,
+          "right_recall": 0.91,
+          "left_prediction_proportion": 0.17,
+          "median_p_left": 0.377738713782933,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              25,
+              75
+            ],
+            [
+              9,
+              91
+            ]
+          ]
+        },
+        {
+          "subject": 9,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.56,
+          "left_recall": 0.72,
+          "right_recall": 0.4,
+          "left_prediction_proportion": 0.66,
+          "median_p_left": 0.539518110241581,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              72,
+              28
+            ],
+            [
+              60,
+              40
+            ]
+          ]
+        },
+        {
+          "subject": 10,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.5,
+          "left_recall": 1.0,
+          "right_recall": 0.0,
+          "left_prediction_proportion": 1.0,
+          "median_p_left": 0.8296991211517235,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              100,
+              0
+            ],
+            [
+              100,
+              0
+            ]
+          ]
+        },
+        {
+          "subject": 11,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.535,
+          "left_recall": 0.96,
+          "right_recall": 0.11,
+          "left_prediction_proportion": 0.925,
+          "median_p_left": 0.5933990572751249,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              96,
+              4
+            ],
+            [
+              89,
+              11
+            ]
+          ]
+        },
+        {
+          "subject": 12,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.53,
+          "left_recall": 0.97,
+          "right_recall": 0.09,
+          "left_prediction_proportion": 0.94,
+          "median_p_left": 0.6490605144186863,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              97,
+              3
+            ],
+            [
+              91,
+              9
+            ]
+          ]
+        },
+        {
+          "subject": 13,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.5,
+          "left_recall": 1.0,
+          "right_recall": 0.0,
+          "left_prediction_proportion": 1.0,
+          "median_p_left": 0.8463538866980092,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              100,
+              0
+            ],
+            [
+              100,
+              0
+            ]
+          ]
+        },
+        {
+          "subject": 14,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.52,
+          "left_recall": 0.95,
+          "right_recall": 0.09,
+          "left_prediction_proportion": 0.93,
+          "median_p_left": 0.7454327349209422,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              95,
+              5
+            ],
+            [
+              91,
+              9
+            ]
+          ]
+        },
+        {
+          "subject": 15,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.5,
+          "left_recall": 1.0,
+          "right_recall": 0.0,
+          "left_prediction_proportion": 1.0,
+          "median_p_left": 0.8122435552349003,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              100,
+              0
+            ],
+            [
+              100,
+              0
+            ]
+          ]
+        },
+        {
+          "subject": 16,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.52,
+          "left_recall": 0.85,
+          "right_recall": 0.19,
+          "left_prediction_proportion": 0.83,
+          "median_p_left": 0.642965117829488,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              85,
+              15
+            ],
+            [
+              81,
+              19
+            ]
+          ]
+        },
+        {
+          "subject": 17,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.505,
+          "left_recall": 1.0,
+          "right_recall": 0.01,
+          "left_prediction_proportion": 0.995,
+          "median_p_left": 0.6930826835407089,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              100,
+              0
+            ],
+            [
+              99,
+              1
+            ]
+          ]
+        },
+        {
+          "subject": 18,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.525,
+          "left_recall": 0.97,
+          "right_recall": 0.08,
+          "left_prediction_proportion": 0.945,
+          "median_p_left": 0.6693459933558307,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              97,
+              3
+            ],
+            [
+              92,
+              8
+            ]
+          ]
+        },
+        {
+          "subject": 19,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.505,
+          "left_recall": 0.96,
+          "right_recall": 0.05,
+          "left_prediction_proportion": 0.955,
+          "median_p_left": 0.6529487150546311,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              96,
+              4
+            ],
+            [
+              95,
+              5
+            ]
+          ]
+        },
+        {
+          "subject": 20,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.475,
+          "left_recall": 0.66,
+          "right_recall": 0.29,
+          "left_prediction_proportion": 0.685,
+          "median_p_left": 0.5510001371346485,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              66,
+              34
+            ],
+            [
+              71,
+              29
+            ]
+          ]
+        },
+        {
+          "subject": 21,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.5700000000000001,
+          "left_recall": 0.49,
+          "right_recall": 0.65,
+          "left_prediction_proportion": 0.42,
+          "median_p_left": 0.4851066052014082,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              49,
+              51
+            ],
+            [
+              35,
+              65
+            ]
+          ]
+        },
+        {
+          "subject": 22,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.5700000000000001,
+          "left_recall": 0.87,
+          "right_recall": 0.27,
+          "left_prediction_proportion": 0.8,
+          "median_p_left": 0.5702734156274067,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              87,
+              13
+            ],
+            [
+              73,
+              27
+            ]
+          ]
+        },
+        {
+          "subject": 23,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.555,
+          "left_recall": 0.89,
+          "right_recall": 0.22,
+          "left_prediction_proportion": 0.835,
+          "median_p_left": 0.5829058522365747,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              89,
+              11
+            ],
+            [
+              78,
+              22
+            ]
+          ]
+        },
+        {
+          "subject": 24,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.5249999999999999,
+          "left_recall": 0.7,
+          "right_recall": 0.35,
+          "left_prediction_proportion": 0.675,
+          "median_p_left": 0.5831260781546352,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              70,
+              30
+            ],
+            [
+              65,
+              35
+            ]
+          ]
+        },
+        {
+          "subject": 25,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.56,
+          "left_recall": 0.65,
+          "right_recall": 0.47,
+          "left_prediction_proportion": 0.59,
+          "median_p_left": 0.5596662037328917,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              65,
+              35
+            ],
+            [
+              53,
+              47
+            ]
+          ]
+        },
+        {
+          "subject": 26,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.5,
+          "left_recall": 0.98,
+          "right_recall": 0.02,
+          "left_prediction_proportion": 0.98,
+          "median_p_left": 0.7095853880430424,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              98,
+              2
+            ],
+            [
+              98,
+              2
+            ]
+          ]
+        },
+        {
+          "subject": 27,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.49,
+          "left_recall": 0.88,
+          "right_recall": 0.1,
+          "left_prediction_proportion": 0.89,
+          "median_p_left": 0.6068683833708887,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              88,
+              12
+            ],
+            [
+              90,
+              10
+            ]
+          ]
+        },
+        {
+          "subject": 28,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.545,
+          "left_recall": 0.8,
+          "right_recall": 0.29,
+          "left_prediction_proportion": 0.755,
+          "median_p_left": 0.5800967578979133,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              80,
+              20
+            ],
+            [
+              71,
+              29
+            ]
+          ]
+        },
+        {
+          "subject": 29,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.53,
+          "left_recall": 0.96,
+          "right_recall": 0.1,
+          "left_prediction_proportion": 0.93,
+          "median_p_left": 0.6878987157947909,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              96,
+              4
+            ],
+            [
+              90,
+              10
+            ]
+          ]
+        },
+        {
+          "subject": 30,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.5,
+          "left_recall": 0.92,
+          "right_recall": 0.08,
+          "left_prediction_proportion": 0.92,
+          "median_p_left": 0.7695351806335589,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              92,
+              8
+            ],
+            [
+              92,
+              8
+            ]
+          ]
+        },
+        {
+          "subject": 31,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.51,
+          "left_recall": 0.9,
+          "right_recall": 0.12,
+          "left_prediction_proportion": 0.89,
+          "median_p_left": 0.6049677441271616,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              90,
+              10
+            ],
+            [
+              88,
+              12
+            ]
+          ]
+        },
+        {
+          "subject": 32,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.7749999999999999,
+          "left_recall": 0.96,
+          "right_recall": 0.59,
+          "left_prediction_proportion": 0.685,
+          "median_p_left": 0.5634456304973012,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              96,
+              4
+            ],
+            [
+              41,
+              59
+            ]
+          ]
+        },
+        {
+          "subject": 33,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.505,
+          "left_recall": 0.9,
+          "right_recall": 0.11,
+          "left_prediction_proportion": 0.895,
+          "median_p_left": 0.685792412386919,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              90,
+              10
+            ],
+            [
+              89,
+              11
+            ]
+          ]
+        },
+        {
+          "subject": 34,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.505,
+          "left_recall": 0.87,
+          "right_recall": 0.14,
+          "left_prediction_proportion": 0.865,
+          "median_p_left": 0.6627544451984846,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              87,
+              13
+            ],
+            [
+              86,
+              14
+            ]
+          ]
+        },
+        {
+          "subject": 35,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.485,
+          "left_recall": 0.78,
+          "right_recall": 0.19,
+          "left_prediction_proportion": 0.795,
+          "median_p_left": 0.5904290180496382,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              78,
+              22
+            ],
+            [
+              81,
+              19
+            ]
+          ]
+        },
+        {
+          "subject": 36,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.73,
+          "left_recall": 1.0,
+          "right_recall": 0.46,
+          "left_prediction_proportion": 0.77,
+          "median_p_left": 0.6196975680164386,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              100,
+              0
+            ],
+            [
+              54,
+              46
+            ]
+          ]
+        },
+        {
+          "subject": 37,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.385,
+          "left_recall": 0.67,
+          "right_recall": 0.1,
+          "left_prediction_proportion": 0.785,
+          "median_p_left": 0.581252060789706,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              67,
+              33
+            ],
+            [
+              90,
+              10
+            ]
+          ]
+        },
+        {
+          "subject": 38,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.505,
+          "left_recall": 0.94,
+          "right_recall": 0.07,
+          "left_prediction_proportion": 0.935,
+          "median_p_left": 0.635298871234132,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              94,
+              6
+            ],
+            [
+              93,
+              7
+            ]
+          ]
+        },
+        {
+          "subject": 39,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.505,
+          "left_recall": 0.93,
+          "right_recall": 0.08,
+          "left_prediction_proportion": 0.925,
+          "median_p_left": 0.627285572195061,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              93,
+              7
+            ],
+            [
+              92,
+              8
+            ]
+          ]
+        },
+        {
+          "subject": 40,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.505,
+          "left_recall": 0.99,
+          "right_recall": 0.02,
+          "left_prediction_proportion": 0.985,
+          "median_p_left": 0.6528185579406363,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              99,
+              1
+            ],
+            [
+              98,
+              2
+            ]
+          ]
+        },
+        {
+          "subject": 41,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.495,
+          "left_recall": 0.91,
+          "right_recall": 0.08,
+          "left_prediction_proportion": 0.915,
+          "median_p_left": 0.5874452383769533,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              91,
+              9
+            ],
+            [
+              92,
+              8
+            ]
+          ]
+        },
+        {
+          "subject": 42,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.545,
+          "left_recall": 0.75,
+          "right_recall": 0.34,
+          "left_prediction_proportion": 0.705,
+          "median_p_left": 0.5584912303205318,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              75,
+              25
+            ],
+            [
+              66,
+              34
+            ]
+          ]
+        },
+        {
+          "subject": 43,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.53,
+          "left_recall": 0.99,
+          "right_recall": 0.07,
+          "left_prediction_proportion": 0.96,
+          "median_p_left": 0.6852563162725196,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              99,
+              1
+            ],
+            [
+              93,
+              7
+            ]
+          ]
+        },
+        {
+          "subject": 44,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.545,
+          "left_recall": 0.89,
+          "right_recall": 0.2,
+          "left_prediction_proportion": 0.845,
+          "median_p_left": 0.6284807453041588,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              89,
+              11
+            ],
+            [
+              80,
+              20
+            ]
+          ]
+        },
+        {
+          "subject": 45,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.5449999999999999,
+          "left_recall": 0.97,
+          "right_recall": 0.12,
+          "left_prediction_proportion": 0.925,
+          "median_p_left": 0.7011546311879204,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              97,
+              3
+            ],
+            [
+              88,
+              12
+            ]
+          ]
+        },
+        {
+          "subject": 46,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.5700000000000001,
+          "left_recall": 0.8,
+          "right_recall": 0.34,
+          "left_prediction_proportion": 0.73,
+          "median_p_left": 0.5964357710696255,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              80,
+              20
+            ],
+            [
+              66,
+              34
+            ]
+          ]
+        },
+        {
+          "subject": 47,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.495,
+          "left_recall": 0.9,
+          "right_recall": 0.09,
+          "left_prediction_proportion": 0.905,
+          "median_p_left": 0.6630242001932647,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              90,
+              10
+            ],
+            [
+              91,
+              9
+            ]
+          ]
+        },
+        {
+          "subject": 48,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.455,
+          "left_recall": 0.8,
+          "right_recall": 0.11,
+          "left_prediction_proportion": 0.845,
+          "median_p_left": 0.6274685843012264,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              80,
+              20
+            ],
+            [
+              89,
+              11
+            ]
+          ]
+        },
+        {
+          "subject": 49,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.52,
+          "left_recall": 1.0,
+          "right_recall": 0.04,
+          "left_prediction_proportion": 0.98,
+          "median_p_left": 0.7003058766331919,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              100,
+              0
+            ],
+            [
+              96,
+              4
+            ]
+          ]
+        },
+        {
+          "subject": 50,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.495,
+          "left_recall": 0.97,
+          "right_recall": 0.02,
+          "left_prediction_proportion": 0.975,
+          "median_p_left": 0.7121775826263659,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              97,
+              3
+            ],
+            [
+              98,
+              2
+            ]
+          ]
+        },
+        {
+          "subject": 51,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.515,
+          "left_recall": 0.58,
+          "right_recall": 0.45,
+          "left_prediction_proportion": 0.565,
+          "median_p_left": 0.5171072155917176,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              58,
+              42
+            ],
+            [
+              55,
+              45
+            ]
+          ]
+        },
+        {
+          "subject": 52,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.555,
+          "left_recall": 0.91,
+          "right_recall": 0.2,
+          "left_prediction_proportion": 0.855,
+          "median_p_left": 0.591179450604856,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              91,
+              9
+            ],
+            [
+              80,
+              20
+            ]
+          ]
+        },
+        {
+          "subject": 53,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.48,
+          "left_recall": 0.95,
+          "right_recall": 0.01,
+          "left_prediction_proportion": 0.97,
+          "median_p_left": 0.687446488251862,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              95,
+              5
+            ],
+            [
+              99,
+              1
+            ]
+          ]
+        },
+        {
+          "subject": 54,
+          "n_trials": 200,
+          "class_counts": {
+            "left": 100,
+            "right": 100
+          },
+          "balanced_accuracy": 0.54,
+          "left_recall": 0.93,
+          "right_recall": 0.15,
+          "left_prediction_proportion": 0.89,
+          "median_p_left": 0.5957088115182118,
+          "confusion_rows_actual_left_right_columns_predicted_left_right": [
+            [
+              93,
+              7
+            ],
+            [
+              85,
+              15
+            ]
+          ]
+        }
+      ],
+      "all_original_person_csp_confusion_matrices_and_ba_match": true,
+      "p_left_is_stored_model_output_not_verified_calibrated_probability": true,
+      "saved_probabilities_and_canonical_argmax_mapping_consistent": true
+    }
+  },
+  "hash_checks": [
+    {
+      "check": "source_archived_validation_artifact_hashes",
+      "checked_files": 52,
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "check": "external_archived_validation_artifact_hashes",
+      "checked_files": 221,
+      "passed": true,
+      "mismatches": []
+    }
+  ],
+  "original_source_validation": {
+    "status": "source_validated_non_authorizing",
+    "passed": true,
+    "interpretation": "Artifact/partition validation only; external evaluation requires a separate committed checkpoint and inference freeze.",
+    "counts": {
+      "deep_final": 6,
+      "deep_inner": 8,
+      "predictions": 0,
+      "shallow": 1
+    },
+    "csp_coordinate_rule": "fixed_21_to_20_helmert",
+    "csp_model_sha256": "15ee57321177bca17472bd0fe211f1a42557291203b4e5700caf74a093bdd61f",
+    "source_only": true,
+    "target_fits": 0,
+    "selected_epochs": {
+      "BROAD_EEGNET": 14,
+      "MU_BETA_SHARED": 19
+    }
+  },
+  "original_external_validation": {
+    "status": "completed_with_calibration_limitations",
+    "passed": true,
+    "scientific_validation_passed": true,
+    "raw_auditor_replayed": true,
+    "raw_to_epoch_replayed": true,
+    "frozen_checkpoint_prediction_replayed": true,
+    "statistics_independently_reconstructed": true,
+    "model_state_unchanged": true,
+    "calibration_limitations": [
+      "raw_voltage_calibration_not_independently_verified",
+      "cho_original_hardware_reference_not_verified",
+      "hardware_cue_latency_not_verified"
+    ],
+    "target_fits": 0,
+    "new_model_fits": 0
+  },
+  "original_metadata_receipts": {
+    "Lee2019_MI": {
+      "status": "metadata_passed_non_authorizing",
+      "n_files": 108,
+      "n_subjects": 54,
+      "n_labeled_trials": 10800,
+      "raw_hashes_verified": true,
+      "all_expected_files_hashed": true,
+      "provider_manifest_authenticated": true,
+      "metadata_only": true,
+      "predictions_computed": false,
+      "native_numeric_calibration_verified": false,
+      "target_fits": 0,
+      "channel_origin": "actual EEG_MI_train.chan bytes",
+      "native_label_map": {
+        "left_hand": 2,
+        "right_hand": 1
+      },
+      "canonical_label_map": {
+        "left_hand": 1,
+        "right_hand": 2
+      },
+      "all_file_canonical_label_maps_consistent": true,
+      "all_files_cover_frozen_canonical_channel_names": true
+    },
+    "Cho2017": {
+      "status": "metadata_passed_non_authorizing",
+      "n_files": 52,
+      "n_subjects": 52,
+      "n_labeled_trials": 10520,
+      "raw_hashes_verified": true,
+      "all_expected_files_hashed": true,
+      "provider_manifest_authenticated": true,
+      "metadata_only": true,
+      "predictions_computed": false,
+      "native_numeric_calibration_verified": false,
+      "target_fits": 0,
+      "channel_origin": "official paper Figure1 numbered montage, reviewed prospective row-map assumption",
+      "native_label_map": {
+        "left_hand": 1,
+        "right_hand": 2
+      },
+      "canonical_label_map": {
+        "left_hand": 1,
+        "right_hand": 2
+      },
+      "all_file_canonical_label_maps_consistent": true,
+      "all_files_cover_frozen_canonical_channel_names": true
+    }
+  },
+  "frozen_csp_model_artifact": {
+    "path": "results/Q15-E005/source/CSP4_LDA/all_source/model.joblib",
+    "actual_joblib_bytes_present": true,
+    "bytes": 9365,
+    "sha256": "15ee57321177bca17472bd0fe211f1a42557291203b4e5700caf74a093bdd61f",
+    "matches_original_source_validation_hash": true,
+    "model_deserialized_this_audit": false,
+    "predictions_executed_this_audit": false
+  },
+  "public_frozen_model_readback": {
+    "url": "https://raw.githubusercontent.com/jackzhu119/cross-subject-mi-eeg/d9a11926076bd348696f6e690078955921dac3f8/results/Q15-E005/source/CSP4_LDA/all_source/model.joblib",
+    "http_status": 200,
+    "bytes": 9365,
+    "sha256": "15ee57321177bca17472bd0fe211f1a42557291203b4e5700caf74a093bdd61f",
+    "matches_local_and_frozen_manifest": true,
+    "model_deserialized": false
+  },
+  "earlier_q14_binary_csp_loso": {
+    "equal_person_mean_balanced_accuracy": 0.6153549382716048,
+    "n_persons": 9,
+    "rechecked_prediction_files": [
+      {
+        "subject": 1,
+        "balanced_accuracy": 0.53125,
+        "prediction_hash_matched": true
+      },
+      {
+        "subject": 2,
+        "balanced_accuracy": 0.5277777777777778,
+        "prediction_hash_matched": true
+      },
+      {
+        "subject": 3,
+        "balanced_accuracy": 0.6770833333333334,
+        "prediction_hash_matched": true
+      },
+      {
+        "subject": 4,
+        "balanced_accuracy": 0.6319444444444444,
+        "prediction_hash_matched": true
+      },
+      {
+        "subject": 5,
+        "balanced_accuracy": 0.48958333333333337,
+        "prediction_hash_matched": true
+      },
+      {
+        "subject": 6,
+        "balanced_accuracy": 0.5347222222222222,
+        "prediction_hash_matched": true
+      },
+      {
+        "subject": 7,
+        "balanced_accuracy": 0.5729166666666666,
+        "prediction_hash_matched": true
+      },
+      {
+        "subject": 8,
+        "balanced_accuracy": 0.9236111111111112,
+        "prediction_hash_matched": true
+      },
+      {
+        "subject": 9,
+        "balanced_accuracy": 0.6493055555555556,
+        "prediction_hash_matched": true
+      }
+    ],
+    "not_the_claimed_new_q15_9_fold_loso": true,
+    "differences": "Q14 has 22-channel source epochs and earlier preprocessing; Q15 uses 21-channel trial-context CAR plus fixed 20-coordinate Helmert projection."
+  },
+  "missing_report_inputs": [
+    "Q15_CSP崩溃_验证报告.md",
+    "PLOS_ONE_投稿前评审报告 (1)(1).md"
+  ],
+  "unsupported_without_new_report_evidence": [
+    "Q15 CSP source resubstitution balanced accuracy of 63.04%",
+    "New nine-fold Q15 CSP LOSO balanced accuracy of 61.65%",
+    "Any claimed post-hoc intercept shift / centering / target adaptation improvement",
+    "Any claimed label-flip sensitivity experiment and numerical results",
+    "A proved covariate-shift or faulty-adapter mechanism for left-prediction dominance"
+  ],
+  "interpretation_limits": [
+    "Strong left-prediction dominance is verified descriptively; it is not complete one-class output on all participants.",
+    "Original source validation authenticates fit partition, artifact state and declared parameters, not held-out source efficacy.",
+    "Raw-to-prediction replay checks consistency with the frozen prospective adapter; it does not independently certify physical electrode order, original Cho reference, voltage calibration or cue hardware latency.",
+    "In-sample source training BA, if provided later, would be resubstitution and must not be presented as held-out source performance.",
+    "Feature centering or decision-shift estimation using external target inputs is target adaptation even without labels.",
+    "Choosing any shift, sign, label map or threshold after inspecting target scores/labels is target-driven tuning and cannot replace the primary frozen zero-target-fit result.",
+    "Label-flip complements are arithmetic of stored scores only; no transformed-label prediction files, threshold changes, shift interventions, model executions or statistical tests were conducted."
+  ],
+  "public_branches_checked": [
+    "codex/r2-environment-preflight",
+    "main",
+    "paper/completed-q15-20261005",
+    "paper/non-q15-manuscript-20261002",
+    "paper/plos-one-author-finalization-20261009",
+    "paper/plos-one-submission-20261008",
+    "paper/plos-one-submission-20261009",
+    "paper/zero-calibration-q16-20261006",
+    "q15-r2-preflight",
+    "q15/cloud-bootstrap-20261002",
+    "q15/preparation-20261003T042211Z-5b8bf5833b9f",
+    "q15/preparation-managed-20261003T041425Z",
+    "q15/run-20261004T004000Z-98f40947c306",
+    "q15/run-20261004T005335Z-9b3bce30277a",
+    "q15/run-20261005T050511Z-migration-from-r2-b82ad79b"
+  ],
+  "evidence_manifest": {
+    "results/Q15-E005/source_validation.json": {
+      "sha256": "837bdd6a9a4739bd09c36c1e095b5a7c7bec657768683d70c8968f0fbb81542b",
+      "bytes": 10043
+    },
+    "results/Q15-EXTERNAL/validation_report.json": {
+      "sha256": "5c93501626ab3a631f82cdfad5e8ddc722c3414cdd46d3c810977ad968d49ae0",
+      "bytes": 35744
+    },
+    "results/Q15-EXTERNAL/Q15-E006/predictions.csv": {
+      "sha256": "b726ec292c169c55e9b20487cadbc9be36297e216c6e00e6c258f5475b2bba67",
+      "bytes": 14851254
+    },
+    "results/Q15-EXTERNAL/Q15-E006/statistics.json": {
+      "sha256": "c5a92308078c7d653b670b9c85dc77b4f3e910ace4d01238b89871a25463242e",
+      "bytes": 330492
+    },
+    "results/Q15-EXTERNAL/Q15-E007/predictions.csv": {
+      "sha256": "1c5772d7cd2ddf35e68d3183c2075caf2f95db506685494b696421fe842f0e11",
+      "bytes": 18108920
+    },
+    "results/Q15-EXTERNAL/Q15-E007/statistics.json": {
+      "sha256": "52aa5e997c974e2a41a98f813c2e350a7b50963c27ec6822bcb4538f4d126ee5",
+      "bytes": 485095
+    },
+    "results/Q14-E001/subject_seed_metrics.csv": {
+      "sha256": "b756700f8e22f7dcb760c8f9ee7a4e0fa7f42d9f93c237d29ab728a66d4a7de5",
+      "bytes": 8343
+    },
+    "results/Q14-E001/CSP4_LDA/target_01/predictions.csv": {
+      "sha256": "260ff218d43ab990a703ed8e84dd113b35d1aaa3e87b23fd5367f624e802f807",
+      "bytes": 32116
+    },
+    "results/Q14-E001/CSP4_LDA/target_02/predictions.csv": {
+      "sha256": "21e510c284667dbb109012025cea192cbe39a447ea4154d2c50e4ac3c475ab51",
+      "bytes": 32076
+    },
+    "results/Q14-E001/CSP4_LDA/target_03/predictions.csv": {
+      "sha256": "7bf5836ff53ee95301b1dffc136edb0feb5da767c1992d61cfc2e3813120d413",
+      "bytes": 32174
+    },
+    "results/Q14-E001/CSP4_LDA/target_04/predictions.csv": {
+      "sha256": "300ca64f42e0cdf367ccd0a0fced7ad9eb692e787c3125558a5f1f8393def722",
+      "bytes": 32068
+    },
+    "results/Q14-E001/CSP4_LDA/target_05/predictions.csv": {
+      "sha256": "9ef97f26931d1e5cfe826bc371e9d5e8df3d56de36269bcd1ba3c95a3607c688",
+      "bytes": 32067
+    },
+    "results/Q14-E001/CSP4_LDA/target_06/predictions.csv": {
+      "sha256": "3989a59b1d57b6acf366f06eed52cafcc40b8bd069980499122b613a5c12aa13",
+      "bytes": 32124
+    },
+    "results/Q14-E001/CSP4_LDA/target_07/predictions.csv": {
+      "sha256": "345c7134569c25ece7c82355ef7ab07e7ebdf3c8e321fc0b70498578210cc015",
+      "bytes": 32090
+    },
+    "results/Q14-E001/CSP4_LDA/target_08/predictions.csv": {
+      "sha256": "acdf0e6792eb3a1441f699f140d77c89726168fce5625fd97dc25c2341ea7146",
+      "bytes": 32136
+    },
+    "results/Q14-E001/CSP4_LDA/target_09/predictions.csv": {
+      "sha256": "c52fc580aabf7fb75d567910cf3ded59bd0efba5dde76f8387cc589ee09fb889",
+      "bytes": 32138
+    },
+    "results/Q15-E005/source/CSP4_LDA/all_source/manifest.json": {
+      "sha256": "5fae836fdf4172bc174e00de347722e70772b68ca54961accb133c65754c4d4f",
+      "bytes": 469
+    },
+    "results/Q15-EXTERNAL/inference_freeze.json": {
+      "sha256": "e420d8ca9389f5fcefd3ab16229244c0e362770dba8aeecccca73b10c20b29c5",
+      "bytes": 14902
+    },
+    "results/Q15-EXTERNAL/completion_receipt.json": {
+      "sha256": "38195cc985ad79db3231303411814da435da2c6cabba745000ccfc9eb73ebfb5",
+      "bytes": 1654
+    },
+    "results/Q15-V001/metadata_audit_receipt.json": {
+      "sha256": "f7f253ae721db39ec26473f9ed3aab827140035975878b9efc4e587e0a3f045b",
+      "bytes": 2787438
+    },
+    "results/Q15-V002/metadata_audit_receipt.json": {
+      "sha256": "5593d194397d905ce3535deea362ffe10655eecb7b9fad7e124746b8d21cac16",
+      "bytes": 2852927
+    },
+    "scripts/q15_source.py": {
+      "sha256": "b0c3a02d757c3b636ec6f312f3d3d8f43d5ce44a0ff14dfbfe10dacef4172648",
+      "bytes": 28530
+    },
+    "scripts/q15_validate_source.py": {
+      "sha256": "4b5dc7b848eb91a5644d8c45d99a03361a2d5063302f59c95bd88be97e763663",
+      "bytes": 47419
+    },
+    "scripts/q15_external.py": {
+      "sha256": "6876042faf7fb5bd77a3be122f00fab2b1bbd2f6fb5b302c1745eba28f28a08c",
+      "bytes": 29823
+    },
+    "scripts/q15_validate_external.py": {
+      "sha256": "df688777d51d3d8aec9bd785683859b512024f922ba2805284dfe5fbfc71e8bd",
+      "bytes": 36406
+    },
+    "scripts/q15_real_metadata.py": {
+      "sha256": "96c00d69d6f7f0ab38707fde696f0d160cb6ebee2169365e1a362fd90f142004",
+      "bytes": 19579
+    },
+    "src/mi_eeg/data/q15_context.py": {
+      "sha256": "849ee22e2a1c1987c2a83ed3a837f9f358b505133ce2ffe13ee876f01adc3d61",
+      "bytes": 21289
+    },
+    "src/mi_eeg/models/q15_csp.py": {
+      "sha256": "b5e4df5428c28688d5163cbb235fad5408cf89324ac4112c6511cdedd25294fd",
+      "bytes": 1144
+    },
+    "scripts/q14_source.py": {
+      "sha256": "b70cf5e41474688b22c6a57a068c07edaa22a8bbf640bd2100b8bb616ea05375",
+      "bytes": 22822
+    },
+    "research_runs/Q15-EXECUTION-20261003/EXECUTION_CONTRACT.json": {
+      "sha256": "4db58b7096378fc1a429580600f35dc8df1a98d701cf8bfb081770f8ea721766",
+      "bytes": 4860
+    },
+    "research_runs/PAPER_FINAL_20261006/evidence/methods_q15.json": {
+      "sha256": "1ab8d541f28266271d1b03862307418bc0727e02475503a99c6e6c39c84ef117",
+      "bytes": 11745
+    },
+    "research_runs/PAPER_FINAL_20261006/evidence/q15_numbers.json": {
+      "sha256": "b8fccf6b5361652dc962017b0ce9caf2523362524b38be8ac9db6ce66db05f4f",
+      "bytes": 94105
+    },
+    "results/Q15-E005/source/CSP4_LDA/all_source/model.joblib": {
+      "sha256": "15ee57321177bca17472bd0fe211f1a42557291203b4e5700caf74a093bdd61f",
+      "bytes": 9365
+    }
+  },
+  "new_model_fits": 0,
+  "new_prediction_inference": 0,
+  "raw_eeg_access": false,
+  "scientific_repository_modified": false
+}

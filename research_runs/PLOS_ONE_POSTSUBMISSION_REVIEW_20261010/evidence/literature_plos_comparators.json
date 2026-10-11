@@ -1,0 +1,517 @@
+{
+  "schema_version": 1,
+  "checked_at_utc": "2026-10-10T12:48:46.744959+00:00",
+  "scope": "Read-only publisher full-text and Crossref review; no repository edits, experiments, fits, inference or new statistical analysis.",
+  "identity_boundary": "The three titles supplied for checking are shorthand. Publisher versions below are exact matches verified by DOI and metadata. They cannot be attributed to an unnamed reviewer, editor or missing scientific-review attachment.",
+  "no_comparative_ranking": true,
+  "source_protocol_budget_warning": "LOSO alone does not establish a matched source-only information budget. Target-label eligibility/mapping, scoring, target-unlabelled normalization/alignment and validation-selection access must be specified separately. Absence of a reported detail is not evidence of leakage or of a restriction.",
+  "papers": [
+    {
+      "key": "accuracy_cost",
+      "title": "Deep learning for EEG-based Motor Imagery classification: Accuracy-cost trade-off",
+      "authors": [
+        {
+          "given": "Javier",
+          "family": "León"
+        },
+        {
+          "given": "Juan José",
+          "family": "Escobar"
+        },
+        {
+          "given": "Andrés",
+          "family": "Ortiz"
+        },
+        {
+          "given": "Julio",
+          "family": "Ortega"
+        },
+        {
+          "given": "Jesús",
+          "family": "González"
+        },
+        {
+          "given": "Pedro",
+          "family": "Martín-Smith"
+        },
+        {
+          "given": "John Q.",
+          "family": "Gan"
+        },
+        {
+          "given": "Miguel",
+          "family": "Damas"
+        }
+      ],
+      "date": "2020-06-11",
+      "year": 2020,
+      "doi": "10.1371/journal.pone.0234178",
+      "journal": "PLOS ONE",
+      "volume": "15",
+      "issue": "6",
+      "elocation_id": "e0234178",
+      "publisher_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0234178",
+      "publisher_xml_url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0234178&type=manuscript",
+      "primary_fulltext_xml_sha256": "6181156a89da653027c3db9d595107b0befa8c6bb70ce30f7c0f06ac9dc3639f",
+      "crossref_identity_check": {
+        "title_exact": true,
+        "authors_exact": true,
+        "publication_date_exact": true
+      },
+      "protocol": {
+        "dataset_and_task": "Three selected University of Essex participants (104, 107, 110) from a 12-person study; left hand, right hand and feet imagery. Fifteen channels, 256 Hz, 178 patterns and 3,600 wavelet-derived input features per participant dataset.",
+        "evaluation": "Participant-specific experiments; 5-fold training-set cross-validation guides genetic feature/structure/training-hyperparameter searches, and test-set Kappa evaluates final models. Results average 15 executions. No held-out-person or external-dataset test is reported.",
+        "target_label_budget": "Labels from each evaluated participant enter that participant dataset’s fitting/selection; this is not unseen-target source-only evaluation.",
+        "target_unlabelled_statistics_budget": "Patterns are normalized to [0,1]; fitted normalization scope is not sufficiently specified to certify a source-only contract. No source–target adaptation protocol is reported.",
+        "selection_and_features": "Genetic feature selection and two-stage structural/learning search, including epochs; wavelet variance features and shallow CNN/FFNN/RNN.",
+        "metrics_and_compute": "Training CV accuracy; test Kappa; measured training energy/time and architecture complexity.",
+        "relevance": "Useful for a narrow statement that model selection and compute belong in evaluation. Low priority for main related work: selected-participant, within-dataset experiment differs substantially from this frozen external audit. Do not use as a numerical baseline."
+      },
+      "supporting_primary_body_paragraphs": [
+        {
+          "paragraph_index_zero_based": 10,
+          "section_path": [
+            "2 The datasets"
+          ]
+        },
+        {
+          "paragraph_index_zero_based": 11,
+          "section_path": [
+            "2 The datasets"
+          ]
+        },
+        {
+          "paragraph_index_zero_based": 13,
+          "section_path": [
+            "2 The datasets"
+          ]
+        },
+        {
+          "paragraph_index_zero_based": 14,
+          "section_path": [
+            "2 The datasets"
+          ]
+        },
+        {
+          "paragraph_index_zero_based": 15,
+          "section_path": [
+            "2 The datasets"
+          ]
+        },
+        {
+          "paragraph_index_zero_based": 67,
+          "section_path": [
+            "3 Methodology",
+            "3.5 Performance evaluation"
+          ]
+        },
+        {
+          "paragraph_index_zero_based": 79,
+          "section_path": [
+            "4 Experimental results and discussion",
+            "4.1 Experimental setup"
+          ]
+        },
+        {
+          "paragraph_index_zero_based": 82,
+          "section_path": [
+            "4 Experimental results and discussion",
+            "4.1 Experimental setup"
+          ]
+        },
+        {
+          "paragraph_index_zero_based": 86,
+          "section_path": [
+            "4 Experimental results and discussion",
+            "4.1 Experimental setup"
+          ]
+        },
+        {
+          "paragraph_index_zero_based": 88,
+          "section_path": [
+            "4 Experimental results and discussion",
+            "4.1 Experimental setup"
+          ]
+        },
+        {
+          "paragraph_index_zero_based": 89,
+          "section_path": [
+            "4 Experimental results and discussion",
+            "4.1 Experimental setup"
+          ]
+        },
+        {
+          "paragraph_index_zero_based": 123,
+          "section_path": [
+            "4 Experimental results and discussion",
+            "4.6 Energy-time comparison"
+          ]
+        },
+        {
+          "paragraph_index_zero_based": 128,
+          "section_path": [
+            "4 Experimental results and discussion",
+            "4.7 Relationship between model quality and complexity"
+          ]
+        }
+      ],
+      "short_verified_excerpts": [
+        {
+          "paragraph_index_zero_based": 15,
+          "quote": "most promising three BCI subjects"
+        },
+        {
+          "paragraph_index_zero_based": 82,
+          "quote": "fitness is evaluated by 5-fold cross-validation"
+        }
+      ],
+      "primary_fulltext_index_file": "accuracy_cost_publisher_paragraphs.json",
+      "all_fulltext_retrieved": true
+    },
+    {
+      "key": "smmtm",
+      "title": "SMMTM: Motor imagery EEG decoding algorithm using a hybrid multi-branch separable convolutional self-attention temporal convolutional network",
+      "authors": [
+        {
+          "given": "DianGuo",
+          "family": "Cao"
+        },
+        {
+          "given": "ZhenYuan",
+          "family": "Yu"
+        },
+        {
+          "given": "Jinqiang",
+          "family": "Wang"
+        },
+        {
+          "given": "Yuqiang",
+          "family": "Wu"
+        }
+      ],
+      "date": "2025-10-23",
+      "year": 2025,
+      "doi": "10.1371/journal.pone.0333805",
+      "journal": "PLOS ONE",
+      "volume": "20",
+      "issue": "10",
+      "elocation_id": "e0333805",
+      "publisher_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0333805",
+      "publisher_xml_url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0333805&type=manuscript",
+      "primary_fulltext_xml_sha256": "1d66b41bc2e5c3c6bc75ffaebc81e20240179a350662bcc0ebfa727ab8465b32",
+      "crossref_identity_check": {
+        "title_exact": true,
+        "authors_exact": true,
+        "publication_date_exact": true
+      },
+      "protocol": {
+        "dataset_and_task": "BCI Competition IV-2a (nine participants, four classes, 22 channels) and IV-2b (nine participants, binary hands, three channels), sampled at 250 Hz.",
+        "evaluation": "Within-person evaluation and IV-2a LOSO: one held-out person and eight training people. It describes 5-fold validation and validation-set parameter selection/early stopping, but does not fully identify validation folds or every selection information boundary. Do not infer target-label leakage.",
+        "target_label_budget": "LOSO testing labels support evaluation; remaining-person labels support training. Exact hyperparameter/early-stopping validation partition is not sufficiently documented to certify equivalence to the present source-only contract.",
+        "target_unlabelled_statistics_budget": "Z-score mean/variance are explicitly fitted on training data and applied to test data. No target distribution-matching procedure is reported.",
+        "selection_and_features": "Serial spatiotemporal convolutions; three learned separable-convolution branches with kernel lengths 8/16/32; self-attention, TCN and feature/decision fusion. These are learned multiscale temporal filters, not fixed mu/beta input views.",
+        "metrics_and_compute": "Accuracy, Kappa and Wilcoxon comparisons; architecture complexity is documented.",
+        "relevance": "Direct recent architectural context, but no external-cohort replication or matched frozen source-selection protocol. A concise citation is justified; no SOTA ranking or isolated spectral-sharing comparison."
+      },
+      "supporting_primary_body_paragraphs": [
+        {
+          "paragraph_index_zero_based": 11,
+          "section_path": [
+            "Prosed method",
+            "Spatiotemporal convolution module"
+          ]
+        },
+        {
+          "paragraph_index_zero_based": 12,
+          "section_path": [
+            "Prosed method",
+            "Multi-branch separable convolution module"
+          ]
+        },
+        {
+          "paragraph_index_zero_based": 13,
+          "section_path": [
+            "Prosed method",
+            "Multi-branch separable convolution module"
+          ]
+        },
+        {
+          "paragraph_index_zero_based": 31,
+          "section_path": [
+            "Experiments",
+            "Datasets"
+          ]
+        },
+        {
+          "paragraph_index_zero_based": 32,
+          "section_path": [
+            "Experiments",
+            "Datasets"
+          ]
+        },
+        {
+          "paragraph_index_zero_based": 33,
+          "section_path": [
+            "Experiments",
+            "Datasets"
+          ]
+        },
+        {
+          "paragraph_index_zero_based": 34,
+          "section_path": [
+            "Experiments",
+            "Data preprocessing"
+          ]
+        },
+        {
+          "paragraph_index_zero_based": 35,
+          "section_path": [
+            "Experiments",
+            "Data preprocessing"
+          ]
+        },
+        {
+          "paragraph_index_zero_based": 38,
+          "section_path": [
+            "Experiments",
+            "Experimental details"
+          ]
+        },
+        {
+          "paragraph_index_zero_based": 40,
+          "section_path": [
+            "Experiments",
+            "Experimental details"
+          ]
+        },
+        {
+          "paragraph_index_zero_based": 49,
+          "section_path": [
+            "Results",
+            "Cross-subject decoding experiment"
+          ]
+        },
+        {
+          "paragraph_index_zero_based": 51,
+          "section_path": [
+            "Results",
+            "Cross-subject decoding experiment"
+          ]
+        },
+        {
+          "paragraph_index_zero_based": 52,
+          "section_path": [
+            "Conclusion"
+          ]
+        }
+      ],
+      "short_verified_excerpts": [
+        {
+          "paragraph_index_zero_based": 35,
+          "quote": "The average μ and variance δ2 of the training data are calculated"
+        },
+        {
+          "paragraph_index_zero_based": 51,
+          "quote": "the remaining eight subjects as the training set"
+        }
+      ],
+      "primary_fulltext_index_file": "smmtm_publisher_paragraphs.json",
+      "all_fulltext_retrieved": true
+    },
+    {
+      "key": "rmetnet",
+      "title": "RMETNet: A cross-subject motor imagery EEG signal classification model based on TSLANet and riemannian geometry features",
+      "authors": [
+        {
+          "given": "Yun",
+          "family": "Zhao"
+        },
+        {
+          "given": "Dongyi",
+          "family": "He"
+        },
+        {
+          "given": "Fudai",
+          "family": "Ren"
+        },
+        {
+          "given": "Qingling",
+          "family": "Xia"
+        },
+        {
+          "given": "Linhao",
+          "family": "Xu"
+        },
+        {
+          "given": "Guanghui",
+          "family": "Xie"
+        },
+        {
+          "given": "Xiaoling",
+          "family": "Zhang"
+        },
+        {
+          "given": "Renqiang",
+          "family": "Yang"
+        },
+        {
+          "given": "Shuaidong",
+          "family": "Zou"
+        },
+        {
+          "given": "Bin",
+          "family": "Jiang"
+        }
+      ],
+      "date": "2026-04-22",
+      "year": 2026,
+      "doi": "10.1371/journal.pone.0347671",
+      "journal": "PLOS ONE",
+      "volume": "21",
+      "issue": "4",
+      "elocation_id": "e0347671",
+      "publisher_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0347671",
+      "publisher_xml_url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0347671&type=manuscript",
+      "primary_fulltext_xml_sha256": "3ceffc7a6f6d0d08871fe50525f41fb83416837c466146ad3b5f0db2bbe18e3a",
+      "crossref_identity_check": {
+        "title_exact": true,
+        "authors_exact": true,
+        "publication_date_exact": true
+      },
+      "protocol": {
+        "dataset_and_task": "IV-2a (nine people, four classes, 22 channels) and IV-2b (nine people, binary hands, three channels; only three feedback sessions, 480 trials/person). Four-second 0.5–4.5-s post-cue windows.",
+        "evaluation": "LOSO and within-person 8:1:1 splits; source participants supply training/validation. Source–target MMD and precomputed Riemannian alignment are expressly part of the method, which the paper calls session-level adaptation.",
+        "target_label_budget": "Classification weighting uses source labels. Unlabelled target features enter distribution matching; no explicit ground-truth target supervision is described for MMD. Detailed target sample exposure/timing is not fully resolved; do not assume all-label access or source-only equivalence.",
+        "target_unlabelled_statistics_budget": "Training-fitted Z-score parameters; covariance/Riemannian features from source and target plus MMD alignment. This uses target distribution information, unlike the present no-target-adaptation contract.",
+        "selection_and_features": "500-epoch training budget; minimum-validation-loss checkpoint. TSLANet learned spectral gating, spatiotemporal convolutions and Riemannian branch.",
+        "metrics_and_compute": "Accuracy, Kappa, Wilcoxon; parameters, FLOPs and latency with preprocessing distinguished from forward inference.",
+        "relevance": "Highly relevant to distinguish cross-person transfer with unlabelled adaptation from strictly frozen source-only external evaluation. Cite for protocol distinction, not as a matched superiority comparator."
+      },
+      "supporting_primary_body_paragraphs": [
+        {
+          "paragraph_index_zero_based": 12,
+          "section_path": [
+            "Methodology",
+            "Overview of RMETNet"
+          ]
+        },
+        {
+          "paragraph_index_zero_based": 13,
+          "section_path": [
+            "Methodology",
+            "Overview of RMETNet"
+          ]
+        },
+        {
+          "paragraph_index_zero_based": 14,
+          "section_path": [
+            "Methodology",
+            "Overview of RMETNet"
+          ]
+        },
+        {
+          "paragraph_index_zero_based": 15,
+          "section_path": [
+            "Methodology",
+            "Overview of RMETNet"
+          ]
+        },
+        {
+          "paragraph_index_zero_based": 16,
+          "section_path": [
+            "Methodology",
+            "Overview of RMETNet"
+          ]
+        },
+        {
+          "paragraph_index_zero_based": 34,
+          "section_path": [
+            "Methodology",
+            "Multi-scale riemannian convolution module"
+          ]
+        },
+        {
+          "paragraph_index_zero_based": 35,
+          "section_path": [
+            "Methodology",
+            "Multi-scale riemannian convolution module"
+          ]
+        },
+        {
+          "paragraph_index_zero_based": 47,
+          "section_path": [
+            "Experimental setup",
+            "Datasets"
+          ]
+        },
+        {
+          "paragraph_index_zero_based": 50,
+          "section_path": [
+            "Experimental setup",
+            "Data preprocessing and division"
+          ]
+        },
+        {
+          "paragraph_index_zero_based": 51,
+          "section_path": [
+            "Experimental setup",
+            "Data preprocessing and division"
+          ]
+        },
+        {
+          "paragraph_index_zero_based": 52,
+          "section_path": [
+            "Experimental setup",
+            "Data preprocessing and division"
+          ]
+        },
+        {
+          "paragraph_index_zero_based": 56,
+          "section_path": [
+            "Experimental setup",
+            "Implementation details"
+          ]
+        },
+        {
+          "paragraph_index_zero_based": 70,
+          "section_path": [
+            "Results and discussion",
+            "Results on BCICIV2a dataset"
+          ]
+        },
+        {
+          "paragraph_index_zero_based": 76,
+          "section_path": [
+            "Results and discussion",
+            "Results on BCICIV2b Dataset"
+          ]
+        },
+        {
+          "paragraph_index_zero_based": 85,
+          "section_path": [
+            "Results and discussion",
+            "Complexity analysis"
+          ]
+        }
+      ],
+      "short_verified_excerpts": [
+        {
+          "paragraph_index_zero_based": 85,
+          "quote": "session-level adaptation rather than fully streaming online inference"
+        },
+        {
+          "paragraph_index_zero_based": 2,
+          "quote": "align source- and target-domain feature distributions"
+        }
+      ],
+      "primary_fulltext_index_file": "rmetnet_publisher_paragraphs.json",
+      "all_fulltext_retrieved": true
+    }
+  ],
+  "recommendation": {
+    "main_related_work": "Use SMMTM and RMETNet only if the revision needs recent architecture/adaptation context. They do not establish superiority, equivalence or a matched comparator for the present source-only pipeline audit. The 2020 accuracy-cost study is optional and lower priority; omit if the manuscript already supports compute/selection limitations.",
+    "candidate_prose": "Recent multibranch architectures combine temporal convolutions and attention for within-dataset motor-imagery decoding, as in SMMTM. RMETNet adds learned spectral and Riemannian features together with source–target distribution alignment. These architecture and adaptation studies address a different evaluation question from the present audit of frozen source-selected external pipelines; their published accuracies do not provide matched estimates for our contrasts.",
+    "citation_padding_avoided": true
+  },
+  "post_report_update_20261011": "Requested paper identities checked against received author-supplied review; original primary full-text/abstract access limitations remain."
+}
