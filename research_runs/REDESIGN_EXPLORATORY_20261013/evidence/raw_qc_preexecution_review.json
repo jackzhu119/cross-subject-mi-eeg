@@ -1,0 +1,27 @@
+{
+  "checked_at_utc": "2026-10-13T12:58:54.362165+00:00",
+  "status": "PASS_ROOT_STATIC_AND_SOFTWARE_REVIEW_BEFORE_RAW_QC",
+  "scope": "Root review of strict unknown exposure, full acquisition identities, EDF continuity, declared units/native classes/context rules and source-reference interface; 51 access/QC software cases. Separate full-signal numerical reconstruction remains pending. This is not an independent human peer review.",
+  "software_tests": 51,
+  "failures": 0,
+  "skipped": 0,
+  "repairs_before_actual_QC": [
+    "fixed access-module name to actual published script",
+    "consumed actual source CSV and receipt schema",
+    "removed duplicate native clock scan",
+    "bound completed acquisition/source-copy-reference bytes to public registration",
+    "strict typed-zero counters and completed acquisition flag",
+    "both eligible runs must remain present"
+  ],
+  "files": {
+    "scripts/audit_acquisition_signal_qc.py": "c601a320695fe1c283d59372cde9598d448028ad77cc156e527141ef6c003d66",
+    "tests/test_acquisition_signal_qc.py": "6467a05650495842858269460a865d6ffbcea8187885e947d7f6f3ab90c6cdb4",
+    "config/RAW_QC_RULES_V2.json": "1f6277b83a01394005c35ffdb0a4abea2b3f086f4de483be7dcf063fd7e297dc",
+    "evidence/full_acquisition_receipt.json": "1588dc645679b52743198e055336afe35e5dc84a1932ac7994831ba1edc4db04",
+    "evidence/source_exact_input_fingerprints.csv": "e142e927228d9c46afb872fa649335cc6e9ec286b1d291b94ac0e43a6d59e4cf",
+    "evidence/source_exact_input_fingerprints_receipt.json": "66c5aa472809cf29fe68b7b56401c4f0aa4b4f577156425a1f4e1fc20d45d8dd"
+  },
+  "models_fitted": 0,
+  "target_predictions": 0,
+  "independent_confirmation_qualified": false
+}

@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "reviewed_at_utc": "2026-10-13T08:45:51.071045+00:00",
+  "status": "PASS_ACCESS_TRANSPORT_CANDIDATE_FULL_QC_PENDING",
+  "checks": [
+    {
+      "check": "actual_author_unknown_not_false",
+      "passed": true,
+      "detail": "Literal user reply records 不确定; this is neither prior-use absence nor proof of prior use."
+    },
+    {
+      "check": "confirmation_gate_closed",
+      "passed": true,
+      "detail": "Exposure-unconfirmed exploratory route only."
+    },
+    {
+      "check": "manifest_frozen_sha",
+      "passed": true,
+      "detail": "Independent byte digest of full provider manifest."
+    },
+    {
+      "check": "fixed_acquisition_roster",
+      "passed": true,
+      "detail": "87 × 2 source EDF acquisition runs, independently enumerated."
+    },
+    {
+      "check": "fixed_total_bytes_and_unique_content_hashes",
+      "passed": true,
+      "detail": "2,515,343,396 declared bytes, 174 distinct provider file hashes; distinct hashes alone do not prove person identity."
+    },
+    {
+      "check": "file_url_pinned",
+      "passed": true,
+      "detail": "No raw transport URL supplied by arbitrary user input."
+    },
+    {
+      "check": "protected_v1_acquire_gate_unchanged",
+      "passed": true,
+      "detail": "Existing author-confirmed Boolean-False gate is unchanged; no null coercion."
+    },
+    {
+      "check": "protected_tracked_baseline_unchanged",
+      "passed": true,
+      "detail": "At review time, new work exists in new untracked files only; no historical tracked science changed."
+    },
+    {
+      "check": "access_plan_models_disabled",
+      "passed": true,
+      "detail": "No paid instance, source fits, target fitting, decoder prediction or score authorized by this access plan."
+    },
+    {
+      "check": "known_montage_boundary_preserved",
+      "passed": true,
+      "detail": "Provider hard montage corruption remains distinct from the five retained quality flags."
+    },
+    {
+      "check": "acquisition_software_tests",
+      "passed": true,
+      "detail": ".............................                                            [100%]\n29 passed in 0.23s"
+    },
+    {
+      "check": "strict_public_registration_control_review",
+      "passed": true,
+      "detail": "Read reviewed registration_gate: full 40-char commit, each local file equals actual Git object, HTTP 200 fixed-revision GitHub response bytes equal local file before ensure_raw. Mocked mismatch tests pass; actual public registration is still root execution work."
+    },
+    {
+      "check": "transport_failure_not_person_exclusion_review",
+      "passed": true,
+      "detail": "Read reviewed ensure_raw/perform: invalid cache blocks, partial corrupt bytes are retained as .failed, exclusive cache lock prevents simultaneous writers, canceled tasks do not become eligibility exclusions. Failed raw body cases passed tests."
+    },
+    {
+      "check": "header_audit_not_full_signal_qc_review",
+      "passed": true,
+      "detail": "Byte/header/event receipt explicitly reports full signal QC pending, original GDF equivalence false, device/channel-order authentication false, and independent confirmation false."
+    }
+  ],
+  "passed_checks": 14,
+  "total_checks": 14,
+  "reviewed_file_sha256": {
+    "research_runs/REDESIGN_EXPLORATORY_20261013/scripts/acquire_exposure_unconfirmed.py": "d19593b37e22a4179cf3cd086c5a732955674b643055b67526b2ed628e194ab1",
+    "research_runs/REDESIGN_EXPLORATORY_20261013/tests/test_acquire_exposure_unconfirmed.py": "93f05ce20d596701b9a804096420c9b097a6e0ef9ebc98f2b0bc2c8040b128bf",
+    "research_runs/REDESIGN_EXPLORATORY_20261013/EXPLORATORY_DATA_ACCESS_PLAN.json": "c9510ad9b52f8ad7ef9a13fdd788410ef1e9e05f9ecdd5d805ad3eb011f57cd1",
+    "research_runs/REDESIGN_EXPLORATORY_20261013/evidence/author_prior_use_uncertain.json": "5c15d714e46ad5c5675ee2715d7663a72fcfd589058bf01e46e6e6c65a95601e",
+    "research_runs/REDESIGN_SOURCE_SELECTION_20261012/evidence/dataset_sources/dreyer_nemar_manifest.txt": "061a8e215093e1bb0db8f80f95b112c60266acfa640284d05f92c0c6a5ddc544"
+  },
+  "software_tests": {
+    "passed": 29,
+    "failed": 0,
+    "scope": "Gate/cache/transport fixtures; one existing bounded pilot header reread; no new cohort acquisition or model execution."
+  },
+  "raw_qc_code_review_complete": false,
+  "actual_public_registration_readback_verified_by_reviewer": false,
+  "raw_full_cohort_downloaded_by_reviewer": false,
+  "independent_confirmation_qualified": false,
+  "source_fits": 0,
+  "target_fits": 0,
+  "target_predictions": 0,
+  "paid_resources_started": false,
+  "limitations": [
+    "This approves only the new exploratory acquisition implementation after actual public registration succeeds.",
+    "Actual 174-file receipts and full signal QC do not yet exist.",
+    "Unknown private prior exposure is unresolved and no technical audit changes it.",
+    "Source EDF mirror bytes are not original GDF device data equivalence."
+  ]
+}

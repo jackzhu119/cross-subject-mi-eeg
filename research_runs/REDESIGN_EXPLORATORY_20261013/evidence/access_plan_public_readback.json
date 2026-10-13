@@ -1,0 +1,46 @@
+{
+  "status": "PASS_ACTUAL_GIT_AND_PUBLIC_BYTE_READBACK",
+  "repository": "jackzhu119/cross-subject-mi-eeg",
+  "commit_sha": "6a4cf15966bed8c95f52129c7ad8c73ec8c3fb6d",
+  "verified_at_utc": "2026-10-13T08:47:39.306193+00:00",
+  "files": [
+    {
+      "path": "research_runs/REDESIGN_EXPLORATORY_20261013/EXPLORATORY_DATA_ACCESS_PLAN.json",
+      "sha256": "c9510ad9b52f8ad7ef9a13fdd788410ef1e9e05f9ecdd5d805ad3eb011f57cd1",
+      "bytes": 2513,
+      "public_http_200_readback_identical": true
+    },
+    {
+      "path": "research_runs/REDESIGN_EXPLORATORY_20261013/scripts/acquire_exposure_unconfirmed.py",
+      "sha256": "d19593b37e22a4179cf3cd086c5a732955674b643055b67526b2ed628e194ab1",
+      "bytes": 19427,
+      "public_http_200_readback_identical": true
+    },
+    {
+      "path": "research_runs/REDESIGN_EXPLORATORY_20261013/evidence/author_prior_use_uncertain.json",
+      "sha256": "5c15d714e46ad5c5675ee2715d7663a72fcfd589058bf01e46e6e6c65a95601e",
+      "bytes": 911,
+      "public_http_200_readback_identical": true
+    },
+    {
+      "path": "research_runs/REDESIGN_SOURCE_SELECTION_20261012/evidence/dataset_sources/dreyer_nemar_manifest.txt",
+      "sha256": "061a8e215093e1bb0db8f80f95b112c60266acfa640284d05f92c0c6a5ddc544",
+      "bytes": 1712419,
+      "public_http_200_readback_identical": true
+    },
+    {
+      "path": "research_runs/REDESIGN_SOURCE_SELECTION_20261012/scripts/check_dreyer_metadata.py",
+      "sha256": "4cc3930913c4dfe0f6cb2d768cf70057b446642d00b0936796d493a5649302fa",
+      "bytes": 20962,
+      "public_http_200_readback_identical": true
+    },
+    {
+      "path": "research_runs/REDESIGN_SOURCE_SELECTION_20261012/scripts/acquire_dreyer_runs.py",
+      "sha256": "acbf65e5523bc84c0f985514e4c026fb0dc7bd9477e41a40e82e9dce3746aff2",
+      "bytes": 13782,
+      "public_http_200_readback_identical": true
+    }
+  ],
+  "independent_confirmation_qualified": false,
+  "target_inference_authorized": false
+}
