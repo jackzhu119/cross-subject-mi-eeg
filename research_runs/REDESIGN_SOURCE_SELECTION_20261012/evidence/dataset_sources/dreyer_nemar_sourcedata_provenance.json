@@ -1,0 +1,4188 @@
+{
+ "dataset": "nm000250",
+ "moabb_class": "Dreyer2023",
+ "moabb_version_used": "1.5.0",
+ "retrieved": "2026-08-11",
+ "retrieved_by": "moabb.datasets.Dreyer2023.data_path()",
+ "upstream_cache_root": "/expanse/lustre/scratch/bpinto/temp_project/sourcedata_staging/mne_data/MNE-Dreyer2023-data",
+ "license": "CC-BY-4.0",
+ "doi": "10.1038/s41597-023-02445-z",
+ "naming": "upstream_filenames_restored",
+ "n_files": 521,
+ "total_bytes": 7517293677,
+ "files": [
+  {
+   "file": "sub-01/eeg/sub-01_task-R1acquisition_eeg.edf",
+   "bytes": 14805604,
+   "sha256": "a678fe6d37e0496eb381dcac6b877b047d02dfffc659ae4cfc38226f4850e185",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "1"
+  },
+  {
+   "file": "sub-01/eeg/sub-01_task-R2acquisition_eeg.edf",
+   "bytes": 14805604,
+   "sha256": "e956c7f68aca5912c2cb9dbd75ea76bdfff6e2cca0ba1071ae70f08aa4aab5bf",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "1"
+  },
+  {
+   "file": "sub-01/eeg/sub-01_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "eaeefd5894a4d7191ff62ce476d133adc5f454507c2686d292db5ae845dc22a9",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "1"
+  },
+  {
+   "file": "sub-01/eeg/sub-01_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "f548d6a9d5bad9e63ad45ef6b505b796e0a43286c794d29edc6b0a27d228064c",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "1"
+  },
+  {
+   "file": "sub-01/eeg/sub-01_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "738cd0fb4d0e426d3a756f736220130f0064dcebb42d685ce9ab80909a34d6dc",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "1"
+  },
+  {
+   "file": "sub-01/eeg/sub-01_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "913b518ce98ba9d070b217ed653cb7ba8b392505d798e383569c782dd5431049",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "1"
+  },
+  {
+   "file": "sub-02/eeg/sub-02_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "8f3f9619d48c8ab5297e4fba5876fe12570cc5adb2807b0c4ab579842edbc9ee",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "2"
+  },
+  {
+   "file": "sub-02/eeg/sub-02_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "03505e6aa89754dfdfaf9e99b1f9e436f8bbb29c607cb35935b084804b8f17cd",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "2"
+  },
+  {
+   "file": "sub-02/eeg/sub-02_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "f3afa2297de089174def162a2d932a71e2dd4d109e97f82062ead54919ad6781",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "2"
+  },
+  {
+   "file": "sub-02/eeg/sub-02_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "4a68cf530badb9559589f9a2da91bdbbdcdb3428e95dd49318f2918cd9076e08",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "2"
+  },
+  {
+   "file": "sub-02/eeg/sub-02_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "b669635a6ee375a79b54d083f3cf8c08ef8fdfc79478a7b3a064b771cf857d91",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "2"
+  },
+  {
+   "file": "sub-02/eeg/sub-02_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "8a0c6efebf5a9eb877c382cdd789a7149239a080609e0d08c921a4434c4f0936",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "2"
+  },
+  {
+   "file": "sub-03/eeg/sub-03_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "f34039aac8975a6b7b951f90648ff3ccb1f81f99ae29319b6478ec4d419f495e",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "3"
+  },
+  {
+   "file": "sub-03/eeg/sub-03_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "ace4601375b7a035b4dab55a8b196d1e19ca8b52bce3b61ac8a9c9451c8a2057",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "3"
+  },
+  {
+   "file": "sub-03/eeg/sub-03_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "260d577864750bd9f96cf912f069ef47a21636a5919fb9b92f13867ed81c333c",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "3"
+  },
+  {
+   "file": "sub-03/eeg/sub-03_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "89950ea77339f47f7938961a19fea652d61d1c682cfc257bae90f55fd311cf12",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "3"
+  },
+  {
+   "file": "sub-03/eeg/sub-03_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "35a85fc86420338d8c043b1013eaff8aa65b8e3448f545594cf6a262f0b0b6d6",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "3"
+  },
+  {
+   "file": "sub-03/eeg/sub-03_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "b917a33aaa6bca97691f9501344adc3d741d42f92c94a8fc26d085d175d4d565",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "3"
+  },
+  {
+   "file": "sub-04/eeg/sub-04_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "071119dc6e8628c2d5824205d46c87f1455348d333b072bdb21487367ebc63a3",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "4"
+  },
+  {
+   "file": "sub-04/eeg/sub-04_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "ba737bb6650abbff8aa33f7e6d147dbe95d529004760d9e63de0acd540ec9f67",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "4"
+  },
+  {
+   "file": "sub-04/eeg/sub-04_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "64845709a7ab11df2cd1a2548cad942529475a68b47173370324e9367fb8676a",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "4"
+  },
+  {
+   "file": "sub-04/eeg/sub-04_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "59e87253bd0c4e736f2bbd3f1bed831314f37e264c1f1687110bcb274ca55a44",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "4"
+  },
+  {
+   "file": "sub-04/eeg/sub-04_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "ad510cd482a3fccd1f38f25210cd140e129a8b9c9814d66515f5f56f1b6c9e26",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "4"
+  },
+  {
+   "file": "sub-04/eeg/sub-04_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "eb317264d18b1498806cc24aac09e995da46f28e4438a2c0c62547e81699c573",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "4"
+  },
+  {
+   "file": "sub-05/eeg/sub-05_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "29e1b7511ca0a5f70bc6871f53e425041905e1406294e1fa1dd25544dc68be74",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "5"
+  },
+  {
+   "file": "sub-05/eeg/sub-05_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "edf21e8790152103adcb15bc6106ce4a004a46d77e45fa1d8989d426f92b8a10",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "5"
+  },
+  {
+   "file": "sub-05/eeg/sub-05_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "9f6d09e2b9a36cf9a7f45481e6f52775eedc0e74e405edfe89305ef3515a4ed7",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "5"
+  },
+  {
+   "file": "sub-05/eeg/sub-05_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "96596439580f79d6a02969839300b79d5986aa8d3eca05114be2fd0bad986957",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "5"
+  },
+  {
+   "file": "sub-05/eeg/sub-05_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "26e6857134bfba37682ddced821a8a35d623968c36fa5c784d7218842ae37f4b",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "5"
+  },
+  {
+   "file": "sub-05/eeg/sub-05_task-R6online_eeg.edf",
+   "bytes": 15068660,
+   "sha256": "02ee2ad2cf18f2e1ead4b3d92c29b74ded797e7f59b418053becf765a65d4557",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "5"
+  },
+  {
+   "file": "sub-06/eeg/sub-06_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "2f38b5eac588600cd222de940a7ab3a8a969a517a70e09894000bd45434b4232",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "6"
+  },
+  {
+   "file": "sub-06/eeg/sub-06_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "03253b225d49caa5f9b67d67015914fad4a16841f1ca6fb8b3d06e24c6c28a6f",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "6"
+  },
+  {
+   "file": "sub-06/eeg/sub-06_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "42ec602dfb0cc12cba8511645b43fd75969424d6152601f6dd8e5eef59a7f8a2",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "6"
+  },
+  {
+   "file": "sub-06/eeg/sub-06_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "2e43956b67b8a5c3bb8887350b113ad70b3f3952519031529c7f43ef663c2be2",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "6"
+  },
+  {
+   "file": "sub-06/eeg/sub-06_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "c96199f5d4b700f6503589a9447ccdf1acb93bce45df6b466ce03ad88ba60197",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "6"
+  },
+  {
+   "file": "sub-06/eeg/sub-06_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "266f12c563cb4e605930b84b42c50ef962a67e6dc806e798fe28711d2c511ac0",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "6"
+  },
+  {
+   "file": "sub-07/eeg/sub-07_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "3b4e0ea8a9e6c8621ad6435cfedf1e72c635fe12df53cc8a57533dfb8bc24bd2",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "7"
+  },
+  {
+   "file": "sub-07/eeg/sub-07_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "0fed5b038190b5cbd3fe1682b8217f0393788d96ce3c683ae71bc4c322f17517",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "7"
+  },
+  {
+   "file": "sub-07/eeg/sub-07_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "8c09818313a11be08fcefcc66579f56c953000ea1ab94bd5a4347c6f4c7d8317",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "7"
+  },
+  {
+   "file": "sub-07/eeg/sub-07_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "4700d45548eb2ccb1ec390e24eb57608151177900ada4bae2e0ce733b56707cf",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "7"
+  },
+  {
+   "file": "sub-07/eeg/sub-07_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "34f0e4cb1976a1465406e507aab4caf17bac60854bd63fd329f41c5be52144f3",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "7"
+  },
+  {
+   "file": "sub-07/eeg/sub-07_task-R6online_eeg.edf",
+   "bytes": 14805604,
+   "sha256": "1fc8a271fea4bbeee99f87c311e5302e9ca4c68320b9c63b83602026585a2028",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "7"
+  },
+  {
+   "file": "sub-08/eeg/sub-08_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "c275f9aacc4bd8bfded5761fa0ce6fc2cba89e2be9dafa63f2d4489b02d83bc2",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "8"
+  },
+  {
+   "file": "sub-08/eeg/sub-08_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "a9dc771229eb0be5e755be1c8a3ae08132f1fdb4a7075ea1807e3b356cdb51d5",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "8"
+  },
+  {
+   "file": "sub-08/eeg/sub-08_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "2febc2bc2404eec87fd54b9439dc94ba873c2f06981d7475d37f0c39f0dfff67",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "8"
+  },
+  {
+   "file": "sub-08/eeg/sub-08_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "f35d8381d5a793c66dd8f69fd7b15e129c28d2d8bc71887b96488d12d41bba86",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "8"
+  },
+  {
+   "file": "sub-08/eeg/sub-08_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "3bc6616194735e3d45d91a4a67764ed78eb97c3d92e619efb064a682046296e1",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "8"
+  },
+  {
+   "file": "sub-08/eeg/sub-08_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "9b730b932a7a74683e403fb342cf8ce52e92d3746411a23cf917f51aed18f2a8",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "8"
+  },
+  {
+   "file": "sub-09/eeg/sub-09_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "8ec44b05360d0634baab803a39ee06fee27d66eb0756354b8d339fe73b19641b",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "9"
+  },
+  {
+   "file": "sub-09/eeg/sub-09_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "f4157c6fd8fd0ed86070507bb39c6c56511cc19847e93a0e76e8d8580b5f212d",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "9"
+  },
+  {
+   "file": "sub-09/eeg/sub-09_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "325c92ff429bfa673bd6ba8855ff5c1560da0cea5f767f3985144366ae87d66e",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "9"
+  },
+  {
+   "file": "sub-09/eeg/sub-09_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "756a803a0d6e7efd889e97e1516239b93efde012102ed426464342a31e3dac47",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "9"
+  },
+  {
+   "file": "sub-09/eeg/sub-09_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "8c9978d9e5773806aaadf7feb805db3ee790dcaf094f1eaec5ba21976e59a1b6",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "9"
+  },
+  {
+   "file": "sub-09/eeg/sub-09_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "472c8dd355e3bfdf3152ccf9fdc4d8846b19a3a57126f25be846151ab5dd86f0",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "9"
+  },
+  {
+   "file": "sub-10/eeg/sub-10_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "7e470d00d4ab699f9a97841ed9abac84cb8e02133880476c1c65620013589b0e",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "10"
+  },
+  {
+   "file": "sub-10/eeg/sub-10_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "a4764e21d66b8556d3196aac4728366ad4ff2e5d75d8df9dd94fdc84541a8c00",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "10"
+  },
+  {
+   "file": "sub-10/eeg/sub-10_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "9bc0da952d7bd15d540d11daba2d5ae450facd0c1f937f5e0912b5d5f79fda38",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "10"
+  },
+  {
+   "file": "sub-10/eeg/sub-10_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "b64b5dc4856907bf618f7b27acd4bf51db7f99d5f631ac6bde410e4b564dd65e",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "10"
+  },
+  {
+   "file": "sub-10/eeg/sub-10_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "b931d42625f1cc3c7c36daee4ba70005ff765125c26c5e278dfc5fa2acc5bb46",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "10"
+  },
+  {
+   "file": "sub-10/eeg/sub-10_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "733b13cbdc6be1ac315b1bd08fcfc692b5f6190ec41a9fb8f1fb30a020110f5f",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "10"
+  },
+  {
+   "file": "sub-11/eeg/sub-11_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "653f9e0b97e213482602cbc44f2c2e43072892b882ec42a5922e512e1c02cf47",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "11"
+  },
+  {
+   "file": "sub-11/eeg/sub-11_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "cf849d174f0b8e841c7b0f4942c3a0e0d7264eba007667eb718ba5669e6b21ef",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "11"
+  },
+  {
+   "file": "sub-11/eeg/sub-11_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "4fb3de2029c8217ea9dd1fdd57e127d66a4ed22a9508bfd197c842a38e6cb82c",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "11"
+  },
+  {
+   "file": "sub-11/eeg/sub-11_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "2c2fa6a5f7c98656a20f6d302577a8b0b2c9a9b0515b179031378256c8362ba6",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "11"
+  },
+  {
+   "file": "sub-11/eeg/sub-11_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "9ba7d08b2254548d8838d68d1b7c0658e1152b3fde61cb8a9b9bfd693884afbf",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "11"
+  },
+  {
+   "file": "sub-11/eeg/sub-11_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "267635cf38063b0b9a6647af2146c4713284858a4cdd43335517d9c8b13031b3",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "11"
+  },
+  {
+   "file": "sub-12/eeg/sub-12_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "52a9e9860f0a84848a19bd5f8265d92ba1e616fca5287fde9d52c51fcf9bc66d",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "12"
+  },
+  {
+   "file": "sub-12/eeg/sub-12_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "01304fba021405f30f839da82bf21f652acaaa238a5fccbbb2fb351cdec57f1a",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "12"
+  },
+  {
+   "file": "sub-12/eeg/sub-12_task-R3online_eeg.edf",
+   "bytes": 14937132,
+   "sha256": "c4bf6a5b21274adbfe094da1b2eb4eb3567fb6c76aa1c373a83a695ba1c194b0",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "12"
+  },
+  {
+   "file": "sub-12/eeg/sub-12_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "f36cdd195fc9ad60446d05c4482e0a3b502545f45bd31a04798ca58dc277c86c",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "12"
+  },
+  {
+   "file": "sub-12/eeg/sub-12_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "e5596c078d922328e7371eca8f751b59b28137bb49b83f94510fba9c4a234f45",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "12"
+  },
+  {
+   "file": "sub-12/eeg/sub-12_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "e5ca8e001b95afda57604dde3f4d127fc9e6bff549ac16a36a2c37072dec271f",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "12"
+  },
+  {
+   "file": "sub-13/eeg/sub-13_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "b65ebce34d01f1b577c3c015c07ed6b1a1fcf7fe6437dcd7baebd30837becbda",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "13"
+  },
+  {
+   "file": "sub-13/eeg/sub-13_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "ac211e4160e20cbf31c614e03760f855ca96a438338367e8b12a18360bf84370",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "13"
+  },
+  {
+   "file": "sub-13/eeg/sub-13_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "a7414756ce04755023c9c811b807ad323e60e350475af719d1712df647e1dbda",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "13"
+  },
+  {
+   "file": "sub-13/eeg/sub-13_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "f1d1686d32dc479bde961ce4622e39e07205a00fae31bd8f1614f82bd14b6206",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "13"
+  },
+  {
+   "file": "sub-13/eeg/sub-13_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "6c9f836b3a5a0d4a076fdfbe2e2e33eceefca02e055ff9448628ed744166fbe3",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "13"
+  },
+  {
+   "file": "sub-13/eeg/sub-13_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "e0a36bd7ee21eacdb92a4d86070563c6e878a7c1bd3fb9f9b1fcef0d4141357c",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "13"
+  },
+  {
+   "file": "sub-14/eeg/sub-14_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "b3b8c77a09d77f87ffef60ace2e9c43080b218d7d73c1c05d982a455bfe48a34",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "14"
+  },
+  {
+   "file": "sub-14/eeg/sub-14_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "3590c3b0cde5af0930979f98bd74fd6b321ed56b66708922db28762bb41f7b10",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "14"
+  },
+  {
+   "file": "sub-14/eeg/sub-14_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "7649bcfef098e43153e24babfb3158afd8f0f5fb08d23e89557095207aac61bd",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "14"
+  },
+  {
+   "file": "sub-14/eeg/sub-14_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "fe4fdc502aeff7ddf5644685c0c10776ec1928e5a1f5666bb6775c2363da7d80",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "14"
+  },
+  {
+   "file": "sub-14/eeg/sub-14_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "d99f71392752dea7c4af81c6df763b4dbbfb29086e1909308ea75b9f55786829",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "14"
+  },
+  {
+   "file": "sub-14/eeg/sub-14_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "1feea350cdb55f6cb8a2dfa28c26d3572b9443826ecd400d37f17e507d5eb7d4",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "14"
+  },
+  {
+   "file": "sub-15/eeg/sub-15_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "769e2c07f4b32278144723124978a8dae7389a25067b409f32e41a20aa4680ba",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "15"
+  },
+  {
+   "file": "sub-15/eeg/sub-15_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "79aa0b6bd28ee04f6cb44843a31135bb4b45a8b7cbeaeee3846158407874330c",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "15"
+  },
+  {
+   "file": "sub-15/eeg/sub-15_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "8d467b1ad0052186440bf146573988253789bda1d61235bf6d75415649adaf71",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "15"
+  },
+  {
+   "file": "sub-15/eeg/sub-15_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "5c6fc632054deb05f7a771689fd4cae98e255e6510093eda2d71c06ae94c483e",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "15"
+  },
+  {
+   "file": "sub-15/eeg/sub-15_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "ce7d5478bb9dbdfde50716f08d66caac32528a2046b886399c13259c8d43fb2c",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "15"
+  },
+  {
+   "file": "sub-15/eeg/sub-15_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "be96927f07b90d779108f719d98cf58debaa8c2dbd39d305d8303b8397b35cda",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "15"
+  },
+  {
+   "file": "sub-16/eeg/sub-16_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "ed867410d50d6a4f6b71e8689a1ec6578da51ccd0fa586587c55a8cc622f4691",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "16"
+  },
+  {
+   "file": "sub-16/eeg/sub-16_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "78d6a8462867cad776a93bef8448b44ff41a1361659a8309eb279b25631cb296",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "16"
+  },
+  {
+   "file": "sub-16/eeg/sub-16_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "bd878accfaf75f90a4f777ce4b9ed4ce115b43deefdd32d602aead0341e26497",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "16"
+  },
+  {
+   "file": "sub-16/eeg/sub-16_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "21e3a47985565378b24575ce9cdb8c728be681a342f259fc65d623577dd3387c",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "16"
+  },
+  {
+   "file": "sub-16/eeg/sub-16_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "22f3828c27cebc111d7744863cb629b2ba4ea7b8655f733a91e0279e6137cbd4",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "16"
+  },
+  {
+   "file": "sub-16/eeg/sub-16_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "6c1efe846df1f440aed570e3b09e0837c8b4377b84509c45fb7d10e8262f110f",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "16"
+  },
+  {
+   "file": "sub-17/eeg/sub-17_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "cde05a777bf16b56cb7aea945834b30777e3678cdc1ee74817a314710ee21c2e",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "17"
+  },
+  {
+   "file": "sub-17/eeg/sub-17_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "95d7c5adb84594423bb76a507cf27f1d6f782603e1dd969b5aba76712b167d26",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "17"
+  },
+  {
+   "file": "sub-17/eeg/sub-17_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "d63daa4c71c6be950372ecf713fddff20b89909ee29f9d00a239372179531ba6",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "17"
+  },
+  {
+   "file": "sub-17/eeg/sub-17_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "8452c8bceb065af774e5a928e98c0060a4cd6b8342c03879a89d595f2be3d0dc",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "17"
+  },
+  {
+   "file": "sub-17/eeg/sub-17_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "a9e21bcee01cb63d935317a348830397c3436fe173c237993dba4aa33ce5a198",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "17"
+  },
+  {
+   "file": "sub-17/eeg/sub-17_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "55e422a2e547d1e765c46eaa8893523ada5f6eea3a62dd8fc529416aaa3410c3",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "17"
+  },
+  {
+   "file": "sub-18/eeg/sub-18_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "23d10609a1d0ecfd874980afd86a013bbd18bcdf7725b021acea0aa6e88b835a",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "18"
+  },
+  {
+   "file": "sub-18/eeg/sub-18_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "e69c5d80d1683789ecb9addc18545f1a52d7dc187cf295a76297dc1951ba5109",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "18"
+  },
+  {
+   "file": "sub-18/eeg/sub-18_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "32a31edebb60e4ec895f3781ac572a912aa7a130c1b37070a853b48c1194e52c",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "18"
+  },
+  {
+   "file": "sub-18/eeg/sub-18_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "629b47934cec52ac69596e65c7b8118f3832c1b0ad87c35df2ee183825eab78a",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "18"
+  },
+  {
+   "file": "sub-18/eeg/sub-18_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "c8505184c02c0180e74ddf3f0243dafc005da8d410f21ab91b36f1549af007d0",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "18"
+  },
+  {
+   "file": "sub-18/eeg/sub-18_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "07e5f5d8ce7c9be0110f30d25974cb4833550dce61c727d9da0c5420daa4b9c6",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "18"
+  },
+  {
+   "file": "sub-19/eeg/sub-19_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "fb75e8c8edeb098dd3ab5b8432f5c1c6f2e531f26537f132c41b581f96038db2",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "19"
+  },
+  {
+   "file": "sub-19/eeg/sub-19_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "8cf738420fb21357ed42f9c50e842d8c296d56ec376af554bbf587bd3c3d9b49",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "19"
+  },
+  {
+   "file": "sub-19/eeg/sub-19_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "685b6ba4736de1e2b3388d76dc41b4862503bd41726c91dd6109a693a0356fc8",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "19"
+  },
+  {
+   "file": "sub-19/eeg/sub-19_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "9993905f9ad251b8c4c4e85fa7def950584d5eda2fa7a5af6e73939a039f3f46",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "19"
+  },
+  {
+   "file": "sub-19/eeg/sub-19_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "92c02938100f9b444f9215364b2e0c8edbb28cbe522da5b7f411d76df5f9d009",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "19"
+  },
+  {
+   "file": "sub-19/eeg/sub-19_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "49a25f9e475395503c09f94b0d146b5158932f8aedf65d8b1ed91cf9acd8435e",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "19"
+  },
+  {
+   "file": "sub-20/eeg/sub-20_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "b3c45ac4a2a42cfd2eb7bb7ef8fa4a31203bb7105ffdc3b82b1e896722ebaaa3",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "20"
+  },
+  {
+   "file": "sub-20/eeg/sub-20_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "2528c1462f692c9fc21800d1a886383e2e858bdd6d1a48ab71140b756392190f",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "20"
+  },
+  {
+   "file": "sub-20/eeg/sub-20_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "3c2a6304c53db8475e627c03d3cb1584768ce265d779d497432b9c44f085816f",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "20"
+  },
+  {
+   "file": "sub-20/eeg/sub-20_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "1f38803f3893ab82b5075f777f55865346a1b1d0df78b003ea1f3d67843fad2f",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "20"
+  },
+  {
+   "file": "sub-20/eeg/sub-20_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "31e7c3a173e388cad06d32e26deab4e163ac93637c477061fe0dd93d457c6cdb",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "20"
+  },
+  {
+   "file": "sub-20/eeg/sub-20_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "be60ec3278e964fb8a39463e335a4aea12d28d14d762bc702df4e818875c49bc",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "20"
+  },
+  {
+   "file": "sub-21/eeg/sub-21_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "adc0e608b432ad31d14e177abdda6cafe677dd7ff234393cf7b75c4eae08a54c",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "21"
+  },
+  {
+   "file": "sub-21/eeg/sub-21_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "b36a42b42634ffae4367fa708e4b2196c0e1c42931d63506df2a3c2117577c1d",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "21"
+  },
+  {
+   "file": "sub-21/eeg/sub-21_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "970a908fb723d279389796141a410818a81f0bc3ab66b785277b90df241c7f19",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "21"
+  },
+  {
+   "file": "sub-21/eeg/sub-21_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "447da6223b4a93c6019635956105f61abf7752dec960da465c1e3d63a120d98a",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "21"
+  },
+  {
+   "file": "sub-21/eeg/sub-21_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "94ba9f3bbf0712121e7df84c506868d70775bb6f77483b33a626f4f06d96a8d0",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "21"
+  },
+  {
+   "file": "sub-21/eeg/sub-21_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "91fb777c94ee5008b7c6690cb3f8a2e0b392e650a74c557f8f9fd032db77eb6f",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "21"
+  },
+  {
+   "file": "sub-22/eeg/sub-22_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "bcdf676e4aad5d8082002805c9a8225ad08bd5a122c2f5b05647c2834e0eaf7f",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "22"
+  },
+  {
+   "file": "sub-22/eeg/sub-22_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "265519031407b950f65bd40455fa577123c259702e066c7b773015ffcf8babdf",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "22"
+  },
+  {
+   "file": "sub-22/eeg/sub-22_task-R3online_eeg.edf",
+   "bytes": 14772722,
+   "sha256": "3265baded70e0817b71b1b5cab57327b7c9a2d36b447c514395e9ec738e7c004",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "22"
+  },
+  {
+   "file": "sub-22/eeg/sub-22_task-R4online_eeg.edf",
+   "bytes": 14608312,
+   "sha256": "625da7061cad74793cb3a35e51569cde96a1c94a5814017c4b2eb1e6fc948944",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "22"
+  },
+  {
+   "file": "sub-22/eeg/sub-22_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "5dd0cf1f2274a776e31f09d2e2ce1178ef9b1356e4f5d1bdac643d1bb92d2369",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "22"
+  },
+  {
+   "file": "sub-22/eeg/sub-22_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "9477fd805b9b0eb588837263400897ce74f554e701a9b6f2a0973689f2162ecb",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "22"
+  },
+  {
+   "file": "sub-23/eeg/sub-23_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "9d74cb9d8c5bf5b4e2b0592dcb9a411b9f6d60dfee401090da44c6883c403695",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "23"
+  },
+  {
+   "file": "sub-23/eeg/sub-23_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "7a6e97b806bbc43bfc2494a7886ee1762f7c1d476e3dbe49f9919174456a7c76",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "23"
+  },
+  {
+   "file": "sub-23/eeg/sub-23_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "16f888ac25ab99b9d48901cb6cd7b6cfc9a7d563630558eda2b12d60a084273d",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "23"
+  },
+  {
+   "file": "sub-23/eeg/sub-23_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "ade432423a091b9d48ff0587360a712fbb773cb1983443773c1ee833f63fac9c",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "23"
+  },
+  {
+   "file": "sub-23/eeg/sub-23_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "b4f313043c8a4eecc2e5625198ddd03d2e6819ffcedfb3b6623c84808dd6900e",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "23"
+  },
+  {
+   "file": "sub-23/eeg/sub-23_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "c947c6aab1dd34d5d6d2f91eae6d4d46d1364cb7fe606cd5c020204697634cd6",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "23"
+  },
+  {
+   "file": "sub-24/eeg/sub-24_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "60ebab899965f819dd5a44131af8ab6ff6fd578df66250f8fa4c0adf1e9ceaf9",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "24"
+  },
+  {
+   "file": "sub-24/eeg/sub-24_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "643d5cc19e1b922cfcc572ee0a3a62c40ca8ccd07614857453d101d5940428f2",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "24"
+  },
+  {
+   "file": "sub-24/eeg/sub-24_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "4d4ff5cc12972a183720a785f1303d1c408b64b42cd2a8b1d8d970c6119485c8",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "24"
+  },
+  {
+   "file": "sub-24/eeg/sub-24_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "1e6fcd15e4af8e134cfc3c38d5e432a250c7a50362811f42560a312614b2cb52",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "24"
+  },
+  {
+   "file": "sub-24/eeg/sub-24_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "6462205b842e07ee1be399a173520aa84d95af518b9278b037887baedcb19e41",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "24"
+  },
+  {
+   "file": "sub-24/eeg/sub-24_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "3b72e62737f31ef2a3ef20d4f23404d31a35db70c7fa675a243dcf5a34e38c63",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "24"
+  },
+  {
+   "file": "sub-25/eeg/sub-25_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "0cf1fff2dc0febb0b223c0297ddbef063a244aeadf5981ae2201d1638bdf930b",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "25"
+  },
+  {
+   "file": "sub-25/eeg/sub-25_task-R2acquisition_eeg.edf",
+   "bytes": 14772722,
+   "sha256": "56e36b6a38477c6cde54825ebb0d14ec4a3cd7e226649f6d1c749f8888d57891",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "25"
+  },
+  {
+   "file": "sub-25/eeg/sub-25_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "6cd66d300008ab2bb868ddb45e94cda6c82d849863e5c2aa48e8f9b5c0ada81c",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "25"
+  },
+  {
+   "file": "sub-25/eeg/sub-25_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "43d9697f3a9615874e209c3fec210f8ca73c9469ecace5b986f3f2878c7dcbee",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "25"
+  },
+  {
+   "file": "sub-25/eeg/sub-25_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "457b20d8591b205635c460e9821784edec452a2ce76ed4fe88b4ea054cc5711d",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "25"
+  },
+  {
+   "file": "sub-25/eeg/sub-25_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "3a829e1a81a91868263a53800d10189c02feb14b3c512aa8b2ece8f273f5eaf0",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "25"
+  },
+  {
+   "file": "sub-26/eeg/sub-26_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "f318f3c2d6b60e69f8e5b4d6f29d84c34ba4687aa9f4f08acf43080d67edcc9c",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "26"
+  },
+  {
+   "file": "sub-26/eeg/sub-26_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "6c208f369a0d37940dedb304399df1c53114cd628ea41c31bbd70603591bf333",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "26"
+  },
+  {
+   "file": "sub-26/eeg/sub-26_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "3704b3e74d978ea487ce4af8af9744f4250bb7bd4d880e5e818897d22cf2299d",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "26"
+  },
+  {
+   "file": "sub-26/eeg/sub-26_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "2c66080c02ec5b7c1a39cdf0d180dd62ed1660754c27d9779a7ba104c7331c97",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "26"
+  },
+  {
+   "file": "sub-26/eeg/sub-26_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "7f4d8c0a1ef5afa88ddd9283921e2a894443854af2d43c1dea28d2f6ef43169b",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "26"
+  },
+  {
+   "file": "sub-26/eeg/sub-26_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "c691fc2f94efc96299cf38bea6594c79afb74fc2d493c675efdfdfa4c0c63908",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "26"
+  },
+  {
+   "file": "sub-27/eeg/sub-27_task-R1acquisition_eeg.edf",
+   "bytes": 14805604,
+   "sha256": "662f950163c5339ad044f1c94669999a2988973b84ff32fb9ecbb84fb562a43c",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "27"
+  },
+  {
+   "file": "sub-27/eeg/sub-27_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "0ec6e83f4496c818858974a0495d285b5d3de285fec741e912fff81393c38935",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "27"
+  },
+  {
+   "file": "sub-27/eeg/sub-27_task-R3online_eeg.edf",
+   "bytes": 14805604,
+   "sha256": "8352114acc4c59f3c4128039fb2b237cf279405bf125f28f5e5327bbd18c1efa",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "27"
+  },
+  {
+   "file": "sub-27/eeg/sub-27_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "0cfeb662b69b864fb55ea1b5fca2154b1ec2d927250957cc810f163c7e4fcbef",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "27"
+  },
+  {
+   "file": "sub-27/eeg/sub-27_task-R5online_eeg.edf",
+   "bytes": 14739840,
+   "sha256": "b4e1ff3656bd04016f0d27149465850f115b36028f5dc55345d73fbda754f1bd",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "27"
+  },
+  {
+   "file": "sub-27/eeg/sub-27_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "a4744a07367c742d24b697a2e0465c55d596ade878f36fd937c93b2561fdbfa7",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "27"
+  },
+  {
+   "file": "sub-28/eeg/sub-28_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "a98d3c501c1276c47919c14ed1a595fbd29608e902fd0942d146d34c32e2ccc5",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "28"
+  },
+  {
+   "file": "sub-28/eeg/sub-28_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "a97af4de877151a2c29e5cda12529a62d434b474f935f20e75db124a44bf7cb3",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "28"
+  },
+  {
+   "file": "sub-28/eeg/sub-28_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "343cdcf58b51b0572c8ff30aee5ea094a74bdb414692f9fedc85a8c51afb4d86",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "28"
+  },
+  {
+   "file": "sub-28/eeg/sub-28_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "c6bdead700f296d5c05b0a669b97b6d29d8fdfe0d3d0ce93e6e3d75489b3e659",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "28"
+  },
+  {
+   "file": "sub-28/eeg/sub-28_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "2d753de5a237e23797bf04d054f4fad6d214c62abb9ca8d946d2c7cf2b8d95ed",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "28"
+  },
+  {
+   "file": "sub-28/eeg/sub-28_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "4d32c39768e1b2722aecf3aa758e9e0e060dee8ae7b2a2c663bad38d0c35d7da",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "28"
+  },
+  {
+   "file": "sub-29/eeg/sub-29_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "11626d8464e1eed93c1b8804034ab21c3759774d6bde91b8aa82a7bba99bd614",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "29"
+  },
+  {
+   "file": "sub-29/eeg/sub-29_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "ab27005db5f15040b3ddd76637a404c1593b5f252c907c734536a2c67e3427d0",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "29"
+  },
+  {
+   "file": "sub-29/eeg/sub-29_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "3971c6d44fb8435cced2ceae5ffde68d080d1062f2152c1c5f7d412dc10df150",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "29"
+  },
+  {
+   "file": "sub-29/eeg/sub-29_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "1d65545a363eb5937c70ca23f74a803808dfff14e00d7ad0c187ee2dc0878293",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "29"
+  },
+  {
+   "file": "sub-29/eeg/sub-29_task-R5online_eeg.edf",
+   "bytes": 14805604,
+   "sha256": "ed30d90d15dacdedc9fdfd2a99e7c9a26f09918cdc56b5b7564286ce5ae6591d",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "29"
+  },
+  {
+   "file": "sub-29/eeg/sub-29_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "25b75746bb5d24473636e3f1ac35dd9941200ef6f6cdeec66f496769f1fbc36e",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "29"
+  },
+  {
+   "file": "sub-30/eeg/sub-30_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "5b56fffb184d73f6dae9625d2a0cfeaafe187538daf55278b4f80301f3d09eef",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "30"
+  },
+  {
+   "file": "sub-30/eeg/sub-30_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "6698e51d3a32b0ebad96e804c124c008af60c78b12d205486557740268d76588",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "30"
+  },
+  {
+   "file": "sub-30/eeg/sub-30_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "1e6d652d100ab2b9670d291f221bd481247c6e42405c4bf33e87f4c5b38f9f78",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "30"
+  },
+  {
+   "file": "sub-30/eeg/sub-30_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "faaf64f6b3fd6c28da65366ecbb31965b4331259c5485a3104565adf35ef8dcc",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "30"
+  },
+  {
+   "file": "sub-30/eeg/sub-30_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "9dfe5f1d629599305816ac10fe71f4005e49f30ef2c949526ed52b4c08fb449d",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "30"
+  },
+  {
+   "file": "sub-30/eeg/sub-30_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "14705b5c85cd4153f138bfead6b793f059b4299d0f477da25a00764d541912a5",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "30"
+  },
+  {
+   "file": "sub-31/eeg/sub-31_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "488803a357bf10df554e56e97a9141d2bdceaf285ae941ab2763bd95af0f2389",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "31"
+  },
+  {
+   "file": "sub-31/eeg/sub-31_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "744be793d1654286c614bd36d99a66db8a3ec56130a3433827efad7391d34e7b",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "31"
+  },
+  {
+   "file": "sub-31/eeg/sub-31_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "98e32ec1c4c6c5bc1f12a8f2a351b53e8fe4c228922f246a23832fb9c2a565f1",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "31"
+  },
+  {
+   "file": "sub-31/eeg/sub-31_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "08f11a0b37243ec438a1bd76797cd3ea1622613627b37c39b0bb587549daa996",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "31"
+  },
+  {
+   "file": "sub-31/eeg/sub-31_task-R5online_eeg.edf",
+   "bytes": 14805604,
+   "sha256": "5877201a8b119119137061be7aaebcfdea55c1acb381b87f0225fad065f8f3b3",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "31"
+  },
+  {
+   "file": "sub-31/eeg/sub-31_task-R6online_eeg.edf",
+   "bytes": 14805604,
+   "sha256": "1f06d2a046ca15e6f22dcd33ee67682120e33106b0c27d41c4a7b7b69275f66b",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "31"
+  },
+  {
+   "file": "sub-32/eeg/sub-32_task-R1acquisition_eeg.edf",
+   "bytes": 14706958,
+   "sha256": "2c391e6e0e476c8d09115faf6f2853498d2895acfadaf14ceb65ca8a52ddca68",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "32"
+  },
+  {
+   "file": "sub-32/eeg/sub-32_task-R2acquisition_eeg.edf",
+   "bytes": 14706958,
+   "sha256": "c5d077877d6247d2cda6f4304d7bd8981edb098f55536ed5041bc9e5c6db3217",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "32"
+  },
+  {
+   "file": "sub-32/eeg/sub-32_task-R3online_eeg.edf",
+   "bytes": 14706958,
+   "sha256": "6a5e1436c62ab167239a11c7d3c38e5ab6e6f834d9e69f82145b3df634460f92",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "32"
+  },
+  {
+   "file": "sub-32/eeg/sub-32_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "8f0523961c0a90b0479815e53041ea0424f23d4b83ff1026ffc343a5af5ce411",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "32"
+  },
+  {
+   "file": "sub-32/eeg/sub-32_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "c2ad98ed807f9a1e7ef44fa4bb8a5a80dea3896cca73cb7abcd1cc91fb33946b",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "32"
+  },
+  {
+   "file": "sub-32/eeg/sub-32_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "19e4ca2a9e79e3168e0873cafb067ffbb3159ccd3d422ca53b060385e6d91c6a",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "32"
+  },
+  {
+   "file": "sub-33/eeg/sub-33_task-R1acquisition_eeg.edf",
+   "bytes": 14805604,
+   "sha256": "bf936fa35701c71c593278f65703ae63bd5bb808ba549992ba6a98bcd3393cfd",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "33"
+  },
+  {
+   "file": "sub-33/eeg/sub-33_task-R2acquisition_eeg.edf",
+   "bytes": 14739840,
+   "sha256": "3cffe5bd3a7518d815b0688a6a5fd25c36e0247feb2cff55ad20d5a1612623ef",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "33"
+  },
+  {
+   "file": "sub-33/eeg/sub-33_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "67090724fac3269600d25020e840bedde9f830a39f5daae8955c30f27975c571",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "33"
+  },
+  {
+   "file": "sub-33/eeg/sub-33_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "dde56b0273ea3b4c2b252c9e4b352b6b1143ab9d6eb1578bcc7881606cff4114",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "33"
+  },
+  {
+   "file": "sub-33/eeg/sub-33_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "414b24926f7e729732a313749a61ecaaa510d325e0a11ee0d762291cefef50be",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "33"
+  },
+  {
+   "file": "sub-33/eeg/sub-33_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "09fc7cde86e5ff1733580be288d22752c9c9e8d03305f5f9d69f49960a09ba71",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "33"
+  },
+  {
+   "file": "sub-34/eeg/sub-34_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "a23668b1c48a8069b3687a3b015e09322dc7c7d97d4364f780566f345db59aac",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "34"
+  },
+  {
+   "file": "sub-34/eeg/sub-34_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "3f794b3bbc0400a35543b47c9d414593497a1f20d17d5d195510c20ffeeffdc1",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "34"
+  },
+  {
+   "file": "sub-34/eeg/sub-34_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "ef0e1050df1e96a7008feae92775a229afd23a0ec4b2c01ab59b0f6a4f90951a",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "34"
+  },
+  {
+   "file": "sub-34/eeg/sub-34_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "d37b30761e7782d8c60a9e75128033bde852da6f85a49fb9d868527c3c6be0e8",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "34"
+  },
+  {
+   "file": "sub-34/eeg/sub-34_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "7f19ead0a9d232e28327994f983e9e921bc8ad42709d8795aa09d4fd326fe0fa",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "34"
+  },
+  {
+   "file": "sub-34/eeg/sub-34_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "1c79604b240c53fa193eaa5d5b8327ce67b99113d41386a3968991759dd10ebf",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "34"
+  },
+  {
+   "file": "sub-35/eeg/sub-35_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "374dee8d7dcfac560e87da39391ebbd806a9a28acc0a46588feddd32dd319728",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "35"
+  },
+  {
+   "file": "sub-35/eeg/sub-35_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "66d4b2106c6540929ef253c901ea560c7ebd0a2ee789304cc38e22cb416c1f37",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "35"
+  },
+  {
+   "file": "sub-35/eeg/sub-35_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "06e8d2446168294033651a63a3d0f0384b0a44679e9b5452f395a39e21eb7172",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "35"
+  },
+  {
+   "file": "sub-35/eeg/sub-35_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "603fb459e5d0173d2fef691807065583eadb86701f0ed6334cc607c735a177ab",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "35"
+  },
+  {
+   "file": "sub-35/eeg/sub-35_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "eb48c415f37630027ffefd4bb127c9773a415ce007db3001715454446825e618",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "35"
+  },
+  {
+   "file": "sub-35/eeg/sub-35_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "e5973af867787e2c45b811b704c6600f28bedacb8ba1b03e872c141ca1b0f4ce",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "35"
+  },
+  {
+   "file": "sub-36/eeg/sub-36_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "d6f72b05f99b157ef3d3e8e653f545d02d5b2f5ecd6aaa62787ae969694d99e8",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "36"
+  },
+  {
+   "file": "sub-36/eeg/sub-36_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "f737a6e48a10378eb2f9a899d9a32c542b82041b4bea48e5eb07696f22027431",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "36"
+  },
+  {
+   "file": "sub-36/eeg/sub-36_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "933c767545150d3969e53e1be48fbb2512e4398eed5a62b5f320b31d762b4bb7",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "36"
+  },
+  {
+   "file": "sub-36/eeg/sub-36_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "dd8a30ed733f86f8dd340f82fdbb304897ec2127185da585a9a27bac2c5e8710",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "36"
+  },
+  {
+   "file": "sub-36/eeg/sub-36_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "165860696f168ed36c0907728b3145cb752a4c7308611e2d410c51a4e0a7a2de",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "36"
+  },
+  {
+   "file": "sub-36/eeg/sub-36_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "f491d70e5d6ae4c30d0abe8888a8d95ffdcaa012378431b7dfc4a6d1803f6b3b",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "36"
+  },
+  {
+   "file": "sub-37/eeg/sub-37_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "a506b7079fe879a489e2a8726332156a18a690a19880f35db7f07534a6f7e236",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "37"
+  },
+  {
+   "file": "sub-37/eeg/sub-37_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "db4a92b08d705483224666730d993276178a575b6e999152cba9a948475753af",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "37"
+  },
+  {
+   "file": "sub-37/eeg/sub-37_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "ed1cf87ce8790c8da02e432fccd58bc28be758e75ae41b60c076d4fcc48ef45b",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "37"
+  },
+  {
+   "file": "sub-37/eeg/sub-37_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "e893fee26dbbabf76bfa27f621ed9fec8313607678e6cbff3d65205984de515e",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "37"
+  },
+  {
+   "file": "sub-37/eeg/sub-37_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "e6c09182f84bf4ee824aa7057ca3529f9944a2167759f7bab3c8f618c8da509e",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "37"
+  },
+  {
+   "file": "sub-37/eeg/sub-37_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "322fb0021438a7bd463729e63adb9f0c8efbb16ac1bacd294aa73dc00324ef1d",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "37"
+  },
+  {
+   "file": "sub-38/eeg/sub-38_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "129c9afefd7f66e5ef06e9a9b0341c19f50b57a482fcc4d8503a1d670d483b54",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "38"
+  },
+  {
+   "file": "sub-38/eeg/sub-38_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "8737a8107638c81565a06b5fdeab79b940b0a745d11e88887dc4faba809bce3e",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "38"
+  },
+  {
+   "file": "sub-38/eeg/sub-38_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "20f02a53a618e42f6ef74e25d2cd45fdcefb23bd59e8455cc572347aaaedbace",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "38"
+  },
+  {
+   "file": "sub-38/eeg/sub-38_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "7926bc03c3dc7b36139b02c143ee93254e627694a0fe1c4e5833d639581821be",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "38"
+  },
+  {
+   "file": "sub-38/eeg/sub-38_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "04486cac5a1a84fb74b59a94fe0fd05e3a8ddcd4ab8f9df9b0bc783b32669ba4",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "38"
+  },
+  {
+   "file": "sub-38/eeg/sub-38_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "156ed8b1566d1832b05c305430cc65465bc253e8de0fd63aa46df8976d547709",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "38"
+  },
+  {
+   "file": "sub-39/eeg/sub-39_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "2c54e20f2f0b3b71b61333d2401831e227080be3f77a2a4f9856d3a2758fe8bf",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "39"
+  },
+  {
+   "file": "sub-39/eeg/sub-39_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "a08237a61c6f19fc8152b57e907799b94e1234ecf28d8d9199e51a31ebec4379",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "39"
+  },
+  {
+   "file": "sub-39/eeg/sub-39_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "7180bace45ef28866539636e6952a1292eb9bdc08dacf8d056d3cc5b96ab0394",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "39"
+  },
+  {
+   "file": "sub-39/eeg/sub-39_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "0e6283c5a44b3b2c7fc16e5b7788f5e3d4783fc4511d651dd53faed2b21ca862",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "39"
+  },
+  {
+   "file": "sub-39/eeg/sub-39_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "0702c0f831ebbe468a0781d9210cc42ee910cf534a6499343d625db6987c89fe",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "39"
+  },
+  {
+   "file": "sub-39/eeg/sub-39_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "9beb53e76bc220a761ae723072e8100de738031c1be02e552086c56817489c8e",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "39"
+  },
+  {
+   "file": "sub-40/eeg/sub-40_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "d96addfe6b05191fe5ab08c188fd7a3746121faccd6f1b1986bc219fc7e84b40",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "40"
+  },
+  {
+   "file": "sub-40/eeg/sub-40_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "823d2ec2b3634d1f385ad990da1b9f2f33a16d57fee403a484e10a7adabf795d",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "40"
+  },
+  {
+   "file": "sub-40/eeg/sub-40_task-R3online_eeg.edf",
+   "bytes": 11648932,
+   "sha256": "204dc887c651676b4bfd9f0c9c664de78004637c30d9657d33655690502d7b21",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "40"
+  },
+  {
+   "file": "sub-40/eeg/sub-40_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "439525f6b077d6a7ee564596da6cbfdb73bb53c266a19d5dcc31c5c79003a7f4",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "40"
+  },
+  {
+   "file": "sub-40/eeg/sub-40_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "0839351b0c5c7b7c975fd951f0a543725041c15dea7bdbfebc3bf7f7cafe4a7b",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "40"
+  },
+  {
+   "file": "sub-40/eeg/sub-40_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "8d2ebee492e928b781d34bd34646e088693a2a77be3d9a44a19ce9ca59a2ff4a",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "40"
+  },
+  {
+   "file": "sub-41/eeg/sub-41_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "1377fab5e1005b72b6d193a0b722e241f28544ed1efa05e8dacb8eec67dc5411",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "41"
+  },
+  {
+   "file": "sub-41/eeg/sub-41_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "a20f375162e67a57f40d1047d3a1e1084da2ed47806481b2b27719bbaf04920f",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "41"
+  },
+  {
+   "file": "sub-41/eeg/sub-41_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "02cb140624fad605f95d9a391f0de7229e34a340fc6da0fee102a034ccacd8f8",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "41"
+  },
+  {
+   "file": "sub-41/eeg/sub-41_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "ae29e000c9d6115c70e0e7e9a27002b1b0c8957262d0f34bc1e2e3528621d445",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "41"
+  },
+  {
+   "file": "sub-41/eeg/sub-41_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "2488152874a7d1eca5e6b30115edef1f347b14944e3181ba2403281f5801a5e6",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "41"
+  },
+  {
+   "file": "sub-41/eeg/sub-41_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "bd12070bb8852dcc0aa04c720c9adeb57abe0687710c1549dae09629d2e86e25",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "41"
+  },
+  {
+   "file": "sub-42/eeg/sub-42_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "03d60314cead82749567724fee4682b9657a6ff8798c38f7222d434a1ff41b3b",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "42"
+  },
+  {
+   "file": "sub-42/eeg/sub-42_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "b871c887e319afb4716cbd48512956961605c774d44b3648bfebb6f8b6e03423",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "42"
+  },
+  {
+   "file": "sub-42/eeg/sub-42_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "2d7d22b1d295033afee6236d819f4c85021afca5be680ad4a8c934d5aca2a9c3",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "42"
+  },
+  {
+   "file": "sub-42/eeg/sub-42_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "ae82093ff48049e8d717962a366fa0796446d64bd2295c5fd5bcfe6363f7c457",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "42"
+  },
+  {
+   "file": "sub-42/eeg/sub-42_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "ca280f9323c828d277ea7874edf6efb1e834ac914dd33db70f267bad5824a120",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "42"
+  },
+  {
+   "file": "sub-42/eeg/sub-42_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "42b6b2c5b23bcac8656d476eec5b8dd2af053feb3a1611f4d53870791e84d9dc",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "42"
+  },
+  {
+   "file": "sub-43/eeg/sub-43_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "7acbf1ceed6ee4b288d8b9bb97c27f52fabd81fed19a07732dd5cc2f1ce841f1",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "43"
+  },
+  {
+   "file": "sub-43/eeg/sub-43_task-R2acquisition_eeg.edf",
+   "bytes": 14772722,
+   "sha256": "352342d2a9c645330fe3329c604d1fc4586474ab39293376482f3e05b45ff3d3",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "43"
+  },
+  {
+   "file": "sub-43/eeg/sub-43_task-R3online_eeg.edf",
+   "bytes": 14805604,
+   "sha256": "2034bc4029a0a601694e0ae0e8b28b8e9f12ccf40af8ec26f6d3b2f8dd6ba69e",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "43"
+  },
+  {
+   "file": "sub-43/eeg/sub-43_task-R4online_eeg.edf",
+   "bytes": 14772722,
+   "sha256": "783a36d13235e3e50566c8ac76119632b580b6432d57d46e1fb12ccc773b468e",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "43"
+  },
+  {
+   "file": "sub-43/eeg/sub-43_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "948d439d5a7beada71ab4c2aba2802f5f63ddc9b9702c653a32f33a4bfbdb6bf",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "43"
+  },
+  {
+   "file": "sub-43/eeg/sub-43_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "fccad48fd56d1d4c013c0b1052fae5c7253ce736c0f409a511b45542baa73426",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "43"
+  },
+  {
+   "file": "sub-44/eeg/sub-44_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "b8186dfd26a0a74b088ca7f1269b400cc676b0e813f9e6480e68eaefca4ab914",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "44"
+  },
+  {
+   "file": "sub-44/eeg/sub-44_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "db8ac32b99ec4d5273447b9eb1f50460364ac39b39271760d1968aefe062e1a0",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "44"
+  },
+  {
+   "file": "sub-44/eeg/sub-44_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "8b0775fc75e5da46e04b93656e3b0597448ba6c0d37793a55dc9f50d78ff780d",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "44"
+  },
+  {
+   "file": "sub-44/eeg/sub-44_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "ec2da7a73ee7f4b80772a355ff6a926ed25b21e28ceb245c077a294363296926",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "44"
+  },
+  {
+   "file": "sub-44/eeg/sub-44_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "0b981c7eb6a81171ff6764403d7f8c9c9c28aeb2735a6135446f6999d5e1b0b2",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "44"
+  },
+  {
+   "file": "sub-44/eeg/sub-44_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "631f0ddad7cc94b65d2c8dcf2619ad93ebfb836fa0da25b7452c7c30d0cb6c0e",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "44"
+  },
+  {
+   "file": "sub-45/eeg/sub-45_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "71749df611bddb11e6efb947292db2841c4d982265e6c5ba5d210df20d118a97",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "45"
+  },
+  {
+   "file": "sub-45/eeg/sub-45_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "918dd0d21ad54de33892bcaeaa787bd3c87eddf44c6541dae53f081efcfe8a18",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "45"
+  },
+  {
+   "file": "sub-45/eeg/sub-45_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "f65e096e4bb159d9270f775ca8ebd3bed6abaa85b37f68d20d6dd0f91d1b1f3e",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "45"
+  },
+  {
+   "file": "sub-45/eeg/sub-45_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "04e6181d509d1abe81129d38a4b3c9dca824b47f81edcada26392b4a3c86dd01",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "45"
+  },
+  {
+   "file": "sub-45/eeg/sub-45_task-R5online_eeg.edf",
+   "bytes": 14772722,
+   "sha256": "420ba3d3142d2e96da72b8284b35fa7dfb9fb77d0a7324450d49ba5ada50d153",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "45"
+  },
+  {
+   "file": "sub-45/eeg/sub-45_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "8a3752251a2763a7a2729a88ffa28e8d6a2c7c9ff1f0f95d23deda281f355356",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "45"
+  },
+  {
+   "file": "sub-46/eeg/sub-46_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "413ac681e6f17742b6ac7bbc50ea7499eccecbd98cbb0675eca927e75da38f21",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "46"
+  },
+  {
+   "file": "sub-46/eeg/sub-46_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "0e0284a624f76bc7d6a054c881a749dc88d83b34db5fd3719ea103d03b048483",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "46"
+  },
+  {
+   "file": "sub-46/eeg/sub-46_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "bf78adb155e64768b4a83463694b7eaf6f7e5a270850adaf5668563b086aad59",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "46"
+  },
+  {
+   "file": "sub-46/eeg/sub-46_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "59cd24e3723576f77a52da86f72e53d97358b812da8f01680ec182a2d2c69f8b",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "46"
+  },
+  {
+   "file": "sub-46/eeg/sub-46_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "aae850d331d41c488d20bd3b5fea60a25074a3c325809f1b0715a0a46e0d7343",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "46"
+  },
+  {
+   "file": "sub-46/eeg/sub-46_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "4d33bf3920dbfa9b4b1a79e43a321bc77522087861cf3f86432e34484e86aefa",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "46"
+  },
+  {
+   "file": "sub-47/eeg/sub-47_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "3158c44f481db222de8c34823d69ea98a8bed28c83de570292ecb8d89b2a8924",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "47"
+  },
+  {
+   "file": "sub-47/eeg/sub-47_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "67929ca77cfbe364d77bf0df488b61c13fbc7783b9986a2ca313f637bc4b19d5",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "47"
+  },
+  {
+   "file": "sub-47/eeg/sub-47_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "55048961c2687aa0a89debf7773f7730e0537ea3d40a10152dd31dd1b0e7f9e0",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "47"
+  },
+  {
+   "file": "sub-47/eeg/sub-47_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "ebfe03852fee033de0c239b4c3f437d0e9bd6437fdde75f6792ddd5877f31185",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "47"
+  },
+  {
+   "file": "sub-47/eeg/sub-47_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "ba1e0627de22c81996ad0360e4153df09cfdddc61e3136f5c155fede86d5fd14",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "47"
+  },
+  {
+   "file": "sub-47/eeg/sub-47_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "4857ef159f216a2fea7ed529bc290963d3fa94f8b088da8d8264e0527e2229df",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "47"
+  },
+  {
+   "file": "sub-48/eeg/sub-48_task-R1acquisition_eeg.edf",
+   "bytes": 14674076,
+   "sha256": "35f01dd89d93f958ce2035a3d68d5c20686cf41b0c5c7ebc51bd415941147454",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "48"
+  },
+  {
+   "file": "sub-48/eeg/sub-48_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "fb6ad5319eff8a4c8788fdbcc3f719c60489a6832d88f1559365a8fc70a40567",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "48"
+  },
+  {
+   "file": "sub-48/eeg/sub-48_task-R3online_eeg.edf",
+   "bytes": 14772722,
+   "sha256": "c899d7baa090cc4a08aeb0917deab17a1bf2db5f0261d4da8ab093a0c92e267d",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "48"
+  },
+  {
+   "file": "sub-48/eeg/sub-48_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "3bf7a83e8c026d7cc5fa400a94201896ab4cb45a1590c1a05d8ced09d46c2eda",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "48"
+  },
+  {
+   "file": "sub-48/eeg/sub-48_task-R5online_eeg.edf",
+   "bytes": 14706958,
+   "sha256": "f85500929531dabe5b0dbd018fc92617ad83a70e5037d047146ec6f1c7c9b102",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "48"
+  },
+  {
+   "file": "sub-48/eeg/sub-48_task-R6online_eeg.edf",
+   "bytes": 14739840,
+   "sha256": "430e00b8e2aa9bb606433ec3469c36b14fbb8a420fcd8abae2221cd0e9736d3c",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "48"
+  },
+  {
+   "file": "sub-49/eeg/sub-49_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "12733eaf8d216bb702b9ec8581216289faee6fa6d75b3573c5bce5b06a92adbc",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "49"
+  },
+  {
+   "file": "sub-49/eeg/sub-49_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "ef5f24197a959bf61feaf9480fa298beebf0d23d5df2c426942957ae838f3544",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "49"
+  },
+  {
+   "file": "sub-49/eeg/sub-49_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "36a511720303fa0fbece8e3067e04a98522bf13ff5e12f91314d72279f570d49",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "49"
+  },
+  {
+   "file": "sub-49/eeg/sub-49_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "8603a955c598fcc764b3495c698f89ccc722b72857d855461d2823c1d62d30d5",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "49"
+  },
+  {
+   "file": "sub-49/eeg/sub-49_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "61f8dc1a4ae46d24ca888b27ea4263a72043904ccc91151292227a5bcd350e88",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "49"
+  },
+  {
+   "file": "sub-49/eeg/sub-49_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "9b160b752838e696adadf83eba1aa4b174bb198c97a9a70a5cfa3cc326407753",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "49"
+  },
+  {
+   "file": "sub-50/eeg/sub-50_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "6912a7820277103e75d08c64fa2a9c4c1a31bf45b9a40b54efbafa1657f3b4a5",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "50"
+  },
+  {
+   "file": "sub-50/eeg/sub-50_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "ab38bbabe38ea4edb406b4e37e42fb938629540a405ddbc1122e7621f078da5a",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "50"
+  },
+  {
+   "file": "sub-50/eeg/sub-50_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "165d90ac7ccba965a1b2e8d7bcc7736adbc19e2aa121980a9a574cda37a74edb",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "50"
+  },
+  {
+   "file": "sub-50/eeg/sub-50_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "197bc52670cd3f394a39c9e5409e7fee95d8ba5047e5e953b572e7ea1a1e5d27",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "50"
+  },
+  {
+   "file": "sub-50/eeg/sub-50_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "6b4cc2cad01fc506eddb7953078bcea062b7ec3280fabbfdb1af0afc5999843d",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "50"
+  },
+  {
+   "file": "sub-50/eeg/sub-50_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "d8bc2507964c5cb89c5259a0140b104b1d84d3c1a894b2ee47cf15ec88005d32",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "50"
+  },
+  {
+   "file": "sub-51/eeg/sub-51_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "7c71c597ce95d6ef4d833a95b33d72f508cb88669a446e9cabaae809f0d0d884",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "51"
+  },
+  {
+   "file": "sub-51/eeg/sub-51_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "5e5d4b3768196bac9f7e41296c37447a7a0e630aa563c0fa602123b8019268c9",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "51"
+  },
+  {
+   "file": "sub-51/eeg/sub-51_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "7dafe931bc25a0ea22ac67749505d749d5e174d17c642cdee8cb711fe907a13e",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "51"
+  },
+  {
+   "file": "sub-51/eeg/sub-51_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "3d8e676ba289da3732a9df43d3e3434175ccfad58d57341a6c864d053d1536c5",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "51"
+  },
+  {
+   "file": "sub-51/eeg/sub-51_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "0fb4c195af5f61493efa731fe262ba5585ae1e5c125e50f914f1f323e92e9f4d",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "51"
+  },
+  {
+   "file": "sub-51/eeg/sub-51_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "da3fa8e7c2737221dafc8bf8bf9293b61f47d73985e9e63e53cac70bc63b3dab",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "51"
+  },
+  {
+   "file": "sub-52/eeg/sub-52_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "ac24f9813d7762ac5331bdaa702d5037e47604818db8952ddac0ff7a3475b7d8",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "52"
+  },
+  {
+   "file": "sub-52/eeg/sub-52_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "1cbfe365d8b4e894bb3e4896ab0ebaef9065eebe3fb0ad6d4497387ece63be64",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "52"
+  },
+  {
+   "file": "sub-52/eeg/sub-52_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "02381ef05782f8e6a88e27d4ff5f33c53b1c101440cbe24f8fa1c00edb753687",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "52"
+  },
+  {
+   "file": "sub-52/eeg/sub-52_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "fd6719a39a8312f12aff964e72657aa27a4cddbb3823d49767b2c9a82eacb5bb",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "52"
+  },
+  {
+   "file": "sub-52/eeg/sub-52_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "702069f00cc14c628b0a6e0a46c94878a75dc0571b93d1c6b0c46cb18a4544dc",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "52"
+  },
+  {
+   "file": "sub-52/eeg/sub-52_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "72fb3e238444881ca720deb2669ddc0678002509aa0aaff8317e0eeb06eefbed",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "52"
+  },
+  {
+   "file": "sub-53/eeg/sub-53_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "21b67d79d0f23824c1fc9167519dc7a92e9455e8942fe3ec7d0a08add7990db8",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "53"
+  },
+  {
+   "file": "sub-53/eeg/sub-53_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "21c1dbbd0b64f1db1aa57cd5966f1b56536bf4b89ec6248adc99e1fa28305bf4",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "53"
+  },
+  {
+   "file": "sub-53/eeg/sub-53_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "31d23fdfb848d618d7f1597307961c65c99b3fca824518d7b89ab92b7dffef0c",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "53"
+  },
+  {
+   "file": "sub-53/eeg/sub-53_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "fa74c61c9c83579162893740ead4ec5d434f95f9292f0eb2dfa9f6472e4657a9",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "53"
+  },
+  {
+   "file": "sub-53/eeg/sub-53_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "0bbcc278b58a689e6ef487888bc50d2630e1e3120cc65041eacc705edf417592",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "53"
+  },
+  {
+   "file": "sub-53/eeg/sub-53_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "8617c1a58a9d5b0ee66ddaa941ea20f64b8ed95e3971f3b6f55fe024a72acd8c",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "53"
+  },
+  {
+   "file": "sub-54/eeg/sub-54_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "28cdf91b8dd9d68e6b336e85d919b8a396158a4927c1a6559fa022d1fbe8baad",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "54"
+  },
+  {
+   "file": "sub-54/eeg/sub-54_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "7f07ed890f0730938df4093fa4809f27ad8f72f197b99f69dda6639eee07dda4",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "54"
+  },
+  {
+   "file": "sub-54/eeg/sub-54_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "32a02cb6f134c6abcf15a059c7c3c361d535385324f75e2932feb1b55ad6c20a",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "54"
+  },
+  {
+   "file": "sub-54/eeg/sub-54_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "bbc4c87aa0efd0b13dad9d26b28a7c383840c1410645825f9a68376b72f8312a",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "54"
+  },
+  {
+   "file": "sub-54/eeg/sub-54_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "75141501ec969f08ccadc231b3a39993fbe87564365fb4df918ea8264b18b770",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "54"
+  },
+  {
+   "file": "sub-54/eeg/sub-54_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "0f4ef8fed96043a91800cf38db0f7e88b2b43e0cd17005bbc1d15da6e6aa158e",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "54"
+  },
+  {
+   "file": "sub-55/eeg/sub-55_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "5935bbd4eb53f77a7d3fcfb1749e9a8164f6bbf18ff254103f4c687d8eca688f",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "55"
+  },
+  {
+   "file": "sub-55/eeg/sub-55_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "5573d052b8689db52501d47fde7239d2a400fcb647e78c827da303d6166e14b1",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "55"
+  },
+  {
+   "file": "sub-55/eeg/sub-55_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "08a56ae630e0a0c97f212aa665cc270080ffddb6393c6c70ed1268f44abfb69c",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "55"
+  },
+  {
+   "file": "sub-55/eeg/sub-55_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "e4825d8ef9bb61327bac40a8cc1fa78389f0f0d096531190b9353a7fffb9f3ff",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "55"
+  },
+  {
+   "file": "sub-55/eeg/sub-55_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "1b8b544a8ec21b5b1946c5799e9f6a4f41b3ec4ba70ed6bfb909d8ad555bf0b0",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "55"
+  },
+  {
+   "file": "sub-55/eeg/sub-55_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "507647520e8d63807f6633e63b101e489668f71cbfb4b1637a751adfac94f446",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "55"
+  },
+  {
+   "file": "sub-56/eeg/sub-56_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "625cbb90a65dce4d56a2758cfcaea35901265493fc427e0c04675a82cf8cc270",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "56"
+  },
+  {
+   "file": "sub-56/eeg/sub-56_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "73715eadd24ab0d5cf4ba73f6353ab579a8b1cc19514361e1f1d960a0d4f70a2",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "56"
+  },
+  {
+   "file": "sub-56/eeg/sub-56_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "2377dd14cd0701762e1220ca4e417473c1177b99b16e6ba475b9a48e45f532d0",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "56"
+  },
+  {
+   "file": "sub-56/eeg/sub-56_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "3350a8ad3cf9f42e64bf21b9f6388d6346c408a0e244ea4a6193e682e450c0db",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "56"
+  },
+  {
+   "file": "sub-56/eeg/sub-56_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "ba1bbd1a84e3ece9a1730df381c06f71f23dbe2c9118f4aebf915ccaf64a0f1f",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "56"
+  },
+  {
+   "file": "sub-56/eeg/sub-56_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "d49c13181a700374611b12d0dd33aa1349b945d7bd379914c7059d5a9a40d793",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "56"
+  },
+  {
+   "file": "sub-57/eeg/sub-57_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "9c07fd4de68e989b9ec251beaf03baa02c91c2ed8994148805d908b93ff4887d",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "57"
+  },
+  {
+   "file": "sub-57/eeg/sub-57_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "f5684815010e78bf170475acd7b4aae95437f63ddc440cf704302b58bdcda8d3",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "57"
+  },
+  {
+   "file": "sub-57/eeg/sub-57_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "861e4498003d20813ea0483488d1a42d54b661002ff0ffc7d15d2bfce5289abc",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "57"
+  },
+  {
+   "file": "sub-57/eeg/sub-57_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "939869b828ad5e6cf9e4747d522e49fd8580f56f1f04904fc2674e7e83c898b8",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "57"
+  },
+  {
+   "file": "sub-57/eeg/sub-57_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "2af8a6f7b5521de6e8f7ac983cc2542ee94da17f585ebb4b82a03222a801e4b8",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "57"
+  },
+  {
+   "file": "sub-57/eeg/sub-57_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "adbfd6848f6b136d721a3bd2dedb76d796eef44768229336b8889b101529a578",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "57"
+  },
+  {
+   "file": "sub-58/eeg/sub-58_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "f6c17ce449e3c776a195f4b8be8a1a71e9656f093f2304845023e8e17afd33f6",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "58"
+  },
+  {
+   "file": "sub-58/eeg/sub-58_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "1fa520f50f489413ed7fbeaa0a2726af8ecc25ff66d1f6f2e76ecbc2349a9636",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "58"
+  },
+  {
+   "file": "sub-58/eeg/sub-58_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "a26b391eb7870543351cdb10a78c93115fc2bca7f2a9bd5daf47f00add903426",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "58"
+  },
+  {
+   "file": "sub-58/eeg/sub-58_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "ea31e546f6e05e7e9b6e17c6a28a98e5d5fbbe109cacf596bd9c338d08f2e6dd",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "58"
+  },
+  {
+   "file": "sub-58/eeg/sub-58_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "2b9b150d1f363531bada860b93db30b814db30919652e7aa1b308e28b59c4e1e",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "58"
+  },
+  {
+   "file": "sub-58/eeg/sub-58_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "040d4b4c2329984208f257964fcf4711fb15f64e281b1b1e8baddd91eae9aa08",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "58"
+  },
+  {
+   "file": "sub-59/eeg/sub-59_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "bbf686b06fa1f21e4e6df93becf777b2e1a70faf06c25eb864659c38e1ab1bae",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "59"
+  },
+  {
+   "file": "sub-59/eeg/sub-59_task-R2acquisition_eeg.edf",
+   "bytes": 14772722,
+   "sha256": "dd3626c31d6b305a0cf2dcd6dbb20b44eb6ab4720a7a95acadb506a02edf9b1a",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "59"
+  },
+  {
+   "file": "sub-59/eeg/sub-59_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "17ff6ce2f80240c9d7fc8ed1c98d8f0e190a705dba6414b468abeca9070c1ee3",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "59"
+  },
+  {
+   "file": "sub-59/eeg/sub-59_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "dec88fac137ba97a302c6f47c245392270926da590cc655a74b0a393ac1d14f3",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "59"
+  },
+  {
+   "file": "sub-60/eeg/sub-60_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "044b97e51f96753a771b5616e5b9212ba435496cffe147862ac95ddaac8780d6",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "60"
+  },
+  {
+   "file": "sub-60/eeg/sub-60_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "a2a28697360c192754cc7cc9abec980ae6dd40484e78d6e3c9d4ea94631dcbea",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "60"
+  },
+  {
+   "file": "sub-60/eeg/sub-60_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "dc66d6cb97fd411c15db16e1d9495d06321721cdaa9867c6703929e3dc81e821",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "60"
+  },
+  {
+   "file": "sub-60/eeg/sub-60_task-R4online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "eb047d6c0f179f656624dd58ff6b3912592d57a6c3c72518b5a2a89881d270a4",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "60"
+  },
+  {
+   "file": "sub-60/eeg/sub-60_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "1a2944e243c9c859ccc9b307be6f06b6ca9dbedf626fd0088f28ed04f2778d3f",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "60"
+  },
+  {
+   "file": "sub-60/eeg/sub-60_task-R6online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "30208706b6ed959697d4fb68e1cfbe17195c21afced8fdd883cd379239a728a2",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "60"
+  },
+  {
+   "file": "sub-61/eeg/sub-61_task-R1acquisition_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "842de0241dc1ebba62fc9c16a2e7e628e41d1acf1a01d1df98a5785c666224dc",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "61"
+  },
+  {
+   "file": "sub-61/eeg/sub-61_task-R2acquisition_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "d3e1f6c77c8df8dbd49da614400fd7f319acc1f3c0dbaec71ca393660a254a69",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "61"
+  },
+  {
+   "file": "sub-61/eeg/sub-61_task-R3online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "682f347fec5168f486dd2804ee3919a64d46718167c9ba1758600bf7529587fb",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "61"
+  },
+  {
+   "file": "sub-61/eeg/sub-61_task-R4online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "37bca483f724a80ae80a0997c3a458e6e9019d2bcc2c55da6c4aa9ec9f865fff",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "61"
+  },
+  {
+   "file": "sub-61/eeg/sub-61_task-R5online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "21856b032ee38f855a1ba44bbddc312aa36f37eaa7fa00328d3ea355d3f7562d",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "61"
+  },
+  {
+   "file": "sub-61/eeg/sub-61_task-R6online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "7e01131fa976acc961498618feb5bb2066ce30e8940ef158942c8c1ac22a16c8",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "61"
+  },
+  {
+   "file": "sub-62/eeg/sub-62_task-R1acquisition_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "e9b7db7066af6807249fb6f78993da187b8da58035b79296c8797094a9d243b7",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "62"
+  },
+  {
+   "file": "sub-62/eeg/sub-62_task-R2acquisition_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "ef10c2f50b525d79323b8c97dea193aa405337e49a911feed82d643cb4533370",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "62"
+  },
+  {
+   "file": "sub-62/eeg/sub-62_task-R3online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "fd6d3c462577f30c664fe7860af14168efe41d94c44d8f063faff2315b2863cb",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "62"
+  },
+  {
+   "file": "sub-62/eeg/sub-62_task-R4online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "b6beaa3719922805e8c3a64d825bad469f0fc9500027aa66ef0de5592bf7f8b4",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "62"
+  },
+  {
+   "file": "sub-62/eeg/sub-62_task-R5online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "bc322346d0d553c4ca3baa16dda8de4834e3e1c4c933e9ebeac1a7b34d9db527",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "62"
+  },
+  {
+   "file": "sub-62/eeg/sub-62_task-R6online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "7f4fd73f4170b9464512b51c4ebdb529ef5941d8bf0b7b6952f63afe164b550d",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "62"
+  },
+  {
+   "file": "sub-63/eeg/sub-63_task-R1acquisition_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "82fd11cdb736d9074c096ee7b9ba7cbcb98cf1bdbd3b699de9556887581bf0b4",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "63"
+  },
+  {
+   "file": "sub-63/eeg/sub-63_task-R2acquisition_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "d47d93ad0b7e891150db1cd13d027c76be16727d9e49d1b3c972d02b05bb6bf1",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "63"
+  },
+  {
+   "file": "sub-63/eeg/sub-63_task-R3online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "9fd33f3a9f7814d29578c5ab328ce17df50ef1105c7e50895dc5df2f8573a30c",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "63"
+  },
+  {
+   "file": "sub-63/eeg/sub-63_task-R4online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "725ebb19389b03216ffc1eb07a047a5ecfa6e55ae9aee556a312cc45b2f7c97b",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "63"
+  },
+  {
+   "file": "sub-63/eeg/sub-63_task-R5online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "198357ed766dca1d02d9b21448ac1ea7bb00463a9ce80d1caabd443ad1991a0e",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "63"
+  },
+  {
+   "file": "sub-63/eeg/sub-63_task-R6online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "a46d9f219efbc193cbc648bb81fcf05efa36fd2756a6917d88d903ca1d3a9cc9",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "63"
+  },
+  {
+   "file": "sub-64/eeg/sub-64_task-R1acquisition_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "005469f52c17456a32e7abedf004d838d82f4fb13e8965ca98352f700700dcc9",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "64"
+  },
+  {
+   "file": "sub-64/eeg/sub-64_task-R2acquisition_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "76291be8e627a42bb1018954a92b853bb5eb348220a0191b790e0a894fb14923",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "64"
+  },
+  {
+   "file": "sub-64/eeg/sub-64_task-R3online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "45155730c302e4012edc1ca52bf45bdd3bc1f6a587b5c052906543c00bd67f47",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "64"
+  },
+  {
+   "file": "sub-64/eeg/sub-64_task-R4online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "7e31b9d93a2427f16e95e421f1a5c03664e6f17327076cb0e4860018fcd6307d",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "64"
+  },
+  {
+   "file": "sub-64/eeg/sub-64_task-R5online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "ca528ce946e6ac088020f67ed4ccdd301621eddb8f25035bf3b12cb99e69de06",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "64"
+  },
+  {
+   "file": "sub-64/eeg/sub-64_task-R6online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "d661b6e9ec014462f7b45a1efc6d67b708121d22adbb74c382bc79f00a508d1a",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "64"
+  },
+  {
+   "file": "sub-65/eeg/sub-65_task-R1acquisition_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "ca061e098dddf43ae65a118223e9fb93626418c87e9bdbfda1950366cb521cfe",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "65"
+  },
+  {
+   "file": "sub-65/eeg/sub-65_task-R2acquisition_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "1ffdb52ac551599ac93eca7764ef2a1998366c49bd06ab07a47850c8ec1e491c",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "65"
+  },
+  {
+   "file": "sub-65/eeg/sub-65_task-R3online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "b8c6db3f217bfbf000482ee2dd034cb8ad505f53a6a2e9bbfb819bc124b8ff77",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "65"
+  },
+  {
+   "file": "sub-65/eeg/sub-65_task-R4online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "847b775d88ea07b44c12eef7747785519b2151018ba898c74ae27b5dbea0b895",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "65"
+  },
+  {
+   "file": "sub-65/eeg/sub-65_task-R5online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "3f775a1b5f70dbb2e000b402b92ad597444f13ddfea0c32fe7d90f5abeffde98",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "65"
+  },
+  {
+   "file": "sub-65/eeg/sub-65_task-R6online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "1d6c37853fd69f97e2f55cef4f74ea79f81c4d648f62f2f73b68615c290aa42d",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "65"
+  },
+  {
+   "file": "sub-66/eeg/sub-66_task-R1acquisition_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "fc173e05b90a0f6105b5f681c8844a7347cfae015612f98a0b7e3b93e590a9d1",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "66"
+  },
+  {
+   "file": "sub-66/eeg/sub-66_task-R2acquisition_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "beb160170d5ce77e8341f3704966fcec35362d40c7c164d5830b1980ff5ea973",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "66"
+  },
+  {
+   "file": "sub-66/eeg/sub-66_task-R3online_eeg.edf",
+   "bytes": 16811406,
+   "sha256": "3225eb9dd66d6eb3dd92aefb088f360675be1ab91a306d24422f3bed0ac2de26",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "66"
+  },
+  {
+   "file": "sub-66/eeg/sub-66_task-R4online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "024bf2b0e904c7be9ff51ec4f738792e5508e9b867610a958a0ff1a479824582",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "66"
+  },
+  {
+   "file": "sub-66/eeg/sub-66_task-R5online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "a0ecdc015fa010b28d60026ab2c824ba4b6edd8e0c9165cd155313338638a9b1",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "66"
+  },
+  {
+   "file": "sub-66/eeg/sub-66_task-R6online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "c095210fd372b1e3f2f4012075702cb3186f1ce16492dcd54317747011c15dff",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "66"
+  },
+  {
+   "file": "sub-67/eeg/sub-67_task-R1acquisition_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "df5112b643d71eab58e9891303046d8f06f6154440ba94d347fbea339b9d5e82",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "67"
+  },
+  {
+   "file": "sub-67/eeg/sub-67_task-R2acquisition_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "d2fbf1cedbfcf828ff28286af6a4b0a57f933fa122f5e9621a53bdcdf38e447e",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "67"
+  },
+  {
+   "file": "sub-67/eeg/sub-67_task-R3online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "c405873ad6cd3dc0b77bfbadccb3c8d7ee51fbc57c53ce9483e1bbd423f17b12",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "67"
+  },
+  {
+   "file": "sub-67/eeg/sub-67_task-R4online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "46840bb234570760efdd2c5928d69987f1864e2d32df5c240e937a2e64c252df",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "67"
+  },
+  {
+   "file": "sub-67/eeg/sub-67_task-R5online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "2ada3e4672ce68bc776dc6b4bdd6f68f88c3f256288677caddb459fe953fc4f2",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "67"
+  },
+  {
+   "file": "sub-67/eeg/sub-67_task-R6online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "51f7fd4eef4004f790f9d1f803d7c51bb0a79e4e7d2b028dde57f35f79a4e3e1",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "67"
+  },
+  {
+   "file": "sub-68/eeg/sub-68_task-R1acquisition_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "941267f1618ad7791465e9ec8f2fddedc6b0fdbde8e67f809bad2fcfe3845b0b",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "68"
+  },
+  {
+   "file": "sub-68/eeg/sub-68_task-R2acquisition_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "92a13fccca59cb425624d455548c020125d86a5dd832969da1c64a83fc42867e",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "68"
+  },
+  {
+   "file": "sub-68/eeg/sub-68_task-R3online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "3ff4b551da94432a5ec8b6939c0b4e4cb5c491cbc52f3234be73cee39a07e7b3",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "68"
+  },
+  {
+   "file": "sub-68/eeg/sub-68_task-R4online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "60f8673057389a0a8d3d9bc7c046f017fda53ca5bba93b70754685dfafed5532",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "68"
+  },
+  {
+   "file": "sub-68/eeg/sub-68_task-R5online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "11a1e477f852d142a996c2fe4eec9dfbd95a796c08f81ae1cd3a20fef38f2bd4",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "68"
+  },
+  {
+   "file": "sub-68/eeg/sub-68_task-R6online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "2a783c9633499bd69cc6d637fc786f08e668c63edf2f00a1f65b84b31860427d",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "68"
+  },
+  {
+   "file": "sub-69/eeg/sub-69_task-R1acquisition_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "b17a96b3c9b96552fcc1d55216cd23ae68fc4c149a69abee83650329673d79c8",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "69"
+  },
+  {
+   "file": "sub-69/eeg/sub-69_task-R2acquisition_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "f74c59947d5470f2d2d7fad4f27b261f4af859ec1a57ee8c7f8d041d9edd39bb",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "69"
+  },
+  {
+   "file": "sub-69/eeg/sub-69_task-R3online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "4626846c664c9a93dfe630abf962401b35816955712b68e576de81e42a0474ce",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "69"
+  },
+  {
+   "file": "sub-69/eeg/sub-69_task-R4online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "fbf9923d706b306ae4e95e6e210c44cbd7ad7ca05dd7903ffbf10b56a7184681",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "69"
+  },
+  {
+   "file": "sub-69/eeg/sub-69_task-R5online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "1bfa92008e3ade86e802ca8efe00da28a0368d10bdb12769a06bc76a4f092934",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "69"
+  },
+  {
+   "file": "sub-69/eeg/sub-69_task-R6online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "e5898d062ee3dab8685121e112c858e8da338d48dea2c1409b1bb10d95c311c8",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "69"
+  },
+  {
+   "file": "sub-70/eeg/sub-70_task-R1acquisition_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "016b56f1a46de270bd49e65aa1607a7311f944dde197909042af71e15dab78cc",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "70"
+  },
+  {
+   "file": "sub-70/eeg/sub-70_task-R2acquisition_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "165b0cc3d4ade1873fcbd1bca9ed31219462d03ae238eb96ee5df129a1e07688",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "70"
+  },
+  {
+   "file": "sub-70/eeg/sub-70_task-R3online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "ae4c2dd278f440d081b898bce6385fea3762ed21d72d99d276adfe56eaa4a179",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "70"
+  },
+  {
+   "file": "sub-70/eeg/sub-70_task-R4online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "089e1483e009ea44bf031cd85249743c8cb00ca8ed190b2ececbc9585f5faee6",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "70"
+  },
+  {
+   "file": "sub-70/eeg/sub-70_task-R5online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "d47ec2efc25e57d4b44764b170aaea630f7831be16f4343d6d76d4b017890631",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "70"
+  },
+  {
+   "file": "sub-70/eeg/sub-70_task-R6online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "59d2e748de29cfab7eca1294e79fb1d6a890ce134d83fa23e70bd00bf1cd0e9e",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "70"
+  },
+  {
+   "file": "sub-71/eeg/sub-71_task-R1acquisition_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "39d1f63a7f38a798ae9ad7a66016695ab58c441baf840c3189bbd4e2fc722ada",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "71"
+  },
+  {
+   "file": "sub-71/eeg/sub-71_task-R2acquisition_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "fa6430cee4c365a3475ce0b8a29d3b1d43ca15db17cc635e7cac29c8bf085a9a",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "71"
+  },
+  {
+   "file": "sub-71/eeg/sub-71_task-R3online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "0d8594491f3c6142aed90f86652e02dbc6697a2aa478c3ae364eb37d7b459401",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "71"
+  },
+  {
+   "file": "sub-71/eeg/sub-71_task-R4online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "565761c624da2fd8565e62d9ea5ed0ad06c1423d948f72f06e893f8258597514",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "71"
+  },
+  {
+   "file": "sub-71/eeg/sub-71_task-R5online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "4c20219aee922f199659363eea544b30b7b015b26b5d0336a985758e0452b85d",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "71"
+  },
+  {
+   "file": "sub-71/eeg/sub-71_task-R6online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "b58def7f968712dad923338f2dc2a2cdc870672ed83660db5469617a0e588404",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "71"
+  },
+  {
+   "file": "sub-72/eeg/sub-72_task-R1acquisition_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "b6c1523123ec9e08a0115a15db042b7d59ae4d4027ad8196a06ae482b04a9e67",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "72"
+  },
+  {
+   "file": "sub-72/eeg/sub-72_task-R2acquisition_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "9530417bcd1f92fa60e429280aa4439aa75662d890b1bf4dd35607084a41ef9d",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "72"
+  },
+  {
+   "file": "sub-72/eeg/sub-72_task-R3online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "c8f9533e94d0b7d4b2f6ece141aeb174ffd6167166ea1d251d6747953a34aabe",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "72"
+  },
+  {
+   "file": "sub-72/eeg/sub-72_task-R4online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "afbb80466736a4d6e20ef9b5090ba39631187b980d29821a1664dac81bfa97d3",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "72"
+  },
+  {
+   "file": "sub-72/eeg/sub-72_task-R5online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "3a7a7bb0c06564064c2ef4a59b10b138327af4c76dcc04e8a992b60f7f205ba3",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "72"
+  },
+  {
+   "file": "sub-72/eeg/sub-72_task-R6online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "a97c96d74ff49273e02fbcddc6acbd71acf6335a68a3069af7058bc4719b8c1b",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "72"
+  },
+  {
+   "file": "sub-73/eeg/sub-73_task-R1acquisition_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "4d1f355856b057e47f8df2661b92c9aa84be2b608eac6ec4aa418a304f3d5170",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "73"
+  },
+  {
+   "file": "sub-73/eeg/sub-73_task-R2acquisition_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "f0cc1635ea6ca799c29987ed2e6e8a8cc854e8a2b962e67602f91e6054d5e90e",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "73"
+  },
+  {
+   "file": "sub-73/eeg/sub-73_task-R3online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "a1498081587c6c00c6f9c6f3c8642a78e6424567899abbad093d22b5be997347",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "73"
+  },
+  {
+   "file": "sub-73/eeg/sub-73_task-R4online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "0261040199d590d46c0fd5045b36a8f42c20a516c80a1141a285a243b97ea682",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "73"
+  },
+  {
+   "file": "sub-73/eeg/sub-73_task-R5online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "add7176ffd0f4eb264d8fd53fcbeeee1e254a1e68d4ca7e380271ac9673f3ed4",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "73"
+  },
+  {
+   "file": "sub-73/eeg/sub-73_task-R6online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "8a4b37d1472125f1b2757c1c293b2e52f220be85d219d452ffd66e851e34c92e",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "73"
+  },
+  {
+   "file": "sub-74/eeg/sub-74_task-R1acquisition_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "6a516eb3ae9594e29ba384a91bb39d5c53b5b07ee83cd59077dda8203d7b1d67",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "74"
+  },
+  {
+   "file": "sub-74/eeg/sub-74_task-R2acquisition_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "85ee1c76821618ed75d69d3abdcd3c33e075ca0260ceb296cc91769664c79c3f",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "74"
+  },
+  {
+   "file": "sub-74/eeg/sub-74_task-R3online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "9e15a82abd7ca885397ade151a88ee4b3f7151b12df5170ab85e0cce7b46d699",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "74"
+  },
+  {
+   "file": "sub-74/eeg/sub-74_task-R4online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "87429f133f2bfd447c796c7bed0bc746f2a34591e63edcd40d113690b0be26b7",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "74"
+  },
+  {
+   "file": "sub-74/eeg/sub-74_task-R5online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "ae6afb43f5f05bda2f165d4db25b43e886195191661aa05a104b0e048fb2ddd7",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "74"
+  },
+  {
+   "file": "sub-74/eeg/sub-74_task-R6online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "0e1a11eb2a2564dd4aadcef9a7b3ad674fe48dd876bf6c87638fda4febff75df",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "74"
+  },
+  {
+   "file": "sub-75/eeg/sub-75_task-R1acquisition_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "21193e5efd21ad115a5cbda309da36990feca4199f85114b9f2805dddfb5b20c",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "75"
+  },
+  {
+   "file": "sub-75/eeg/sub-75_task-R2acquisition_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "fd8b91256abf1b31ff1bd20fc81b7353e66536457e3d6deeb7778ebcd03be6b7",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "75"
+  },
+  {
+   "file": "sub-75/eeg/sub-75_task-R3online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "316e48d39c5780d52eaddbcef455b90c856f0c032b609b6e677824e9a6011622",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "75"
+  },
+  {
+   "file": "sub-75/eeg/sub-75_task-R4online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "42e55b89ddccb63412747276de482ad324a7b030e9b6902c1b9eeae7249fa5f0",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "75"
+  },
+  {
+   "file": "sub-75/eeg/sub-75_task-R5online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "43feb8dd88e66bd29b26dad33738251aba39d36b60c2feb530fce2c70e9c99b2",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "75"
+  },
+  {
+   "file": "sub-75/eeg/sub-75_task-R6online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "fb9ad9f313de5926e7aa7b4a63a1e9215d8b582c550737fc6af2a193be07187f",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "75"
+  },
+  {
+   "file": "sub-76/eeg/sub-76_task-R1acquisition_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "29428768dae636ae9e77b5d8c4a83d61cba28c5bc4f1c287978036bc21344d58",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "76"
+  },
+  {
+   "file": "sub-76/eeg/sub-76_task-R2acquisition_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "9eceb169ffca13b55b882a43a9f516a6eb9dea04dbdeaa053ea8d9e361943412",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "76"
+  },
+  {
+   "file": "sub-76/eeg/sub-76_task-R3online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "ca7e709102238ed2c7561af3f7718d18c0f76774e668ca7ebde92148c5b3b9e0",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "76"
+  },
+  {
+   "file": "sub-76/eeg/sub-76_task-R4online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "cbfbdc0a682f94cb5c62e50e04fbefea392e561bbf9625c7b6e740f7a1176818",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "76"
+  },
+  {
+   "file": "sub-76/eeg/sub-76_task-R5online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "b56619ef4c2ae631f52aecdd63aaf4a002bb6f421f6ee7ba2d349fa6bee3391e",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "76"
+  },
+  {
+   "file": "sub-76/eeg/sub-76_task-R6online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "83b9aab950d2d7e165ddedbda25660b066aa23db77a841a3f6bd8acc4f480fa6",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "76"
+  },
+  {
+   "file": "sub-77/eeg/sub-77_task-R1acquisition_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "290b0896741b299ed28e02311dbca8cbc4306e06d8bf2d7f6998d63867f0aae3",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "77"
+  },
+  {
+   "file": "sub-77/eeg/sub-77_task-R2acquisition_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "8ce31bbe74f9e9a6dc23d3e6036e2265f96028006e64de37dc44dab197a7abb0",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "77"
+  },
+  {
+   "file": "sub-77/eeg/sub-77_task-R3online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "df9ba8bc9a3490537c7ff6ea23a274f8c383283c646fccab8195d75ad4c6d13c",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "77"
+  },
+  {
+   "file": "sub-77/eeg/sub-77_task-R4online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "4954fae50c89df3507461e3cc2ace607a7c3cbb9b95a4d1402ec87f5e10d47be",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "77"
+  },
+  {
+   "file": "sub-77/eeg/sub-77_task-R5online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "7a8e287fa269dd3432da2285700957ffc146d82aede3cd6366fab0a7213a7eed",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "77"
+  },
+  {
+   "file": "sub-77/eeg/sub-77_task-R6online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "9ce1eb9080b3d1b4cf2ba373b3637fd138501893711270e8ebafde4943c48133",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "77"
+  },
+  {
+   "file": "sub-78/eeg/sub-78_task-R1acquisition_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "b4dfb3859578159f873f0ea9a1c7544fb5778eb4ea028af5a364106a578683e8",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "78"
+  },
+  {
+   "file": "sub-78/eeg/sub-78_task-R2acquisition_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "c369042423ad6c3f7b5e9b79f0d07079316ca0c8d8832e0699eca853838f1e64",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "78"
+  },
+  {
+   "file": "sub-78/eeg/sub-78_task-R3online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "a516dbef7b45fe38e6029935e4307ae69336bee310fe25424f9b5ed581f2dbb3",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "78"
+  },
+  {
+   "file": "sub-78/eeg/sub-78_task-R4online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "3f2965cea867d689518ea18ac9bcb624661a8e0c5b2db6d1036f5aa75a93504e",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "78"
+  },
+  {
+   "file": "sub-78/eeg/sub-78_task-R5online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "909c906a01df25e69d576fc2b6b156649a372e4327463c56c25b63d8b076836e",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "78"
+  },
+  {
+   "file": "sub-78/eeg/sub-78_task-R6online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "2d6d3a5a62d188312a1c4f3a3e055518fe0c55181d22b12f7c45d7bab5a764c7",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "78"
+  },
+  {
+   "file": "sub-79/eeg/sub-79_task-R1acquisition_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "634fe390a071a178c8dbbb49438fb38038d9204dea77836faf5a3640942d2bc0",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "79"
+  },
+  {
+   "file": "sub-79/eeg/sub-79_task-R2acquisition_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "f25b1d94fe8b178198037a0f249c5e4aeb444000eecbeb492a73872953cfcab3",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "79"
+  },
+  {
+   "file": "sub-79/eeg/sub-79_task-R3online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "ffa607099c7353e840e4753c436f6d5abd6e702578aafbe50fc7bd04b39108e2",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "79"
+  },
+  {
+   "file": "sub-79/eeg/sub-79_task-R4online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "be8d0eb707f039967f4b6742848f8f86dfba52844516b5d40a923262639a8584",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "79"
+  },
+  {
+   "file": "sub-79/eeg/sub-79_task-R5online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "03126002aaea3724100ebd0d32170ea46ce7ddaea69f7abbf28af5c98169733d",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "79"
+  },
+  {
+   "file": "sub-79/eeg/sub-79_task-R6online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "a0cbebc9118481ade369ae7ac7d07c83d804f3b46b3cb7d923b50ee88f405f22",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "79"
+  },
+  {
+   "file": "sub-80/eeg/sub-80_task-R1acquisition_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "a5492727a08545609dfe2ebba41b836f45bf9cc118e1383cf92259b909c88740",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "80"
+  },
+  {
+   "file": "sub-80/eeg/sub-80_task-R2acquisition_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "fde43d72dd4916100286aa68d9f16bb5e068576220f4be1f51063e805b7bc70d",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "80"
+  },
+  {
+   "file": "sub-80/eeg/sub-80_task-R3online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "0f718522021611da6d025022d386fde9e525ef6d20131cc54f3e3eb93a00a539",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "80"
+  },
+  {
+   "file": "sub-80/eeg/sub-80_task-R4online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "26587391295aead63d967e59275a1389dc8790afc5cd7e37ff154634edb24126",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "80"
+  },
+  {
+   "file": "sub-80/eeg/sub-80_task-R5online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "02a1fbdb50a6c2517c2a3737616550f7082e86e3f33b3f286a6b5532d142d960",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "80"
+  },
+  {
+   "file": "sub-80/eeg/sub-80_task-R6online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "065bd6f0ee2c56b1e7a67be10c25c58c8ea368b40f49053d1569e027e7c5f992",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "80"
+  },
+  {
+   "file": "sub-81/eeg/sub-81_task-R1acquisition_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "7dc27ec260c12e290124c35851cda3ffb88f616fc8753fac2dca355d4d2246c0",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "81"
+  },
+  {
+   "file": "sub-81/eeg/sub-81_task-R2acquisition_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "806d470dc24abef70bec62b5fd8cadc23ffac6f9ab8a4ac036839026d9525700",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "81"
+  },
+  {
+   "file": "sub-81/eeg/sub-81_task-R3online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "fe26266a26a04e331901ff3cbab949279bea50cd18ee41252fa3f2f3ed648bc5",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "81"
+  },
+  {
+   "file": "sub-81/eeg/sub-81_task-R4online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "f2fe9229dd2914017cabc9499930fd62d4c069e4bc1bd3a344945c925ec8e99a",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "81"
+  },
+  {
+   "file": "sub-81/eeg/sub-81_task-R5online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "f01eea8c4ff6915bcd5c5c66ea14180314e840ec3f96cd7e0b24c9e5bf74973b",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "81"
+  },
+  {
+   "file": "sub-81/eeg/sub-81_task-R6online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "18160dbf32febab2763bd63c7fc718ea70efb76d98230074ec7717eeab5a78e9",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "81"
+  },
+  {
+   "file": "sub-82/eeg/sub-82_task-R1acquisition_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "2ca2c7e68baeaee0484a042f62d2c2ef165aef3c7520909924b9bf4ff64d2d8f",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "82"
+  },
+  {
+   "file": "sub-82/eeg/sub-82_task-R2acquisition_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "1e29a85ccb848c8cbd7fad0d6ba9aa97c5ffd4453789eb991fb7aa7f1cbcfc7a",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "82"
+  },
+  {
+   "file": "sub-82/eeg/sub-82_task-R3online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "db1f8b59defd25711888d538a493c8024679cf62239aef0e2ff908efdc19fc47",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "82"
+  },
+  {
+   "file": "sub-82/eeg/sub-82_task-R4online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "600471fad2e3e9f4568419befe3f79503b71b58640ea364454cb9d1964cbc7d5",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "82"
+  },
+  {
+   "file": "sub-82/eeg/sub-82_task-R5online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "8b0b2322ed944eaeb769c384122b3cd34a6b82d989ad130a0c26e942ec3e74ad",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "82"
+  },
+  {
+   "file": "sub-82/eeg/sub-82_task-R6online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "0ae971ba2733fd12a594416903af3623c08e7420cfbf4a5542885b90084f8502",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "82"
+  },
+  {
+   "file": "sub-83/eeg/sub-83_task-R1acquisition_eeg.edf",
+   "bytes": 14871368,
+   "sha256": "c08471e672a6cda7a08e4f8c1feaf69047d08e46acdaee4561870847b21e21ca",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "83"
+  },
+  {
+   "file": "sub-83/eeg/sub-83_task-R2acquisition_eeg.edf",
+   "bytes": 14871368,
+   "sha256": "1c35aa1c3bf2450c61a94321a913f93b0658653216c36f417ba8e8c8a11d6360",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "83"
+  },
+  {
+   "file": "sub-83/eeg/sub-83_task-R3online_eeg.edf",
+   "bytes": 14871368,
+   "sha256": "3553852de36cd25476d7fd337b15b575470cfeaec78ee607b3487b33642885b2",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "83"
+  },
+  {
+   "file": "sub-83/eeg/sub-83_task-R4online_eeg.edf",
+   "bytes": 14871368,
+   "sha256": "a1b07ffad9b3bba1824fc9a59c65271de5702ff9d1341dddf36fc948da9f2b2f",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "83"
+  },
+  {
+   "file": "sub-83/eeg/sub-83_task-R5online_eeg.edf",
+   "bytes": 14871368,
+   "sha256": "3051650ea45d285875fe4dc3331b6f28c6065f38072a6d840c4633774fe31f22",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "83"
+  },
+  {
+   "file": "sub-83/eeg/sub-83_task-R6online_eeg.edf",
+   "bytes": 14871368,
+   "sha256": "316373fd86a6574046b29f494de11102b2a8b95744f44a1eb227484b6e38d158",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "83"
+  },
+  {
+   "file": "sub-84/eeg/sub-84_task-R1acquisition_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "c7cf2c900e44c0c20f4b5167f470710698db40ca63ccdf48ebd3936531c778ce",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "84"
+  },
+  {
+   "file": "sub-84/eeg/sub-84_task-R2acquisition_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "82bb1c9dfcaf8c409cd7b0c8128e5e6080d0482aa4026fd08fff07cad8d26ea6",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "84"
+  },
+  {
+   "file": "sub-84/eeg/sub-84_task-R3online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "422d7d46d1c63c86294eba57129e08a92f513a1b3ea067a753469e45d82e0c18",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "84"
+  },
+  {
+   "file": "sub-84/eeg/sub-84_task-R4online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "dd44b2cbbc2b676dfde6b9fef2e2c2dd415b628cf6d41ac7326675a3f3908308",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "84"
+  },
+  {
+   "file": "sub-84/eeg/sub-84_task-R5online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "2744d9991ad22b1430fd1865b00dad417a53f066b0002434393c98128c58d4ee",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "84"
+  },
+  {
+   "file": "sub-84/eeg/sub-84_task-R6online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "2a6303bfb9a3f9ff4ce1b344dfb024a252b3a6a7ad72bde61f02714223b17260",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "84"
+  },
+  {
+   "file": "sub-85/eeg/sub-85_task-R1acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "f5b10a41b96fc91b95cd59ea665399ac494cdb92565ca63e50dd0ac64142565b",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "85"
+  },
+  {
+   "file": "sub-85/eeg/sub-85_task-R2acquisition_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "903ea643a1d28fb6a7c6b248e8b8e7869ee77f4273d0e5986e47c713bbcd13e6",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "85"
+  },
+  {
+   "file": "sub-85/eeg/sub-85_task-R3online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "151a52d4250fe7718881638c3441c61019fc36b3c20f90003a40ff4d7e1f552b",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "85"
+  },
+  {
+   "file": "sub-85/eeg/sub-85_task-R4online_eeg.edf",
+   "bytes": 14805604,
+   "sha256": "19d41e3d2d8f9bc6152bfdf77176547f018c4d3455da51f6968ed682324b9947",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "85"
+  },
+  {
+   "file": "sub-85/eeg/sub-85_task-R5online_eeg.edf",
+   "bytes": 14838486,
+   "sha256": "0cc45c653e39db5fd8f1ac6b1a54f62222ff2bf4dd9bc740e6bcff5fb1b94b51",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "85"
+  },
+  {
+   "file": "sub-85/eeg/sub-85_task-R6online_eeg.edf",
+   "bytes": 14805604,
+   "sha256": "081bff4ccbae4e0cc436d8c54b33947f91d53cd2e3c8fdc90db2025bd1be4180",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "85"
+  },
+  {
+   "file": "sub-86/eeg/sub-86_task-R1acquisition_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "f58e97813c24babf2bfac355be38ce0c5e8b482165c502d8f34d78b158c897b3",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "86"
+  },
+  {
+   "file": "sub-86/eeg/sub-86_task-R2acquisition_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "ef8074ce111224033e0d683150e80e1f0fcfb9741b045da70f73c54d2411cca8",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "86"
+  },
+  {
+   "file": "sub-86/eeg/sub-86_task-R3online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "ab13ae6f841a674baecf46704902159d9000771ec0614bba84ab562ee6d69c81",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "86"
+  },
+  {
+   "file": "sub-86/eeg/sub-86_task-R4online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "cb0bd6a9231086aa38859fca8a8f8e726177780b32f36135fbea142548fd4ab8",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "86"
+  },
+  {
+   "file": "sub-86/eeg/sub-86_task-R5online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "323e1d17c34bcb7190b2117698abe1498069a6191548f071825d79e58464da6d",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "86"
+  },
+  {
+   "file": "sub-86/eeg/sub-86_task-R6online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "2bdb535f5d98a2ca52ba83ba4dcb85c26224036cbb52bff0b260c49f3ce1d9ce",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "86"
+  },
+  {
+   "file": "sub-87/eeg/sub-87_task-R1acquisition_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "4d0749ca8be9aebcbdb65b6ca853a790d822a3adbaff39c09e7a238409b851d0",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "87"
+  },
+  {
+   "file": "sub-87/eeg/sub-87_task-R2acquisition_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "9c1e7f650057536664490119b8b21d5cf5eddd68807d7793a66fd4859394fb3d",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "87"
+  },
+  {
+   "file": "sub-87/eeg/sub-87_task-R3online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "520799386454973a994db13b492bf54b34c5df371bb621143cbf8e1c7d33bad2",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "87"
+  },
+  {
+   "file": "sub-87/eeg/sub-87_task-R4online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "29b1b00bd923ab49dfec54d77bbd383e166e327aa59ce75fb8be337505eacd68",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "87"
+  },
+  {
+   "file": "sub-87/eeg/sub-87_task-R5online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "bf6321bf863c468da35089ae55106c9601d60f598473329fc8d547010a9404a4",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "87"
+  },
+  {
+   "file": "sub-87/eeg/sub-87_task-R6online_eeg.edf",
+   "bytes": 13523206,
+   "sha256": "a06503ae1ade78edadcc96d10dbfe09d9bfa85bfb52d9086be5f72ccfd2f0dae",
+   "scope": "subject",
+   "how": "data_path",
+   "subject": "87"
+  },
+  {
+   "file": "performance.csv",
+   "bytes": 19765,
+   "sha256": "d77ef4da92c5468f7bc6cf08dc88a5df857a3cfc3c7cb28554107a75cb70bb5b",
+   "scope": "dataset",
+   "how": "not_returned_by_data_path",
+   "retrieved": "2026-10-06",
+   "retrieved_by": "moabb.datasets.Dreyer2023.get_subject_info() (_metainfo_link, OSF)"
+  }
+ ],
+ "n_subjects_recorded": 87,
+ "n_subject_scoped_files": 520,
+ "n_dataset_scoped_files": 1,
+ "scope_semantics": "Each file carries scope=subject or scope=dataset. scope=subject files have a subject field and belong to that subject alone. scope=dataset files belong to no single subject -- a montage, a README, band or interval definitions -- and are needed whichever subject is fetched. The how field records which rule decided: data_path (moabb returned it for exactly one subject), returned_for_several_subjects, sibling_of_subject_file (a companion such as an EEGLAB .fdt, inherited from a directory whose attributed files all share one subject), or not_returned_by_data_path."
+}

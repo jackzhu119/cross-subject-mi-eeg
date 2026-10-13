@@ -1,0 +1,58 @@
+{
+  "actual_estimator_input_dtype": "float64",
+  "completed_at_utc": "2026-10-13T00:42:54.624762+00:00",
+  "csp_fitted_filters_shape": [
+    20,
+    20
+  ],
+  "evaluation_epochs_sha256": "5ce3ec50b40c5f3b00e663499b4f9c084d9a10134193e0c22b59b8ff9525aa9c",
+  "evaluation_kind": "held_out_source_participant",
+  "evaluation_labels_sha256": "b80532d07c93c1261453ffd56e5f158aae8d66880b5520ef96fd82f2729ece1a",
+  "evaluation_sample_ids_sha256": "0f5d7fb25cc2a131ecdd189ecfc71f059ea3f16bafd8ff9d90502038e6c93580",
+  "fit_method": "sklearn.pipeline.Pipeline.fit",
+  "fit_ordinal": 2,
+  "fold": "loso_s02",
+  "held_out_subject": 2,
+  "lda_classes": [
+    1,
+    2
+  ],
+  "model_path": "research_runs/REDESIGN_SOURCE_SELECTION_20261012/models/cpu-csp-20261013T004218Z-2828deb4/loso_s02/model.joblib",
+  "model_sha256": "4d705551f3a9bd1ebd1caabc6e96c71e7ee227aafb62580ef86a0a9f3cc176df",
+  "n_evaluation_trials": 288,
+  "n_training_trials": 2304,
+  "new_source_fit": true,
+  "parameters": {
+    "component_order": "mutual_info",
+    "cov_est": "concat",
+    "fixed_car_basis_channels": 21,
+    "lda_solver": "svd",
+    "log": true,
+    "n_components": 4,
+    "norm_trace": false,
+    "rank": "full",
+    "reg": null,
+    "scaler": "StandardScaler",
+    "transform_into": "average_power"
+  },
+  "partition_file_sha256": "075bf1be1f7d064d11c0326c3c5ff39a4673cf712910342ad566bbe2fd352be5",
+  "predictions_sha256": "a0fd9b38c34897080ad65b13a8749d540065592a99f6dded6a3f7df70947e04e",
+  "preprocessing_epoch_dtype": "float32",
+  "scaler_n_samples_seen": 2304,
+  "started_at_utc": "2026-10-13T00:42:54.074021+00:00",
+  "status": "completed",
+  "target_fit": false,
+  "training_epochs_sha256": "53031020877a7dae81de856126592136a163999af272990eb6b48b610c6ddd7d",
+  "training_labels_sha256": "d2dbc57d3d60429940b57ebba0ab6e9fe2a0b6537183e3d7ab17499139cb12d8",
+  "training_sample_ids_sha256": "b71e238de857cf717b0ad9bfe8a3dc8afcf26b8ae3d8c2fb0e0155b83bd839e7",
+  "training_subjects": [
+    1,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ]
+}

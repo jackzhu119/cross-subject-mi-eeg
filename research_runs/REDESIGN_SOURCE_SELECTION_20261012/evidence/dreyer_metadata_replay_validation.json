@@ -1,0 +1,58 @@
+{
+  "checked_at_utc": "2026-10-13T00:47:55.686017+00:00",
+  "scope": "saved_subset_offline_hash_and_parser_preflight_replay",
+  "checks": [
+    {
+      "check": "full_subset_content_hash_replay:sourcedata/sub-01/eeg/sub-01_task-R1acquisition_eeg.edf",
+      "passed": true
+    },
+    {
+      "check": "full_subset_content_hash_replay:sourcedata/sub-01/eeg/sub-01_task-R2acquisition_eeg.edf",
+      "passed": true
+    },
+    {
+      "check": "full_subset_content_hash_replay:sub-1/ses-0/eeg/sub-1_ses-0_task-imagery_acq-R1acquisition_run-0_eeg.bdf",
+      "passed": true
+    },
+    {
+      "check": "all_three_provider_git_annex_pointers_verified_online",
+      "passed": true
+    },
+    {
+      "check": "seven_metadata_blob_hashes_replayed",
+      "passed": true
+    },
+    {
+      "check": "520_declared_edf_resolved_without_missing_acquisition",
+      "passed": true
+    },
+    {
+      "check": "reparsed_raw_record_shape_common19_and_entire_precue_prefix",
+      "passed": true
+    },
+    {
+      "check": "all19_recomputed_precue_scales_within_one_bdf_quantum",
+      "passed": true
+    },
+    {
+      "check": "reparsed_cue_mapping_and_onsets_within_half_source_sample",
+      "passed": true
+    },
+    {
+      "check": "raw_and_confirmatory_limits_fail_closed",
+      "passed": true
+    },
+    {
+      "check": "no_fits_predictions_or_decoder_scores",
+      "passed": true
+    },
+    {
+      "check": "truncated_record_file_is_rejected",
+      "passed": true
+    }
+  ],
+  "passed": 12,
+  "failed": 0,
+  "task_eeg_features_computed": false,
+  "decoder_predictions_computed": false
+}

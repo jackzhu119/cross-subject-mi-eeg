@@ -1,0 +1,210 @@
+{
+  "schema_version": 1,
+  "experiment": "selection_reliability_core_v1",
+  "status": "DESIGN_LOCKED_EXECUTION_GATES_PENDING",
+  "historical_parent_commit": "39ab4fe0492f4d2ab4c679c752634d3f74bb7bc8",
+  "source_dataset": "BNCI2014_001",
+  "source_subjects": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "source_population": "both_sessions_all_binary_hand_trials_include_provider_flags",
+  "target_candidate": "Dreyer2023",
+  "target_role": "candidate_first_use_independent_pending_author_and_data_gates",
+  "target_runs": [
+    "R1acquisition",
+    "R2acquisition"
+  ],
+  "nominal_target_persons": 87,
+  "provider_montage_hard_exclusions": [
+    "A17",
+    "A41"
+  ],
+  "target_eligible_n_upper_bound": 85,
+  "target_new_predictions": 0,
+  "channels": [
+    "Fz",
+    "FC3",
+    "FC1",
+    "FCz",
+    "FC2",
+    "FC4",
+    "C5",
+    "C3",
+    "C1",
+    "Cz",
+    "C2",
+    "C4",
+    "C6",
+    "CP3",
+    "CP1",
+    "CPz",
+    "CP2",
+    "CP4",
+    "Pz"
+  ],
+  "common_sampling_hz": 160,
+  "epoch_half_open_s": [
+    0.5,
+    2.5
+  ],
+  "context_half_open_s": [
+    -1.5,
+    4.5
+  ],
+  "n_times": 320,
+  "reference": "common_average_actual19",
+  "bands_hz": {
+    "broad": [
+      8,
+      30
+    ],
+    "mu": [
+      8,
+      13
+    ],
+    "beta": [
+      13,
+      30
+    ]
+  },
+  "filter": {
+    "family": "Butterworth",
+    "prototype_order": 4,
+    "phase": "zero",
+    "scope": "each_native_trial_context",
+    "representation": "SOS",
+    "padtype": "odd",
+    "padlen_native_samples": 27
+  },
+  "resampling": {
+    "method": "scipy.signal.resample_poly",
+    "window": [
+      "kaiser",
+      5.0
+    ],
+    "padding": "constant_zero"
+  },
+  "source_validation_groups": [
+    [
+      1,
+      2
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      5,
+      6
+    ],
+    [
+      7,
+      8,
+      9
+    ]
+  ],
+  "source_validation_group_weight": "equal_fold",
+  "selection_seed": 20261012,
+  "final_seeds": [
+    20261013,
+    20261014,
+    20261015
+  ],
+  "bootstrap_seed": 20261016,
+  "grouping_registry_seed": 20261017,
+  "architectures": [
+    "BROAD_EEGNET",
+    "MU_BETA_SHARED"
+  ],
+  "selectors": [
+    "fixed20",
+    "mean_loss",
+    "mean_rank"
+  ],
+  "fixed_epochs": 20,
+  "candidate_epochs": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40
+  ],
+  "selection_loss": "validation_cross_entropy",
+  "loss_rule": "earliest_argmin_equal_fold_mean_loss",
+  "rank_rule": "earliest_argmin_equal_fold_mean_within_fold_average_tie_rank",
+  "final_training": "fresh_all_source_model_each_architecture_selector_seed_with_declared_identical_schedule_reuse",
+  "optimizer": "Adam",
+  "learning_rate": 0.001,
+  "weight_decay": 0.0,
+  "batch_size": 64,
+  "drop_last": false,
+  "architecture": {
+    "library": "braindecode",
+    "model": "EEGNet",
+    "n_chans": 19,
+    "n_times": 320,
+    "n_outputs": 2,
+    "F1": 8,
+    "D": 2,
+    "F2": 16,
+    "kernel_length": 64,
+    "drop_prob": 0.25
+  },
+  "shared_training": "concatenate_two_fixed_views_in_batch_dimension_same_backbone_then_average_logits_before_CE",
+  "BatchNorm_target_mode": "eval_no_target_updates",
+  "target_fitted_transforms": false,
+  "target_fits": 0,
+  "core_inner_fits": 8,
+  "nominal_core_final_fits": 18,
+  "nominal_core_neural_fits": 26,
+  "optional_extra_grouping_inner_fits": 40,
+  "optional_extra_grouping_enabled": false,
+  "funded_gpu_execution_authorized": false,
+  "new_neural_fits_started": 0,
+  "target_performance_used_for_design": false,
+  "target_adapter_implementation_verified": false,
+  "target_full_raw_QC_verified": false
+}

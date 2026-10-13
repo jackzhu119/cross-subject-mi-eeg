@@ -1,0 +1,501 @@
+{
+  "schema_version": 1,
+  "reviewed_at_utc": "2026-10-13T00:46:44.220091+00:00",
+  "status": "PASS_STORED_OUTPUTS_PROVENANCE_AND_SCOPE_REVIEW",
+  "run_id": "cpu-csp-20261013T004218Z-2828deb4",
+  "protocol_commit": "f35fb97a28d7ddeea6b87f92b4d0975a4a0ebece",
+  "fit_budget": {
+    "new_source_fits": 10,
+    "new_neural_fits": 0,
+    "target_fits": 0
+  },
+  "review_actions": {
+    "read_raw_eeg": false,
+    "new_models_fitted": 0,
+    "models_deserialized": 0,
+    "model_inference": false,
+    "stored_predictions_reaggregated": true
+  },
+  "independent_validator_receipt_sha256": "1ef8e7b02b34e6cfedf46503863d88332cb024483e7b928e4e9dced4c8edbb95",
+  "checks": [
+    {
+      "id": "REVIEW-01",
+      "status": "PASS",
+      "evidence": "Actual independent validator summary and validator hashes bind its PASS receipt; receipt states zero fitting, inference and deserialization."
+    },
+    {
+      "id": "REVIEW-02",
+      "status": "PASS",
+      "evidence": "Summary correctly limits new source diagnostics, rather than retroactively authenticating report or claiming independent-cohort confirmation."
+    },
+    {
+      "id": "REVIEW-03",
+      "status": "PASS",
+      "evidence": "Exactly ten completed new source fits and no declared target fitting/predictions; actual fold artifacts checked below."
+    },
+    {
+      "id": "REVIEW-04",
+      "status": "PASS",
+      "evidence": "Execution git HEAD equals publicly verified source preanalysis freeze."
+    },
+    {
+      "id": "REVIEW-05",
+      "status": "PASS",
+      "evidence": "Executor records 18 raw hash/byte matches, 108 runs and 2592 binary trials; native raw labels and actual numeric replay separately checked by completed validator. This reviewer does not independently reload the EEG."
+    },
+    {
+      "id": "REVIEW-06",
+      "status": "PASS",
+      "evidence": "Saved source metadata has exactly 2592 unique samples."
+    },
+    {
+      "id": "FOLD-01-RECEIPT",
+      "status": "PASS",
+      "evidence": "loso_s01: completed source fit, explicit actual float64 estimator input and float32 preprocessing output."
+    },
+    {
+      "id": "FOLD-01-SPLIT",
+      "status": "PASS",
+      "evidence": "Eight source people train; one source person held out, with no sample/participant overlap."
+    },
+    {
+      "id": "FOLD-01-IDENTITY",
+      "status": "PASS",
+      "evidence": "Prediction sample order and complete evaluation identity agree with partition."
+    },
+    {
+      "id": "FOLD-01-HASH",
+      "status": "PASS",
+      "evidence": "Nonempty new model file, stored predictions and partition SHA are verified without loading pickle/model."
+    },
+    {
+      "id": "FOLD-02-RECEIPT",
+      "status": "PASS",
+      "evidence": "loso_s02: completed source fit, explicit actual float64 estimator input and float32 preprocessing output."
+    },
+    {
+      "id": "FOLD-02-SPLIT",
+      "status": "PASS",
+      "evidence": "Eight source people train; one source person held out, with no sample/participant overlap."
+    },
+    {
+      "id": "FOLD-02-IDENTITY",
+      "status": "PASS",
+      "evidence": "Prediction sample order and complete evaluation identity agree with partition."
+    },
+    {
+      "id": "FOLD-02-HASH",
+      "status": "PASS",
+      "evidence": "Nonempty new model file, stored predictions and partition SHA are verified without loading pickle/model."
+    },
+    {
+      "id": "FOLD-03-RECEIPT",
+      "status": "PASS",
+      "evidence": "loso_s03: completed source fit, explicit actual float64 estimator input and float32 preprocessing output."
+    },
+    {
+      "id": "FOLD-03-SPLIT",
+      "status": "PASS",
+      "evidence": "Eight source people train; one source person held out, with no sample/participant overlap."
+    },
+    {
+      "id": "FOLD-03-IDENTITY",
+      "status": "PASS",
+      "evidence": "Prediction sample order and complete evaluation identity agree with partition."
+    },
+    {
+      "id": "FOLD-03-HASH",
+      "status": "PASS",
+      "evidence": "Nonempty new model file, stored predictions and partition SHA are verified without loading pickle/model."
+    },
+    {
+      "id": "FOLD-04-RECEIPT",
+      "status": "PASS",
+      "evidence": "loso_s04: completed source fit, explicit actual float64 estimator input and float32 preprocessing output."
+    },
+    {
+      "id": "FOLD-04-SPLIT",
+      "status": "PASS",
+      "evidence": "Eight source people train; one source person held out, with no sample/participant overlap."
+    },
+    {
+      "id": "FOLD-04-IDENTITY",
+      "status": "PASS",
+      "evidence": "Prediction sample order and complete evaluation identity agree with partition."
+    },
+    {
+      "id": "FOLD-04-HASH",
+      "status": "PASS",
+      "evidence": "Nonempty new model file, stored predictions and partition SHA are verified without loading pickle/model."
+    },
+    {
+      "id": "FOLD-05-RECEIPT",
+      "status": "PASS",
+      "evidence": "loso_s05: completed source fit, explicit actual float64 estimator input and float32 preprocessing output."
+    },
+    {
+      "id": "FOLD-05-SPLIT",
+      "status": "PASS",
+      "evidence": "Eight source people train; one source person held out, with no sample/participant overlap."
+    },
+    {
+      "id": "FOLD-05-IDENTITY",
+      "status": "PASS",
+      "evidence": "Prediction sample order and complete evaluation identity agree with partition."
+    },
+    {
+      "id": "FOLD-05-HASH",
+      "status": "PASS",
+      "evidence": "Nonempty new model file, stored predictions and partition SHA are verified without loading pickle/model."
+    },
+    {
+      "id": "FOLD-06-RECEIPT",
+      "status": "PASS",
+      "evidence": "loso_s06: completed source fit, explicit actual float64 estimator input and float32 preprocessing output."
+    },
+    {
+      "id": "FOLD-06-SPLIT",
+      "status": "PASS",
+      "evidence": "Eight source people train; one source person held out, with no sample/participant overlap."
+    },
+    {
+      "id": "FOLD-06-IDENTITY",
+      "status": "PASS",
+      "evidence": "Prediction sample order and complete evaluation identity agree with partition."
+    },
+    {
+      "id": "FOLD-06-HASH",
+      "status": "PASS",
+      "evidence": "Nonempty new model file, stored predictions and partition SHA are verified without loading pickle/model."
+    },
+    {
+      "id": "FOLD-07-RECEIPT",
+      "status": "PASS",
+      "evidence": "loso_s07: completed source fit, explicit actual float64 estimator input and float32 preprocessing output."
+    },
+    {
+      "id": "FOLD-07-SPLIT",
+      "status": "PASS",
+      "evidence": "Eight source people train; one source person held out, with no sample/participant overlap."
+    },
+    {
+      "id": "FOLD-07-IDENTITY",
+      "status": "PASS",
+      "evidence": "Prediction sample order and complete evaluation identity agree with partition."
+    },
+    {
+      "id": "FOLD-07-HASH",
+      "status": "PASS",
+      "evidence": "Nonempty new model file, stored predictions and partition SHA are verified without loading pickle/model."
+    },
+    {
+      "id": "FOLD-08-RECEIPT",
+      "status": "PASS",
+      "evidence": "loso_s08: completed source fit, explicit actual float64 estimator input and float32 preprocessing output."
+    },
+    {
+      "id": "FOLD-08-SPLIT",
+      "status": "PASS",
+      "evidence": "Eight source people train; one source person held out, with no sample/participant overlap."
+    },
+    {
+      "id": "FOLD-08-IDENTITY",
+      "status": "PASS",
+      "evidence": "Prediction sample order and complete evaluation identity agree with partition."
+    },
+    {
+      "id": "FOLD-08-HASH",
+      "status": "PASS",
+      "evidence": "Nonempty new model file, stored predictions and partition SHA are verified without loading pickle/model."
+    },
+    {
+      "id": "FOLD-09-RECEIPT",
+      "status": "PASS",
+      "evidence": "loso_s09: completed source fit, explicit actual float64 estimator input and float32 preprocessing output."
+    },
+    {
+      "id": "FOLD-09-SPLIT",
+      "status": "PASS",
+      "evidence": "Eight source people train; one source person held out, with no sample/participant overlap."
+    },
+    {
+      "id": "FOLD-09-IDENTITY",
+      "status": "PASS",
+      "evidence": "Prediction sample order and complete evaluation identity agree with partition."
+    },
+    {
+      "id": "FOLD-09-HASH",
+      "status": "PASS",
+      "evidence": "Nonempty new model file, stored predictions and partition SHA are verified without loading pickle/model."
+    },
+    {
+      "id": "FOLD-10-RECEIPT",
+      "status": "PASS",
+      "evidence": "all_source_resubstitution: completed source fit, explicit actual float64 estimator input and float32 preprocessing output."
+    },
+    {
+      "id": "FOLD-10-SPLIT",
+      "status": "PASS",
+      "evidence": "All-source fit evaluated on its own 2592 training samples; resubstitution explicitly is not held-out validation."
+    },
+    {
+      "id": "FOLD-10-IDENTITY",
+      "status": "PASS",
+      "evidence": "Prediction sample order and complete evaluation identity agree with partition."
+    },
+    {
+      "id": "FOLD-10-HASH",
+      "status": "PASS",
+      "evidence": "Nonempty new model file, stored predictions and partition SHA are verified without loading pickle/model."
+    },
+    {
+      "id": "REVIEW-07",
+      "status": "PASS",
+      "evidence": "Across nine heldout files every source binary trial appears exactly once."
+    },
+    {
+      "id": "REVIEW-08",
+      "status": "PASS",
+      "evidence": "Separate standard-library integer-confusion/person-level score computation agrees with saved independent validation."
+    },
+    {
+      "id": "REVIEW-09",
+      "status": "PASS",
+      "evidence": "Historical frozen pickle not loaded or inferred; no original-model source score was produced."
+    },
+    {
+      "id": "REVIEW-10",
+      "status": "PASS",
+      "evidence": "Completed validator declares original MATLAB label and ten input-array hash replay, without fitting or model inference. Its code and actual invocation scope were reviewed; replay uses the same frozen transform helper."
+    }
+  ],
+  "fold_evidence": [
+    {
+      "fold": "loso_s01",
+      "receipt_sha256": "03319be715c7a84afe7979b95b42c75b1d4380de75cf32428cede856cc319269",
+      "model_sha256": "01d208f665991fda5f1d0adb13edec15b1c201c06026d36142cdaa948eb88fea",
+      "prediction_sha256": "749dec63ac81180f7c615e7f55a16851879be43e0227517b3b010e52d5700b26",
+      "source_training_trials": 2304,
+      "evaluation_trials": 288
+    },
+    {
+      "fold": "loso_s02",
+      "receipt_sha256": "124b257105dbea71949659ee2162687d87f7a22e429c9763f0be95d48c1ff3de",
+      "model_sha256": "4d705551f3a9bd1ebd1caabc6e96c71e7ee227aafb62580ef86a0a9f3cc176df",
+      "prediction_sha256": "a0fd9b38c34897080ad65b13a8749d540065592a99f6dded6a3f7df70947e04e",
+      "source_training_trials": 2304,
+      "evaluation_trials": 288
+    },
+    {
+      "fold": "loso_s03",
+      "receipt_sha256": "189eb094a89afaf2f51ce2b21ebe997e3f164a31dba486a46c4c10011a23a60b",
+      "model_sha256": "68ec3cbbf1af1d2b996a37dc0db51c10f91840b1dec6af359ca01a7498aeb178",
+      "prediction_sha256": "31d7f5788f0376a2401aa7cb9159d5aa4637469fcf560c0588181aaaf32e5032",
+      "source_training_trials": 2304,
+      "evaluation_trials": 288
+    },
+    {
+      "fold": "loso_s04",
+      "receipt_sha256": "2aac3dfd52c6b94057f5b41690ea1ff4b5d45c0bc89baf5b1a237e85eb94fc16",
+      "model_sha256": "1e331edae787515cdbb314c93559b811577bd25d30c8614cdf4f1cfa2d46f3c2",
+      "prediction_sha256": "f29a7b86d5bb4f92a66c91725c9bae4d83d7ae2daaf9d119725f56031f4bd4bb",
+      "source_training_trials": 2304,
+      "evaluation_trials": 288
+    },
+    {
+      "fold": "loso_s05",
+      "receipt_sha256": "a5f6e3509c7f298765d22c3208e28d33ac115099fdc79fa1970ce50f4caff2fb",
+      "model_sha256": "2186f9ccb9aad1816e2e640da3335685187be4296deb637760871463c8f78f9c",
+      "prediction_sha256": "c8213b3d7ee807d3afa980197f3c124d82a8eedf6644e2bfa065ef02484db5d9",
+      "source_training_trials": 2304,
+      "evaluation_trials": 288
+    },
+    {
+      "fold": "loso_s06",
+      "receipt_sha256": "8d9c29aefb2892d5cb91e892d817352c6367acad2a75f4eb8d98ff5bcb0abbd9",
+      "model_sha256": "c0d7ef13eabb92d3eabea2b9acb8cf2d3a2912add59535bac5dcbb3437722b12",
+      "prediction_sha256": "5e2130dc692c3991406dd7585dd6a628392bc099130c6cfc37a9faaeb115f339",
+      "source_training_trials": 2304,
+      "evaluation_trials": 288
+    },
+    {
+      "fold": "loso_s07",
+      "receipt_sha256": "7f771b329316d98bac0880caf9bd18bbd36a4e094bd52b4dfbf179bbdbe2a963",
+      "model_sha256": "cd68c0abd4f720c6949a453a192fb0175815e860aac8452cb64de1976d24e91a",
+      "prediction_sha256": "5afcfbc30f3c53b0fdb6a3a25ac124b40557132b22549642a06b6d70f5ea7a6b",
+      "source_training_trials": 2304,
+      "evaluation_trials": 288
+    },
+    {
+      "fold": "loso_s08",
+      "receipt_sha256": "757a636df1232392d25ee3eea3333e721c2def42859a09e8eab15f22ef98b165",
+      "model_sha256": "fee750c45359be017c79d8a1ea893180105a55d17f7fc77353c79e8e8b9cc6ed",
+      "prediction_sha256": "d5c8cc82a7f1e4fa5d520a5204e66d85ce3944c46f040339a9036d5a37d6b47f",
+      "source_training_trials": 2304,
+      "evaluation_trials": 288
+    },
+    {
+      "fold": "loso_s09",
+      "receipt_sha256": "5cfa4726012d4164a634d0029f7e5c45732341fd6a06001a7900237176b3d449",
+      "model_sha256": "c7b29c36de23744cd43e343403cdb3b42e0d9162c985689cccd95441bc4acc58",
+      "prediction_sha256": "6eb9c01043ed811dbb39131b4dfae054866a532e8c65d955080a6c2e30c877f9",
+      "source_training_trials": 2304,
+      "evaluation_trials": 288
+    },
+    {
+      "fold": "all_source_resubstitution",
+      "receipt_sha256": "1bc53fef8bd7757839581b239fb2583de7bbdae8b68ad3f5ca2b33ebf436c830",
+      "model_sha256": "84be63b085008931016aa54c1b949b7621b9b2190fec0d9dc41bf264ff62955f",
+      "prediction_sha256": "5d11caf6a6fb76e972f17412ab31c9ad244aa8458866f388a7cf2e3aa5bc1845",
+      "source_training_trials": 2592,
+      "evaluation_trials": 2592
+    }
+  ],
+  "independently_reaggregated_results": {
+    "fresh_loso_equal_person_ba_percent": 61.651234567901234,
+    "fresh_loso_sample_sd_pp": 14.12037037037037,
+    "fresh_loso_range_percent": [
+      49.30555555555556,
+      94.44444444444444
+    ],
+    "fresh_all_source_resubstitution_equal_person_ba_percent": 63.04012345679012,
+    "fresh_loso_persons": [
+      {
+        "subject": 1,
+        "ba_percent": 53.81944444444444,
+        "recall_left": 0.9513888888888888,
+        "recall_right": 0.125,
+        "predicted_left_percent": 91.31944444444444
+      },
+      {
+        "subject": 2,
+        "ba_percent": 49.65277777777778,
+        "recall_left": 0.7777777777777778,
+        "recall_right": 0.2152777777777778,
+        "predicted_left_percent": 78.125
+      },
+      {
+        "subject": 3,
+        "ba_percent": 66.66666666666667,
+        "recall_left": 0.9930555555555556,
+        "recall_right": 0.3402777777777778,
+        "predicted_left_percent": 82.63888888888889
+      },
+      {
+        "subject": 4,
+        "ba_percent": 57.986111111111114,
+        "recall_left": 0.6041666666666666,
+        "recall_right": 0.5555555555555556,
+        "predicted_left_percent": 52.43055555555556
+      },
+      {
+        "subject": 5,
+        "ba_percent": 49.30555555555556,
+        "recall_left": 0.8472222222222222,
+        "recall_right": 0.1388888888888889,
+        "predicted_left_percent": 85.41666666666667
+      },
+      {
+        "subject": 6,
+        "ba_percent": 54.861111111111114,
+        "recall_left": 0.125,
+        "recall_right": 0.9722222222222222,
+        "predicted_left_percent": 7.638888888888889
+      },
+      {
+        "subject": 7,
+        "ba_percent": 58.333333333333336,
+        "recall_left": 0.9375,
+        "recall_right": 0.22916666666666666,
+        "predicted_left_percent": 85.41666666666667
+      },
+      {
+        "subject": 8,
+        "ba_percent": 94.44444444444444,
+        "recall_left": 0.9791666666666666,
+        "recall_right": 0.9097222222222222,
+        "predicted_left_percent": 53.47222222222222
+      },
+      {
+        "subject": 9,
+        "ba_percent": 69.79166666666667,
+        "recall_left": 0.7222222222222222,
+        "recall_right": 0.6736111111111112,
+        "predicted_left_percent": 52.43055555555556
+      }
+    ],
+    "fresh_resubstitution_persons": [
+      {
+        "subject": 1,
+        "ba_percent": 59.02777777777778,
+        "recall_left": 0.9166666666666666,
+        "recall_right": 0.2638888888888889,
+        "predicted_left_percent": 82.63888888888889
+      },
+      {
+        "subject": 2,
+        "ba_percent": 52.08333333333333,
+        "recall_left": 0.7638888888888888,
+        "recall_right": 0.2777777777777778,
+        "predicted_left_percent": 74.30555555555556
+      },
+      {
+        "subject": 3,
+        "ba_percent": 68.75,
+        "recall_left": 0.9722222222222222,
+        "recall_right": 0.4027777777777778,
+        "predicted_left_percent": 78.47222222222223
+      },
+      {
+        "subject": 4,
+        "ba_percent": 60.41666666666667,
+        "recall_left": 0.5833333333333334,
+        "recall_right": 0.625,
+        "predicted_left_percent": 47.916666666666664
+      },
+      {
+        "subject": 5,
+        "ba_percent": 47.22222222222222,
+        "recall_left": 0.7916666666666666,
+        "recall_right": 0.1527777777777778,
+        "predicted_left_percent": 81.94444444444444
+      },
+      {
+        "subject": 6,
+        "ba_percent": 55.55555555555556,
+        "recall_left": 0.20833333333333334,
+        "recall_right": 0.9027777777777778,
+        "predicted_left_percent": 15.277777777777779
+      },
+      {
+        "subject": 7,
+        "ba_percent": 59.72222222222222,
+        "recall_left": 0.9097222222222222,
+        "recall_right": 0.2847222222222222,
+        "predicted_left_percent": 81.25
+      },
+      {
+        "subject": 8,
+        "ba_percent": 72.56944444444444,
+        "recall_left": 0.4861111111111111,
+        "recall_right": 0.9652777777777778,
+        "predicted_left_percent": 26.041666666666668
+      },
+      {
+        "subject": 9,
+        "ba_percent": 92.01388888888889,
+        "recall_left": 0.8611111111111112,
+        "recall_right": 0.9791666666666666,
+        "predicted_left_percent": 44.09722222222222
+      }
+    ]
+  },
+  "interpretation_limits": [
+    "Both cohorts here are the already-observed BNCI source participants, not unknown targets.",
+    "Nine new heldout-source fits provide retrospective source generalization context; all-source score is in-sample resubstitution.",
+    "The newly computed means round to the old report claims, but no old run provenance is authenticated by numerical agreement.",
+    "The original frozen pickle was not loaded; the fresh all-source model is a new model and score.",
+    "No target feature-centering/adaptation, target inference or new neural model fit occurred.",
+    "Raw/input validation reuses the frozen preprocessing implementation; SHA/score agreement does not prove absence of every possible implementation error."
+  ]
+}

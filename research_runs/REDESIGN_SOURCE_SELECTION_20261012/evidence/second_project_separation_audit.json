@@ -1,0 +1,73 @@
+{
+  "repository_read_only": "jackzhu119/few-shot-mi-eeg",
+  "branch": "research/learning-preserving-bci",
+  "scope": "Dataset/protocol documents only; no scientific results reused or altered. Read of considered dataset metadata does not prove author previously never evaluated the candidate.",
+  "documents": [
+    {
+      "path": "docs/public_large_training_dataset_audit_20261010.md",
+      "blob_sha": "05b1b5ed3f368a0d6651ffa9e339a537604c4585",
+      "read_scope": "dataset/protocol metadata only; no result retrieval or repository modification",
+      "Dreyer_mentions": [
+        "NETBCI analysis and the separate [longitudinal audit](public_longitudinal_dataset_audit_20261010.md).",
+        "| [Dreyer 2023](https://doi.org/10.1038/s41597-023-02445-z) | 87 | One visit; left/right hand MI, calibration and feedback | nm000250 v1.0.5; 520 converted signals, 9.485 GB | CC-BY-4.0; participant rows, manifest and representative signal HEAD verified | Compatible hand MI; Dreyer A/B/C are subsets, not new people |",
+        "signals), followed by a bounded Dreyer or Cho subset. OpenBMI and Yang provide",
+        "file and licence checks. Iwama, Stieger, NETBCI and Kumar are handled in the"
+      ]
+    },
+    {
+      "path": "docs/dataset_feasibility.md",
+      "blob_sha": "95f445dc71651e58c74b12a0e0a230f57ffd92d1",
+      "read_scope": "dataset/protocol metadata only; no result retrieval or repository modification",
+      "Dreyer_mentions": [
+        "# 数据集可行性审计：SHU 与 NETBCI",
+        "[完整数值身份审计](../research_logs/netbci_cohort_resume_20261010/numeric_signal_identity_summary.json)",
+        "及[实际敏感性与结果解释](netbci_cohort_results_20261010.md)。这不删除已有真实行为成绩。",
+        "初始核查日期：2026-10-09（Asia/Shanghai）；十人接续更新：2026-10-10。本报告区分原论文陈述、官方发布元数据、实际小型文件与实际信号读取。**当前验收覆盖 NETBCI2026 前十人：40 个 session、240 个 EDF，74 通道、250 Hz；7,577 条源事件中 7,576 条纳入完整 5 秒窗口。1,885 个去重必要文件共 2,049,560,417 bytes，官方校验全部通过。** 未下载剩余九人的 EEG、MEG/MRI 或原始大型 ZIP；十人全部在同一新协议下分析。最新结果见[十人报告](netbci_cohort_results_20261010.md)。第 0 节单人检查及第 1–3 节来源信息保留为历史证据。",
+        "结论：**第一优先级为 NETBCI2026 / NEMAR `nm000305` v1.0.0；SHU / Ma2022 为第二优先级，原始接入状态 `pending author access`。** NETBCI 已通过十人公开访问、校验和及 MNE 读取门槛；240 个原始头文件与 provenance 一致，原始信号未逐点比较，其余九人的原始 marker 未读取。sub-3/ses-01/run-03/tsv-row-31 为有效 2.968 秒 rest 事件，源清单完整保留；按[显式完整窗口规则](netbci_full_window_policy_20261010.md)不填充、不延长，排除出固定张量。已有原始 19 人行为可用于 subject/session 关联，run 顺序和评分分母仍未确认。两者都不能单独证明某种解码方法使人类学得更快、减少校准需求或产生长期保持。NETBCI 的实验有真实在线反馈，但每个 session 重新校准分类器；公开原始行为侧表按 run 汇总，不能伪造逐 trial 行为。",
+        "### NETBCI2026：公开来源、版本、访问与范围",
+        "| 发布格式 | 根 JSON 为 `DatasetType=derivative`、BIDS 1.9.0、`GeneratedBy=moabb 1.8.0dev0`；真正的信号文件是 **EDF**，README 的 BrainVision 是上游格式说明。sourcedata provenance 的上游检索层另记 `moabb_version_used=v1.7.1-11-g9c6b1cc`、retrieved `2026-10-05`。这是来源自述；该公开 Git 树未见 NETBCI loader，具体导出源码版本尚未完全解析，不混成单一已核实软件版本 |",
+        "| 本轮实际下载 | **仅 `sub-1`**，24 个 EEG EDF 与该受试者 sidecars，加 5 个根/出处文件，共 **169 文件、193,462,298 bytes**；数据在 Git 忽略的 `data/netbci2026/nm000305/v1.0.0/` |",
+        "| 校验 | 全部 169 文件与官方 manifest 校验一致：EDF 为 SHA-256，Git 管理的小文件为 Git blob SHA-1；另存本地 SHA-256。来源快照与收据见 [access_receipt](../research_logs/netbci2026_sources/access_receipt.json)，完整读取审计见 [subject1_audit](../research_logs/netbci2026_subject1_audit.json) |",
+        "| 读取环境 | Python 3.11.16、MNE 1.10.2、NumPy 2.2.6；现有 MOABB 1.4.3 无 NETBCI2026/Ma2022 类，本轮直接用 MNE 读公开 EDF，不把 import 成功当成数据验证 |",
+        "可重放本地检查：`python scripts/check_netbci_subset.py`（已激活 README 中的冻结环境；不联网、不训练）。可执行伴随记录见 [netbci2026_access_check.ipynb](../notebooks/netbci2026_access_check.ipynb)。",
+        "本地适配器输出 **717 × 74 × 1250**，单位 V，保留全部 trial 的 subject/session/run/TSV 行身份；已验证 NPZ 与元数据往返读取。审计见 [adapter audit](../research_logs/netbci2026_adapter_audit.json)。",
+        "原始 v2.2 大归档仅通过有上限的 HTTP Range 获取 sub-01 的 120 个小型头文件、事件、marker 和通道元数据：35 个范围请求、1,339,985 bytes（另有初始尾部探针 131,072 bytes），未获取原始信号。成员 CRC 与本地 SHA 保存；**未验证整个 49 GB 归档的 MD5**。见 [范围读取收据](../research_logs/netbci2026_original_metadata_receipt.json)。",
+        "行为候选关联的 **23/24** 个百分比与对应 EEG 的 29/30 个事件作分母不相容；1–200 的候选分母中 28 的多个倍数同样相容，不能据此指定分母或重建 hit/miss。详见 [跨版本核查](../research_logs/netbci2026_behavior_link_verified.json)。[跨会话方案](netbci_cross_session_plan.md)已准备；没有执行真实 EEG 模型训练。",
+        "**NEMAR v1.0.0 不包含行为成绩列或独立行为文件。** 其 participants.tsv 只有基本参与者字段，manifest 没有逐 trial 结果/光标文件。原始 Dataverse 的独立 participants.tsv 提供 `BCI-Performance-session1..4`，每格是六个 run 的光标击中目标百分比，并有在线 `ChannelFreq-Features-session1..4`、STAI/VMIQ 等字段。本轮重新实读该 v2.2 文件：file ID **758600**、**8,644 bytes**、19 行、MD5 **b9aa1c07015820e80bc79be6a61f30fc** 与仓储匹配；副本与访问凭证见 [behavior_receipt](../research_logs/netbci2026_sources/original_dataverse/behavior_receipt.json)。participants.json 首次请求 HTTP 503，一次重试后成功；**4,700 bytes** 与官方 MD5 匹配，其字段说明明确成绩为每 run 光标击中目标的 trial 百分比。原文件含 trailing commas，保存原字节，不静默修复或把它说成已通过严格 JSON 验证。",
+        "| B / NETBCI | Nature 摘要 HTML 与官方 `reference.pdf`（ARTICLE IN PRESS）；Dataverse v2.2 API/页面；README、dataset description、participants JSON/TSV；官方 GitHub README/LICENSE 与事件转换脚本 | Archive.zip/derivatives.zip 内容；EEG/MEG/MRI 信号；逐 trial 在线分类输出、光标轨迹、命中日志 |",
+        "## 3. Dataset B：NETBCI",
+        "原论文：Corsi et al., *Understanding Brain-Computer Interfaces training:a longitudinal and multimodal dataset*，Scientific Data，2026。用户给出的 NETBCI 名称对应此论文，而非另一套同名数据。",
+        "| 文章/代码许可 | 文章 **CC BY-NC-ND 4.0**；官方 GitHub 代码 **GPL-3.0** | [文章许可](https://creativecommons.org/licenses/by-nc-nd/4.0/) 与[代码 LICENSE](https://github.com/mccorsi/NETBCI_data/blob/main/LICENSE)；三种许可作用域不同，本项目不复制 GPL 源代码 |",
+        "**已确认（论文）事件表定义**：`_events.tsv` 描述 trigger onset、data sample、trigger channel、trigger value，并由 `event_type` 描述触发含义。**已确认（官方脚本）** [BIDSify.py](https://github.com/mccorsi/NETBCI_data/blob/main/scripts/bidsify/BIDSify.py) 使用 `event_dict={\"MI\":1,\"Rest\":2}`。这只是公开转换脚本的映射，**初始审计尚未核查 Archive 事件；后续已核查 sub-01 全部 24 run，结果见第 0 节。未核查其他受试者及逐 trial 行为日志**。脚本注释中还提及相对 target onset 的 0–5 s 与结果时段，不能代替对归档事件的检查。",
+        "| 拟检验主张 | A / SHU | B / NETBCI | 可报告边界 |",
+        "- B MOABB 上游 loader：https://github.com/NeuroTechX/moabb/blob/develop/moabb/datasets/netbci2026.py；审查时 Git blob `8bb3227e06418642a48af2b22ac2e05615e12a4d`，声明 `right_hand=1/rest=2`，不等于 NEMAR 导出的存储数值",
+        "- B 官方代码与 README：https://github.com/mccorsi/NETBCI_data",
+        "- B 事件转换脚本：https://github.com/mccorsi/NETBCI_data/blob/main/scripts/bidsify/BIDSify.py",
+        "见[stage1完整报告](netbci_stage1_evidence_and_decision.md)：169文件重验、717事件清单、原始匿名scans、两个ZIP目录审计和behavior verified-grain表。Subject/session成绩字段可定位，具体run顺序/分母和trial结果仍unresolved。实际新增CPU探索性表征与最小冻结baseline；未扩大全队列信号、未破解SHU、未修改第一篇仓库。",
+        "已有行为数据已继续分析，见[会话级报告](netbci_behavior_session_analysis.md)：19人的456成绩均完整，",
+        "NETBCI全部19发布身份、76会话、456EDF现已实读审计并完成冻结CSP/LDA分析。",
+        "见[全19结果](netbci_all19_results_20261011.md)。旧单人/十人状态是历史冻结，不再代表当前覆盖。"
+      ]
+    },
+    {
+      "path": "docs/research_protocol.md",
+      "blob_sha": "78996339de4001f70f4a76c4025d2c723f6d0ad4",
+      "read_scope": "dataset/protocol metadata only; no result retrieval or repository modification",
+      "Dreyer_mentions": [
+        "| Dataset B: NETBCI2026，DOI [10.1038/s41597-026-08237-5](https://doi.org/10.1038/s41597-026-08237-5) | 第一优先级 NEMAR nm000305 v1.0.0（CC BY 4.0）：19 人/四日。已实读 sub-1 的4 session×6 run、24 EDF，74通道/250 Hz、717 trial，right_hand/rest。原始 Dataverse v2.2 成绩侧表与 sub-01 小型元数据已读取；24 run 事件对应及本地适配通过；未下载大归档信号 | 公开访问/格式门槛通过；行为向量 run 顺序、评分分母和原始缺失原因验收后可做观察性 longitudinal 描述 | NEMAR为EDF derivative，不能与原始BrainVision混用；真实TSV right_hand=2/rest=1；每session重选特征并重校准LDA；无逐trial行为、撤回/延迟probe，不称独立技能retention |",
+        "## NETBCI 历史单人分析前冻结方案",
+        "见 [跨会话分析方案](netbci_cross_session_plan.md)及[配置](../configs/netbci_cross_session.json)。此历史方案准备时，单受试者 717 trial 的 run 分组已验证，只完成接入与划分；后续最小模型验证和十人分析另有配置与收据，不以单受试者推断人群学习。原始与 derivative 事件对应已核查，行为 run 顺序和分母仍为 pending。",
+        "用户正式H1–H4编号及证据条件统一见[最新stage1报告第5节](netbci_stage1_evidence_and_decision.md)。上文历史表已改为Operational-1..5，防止编号与新假设冲突。源端run隔离不变；新配置固定3epochCPU EEGNet仅最小验证，source-only transforms及模型冻结已实际检查。描述性target PCA不进入预测；事件相对谱不称ERD。单参与者不能估计人群CI；conditional run-bootstrap需标注退化及小cluster限制。新的策略和在线实验尚未执行。",
+        "[会话分析](netbci_behavior_session_analysis.md)和[配置](../configs/netbci_behavior_sessions.json)。",
+        "[十人扩展协议](netbci_cohort_expansion_protocol.md)沿用公开前十个编号，不按行为或 EEG 结果筛选；",
+        "`configs/netbci_cohort_full_windows_20261010.json`，SHA256",
+        "原 `configs/netbci_cohort.json` 不覆盖。十人 source training 均为 ses-01/run-01–04，",
+        "[完整窗口修订](netbci_full_window_policy_20261010.md)，保存全部 7,577 个源身份、7,576 个",
+        "最新结果、QC/参考敏感性与下一阶段决策见[十人报告](netbci_cohort_results_20261010.md)。",
+        "[全19协议](netbci_all19_expansion_protocol_20261010.md)保留同一科学参数，",
+        "[全19结果](netbci_all19_results_20261011.md)及[独立方法核读](netbci_all19_methods_review_20261011.md)。"
+      ]
+    }
+  ],
+  "author_first_use_confirmation": "PENDING"
+}

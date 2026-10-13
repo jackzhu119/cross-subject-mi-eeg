@@ -1,0 +1,248 @@
+_dataset:
+  class: Dreyer2023
+  code: Dreyer2023
+  doi: 10.1038/s41597-023-02445-z
+  interval:
+  - 0
+  - 5
+  n_subjects: 87
+  paradigm: imagery
+abstract: 'We present and share a large database containing electroencephalographic signals from 87 human participants, collected
+  during a single day of brain-computer interface (BCI) experiments, organized into 3 datasets (A, B, and C) that were all
+  recorded using the same protocol: right and left hand motor imagery (MI). Each session contains 240 trials (120 per class),
+  which represents more than 20,800 trials, or approximately 70 hours of recording time. It includes the performance of the
+  associated BCI users, detailed information about the demographics, personality profile as well as some cognitive traits
+  and the experimental instructions and codes (executed in the open-source platform OpenViBE). Such database could prove useful
+  for various studies, including but not limited to: (1) studying the relationships between BCI users'' profiles and their
+  BCI performances, (2) studying how EEG signals properties varies for different users'' profiles and MI tasks, (3) using
+  the large number of participants to design cross-user BCI machine learning algorithms or (4) incorporating users'' profile
+  information into the design of EEG signal classification algorithms.'
+acquisition:
+  auxiliary_channels:
+    emg_channels: 2
+    eog_channels: 3
+    eog_type:
+    - horizontal
+    - vertical
+    has_emg: true
+    has_eog: true
+    other_physiological:
+    - gsr
+  cap_manufacturer: g.tec
+  channel_types:
+    eeg: 27
+    emg: 2
+    eog: 3
+  filters: none (raw signals recorded without hardware filters)
+  ground: FPz
+  hardware: g.USBAmp (g.tec, Austria)
+  line_freq: 50.0
+  montage: 10-20
+  n_channels: 27
+  reference: left earlobe
+  sampling_rate: 512.0
+  sensor_type: active electrodes
+  sensors:
+  - C1
+  - C2
+  - C3
+  - C4
+  - C5
+  - C6
+  - CP1
+  - CP2
+  - CP3
+  - CP4
+  - CP5
+  - CP6
+  - CPz
+  - Cz
+  - EMGd
+  - EMGg
+  - EOG1
+  - EOG2
+  - EOG3
+  - F3
+  - F4
+  - FC1
+  - FC2
+  - FC3
+  - FC4
+  - FC5
+  - FC6
+  - FCz
+  - Fz
+  - P3
+  - P4
+  - Pz
+  software: OpenViBE 2.1.0 (Dataset A) / OpenViBE 2.2.0 (Dataset B and C)
+bci_application:
+  applications:
+  - rehabilitation
+  - assistive_technology
+  - neurofeedback
+  - user_training
+  environment: laboratory
+  online_feedback: true
+contributing_labs:
+- Inria Bordeaux
+cross_validation:
+  cv_method: calibration-feedback
+  evaluation_type:
+  - within_session
+data_structure:
+  block_duration_s: 420.0
+  n_blocks: 6
+  n_trials: 240
+  n_trials_per_class:
+    left_hand: 120
+    right_hand: 120
+  trials_context: per subject (120 per class)
+documentation:
+  associated_paper_doi: 10.1038/s41597-023-02445-z
+  contact_info:
+  - fabien.lotte@inria.fr
+  country: FR
+  data_url: https://doi.org/10.5281/zenodo.8089820
+  description: 'A large EEG database with users'' profile information for motor imagery brain-computer interface research.
+    Contains electroencephalographic signals from 87 human participants, collected during a single day of brain-computer interface
+    (BCI) experiments, organized into 3 datasets (A, B, and C) that were all recorded using the same protocol: right and left
+    hand motor imagery (MI).'
+  doi: 10.1038/s41597-023-02445-z
+  ethics_approval:
+  - 'Inria''s ethics committee, the COERLE (Approval number: 2018-13)'
+  funding:
+  - European Research Council (ERC Starting Grant project BrainConquest, grant ERC-2016-STG-714567)
+  institution: Centre Inria de l'université de Bordeaux
+  institution_address: Talence, 33405, France
+  institution_department: LaBRI (Univ. Bordeaux/CNRS/Bordeaux INP)
+  investigators:
+  - Pauline Dreyer
+  - Aline Roc
+  - Léa Pillette
+  - Sébastien Rimbert
+  - Fabien Lotte
+  keywords:
+  - motor imagery
+  - brain-computer interface
+  - EEG
+  - BCI illiteracy
+  - user training
+  - personality profile
+  - cognitive traits
+  - user profile
+  license: CC-BY-4.0
+  publication_year: 2023
+  repository: Zenodo
+  senior_author: Fabien Lotte
+experiment:
+  class_labels:
+  - left_hand
+  - right_hand
+  events:
+    left_hand: 1
+    right_hand: 2
+  feedback_type: continuous visual
+  has_training_test_split: true
+  instructions: Participants were encouraged to perform kinesthetic imagination and leave them free to choose their mental
+    imagery strategy. Participants were instructed to try to find the best strategy so that the system would show the longest
+    possible feedback bar. Only positive feedback was provided.
+  mode: online
+  n_classes: 2
+  paradigm: imagery
+  primary_modality: visual
+  stimulus_modalities:
+  - visual
+  - auditory
+  stimulus_type: blue bar varying in length
+  study_design: Graz protocol
+  synchronicity: cue-based
+  tasks:
+  - right_hand_MI
+  - left_hand_MI
+  - resting_state
+  trial_duration: 8.0
+file_format: GDF
+methodology: 'Participants performed a Graz protocol MI-BCI task with 6 runs (2 calibration runs with sham feedback, 4 online
+  training runs with real feedback). Each run consisted of 40 trials (20 per MI-task) with 8s trial duration. Trial structure:
+  green cross (t=0s), acoustic signal (t=2s), red arrow cue (t=3s, 1.25s duration), continuous visual feedback (t=4.25s, 3.75s
+  duration), inter-trial interval (1.5-3.5s). Signal processing used participant-specific Most Discriminant Frequency Band
+  (MDFB) selection (5-35 Hz range), fifth-order Butterworth filtering, Common Spatial Pattern (CSP) with 3 pairs of spatial
+  filters, and Linear Discriminant Analysis (LDA) classifier trained on calibration data. Participants completed 6 questionnaires
+  assessing demographics, personality (16PF5), cognitive traits, spatial abilities (Mental Rotation test), learning style
+  (ILS), and pre/post-experiment states (NeXT questionnaire).'
+n_contributing_labs: 1
+paradigm_specific:
+  cue_duration_s: 1.25
+  detected_paradigm: motor_imagery
+  imagery_duration_s: 3.75
+  imagery_tasks:
+  - right_hand
+  - left_hand
+participants:
+  age_max: 59
+  age_mean: 29.0
+  age_min: 19
+  bci_experience: naive
+  gender:
+    female: 41
+    male: 46
+  handedness: right
+  health_status: healthy
+  n_subjects: 87
+  species: human
+performance:
+  accuracy_percent: 63.35
+  chance_level_database: 51.0
+  chance_level_individual: 58.7
+  mean_accuracy_R3: 63.14
+  mean_accuracy_R4: 64.82
+  mean_accuracy_std: 17.36
+preprocessing:
+  artifact_methods:
+  - visual inspection
+  bandpass:
+  - 5.0
+  - 35.0
+  data_state: raw
+  filter_order: 5
+  filter_type: Butterworth
+  notes: The raw signals were recorded without any hardware filters. For online processing, a fifth-order Butterworth filter
+    was applied in a participant-specific discriminant frequency band in the range of 5 Hz to 35 Hz with 0.5 Hz large bins.
+    Impedance could not be measured with active electrodes; EEG signals were visually checked and regularly re-checked to
+    ensure good signal quality.
+  re_reference: Laplacian (C3, C4 for feature extraction)
+runs_per_session: 6
+sessions:
+- calibration
+- online_training
+sessions_per_subject: 1
+signal_processing:
+  classifiers:
+  - LDA
+  feature_extraction:
+  - CSP
+  - Bandpower
+  frequency_bands:
+    alpha:
+    - 8.0
+    - 13.0
+    analyzed_range:
+    - 5.0
+    - 35.0
+    beta:
+    - 13.0
+    - 30.0
+    mu:
+    - 8.0
+    - 13.0
+  spatial_filters:
+  - CSP
+  - Laplacian
+tags:
+  modality:
+  - Motor
+  pathology:
+  - Healthy
+  type:
+  - Motor Imagery

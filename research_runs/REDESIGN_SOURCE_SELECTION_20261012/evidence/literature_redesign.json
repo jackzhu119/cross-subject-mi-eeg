@@ -1,0 +1,1671 @@
+{
+  "schema_version": 1,
+  "checked_as_of_date": "2026-10-12",
+  "date_timezone": "Asia/Shanghai",
+  "scope": "Focused primary-paper and source-permission review for major scientific redesign; not an exhaustive systematic review",
+  "execution": {
+    "new_eeg_fits": 0,
+    "new_eeg_inference": 0,
+    "raw_eeg_access": false,
+    "second_repository_modified": false
+  },
+  "search_method": {
+    "services": [
+      "Crossref publisher-deposited metadata",
+      "Europe PMC original indexed abstracts/full-text XML",
+      "formal publisher pages",
+      "author institutional manuscripts",
+      "official author code documentation"
+    ],
+    "upper_date_bound": "2026-10-12",
+    "formal_version_priority": true,
+    "absence_of_evidence_not_novelty_proof": true,
+    "limitations": [
+      "Crossref broad keyword searches returned irrelevant papers; transfer query received HTTP 429.",
+      "Several IEEE/Elsevier/IOP full texts were blocked or returned challenge HTML.",
+      "Primary abstracts support only explicitly stated protocol facts, not unstated stopping/target normalization details.",
+      "Existing 36-reference bibliography identity retained; the complete 36 records were not all re-fetched this turn.",
+      "No current impact factors/JCR ranks were obtained or inferred."
+    ]
+  },
+  "searches": [
+    {
+      "query": "motor imagery EEG domain generalization source only",
+      "service": "Crossref works",
+      "date_upper_bound": "2026-10-12",
+      "top_results_requested": 18,
+      "response_available": true,
+      "response_sha256": "1874c8a59111012314ce80d71f41259d4bc5a06c07e5b2beb84fbe40959eaf7b",
+      "retrieval_limit": null
+    },
+    {
+      "query": "EEG source only model selection early stopping training duration",
+      "service": "Crossref works",
+      "date_upper_bound": "2026-10-12",
+      "top_results_requested": 18,
+      "response_available": true,
+      "response_sha256": "f2e9b934f2ab9e065f06acfeef222991715b1a2f19a4881426ac0bde2b13d05f",
+      "retrieval_limit": null
+    },
+    {
+      "query": "cross dataset motor imagery EEG generalization",
+      "service": "Crossref works",
+      "date_upper_bound": "2026-10-12",
+      "top_results_requested": 18,
+      "response_available": false,
+      "response_sha256": null,
+      "retrieval_limit": "HTTP 429; this search did not return a saved response. No missing search results were inferred."
+    },
+    {
+      "query": "Riemannian transfer motor imagery EEG",
+      "service": "Crossref works",
+      "date_upper_bound": "2026-10-12",
+      "top_results_requested": 18,
+      "response_available": true,
+      "response_sha256": "87b26de7950a57612e6dd855de1e71a339e87f854ab04888951ced005851b0c8",
+      "retrieval_limit": null
+    },
+    {
+      "query": "motor imagery EEG subject variability reliability",
+      "service": "Crossref works",
+      "date_upper_bound": "2026-10-12",
+      "top_results_requested": 18,
+      "response_available": true,
+      "response_sha256": "a343d20a9521f2e6c4a1bbb9ead75e93a180edbbed70d0a048702f8dc5ed2138",
+      "retrieval_limit": null
+    },
+    {
+      "query": "calibration free motor imagery 2026",
+      "service": "Crossref works",
+      "date_upper_bound": "2026-10-12",
+      "top_results_requested": 18,
+      "response_available": true,
+      "response_sha256": "f19293adc0eb449aaa2ee2942db781b49dac74e66ba110f9edb39f1152c26721",
+      "retrieval_limit": null
+    },
+    {
+      "query_id": "moabb_cr",
+      "response_available": true,
+      "response_sha256": "d8d6f75d341cf8ffa78038659fccb63ded9091b7ea6c9394c3a37fb462634716",
+      "selection_note": "Manual relevance screening; broad early-stopping keyword searches produced many irrelevant works and were not treated as evidence of an empty literature."
+    },
+    {
+      "query_id": "moabb2024",
+      "response_available": true,
+      "response_sha256": "d0c1f1cce2752fbf7734202b435fb4dc4846159a55d9ac6480af4dc0c15e5cc1",
+      "selection_note": "Manual relevance screening; broad early-stopping keyword searches produced many irrelevant works and were not treated as evidence of an empty literature."
+    },
+    {
+      "query_id": "stopmi",
+      "response_available": true,
+      "response_sha256": "99e520829a46c9f562b0009c2df9b954b9dc25e6048f8c2793c6b8ecc3319e2a",
+      "selection_note": "Manual relevance screening; broad early-stopping keyword searches produced many irrelevant works and were not treated as evidence of an empty literature."
+    },
+    {
+      "query_id": "dgnew_epmc",
+      "response_available": true,
+      "response_sha256": "1068fe8096d80c54577647e79ef08dfdf0872ea450d3487511980c5a89fe282c",
+      "selection_note": "Manual relevance screening; broad early-stopping keyword searches produced many irrelevant works and were not treated as evidence of an empty literature."
+    }
+  ],
+  "retrieval_provenance": [
+    {
+      "key": "zheng2025_full",
+      "url": "https://www.mdpi.com/2306-5354/12/5/495/xml",
+      "final_url": "https://www.mdpi.com/2306-5354/12/5/495/xml",
+      "status": 200,
+      "sha256": "b303adc475ea6c3ca4d2a97cb2688d78fe081f25c54a8290751530b83c76bf04",
+      "bytes": 71714,
+      "content_type": "text/html;charset=utf-8",
+      "retrieved_file_basename": "zheng2025_full.html",
+      "usable_primary_fulltext": false,
+      "retrieval_note": "MDPI /xml endpoint served generic site HTML; the article HTML and Europe PMC XML were separately verified."
+    },
+    {
+      "key": "zheng2025_html",
+      "url": "https://www.mdpi.com/2306-5354/12/5/495",
+      "final_url": "https://www.mdpi.com/2306-5354/12/5/495",
+      "status": 200,
+      "sha256": "483203ea750f5f0e9b1641accd0a99ecb4394f5eea495f232db43a3404927f56",
+      "bytes": 668278,
+      "content_type": "text/html;charset=utf-8",
+      "retrieved_file_basename": "zheng2025_html.html"
+    },
+    {
+      "key": "zheng2025_epmc",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI:10.3390/bioengineering12050495&format=json",
+      "final_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI:10.3390/bioengineering12050495&format=json",
+      "status": 200,
+      "sha256": "a71db51afcce9fd4c12418195f2ebcc62a7ecca3362f3d1979f64bbfe7ada087",
+      "bytes": 1022,
+      "content_type": "application/json;charset=UTF-8",
+      "retrieved_file_basename": "zheng2025_epmc.json"
+    },
+    {
+      "key": "domainbed_pdf",
+      "url": "https://arxiv.org/pdf/2007.01434",
+      "final_url": "https://arxiv.org/pdf/2007.01434",
+      "status": 200,
+      "sha256": "92ea5bb1b5beed6af39f54de49cec2e1acc5450b021410a518cd54cc56e60dd4",
+      "bytes": 1787388,
+      "content_type": "application/pdf",
+      "retrieved_file_basename": "domainbed_pdf.pdf"
+    },
+    {
+      "key": "journal_neuroscience_methods",
+      "url": "https://www.sciencedirect.com/journal/journal-of-neuroscience-methods/about/aims-and-scope",
+      "status": "unavailable",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "key": "journal_neural_engineering",
+      "url": "https://publishingsupport.iopscience.iop.org/journals/journal-of-neural-engineering/about-journal-neural-engineering/",
+      "final_url": "https://publishingsupport.iopscience.iop.org/journals/journal-of-neural-engineering/about-journal-neural-engineering/",
+      "status": 200,
+      "sha256": "9b29aecce670ec686864ddb237860956584107173d11aa23c9388bd3c97f5b00",
+      "bytes": 72160,
+      "content_type": "text/html; charset=UTF-8",
+      "retrieved_file_basename": "journal_neural_engineering.html"
+    },
+    {
+      "key": "journal_braincomputer",
+      "url": "https://www.tandfonline.com/journals/tbci20/about-this-journal",
+      "status": "unavailable",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "key": "journal_plos",
+      "url": "https://journals.plos.org/plosone/s/journal-information",
+      "final_url": "https://journals.plos.org/plosone/s/journal-information",
+      "status": 200,
+      "sha256": "5816015e668705a4307949ad545dd0858de786dd175e908588b16b5a18896fe9",
+      "bytes": 71284,
+      "content_type": "text/html;charset=UTF-8",
+      "retrieved_file_basename": "journal_plos.html"
+    },
+    {
+      "key": "journal_biomedsig",
+      "url": "https://www.sciencedirect.com/journal/biomedical-signal-processing-and-control/about/aims-and-scope",
+      "status": "unavailable",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "key": "dg_recent_crossref",
+      "url": "https://api.crossref.org/works/10.1016%2Fj.eswa.2026.131477",
+      "final_url": "https://api.crossref.org/works/10.1016%2Fj.eswa.2026.131477",
+      "status": 200,
+      "sha256": "f7dbdfcb11ec04c4b746c0fbb4f405236d1323f4ca51f8e3ae663b6fb7a2838c",
+      "bytes": 26059,
+      "content_type": "application/json",
+      "retrieved_file_basename": "dg_recent_crossref.json"
+    },
+    {
+      "key": "dg_recent_elsevier",
+      "url": "https://api.elsevier.com/content/article/doi/10.1016/j.eswa.2026.131477?httpAccept=text/xml",
+      "status": "unavailable",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "key": "zhong2025_crossref",
+      "url": "https://api.crossref.org/works/10.1109%2Fjbhi.2024.3431230",
+      "final_url": "https://api.crossref.org/works/10.1109%2Fjbhi.2024.3431230",
+      "status": 200,
+      "sha256": "943077bd282bea271277a0adef228e170d277cf080c319bf54f478e082eebba1",
+      "bytes": 9965,
+      "content_type": "application/json",
+      "retrieved_file_basename": "zhong2025_crossref.json"
+    },
+    {
+      "key": "zhong2025_epmc",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI:10.1109/jbhi.2024.3431230&format=json",
+      "final_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI:10.1109/jbhi.2024.3431230&format=json",
+      "status": 200,
+      "sha256": "65a629d0668504143c423cc1fc80527fa6532335eae06b75d939c0ece9ce28af",
+      "bytes": 969,
+      "content_type": "application/json;charset=UTF-8",
+      "retrieved_file_basename": "zhong2025_epmc.json"
+    },
+    {
+      "key": "zhong2025_ieee",
+      "url": "https://ieeexplore.ieee.org/document/10598391",
+      "final_url": "https://ieeexplore.ieee.org/document/10598391",
+      "status": 202,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "content_type": "text/html; charset=UTF-8",
+      "retrieved_file_basename": "zhong2025_ieee.html"
+    },
+    {
+      "key": "dg2026_jnm",
+      "url": "https://api.crossref.org/works/10.1016%2Fj.jneumeth.2026.110742",
+      "final_url": "https://api.crossref.org/works/10.1016%2Fj.jneumeth.2026.110742",
+      "status": 200,
+      "sha256": "e51c053bc2ed61e4ae03372b3f674065c670147037d8be53585541892c3416f7",
+      "bytes": 18932,
+      "content_type": "application/json",
+      "retrieved_file_basename": "dg2026_jnm.json"
+    },
+    {
+      "key": "barachant2012",
+      "url": "https://api.crossref.org/works/10.1109%2FTBME.2011.2172210",
+      "final_url": "https://api.crossref.org/works/10.1109%2FTBME.2011.2172210",
+      "status": 200,
+      "sha256": "85ab825ac3e0cc23620c91c6d4e57ebe6cbd8cc5b76ab0074dfb3bcc48ff1d40",
+      "bytes": 4133,
+      "content_type": "application/json",
+      "retrieved_file_basename": "barachant2012.json"
+    },
+    {
+      "key": "yger2017",
+      "url": "https://api.crossref.org/works/10.1109%2FTNSRE.2016.2627016",
+      "final_url": "https://api.crossref.org/works/10.1109%2FTNSRE.2016.2627016",
+      "status": 200,
+      "sha256": "5149041fe193a675d17db90c778b96eefc93ef796cbe9ef302156771361be72b",
+      "bytes": 11144,
+      "content_type": "application/json",
+      "retrieved_file_basename": "yger2017.json"
+    },
+    {
+      "key": "varoquaux2017",
+      "url": "https://api.crossref.org/works/10.1016%2Fj.neuroimage.2016.10.038",
+      "final_url": "https://api.crossref.org/works/10.1016%2Fj.neuroimage.2016.10.038",
+      "status": 200,
+      "sha256": "6a74290620e88fd17580e697e718c855c201cce51f8470bd5ea16230441ba9c4",
+      "bytes": 21267,
+      "content_type": "application/json",
+      "retrieved_file_basename": "varoquaux2017.json"
+    },
+    {
+      "key": "cawley2010",
+      "url": "https://www.jmlr.org/papers/v11/cawley10a.html",
+      "final_url": "https://www.jmlr.org/papers/v11/cawley10a.html",
+      "status": 200,
+      "sha256": "c3118f2b3a84d3826d6e45565a8e7f5a308b356635a30776844ded55b7db4509",
+      "bytes": 6655,
+      "content_type": "text/html",
+      "retrieved_file_basename": "cawley2010.html"
+    },
+    {
+      "key": "cawley2010_pdf",
+      "url": "https://www.jmlr.org/papers/volume11/cawley10a/cawley10a.pdf",
+      "final_url": "https://www.jmlr.org/papers/volume11/cawley10a/cawley10a.pdf",
+      "status": 200,
+      "sha256": "db01ac8fabef3064a0297bfcf64fb9791bf35c4d03be7a51f5862260adfca206",
+      "bytes": 759286,
+      "content_type": "application/pdf",
+      "retrieved_file_basename": "cawley2010_pdf.pdf"
+    },
+    {
+      "key": "zheng2025_xml",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12108780/fullTextXML",
+      "final_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12108780/fullTextXML",
+      "status": 200,
+      "sha256": "26e406125a56055a63ac99dbbd89fa68657125af191812ea56a13e1b8552191b",
+      "bytes": 182990,
+      "content_type": "application/xml",
+      "retrieved_file_basename": "zheng2025_xml.html"
+    },
+    {
+      "key": "zhong2025_core",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:39052465%20AND%20SRC:MED&resultType=core&format=json",
+      "final_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:39052465%20AND%20SRC:MED&resultType=core&format=json",
+      "status": 200,
+      "sha256": "f605d6ddc18f76d7b3f6449d2f94f405afdf466608df792411c4a794f3f81109",
+      "bytes": 5669,
+      "content_type": "application/json;charset=UTF-8",
+      "retrieved_file_basename": "zhong2025_core.json"
+    },
+    {
+      "key": "dg2026_jnm_core",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI:10.1016/j.jneumeth.2026.110742&resultType=core&format=json",
+      "final_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI:10.1016/j.jneumeth.2026.110742&resultType=core&format=json",
+      "status": 200,
+      "sha256": "2ee9cf34ac74cb9be09fbb6d334a10a0d1ff83aff37a9eb4628bf53ac120d69a",
+      "bytes": 7101,
+      "content_type": "application/json;charset=UTF-8",
+      "retrieved_file_basename": "dg2026_jnm_core.json"
+    },
+    {
+      "key": "barachant2012_core",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI:10.1109/TBME.2011.2172210&resultType=core&format=json",
+      "final_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI:10.1109/TBME.2011.2172210&resultType=core&format=json",
+      "status": 200,
+      "sha256": "fd5426f9a2a334757337df80328b71bed12831340af3379a21391e868608d5d2",
+      "bytes": 5136,
+      "content_type": "application/json;charset=UTF-8",
+      "retrieved_file_basename": "barachant2012_core.json"
+    },
+    {
+      "key": "varoquaux2017_core",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI:10.1016/j.neuroimage.2016.10.038&resultType=core&format=json",
+      "final_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI:10.1016/j.neuroimage.2016.10.038&resultType=core&format=json",
+      "status": 200,
+      "sha256": "7fda0499158ae8ae1950f14c55044bc7b10c6ca2cdfb457f40927b1fca63f2f1",
+      "bytes": 5865,
+      "content_type": "application/json;charset=UTF-8",
+      "retrieved_file_basename": "varoquaux2017_core.json"
+    },
+    {
+      "key": "varocrossvalidation2018",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=TITLE:%22Cross-validation%20failure%22&resultType=core&format=json",
+      "final_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=TITLE:%22Cross-validation%20failure%22&resultType=core&format=json",
+      "status": 200,
+      "sha256": "bf4ba9bc3d499012e61deefb64637129ea39c6fc94bfcb62fd863b96721a4e10",
+      "bytes": 4394,
+      "content_type": "application/json;charset=UTF-8",
+      "retrieved_file_basename": "varocrossvalidation2018.json"
+    },
+    {
+      "key": "schirrmeister2017_epmc",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI:10.1002/hbm.23730&format=json",
+      "final_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI:10.1002/hbm.23730&format=json",
+      "status": 200,
+      "sha256": "97012d53824694d30214ba97c159dcbea4cc963b158e49285878ab8d19c47e33",
+      "bytes": 1078,
+      "content_type": "application/json;charset=UTF-8",
+      "retrieved_file_basename": "schirrmeister2017_epmc.json"
+    },
+    {
+      "key": "barachant2012_hal",
+      "url": "https://api.archives-ouvertes.fr/search/?q=doiId_s:%2210.1109/TBME.2011.2172210%22&fl=title_s,uri_s,fileMain_s,docType_s&wt=json",
+      "final_url": "https://api.archives-ouvertes.fr/search/?q=doiId_s:%2210.1109/TBME.2011.2172210%22&fl=title_s,uri_s,fileMain_s,docType_s&wt=json",
+      "status": 200,
+      "sha256": "28103b95c662c8bac963fa7e8a74dbe061049981b3820ef04096926b065e782f",
+      "bytes": 362,
+      "content_type": "application/json; charset=utf-8",
+      "retrieved_file_basename": "barachant2012_hal.json"
+    },
+    {
+      "key": "varoq_hal",
+      "url": "https://api.archives-ouvertes.fr/search/?q=doiId_s:%2210.1016/j.neuroimage.2016.10.038%22&fl=title_s,uri_s,fileMain_s,docType_s&wt=json",
+      "final_url": "https://api.archives-ouvertes.fr/search/?q=doiId_s:%2210.1016/j.neuroimage.2016.10.038%22&fl=title_s,uri_s,fileMain_s,docType_s&wt=json",
+      "status": 200,
+      "sha256": "8d049d51c5da41aa1ce26e4fc62787094a337edb420ce20036f027c53b842fe0",
+      "bytes": 368,
+      "content_type": "application/json; charset=utf-8",
+      "retrieved_file_basename": "varoq_hal.json"
+    },
+    {
+      "key": "moabb2024",
+      "url": "https://api.crossref.org/works?query.bibliographic=Largest%20EEG%20decoding%20study%20MOABB&rows=6&filter=until-pub-date:2026-10-12",
+      "final_url": "https://api.crossref.org/works?query.bibliographic=Largest%20EEG%20decoding%20study%20MOABB&rows=6&filter=until-pub-date:2026-10-12",
+      "status": 200,
+      "sha256": "d0c1f1cce2752fbf7734202b435fb4dc4846159a55d9ac6480af4dc0c15e5cc1",
+      "bytes": 62549,
+      "content_type": "application/json",
+      "retrieved_file_basename": "moabb2024.json"
+    },
+    {
+      "key": "stopmi",
+      "url": "https://api.crossref.org/works?query.title=motor%20imagery%20early%20stopping&rows=8&filter=until-pub-date:2026-10-12",
+      "final_url": "https://api.crossref.org/works?query.title=motor%20imagery%20early%20stopping&rows=8&filter=until-pub-date:2026-10-12",
+      "status": 200,
+      "sha256": "99e520829a46c9f562b0009c2df9b954b9dc25e6048f8c2793c6b8ecc3319e2a",
+      "bytes": 90937,
+      "content_type": "application/json",
+      "retrieved_file_basename": "stopmi.json"
+    },
+    {
+      "key": "barachant2012_full",
+      "url": "https://hal.science/hal-00681328/document",
+      "final_url": "https://hal.science/hal-00681328/document",
+      "status": 200,
+      "sha256": "326c41db8abb32b7877962b08b8f93effdb7dedb9346fa3ba5f0c6b12a6877cd",
+      "bytes": 479849,
+      "content_type": "application/pdf",
+      "retrieved_file_basename": "barachant2012_full.pdf"
+    },
+    {
+      "key": "varoquaux2017_full",
+      "url": "https://arxiv.org/pdf/1606.05201",
+      "final_url": "https://arxiv.org/pdf/1606.05201",
+      "status": 200,
+      "sha256": "26f693adadb2befec5e7ea62dc3bbf275addf0c5491a524f2a90cbce40c3149a",
+      "bytes": 1563023,
+      "content_type": "application/pdf",
+      "retrieved_file_basename": "varoquaux2017_full.pdf"
+    },
+    {
+      "key": "schirrmeister2017_xml",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC5655781/fullTextXML",
+      "final_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC5655781/fullTextXML",
+      "status": 200,
+      "sha256": "86d6a3a6e43b0a7bdc8f184371184aa7c114bc8cf194060821dfc5a172dc6fde",
+      "bytes": 291701,
+      "content_type": "application/xml",
+      "retrieved_file_basename": "schirrmeister2017_xml.html"
+    },
+    {
+      "key": "moabb_epmc",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=MOABB&format=json&pageSize=15",
+      "final_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=MOABB&format=json&pageSize=15",
+      "status": 200,
+      "sha256": "708acde3f5d57b9a2d4ffb584c4d9626a23d0ab8214aedb58907834aaa2cddb7",
+      "bytes": 11674,
+      "content_type": "application/json;charset=UTF-8",
+      "retrieved_file_basename": "moabb_epmc.json"
+    },
+    {
+      "key": "moabb_cr",
+      "url": "https://api.crossref.org/works?query.title=MOABB&rows=10&filter=until-pub-date:2026-10-12",
+      "final_url": "https://api.crossref.org/works?query.title=MOABB&rows=10&filter=until-pub-date:2026-10-12",
+      "status": 200,
+      "sha256": "d8d6f75d341cf8ffa78038659fccb63ded9091b7ea6c9394c3a37fb462634716",
+      "bytes": 63769,
+      "content_type": "application/json",
+      "retrieved_file_basename": "moabb_cr.json"
+    },
+    {
+      "key": "hewu2019_core",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=TITLE:%22Euclidean%20Space%20Data%20Alignment%22&format=json&resultType=core",
+      "final_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=TITLE:%22Euclidean%20Space%20Data%20Alignment%22&format=json&resultType=core",
+      "status": 200,
+      "sha256": "959c3258cf85c784f6035839b5f4f90eedf88a51592d4abdaacfe70291dc540a",
+      "bytes": 4568,
+      "content_type": "application/json;charset=UTF-8",
+      "retrieved_file_basename": "hewu2019_core.json"
+    },
+    {
+      "key": "zheng2025_crossref",
+      "url": "https://api.crossref.org/works/10.3390%2Fbioengineering12050495",
+      "final_url": "https://api.crossref.org/works/10.3390%2Fbioengineering12050495",
+      "status": 200,
+      "sha256": "2b9122d65bb9e022a85e4fa0c5df0a06ebfd77d03e9514053fde55f82147e6b9",
+      "bytes": 21709,
+      "content_type": "application/json",
+      "retrieved_file_basename": "zheng2025_crossref.json"
+    },
+    {
+      "key": "dgnew_epmc",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=TITLE:%22Domain%20generalization%22%20AND%20%22motor%20imagery%22%20AND%20FIRST_PDATE:[2024-01-01%20TO%202026-10-12]&format=json&pageSize=30&resultType=core",
+      "final_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=TITLE:%22Domain%20generalization%22%20AND%20%22motor%20imagery%22%20AND%20FIRST_PDATE:[2024-01-01%20TO%202026-10-12]&format=json&pageSize=30&resultType=core",
+      "status": 200,
+      "sha256": "1068fe8096d80c54577647e79ef08dfdf0872ea450d3487511980c5a89fe282c",
+      "bytes": 26485,
+      "content_type": "application/json;charset=UTF-8",
+      "retrieved_file_basename": "dgnew_epmc.json"
+    },
+    {
+      "key": "benchmark2024_cr",
+      "url": "https://api.crossref.org/works/10.1088%2F1741-2552%2Fad6793",
+      "final_url": "https://api.crossref.org/works/10.1088%2F1741-2552%2Fad6793",
+      "status": 200,
+      "sha256": "c126bacdd2a969317cfac5770bb0c625e24046d7960f0f23255fccfece40be86",
+      "bytes": 17225,
+      "content_type": "application/json",
+      "retrieved_file_basename": "benchmark2024_cr.json"
+    },
+    {
+      "key": "benchmark2024_core",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI:10.1088/1741-2552/ad6793&format=json&resultType=core",
+      "final_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI:10.1088/1741-2552/ad6793&format=json&resultType=core",
+      "status": 200,
+      "sha256": "c1f15acb9bcf308a0a30a271e1918f13f807396ae35b3ac036e605a013476ba7",
+      "bytes": 5872,
+      "content_type": "application/json;charset=UTF-8",
+      "retrieved_file_basename": "benchmark2024_core.json"
+    },
+    {
+      "key": "speechbrain2024_cr",
+      "url": "https://api.crossref.org/works/10.1016%2Fj.compbiomed.2024.109097",
+      "final_url": "https://api.crossref.org/works/10.1016%2Fj.compbiomed.2024.109097",
+      "status": 200,
+      "sha256": "613a01d504e6fbcc00b767ac7b2114e7d2955d2ba0f8591e2dc19b30a1181a81",
+      "bytes": 37850,
+      "content_type": "application/json",
+      "retrieved_file_basename": "speechbrain2024_cr.json"
+    },
+    {
+      "key": "speechbrain2024_core",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI:10.1016/j.compbiomed.2024.109097&format=json&resultType=core",
+      "final_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI:10.1016/j.compbiomed.2024.109097&format=json&resultType=core",
+      "status": 200,
+      "sha256": "231ceb4667a219350c2b86e0828ca591b262b64218b1c37f06b94d0406d73a76",
+      "bytes": 5625,
+      "content_type": "application/json;charset=UTF-8",
+      "retrieved_file_basename": "speechbrain2024_core.json"
+    },
+    {
+      "key": "scldgn2025_cr",
+      "url": "https://api.crossref.org/works/10.1109%2FTBME.2024.3432934",
+      "final_url": "https://api.crossref.org/works/10.1109%2FTBME.2024.3432934",
+      "status": 200,
+      "sha256": "2655b0e5d835f34626c460e8d79e2ab001e3d25f652d9a9e84eff96bfd1ada7c",
+      "bytes": 9831,
+      "content_type": "application/json",
+      "retrieved_file_basename": "scldgn2025_cr.json"
+    },
+    {
+      "key": "tsmd2026_cr",
+      "url": "https://api.crossref.org/works/10.1007%2Fs11571-026-10564-7",
+      "final_url": "https://api.crossref.org/works/10.1007%2Fs11571-026-10564-7",
+      "status": 200,
+      "sha256": "1537ccc328f4f6ef814439a3287d63a630ce316eca4cc951a6835e56ea13700b",
+      "bytes": 21072,
+      "content_type": "application/json",
+      "retrieved_file_basename": "tsmd2026_cr.json"
+    },
+    {
+      "key": "hewu2019_cr",
+      "url": "https://api.crossref.org/works/10.1109%2FTBME.2019.2913914",
+      "final_url": "https://api.crossref.org/works/10.1109%2FTBME.2019.2913914",
+      "status": 200,
+      "sha256": "eeead336121aeddc7f3d5c7c94950b29d653b0f6f594a63c3879695b8ec33ad1",
+      "bytes": 7084,
+      "content_type": "application/json",
+      "retrieved_file_basename": "hewu2019_cr.json"
+    },
+    {
+      "key": "benchmark2024_full",
+      "url": "https://iopscience.iop.org/article/10.1088/1741-2552/ad6793/pdf",
+      "status": 200,
+      "bytes": 14371,
+      "content_type": "text/html; charset=UTF-8",
+      "sha256": "9b3cc0fe3a27f6f0c599d65b04adc455c6eda019b2a9edf09a443ab77610f02e",
+      "retrieved_file_basename": "benchmark2024_full.txt",
+      "usable_primary_fulltext": false,
+      "retrieval_note": "HTML challenge page, not a PDF; HTTP 200 does not establish successful primary fulltext retrieval."
+    },
+    {
+      "key": "speechbrain2024_arxiv_search",
+      "url": "https://export.arxiv.org/api/query?search_query=ti:SpeechBrain-MOABB&max_results=3",
+      "status": 200,
+      "bytes": 711,
+      "content_type": "application/atom+xml; charset=utf-8",
+      "sha256": "2734aa60492695fc33f55fda277e98a45cc56ef23c2fe63137a2e83b168a884e",
+      "retrieved_file_basename": "speechbrain2024_arxiv_search.txt"
+    },
+    {
+      "key": "speechbrain2024_code",
+      "url": "https://raw.githubusercontent.com/speechbrain/benchmarks/main/benchmarks/MOABB/README.md",
+      "status": 200,
+      "bytes": 48375,
+      "content_type": "text/plain; charset=utf-8",
+      "sha256": "4d6b19047132f5431a2df671555024b2bfd9c0b164ab8ff66649c70fe0ec3fd4",
+      "retrieved_file_basename": "speechbrain2024_code.txt"
+    },
+    {
+      "key": "borra_protocol_cr",
+      "url": "https://api.crossref.org/works?query.title=A%20protocol%20for%20trustworthy%20EEG%20decoding%20with%20neural%20networks&rows=3",
+      "sha256": "d3c0ec1283964b66f8417ea85456b17183eaf388022d646ffece1f613fd24bfc",
+      "bytes": 50264,
+      "status": 200
+    },
+    {
+      "key": "borra_protocol_core",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=TITLE:%22A%20protocol%20for%20trustworthy%20EEG%20decoding%22&format=json&resultType=core",
+      "sha256": "cd49471ca35d64456181f698d2f0c1b80fa2ee73ab670a23ae7320529dc79165",
+      "bytes": 6586,
+      "status": 200
+    }
+  ],
+  "reused_reference_file": {
+    "path": "research_runs/PLOS_ONE_POSTSUBMISSION_REVIEW_20261010/references_plos.json",
+    "sha256": "d5af9132efc7327a34c47c9afdea4af71fcd56e5fa2e4448e34586325a17bf86",
+    "reference_count": 36
+  },
+  "reused_audits": [
+    {
+      "repository_path": "research_runs/PLOS_ONE_POSTSUBMISSION_REVIEW_20261010/evidence/literature_prior_methods.json",
+      "sha256": "04a4dba2f92d27d3b845aff87fa2992a501f68e765ff01984963563e0f441dcc",
+      "reuse_scope": "Saved primary metadata/protocol audit, not a fresh retrieval on 2026-10-12."
+    },
+    {
+      "repository_path": "research_runs/PLOS_ONE_POSTSUBMISSION_REVIEW_20261010/evidence/literature_transfer_physiology.json",
+      "sha256": "d2dc893bc559961da3663ef08369637e9d53ab458d13c8c2ee681640e33e7040",
+      "reuse_scope": "Saved primary metadata/protocol audit, not a fresh retrieval on 2026-10-12."
+    },
+    {
+      "repository_path": "research_runs/PLOS_ONE_POSTSUBMISSION_REVIEW_20261010/evidence/literature_plos_comparators.json",
+      "sha256": "4119208c5da39d44deb8a9cf43a737dece64f26ba7b58302ae6065bf418da820",
+      "reuse_scope": "Saved primary metadata/protocol audit, not a fresh retrieval on 2026-10-12."
+    }
+  ],
+  "new_formal_metadata_records": [
+    {
+      "key": "Varoquaux2017",
+      "title": "Assessing and tuning brain decoders: Cross-validation, caveats, and guidelines",
+      "authors": [
+        "Gaël Varoquaux",
+        "Pradeep Reddy Raamana",
+        "Denis A. Engemann",
+        "Andrés Hoyos-Idrobo",
+        "Yannick Schwartz",
+        "Bertrand Thirion"
+      ],
+      "year": 2017,
+      "journal": "NeuroImage",
+      "volume": "145",
+      "issue": null,
+      "pages": "166-179",
+      "doi": "10.1016/j.neuroimage.2016.10.038",
+      "url": "https://doi.org/10.1016/j.neuroimage.2016.10.038"
+    },
+    {
+      "key": "Barachant2012",
+      "title": "Multiclass Brain–Computer Interface Classification by Riemannian Geometry",
+      "authors": [
+        "A. Barachant",
+        "S. Bonnet",
+        "M. Congedo",
+        "C. Jutten"
+      ],
+      "year": 2012,
+      "journal": "IEEE Transactions on Biomedical Engineering",
+      "volume": "59",
+      "issue": "4",
+      "pages": "920-928",
+      "doi": "10.1109/tbme.2011.2172210",
+      "url": "https://doi.org/10.1109/tbme.2011.2172210"
+    },
+    {
+      "key": "HeWu2020",
+      "title": "Transfer Learning for Brain–Computer Interfaces: A Euclidean Space Data Alignment Approach",
+      "authors": [
+        "He He",
+        "Dongrui Wu"
+      ],
+      "year": 2020,
+      "journal": "IEEE Transactions on Biomedical Engineering",
+      "volume": "67",
+      "issue": "2",
+      "pages": "399-410",
+      "doi": "10.1109/tbme.2019.2913914",
+      "url": "https://doi.org/10.1109/tbme.2019.2913914"
+    },
+    {
+      "key": "Eder2024",
+      "title": "Benchmarking brain–computer interface algorithms: Riemannian approaches vs convolutional neural networks",
+      "authors": [
+        "Manuel Eder",
+        "Jiachen Xu",
+        "Moritz Grosse-Wentrup"
+      ],
+      "year": 2024,
+      "journal": "Journal of Neural Engineering",
+      "volume": "21",
+      "issue": "4",
+      "pages": "044002",
+      "doi": "10.1088/1741-2552/ad6793",
+      "url": "https://doi.org/10.1088/1741-2552/ad6793"
+    },
+    {
+      "key": "Borra2024",
+      "title": "SpeechBrain-MOABB: An open-source Python library for benchmarking deep neural networks applied to EEG signals",
+      "authors": [
+        "Davide Borra",
+        "Francesco Paissan",
+        "Mirco Ravanelli"
+      ],
+      "year": 2024,
+      "journal": "Computers in Biology and Medicine",
+      "volume": "182",
+      "issue": null,
+      "pages": "109097",
+      "doi": "10.1016/j.compbiomed.2024.109097",
+      "url": "https://doi.org/10.1016/j.compbiomed.2024.109097"
+    },
+    {
+      "key": "Borra2025Protocol",
+      "title": "A protocol for trustworthy EEG decoding with neural networks",
+      "authors": [
+        "Davide Borra",
+        "Elisa Magosso",
+        "Mirco Ravanelli"
+      ],
+      "year": 2025,
+      "journal": "Neural Networks",
+      "volume": "182",
+      "issue": null,
+      "pages": "106847",
+      "doi": "10.1016/j.neunet.2024.106847",
+      "url": "https://doi.org/10.1016/j.neunet.2024.106847"
+    },
+    {
+      "key": "Miao2026",
+      "title": "Meta-Learning Enhanced Multi-Source Domain Adaptation for zero-calibration motor imagery EEG decoding",
+      "authors": [
+        "Minmin Miao",
+        "Wenliang Fu",
+        "Hong Zeng",
+        "Baoguo Xu",
+        "Wenbin Zhang",
+        "Wenjun Hu"
+      ],
+      "year": 2026,
+      "journal": "Journal of Neuroscience Methods",
+      "volume": "431",
+      "issue": null,
+      "pages": "110742",
+      "doi": "10.1016/j.jneumeth.2026.110742",
+      "url": "https://doi.org/10.1016/j.jneumeth.2026.110742"
+    },
+    {
+      "key": "Chen2026DGHCL",
+      "title": "MI-DGHCL: Motor imagery EEG domain generalization via hyperbolic contrastive learning",
+      "authors": [
+        "Junfu Chen",
+        "Dechang Pi",
+        "Feng Gao",
+        "Cheng Ma",
+        "Yang Chen"
+      ],
+      "year": 2026,
+      "journal": "Expert Systems with Applications",
+      "volume": "312",
+      "issue": null,
+      "pages": "131477",
+      "doi": "10.1016/j.eswa.2026.131477",
+      "url": "https://doi.org/10.1016/j.eswa.2026.131477"
+    },
+    {
+      "key": "Zhi2025SCLDGN",
+      "title": "Supervised Contrastive Learning-Based Domain Generalization Network for Cross-Subject Motor Decoding",
+      "authors": [
+        "Hongyi Zhi",
+        "Tianyou Yu",
+        "Zhenghui Gu",
+        "Zhuobin Lin",
+        "Le Che",
+        "Yuanqing Li",
+        "Zhuliang Yu"
+      ],
+      "year": 2025,
+      "journal": "IEEE Transactions on Biomedical Engineering",
+      "volume": "72",
+      "issue": "1",
+      "pages": "401-412",
+      "doi": "10.1109/tbme.2024.3432934",
+      "url": "https://doi.org/10.1109/tbme.2024.3432934"
+    },
+    {
+      "key": "Zhao2026TSMD",
+      "title": "Tsmd-net: two-stage multi-domain distillation network for cross-subject MI-EEG domain generalization",
+      "authors": [
+        "Yuhang Zhao",
+        "Wanfeng Xu",
+        "Xiaoqi Luo",
+        "Yunyuan Gao"
+      ],
+      "year": 2026,
+      "journal": "Cognitive Neurodynamics",
+      "volume": "20",
+      "issue": "1",
+      "pages": "192",
+      "doi": "10.1007/s11571-026-10564-7",
+      "url": "https://doi.org/10.1007/s11571-026-10564-7"
+    },
+    {
+      "key": "CawleyTalbot2010",
+      "title": "On Over-fitting in Model Selection and Subsequent Selection Bias in Performance Evaluation",
+      "authors": [
+        "Gavin C. Cawley",
+        "Nicola L. C. Talbot"
+      ],
+      "year": 2010,
+      "journal": "Journal of Machine Learning Research",
+      "volume": "11",
+      "pages": "2079–2107",
+      "doi": null,
+      "url": "https://www.jmlr.org/papers/v11/cawley10a.html"
+    }
+  ],
+  "study_difference_matrix": [
+    {
+      "key": "CawleyTalbot2010",
+      "bibliography": {
+        "title": "On Over-fitting in Model Selection and Subsequent Selection Bias in Performance Evaluation",
+        "authors": [
+          "Gavin C. Cawley",
+          "Nicola L. C. Talbot"
+        ],
+        "year": 2010,
+        "journal": "Journal of Machine Learning Research",
+        "volume": "11",
+        "pages": "2079–2107",
+        "url": "https://www.jmlr.org/papers/v11/cawley10a.html"
+      },
+      "datasets_and_tasks": "Machine-learning simulations and benchmark datasets; not an MI clinical cohort",
+      "model_type": "Model-selection procedures and classifier combinations",
+      "target_label_access": "Not an EEG target-domain access protocol",
+      "unlabelled_target_statistics": "Not an EEG target-normalization protocol",
+      "selection_and_training_budget": "Finite-sample criterion variance, selection overfitting; nested selection/evaluation discussed",
+      "independent_external_validation": "Not first-use cross-dataset MI validation",
+      "primary_scientific_question": "How optimization of noisy model-selection criteria biases subsequent evaluation",
+      "difference_from_proposed_redesign": "Foundational rationale, not novelty of this project. New MI empirical evidence must go beyond restating selection bias.",
+      "verification_coverage": "Official JMLR metadata and full publisher PDF read",
+      "evidence_locators": [
+        "JMLR abstract; Introduction, pp.2079–2081; source_provenance: cawley2010, cawley2010_pdf"
+      ],
+      "data_use_permissions": "Publication availability does not establish the raw EEG licence. Original dataset/provider terms must be checked separately in DATASET_INDEPENDENCE_AUDIT.md; no third-party raw data licence is inferred from this paper."
+    },
+    {
+      "key": "Gulrajani2021",
+      "bibliography": {
+        "title": "In Search of Lost Domain Generalization",
+        "authors": [
+          "Gulrajani, Ishaan",
+          "Lopez-Paz, David"
+        ],
+        "year": 2021,
+        "venue": "International Conference on Learning Representations (ICLR)",
+        "url": "https://iclr.cc/virtual/2021/poster/2998"
+      },
+      "datasets_and_tasks": "Seven computer-vision DomainBed datasets; not MI EEG",
+      "model_type": "ERM and DG algorithms with explicit selectors",
+      "target_label_access": "Training-domain, leave-one-domain-out and test-domain oracle validation are explicitly distinguished",
+      "unlabelled_target_statistics": "DG definition excludes access to test-domain data during training; adaptation is separately defined",
+      "selection_and_training_budget": "Training checkpoints/architecture/hyperparameters are part of model selection; oracle restricted to 20 queries; source-domain validation versus held-source-domain averaging",
+      "independent_external_validation": "Held-out domains in benchmark; not a newly accessed MI cohort",
+      "primary_scientific_question": "What happens when DG algorithms are compared with consistent model selection?",
+      "difference_from_proposed_redesign": "Our question is a specific participant-level MI external reliability study, not a new DG evaluation principle or first source-only validation rule.",
+      "verification_coverage": "Official ICLR identity retained from existing verified reference; author full manuscript PDF newly read",
+      "evidence_locators": [
+        "Sections 3, 3.1–3.2 of author paper; source_provenance: domainbed_pdf"
+      ],
+      "data_use_permissions": "Publication availability does not establish the raw EEG licence. Original dataset/provider terms must be checked separately in DATASET_INDEPENDENCE_AUDIT.md; no third-party raw data licence is inferred from this paper."
+    },
+    {
+      "key": "Varoquaux2017",
+      "bibliography": {
+        "title": "Assessing and tuning brain decoders: Cross-validation, caveats, and guidelines",
+        "authors": [
+          "Gaël Varoquaux",
+          "Pradeep Reddy Raamana",
+          "Denis A. Engemann",
+          "Andrés Hoyos-Idrobo",
+          "Yannick Schwartz",
+          "Bertrand Thirion"
+        ],
+        "year": 2017,
+        "journal": "NeuroImage",
+        "volume": "145",
+        "pages": "166-179",
+        "doi": "10.1016/j.neuroimage.2016.10.038",
+        "url": "https://doi.org/10.1016/j.neuroimage.2016.10.038"
+      },
+      "datasets_and_tasks": "MRI, MEG and simulations; within/across-subject decoding",
+      "model_type": "Common neuroimaging decoders and cross-validation designs",
+      "target_label_access": "Nested train/validation/test distinction; not this strict EEG cross-dataset deployment contract",
+      "unlabelled_target_statistics": "Not an EEG no-target-statistics benchmark",
+      "selection_and_training_budget": "Empirical CV variability and sane-default/nested-CV comparison; sample-level leave-one-out warning should not be mechanically applied to all participant-LOSO designs",
+      "independent_external_validation": "Multiple neuroimaging datasets, not our first-use MI cohort",
+      "primary_scientific_question": "How to tune and assess brain decoders without circularity and overconfident precision?",
+      "difference_from_proposed_redesign": "Provides uncertainty/design rationale; this work cannot claim to invent independent evaluation or participant heterogeneity.",
+      "verification_coverage": "Formal Crossref metadata, original abstract, author full manuscript read",
+      "evidence_locators": [
+        "source_provenance: varoquaux2017, varoquaux2017_core, varoquaux2017_full"
+      ],
+      "data_use_permissions": "Publication availability does not establish the raw EEG licence. Original dataset/provider terms must be checked separately in DATASET_INDEPENDENCE_AUDIT.md; no third-party raw data licence is inferred from this paper."
+    },
+    {
+      "key": "Schirrmeister2017",
+      "bibliography": {
+        "title": "Deep learning with convolutional neural networks for EEG decoding and visualization",
+        "authors": [
+          "Schirrmeister, Robin Tibor",
+          "Springenberg, Jost Tobias",
+          "Fiederer, Lukas Dominique Josef",
+          "Glasstetter, Martin",
+          "Eggensperger, Katharina",
+          "Tangermann, Michael",
+          "Hutter, Frank",
+          "Burgard, Wolfram",
+          "Ball, Tonio"
+        ],
+        "year": 2017,
+        "journal": "Human Brain Mapping",
+        "volume": "38",
+        "issue": "11",
+        "pages": "5391-5420",
+        "doi": "10.1002/hbm.23730",
+        "url": "https://doi.org/10.1002/hbm.23730"
+      },
+      "datasets_and_tasks": "BCI IV2a and High-Gamma motor-execution data; subject-specific models",
+      "model_type": "Deep and shallow ConvNets, FBCSP",
+      "target_label_access": "Per-subject supervised training and validation; not source-only unseen-cohort decoding",
+      "unlabelled_target_statistics": "No cross-dataset no-target-statistics contract inferred",
+      "selection_and_training_budget": "Adam with validation-based early stopping; article directs exact strategy to Supporting Information A.4",
+      "independent_external_validation": "Not a frozen source-trained pipeline applied unchanged to a first-use independent MI cohort",
+      "primary_scientific_question": "Which CNN designs decode EEG and what learned features can be visualized?",
+      "difference_from_proposed_redesign": "Historical architectures and early-stopping precedents, not direct evidence that our selectors generalize externally.",
+      "verification_coverage": "Formal metadata retained; primary full XML newly read, detailed early-stopping supplement not separately obtained",
+      "evidence_locators": [
+        "Methods Optimization and early stopping; Europe PMC PMC5655781; source_provenance: schirrmeister2017_xml"
+      ],
+      "data_use_permissions": "Publication availability does not establish the raw EEG licence. Original dataset/provider terms must be checked separately in DATASET_INDEPENDENCE_AUDIT.md; no third-party raw data licence is inferred from this paper."
+    },
+    {
+      "key": "Barachant2012",
+      "bibliography": {
+        "title": "Multiclass Brain–Computer Interface Classification by Riemannian Geometry",
+        "authors": [
+          "A. Barachant",
+          "S. Bonnet",
+          "M. Congedo",
+          "C. Jutten"
+        ],
+        "year": 2012,
+        "journal": "IEEE Transactions on Biomedical Engineering",
+        "volume": "59",
+        "issue": "4",
+        "pages": "920-928",
+        "doi": "10.1109/tbme.2011.2172210",
+        "url": "https://doi.org/10.1109/tbme.2011.2172210"
+      },
+      "datasets_and_tasks": "BCI IV2a, nine participants, four-class MI; subject-specific train/test and 30-fold CV",
+      "model_type": "Minimum distance to Riemannian mean and tangent-space LDA against multiclass CSP+LDA",
+      "target_label_access": "Labelled subject calibration in original experiment",
+      "unlabelled_target_statistics": "Covariance geometry is not itself target adaptation; the new baseline must separately freeze whether a target mean is computed",
+      "selection_and_training_budget": "Supervised class means and tangent-space reference/feature selection; original 30-fold subject-specific validation",
+      "independent_external_validation": "No frozen across-dataset source-only cohort test",
+      "primary_scientific_question": "Can covariance manifold classifiers replace spatial-filtering feature extraction?",
+      "difference_from_proposed_redesign": "Justifies a lightweight independent-family baseline. New source-only MDM must fit class/reference statistics on source data only and cannot claim the original paper established this deployment setting.",
+      "verification_coverage": "Formal Crossref metadata plus HAL author full manuscript read",
+      "evidence_locators": [
+        "Section IV, Experiments; Algorithms 1–2; source_provenance: barachant2012, barachant2012_full"
+      ],
+      "data_use_permissions": "Publication availability does not establish the raw EEG licence. Original dataset/provider terms must be checked separately in DATASET_INDEPENDENCE_AUDIT.md; no third-party raw data licence is inferred from this paper."
+    },
+    {
+      "key": "HeWu2020",
+      "bibliography": {
+        "title": "Transfer Learning for Brain–Computer Interfaces: A Euclidean Space Data Alignment Approach",
+        "authors": [
+          "He He",
+          "Dongrui Wu"
+        ],
+        "year": 2020,
+        "journal": "IEEE Transactions on Biomedical Engineering",
+        "volume": "67",
+        "issue": "2",
+        "pages": "399-410",
+        "doi": "10.1109/tbme.2019.2913914",
+        "url": "https://doi.org/10.1109/tbme.2019.2913914"
+      },
+      "datasets_and_tasks": "MI and ERP offline/simulated online benchmarks; exact cohorts not recovered from full text in this audit",
+      "model_type": "Euclidean EEG trial alignment and downstream decoders",
+      "target_label_access": "Original abstract explicitly says no new-subject labels required",
+      "unlabelled_target_statistics": "Original abstract says trials from different subjects are aligned; no-label use must not be conflated with no-target-data/statistics use",
+      "selection_and_training_budget": "Exact target covariance estimation and stopping budget require full-text/code audit before implementation",
+      "independent_external_validation": "Offline/simulated online; newly accessed independent MI cohort not verified",
+      "primary_scientific_question": "Can unsupervised alignment reduce individual distribution differences?",
+      "difference_from_proposed_redesign": "An aligned comparator belongs to a separately labelled target-statistics/adaptation condition, not the primary strict source-only arm.",
+      "verification_coverage": "Formal issue-year 2020 metadata and primary indexed abstract verified; fulltext not read",
+      "evidence_locators": [
+        "Europe PMC core original abstract; source_provenance: hewu2019_core, hewu2019_cr"
+      ],
+      "data_use_permissions": "Publication availability does not establish the raw EEG licence. Original dataset/provider terms must be checked separately in DATASET_INDEPENDENCE_AUDIT.md; no third-party raw data licence is inferred from this paper."
+    },
+    {
+      "key": "Jayaram2018",
+      "bibliography": {
+        "title": "MOABB: trustworthy algorithm benchmarking for BCIs",
+        "authors": [
+          "Jayaram, Vinay",
+          "Barachant, Alexandre"
+        ],
+        "year": 2018,
+        "journal": "Journal of Neural Engineering",
+        "volume": "15",
+        "issue": "6",
+        "pages": "066011",
+        "doi": "10.1088/1741-2552/aadea0",
+        "url": "https://doi.org/10.1088/1741-2552/aadea0"
+      },
+      "datasets_and_tasks": "Public BCI datasets combined in MOABB",
+      "model_type": "Reproducible evaluation pipelines",
+      "target_label_access": "Dataset/validation protocol specific; permissions cannot be inferred from the word benchmark",
+      "unlabelled_target_statistics": "Protocol specific",
+      "selection_and_training_budget": "Standardized preprocessing/evaluation and meta-analysis; exact new-selector budget not this paper's focus",
+      "independent_external_validation": "Multiple benchmark datasets, not verification of our current pre-frozen first-use target plan",
+      "primary_scientific_question": "Can BCI algorithms be compared reproducibly across datasets?",
+      "difference_from_proposed_redesign": "Reproducibility infrastructure is established; our contribution must be new reliability evidence rather than another pipeline repository.",
+      "verification_coverage": "Existing formal bibliography audit reused; not newly re-read in full",
+      "evidence_locators": [
+        "Existing references_plos.json, Jayaram2018"
+      ],
+      "data_use_permissions": "Publication availability does not establish the raw EEG licence. Original dataset/provider terms must be checked separately in DATASET_INDEPENDENCE_AUDIT.md; no third-party raw data licence is inferred from this paper."
+    },
+    {
+      "key": "Eder2024",
+      "bibliography": {
+        "title": "Benchmarking brain–computer interface algorithms: Riemannian approaches vs convolutional neural networks",
+        "authors": [
+          "Manuel Eder",
+          "Jiachen Xu",
+          "Moritz Grosse-Wentrup"
+        ],
+        "year": 2024,
+        "journal": "Journal of Neural Engineering",
+        "volume": "21",
+        "issue": "4",
+        "pages": "044002",
+        "doi": "10.1088/1741-2552/ad6793",
+        "url": "https://doi.org/10.1088/1741-2552/ad6793"
+      },
+      "datasets_and_tasks": "Multiple MOABB MI, P300 and SSVEP datasets; within-session, cross-session and cross-subject evaluations",
+      "model_type": "EEGNet, shallow/deep CNNs versus Riemannian pipelines",
+      "target_label_access": "Protocol dependent; original abstract does not establish all tuning permissions",
+      "unlabelled_target_statistics": "Exact target-statistics/normalization protocol not resolved from abstract",
+      "selection_and_training_budget": "Selection and stopping details not verified; cannot certify a matched source-only budget from the abstract",
+      "independent_external_validation": "Several benchmark datasets; untouched external cohort freeze not verified",
+      "primary_scientific_question": "How do established CNN and Riemannian methods compare across BCI settings?",
+      "difference_from_proposed_redesign": "Direct precedent rules out claiming novelty from simply comparing EEGNet/CSP/Riemannian scores. Our new issue is frozen duration-rule reliability and participant tails on genuinely unused target cohorts.",
+      "verification_coverage": "Formal metadata and primary original abstract read. Publisher PDF request returned HTML challenge, not a PDF. Full-text protocol remains unverified.",
+      "evidence_locators": [
+        "source_provenance: benchmark2024_cr, benchmark2024_core, benchmark2024_full"
+      ],
+      "data_use_permissions": "Publication availability does not establish the raw EEG licence. Original dataset/provider terms must be checked separately in DATASET_INDEPENDENCE_AUDIT.md; no third-party raw data licence is inferred from this paper."
+    },
+    {
+      "key": "Borra2024",
+      "bibliography": {
+        "title": "SpeechBrain-MOABB: An open-source Python library for benchmarking deep neural networks applied to EEG signals",
+        "authors": [
+          "Davide Borra",
+          "Francesco Paissan",
+          "Mirco Ravanelli"
+        ],
+        "year": 2024,
+        "journal": "Computers in Biology and Medicine",
+        "volume": "182",
+        "pages": "109097",
+        "doi": "10.1016/j.compbiomed.2024.109097",
+        "url": "https://doi.org/10.1016/j.compbiomed.2024.109097"
+      },
+      "datasets_and_tasks": "Nine MOABB MI/P300/SSVEP datasets in author repository",
+      "model_type": "SpeechBrain EEG neural pipeline toolkit",
+      "target_label_access": "Supports source/validation/test workflows; original formal abstract does not certify a wholly independent cross-dataset target cohort",
+      "unlabelled_target_statistics": "Implementation/protocol dependent",
+      "selection_and_training_budget": "Whole-pipeline HPO and multi-seed training/evaluation are explicit original-abstract features",
+      "independent_external_validation": "Standardized multi-dataset benchmark; untouched cross-dataset first-use selection test not verified",
+      "primary_scientific_question": "How can robust complete EEG neural pipelines be benchmarked and shared?",
+      "difference_from_proposed_redesign": "Our contribution is not first whole-pipeline reproducibility, seed stability, or reliable HPO tooling; it must be a more focused external duration-selection experiment.",
+      "verification_coverage": "Formal metadata and primary original abstract verified; official author GitHub README read as implementation documentation, not as the full formal article",
+      "evidence_locators": [
+        "source_provenance: speechbrain2024_cr, speechbrain2024_core, speechbrain2024_code"
+      ],
+      "data_use_permissions": "Publication availability does not establish the raw EEG licence. Original dataset/provider terms must be checked separately in DATASET_INDEPENDENCE_AUDIT.md; no third-party raw data licence is inferred from this paper."
+    },
+    {
+      "key": "Borra2025Protocol",
+      "bibliography": {
+        "title": "A protocol for trustworthy EEG decoding with neural networks",
+        "authors": [
+          "Davide Borra",
+          "Elisa Magosso",
+          "Mirco Ravanelli"
+        ],
+        "year": 2025,
+        "journal": "Neural Networks",
+        "volume": "182",
+        "pages": "106847",
+        "doi": "10.1016/j.neunet.2024.106847",
+        "url": "https://doi.org/10.1016/j.neunet.2024.106847"
+      },
+      "datasets_and_tasks": "Nine datasets, 204 participants, 26 recording sessions spanning MI/P300/SSVEP, as reported in original abstract",
+      "model_type": "Deep EEG decoding pipelines and protocol ablations",
+      "target_label_access": "Exact source/test hyperparameter permissions and per-dataset external status require full article; no automatic accusation or guarantee",
+      "unlabelled_target_statistics": "Not fully established from original abstract",
+      "selection_and_training_budget": "Whole-pipeline HPO; multi-step versus one-step; search algorithm; participant subset; random initialization. Original abstract reports final 10 random initializations and 3–5-participant HPO subset trade-off",
+      "independent_external_validation": "Not verified as a locked first-use external MI duration-rule test",
+      "primary_scientific_question": "Which EEG decoding evaluation protocol yields robust estimates at feasible compute cost?",
+      "difference_from_proposed_redesign": "Most direct prior reliability work: do not claim first subject-subset, HPO-budget or multi-seed audit. Differentiate first-use independent target cohorts and explicit fixed/mean-loss/mean-rank duration rules under an architecture×schedule contract.",
+      "verification_coverage": "Formal Crossref issue metadata and primary indexed abstract verified; full formal article unavailable. Author README supports related protocol description but is not a substitute for full text.",
+      "evidence_locators": [
+        "borra_protocol_cr; borra_protocol_core; speechbrain2024_code"
+      ],
+      "data_use_permissions": "Publication availability does not establish the raw EEG licence. Original dataset/provider terms must be checked separately in DATASET_INDEPENDENCE_AUDIT.md; no third-party raw data licence is inferred from this paper.",
+      "publication_year_note": "Formal issue year 2025, Neural Networks 182:106847. Indexed online date 2024-11-02; DOI and author README use 2024. Cite issue year explicitly, do not confuse the two."
+    },
+    {
+      "key": "Zhong2025EEGDG",
+      "bibliography": {
+        "title": "EEG-DG: A Multi-Source Domain Generalization Framework for Motor Imagery EEG Classification",
+        "authors": [
+          "Xiao-Cong Zhong",
+          "Qisong Wang",
+          "Dan Liu",
+          "Zhihuang Chen",
+          "Jing-Xiao Liao",
+          "Jinwei Sun",
+          "Yudong Zhang",
+          "Feng-Lei Fan"
+        ],
+        "year": 2025,
+        "journal": "IEEE Journal of Biomedical and Health Informatics",
+        "venue": "IEEE Journal of Biomedical and Health Informatics",
+        "volume": "29",
+        "issue": "4",
+        "pages_or_article": "2484-2495",
+        "doi": "10.1109/jbhi.2024.3431230",
+        "url": "https://doi.org/10.1109/JBHI.2024.3431230"
+      },
+      "datasets_and_tasks": "Simulation, BCI IV2a/2b and OpenBMI; inter-session/inter-subject evaluation",
+      "model_type": "Multi-source marginal/conditional DG",
+      "target_label_access": "Original abstract says unseen target data not accessed during training",
+      "unlabelled_target_statistics": "No-target-data claim at abstract level; exact preprocessing permissions not independently audited",
+      "selection_and_training_budget": "Exact checkpoint/hyperparameter budget not available in abstract",
+      "independent_external_validation": "Cross-subject datasets, not proof of a prospectively frozen untouched cross-dataset cohort",
+      "primary_scientific_question": "Can multi-source distribution invariance improve unseen-subject MI decoding?",
+      "difference_from_proposed_redesign": "Algorithmic DG precedent; our design studies selector reliability using fixed existing decoders, not a new invariance algorithm.",
+      "verification_coverage": "Fresh formal DOI/author/year metadata and original indexed abstract verified; IEEE fulltext unavailable",
+      "evidence_locators": [
+        "source_provenance: zhong2025_crossref, zhong2025_core"
+      ],
+      "data_use_permissions": "Publication availability does not establish the raw EEG licence. Original dataset/provider terms must be checked separately in DATASET_INDEPENDENCE_AUDIT.md; no third-party raw data licence is inferred from this paper."
+    },
+    {
+      "key": "Zheng2025DG",
+      "bibliography": {
+        "title": "Cross-Subject Motor Imagery Electroencephalogram Decoding with Domain Generalization",
+        "authors": [
+          "Yanyan Zheng",
+          "Senxiang Wu",
+          "Jie Chen",
+          "Qiong Yao",
+          "Siyu Zheng"
+        ],
+        "year": 2025,
+        "journal": "Bioengineering",
+        "venue": "Bioengineering",
+        "volume": "12",
+        "issue": "5",
+        "pages_or_article": "495",
+        "doi": "10.3390/bioengineering12050495",
+        "url": "https://doi.org/10.3390/bioengineering12050495"
+      },
+      "datasets_and_tasks": "BCI IV2a nine-person four-class MI and KU/OpenBMI 54-person hand MI, each evaluated by LOSO",
+      "model_type": "Spectral teacher/student distillation, source-source CORAL and distance regularization",
+      "target_label_access": "Full article states target subject data not used in training/validation",
+      "unlabelled_target_statistics": "Source-source alignment; no target alignment described in inspected method",
+      "selection_and_training_budget": "Source 80/20 split, fivefold stage 1, validation-loss stopping and highest validation-accuracy model; stage 2 source train+validation. Max 1000/400 epochs. Source grouping k examined on KU mean accuracy, so complete meta-selection path is not a separate first-use locked test",
+      "independent_external_validation": "Two within-dataset LOSO evaluations; not one frozen source model transferred unchanged between independent acquisition cohorts",
+      "primary_scientific_question": "Can source spectral distillation and source-domain alignment improve subject transfer?",
+      "difference_from_proposed_redesign": "Direct early-stopping and spectral DG precedent. New matched schedules do not isolate sharing, and new target-only-scoring contract is a methodological distinction, not a SOTA claim.",
+      "verification_coverage": "Formal author/title/year identity and full publisher article/Europe PMC XML read",
+      "evidence_locators": [
+        "Methods 2.1–2.3; Training 3.2; Hyperparameters 3.6; source_provenance: zheng2025_html, zheng2025_xml, zheng2025_crossref"
+      ],
+      "data_use_permissions": "Publication availability does not establish the raw EEG licence. Original dataset/provider terms must be checked separately in DATASET_INDEPENDENCE_AUDIT.md; no third-party raw data licence is inferred from this paper.",
+      "fairness_boundary": "Paper states no target training/validation; sensitivity plots alone do not establish intentional leakage. Separately report that the complete meta-selection boundary is not identical to the new pre-frozen external protocol."
+    },
+    {
+      "key": "Zhi2025SCLDGN",
+      "bibliography": {
+        "title": "Supervised Contrastive Learning-Based Domain Generalization Network for Cross-Subject Motor Decoding",
+        "authors": [
+          "Hongyi Zhi",
+          "Tianyou Yu",
+          "Zhenghui Gu",
+          "Zhuobin Lin",
+          "Le Che",
+          "Yuanqing Li",
+          "Zhuliang Yu"
+        ],
+        "year": 2025,
+        "journal": "IEEE Transactions on Biomedical Engineering",
+        "volume": "72",
+        "issue": "1",
+        "pages": "401-412",
+        "doi": "10.1109/tbme.2024.3432934",
+        "url": "https://doi.org/10.1109/tbme.2024.3432934"
+      },
+      "datasets_and_tasks": "Six MI/ME datasets reported by abstract; exact cohorts not verified here",
+      "model_type": "Supervised contrastive DG, source CORAL, domain-agnostic mixup",
+      "target_label_access": "Original abstract motivates absence of target data; detailed source-only validation budget unavailable",
+      "unlabelled_target_statistics": "Not independently resolved from full text",
+      "selection_and_training_budget": "Exact epochs/source selection/seed budget unknown",
+      "independent_external_validation": "Multiple benchmark datasets; independent frozen external status not verified",
+      "primary_scientific_question": "How can class-relevant domain-invariant motor features be learned?",
+      "difference_from_proposed_redesign": "Related algorithmic representation evidence; not a matched duration-selector causal comparison. ME outcomes must not be pooled with MI hand outcomes.",
+      "verification_coverage": "Formal metadata and primary original indexed abstract verified; fulltext unavailable",
+      "evidence_locators": [
+        "dgnew_epmc; source_provenance: scldgn2025_cr"
+      ],
+      "data_use_permissions": "Publication availability does not establish the raw EEG licence. Original dataset/provider terms must be checked separately in DATASET_INDEPENDENCE_AUDIT.md; no third-party raw data licence is inferred from this paper."
+    },
+    {
+      "key": "Miao2026",
+      "bibliography": {
+        "title": "Meta-Learning Enhanced Multi-Source Domain Adaptation for zero-calibration motor imagery EEG decoding",
+        "authors": [
+          "Minmin Miao",
+          "Wenliang Fu",
+          "Hong Zeng",
+          "Baoguo Xu",
+          "Wenbin Zhang",
+          "Wenjun Hu"
+        ],
+        "year": 2026,
+        "journal": "Journal of Neuroscience Methods",
+        "volume": "431",
+        "pages": "110742",
+        "doi": "10.1016/j.jneumeth.2026.110742",
+        "url": "https://doi.org/10.1016/j.jneumeth.2026.110742"
+      },
+      "datasets_and_tasks": "Public ME/MI pretraining; CBCIC stroke MI, own-collected MI cohort and BCI IV2b target-cohort LOSO",
+      "model_type": "Meta-learning enhanced multi-source adaptation with deep decoders",
+      "target_label_access": "Primary abstract explicitly fine-tunes with all target-dataset subjects except the unseen held-out subject; thus target-cohort labelled training is allowed",
+      "unlabelled_target_statistics": "Other target-cohort data used in meta-training; exact normalization details not verified",
+      "selection_and_training_budget": "Pretrain then meta fine-tune; exact stopping/seed budget not verified",
+      "independent_external_validation": "Includes multiple target datasets, but target-cohort fine-tuning differs from unchanged source-only transfer into an untouched cohort",
+      "primary_scientific_question": "Can cross-task/dataset pretraining and target-cohort meta-learning improve unseen-person decoding?",
+      "difference_from_proposed_redesign": "Zero target-subject calibration does not imply zero target-cohort adaptation. New strict source-only arm forbids this target-cohort retraining.",
+      "verification_coverage": "Formal metadata and structured primary indexed abstract read; fulltext unavailable",
+      "evidence_locators": [
+        "source_provenance: dg2026_jnm, dg2026_jnm_core"
+      ],
+      "data_use_permissions": "Publication availability does not establish the raw EEG licence. Original dataset/provider terms must be checked separately in DATASET_INDEPENDENCE_AUDIT.md; no third-party raw data licence is inferred from this paper."
+    },
+    {
+      "key": "Cao2025SMMTM",
+      "bibliography": {
+        "title": "SMMTM: Motor imagery EEG decoding algorithm using a hybrid multi-branch separable convolutional self-attention temporal convolutional network",
+        "authors": [
+          "DianGuo Cao",
+          "ZhenYuan Yu",
+          "Jinqiang Wang",
+          "Yuqiang Wu"
+        ],
+        "year": 2025,
+        "journal": "PLOS ONE",
+        "volume": "20",
+        "issue": "10",
+        "pages_or_article": "e0333805",
+        "doi": "10.1371/journal.pone.0333805",
+        "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0333805"
+      },
+      "datasets_and_tasks": "BCI IV2a and IV2b; official publisher LOSO and within-subject sections",
+      "model_type": "Multi-branch 8/16/32 learned temporal kernels with self-attention/TCN",
+      "target_label_access": "LOSO excludes test subject from model fit as described; exact tuning budget not fully reconstructed",
+      "unlabelled_target_statistics": "Training-set fitted Z-score described; no blanket guarantee for every meta-selection step",
+      "selection_and_training_budget": "Early stopping described; exact nested validation and full stopping budget incompletely specified",
+      "independent_external_validation": "Within-dataset participant evaluation, not an unchanged model applied to untouched external hand-MI cohort",
+      "primary_scientific_question": "Can temporal multi-branch architecture improve MI classification?",
+      "difference_from_proposed_redesign": "Learned temporal branches differ from fixed μ/β signal decomposition. Architectural accuracy is not evidence that our fixed-sharing choice or duration rule works.",
+      "verification_coverage": "Saved formal publisher fulltext audit reused",
+      "evidence_locators": [
+        "Existing evidence/literature_plos_comparators.json"
+      ],
+      "data_use_permissions": "Publication availability does not establish the raw EEG licence. Original dataset/provider terms must be checked separately in DATASET_INDEPENDENCE_AUDIT.md; no third-party raw data licence is inferred from this paper."
+    },
+    {
+      "key": "Zhao2026RMETNet",
+      "bibliography": {
+        "title": "RMETNet: A cross-subject motor imagery EEG signal classification model based on TSLANet and riemannian geometry features",
+        "authors": [
+          "Yun Zhao",
+          "Dongyi He",
+          "Fudai Ren",
+          "Qingling Xia",
+          "Linhao Xu",
+          "Guanghui Xie",
+          "Xiaoling Zhang",
+          "Renqiang Yang",
+          "Shuaidong Zou",
+          "Bin Jiang"
+        ],
+        "year": 2026,
+        "journal": "PLOS ONE",
+        "volume": "21",
+        "issue": "4",
+        "pages_or_article": "e0347671",
+        "doi": "10.1371/journal.pone.0347671",
+        "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0347671"
+      },
+      "datasets_and_tasks": "BCI MI cross-subject datasets; exact details available in saved publisher audit",
+      "model_type": "TSLANet, Riemannian features and source/target MMD",
+      "target_label_access": "Unlabelled target participation in alignment is distinct from labelled calibration",
+      "unlabelled_target_statistics": "Publisher full text describes target MMD and Riemannian/session alignment",
+      "selection_and_training_budget": "Target-adaptation condition; not a matched no-target-statistics stopping contract",
+      "independent_external_validation": "Cross-subject adaptation, not direct strict source-only no-update cohort transfer",
+      "primary_scientific_question": "Can combined temporal/Riemannian features with adaptation improve MI decoding?",
+      "difference_from_proposed_redesign": "Useful adaptation-context citation. Any new Riemannian baseline must be source-fitted and distinguish an optional adapted arm.",
+      "verification_coverage": "Saved formal publisher XML audit reused",
+      "evidence_locators": [
+        "Existing evidence/literature_plos_comparators.json"
+      ],
+      "data_use_permissions": "Publication availability does not establish the raw EEG licence. Original dataset/provider terms must be checked separately in DATASET_INDEPENDENCE_AUDIT.md; no third-party raw data licence is inferred from this paper."
+    },
+    {
+      "key": "SmedemarkMargulies2024",
+      "bibliography": {
+        "title": "Improving subject transfer in EEG classification with divergence estimation",
+        "authors": [
+          "Niklas Smedemark-Margulies",
+          "Ye Wang",
+          "Toshiaki Koike-Akino",
+          "Jing Liu",
+          "Kieran Parsons",
+          "Yunus Bicer",
+          "Deniz Erdoğmuş"
+        ],
+        "year": 2024,
+        "journal": "Journal of Neural Engineering",
+        "volume": "21",
+        "issue": "6",
+        "pages_or_article": "066031",
+        "doi": "10.1088/1741-2552/ad9777",
+        "url": "https://iopscience.iop.org/article/10.1088/1741-2552/ad9777"
+      },
+      "datasets_and_tasks": "RSVP EEG, 64 people; not MI",
+      "model_type": "Divergence-estimation subject-transfer networks",
+      "target_label_access": "Subject-disjoint fit/test splits; inspected author postprint best λ mean-test comparisons must not be represented as our source-only meta-selection",
+      "unlabelled_target_statistics": "No MI raw covariance contract",
+      "selection_and_training_budget": "Fixed 100 epochs main procedure; early-stopping appendix 24train/4validation/4test and ≤30 epochs",
+      "independent_external_validation": "Held-out RSVP people; not external MI dataset transfer",
+      "primary_scientific_question": "Can estimated divergence improve EEG subject transfer?",
+      "difference_from_proposed_redesign": "Neural-engineering subject-transfer context, but task and λ-selection boundary differ; not a matched comparator.",
+      "verification_coverage": "Saved formal metadata and institutional author postprint audit reused",
+      "evidence_locators": [
+        "Existing evidence/literature_prior_methods.json"
+      ],
+      "data_use_permissions": "Publication availability does not establish the raw EEG licence. Original dataset/provider terms must be checked separately in DATASET_INDEPENDENCE_AUDIT.md; no third-party raw data licence is inferred from this paper."
+    },
+    {
+      "key": "Wei2022BEETL",
+      "bibliography": {
+        "title": "2021 BEETL Competition: Advancing Transfer Learning for Subject Independence and Heterogenous EEG Data Sets",
+        "authors": [
+          "Xiaoxi Wei",
+          "A. Aldo Faisal",
+          "Moritz Grosse-Wentrup",
+          "Alexandre Gramfort",
+          "Sylvain Chevallier",
+          "Vinay Jayaram",
+          "Camille Jeunet",
+          "Stylianos Bakas",
+          "Siegfried Ludwig",
+          "Konstantinos Barmpas",
+          "Mehdi Bahri",
+          "Yannis Panagakis",
+          "Nikolaos Laskaris",
+          "Dimitrios A. Adamos",
+          "Stefanos Zafeiriou",
+          "William C. Duong",
+          "Stephen M. Gordon",
+          "Vernon J. Lawhern",
+          "Maciej Śliwowski",
+          "Vincent Rouanne",
+          "Piotr Tempczyk"
+        ],
+        "year": 2022,
+        "journal": "Proceedings of Machine Learning Research",
+        "volume": "176",
+        "pages": "205–219",
+        "pages_or_article": "205–219",
+        "url": "https://proceedings.mlr.press/v176/wei22a.html"
+      },
+      "datasets_and_tasks": "BEETL multiple EEG datasets; Task 2 includes MI target calibration",
+      "model_type": "Competition transfer-learning pipelines",
+      "target_label_access": "Task 2 target labelled calibration is supplied",
+      "unlabelled_target_statistics": "Some participant-specific adaptation; not a strict no-target-statistics contract",
+      "selection_and_training_budget": "Competition rules rather than identical duration budgets",
+      "independent_external_validation": "Cross-dataset transfer competition, but target calibration differs",
+      "primary_scientific_question": "How does transfer across EEG datasets/people behave under competition access rules?",
+      "difference_from_proposed_redesign": "Demonstrates that cross-dataset transfer already has formal precedents; ours cannot claim first cross-dataset evidence and must state stricter information permissions.",
+      "verification_coverage": "Saved formal PMLR fulltext audit reused",
+      "evidence_locators": [
+        "Existing evidence/literature_transfer_physiology.json"
+      ],
+      "data_use_permissions": "Publication availability does not establish the raw EEG licence. Original dataset/provider terms must be checked separately in DATASET_INDEPENDENCE_AUDIT.md; no third-party raw data licence is inferred from this paper."
+    },
+    {
+      "key": "Roots2020",
+      "bibliography": {
+        "title": "Fusion Convolutional Neural Network for Cross-Subject EEG Motor Imagery Classification",
+        "authors": [
+          "Karel Roots",
+          "Yar Muhammad",
+          "Naveed Muhammad"
+        ],
+        "year": 2020,
+        "journal": "Computers",
+        "volume": "9",
+        "issue": "3",
+        "pages_or_article": "72",
+        "doi": "10.3390/computers9030072",
+        "url": "https://www.mdpi.com/2073-431X/9/3/72"
+      },
+      "datasets_and_tasks": "Pooled public MI windows, random 70/10/20 train/validation/test after segmentation",
+      "model_type": "Fusion CNN",
+      "target_label_access": "Pooled windows do not establish participant-disjoint source-only testing",
+      "unlabelled_target_statistics": "No unseen-participant normalization boundary established",
+      "selection_and_training_budget": "Random window split; not an unseen-source-group source-duration selector",
+      "independent_external_validation": "Not an independent participant-level cross-dataset benchmark",
+      "primary_scientific_question": "Can a fusion CNN classify pooled MI examples?",
+      "difference_from_proposed_redesign": "Architecture precedent; its random split is not a directly comparable claim about unseen participants.",
+      "verification_coverage": "Saved formal publisher fulltext audit reused",
+      "evidence_locators": [
+        "Existing evidence/literature_prior_methods.json"
+      ],
+      "data_use_permissions": "Publication availability does not establish the raw EEG licence. Original dataset/provider terms must be checked separately in DATASET_INDEPENDENCE_AUDIT.md; no third-party raw data licence is inferred from this paper."
+    },
+    {
+      "key": "Luo2023",
+      "bibliography": {
+        "title": "Overlapping filter bank convolutional neural network for multisubject multicategory motor imagery brain-computer interface",
+        "authors": [
+          "Jing Luo",
+          "Jundong Li",
+          "Qi Mao",
+          "Zhenghao Shi",
+          "Haiqin Liu",
+          "Xiaoyong Ren",
+          "Xinhong Hei"
+        ],
+        "year": 2023,
+        "journal": "BioData Mining",
+        "volume": "16",
+        "issue": "1",
+        "pages_or_article": "19",
+        "doi": "10.1186/s13040-023-00336-y",
+        "url": "https://biodatamining.biomedcentral.com/articles/10.1186/s13040-023-00336-y"
+      },
+      "datasets_and_tasks": "BCI IV2a, High-Gamma ME and selected OpenBMI cohort; participant/session evaluation",
+      "model_type": "Overlapping spectral banks, distinct CNNs and probability summation",
+      "target_label_access": "Same-participant sessions; not established unseen-participant strict source-only cohort transfer",
+      "unlabelled_target_statistics": "Protocol specific, not automatically no-target-statistics",
+      "selection_and_training_budget": "Independent network per overlapping band; exact training differs from two-view shared parameters",
+      "independent_external_validation": "No matched frozen cross-dataset transfer condition established in saved fulltext",
+      "primary_scientific_question": "Can overlapping spectral banks improve multisubject multiclass decoding?",
+      "difference_from_proposed_redesign": "Multi-band ≠ parameter sharing; different tasks and models cannot be ranked by absolute scores.",
+      "verification_coverage": "Saved formal publisher fulltext audit reused",
+      "evidence_locators": [
+        "Existing evidence/literature_prior_methods.json"
+      ],
+      "data_use_permissions": "Publication availability does not establish the raw EEG licence. Original dataset/provider terms must be checked separately in DATASET_INDEPENDENCE_AUDIT.md; no third-party raw data licence is inferred from this paper."
+    },
+    {
+      "key": "Zhang2021AdaptiveTransfer",
+      "bibliography": {
+        "title": "Adaptive transfer learning for EEG motor imagery classification with deep Convolutional Neural Network",
+        "authors": [
+          "Kaishuo Zhang",
+          "Neethu Robinson",
+          "Seong-Whan Lee",
+          "Cuntai Guan"
+        ],
+        "year": 2021,
+        "journal": "Neural Networks",
+        "volume": "136",
+        "pages": "1-10",
+        "pages_or_article": "1-10",
+        "doi": "10.1016/j.neunet.2020.12.013",
+        "url": "https://doi.org/10.1016/j.neunet.2020.12.013"
+      },
+      "datasets_and_tasks": "MI transfer data; exact calibration amount not recovered in this audit",
+      "model_type": "CNN pretraining then target-subject fine-tuning",
+      "target_label_access": "Primary original abstract says target fine-tuning",
+      "unlabelled_target_statistics": "Not strict no-target-fitting",
+      "selection_and_training_budget": "Exact target budget not available without full text",
+      "independent_external_validation": "Adaptation protocol, not our source-only information restriction",
+      "primary_scientific_question": "Can adapting a pretrained decoder improve MI classification?",
+      "difference_from_proposed_redesign": "Calibration-free terms must specify access; this adapted result is not a zero-calibration source-only comparator.",
+      "verification_coverage": "Saved formal bibliography and original abstract audit reused; fulltext unavailable",
+      "evidence_locators": [
+        "Existing evidence/literature_transfer_physiology.json"
+      ],
+      "data_use_permissions": "Publication availability does not establish the raw EEG licence. Original dataset/provider terms must be checked separately in DATASET_INDEPENDENCE_AUDIT.md; no third-party raw data licence is inferred from this paper."
+    },
+    {
+      "key": "Sonntag2025Neurophysiological",
+      "bibliography": {
+        "title": "Neurophysiological predictors of deep learning based unilateral upper limb motor imagery classification",
+        "authors": [
+          "Justin Sonntag",
+          "Lin Yu",
+          "Xilu Wang",
+          "Thomas Schack"
+        ],
+        "year": 2025,
+        "journal": "Frontiers in Human Neuroscience",
+        "volume": "19",
+        "pages_or_article": "1617748",
+        "doi": "10.3389/fnhum.2025.1617748",
+        "url": "https://doi.org/10.3389/fnhum.2025.1617748"
+      },
+      "datasets_and_tasks": "26 participants, unilateral right-elbow three-class imagery",
+      "model_type": "Within-person deep classifiers and power-performance correlations",
+      "target_label_access": "Within-person supervised fitting and fivefold 80/20 CV",
+      "unlabelled_target_statistics": "Within-person physiology, not zero-calibration external target preprocessing",
+      "selection_and_training_budget": "Rest absolute/relative α/β predictors, exploratory Pearson correlations without FDR",
+      "independent_external_validation": "No independent replication of this project's nine-person sensor-level Q16",
+      "primary_scientific_question": "Are resting neurophysiological features associated with individual classification performance?",
+      "difference_from_proposed_redesign": "Q16 remains supplemental, exploratory and post-outcome; no mechanistic evidence or decoder feature-dependence proof.",
+      "verification_coverage": "Saved formal primary fulltext audit reused",
+      "evidence_locators": [
+        "Existing evidence/literature_transfer_physiology.json"
+      ],
+      "data_use_permissions": "Publication availability does not establish the raw EEG licence. Original dataset/provider terms must be checked separately in DATASET_INDEPENDENCE_AUDIT.md; no third-party raw data licence is inferred from this paper."
+    },
+    {
+      "key": "Chen2026DGHCL",
+      "bibliography": {
+        "title": "MI-DGHCL: Motor imagery EEG domain generalization via hyperbolic contrastive learning",
+        "authors": [
+          "Junfu Chen",
+          "Dechang Pi",
+          "Feng Gao",
+          "Cheng Ma",
+          "Yang Chen"
+        ],
+        "year": 2026,
+        "journal": "Expert Systems with Applications",
+        "volume": "312",
+        "pages": "131477",
+        "doi": "10.1016/j.eswa.2026.131477",
+        "url": "https://doi.org/10.1016/j.eswa.2026.131477"
+      },
+      "datasets_and_tasks": "MI benchmarks indicated by title/abstract; details pending fulltext",
+      "model_type": "Hyperbolic contrastive DG / multi-domain distillation, respectively",
+      "target_label_access": "Unknown for complete selection protocol",
+      "unlabelled_target_statistics": "Unknown until primary fulltext/code audit",
+      "selection_and_training_budget": "Unknown; not assumed source-only because of title",
+      "independent_external_validation": "Not verified",
+      "primary_scientific_question": "Recent DG method development",
+      "difference_from_proposed_redesign": "Mention only as a screened recent formal work; no protocol or superiority conclusions from metadata.",
+      "verification_coverage": "Formal DOI/authors/year/title verified; original abstract available for TSMD from indexed record, MI-DGHCL metadata only",
+      "evidence_locators": [
+        "dg_recent_crossref"
+      ],
+      "data_use_permissions": "Publication availability does not establish the raw EEG licence. Original dataset/provider terms must be checked separately in DATASET_INDEPENDENCE_AUDIT.md; no third-party raw data licence is inferred from this paper."
+    },
+    {
+      "key": "Zhao2026TSMD",
+      "bibliography": {
+        "title": "Tsmd-net: two-stage multi-domain distillation network for cross-subject MI-EEG domain generalization",
+        "authors": [
+          "Yuhang Zhao",
+          "Wanfeng Xu",
+          "Xiaoqi Luo",
+          "Yunyuan Gao"
+        ],
+        "year": 2026,
+        "journal": "Cognitive Neurodynamics",
+        "volume": "20",
+        "issue": "1",
+        "pages": "192",
+        "doi": "10.1007/s11571-026-10564-7",
+        "url": "https://doi.org/10.1007/s11571-026-10564-7"
+      },
+      "datasets_and_tasks": "MI benchmarks indicated by title/abstract; details pending fulltext",
+      "model_type": "Hyperbolic contrastive DG / multi-domain distillation, respectively",
+      "target_label_access": "Unknown for complete selection protocol",
+      "unlabelled_target_statistics": "Unknown until primary fulltext/code audit",
+      "selection_and_training_budget": "Unknown; not assumed source-only because of title",
+      "independent_external_validation": "Not verified",
+      "primary_scientific_question": "Recent DG method development",
+      "difference_from_proposed_redesign": "Mention only as a screened recent formal work; no protocol or superiority conclusions from metadata.",
+      "verification_coverage": "Formal DOI/authors/year/title verified; original abstract available for TSMD from indexed record, MI-DGHCL metadata only",
+      "evidence_locators": [
+        "tsmd2026_cr; dgnew_epmc"
+      ],
+      "data_use_permissions": "Publication availability does not establish the raw EEG licence. Original dataset/provider terms must be checked separately in DATASET_INDEPENDENCE_AUDIT.md; no third-party raw data licence is inferred from this paper."
+    }
+  ],
+  "novelty_claim_audit": [
+    {
+      "claim": "First source-only model selection or first complete-pipeline evaluation",
+      "verdict": "Not defensible",
+      "reason": "Cawley & Talbot and DomainBed explicitly establish selection/evaluation and algorithm-selector combinations."
+    },
+    {
+      "claim": "First reliable EEG HPO/multi-seed/participant-subset audit",
+      "verdict": "Not defensible",
+      "reason": "Borra 2024 and formal 2025 protocol directly address these topics."
+    },
+    {
+      "claim": "First cross-dataset MI generalization",
+      "verdict": "Not defensible",
+      "reason": "Formal transfer competition and adaptation/meta-learning literature already exists; information permissions differ."
+    },
+    {
+      "claim": "Matched epochs isolate causal benefit of parameter sharing",
+      "verdict": "Not defensible without additional single-factor/capacity/compute controls",
+      "reason": "Views, filtering, BN exposure and architecture/compute still differ."
+    },
+    {
+      "claim": "New locked first-use cohort gives confirmatory evidence",
+      "verdict": "Conditional, not achieved",
+      "reason": "Requires documented dataset-first-use audit, frozen source-only selectors, QC and inference contract, completed locked test and independent numerical validation."
+    },
+    {
+      "claim": "Negative mean plus concentrated person-level gains/failed selectors is useful methodological evidence",
+      "verdict": "Potentially defensible if prespecified and independently replicated",
+      "reason": "Requires effect/uncertainty, tail outcomes, multiplicity and cohort/domain boundaries; archive evidence alone remains retrospective."
+    }
+  ],
+  "proposed_testable_contribution": "Under a pre-frozen source-only information contract, quantify whether fixed-duration, mean-loss and mean-rank stopping choices retain participant-level benefits on never-used target cohorts, and separate schedule-associated complete-pipeline differences from same-duration architecture contrasts while reporting failure tails and computational costs.",
+  "current_contribution_status": "Protocol/design contribution plus retrospective historical observations; independent confirmatory EEG evidence not yet established.",
+  "journal_assessment": {
+    "JNE": {
+      "official_scope_verified": true,
+      "url": "https://publishingsupport.iopscience.iop.org/journals/journal-of-neural-engineering/about-journal-neural-engineering/",
+      "suitability": "BCI/neural-signal-processing scope fits; readiness/acceptance cannot be inferred from scope. A substantial independently validated new methodological finding would be needed to reconsider a specialist journal."
+    },
+    "PLOS_ONE": {
+      "official_scope_verified": true,
+      "url": "https://journals.plos.org/plosone/s/journal-information",
+      "suitability": "Official page includes methodological, replication, negative and null research. Previous ethics decision creates a separate eligibility question; no assumption of resubmission permission."
+    },
+    "Journal_of_Neuroscience_Methods": {
+      "official_scope_verified": false,
+      "retrieval_status": "Official aims/scope blocked by HTTP proxy 403",
+      "suitability": "Provisional methods-audience candidate, supported by current related formal paper Miao 2026; verify current author instructions and scope before selecting."
+    },
+    "Biomedical_Signal_Processing_and_Control": {
+      "official_scope_verified": false,
+      "retrieval_status": "Official aims/scope blocked by HTTP proxy 403",
+      "suitability": "Provisional applied-signal-processing candidate; current scope and article type still need checking."
+    },
+    "Brain_Computer_Interfaces": {
+      "official_scope_verified": false,
+      "retrieval_status": "Official journal about page HTTP 403",
+      "suitability": "Provisional focused BCI audience candidate; no rank or acceptance prediction."
+    },
+    "submission_actions": "No journal was contacted, no email sent, no submission/release created. One journal at a time. Author-reported JNE desk decision and PLOS duplicate-submission decision are not two independent scientific peer reviews."
+  }
+}

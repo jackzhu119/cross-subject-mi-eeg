@@ -1,0 +1,59 @@
+{
+  "actual_estimator_input_dtype": "float64",
+  "completed_at_utc": "2026-10-13T00:42:59.320009+00:00",
+  "csp_fitted_filters_shape": [
+    20,
+    20
+  ],
+  "evaluation_epochs_sha256": "958aecb622b506c2a02c0340dacdc93864e21369e1207148da79d87c83087f39",
+  "evaluation_kind": "training_set_resubstitution",
+  "evaluation_labels_sha256": "4133ef885598296a21d9be80e1b5be958a237443acd7deb0c4350c60e8815300",
+  "evaluation_sample_ids_sha256": "824455eb730790015247a374828138fc0fa4e2a586087d451c3c8d92643367ff",
+  "fit_method": "sklearn.pipeline.Pipeline.fit",
+  "fit_ordinal": 10,
+  "fold": "all_source_resubstitution",
+  "held_out_subject": null,
+  "lda_classes": [
+    1,
+    2
+  ],
+  "model_path": "research_runs/REDESIGN_SOURCE_SELECTION_20261012/models/cpu-csp-20261013T004218Z-2828deb4/all_source_resubstitution/model.joblib",
+  "model_sha256": "84be63b085008931016aa54c1b949b7621b9b2190fec0d9dc41bf264ff62955f",
+  "n_evaluation_trials": 2592,
+  "n_training_trials": 2592,
+  "new_source_fit": true,
+  "parameters": {
+    "component_order": "mutual_info",
+    "cov_est": "concat",
+    "fixed_car_basis_channels": 21,
+    "lda_solver": "svd",
+    "log": true,
+    "n_components": 4,
+    "norm_trace": false,
+    "rank": "full",
+    "reg": null,
+    "scaler": "StandardScaler",
+    "transform_into": "average_power"
+  },
+  "partition_file_sha256": "d7b7f14e487e590374e047db8b8e1af21bd4b9703fa769a73bb5dab8d52d9e1f",
+  "predictions_sha256": "5d11caf6a6fb76e972f17412ab31c9ad244aa8458866f388a7cf2e3aa5bc1845",
+  "preprocessing_epoch_dtype": "float32",
+  "scaler_n_samples_seen": 2592,
+  "started_at_utc": "2026-10-13T00:42:58.452476+00:00",
+  "status": "completed",
+  "target_fit": false,
+  "training_epochs_sha256": "958aecb622b506c2a02c0340dacdc93864e21369e1207148da79d87c83087f39",
+  "training_labels_sha256": "4133ef885598296a21d9be80e1b5be958a237443acd7deb0c4350c60e8815300",
+  "training_sample_ids_sha256": "824455eb730790015247a374828138fc0fa4e2a586087d451c3c8d92643367ff",
+  "training_subjects": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ]
+}

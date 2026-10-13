@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "built_at_utc": "2026-10-13T07:40:26.080049+00:00",
+  "status": "WORK_ARTIFACTS_BUILT_PENDING_VISUAL_REVIEW",
+  "scope": "saved numeric tables, frozen intervals and authored text only; no science inference or model fits",
+  "new_model_fits": 0,
+  "target_inference_runs": 0,
+  "generator_sha256": "58eb846c9a86a64017f06b52b5514135c8dbda80244526bd9f0fc60b0565d96d",
+  "render_versions": {
+    "matplotlib": "3.10.8",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "pymupdf": "1.26.6"
+  },
+  "input_sha256": {
+    "results/historical_internal_paired.csv": "23c8695758f76291165333b3a1cfb3e9329cb70f7c5886084bb404324ae03aa5",
+    "evidence/historical_reaggregation.json": "b1a89e37741f3f13cafb3dd074c93a7b88da60243a80e19c6a1a772ec59c3a10",
+    "results/cpu-csp-20261013T004218Z-2828deb4/participant_confusion_and_metrics.csv": "5a2da9d5edddb33144e743c762cffd05e6f6a0ed818a146e3c03c8751d2defe6",
+    "REVISED_MANUSCRIPT.md": "3dd17b8787568c82e80a774089d096b49c84ba0355bf8b4ab3ce48b18758a11a",
+    "SUPPORTING_INFORMATION.md": "46568ac47014d40776ca0ea4fe87dfc637511904d6f1eb1e565967a10e6a340a"
+  },
+  "output_sha256": {
+    "figures/figure1_development_heterogeneity.pdf": "806908739acdc25437fa6c750e9c98b30af8073c3f7bdfbc38ab99453fb66585",
+    "figures/figure1_development_heterogeneity.png": "025709dcd5c8aa84aa6abaf00a9ec125f11272dc2c9d8f1c0477d6dfd99f4c59",
+    "figures/figure1_development_heterogeneity.svg": "47ffe6fcf4f0310e3deee9beced469124657ba3ac6a6ff8e9379bdafe8da3dc4",
+    "figures/figure2_historical_external_contrasts.pdf": "58fadc80e7c80e8b2eb41a07c10ebfabcbd1057d46d48a8aadaeb6b719060a00",
+    "figures/figure2_historical_external_contrasts.png": "42de05f3189022e570492f2ca40e752e2f9533406102b443761643ad5600ba1f",
+    "figures/figure2_historical_external_contrasts.svg": "e750a03c5d907704b38fda790a5e5204f065f193d0c0e386f691b962b1959f26",
+    "figures/figure3_new_cpu_csp_source_diagnostic.pdf": "ca1dcef9a78d1199924a0aefd93842851b4f0165ab703ca06a21f0d8c5b54627",
+    "figures/figure3_new_cpu_csp_source_diagnostic.png": "7d47d18a014404c05e2ee1938660eae6f99fafe7e90ae8fd9770d28f155acf51",
+    "figures/figure3_new_cpu_csp_source_diagnostic.svg": "d6daddc11a8200502d7dd231299f672f0b7af3b481843fd9a9d2235fbf09b478",
+    "figures/source_data/figure1_development_contrasts.csv": "f849eee858fa4f5966b91d005ab42f0e99ade1f0408f4d63cf0b3aeeea0faccb",
+    "figures/source_data/figure2_external_complete_pipeline_contrasts.csv": "f8796d63d33373e3547821df1aa2637f8ccfbd00aa94005c5f3ad1bd1a1049d7",
+    "figures/source_data/figure3_new_cpu_csp_source_loso.csv": "02fa296b60537bac2f3d047950ff2092b5524d1b442ee929a0d029dd46ed670c",
+    "FIGURE_CAPTIONS.md": "18dab2aa958ed28fbf9a60fb044f39fac25f92733fa2ee626ef6bb2e3437f609",
+    "REVISED_MANUSCRIPT.docx": "701d11b860fe303bda318713e07eef82c727adeeb69e07bc14f0b94f175a2b6a",
+    "REVISED_MANUSCRIPT.pdf": "0e6695cc2f86959ce569603e973deed3a2f3a7dafe2b8dc003ebfc7dea0c6442",
+    "SUPPORTING_INFORMATION.docx": "f9969583c819eeaead5e18f9cce53c9fc6b20e5752c85c3206c2d8acadbd9470",
+    "SUPPORTING_INFORMATION.pdf": "2b5a321ac53a6572779d7410b4256e8ba0e4389fb89c3f9e4896d1441a64e45b"
+  },
+  "pdf_checks": {
+    "REVISED_MANUSCRIPT.pdf": {
+      "pages": 11,
+      "empty_pages": [],
+      "text_outside_page": [],
+      "visible_work_status": true,
+      "source_content_character_count": 34707,
+      "sha256": "0e6695cc2f86959ce569603e973deed3a2f3a7dafe2b8dc003ebfc7dea0c6442"
+    },
+    "SUPPORTING_INFORMATION.pdf": {
+      "pages": 6,
+      "empty_pages": [],
+      "text_outside_page": [],
+      "visible_work_status": true,
+      "source_content_character_count": 19274,
+      "sha256": "2b5a321ac53a6572779d7410b4256e8ba0e4389fb89c3f9e4896d1441a64e45b"
+    }
+  },
+  "figure_source_rules": {
+    "Figure 1": "nine saved historical participant rows; no new statistical intervals",
+    "Figure 2": "copied frozen participant-bootstrap intervals; no pooling",
+    "Figure 3": "nine new CPU source LOSO confusion rows; excludes resubstitution"
+  }
+}

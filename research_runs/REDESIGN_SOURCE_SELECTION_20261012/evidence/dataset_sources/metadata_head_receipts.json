@@ -1,0 +1,47 @@
+[
+  {
+    "id": "dreyer_zip",
+    "url": "https://zenodo.org/api/records/8089820/files/BCI%20Database.zip/content",
+    "method": "HEAD",
+    "error": "The read operation timed out",
+    "raw_bytes_downloaded": 0
+  },
+  {
+    "id": "dreyer_zip_records",
+    "url": "https://zenodo.org/records/8089820/files/BCI%20Database.zip?download=1",
+    "method": "HEAD",
+    "error": "The read operation timed out",
+    "raw_bytes_downloaded": 0
+  },
+  {
+    "id": "shin_raw_zip",
+    "url": "https://doc.ml.tu-berlin.de/hBCI/EEG/EEG_01-05.zip",
+    "method": "HEAD",
+    "status": 200,
+    "final_url": "https://doc.ml.tu-berlin.de/hBCI/EEG/EEG_01-05.zip",
+    "headers": {
+      "content-type": "application/zip",
+      "content-length": "1083547146",
+      "last-modified": "Thu, 16 Feb 2017 19:37:47 GMT",
+      "etag": "\"58a5ff8b-40959e0a\"",
+      "accept-ranges": "bytes"
+    },
+    "raw_bytes_downloaded": 0
+  },
+  {
+    "id": "stieger_example_raw",
+    "url": "https://ndownloader.figshare.com/files/25265249",
+    "method": "HEAD",
+    "status": 200,
+    "headers": {
+      "content-length": "599832496",
+      "accept-ranges": "bytes",
+      "last-modified": "Sat, 24 Apr 2021 09:06:20 GMT",
+      "etag": "\"bd8c2b01bd0f9a0d247d6c960c33436b\"",
+      "content-type": "application/octet-stream"
+    },
+    "raw_bytes_downloaded": 0,
+    "final_url_without_query": "https://s3-eu-west-1.amazonaws.com/pfigshare-u-files/25265249/S1_Session_1.mat",
+    "final_url_query_redacted": true
+  }
+]

@@ -1,0 +1,39 @@
+{
+  "folds": [
+    "loso_s01",
+    "loso_s02",
+    "loso_s03",
+    "loso_s04",
+    "loso_s05",
+    "loso_s06",
+    "loso_s07",
+    "loso_s08",
+    "loso_s09",
+    "all_source_resubstitution"
+  ],
+  "historical_report_claims": {
+    "interpretation": "New refits cannot establish provenance of an earlier unarchived run, even if rounded values coincide",
+    "loso_ba_percent": 61.65,
+    "retroactive_verification": false,
+    "train_ba_percent": 63.04
+  },
+  "new_neural_fits": 0,
+  "new_source_fits": 10,
+  "parameters": {
+    "component_order": "mutual_info",
+    "cov_est": "concat",
+    "fixed_car_basis_channels": 21,
+    "lda_solver": "svd",
+    "log": true,
+    "n_components": 4,
+    "norm_trace": false,
+    "rank": "full",
+    "reg": null,
+    "scaler": "StandardScaler",
+    "transform_into": "average_power"
+  },
+  "run_id": "cpu-csp-20261013T004218Z-2828deb4",
+  "schema_version": 1,
+  "status": "completed_pending_independent_validation",
+  "target_fits": 0
+}

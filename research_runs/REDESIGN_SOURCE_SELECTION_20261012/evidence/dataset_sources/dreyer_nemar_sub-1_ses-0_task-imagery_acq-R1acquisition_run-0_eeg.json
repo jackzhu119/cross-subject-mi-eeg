@@ -1,0 +1,39 @@
+{
+	"TaskName": "imagery",
+	"Manufacturer": "g.tec",
+	"PowerLineFrequency": 50.0,
+	"SamplingFrequency": 512.0,
+	"SoftwareFilters": "n/a",
+	"RecordingDuration": 449.998046875,
+	"RecordingType": "continuous",
+	"EEGReference": "left earlobe",
+	"EEGGround": "FPz",
+	"EEGPlacementScheme": "10-20 system",
+	"EEGChannelCount": 27,
+	"EOGChannelCount": 0,
+	"ECGChannelCount": 0,
+	"EMGChannelCount": 0,
+	"TriggerChannelCount": 0,
+	"ManufacturersModelName": "g.USBAmp (g.tec, Austria)",
+	"SoftwareVersions": "OpenViBE 2.1.0 (Dataset A) / OpenViBE 2.2.0 (Dataset B and C)",
+	"CapManufacturer": "g.tec",
+	"HardwareFilters": {
+		"Bandpass": {
+			"LowCutoffFrequency": 5.0,
+			"HighCutoffFrequency": 35.0,
+			"Type": "Butterworth",
+			"Order": 5
+		}
+	},
+	"TaskDescription": "Graz protocol Trial duration: 8.0s, cue: 1.25s, imagery: 3.75s.",
+	"Instructions": "Participants were encouraged to perform kinesthetic imagination and leave them free to choose their mental imagery strategy. Participants were instructed to try to find the best strategy so that the system would show the longest possible feedback bar. Only positive feedback was provided.",
+	"CogAtlasID": "https://www.cognitiveatlas.org/task/id/trm_4c8a834779883/",
+	"InstitutionName": "Centre Inria de l'universit\u00e9 de Bordeaux",
+	"InstitutionAddress": "Talence, 33405, France",
+	"InstitutionalDepartmentName": "LaBRI (Univ. Bordeaux/CNRS/Bordeaux INP)",
+	"CapManufacturersModelName": "n/a",
+	"SubjectArtefactDescription": "n/a",
+	"DeviceSerialNumber": "n/a",
+	"Description": "A large EEG database with users' profile information for motor imagery brain-computer interface research. Contains electroencephalographic signals from 87 human participants, collected during a single day of brain-computer interface (BCI) experiments, organized into 3 datasets (A, B, and C) that were all recorded using the same protocol: right and left hand motor imagery (MI).",
+	"MISCChannelCount": 0
+}

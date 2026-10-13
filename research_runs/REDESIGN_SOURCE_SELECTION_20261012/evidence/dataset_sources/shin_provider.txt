@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Open access dataset for simultaneous EEG and NIRS Brain-Computer Interface (BCIs)</title>
+	
+	<link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+
+	<div id="page-wrap">
+
+		<img src="images/tu-berlin-logo-long-red.svg" alt="Open access dataset for simultaneous EEG and NIRS Brain-Computer Interfaces (BCIs)" /><br /><br />
+		<h1>Open access dataset for simultaneous EEG and NIRS brain-computerinterface (BCI)</h1>
+		<p><br>Due to the lack of open access datasets for EEG-NIRS hybrid brain-computer interfaces (BCIs), we provide our BCI experiment data on this website. We conducted two BCI experiments (left vs. right hand motor imagery; mental arithmetic vs. resting state). The dataset was validated using baseline signal analysis methods; classification performance was evaluated for each modality and a combination of both modalities. We expect that the dataset can be used in a wide range of future validation approaches in multimodal BCI research.</p>
+		
+		<p><b>Downloading the data</b><br></p>
+		
+		<p>Data of 29 subjects from the original study are available along with demographic information, and signal quality information on each channel.</p>
+		
+		<p><b>UPDATES</b><br>
+		 &lt;Feb. 17. 2017&gt;<br>
+		1. NIRS channel information was corrected.<br>
+		2. EEG channel information was corrected.<br>
+		3. Data information was updated. <br>
+		 &lt;Feb. 21. 2017&gt;<br>
+		1. NIRS Data information was updated. 
+		</p>
+
+		<div id="contact-area">
+			
+			<form method="get" action="contactthanks.html">
+				<label for="GNULicense">
+					<input type="checkbox" name="GNULicense" id="GNULicense" class="checkbox" required />
+					I have read and agree with the <a href="http://www.gnu.org/licenses/gpl.txt">GNU license</a> terms.
+				</label>
+
+				<input type="submit" name="submit" value="Agree and Continue" class="submit-button" />
+			</form>
+			
+			<div style="clear: both;"></div>
+
+		</div>
+	
+	</div>
+
+</body>
+
+</html>

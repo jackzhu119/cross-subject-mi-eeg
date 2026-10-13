@@ -1,0 +1,181 @@
+{
+  "schema_version": 1,
+  "registry_seed": 20261017,
+  "all_partition_count": 1260,
+  "group_sizes": [
+    2,
+    2,
+    2,
+    3
+  ],
+  "fold_weighting": "equal_fold",
+  "source_cv_seed": 20261012,
+  "primary_variant": "G0",
+  "optional_sensitivity_variants": [
+    "G1",
+    "G2",
+    "G3",
+    "G4",
+    "G5"
+  ],
+  "selection_uses_eeg_or_performance": false,
+  "model_fits_started": 0,
+  "target_predictions_computed": false,
+  "extension_execution_authorized_by_this_file": false,
+  "primary_inner_trajectories": 8,
+  "optional_extra_inner_trajectories": 40,
+  "groupings": [
+    {
+      "variant": "G0",
+      "partition_id": "partition-0001",
+      "validation_groups": [
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          7,
+          8,
+          9
+        ]
+      ],
+      "role": "primary"
+    },
+    {
+      "variant": "G1",
+      "partition_id": "partition-0576",
+      "validation_groups": [
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          5,
+          6,
+          8
+        ]
+      ],
+      "role": "optional_source_only_sensitivity"
+    },
+    {
+      "variant": "G2",
+      "partition_id": "partition-0064",
+      "validation_groups": [
+        [
+          1,
+          2
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          3,
+          6,
+          9
+        ]
+      ],
+      "role": "optional_source_only_sensitivity"
+    },
+    {
+      "variant": "G3",
+      "partition_id": "partition-0898",
+      "validation_groups": [
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          1,
+          8,
+          9
+        ]
+      ],
+      "role": "optional_source_only_sensitivity"
+    },
+    {
+      "variant": "G4",
+      "partition_id": "partition-0376",
+      "validation_groups": [
+        [
+          1,
+          5
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          2,
+          8,
+          9
+        ]
+      ],
+      "role": "optional_source_only_sensitivity"
+    },
+    {
+      "variant": "G5",
+      "partition_id": "partition-0250",
+      "validation_groups": [
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          8,
+          9
+        ],
+        [
+          3,
+          5,
+          6
+        ]
+      ],
+      "role": "optional_source_only_sensitivity"
+    }
+  ],
+  "registry_csv_sha256": "c7b81ec838551c3f48de92b49691a389e6c5c950a2205464eee4bbf75e9d7fa4",
+  "verification": {
+    "complete_participant_assignment": true,
+    "unique_partitions": true,
+    "count_matches_combinatorics": true,
+    "primary_included": true,
+    "no_duplicate_selected_variant": true
+  }
+}

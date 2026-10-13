@@ -1,0 +1,248 @@
+{
+  "schema_version": 1,
+  "reviewed_at_utc": "2026-10-13T07:47:28.233616+00:00",
+  "status": "PASS_STATIC_AND_SCOPED_CPU_SOFTWARE_CANDIDATE_REVIEW",
+  "scope": "Independent line-level static review plus actual safe dry-run checks and hash-bound synthetic regression receipt; no real source neural training or target inference performed",
+  "checks": [
+    {
+      "check": "source_runner_default_is_dry_run",
+      "passed": true,
+      "evidence": "Default CLI was actually run by reviewer; 0 neural fits/target predictions."
+    },
+    {
+      "check": "target_runner_default_is_dry_run",
+      "passed": true,
+      "evidence": "Default CLI was actually run by reviewer; 0 model outputs."
+    },
+    {
+      "check": "source_gates_precede_source_load",
+      "passed": true,
+      "evidence": "Public protocol/full data/live GPU/runtime/authorization before source load or fits."
+    },
+    {
+      "check": "target_gates_precede_target_load",
+      "passed": true,
+      "evidence": "All independent source/data/public freeze/runtime/GPU authorization gates before raw target decoding."
+    },
+    {
+      "check": "source_uses_full_data_qualification_after_envelope",
+      "passed": true,
+      "evidence": "Repair: source PASS wrapper now cannot bypass nested author/full raw/acquisition/roster checks."
+    },
+    {
+      "check": "metadata_qualification_does_not_recurse",
+      "passed": true,
+      "evidence": "Target metadata calls envelope only; source full qualification calls target metadata, not back into source full gate."
+    },
+    {
+      "check": "Boolean_source_gate_strict",
+      "passed": true,
+      "evidence": "Integer 1 is not accepted as Boolean author/QC confirmation."
+    },
+    {
+      "check": "actual_author_record_required",
+      "passed": true,
+      "evidence": "Real author declaration referenced and bound; template remains unresolved."
+    },
+    {
+      "check": "nested_raw_QC_status_required",
+      "passed": true,
+      "evidence": "Failed QC bytes under PASS wrapper remain blocking."
+    },
+    {
+      "check": "all174_acquisition_hashes_and_identity_required",
+      "passed": true,
+      "evidence": "Entire acquisition manifest coverage, not pilot-only clearance."
+    },
+    {
+      "check": "public_source_freeze_includes_gate_dependencies",
+      "passed": true,
+      "evidence": "Repair: author/raw-QC/roster/acquisition/helper/analysis/source files protected by immutable public freeze."
+    },
+    {
+      "check": "GPU_is_actual_and_authorization_separate",
+      "passed": true,
+      "evidence": "No real CPU neural fitting; UUID/machine/runtime/expiry/cost-bound source permission."
+    },
+    {
+      "check": "separate_target_authorization_bound_to_freeze",
+      "passed": true,
+      "evidence": "Target predictions require their own actual authorization and immutable source/roster freeze."
+    },
+    {
+      "check": "source_fit_update_limits_are_integer",
+      "passed": true,
+      "evidence": "Fit and optimizer-update ceilings reject Boolean/fractional counts."
+    },
+    {
+      "check": "budget_before_fit_and_each_update",
+      "passed": true,
+      "evidence": "Computation guards do not claim to shut down cloud billing; no API stop side effects."
+    },
+    {
+      "check": "nonfinite_gradient_before_update",
+      "passed": true,
+      "evidence": "No optimizer update on nonfinite gradients."
+    },
+    {
+      "check": "new_actual19_no_old_tensor_truncation",
+      "passed": true,
+      "evidence": "18 raw hashes, native source labels/events, genuine19 re-extraction; no old model loading."
+    },
+    {
+      "check": "19CAR_filter_resample_crop_fixed",
+      "passed": true,
+      "evidence": "Native six-second context, CAR19, fixed Butterworth SOS, polyphase160Hz,320 samples."
+    },
+    {
+      "check": "source_partition_by_participant",
+      "passed": true,
+      "evidence": "Both sessions remain on participant side; no target windows supplied."
+    },
+    {
+      "check": "shared_single_backbone_pooled_views_average_logits",
+      "passed": true,
+      "evidence": "Two views interleaved in batch, same backbone, logits averaged before CE."
+    },
+    {
+      "check": "selection_equal_folds_average_ties_earliest",
+      "passed": true,
+      "evidence": "Same four source trajectories determine both rules; no target selector feedback."
+    },
+    {
+      "check": "actual_fits_vs_schedule_aliases_separate",
+      "passed": true,
+      "evidence": "Declared identical architecture/seed/epoch owner reuse keeps all18 nominal cells without fictional fits."
+    },
+    {
+      "check": "independent_source_grid_validation_required",
+      "passed": true,
+      "evidence": "Source runner itself emits pending independent validation, not confirmation."
+    },
+    {
+      "check": "source_selection_schedule_replayed_before_targets",
+      "passed": true,
+      "evidence": "Source loss/rank minima reproduced and immutable before predictions."
+    },
+    {
+      "check": "safe_model_load_internal_identity",
+      "passed": true,
+      "evidence": "Checkpoint byte and architecture/seed/epoch/config/state identities enforced."
+    },
+    {
+      "check": "physical_EDF_header_microvolts_not_native_integer_as_volts",
+      "passed": true,
+      "evidence": "Each genuine channel calibration converts declared EDF physicalµV; no claim instrument recalibration."
+    },
+    {
+      "check": "native_cue_mapping_locked_01_and_canonical12",
+      "passed": true,
+      "evidence": "Analysis labels0/1 mapped from769/770; canonical1/2 also preserved."
+    },
+    {
+      "check": "roster_excludes_bad_montage_before_scores",
+      "passed": true,
+      "evidence": "A17/A41 exclusion immutable; signal-only roster, no prediction-based exclusion."
+    },
+    {
+      "check": "target_replays_locked_three_input_fingerprints",
+      "passed": true,
+      "evidence": "Immutable raw-only preprocessing fingerprints bind all6 conditions to same events."
+    },
+    {
+      "check": "target_eval_no_BN_or_parameter_changes",
+      "passed": true,
+      "evidence": "inference_mode with exact parameters/buffers state hash before/after each model."
+    },
+    {
+      "check": "complete_conditions_same_true_events",
+      "passed": true,
+      "evidence": "All18 cells, same roster/truth and checkpoint alias mapping validated before completion."
+    },
+    {
+      "check": "target_outputs_retained_no_retry_rescue",
+      "passed": true,
+      "evidence": "Completed outputs persisted; no score-driven retuning/adaptation or retry."
+    },
+    {
+      "check": "workers_never_claim_scientific_completion",
+      "passed": true,
+      "evidence": "Source/target runtime completion is explicitly pending independent scientific validation and scoring."
+    },
+    {
+      "check": "final_software_receipt_hash_scripts/train_source_selection_core.py",
+      "passed": true,
+      "evidence": {
+        "sha256": "9b45c371eb06b58b423fce2b385fab61ffc80dd439233ebf963f9200e8f387e6",
+        "recorded": "9b45c371eb06b58b423fce2b385fab61ffc80dd439233ebf963f9200e8f387e6"
+      }
+    },
+    {
+      "check": "final_software_receipt_hash_scripts/core_source_inputs.py",
+      "passed": true,
+      "evidence": {
+        "sha256": "03f47bceb3998e407a28e7da56da4875b5d3e1e38746d196739be7262be7cff5",
+        "recorded": "03f47bceb3998e407a28e7da56da4875b5d3e1e38746d196739be7262be7cff5"
+      }
+    },
+    {
+      "check": "final_software_receipt_hash_scripts/infer_selection_core.py",
+      "passed": true,
+      "evidence": {
+        "sha256": "4374a65e24eb888657f1017e190f4da5714b84d783a0d90862964a2887945928",
+        "recorded": "4374a65e24eb888657f1017e190f4da5714b84d783a0d90862964a2887945928"
+      }
+    },
+    {
+      "check": "actual_synthetic_regression_scope",
+      "passed": true,
+      "evidence": {
+        "source_tests": 39,
+        "target_tests": 32,
+        "real_scientific_neural_fits": 0,
+        "actual_target_predictions": false
+      }
+    },
+    {
+      "check": "real_execution_receipts_still_absent",
+      "passed": true,
+      "evidence": {
+        "missing_execution_artifacts": [
+          "core_neural_preanalysis_receipt.json",
+          "core_runtime_lock.json",
+          "core_data_gate.json",
+          "gpu_execution_authorization.json",
+          "core_preinference_freeze.json",
+          "target_inference_authorization.json"
+        ]
+      }
+    }
+  ],
+  "check_count": 38,
+  "passed": 38,
+  "failed": 0,
+  "input_sha256": {
+    "scripts/train_source_selection_core.py": "9b45c371eb06b58b423fce2b385fab61ffc80dd439233ebf963f9200e8f387e6",
+    "scripts/core_source_inputs.py": "03f47bceb3998e407a28e7da56da4875b5d3e1e38746d196739be7262be7cff5",
+    "scripts/infer_selection_core.py": "4374a65e24eb888657f1017e190f4da5714b84d783a0d90862964a2887945928"
+  },
+  "pre_publication_repairs_confirmed": [
+    "Source training no longer accepts a PASS wrapper that binds failed raw QC or absent real author attestation",
+    "Actual gate dependencies protected in public source preanalysis",
+    "Metadata-only shared qualification avoids source↔target recursion",
+    "Strict Boolean/integer authorization and fit/update ceiling types"
+  ],
+  "real_source_neural_execution_validated": false,
+  "full_target_raw_QC_or_first_use_validated": false,
+  "real_target_inference_validated": false,
+  "scientific_independent_confirmation_obtained": false,
+  "missing_capabilities_before_real_execution": [
+    "Actual whole-cohort raw QC and locked fingerprint roster",
+    "Actual author prior-use/participant independence evidence",
+    "Approved GPU purchase/runtime public freeze",
+    "Independent source-grid artifact/partition/selection/update validator and public checkpoint freeze",
+    "Independent target-prediction validator and separate gated statistical receipts"
+  ],
+  "model_fits_by_reviewer": 0,
+  "target_predictions_by_reviewer": 0
+}

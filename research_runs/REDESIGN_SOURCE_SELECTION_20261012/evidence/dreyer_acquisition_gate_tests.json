@@ -1,0 +1,29 @@
+{
+  "checked_at_utc": "2026-10-13T01:00:39.486725+00:00",
+  "scope": "software gate tests plus existing bounded subset parser check; no new raw acquisition or decoder efficacy computation",
+  "tests": [
+    "dreyer_gate_tests.AccessGateTests.test_default_cli_does_not_touch_raw_or_network",
+    "dreyer_gate_tests.AccessGateTests.test_download_without_author_fails_before_any_raw_access",
+    "dreyer_gate_tests.AccessGateTests.test_exact_174_run_plan_is_metadata_only",
+    "dreyer_gate_tests.AccessGateTests.test_missing_author_file_is_not_confirmation",
+    "dreyer_gate_tests.AccessGateTests.test_modified_channel_plan_is_rejected",
+    "dreyer_gate_tests.AccessGateTests.test_modified_provider_manifest_is_rejected",
+    "dreyer_gate_tests.AccessGateTests.test_no_full_git_commit_is_rejected_before_git_read",
+    "dreyer_gate_tests.AccessGateTests.test_null_or_zero_author_fact_is_not_confirmed_false",
+    "dreyer_gate_tests.AccessGateTests.test_real_bounded_subset_preserves_source_edf_units_and_mapping",
+    "dreyer_gate_tests.AccessGateTests.test_unsigned_author_template_is_not_confirmation",
+    "dreyer_gate_tests.AccessGateTests.test_valid_sha_with_different_committed_plan_is_rejected",
+    "dreyer_gate_tests.AccessGateTests.test_zero_is_not_false_for_plan_model_gate"
+  ],
+  "run": 12,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "passed": 12,
+  "full_cohort_download_performed": false,
+  "author_confirmation_created": false,
+  "source_fits_started_by_this_test_run": 0,
+  "target_fits": 0,
+  "target_predictions": 0,
+  "target_decoder_scores": 0
+}

@@ -1,0 +1,203 @@
+{
+  "schema_version": 1,
+  "review_date": "2026-10-13",
+  "scope": "Independent pre-outcome statistical design and CPU planning calculations",
+  "status": "STATISTICAL_DESIGN_SPECIFIED_DATA_AND_EXECUTION_GATES_NOT_PASSED",
+  "historical_scientific_results_modified": false,
+  "new_eeg_model_fits": 0,
+  "target_performance_read_for_design": false,
+  "target_predictions_computed": false,
+  "primary": {
+    "cohort_candidate": "Dreyer2023",
+    "nominal_participants": 87,
+    "cohort_is_one_origin_programme": true,
+    "administrative_subdivisions_are_independent_replications": false,
+    "eligible_runs": "two sham-feedback runs, identifiers require raw audit",
+    "nominal_trials_per_participant": 80,
+    "independence_confirmed": false,
+    "raw_audit_passed": false,
+    "estimand": "equal-participant mean Broad EEGNet mean-rank minus mean-loss balanced accuracy, averaged within participant over three final seeds",
+    "units": "percentage points",
+    "null_mean_difference_pp": 0,
+    "two_sided_alpha": 0.05,
+    "test": "paired t",
+    "ci": "95% t interval",
+    "source_validation_seed": 20261012,
+    "final_model_seeds": [
+      20261013,
+      20261014,
+      20261015
+    ],
+    "eligible_participants_upper_bound": 85,
+    "technical_exclusions": [
+      "A17",
+      "A41"
+    ],
+    "minimum_locked_valid_trials_per_class": 20
+  },
+  "secondary_confirmatory_family": {
+    "gate": "primary H1 rejected at two-sided alpha 0.05",
+    "contrasts": [
+      "Broad fixed minus Broad mean-loss",
+      "Broad fixed minus Broad mean-rank",
+      "Shared fixed minus Broad fixed"
+    ],
+    "correction": "Holm",
+    "family_alpha": 0.05,
+    "secondary_estimates_always_reported": true,
+    "nominal_95_ci": "unadjusted estimation only",
+    "simultaneous_ci": "98.3333333333% Bonferroni intervals for three contrasts",
+    "overall_primary_secondary_strong_fwer_max": 0.05
+  },
+  "noninferiority_or_equivalence_planned": false,
+  "ni_equivalence_margin_pp": null,
+  "design": {
+    "architectures": 2,
+    "rules": 3,
+    "fixed_epoch": 20,
+    "source_candidate_epochs": [
+      1,
+      40
+    ],
+    "source": "BNCI nine participants, binary left/right",
+    "common_channel_count": 19,
+    "car_channel_count": 19,
+    "decoder_window_s": [
+      0.5,
+      2.5
+    ],
+    "sampling_rate_hz": 160,
+    "primary_source_group_sizes": [
+      2,
+      2,
+      2,
+      3
+    ],
+    "source_cv_fold_weighting": "equal_fold",
+    "primary_inner_trajectories": 8,
+    "nominal_final_condition_seed_fits": 18,
+    "nominal_core_fits": 26,
+    "additional_optional_grouping_inner_trajectories": 40,
+    "target_fits": 0,
+    "selected_rule_architecture_and_interaction_tests": "exploratory only",
+    "shared_fixed_broad_fixed_interpretation": "matched-duration complete-pipeline contrast; not isolated sharing mechanism"
+  },
+  "participant_bootstrap": {
+    "replicates": 20000,
+    "rng_seed": 20261016,
+    "role": "sensitivity",
+    "resampling_unit": "paired participant difference after seed averaging",
+    "trial_seed_session_independent_resampling": false
+  },
+  "class_dominance": {
+    "threshold": 0.95,
+    "participant_rule": "mean over seeds of max(predicted class count)/valid predictions >= 0.95",
+    "status": "descriptive engineering sentinel, not validated clinical or physiological marker",
+    "excluded_from_ba_analysis": false
+  },
+  "power": {
+    "method": "two-sided noncentral paired t under Gaussian independent participant differences",
+    "desired_power": 0.8,
+    "sd_assumptions_pp": [
+      5,
+      10,
+      15
+    ],
+    "n_scenarios": [
+      10,
+      21,
+      60,
+      85,
+      87
+    ],
+    "target_effect_scenarios_pp": [
+      2,
+      3,
+      5
+    ],
+    "scenario_count": 72,
+    "validation_check_count": 79,
+    "independent_check": "normal/chi-square mixture quadrature at five planning points, including n85",
+    "n87_sd10_primary_mde_pp": 3.0376750711144407,
+    "n_for_2_3_5_pp_if_sd10": [
+      199,
+      90,
+      34
+    ],
+    "posthoc_observed_power_used": false,
+    "runtime": {
+      "python": "3.12.14",
+      "scipy": "1.17.0"
+    },
+    "n85_sd10_primary_mde_pp": 3.0740382183196138,
+    "n87_is_current_primary_sample": false
+  },
+  "source_grouping_registry": {
+    "registered_unique_partitions": 1260,
+    "primary": "G0",
+    "optional_alternatives": [
+      "G1",
+      "G2",
+      "G3",
+      "G4",
+      "G5"
+    ],
+    "selection_rng": 20261017,
+    "selection_uses_performance": false,
+    "training_started": false
+  },
+  "unresolved_execution_requirements": [
+    "Dreyer raw/event/channel/sham-run audit and prior exposure/identity audit",
+    "final eligible participant inventory locked before predictions",
+    "public committed final protocol/config/runtime binding before neural fitting",
+    "model implementation audit and source-only code replay",
+    "resource/paid-GPU approval if needed",
+    "independent scored-result replication after execution"
+  ],
+  "scientific_limits": [
+    "Power assumptions are planning scenarios rather than target estimates",
+    "The primary cohort size remains nominal until eligibility audit",
+    "Inference is conditional on the frozen nine-person source models",
+    "Three final seeds, two sessions and individual EEG trials are not independent participants",
+    "Single source-CV seed does not establish selection stability across training randomness",
+    "Historical targets cannot establish blind independent confirmation",
+    "Matched epochs do not remove filtering, views, capacity, BatchNorm or compute differences",
+    "Nonsignificance cannot establish equivalence"
+  ],
+  "outputs": [
+    {
+      "path": "STATISTICAL_ANALYSIS_PLAN.md",
+      "sha256": "0e81f8bc1044d6b1404da72c79a92d02972bd7f9e49d5f7b7953756a56ed2754"
+    },
+    {
+      "path": "scripts/power_and_sensitivity.py",
+      "sha256": "7a63bd12ed96c131311ada08999d2841c58f488f32624846bb3b9bea76db7cdc"
+    },
+    {
+      "path": "results/power_sensitivity.csv",
+      "sha256": "bd8559a8c65df192ab6ca3f5879c623222856e73d3f886b16e7de79596648fd3"
+    },
+    {
+      "path": "results/power_sensitivity_verification.json",
+      "sha256": "aa2924657674e1f74dde590a4a096a8423f3654bd058380c36048d7cc39d44df"
+    },
+    {
+      "path": "scripts/register_source_groupings.py",
+      "sha256": "1e90f0d542e7c0232b050f521ea5c31abf23cb40d3df763ae5854cfb13d50893"
+    },
+    {
+      "path": "results/source_grouping_registry.csv",
+      "sha256": "c7b81ec838551c3f48de92b49691a389e6c5c950a2205464eee4bbf75e9d7fa4"
+    },
+    {
+      "path": "results/source_grouping_selection.json",
+      "sha256": "ef74177b084ba776882f704e135399524cd22bd0d30be7642c9e3ae93461e977"
+    }
+  ],
+  "all_cpu_planning_checks_passed": true,
+  "review_scope_update": "Statistics design/planning and invented-input software only; fresh traditional CSP source fits are recorded separately, not zeroed or counted as target confirmation.",
+  "software_validation_path": "evidence/statistical_software_validation.json",
+  "new_eeg_model_fits_field_scope": "Zero fits initiated by statistics design/software review; this is not the global experiment counter.",
+  "completed_retrospective_source_csp_fits_elsewhere": 10,
+  "retrospective_source_csp_run": "cpu-csp-20261013T004218Z-2828deb4"
+}

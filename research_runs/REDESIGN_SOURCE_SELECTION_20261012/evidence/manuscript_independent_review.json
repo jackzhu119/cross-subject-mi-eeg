@@ -1,0 +1,1679 @@
+{
+  "schema_version": 1,
+  "reviewed_at_utc": "2026-10-13T07:48:57.317271+00:00",
+  "reviewer": "independent delivery reviewer agent; did not author manuscript or run EEG fits/inference",
+  "status": "PASS_SCOPED_WORK_MANUSCRIPT_REVIEW",
+  "scope": "Historical numerical evidence, new source CSP output, planned design/gates, formal metadata/citation/figure-source consistency; not new neural efficacy, full-cohort independence, or submission readiness",
+  "checks": [
+    {
+      "check": "q5_mean",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "33.72",
+        "unrounded_source": 0.33719135802469136,
+        "scale": 100
+      }
+    },
+    {
+      "check": "q8_mean",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "42.67",
+        "unrounded_source": 0.42669753086419754,
+        "scale": 100
+      }
+    },
+    {
+      "check": "rank_loss_mean_delta",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "8.95",
+        "unrounded_source": 8.950617283950614,
+        "scale": 1
+      }
+    },
+    {
+      "check": "rank_loss_median_delta",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "1.85",
+        "unrounded_source": 1.8518518518518434,
+        "scale": 1
+      }
+    },
+    {
+      "check": "s3_s8_concentration",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "87.57",
+        "unrounded_source": 0.8757183908045978,
+        "scale": 100
+      }
+    },
+    {
+      "check": "rank_loss_frozen_ci_0",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "1.048",
+        "unrounded_source": 1.0480967078189292,
+        "scale": 1
+      }
+    },
+    {
+      "check": "rank_loss_frozen_ci_1",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "19.959",
+        "unrounded_source": 19.95884773662551,
+        "scale": 1
+      }
+    },
+    {
+      "check": "fixed20_mean",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "43.99",
+        "unrounded_source": 0.4398791152263375,
+        "scale": 100
+      }
+    },
+    {
+      "check": "matched_loss_mean",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "33.92",
+        "unrounded_source": 0.3392489711934157,
+        "scale": 100
+      }
+    },
+    {
+      "check": "fixed_matched_delta",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "10.06",
+        "unrounded_source": 10.06301440329218,
+        "scale": 1
+      }
+    },
+    {
+      "check": "fixed_matched_median",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "-0.174",
+        "unrounded_source": -0.1736111111111105,
+        "scale": 1
+      }
+    },
+    {
+      "check": "fixed_matched_frozen_ci_0",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "0.675",
+        "unrounded_source": 0.6751543209876535,
+        "scale": 1
+      }
+    },
+    {
+      "check": "fixed_matched_frozen_ci_1",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "21.528",
+        "unrounded_source": 21.528420781892994,
+        "scale": 1
+      }
+    },
+    {
+      "check": "fixed_matched_signflip_sensitivity",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "0.125",
+        "unrounded_source": 0.125,
+        "scale": 1
+      }
+    },
+    {
+      "check": "fixed_oldrank_delta",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "1.32",
+        "unrounded_source": 1.3181584362139949,
+        "scale": 1
+      }
+    },
+    {
+      "check": "fixed_oldrank_median",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "-0.463",
+        "unrounded_source": -0.462962962962965,
+        "scale": 1
+      }
+    },
+    {
+      "check": "PhysioNet_broad",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "61.815",
+        "unrounded_source": 0.6181459187169062,
+        "scale": 100
+      }
+    },
+    {
+      "check": "PhysioNet_shared",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "62.388",
+        "unrounded_source": 0.62387888078678,
+        "scale": 100
+      }
+    },
+    {
+      "check": "PhysioNet_delta",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "0.573",
+        "unrounded_source": 0.5732962069873878,
+        "scale": 1
+      }
+    },
+    {
+      "check": "PhysioNet_frozen_ci_0",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "-0.097",
+        "unrounded_source": -0.09668274012807665,
+        "scale": 1
+      }
+    },
+    {
+      "check": "PhysioNet_frozen_ci_1",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "1.242",
+        "unrounded_source": 1.241555102522408,
+        "scale": 1
+      }
+    },
+    {
+      "check": "PhysioNet_person_count",
+      "passed": true,
+      "evidence": {
+        "n": 109
+      }
+    },
+    {
+      "check": "Cho2017_broad",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "59.824",
+        "unrounded_source": 0.5982371794871795,
+        "scale": 100
+      }
+    },
+    {
+      "check": "Cho2017_shared",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "58.310",
+        "unrounded_source": 0.5831036324786325,
+        "scale": 100
+      }
+    },
+    {
+      "check": "Cho2017_delta",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "-1.513",
+        "unrounded_source": -1.5133547008546997,
+        "scale": 1
+      }
+    },
+    {
+      "check": "Cho2017_frozen_ci_0",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "-2.249",
+        "unrounded_source": -2.2489583333333325,
+        "scale": 1
+      }
+    },
+    {
+      "check": "Cho2017_frozen_ci_1",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "-0.804",
+        "unrounded_source": -0.8044871794871795,
+        "scale": 1
+      }
+    },
+    {
+      "check": "Cho2017_person_count",
+      "passed": true,
+      "evidence": {
+        "n": 52
+      }
+    },
+    {
+      "check": "Lee2019_broad",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "65.512",
+        "unrounded_source": 0.6551234567901235,
+        "scale": 100
+      }
+    },
+    {
+      "check": "Lee2019_shared",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "65.716",
+        "unrounded_source": 0.6571604938271605,
+        "scale": 100
+      }
+    },
+    {
+      "check": "Lee2019_delta",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "0.204",
+        "unrounded_source": 0.20370370370370489,
+        "scale": 1
+      }
+    },
+    {
+      "check": "Lee2019_frozen_ci_0",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "-0.515",
+        "unrounded_source": -0.5154320987654315,
+        "scale": 1
+      }
+    },
+    {
+      "check": "Lee2019_frozen_ci_1",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "0.969",
+        "unrounded_source": 0.9691358024691356,
+        "scale": 1
+      }
+    },
+    {
+      "check": "Lee2019_person_count",
+      "passed": true,
+      "evidence": {
+        "n": 54
+      }
+    },
+    {
+      "check": "PhysioNet_primary_p",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "0.064464",
+        "unrounded_source": 0.0644635919894938,
+        "scale": 1
+      }
+    },
+    {
+      "check": "PhysioNet_tolerance_sensitivity_p",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "0.050442",
+        "unrounded_source": 0.05044215663996978,
+        "scale": 1
+      }
+    },
+    {
+      "check": "Cho_primary_holm_p",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "0.000100",
+        "unrounded_source": 9.99950002499875e-05,
+        "scale": 1
+      }
+    },
+    {
+      "check": "Lee_primary_holm_p",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "0.603670",
+        "unrounded_source": 0.6036698165091745,
+        "scale": 1
+      }
+    },
+    {
+      "check": "new_source_csp_loso_mean",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "61.65",
+        "unrounded_source": 61.651234567901234,
+        "scale": 1
+      }
+    },
+    {
+      "check": "new_source_csp_resub_mean",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "63.04",
+        "unrounded_source": 63.04012345679012,
+        "scale": 1
+      }
+    },
+    {
+      "check": "new_csp_person_sd",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "14.12",
+        "unrounded_source": 14.12037037037037,
+        "scale": 1
+      }
+    },
+    {
+      "check": "new_csp_person_min",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "49.31",
+        "unrounded_source": 49.30555555555556,
+        "scale": 1
+      }
+    },
+    {
+      "check": "new_csp_person_max",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "94.44",
+        "unrounded_source": 94.44444444444444,
+        "scale": 1
+      }
+    },
+    {
+      "check": "S1_left_recall",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "95.14",
+        "unrounded_source": 0.9513888888888888,
+        "scale": 100
+      }
+    },
+    {
+      "check": "S1_right_recall",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "12.50",
+        "unrounded_source": 0.125,
+        "scale": 100
+      }
+    },
+    {
+      "check": "S1_dominant_prediction_share",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "91.32",
+        "unrounded_source": 91.31944444444444,
+        "scale": 1
+      }
+    },
+    {
+      "check": "S1_below_prespecified_95_dominance",
+      "passed": true,
+      "evidence": {
+        "new_dominance_threshold_percent": 95
+      }
+    },
+    {
+      "check": "S6_left_recall",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "12.50",
+        "unrounded_source": 0.125,
+        "scale": 100
+      }
+    },
+    {
+      "check": "S6_right_recall",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "97.22",
+        "unrounded_source": 0.9722222222222222,
+        "scale": 100
+      }
+    },
+    {
+      "check": "S6_dominant_prediction_share",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "92.36",
+        "unrounded_source": 92.36111111111111,
+        "scale": 1
+      }
+    },
+    {
+      "check": "S6_below_prespecified_95_dominance",
+      "passed": true,
+      "evidence": {
+        "new_dominance_threshold_percent": 95
+      }
+    },
+    {
+      "check": "Cho_old_CSP_left_share",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "92.07",
+        "unrounded_source": 0.9207224334600761,
+        "scale": 100
+      }
+    },
+    {
+      "check": "Cho_old_CSP_BA",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "51.99",
+        "unrounded_source": 0.5199038461538461,
+        "scale": 100
+      }
+    },
+    {
+      "check": "Lee_old_CSP_left_share",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "83.21",
+        "unrounded_source": 0.8321296296296297,
+        "scale": 100
+      }
+    },
+    {
+      "check": "Lee_old_CSP_BA",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "52.77",
+        "unrounded_source": 0.5276851851851853,
+        "scale": 100
+      }
+    },
+    {
+      "check": "SI_complete_nine_historical_participant_rows",
+      "passed": true,
+      "evidence": {
+        "participants": 9
+      }
+    },
+    {
+      "check": "SI_LOSO_confusion_S1",
+      "passed": true,
+      "evidence": "| S1 | 137 | 7 | 126 | 18 |"
+    },
+    {
+      "check": "SI_resub_confusion_S1",
+      "passed": true,
+      "evidence": "| S1 | 132 | 12 | 106 | 38 |"
+    },
+    {
+      "check": "SI_LOSO_confusion_S2",
+      "passed": true,
+      "evidence": "| S2 | 112 | 32 | 113 | 31 |"
+    },
+    {
+      "check": "SI_resub_confusion_S2",
+      "passed": true,
+      "evidence": "| S2 | 110 | 34 | 104 | 40 |"
+    },
+    {
+      "check": "SI_LOSO_confusion_S3",
+      "passed": true,
+      "evidence": "| S3 | 143 | 1 | 95 | 49 |"
+    },
+    {
+      "check": "SI_resub_confusion_S3",
+      "passed": true,
+      "evidence": "| S3 | 140 | 4 | 86 | 58 |"
+    },
+    {
+      "check": "SI_LOSO_confusion_S4",
+      "passed": true,
+      "evidence": "| S4 | 87 | 57 | 64 | 80 |"
+    },
+    {
+      "check": "SI_resub_confusion_S4",
+      "passed": true,
+      "evidence": "| S4 | 84 | 60 | 54 | 90 |"
+    },
+    {
+      "check": "SI_LOSO_confusion_S5",
+      "passed": true,
+      "evidence": "| S5 | 122 | 22 | 124 | 20 |"
+    },
+    {
+      "check": "SI_resub_confusion_S5",
+      "passed": true,
+      "evidence": "| S5 | 114 | 30 | 122 | 22 |"
+    },
+    {
+      "check": "SI_LOSO_confusion_S6",
+      "passed": true,
+      "evidence": "| S6 | 18 | 126 | 4 | 140 |"
+    },
+    {
+      "check": "SI_resub_confusion_S6",
+      "passed": true,
+      "evidence": "| S6 | 30 | 114 | 14 | 130 |"
+    },
+    {
+      "check": "SI_LOSO_confusion_S7",
+      "passed": true,
+      "evidence": "| S7 | 135 | 9 | 111 | 33 |"
+    },
+    {
+      "check": "SI_resub_confusion_S7",
+      "passed": true,
+      "evidence": "| S7 | 131 | 13 | 103 | 41 |"
+    },
+    {
+      "check": "SI_LOSO_confusion_S8",
+      "passed": true,
+      "evidence": "| S8 | 141 | 3 | 13 | 131 |"
+    },
+    {
+      "check": "SI_resub_confusion_S8",
+      "passed": true,
+      "evidence": "| S8 | 70 | 74 | 5 | 139 |"
+    },
+    {
+      "check": "SI_LOSO_confusion_S9",
+      "passed": true,
+      "evidence": "| S9 | 104 | 40 | 47 | 97 |"
+    },
+    {
+      "check": "SI_resub_confusion_S9",
+      "passed": true,
+      "evidence": "| S9 | 124 | 20 | 3 | 141 |"
+    },
+    {
+      "check": "SI_signed_laterality_mu",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "-0.249685",
+        "unrounded_source": -0.24968503344059392,
+        "scale": 1
+      }
+    },
+    {
+      "check": "SI_signed_laterality_beta",
+      "passed": true,
+      "evidence": {
+        "rounded_expected": "-0.167875",
+        "unrounded_source": -0.16787453939998034,
+        "scale": 1
+      }
+    },
+    {
+      "check": "Q16_no_added_p_or_mechanism",
+      "passed": true,
+      "evidence": {
+        "scope": "manual semantic review supported by boundary text"
+      }
+    },
+    {
+      "check": "historical_inventory_17091_read_hash_scope",
+      "passed": true,
+      "evidence": {
+        "n": 17091
+      }
+    },
+    {
+      "check": "inventory_scope_fully_parsed_json_structure_not_full_semantic_review",
+      "passed": true,
+      "evidence": {
+        "n": 4515
+      }
+    },
+    {
+      "check": "inventory_scope_all_csv_rows_parsed_structure_checked",
+      "passed": true,
+      "evidence": {
+        "n": 9620
+      }
+    },
+    {
+      "check": "inventory_scope_fully_decoded_text_not_full_semantic_review",
+      "passed": true,
+      "evidence": {
+        "n": 336
+      }
+    },
+    {
+      "check": "no_overclaim_all_files_semantic_review",
+      "passed": true,
+      "evidence": {
+        "scope": "parser coverage not semantic review"
+      }
+    },
+    {
+      "check": "fresh_fit_counts_10_source_0_neural_0_target",
+      "passed": true,
+      "evidence": {
+        "source": 10,
+        "neural": 0,
+        "target": 0
+      }
+    },
+    {
+      "check": "new_neural_not_run_and_work_status",
+      "passed": true,
+      "evidence": {
+        "scope": "explicit report/plan separation"
+      }
+    },
+    {
+      "check": "CSP_original_model_not_replayed",
+      "passed": true,
+      "evidence": {
+        "old_model_replay": "SKIP"
+      }
+    },
+    {
+      "check": "CSP_no_independent_target_confirmation",
+      "passed": true,
+      "evidence": {
+        "confirmatory": false
+      }
+    },
+    {
+      "check": "whole_cohort_independence_not_claimed",
+      "passed": true,
+      "evidence": {
+        "scope": "author and participant independence pending"
+      }
+    },
+    {
+      "check": "Dreyer_no_target_decoder_scores",
+      "passed": true,
+      "evidence": {
+        "actual_pilot_status": "PARTIAL_SOURCE_ROUTE_VERIFIED_NO_TARGET_PERFORMANCE"
+      }
+    },
+    {
+      "check": "Dreyer_85_is_ceiling_not_n",
+      "passed": true,
+      "evidence": {
+        "nominal_87_excluded": [
+          17,
+          41
+        ],
+        "ceiling": 85
+      }
+    },
+    {
+      "check": "Dreyer_partial_original_conversion_boundary",
+      "passed": true,
+      "evidence": {
+        "scope": "derivative/source route is conditional"
+      }
+    },
+    {
+      "check": "source_montage_no_old_checkpoint_truncation",
+      "passed": true,
+      "evidence": {
+        "new_montage": 19,
+        "old_CSP_montage": 21
+      }
+    },
+    {
+      "check": "nominal_neural_fits_not_actual",
+      "passed": true,
+      "evidence": {
+        "planned": 26,
+        "completed": 0
+      }
+    },
+    {
+      "check": "primary_contrast_matches_SAP",
+      "passed": true,
+      "evidence": {
+        "contrast": "Broad mean_rank minus mean_loss"
+      }
+    },
+    {
+      "check": "secondary_gate_Holm_three_and_unadjusted_CIs",
+      "passed": true,
+      "evidence": {
+        "family": 3,
+        "gate": "primary rejection at .05"
+      }
+    },
+    {
+      "check": "complete_pipeline_confounding_preserved",
+      "passed": true,
+      "evidence": {
+        "scope": "not isolated sharing mechanism"
+      }
+    },
+    {
+      "check": "unequal_source_grouping_limit",
+      "passed": true,
+      "evidence": {
+        "groups": [
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            7,
+            8,
+            9
+          ]
+        ]
+      }
+    },
+    {
+      "check": "crossrun_rank_runtime_uncertainty",
+      "passed": true,
+      "evidence": {
+        "scope": "does not assert CPU-versus-GPU difference"
+      }
+    },
+    {
+      "check": "adverse_null_and_no_equivalence_retained",
+      "passed": true,
+      "evidence": {
+        "scope": "retains all principal adverse/null boundaries"
+      }
+    },
+    {
+      "check": "no_SOTA_clinical_online_mechanism_claim",
+      "passed": true,
+      "evidence": {
+        "scope": "negative claim boundaries"
+      }
+    },
+    {
+      "check": "ethics_author_boundary_no_institutional_determination",
+      "passed": true,
+      "evidence": {
+        "scope": "reported author declaration"
+      }
+    },
+    {
+      "check": "AI_scope_and_model_provenance_not_concealed",
+      "passed": true,
+      "evidence": {
+        "scope": "true usage and author-reported GPT-6"
+      }
+    },
+    {
+      "check": "new_author_approval_not_inferred",
+      "passed": true,
+      "evidence": {
+        "approval": "author action remains"
+      }
+    },
+    {
+      "check": "paid_execution_not_authorized",
+      "passed": true,
+      "evidence": {
+        "paid_execution_authorized": false
+      }
+    },
+    {
+      "check": "SAP_no_false_no_new_EEG_fits",
+      "passed": true,
+      "evidence": {
+        "required_scope": "neural fits not all EEG fits"
+      }
+    },
+    {
+      "check": "SI_sections_unique",
+      "passed": true,
+      "evidence": {
+        "S4_headings": 1
+      }
+    },
+    {
+      "check": "SI_table_numbering_continuous_order",
+      "passed": true,
+      "evidence": {
+        "sequence": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      }
+    },
+    {
+      "check": "SI_rank_signflip_not_mislabelled_frozen_primary",
+      "passed": true,
+      "evidence": {
+        "requirement": "new exhaustive signflip sensitivities distinguished from archived primary p"
+      }
+    },
+    {
+      "check": "SI_original_rank_binomial_p_retained",
+      "passed": true,
+      "evidence": {
+        "archived_nine_person_ties_retained_binomial_p": 0.179688,
+        "tie_excluding_p": 0.015625
+      }
+    },
+    {
+      "check": "statistics_37_fixtures_not_real_efficacy",
+      "passed": true,
+      "evidence": {
+        "fixture_tests": 37
+      }
+    },
+    {
+      "check": "reference_numbering_1_20",
+      "passed": true,
+      "evidence": {
+        "reference_numbers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ]
+      }
+    },
+    {
+      "check": "all_20_references_cited_no_missing",
+      "passed": true,
+      "evidence": {
+        "cited": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "unreferenced": [],
+        "missing": []
+      }
+    },
+    {
+      "check": "refs_full_formal_venues_not_types",
+      "passed": true,
+      "evidence": {
+        "scope": "full venues rendered"
+      }
+    },
+    {
+      "check": "refs_double_punctuation_absent",
+      "passed": true,
+      "evidence": {
+        "scope": "final author punctuation"
+      }
+    },
+    {
+      "check": "formal_title_Varoquaux2017",
+      "passed": true,
+      "evidence": {
+        "reference": "Assessing and tuning brain decoders: Cross-validation, caveats, and guidelines",
+        "registry": "Assessing and tuning brain decoders: Cross-validation, caveats, and guidelines",
+        "URL": "https://api.crossref.org/works/10.1016/j.neuroimage.2016.10.038"
+      }
+    },
+    {
+      "check": "formal_year_Varoquaux2017",
+      "passed": true,
+      "evidence": {
+        "reference": 2017,
+        "registry": 2017
+      }
+    },
+    {
+      "check": "formal_author_list_Varoquaux2017",
+      "passed": true,
+      "evidence": {
+        "reference": [
+          "Gaël Varoquaux",
+          "Pradeep Reddy Raamana",
+          "Denis A. Engemann",
+          "Andrés Hoyos-Idrobo",
+          "Yannick Schwartz",
+          "Bertrand Thirion"
+        ],
+        "registry": [
+          "Varoquaux, Gaël",
+          "Raamana, Pradeep Reddy",
+          "Engemann, Denis A.",
+          "Hoyos-Idrobo, Andrés",
+          "Schwartz, Yannick",
+          "Thirion, Bertrand"
+        ],
+        "note": "DataCite Jun internal comma normalized below if needed",
+        "normalization": "author token equality with comma/diacritic normalization; no author insertion/deletion"
+      }
+    },
+    {
+      "check": "formal_title_Jayaram2018",
+      "passed": true,
+      "evidence": {
+        "reference": "MOABB: trustworthy algorithm benchmarking for BCIs",
+        "registry": "MOABB: trustworthy algorithm benchmarking for BCIs",
+        "URL": "https://api.crossref.org/works/10.1088/1741-2552/aadea0"
+      }
+    },
+    {
+      "check": "formal_year_Jayaram2018",
+      "passed": true,
+      "evidence": {
+        "reference": 2018,
+        "registry": 2018
+      }
+    },
+    {
+      "check": "formal_author_list_Jayaram2018",
+      "passed": true,
+      "evidence": {
+        "reference": [
+          "Jayaram, Vinay",
+          "Barachant, Alexandre"
+        ],
+        "registry": [
+          "Jayaram, Vinay",
+          "Barachant, Alexandre"
+        ],
+        "note": "DataCite Jun internal comma normalized below if needed",
+        "normalization": "author token equality with comma/diacritic normalization; no author insertion/deletion"
+      }
+    },
+    {
+      "check": "formal_title_Borra2024",
+      "passed": true,
+      "evidence": {
+        "reference": "SpeechBrain-MOABB: An open-source Python library for benchmarking deep neural networks applied to EEG signals",
+        "registry": "SpeechBrain-MOABB: An open-source Python library for benchmarking deep neural networks applied to EEG signals",
+        "URL": "https://api.crossref.org/works/10.1016/j.compbiomed.2024.109097"
+      }
+    },
+    {
+      "check": "formal_year_Borra2024",
+      "passed": true,
+      "evidence": {
+        "reference": 2024,
+        "registry": 2024
+      }
+    },
+    {
+      "check": "formal_author_list_Borra2024",
+      "passed": true,
+      "evidence": {
+        "reference": [
+          "Davide Borra",
+          "Francesco Paissan",
+          "Mirco Ravanelli"
+        ],
+        "registry": [
+          "Borra, Davide",
+          "Paissan, Francesco",
+          "Ravanelli, Mirco"
+        ],
+        "note": "DataCite Jun internal comma normalized below if needed",
+        "normalization": "author token equality with comma/diacritic normalization; no author insertion/deletion"
+      }
+    },
+    {
+      "check": "formal_title_Borra2025Protocol",
+      "passed": true,
+      "evidence": {
+        "reference": "A protocol for trustworthy EEG decoding with neural networks",
+        "registry": "A protocol for trustworthy EEG decoding with neural networks",
+        "URL": "https://api.crossref.org/works/10.1016/j.neunet.2024.106847"
+      }
+    },
+    {
+      "check": "formal_year_Borra2025Protocol",
+      "passed": true,
+      "evidence": {
+        "reference": 2025,
+        "registry": 2025
+      }
+    },
+    {
+      "check": "formal_author_list_Borra2025Protocol",
+      "passed": true,
+      "evidence": {
+        "reference": [
+          "Davide Borra",
+          "Elisa Magosso",
+          "Mirco Ravanelli"
+        ],
+        "registry": [
+          "Borra, Davide",
+          "Magosso, Elisa",
+          "Ravanelli, Mirco"
+        ],
+        "note": "DataCite Jun internal comma normalized below if needed",
+        "normalization": "author token equality with comma/diacritic normalization; no author insertion/deletion"
+      }
+    },
+    {
+      "check": "formal_title_Eder2024",
+      "passed": true,
+      "evidence": {
+        "reference": "Benchmarking brain–computer interface algorithms: Riemannian approaches vs convolutional neural networks",
+        "registry": "Benchmarking brain–computer interface algorithms: Riemannian approaches vs convolutional neural networks",
+        "URL": "https://api.crossref.org/works/10.1088/1741-2552/ad6793"
+      }
+    },
+    {
+      "check": "formal_year_Eder2024",
+      "passed": true,
+      "evidence": {
+        "reference": 2024,
+        "registry": 2024
+      }
+    },
+    {
+      "check": "formal_author_list_Eder2024",
+      "passed": true,
+      "evidence": {
+        "reference": [
+          "Manuel Eder",
+          "Jiachen Xu",
+          "Moritz Grosse-Wentrup"
+        ],
+        "registry": [
+          "Eder, Manuel",
+          "Xu, Jiachen",
+          "Grosse-Wentrup, Moritz"
+        ],
+        "note": "DataCite Jun internal comma normalized below if needed",
+        "normalization": "author token equality with comma/diacritic normalization; no author insertion/deletion"
+      }
+    },
+    {
+      "check": "formal_title_Lawhern2018",
+      "passed": true,
+      "evidence": {
+        "reference": "EEGNet: a compact convolutional neural network for EEG-based brain–computer interfaces",
+        "registry": "EEGNet: a compact convolutional neural network for EEG-based brain–computer interfaces",
+        "URL": "https://api.crossref.org/works/10.1088/1741-2552/aace8c"
+      }
+    },
+    {
+      "check": "formal_year_Lawhern2018",
+      "passed": true,
+      "evidence": {
+        "reference": 2018,
+        "registry": 2018
+      }
+    },
+    {
+      "check": "formal_author_list_Lawhern2018",
+      "passed": true,
+      "evidence": {
+        "reference": [
+          "Lawhern, Vernon J",
+          "Solon, Amelia J",
+          "Waytowich, Nicholas R",
+          "Gordon, Stephen M",
+          "Hung, Chou P",
+          "Lance, Brent J"
+        ],
+        "registry": [
+          "Lawhern, Vernon J",
+          "Solon, Amelia J",
+          "Waytowich, Nicholas R",
+          "Gordon, Stephen M",
+          "Hung, Chou P",
+          "Lance, Brent J"
+        ],
+        "note": "DataCite Jun internal comma normalized below if needed",
+        "normalization": "author token equality with comma/diacritic normalization; no author insertion/deletion"
+      }
+    },
+    {
+      "check": "formal_title_Ramoser2000",
+      "passed": true,
+      "evidence": {
+        "reference": "Optimal spatial filtering of single trial EEG during imagined hand movement",
+        "registry": "Optimal spatial filtering of single trial EEG during imagined hand movement",
+        "URL": "https://api.crossref.org/works/10.1109/86.895946"
+      }
+    },
+    {
+      "check": "formal_year_Ramoser2000",
+      "passed": true,
+      "evidence": {
+        "reference": 2000,
+        "registry": 2000
+      }
+    },
+    {
+      "check": "formal_author_list_Ramoser2000",
+      "passed": true,
+      "evidence": {
+        "reference": [
+          "Ramoser, H.",
+          "Muller-Gerking, J.",
+          "Pfurtscheller, G."
+        ],
+        "registry": [
+          "Ramoser, H.",
+          "Muller-Gerking, J.",
+          "Pfurtscheller, G."
+        ],
+        "note": "DataCite Jun internal comma normalized below if needed",
+        "normalization": "author token equality with comma/diacritic normalization; no author insertion/deletion"
+      }
+    },
+    {
+      "check": "formal_title_Zhi2025SCLDGN",
+      "passed": true,
+      "evidence": {
+        "reference": "Supervised Contrastive Learning-Based Domain Generalization Network for Cross-Subject Motor Decoding",
+        "registry": "Supervised Contrastive Learning-Based Domain Generalization Network for Cross-Subject Motor Decoding",
+        "URL": "https://api.crossref.org/works/10.1109/tbme.2024.3432934"
+      }
+    },
+    {
+      "check": "formal_year_Zhi2025SCLDGN",
+      "passed": true,
+      "evidence": {
+        "reference": 2025,
+        "registry": 2025
+      }
+    },
+    {
+      "check": "formal_author_list_Zhi2025SCLDGN",
+      "passed": true,
+      "evidence": {
+        "reference": [
+          "Hongyi Zhi",
+          "Tianyou Yu",
+          "Zhenghui Gu",
+          "Zhuobin Lin",
+          "Le Che",
+          "Yuanqing Li",
+          "Zhuliang Yu"
+        ],
+        "registry": [
+          "Zhi, Hongyi",
+          "Yu, Tianyou",
+          "Gu, Zhenghui",
+          "Lin, Zhuobin",
+          "Che, Le",
+          "Li, Yuanqing",
+          "Yu, Zhuliang"
+        ],
+        "note": "DataCite Jun internal comma normalized below if needed",
+        "normalization": "author token equality with comma/diacritic normalization; no author insertion/deletion"
+      }
+    },
+    {
+      "check": "formal_title_Miao2026",
+      "passed": true,
+      "evidence": {
+        "reference": "Meta-Learning Enhanced Multi-Source Domain Adaptation for zero-calibration motor imagery EEG decoding",
+        "registry": "Meta-Learning Enhanced Multi-Source Domain Adaptation for zero-calibration motor imagery EEG decoding",
+        "URL": "https://api.crossref.org/works/10.1016/j.jneumeth.2026.110742"
+      }
+    },
+    {
+      "check": "formal_year_Miao2026",
+      "passed": true,
+      "evidence": {
+        "reference": 2026,
+        "registry": 2026
+      }
+    },
+    {
+      "check": "formal_author_list_Miao2026",
+      "passed": true,
+      "evidence": {
+        "reference": [
+          "Minmin Miao",
+          "Wenliang Fu",
+          "Hong Zeng",
+          "Baoguo Xu",
+          "Wenbin Zhang",
+          "Wenjun Hu"
+        ],
+        "registry": [
+          "Miao, Minmin",
+          "Fu, Wenliang",
+          "Zeng, Hong",
+          "Xu, Baoguo",
+          "Zhang, Wenbin",
+          "Hu, Wenjun"
+        ],
+        "note": "DataCite Jun internal comma normalized below if needed",
+        "normalization": "author token equality with comma/diacritic normalization; no author insertion/deletion"
+      }
+    },
+    {
+      "check": "formal_title_Schalk2009Dataset",
+      "passed": true,
+      "evidence": {
+        "reference": "EEG Motor Movement/Imagery Dataset",
+        "registry": "EEG Motor Movement/Imagery Dataset",
+        "URL": "https://api.datacite.org/dois/10.13026/C28G6P"
+      }
+    },
+    {
+      "check": "formal_year_Schalk2009Dataset",
+      "passed": true,
+      "evidence": {
+        "reference": 2009,
+        "registry": "2009"
+      }
+    },
+    {
+      "check": "formal_author_list_Schalk2009Dataset",
+      "passed": true,
+      "evidence": {
+        "reference": [
+          "Schalk, Gerwin",
+          "McFarland, Dennis J",
+          "Hinterberger, Thilo",
+          "Birbaumer, Niels",
+          "Wolpaw, Jonathan R"
+        ],
+        "registry": [
+          "Schalk, Gerwin",
+          "McFarland, Dennis J",
+          "Hinterberger, Thilo",
+          "Birbaumer, Niels",
+          "Wolpaw, Jonathan R"
+        ],
+        "note": "DataCite Jun internal comma normalized below if needed",
+        "normalization": "author token equality with comma/diacritic normalization; no author insertion/deletion"
+      }
+    },
+    {
+      "check": "formal_title_Cho2017",
+      "passed": true,
+      "evidence": {
+        "reference": "EEG datasets for motor imagery brain–computer interface",
+        "registry": "EEG datasets for motor imagery brain–computer interface",
+        "URL": "https://api.crossref.org/works/10.1093/gigascience/gix034"
+      }
+    },
+    {
+      "check": "formal_year_Cho2017",
+      "passed": true,
+      "evidence": {
+        "reference": 2017,
+        "registry": 2017
+      }
+    },
+    {
+      "check": "formal_author_list_Cho2017",
+      "passed": true,
+      "evidence": {
+        "reference": [
+          "Cho, Hohyun",
+          "Ahn, Minkyu",
+          "Ahn, Sangtae",
+          "Kwon, Moonyoung",
+          "Jun, Sung Chan"
+        ],
+        "registry": [
+          "Cho, Hohyun",
+          "Ahn, Minkyu",
+          "Ahn, Sangtae",
+          "Kwon, Moonyoung",
+          "Jun, Sung Chan"
+        ],
+        "note": "DataCite Jun internal comma normalized below if needed",
+        "normalization": "author token equality with comma/diacritic normalization; no author insertion/deletion"
+      }
+    },
+    {
+      "check": "formal_title_Cho2017Dataset",
+      "passed": true,
+      "evidence": {
+        "reference": "Supporting data for \"EEG datasets for motor imagery brain computer interface\"",
+        "registry": "Supporting data for \"EEG datasets for motor imagery brain computer interface\"",
+        "URL": "https://api.datacite.org/dois/10.5524/100295"
+      }
+    },
+    {
+      "check": "formal_year_Cho2017Dataset",
+      "passed": true,
+      "evidence": {
+        "reference": 2017,
+        "registry": "2017"
+      }
+    },
+    {
+      "check": "formal_author_list_Cho2017Dataset",
+      "passed": true,
+      "evidence": {
+        "reference": [
+          "Cho, Hohyun",
+          "Ahn, Minkyu",
+          "Ahn, Sangtae",
+          "Kwon, Moonyoung",
+          "Jun, Sung Chan"
+        ],
+        "registry": [
+          "Cho, Hohyun",
+          "Ahn, Minkyu",
+          "Ahn, Sangtae",
+          "Kwon, Moonyoung",
+          "Jun, Sung, Chan"
+        ],
+        "note": "DataCite Jun internal comma normalized below if needed",
+        "normalization": "author token equality with comma/diacritic normalization; no author insertion/deletion"
+      }
+    },
+    {
+      "check": "formal_title_Lee2019",
+      "passed": true,
+      "evidence": {
+        "reference": "EEG dataset and OpenBMI toolbox for three BCI paradigms: an investigation into BCI illiteracy",
+        "registry": "EEG dataset and OpenBMI toolbox for three BCI paradigms: an investigation into BCI illiteracy",
+        "URL": "https://api.crossref.org/works/10.1093/gigascience/giz002"
+      }
+    },
+    {
+      "check": "formal_year_Lee2019",
+      "passed": true,
+      "evidence": {
+        "reference": 2019,
+        "registry": 2019
+      }
+    },
+    {
+      "check": "formal_author_list_Lee2019",
+      "passed": true,
+      "evidence": {
+        "reference": [
+          "Lee, Min-Ho",
+          "Kwon, O-Yeon",
+          "Kim, Yong-Jeong",
+          "Kim, Hong-Kyung",
+          "Lee, Young-Eun",
+          "Williamson, John",
+          "Fazli, Siamac",
+          "Lee, Seong-Whan"
+        ],
+        "registry": [
+          "Lee, Min-Ho",
+          "Kwon, O-Yeon",
+          "Kim, Yong-Jeong",
+          "Kim, Hong-Kyung",
+          "Lee, Young-Eun",
+          "Williamson, John",
+          "Fazli, Siamac",
+          "Lee, Seong-Whan"
+        ],
+        "note": "DataCite Jun internal comma normalized below if needed",
+        "normalization": "author token equality with comma/diacritic normalization; no author insertion/deletion"
+      }
+    },
+    {
+      "check": "formal_title_Lee2019Dataset",
+      "passed": true,
+      "evidence": {
+        "reference": "Supporting data for \"EEG Dataset and OpenBMI Toolbox for Three BCI Paradigms: An Investigation into BCI Illiteracy\"",
+        "registry": "Supporting data for \"EEG Dataset and OpenBMI Toolbox for Three BCI Paradigms: An Investigation into BCI Illiteracy\"",
+        "URL": "https://api.datacite.org/dois/10.5524/100542"
+      }
+    },
+    {
+      "check": "formal_year_Lee2019Dataset",
+      "passed": true,
+      "evidence": {
+        "reference": 2019,
+        "registry": "2019"
+      }
+    },
+    {
+      "check": "formal_author_list_Lee2019Dataset",
+      "passed": true,
+      "evidence": {
+        "reference": [
+          "Lee, Min-Ho",
+          "Kwon, O-Yeon",
+          "Kim, Yong-Jeong",
+          "Kim, Hong-Kyung",
+          "Lee, Young-Eun",
+          "Williamson, John",
+          "Fazli, Siamac",
+          "Lee, Seong-Whan"
+        ],
+        "registry": [
+          "Lee, Min-Ho",
+          "Kwon, O-Yeon",
+          "Kim, Yong-Jeong",
+          "Kim, Hong-Kyung",
+          "Lee, Young-Eun",
+          "Williamson, John",
+          "Fazli, Siamac",
+          "Lee, Seong-Whan"
+        ],
+        "note": "DataCite Jun internal comma normalized below if needed",
+        "normalization": "author token equality with comma/diacritic normalization; no author insertion/deletion"
+      }
+    },
+    {
+      "check": "formal_title_Dreyer2023",
+      "passed": true,
+      "evidence": {
+        "reference": "A large EEG database with users’ profile information for motor imagery brain-computer interface research",
+        "registry": "A large EEG database with users’ profile information for motor imagery brain-computer interface research",
+        "URL": "https://api.crossref.org/works/10.1038/s41597-023-02445-z"
+      }
+    },
+    {
+      "check": "formal_year_Dreyer2023",
+      "passed": true,
+      "evidence": {
+        "reference": 2023,
+        "registry": 2023
+      }
+    },
+    {
+      "check": "formal_author_list_Dreyer2023",
+      "passed": true,
+      "evidence": {
+        "reference": [
+          "Pauline Dreyer",
+          "Aline Roc",
+          "Léa Pillette",
+          "Sébastien Rimbert",
+          "Fabien Lotte"
+        ],
+        "registry": [
+          "Dreyer, Pauline",
+          "Roc, Aline",
+          "Pillette, Léa",
+          "Rimbert, Sébastien",
+          "Lotte, Fabien"
+        ],
+        "note": "DataCite Jun internal comma normalized below if needed",
+        "normalization": "author token equality with comma/diacritic normalization; no author insertion/deletion"
+      }
+    },
+    {
+      "check": "formal_title_Pfurtscheller1999",
+      "passed": true,
+      "evidence": {
+        "reference": "Event-related EEG/MEG synchronization and desynchronization: basic principles",
+        "registry": "Event-related EEG/MEG synchronization and desynchronization: basic principles",
+        "URL": "https://api.crossref.org/works/10.1016/s1388-2457(99)00141-8"
+      }
+    },
+    {
+      "check": "formal_year_Pfurtscheller1999",
+      "passed": true,
+      "evidence": {
+        "reference": 1999,
+        "registry": 1999
+      }
+    },
+    {
+      "check": "formal_author_list_Pfurtscheller1999",
+      "passed": true,
+      "evidence": {
+        "reference": [
+          "G. Pfurtscheller",
+          "F.H. Lopes da Silva"
+        ],
+        "registry": [
+          "Pfurtscheller, G.",
+          "Lopes da Silva, F.H."
+        ],
+        "note": "DataCite Jun internal comma normalized below if needed",
+        "normalization": "author token equality with comma/diacritic normalization; no author insertion/deletion"
+      }
+    },
+    {
+      "check": "fig1_9_actual_development_rows",
+      "passed": true,
+      "evidence": {
+        "n": 9
+      }
+    },
+    {
+      "check": "fig1_mean_rank_minus_loss_pp",
+      "passed": true,
+      "evidence": {
+        "source": "historical_internal_paired.csv"
+      }
+    },
+    {
+      "check": "fig1_mean_fixed_minus_matched_loss_pp",
+      "passed": true,
+      "evidence": {
+        "source": "historical_internal_paired.csv"
+      }
+    },
+    {
+      "check": "fig1_mean_fixed_minus_historical_rank_pp",
+      "passed": true,
+      "evidence": {
+        "source": "historical_internal_paired.csv"
+      }
+    },
+    {
+      "check": "fig2_point_CI_q14_physionet",
+      "passed": true,
+      "evidence": {
+        "scope": "point and frozen interval exact within export precision"
+      }
+    },
+    {
+      "check": "fig2_point_CI_q15_cho",
+      "passed": true,
+      "evidence": {
+        "scope": "point and frozen interval exact within export precision"
+      }
+    },
+    {
+      "check": "fig2_point_CI_q15_lee",
+      "passed": true,
+      "evidence": {
+        "scope": "point and frozen interval exact within export precision"
+      }
+    },
+    {
+      "check": "fig3_9_heldout_CSP_rows_only",
+      "passed": true,
+      "evidence": {
+        "excludes": "training resubstitution"
+      }
+    },
+    {
+      "check": "main_figure_links_1_3",
+      "passed": true,
+      "evidence": {
+        "figures": 3
+      }
+    },
+    {
+      "check": "all_main_figure_assets_exist",
+      "passed": true,
+      "evidence": {
+        "scope": "asset file availability, final export visual review separate"
+      }
+    },
+    {
+      "check": "tracked_historical_paths_unmodified",
+      "passed": true,
+      "evidence": {
+        "scope": "tracked diff only; root final protected-byte audit separate",
+        "changed_count": 13
+      }
+    }
+  ],
+  "check_count": 172,
+  "passed": 172,
+  "failed": 0,
+  "failed_checks": [],
+  "input_sha256": {
+    "REVISED_MANUSCRIPT.md": "3dd17b8787568c82e80a774089d096b49c84ba0355bf8b4ab3ce48b18758a11a",
+    "SUPPORTING_INFORMATION.md": "46568ac47014d40776ca0ea4fe87dfc637511904d6f1eb1e565967a10e6a340a",
+    "SCIENTIFIC_VALIDATION_REPORT.md": "f5da51359f013bc91ed20a743c5432a8f24f83d955e159f0e1d3a6ff3f292427",
+    "PROSPECTIVE_VALIDATION_PROTOCOL.md": "72fc723f52c57e89ed052dcba95cef2d5c732d53f4b47d65b951f2cac1301969",
+    "STATISTICAL_ANALYSIS_PLAN.md": "0e81f8bc1044d6b1404da72c79a92d02972bd7f9e49d5f7b7953756a56ed2754",
+    "config/core_experiment_v1.json": "7b072edced5e49f869f047d0a72871de4bb0e8a6108718aa90adf640bf02b5bc",
+    "references.json": "b3b478d6d95a855a151d4a140f7102b3f213b20a8176b1cc4877037b3d7d69d3",
+    "REFERENCES.md": "eb658776165e3271f8d9c5ec7d3b379c2f9e93d949385341fa71e798d0ea7e95",
+    "references.bib": "97d35766180e88a89535171c09d57a69eb998c41ee816d3c8f6f4fb7cf97cae1",
+    "evidence/historical_reaggregation.json": "b1a89e37741f3f13cafb3dd074c93a7b88da60243a80e19c6a1a772ec59c3a10",
+    "results/cpu-csp-20261013T004218Z-2828deb4/independent_validation.json": "a6d3c276dc0e8986cf10ea1e9cf5c310518281d1c003f54c8d95d649d433ceda",
+    "evidence/dreyer_access_metadata_receipt.json": "e4177a497262fa09a0ec98dbdbefb72a5ef534ee4aa388a1b4abd01619c89346",
+    "evidence/manuscript_reference_metadata_independent.json": "cd47140f5429b2b123fa5f0aca783b5b01957874c3ba35d45ca24291594357e1"
+  },
+  "unresolved_scientific_gates": [
+    "Author prior-exposure attestation",
+    "Participant identity/overlap judgment",
+    "Whole-cohort source/derivative/provenance and raw QC",
+    "New 19-channel neural source training and target inference",
+    "Paid GPU authorization",
+    "New version final author approval/exclusive journal status"
+  ],
+  "model_fits_started_by_review": 0,
+  "target_predictions_computed_by_review": false,
+  "export_visual_review_completed": true,
+  "export_review_pointer": "evidence/manuscript_export_independent_review.json",
+  "future_code_review_pointer": "evidence/future_core_independent_review.json"
+}

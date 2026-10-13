@@ -1,0 +1,400 @@
+{
+  "schema_version": 1,
+  "audit_date": "2026-10-12",
+  "audit_scope": "primary-source metadata/protocol/license assessment plus bounded one-person source-EDF/BDF transport/header/annotation/precue format-scale preflight; no target decoder score, inference or task feature",
+  "selection_order": "task and provenance -> real common montage -> prospective source-only feasibility -> participant count/resources; not decoder performance",
+  "performance_exposure_note": "Primary-provider technical-validation text contains historical online performance. It was encountered after conditional Dreyer nomination during protocol/QC reading, not used to rank datasets, choose windows, identify easy participants, or select models. No candidate-target performance of any proposed model has been computed.",
+  "historical_targets_not_confirmatory": [
+    "BNCI2014_001",
+    "PhysioNet",
+    "Cho2017",
+    "Lee2019_MI"
+  ],
+  "second_paper_repository_accessed": false,
+  "second_paper_reuse_status": "not established; gate unresolved",
+  "identity_overlap_status": "No directly identifying cross-provider key exists in reviewed anonymized metadata. Geographic/provider differences and subject IDs are not proof of person independence. Exact file duplication, signal duplication, and author exposure/reuse review remain pending.",
+  "independent_confirmatory_evaluation_completed": false,
+  "preferred_candidate": {
+    "dataset": "Dreyer2023 combined A/B/C",
+    "paper_title": "A large EEG database with users’ profile information for motor imagery brain-computer interface research",
+    "paper_doi": "10.1038/s41597-023-02445-z",
+    "paper_url": "https://www.nature.com/articles/s41597-023-02445-z",
+    "authors": [
+      "Pauline Dreyer",
+      "Aline Roc",
+      "Léa Pillette",
+      "Sébastien Rimbert",
+      "Fabien Lotte"
+    ],
+    "formal_publication_year": 2023,
+    "record_doi": "10.5281/zenodo.8089820",
+    "record_url": "https://zenodo.org/records/8089820",
+    "metadata_url": "https://zenodo.org/api/records/8089820",
+    "license": "CC BY 4.0 (original provider record)",
+    "nominal_persons": 87,
+    "subgroups": {
+      "A": 60,
+      "B": 21,
+      "C": 6
+    },
+    "subgroups_are_independent_replication_datasets": false,
+    "independent_analysis_unit": "person; A/B/C origin strata, not 3 independently acquired generalization replicates",
+    "sessions_per_person": 1,
+    "runs_per_person_expected": 6,
+    "calibration_acquisition_runs": 2,
+    "calibration_trials_per_person_expected": 80,
+    "calibration_per_class_expected": 40,
+    "feedback_online_runs": 4,
+    "all_runs_trials_per_person_expected": 240,
+    "primary_design_recommendation": "Use all available R1/R2 acquisition runs of all technically eligible people; exclude A17/A41 by provider-recorded unresolved montage corruption; other provider QC flags retained unless fixed signal-only QC fails. Never select by online success rate, MI physiology response or model performance.",
+    "primary_n_upper_bound_before_raw_audit": 85,
+    "primary_trials_upper_bound_before_raw_audit": 6800,
+    "primary_trials_are_actual_observed_count": false,
+    "native_sampling_hz": 512,
+    "eeg_channels": [
+      "Fz",
+      "FCz",
+      "Cz",
+      "CPz",
+      "Pz",
+      "C1",
+      "C3",
+      "C5",
+      "C2",
+      "C4",
+      "C6",
+      "F4",
+      "FC2",
+      "FC4",
+      "FC6",
+      "CP2",
+      "CP4",
+      "CP6",
+      "P4",
+      "F3",
+      "FC1",
+      "FC3",
+      "FC5",
+      "CP1",
+      "CP3",
+      "CP5",
+      "P3"
+    ],
+    "eeg_channel_count": 27,
+    "emg_channel_count": 2,
+    "eog_channel_count": 3,
+    "reference": "left earlobe",
+    "ground": "Fpz",
+    "hardware": "two g.USBAmp amplifiers; no hardware filters per original paper",
+    "canonical19_order": [
+      "Fz",
+      "FC3",
+      "FC1",
+      "FCz",
+      "FC2",
+      "FC4",
+      "C5",
+      "C3",
+      "C1",
+      "Cz",
+      "C2",
+      "C4",
+      "C6",
+      "CP3",
+      "CP1",
+      "CPz",
+      "CP2",
+      "CP4",
+      "Pz"
+    ],
+    "old_q15_unavailable_channels": [
+      "P1",
+      "P2",
+      "POz"
+    ],
+    "legacy_q15_checkpoint_direct_use_allowed": false,
+    "new_source_models_required": true,
+    "event_map_primary_paper": {
+      "769": "left hand MI cue",
+      "770": "right hand MI cue",
+      "768": "trial start",
+      "781": "feedback begin",
+      "800": "feedback/trial end",
+      "32769": "run begin",
+      "32770": "run end"
+    },
+    "label_map_for_new_protocol": {
+      "769": 1,
+      "770": 2
+    },
+    "label_map_raw_file_verified": false,
+    "cue_relative_primary_window_s": [
+      0.5,
+      2.5
+    ],
+    "window_status": "source-compatible proposal, to be committed before any target model outputs",
+    "feedback_onset_relative_cue_s": 1.25,
+    "sham_feedback_in_primary_window": true,
+    "feedback_warning": "The acquisition runs use sham visual feedback after cue +1.25 s, with the bar on the cued side. No individual decoder calibration feedback yet, but these are not feedback-free or pure-physiology recordings.",
+    "provider_qc_flags": [
+      {
+        "participant": "A04",
+        "provider_reason": "FC5 technical fault causing large artifacts",
+        "affected_canonical19": [],
+        "primary_action": "retain unless prespecified signal-only QC fails"
+      },
+      {
+        "participant": "A09",
+        "provider_reason": "FC5 technical fault causing large artifacts",
+        "affected_canonical19": [],
+        "primary_action": "retain unless prespecified signal-only QC fails"
+      },
+      {
+        "participant": "A17",
+        "provider_reason": "two-amplifier recording order error; incorrect electrode arrangement and disturbed EEG",
+        "affected_canonical19": "unresolved entire mapping",
+        "primary_action": "exclude; no reversible permutation or verified correction supplied"
+      },
+      {
+        "participant": "A29",
+        "provider_reason": "possible FC5/CP5 disconnection or excessive impedance",
+        "affected_canonical19": [],
+        "primary_action": "retain unless prespecified signal-only QC fails"
+      },
+      {
+        "participant": "A41",
+        "provider_reason": "same two-amplifier recording order error as A17; incorrect arrangement and disturbed EEG",
+        "affected_canonical19": "unresolved entire mapping",
+        "primary_action": "exclude; no reversible permutation or verified correction supplied"
+      },
+      {
+        "participant": "B78",
+        "provider_reason": "major artifacts in P4/C3/FC3 in different runs",
+        "affected_canonical19": [
+          "C3",
+          "FC3"
+        ],
+        "primary_action": "retain with provider quality flag unless signal-only QC fails; exact affected acquisition runs unverified"
+      },
+      {
+        "participant": "B79",
+        "provider_reason": "C2 electrode dysfunction",
+        "affected_canonical19": [
+          "C2"
+        ],
+        "primary_action": "retain with provider quality flag unless signal-only QC fails; exact affected acquisition runs unverified"
+      }
+    ],
+    "raw_archive": {
+      "key": "BCI Database.zip",
+      "size_bytes": 27475466178,
+      "checksum": "md5:c8c6f5f09f1882666eec10e29155fdcb",
+      "url": "https://zenodo.org/api/records/8089820/files/BCI%20Database.zip/content",
+      "expected_storage_note": "27.5 GB compressed archive plus decompression/cache require more than currently approximately 28 GB free; selective range retrieval/cloud streaming needs confirmation first",
+      "range_support": "not verified at audit preparation; HEAD timed out; tail range probe separately recorded",
+      "individual_run_download_urls": "Not exposed by original provider metadata; API lists a single ZIP. ZIP directory/range audit pending."
+    },
+    "consent_and_ethics_original_collection": "Paper describes informed consent including anonymous sharing, Inria COERLE approval 2018-13. This does not fabricate approval/exemption for the present secondary analysis.",
+    "eligibility_status": "conditionally nominated; authenticated mirror subset checked for one person, while full cohort/original GDF equivalence/signal-only QC/identity overlap/prior-project exposure remain unresolved",
+    "label_map_bounded_subset_verified": true,
+    "label_map_full_cohort_verified": false,
+    "source_edf_manifest_declared_files": 520,
+    "missing_source_edf_runs": {
+      "sub-59": [
+        "R5online",
+        "R6online"
+      ]
+    },
+    "acquisition_manifest_complete": true,
+    "acquisition_manifest_files": 174,
+    "acquisition_manifest_total_bytes": 2515343396,
+    "acquisition_signals_full_cohort_audited": false,
+    "original_gdf_equivalence_verified": false,
+    "original_device_calibration_verified": false,
+    "bounded_transport_status": "PARTIAL_SOURCE_ROUTE_VERIFIED_NO_TARGET_PERFORMANCE",
+    "metadata_conflicts": [
+      "derivative sidecar HardwareFilters 5–35 Hz versus descriptor no-hardware-filter raw claim; unresolved",
+      "NEMAR participant age field repeats aggregate age 29 and is not verified individual age",
+      "upstream OSF generic type EEG includes explicitly named EOG/EMG; classify auxiliary channels by authenticated names"
+    ],
+    "provider_declared_run_count_exception": {
+      "sub-59": 4
+    },
+    "provider_declared_missing_runs_excluded_from_primary": true
+  },
+  "other_candidates": [
+    {
+      "dataset": "Stieger2021",
+      "rank": 2,
+      "paper_doi": "10.1038/s41597-021-00883-1",
+      "paper_url": "https://www.nature.com/articles/s41597-021-00883-1",
+      "record_url": "https://figshare.com/articles/dataset/Human_EEG_Dataset_for_Brain-Computer_Interface_and_Meditation/13123148",
+      "metadata_url": "https://api.figshare.com/v2/articles/13123148",
+      "record_doi": "10.6084/m9.figshare.13123148.v1",
+      "nominal_persons": 62,
+      "task": "left/right MI in horizontal cursor-control task; both-hands/rest and 2D control separate",
+      "label_map_primary_paper": {
+        "tasknumber=1": "left/right task",
+        "targetnumber=1": "right",
+        "targetnumber=2": "left",
+        "targetnumber=3": "both hands/up",
+        "targetnumber=4": "rest/down"
+      },
+      "primary_mapping_must_not_use": "targethitnumber, result, forcedresult, cursor success or duration as accuracy-derived selection",
+      "sessions": "7–11 per person; session 1 before 8-week intervention",
+      "suggested_use": "Predeclared session-1 LR task only, if a separate closed-loop/variable-duration protocol can be audited; not silently pooled with Dreyer primary",
+      "native_sampling_hz": 1000,
+      "EEG_leads": 62,
+      "reference": "Native acquisition reference not independently authenticated in metadata read; common rereference requires raw label/units audit",
+      "license_provider": {
+        "value": 1,
+        "name": "CC BY 4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "license_conflict": "MOABB Stieger2021 docs state CC BY-NC 4.0, while original Figshare API explicitly states CC BY 4.0; use versioned provider record and retain conflict, do not change upstream terms by inference",
+      "files": 599,
+      "total_bytes": 376894144767,
+      "session1_files": 62,
+      "session1_bytes": 38395648006,
+      "example_raw_url": "https://ndownloader.figshare.com/files/25265249",
+      "example_raw_size_bytes": 599832496,
+      "raw_downloaded": false,
+      "limitations": [
+        "Online subject-dependent adaptive cursor normalization changes feedback experience",
+        "Trials have variable feedback durations depending on cursor outcomes; full crop eligibility must be fixed without selecting successful/failed trials",
+        "62-person released cohort was selected from a larger original study with provider noncompliance/error/ceiling criteria; not an unselected population",
+        "Repeated sessions do not increase independent n; meditation/control groups belong to same cohort",
+        "Exact 19-channel matching and person uniqueness remain raw-audit gates"
+      ]
+    },
+    {
+      "dataset": "Shin2017A",
+      "rank": 3,
+      "paper_doi": "10.1109/TNSRE.2016.2628057",
+      "formal_year": 2017,
+      "paper_title": "Open Access Dataset for EEG+NIRS Single-Trial Classification",
+      "provider_url": "https://doc.ml.tu-berlin.de/hBCI/",
+      "provider_metadata_page": "https://doc.ml.tu-berlin.de/hBCI/contactthanks.html",
+      "nominal_persons": 29,
+      "task": "left/right hand gripping imagery, MI sessions 1/3/5; arithmetic sessions 2/4/6 excluded",
+      "trials_per_person_expected": 60,
+      "sampling_native_hz": 1000,
+      "sampling_distributed_hz": 200,
+      "reference": "linked mastoids",
+      "eeg_channels": [
+        "AFp1",
+        "AFp2",
+        "AFF1h",
+        "AFF2h",
+        "AFF5h",
+        "AFF6h",
+        "F3",
+        "F4",
+        "F7",
+        "F8",
+        "FCC3h",
+        "FCC4h",
+        "FCC5h",
+        "FCC6h",
+        "T7",
+        "T8",
+        "Cz",
+        "CCP3h",
+        "CCP4h",
+        "CCP5h",
+        "CCP6h",
+        "Pz",
+        "P3",
+        "P4",
+        "P7",
+        "P8",
+        "PPO1h",
+        "PPO2h",
+        "POO1",
+        "POO2"
+      ],
+      "event_map_original_EEG": {
+        "16": "left hand MI",
+        "32": "right hand MI"
+      },
+      "license_provider": "GNU license agreement; GPL-3.0 identification in current adapter, exact downloaded archive license terms still to be retained on acquisition",
+      "example_raw_url": "https://doc.ml.tu-berlin.de/hBCI/EEG/EEG_01-05.zip",
+      "example_raw_size_bytes_HEAD": 1083547146,
+      "raw_downloaded": false,
+      "primary_exclusion": "No true C3/C4 and only Cz/Pz overlap with new canonical19; nearby half-position electrodes cannot be relabelled as equivalent standard sites. Would require a separate spatial-mapping scientific protocol and hence is not a direct matched-montage primary replication.",
+      "metadata_conflict": "Original provider says only downsampling/re-referencing before distribution; current adapter metadata also lists CAR/filtering/ICA. Do not assume adapter analysis preprocessing is provider raw preprocessing."
+    },
+    {
+      "dataset": "Weibo2014",
+      "rank": 4,
+      "paper_doi": "10.1371/journal.pone.0114853",
+      "paper_title": "Evaluation of EEG oscillatory patterns and cognitive process during simple and compound limb motor imagery",
+      "paper_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0114853",
+      "provider_doi": "10.7910/DVN/27306",
+      "provider_url": "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/27306",
+      "nominal_persons": 10,
+      "task": "left/right single-hand MI eligible; six imagery tasks plus rest cannot be treated as binary-all-trial task",
+      "sampling_acquisition_hz": 1000,
+      "paper_analysis_hz": 200,
+      "reference": "nose",
+      "EEG_cap_channels": 64,
+      "provider_license": "not directly verified: original Dataverse API returned 403. NEMAR derived mirror says CC0-1.0 but does not establish source terms",
+      "raw_downloaded": false,
+      "primary_exclusion": "Only 10 independent people and original license/metadata unavailable for direct audit. Suitable only for a separately predeclared secondary small-cohort extension after provider conditions and actual raw fields are verified."
+    },
+    {
+      "dataset": "GrosseWentrup2009 / MunichMI",
+      "rank": 5,
+      "paper_doi": "10.1109/TBME.2008.2009768",
+      "paper_title": "Beamforming in noninvasive brain–computer interfaces",
+      "provider_url": "https://zenodo.org/records/1217449",
+      "provider_doi": "10.5281/zenodo.1217449",
+      "nominal_persons": 10,
+      "task": "left/right hand MI",
+      "EEG_leads": 128,
+      "sampling_hz_adapter_supporting": 500,
+      "reference_adapter_supporting": "Cz",
+      "license_provider": {
+        "id": "cc-by-4.0"
+      },
+      "raw_files": 20,
+      "raw_bytes_total": 7813315168,
+      "example_metadata_header_file": "https://zenodo.org/api/records/1217449/files/subject1.set/content",
+      "header_file_size_bytes": 6919032,
+      "raw_downloaded": false,
+      "provider_warning": "Names of channels 65–128 missing; head model poorly specified. Actual canonical mapping must be authenticated from .set first-64 labels/coordinates, never inferred from electrode integer names.",
+      "primary_exclusion": "Only 10 independent people; documented channel ambiguity. Original provider confirms dataset/license/n; full formal study protocol not read in this audit, so 500 Hz/Cz are supporting adapter claims, not independently established raw fields."
+    }
+  ],
+  "incompatible_task_candidates": [
+    {
+      "dataset": "Schirrmeister High-Gamma",
+      "reason": "Recorded executed left/right hand/feet/rest movement rather than a matched hand-imagery-only experiment; do not infer MI from a library paradigm label. Needs a separate motor-execution scientific question.",
+      "paper_doi": "10.1002/hbm.23730",
+      "status": "known task incompatibility; not acquired"
+    },
+    {
+      "dataset": "NETBCI",
+      "reason": "User-provided task is right-hand MI versus rest, not left/right-hand MI. No second-paper repository inspected or reused; source/provider protocol remains separate.",
+      "status": "excluded from current two-hand task until a different prospectively declared question exists"
+    }
+  ],
+  "pending_required_gates": [
+    "Provider/collection identity reconciliation and prior exposure/reuse declaration; second-paper data independence cannot be presumed",
+    "Commit fixed dataset/window/QC/channel/event rules before any target model evaluation",
+    "Acquire/hash/header/event/units audit the entire selected R1/R2 source-EDF mirror cohort; do not extrapolate bounded one-person checks",
+    "Resolve original GDF-to-EDF provenance/equivalence and actual physical acquisition ordering/calibration; verify 19-axis source/target arrays per file",
+    "Verify labels against OpenViBE event definitions, cue timing and counts, without trial success/online-performance selection",
+    "Detect duplicated whole files and EEG trial payloads within/between collections; counts by person not trials/seeds",
+    "Apply only pre-frozen technical signal QC, record every excluded participant/run/trial and reason, never result-driven rescue",
+    "Independent raw-to-epoch/model/scoring implementation review and save prediction evidence; still not performed"
+  ],
+  "raw_eeg_bytes_downloaded_by_this_audit": 48295882,
+  "new_model_fits": 0,
+  "new_model_predictions": 0,
+  "sources_receipt_file": "evidence/dataset_sources/fetch_receipts.json",
+  "updated_at_utc": "2026-10-13",
+  "raw_eeg_download_scope": "two acquisition source-mirror EDFs of sub-01 and corresponding first BDF conversion; not original GDF distribution or full cohort",
+  "bounded_subset_receipt": "evidence/dreyer_access_metadata_receipt.json",
+  "bounded_subset_replay_validation": "evidence/dreyer_metadata_replay_validation.json"
+}

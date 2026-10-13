@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "status": "PASS_CPU_SOFTWARE_CANDIDATE_REAL_GPU_SOURCE_TRAINING_NOT_EXECUTED",
+  "recorded_at_utc": "2026-10-13T07:42:58.009173+00:00",
+  "checked_files_sha256": {
+    "research_runs/REDESIGN_SOURCE_SELECTION_20261012/scripts/train_source_selection_core.py": "9b45c371eb06b58b423fce2b385fab61ffc80dd439233ebf963f9200e8f387e6",
+    "research_runs/REDESIGN_SOURCE_SELECTION_20261012/scripts/core_source_inputs.py": "03f47bceb3998e407a28e7da56da4875b5d3e1e38746d196739be7262be7cff5",
+    "research_runs/REDESIGN_SOURCE_SELECTION_20261012/scripts/infer_selection_core.py": "4374a65e24eb888657f1017e190f4da5714b84d783a0d90862964a2887945928",
+    "research_runs/REDESIGN_SOURCE_SELECTION_20261012/tests/test_core_training.py": "5599b010fe19050e42b02ef869a7f20167a009e6ae6a21df959ee7824dcd798f",
+    "research_runs/REDESIGN_SOURCE_SELECTION_20261012/tests/test_core_inference.py": "0985d9fdc86ef19ad6124f0ec61b3f29a9448a2e4da2995586164dbb40db6545",
+    "research_runs/REDESIGN_SOURCE_SELECTION_20261012/config/core_experiment_v1.json": "7b072edced5e49f869f047d0a72871de4bb0e8a6108718aa90adf640bf02b5bc"
+  },
+  "core_software_tests": {
+    "passed": 39,
+    "failed": 0,
+    "command": "/workspace/mi-eeg-redesign-runtime/bin/python -m pytest -q research_runs/REDESIGN_SOURCE_SELECTION_20261012/tests/test_core_training.py",
+    "real_braindecode_EEGNet_forward_backward_synthetic_only": true,
+    "real_broad_shared_parameter_and_view_MAC_accounting_checked": true,
+    "source_participant_partition_and_selection_rules_checked": true,
+    "nonfinite_gradient_stops_before_optimizer_update": true,
+    "raw_EEG_used_for_these_tests": false,
+    "actual_scientific_neural_fits": 0
+  },
+  "joint_training_inference_regression": {
+    "passed": 71,
+    "failed": 0,
+    "core_training_tests": 39,
+    "core_inference_tests": 32
+  },
+  "pip_check": "PASS",
+  "default_launcher": "DRY_RUN_NO_EEG_READ_NO_NEURAL_FITS",
+  "root_real_source19_probe": {
+    "file": "research_runs/REDESIGN_SOURCE_SELECTION_20261012/evidence/core_source_input_probe.json",
+    "sha256": "29e3c4ee4de516d4d971426a7eed1b469ace66ba5c4fe3e351238f5a0b97febc",
+    "scope": "Root performed authenticated source preprocessing only; no fit or target prediction. New trainer does not imply this probe qualified the target or GPU."
+  },
+  "actual_source_scientific_neural_fits": 0,
+  "target_fits": 0,
+  "target_predictions_computed": false,
+  "source_gpu_grid_completed": false,
+  "external_experiment_completed": false,
+  "core_public_neural_preanalysis_created": false,
+  "full_target_and_author_first_use_gate_satisfied": false,
+  "explicit_paid_gpu_authorization_present": false,
+  "pre_freeze_gate_repairs": [
+    "Strict typed Boolean source data and authorization fields: integer1 is not True",
+    "Actual full author declaration, 174 acquisition coverage, failed/raw-QC status, frozen roster/event/scale/conversion evidence are checked via shared metadata qualification function",
+    "Source public preanalysis verifies immutable code/config/runtime/protocol and all actual gate dependencies rather than a PASS wrapper alone",
+    "Input artifacts are newly re-extracted actual19CAR microvolt inputs; old Q15 model/tensors are not truncated",
+    "Fit/update budgets require integer counts; elapsed/cost/expiry checks run before real optimizer updates",
+    "Nonfinite gradients fail before optimizer.step; checkpoint receipts record actual model structure and parameter shapes"
+  ],
+  "unverified_real_execution_items": [
+    "No CUDA-GPU architecture/training memory, wall-time or cost measurement has been performed.",
+    "The full 8-inner/18-nominal-final real neural grid and resume/recovery have not been executed.",
+    "No full-cohort genuine author/raw-QC/event roster gate exists; missing/failing evidence must remain blocking.",
+    "No actual GPU authorization, public GPU runtime lock or live public core neural preanalysis receipt was created.",
+    "Completed source models need a separate independent validator before any target inference; this source runner deliberately emits pending independent validation.",
+    "No target inference results or scientific significance are inferred from synthetic software tests."
+  ],
+  "review_scope": "Software implementation review and actual synthetic CPU checks, not independently confirmed real neural experimental results."
+}
