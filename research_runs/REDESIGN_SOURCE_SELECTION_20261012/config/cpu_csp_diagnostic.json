@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "source_subjects": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "expected_new_source_fits": 10,
+  "target_fits": 0,
+  "bands": "broad",
+  "artifact_policy": "include_all",
+  "target_predictions_enabled": false,
+  "cpu_threads": 1,
+  "parameters": {
+    "fixed_car_basis_channels": 21,
+    "n_components": 4,
+    "reg": null,
+    "log": true,
+    "cov_est": "concat",
+    "norm_trace": false,
+    "rank": "full",
+    "component_order": "mutual_info",
+    "transform_into": "average_power",
+    "scaler": "StandardScaler",
+    "lda_solver": "svd"
+  },
+  "frozen_model": null,
+  "interpretation": "New retrospective source diagnostic under the recorded new runtime; not independent-cohort confirmation and not authentication of prior unarchived report runs."
+}

@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "reviewed_at_utc": "2026-10-13T00:40:26.704979+00:00",
+  "status": "PASS_SOFTWARE_AND_STATIC_CODE_REVIEW_NOT_REAL_EEG_VALIDATION",
+  "reviewer": "independent code-review agent",
+  "checked_files_sha256": {
+    "research_runs/REDESIGN_SOURCE_SELECTION_20261012/scripts/cpu_csp_source_audit.py": "668138d44e24535e98cffc71e23d540d287cf823b17f38aa97dc0e1fc4cd6fd5",
+    "research_runs/REDESIGN_SOURCE_SELECTION_20261012/scripts/validate_cpu_csp_source_audit.py": "0505a8361ce168ebee6990779cbc284f7cf475c4ee2daaf2db1f8fade4ebba8c",
+    "research_runs/REDESIGN_SOURCE_SELECTION_20261012/tests/test_cpu_csp_source_audit.py": "31307fad657b413aac21101b8f422c9fc882ffdefc19a5bd51b117dc0c8c997a",
+    "scripts/q15_source.py": "b0c3a02d757c3b636ec6f312f3d3d8f43d5ce44a0ff14dfbfe10dacef4172648",
+    "scripts/q14_source.py": "b70cf5e41474688b22c6a57a068c07edaa22a8bbf640bd2100b8bb616ea05375",
+    "src/mi_eeg/data/q15_context.py": "849ee22e2a1c1987c2a83ed3a837f9f358b505133ce2ffe13ee876f01adc3d61",
+    "src/mi_eeg/models/q15_csp.py": "b5e4df5428c28688d5163cbb235fad5408cf89324ac4112c6511cdedd25294fd"
+  },
+  "software_tests": {
+    "command": "/workspace/mi-eeg-redesign-runtime/bin/python -m pytest -q research_runs/REDESIGN_SOURCE_SELECTION_20261012/tests/test_cpu_csp_source_audit.py",
+    "passed": 33,
+    "failed": 0,
+    "raw_eeg_read": false,
+    "real_models_fitted": 0,
+    "model_inference": false,
+    "py_compile": "PASS",
+    "default_dry_run": "PASS"
+  },
+  "pre_freeze_fixes": [
+    "Hash and use actual float64 estimator inputs; retain float32 preprocessing hash separately",
+    "Pin both original preprocessing contract files as minimum public/local/git preanalysis dependencies",
+    "Verify actual public immutable source bytes rather than trusting receipt PASS",
+    "Verify runtime implementation, label-validation, contract and library-version records",
+    "Recheck original-model compatibility policy if a replay is reported"
+  ],
+  "checks": [
+    {
+      "id": "CSP-01",
+      "status": "PASS",
+      "scope": "source-code comparison",
+      "evidence": "scripts/q14_source.py::_csp_pipeline declares n_components=4, reg=None, log=True, cov_est=concat, norm_trace=False, rank=full, component_order=mutual_info; scripts/q15_source.py::_fit_csp adds constant FixedCARBasis21→20, scaler and SVD LDA. Fresh estimator matches these declared choices. Runtime/new-fit identity differs from original frozen artifact."
+    },
+    {
+      "id": "CSP-02",
+      "status": "PASS",
+      "scope": "default execution safety",
+      "evidence": "Default CLI prints DRY_RUN_NO_DATA_LOADED_NO_FITS; real execution requires --execute, source data path, baseline PASS and public preanalysis commit. Default dry run completed with zero source/target/neural fits."
+    },
+    {
+      "id": "CSP-03",
+      "status": "PASS",
+      "scope": "public preanalysis identity",
+      "evidence": "Verify requires real 40-hex ancestral git commit, correct repository/branch/commit publication identity, unchanged local/git objects, and actual HTTPS readback SHA for nine minimum executable, label-validation, source-provenance and original-contract dependencies. A receipt-only PASS dictionary, missing contracts, changed bytes/public identity fail software tests. Actual live committed freeze remains root execution responsibility."
+    },
+    {
+      "id": "CSP-04",
+      "status": "PASS",
+      "scope": "partition identities/no source holdout leakage",
+      "evidence": "All nine synthetic LOSO checks exclude held-out subject and sample identities from fitting. Both classes required in training/evaluation, sample IDs unique, independent validator compares original native MAT trial labels/artifact flags/order with CSVs and partitions. Training resubstitution explicitly overlaps evaluation and is not validation."
+    },
+    {
+      "id": "CSP-05",
+      "status": "PASS",
+      "scope": "actual fit/prediction array hashes",
+      "evidence": "Executor constructs contiguous float64 train/evaluation arrays once, hashes shape/dtype/values and passes those same objects to Pipeline.fit/predict/predict_proba. Runtime separately binds frozen preprocessing float32 whole epochs. Validator replays float32 frozen transform and the declared float64 conversion for all ten partitions without model loading, fitting or inference."
+    },
+    {
+      "id": "CSP-06",
+      "status": "PASS",
+      "scope": "honest counters and artifact coverage",
+      "evidence": "Started counter increments immediately before each Pipeline.fit; completed increments only after successful fit, prediction export, model export and completed receipt. Validator requires exactly ten ordinals/folds, status/counters, source partition/numerical hashes, 10 nonempty model artifacts with SHA and heldout prediction coverage of all 2592 unique trials. Declaring 10 in a standalone manifest cannot pass."
+    },
+    {
+      "id": "CSP-07",
+      "status": "PASS",
+      "scope": "old pickle safety",
+      "evidence": "Original pickle replay skips when any required numpy/scipy/sklearn/mne/joblib version is unavailable/different, frozen hash/path unavailable or symlinked. Only configured exact frozen-model SHA can become eligible. Validator rechecks original replay policy for REPLAYED; validator itself never deserializes models. Current freeze must not imply a skipped original artifact was replayed."
+    },
+    {
+      "id": "CSP-08",
+      "status": "PASS",
+      "scope": "interpretation",
+      "evidence": "New nine LOSO fits and one all-source resubstitution fit are new retrospective source-only diagnostics, separate from original primary 15 source fits and any unarchived source report run. No target activity is enabled. Agreement with old rounded 63.04/61.65 cannot restore the old report provenance or independently confirm unseen-cohort performance."
+    },
+    {
+      "id": "CSP-09",
+      "status": "PASS",
+      "scope": "runtime/implementation dependencies",
+      "evidence": "Runtime records, and validator checks, executor, independent label-validator, preprocessing module, basis module, original two contracts, config and source provenance hashes plus scientific library versions. This binds reproducibility but cannot prove absence of every implementation error."
+    }
+  ],
+  "pending_real_execution_checks": [
+    "Public freeze receipt must be created after actual GitHub publication and readback",
+    "Root runs the authorized 10 source fits only after freeze",
+    "Independent real-output validator must then verify original raw labels, numeric input replay, models hashes, predictions and scores"
+  ],
+  "limits": [
+    "Software tests are synthetic and are not scientific evidence about real EEG",
+    "Native-label validation and numeric replay reuse selected frozen helper functions; they are not an independently designed preprocessing implementation",
+    "Static source-code agreement does not authenticate original historical runtime or unarchived source fits",
+    "No original raw EEG was accessed by this review agent before root run completion"
+  ]
+}
