@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "purpose": "Free CPU acquisition and byte/header/event audit for an exposure-unconfirmed exploratory external extension only.",
+  "dataset": "Dreyer2023",
+  "provider_dataset_id": "nm000250",
+  "provider_version": "v1.0.5",
+  "provider_tree_sha": "f77f8859a84df42bd775920d288261260b2236db",
+  "provider_manifest_sha256": "061a8e215093e1bb0db8f80f95b112c60266acfa640284d05f92c0c6a5ddc544",
+  "route": "authenticated source EDF mirror; not authenticated original Zenodo GDF bytes",
+  "eligible_run_names": [
+    "R1acquisition",
+    "R2acquisition"
+  ],
+  "declared_persons": 87,
+  "declared_acquisition_files": 174,
+  "declared_acquisition_bytes": 2515343396,
+  "canonical19_order": [
+    "Fz",
+    "FC3",
+    "FC1",
+    "FCz",
+    "FC2",
+    "FC4",
+    "C5",
+    "C3",
+    "C1",
+    "Cz",
+    "C2",
+    "C4",
+    "C6",
+    "CP3",
+    "CP1",
+    "CPz",
+    "CP2",
+    "CP4",
+    "Pz"
+  ],
+  "source_edf_cue_mapping": {
+    "769": 1,
+    "770": 2
+  },
+  "label_names": {
+    "1": "left_hand",
+    "2": "right_hand"
+  },
+  "physical_source_units": "parse each authenticated EDF digital-to-physical calibration; expected EEG uV; no native-integer-as-volts assumption",
+  "proposed_cue_relative_window_seconds": [
+    0.5,
+    2.5
+  ],
+  "window_status": "access-plan context only; final source/target scientific preprocessing contract must be committed separately before inference",
+  "metadata_excluded_subjects_primary": [
+    17,
+    41
+  ],
+  "other_provider_quality_flags_retained_pending_frozen_signal_qc": [
+    4,
+    9,
+    29,
+    78,
+    79
+  ],
+  "primary_persons_upper_bound_not_observed_qc_count": 85,
+  "sham_feedback_intersects_proposed_window": true,
+  "no_full_cohort_signal_qc_or_original_gdf_equivalence_certified": true,
+  "author_prior_use_declaration_required_for_future_acquisition": false,
+  "model_training_enabled": false,
+  "model_inference_enabled": false,
+  "evidence_class": "EXPOSURE_UNCONFIRMED_EXPLORATORY",
+  "independent_confirmation_qualified": false,
+  "actual_author_uncertainty_record_required": true,
+  "maximum_download_workers": 3,
+  "maximum_raw_bytes_for_fixed_full_acquisition_manifest": 2515343396,
+  "full_signal_qc_separate_from_header_audit": true,
+  "prior_confirmatory_protocol_remains_unchanged": true,
+  "provider_byte_authentication_does_not_establish_original_gdf_equivalence": true,
+  "registration_scope": "A new committed and publicly byte-verified access plan, code and actual uncertainty record must precede full acquisition."
+}

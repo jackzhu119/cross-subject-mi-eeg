@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "status": "AUTHOR_APPROVED_CONDITIONAL_BUDGET_NOT_MACHINE_AUTHORIZATION",
+  "author_name": "Ziyuan Zhu",
+  "recorded_at_utc": "2026-10-13T08:38:01.881355+00:00",
+  "author_reply": "不确定，可以批准GPU预算",
+  "latest_execution_preference": "尚未开机，先完成数据审计",
+  "maximum_total_usd": 10,
+  "maximum_gpu_hours": 8,
+  "maximum_gpu_hourly_rate_usd": 0.75,
+  "non_gpu_reserved_usd": 2,
+  "nominal_core_neural_fits": 26,
+  "optional_40_grouping_fits_authorized": false,
+  "target_fitting_authorized": false,
+  "scientific_conditions": [
+    "all retained data technical audits and source/code freezes pass",
+    "exposure remains unknown and independent confirmation gate stays closed",
+    "exact available GPU/account/live price verified",
+    "provider billing-stop or supervised manual stopping verified within ceiling"
+  ],
+  "machine_hostname": null,
+  "gpu_uuid": null,
+  "account_connection_established": false,
+  "live_quote_verified": false,
+  "provider_billing_stop_verified": false,
+  "instance_provisioned": false,
+  "spending_incurred_by_this_task_usd": 0,
+  "credentials_requested_or_printed": false
+}
