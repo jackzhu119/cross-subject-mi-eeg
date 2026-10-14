@@ -2,6 +2,10 @@
 
 ## 容器重建更新：所有旧现场路径过期，当前仅交付恢复方案
 
+新代码固定 `23bbe5e4d4ab0e2f9b39e955a057cc445ddb0d08`，26个变更文件公开逐字节
+回读通过；容器重建后最终727项软件回归通过。精确恢复交接见
+`runtime_transition/DOT_RUNTIME_ACCEPTANCE.md`。当前是HOLD：不触碰Pod或训练。
+
 用户报告同Pod `52ivinpjwv947i` 于2026-10-14 14:59:11UTC重建，容器
 `b5646c12356b`→`a7d3f0e408a4`，`/workspace`仅余`.cache`，overlay30→50GiB。
 原因未核实，dot没有Stop/Restart，fit7未执行。下文的旧源/源码/runtime目录
