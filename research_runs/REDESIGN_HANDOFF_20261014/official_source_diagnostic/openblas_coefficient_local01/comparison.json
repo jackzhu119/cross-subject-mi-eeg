@@ -1,0 +1,88 @@
+{
+  "same_binary_and_source": true,
+  "native_core": "SkylakeX",
+  "control_core": "Haswell",
+  "bands": {
+    "broad": {
+      "same_sos": true,
+      "same_zi": true,
+      "sections": [
+        {
+          "same_matrix": true,
+          "same_rhs": true,
+          "same_solution": true
+        },
+        {
+          "same_matrix": true,
+          "same_rhs": true,
+          "same_solution": true
+        },
+        {
+          "same_matrix": true,
+          "same_rhs": true,
+          "same_solution": true
+        },
+        {
+          "same_matrix": true,
+          "same_rhs": true,
+          "same_solution": false
+        }
+      ]
+    },
+    "mu": {
+      "same_sos": true,
+      "same_zi": false,
+      "sections": [
+        {
+          "same_matrix": true,
+          "same_rhs": true,
+          "same_solution": true
+        },
+        {
+          "same_matrix": true,
+          "same_rhs": true,
+          "same_solution": true
+        },
+        {
+          "same_matrix": true,
+          "same_rhs": true,
+          "same_solution": false
+        },
+        {
+          "same_matrix": true,
+          "same_rhs": true,
+          "same_solution": true
+        }
+      ]
+    },
+    "beta": {
+      "same_sos": true,
+      "same_zi": true,
+      "sections": [
+        {
+          "same_matrix": true,
+          "same_rhs": true,
+          "same_solution": true
+        },
+        {
+          "same_matrix": true,
+          "same_rhs": true,
+          "same_solution": true
+        },
+        {
+          "same_matrix": true,
+          "same_rhs": true,
+          "same_solution": true
+        },
+        {
+          "same_matrix": true,
+          "same_rhs": true,
+          "same_solution": true
+        }
+      ]
+    }
+  },
+  "root_cause_of_all_historical_array_differences_proven": false,
+  "EEG_read": false,
+  "training_authorization": false
+}

@@ -1,0 +1,607 @@
+{
+  "python": "3.12.3 (main, Aug 14 2025, 17:47:21) [GCC 13.3.0]",
+  "build_config": "{\n  \"Compilers\": {\n    \"c\": {\n      \"name\": \"gcc\",\n      \"linker\": \"ld.bfd\",\n      \"version\": \"14.2.1\",\n      \"commands\": \"cc\"\n    },\n    \"cython\": {\n      \"name\": \"cython\",\n      \"linker\": \"cython\",\n      \"version\": \"3.2.1\",\n      \"commands\": \"cython\"\n    },\n    \"c++\": {\n      \"name\": \"gcc\",\n      \"linker\": \"ld.bfd\",\n      \"version\": \"14.2.1\",\n      \"commands\": \"c++\"\n    }\n  },\n  \"Machine Information\": {\n    \"host\": {\n      \"cpu\": \"x86_64\",\n      \"family\": \"x86_64\",\n      \"endian\": \"little\",\n      \"system\": \"linux\"\n    },\n    \"build\": {\n      \"cpu\": \"x86_64\",\n      \"family\": \"x86_64\",\n      \"endian\": \"little\",\n      \"system\": \"linux\"\n    }\n  },\n  \"Build Dependencies\": {\n    \"blas\": {\n      \"name\": \"scipy-openblas\",\n      \"found\": true,\n      \"version\": \"0.3.30\",\n      \"detection method\": \"pkgconfig\",\n      \"include directory\": \"/opt/_internal/cpython-3.12.12/lib/python3.12/site-packages/scipy_openblas64/include\",\n      \"lib directory\": \"/opt/_internal/cpython-3.12.12/lib/python3.12/site-packages/scipy_openblas64/lib\",\n      \"openblas configuration\": \"OpenBLAS 0.3.30  USE64BITINT DYNAMIC_ARCH NO_AFFINITY Haswell MAX_THREADS=64\",\n      \"pc file directory\": \"/project/.openblas\"\n    },\n    \"lapack\": {\n      \"name\": \"scipy-openblas\",\n      \"found\": true,\n      \"version\": \"0.3.30\",\n      \"detection method\": \"pkgconfig\",\n      \"include directory\": \"/opt/_internal/cpython-3.12.12/lib/python3.12/site-packages/scipy_openblas64/include\",\n      \"lib directory\": \"/opt/_internal/cpython-3.12.12/lib/python3.12/site-packages/scipy_openblas64/lib\",\n      \"openblas configuration\": \"OpenBLAS 0.3.30  USE64BITINT DYNAMIC_ARCH NO_AFFINITY Haswell MAX_THREADS=64\",\n      \"pc file directory\": \"/project/.openblas\"\n    }\n  },\n  \"Python Information\": {\n    \"path\": \"/tmp/build-env-aw1mwcap/bin/python\",\n    \"version\": \"3.12\"\n  },\n  \"SIMD Extensions\": {\n    \"baseline\": [\n      \"SSE\",\n      \"SSE2\",\n      \"SSE3\"\n    ],\n    \"found\": [\n      \"SSSE3\",\n      \"SSE41\",\n      \"POPCNT\",\n      \"SSE42\",\n      \"AVX\",\n      \"F16C\",\n      \"FMA3\",\n      \"AVX2\"\n    ],\n    \"not found\": [\n      \"AVX512F\",\n      \"AVX512CD\",\n      \"AVX512_KNL\",\n      \"AVX512_KNM\",\n      \"AVX512_SKX\",\n      \"AVX512_CLX\",\n      \"AVX512_CNL\",\n      \"AVX512_ICL\",\n      \"AVX512_SPR\"\n    ]\n  }\n}\n{\n  \"Compilers\": {\n    \"c\": {\n      \"name\": \"gcc\",\n      \"linker\": \"ld.bfd\",\n      \"version\": \"14.2.1\",\n      \"commands\": \"cc\"\n    },\n    \"cython\": {\n      \"name\": \"cython\",\n      \"linker\": \"cython\",\n      \"version\": \"3.2.4\",\n      \"commands\": \"cython\"\n    },\n    \"c++\": {\n      \"name\": \"gcc\",\n      \"linker\": \"ld.bfd\",\n      \"version\": \"14.2.1\",\n      \"commands\": \"c++\"\n    },\n    \"fortran\": {\n      \"name\": \"gcc\",\n      \"linker\": \"ld.bfd\",\n      \"version\": \"14.2.1\",\n      \"commands\": \"gfortran\"\n    },\n    \"pythran\": {\n      \"version\": \"0.18.1\",\n      \"include directory\": \"../../tmp/build-env-h6rtuvfe/lib/python3.12/site-packages/pythran\"\n    }\n  },\n  \"Machine Information\": {\n    \"host\": {\n      \"cpu\": \"x86_64\",\n      \"family\": \"x86_64\",\n      \"endian\": \"little\",\n      \"system\": \"linux\"\n    },\n    \"build\": {\n      \"cpu\": \"x86_64\",\n      \"family\": \"x86_64\",\n      \"endian\": \"little\",\n      \"system\": \"linux\"\n    },\n    \"cross-compiled\": false\n  },\n  \"Build Dependencies\": {\n    \"blas\": {\n      \"name\": \"scipy-openblas\",\n      \"found\": true,\n      \"version\": \"0.3.30\",\n      \"detection method\": \"pkgconfig\",\n      \"include directory\": \"/opt/_internal/cpython-3.12.11/lib/python3.12/site-packages/scipy_openblas32/include\",\n      \"lib directory\": \"/opt/_internal/cpython-3.12.11/lib/python3.12/site-packages/scipy_openblas32/lib\",\n      \"openblas configuration\": \"OpenBLAS 0.3.30 DYNAMIC_ARCH NO_AFFINITY Haswell MAX_THREADS=64\",\n      \"pc file directory\": \"/project/\",\n      \"has ilp64\": false\n    },\n    \"lapack\": {\n      \"name\": \"scipy-openblas\",\n      \"found\": true,\n      \"version\": \"0.3.30\",\n      \"detection method\": \"pkgconfig\",\n      \"include directory\": \"/opt/_internal/cpython-3.12.11/lib/python3.12/site-packages/scipy_openblas32/include\",\n      \"lib directory\": \"/opt/_internal/cpython-3.12.11/lib/python3.12/site-packages/scipy_openblas32/lib\",\n      \"openblas configuration\": \"OpenBLAS 0.3.30 DYNAMIC_ARCH NO_AFFINITY Haswell MAX_THREADS=64\",\n      \"pc file directory\": \"/project/\",\n      \"has ilp64\": false\n    },\n    \"pybind11\": {\n      \"name\": \"pybind11\",\n      \"version\": \"3.0.1\",\n      \"detection method\": \"config-tool\",\n      \"include directory\": \"unknown\"\n    }\n  },\n  \"Python Information\": {\n    \"path\": \"/tmp/build-env-h6rtuvfe/bin/python\",\n    \"version\": \"3.12\"\n  }\n}\n",
+  "numerical_environment": {
+    "OPENBLAS_CORETYPE": null,
+    "OPENBLAS_NUM_THREADS": null,
+    "OMP_NUM_THREADS": null,
+    "MKL_NUM_THREADS": null,
+    "SCIPY_ARRAY_API": null
+  },
+  "status": "DIAGNOSTIC_ONLY_TRAINING_BLOCKED",
+  "mode": "native",
+  "frozen_file_identities": {
+    "research_runs/REDESIGN_CLOUD_20261013/config/experiment.json": "8ba78d4ead0e41fc5a5fc6f9890b750f0bdfdaba74a57efab5422b43d57feff0",
+    "research_runs/REDESIGN_SOURCE_SELECTION_20261012/scripts/core_source_inputs.py": "03f47bceb3998e407a28e7da56da4875b5d3e1e38746d196739be7262be7cff5",
+    "src/mi_eeg/data/q15_context.py": "849ee22e2a1c1987c2a83ed3a837f9f358b505133ce2ffe13ee876f01adc3d61",
+    "research_runs/Q8-E001/results/source_files.json": "0ccef780ed5bfbc2d430b8caf0c108641fb230a2dc27e4189e7e771c999f64a6",
+    "research_runs/REDESIGN_EXPLORATORY_20261013/evidence/source_exact_input_fingerprints.csv": "e142e927228d9c46afb872fa649335cc6e9ec286b1d291b94ac0e43a6d59e4cf",
+    "research_runs/REDESIGN_EXPLORATORY_20261013/evidence/source_exact_input_fingerprints_receipt.json": "66c5aa472809cf29fe68b7b56401c4f0aa4b4f577156425a1f4e1fc20d45d8dd"
+  },
+  "enabled_cpu_features": [
+    "AVX",
+    "AVX2",
+    "F16C",
+    "FMA3",
+    "MMX",
+    "POPCNT",
+    "SSE",
+    "SSE2",
+    "SSE3",
+    "SSE41",
+    "SSE42",
+    "SSSE3"
+  ],
+  "NPY_DISABLE_CPU_FEATURES": null,
+  "results": [
+    {
+      "sample_id": "s02_1test_r2_t36",
+      "role": "mismatch",
+      "raw_sha256": "d63c454005d3a9b41d8440629482e855afc823339bdd0b5721842a7ee9cc7b12",
+      "stages": {
+        "native_context": "69bd6b2a5e1a7d06cb08e40457953c54137a2c07a2c3cda43ac82f5d24601647",
+        "CAR19": "25dfd89995615901d116103377a5357dbf27d7d71e451c0d5ce3dbb2723de6db",
+        "broad": {
+          "sos": "10166c009ce4e4ef400181f4cdd1d72a6857fa022979459b7f24015abfdb58b1",
+          "zi": "7854438b379d744ebe493103e3bf57e17c513e95b398dbc8ebc8f42dc76a0c15",
+          "filtered_float64": "246017415a4f7570db0a41947ccd3453014e12f0b3045476983f928019406172",
+          "resampled_float64": "b18c486b17c6e3f60897636a867db6d27c3af5e79dfa1639b1d49ee1eda3066b",
+          "crop_float64": "afe6d80e24506f999aa6bcc2bac640c59d78ebcb15c405ef48ec7a4c0b3aeb6a",
+          "final_float32": "d30acb059fc3c84006ed0c7b83ab6e669dc9544555a5f68dde0b641bdacae145",
+          "shape": [
+            19,
+            320
+          ],
+          "dtype": "<f4",
+          "strides": [
+            1280,
+            4
+          ]
+        },
+        "mu": {
+          "sos": "00a49b443deca46cccde3b1ee0495c4d8ae906646175628ae6c5205758059a0c",
+          "zi": "ff50d1508f773d568e54fbb66539221d5a08881fc985e44024134a6cb13f47d8",
+          "filtered_float64": "da2e2fd7ce868acd6f790299e925b3a129aff0aed29c23da2b9c101de9979a11",
+          "resampled_float64": "d0f23efa20350bc11d758c4933b642d20867ee9ed1d20445938ee1d0b1511f7e",
+          "crop_float64": "cddb26ab576f039f0f454593eda1b149c976e78815b3e43da30a4635121153e3",
+          "final_float32": "9a1a3c0d2582ecc4c0ddbe0c726e5a2005dbf5a1d5c90b5922d7543df2d70847",
+          "shape": [
+            19,
+            320
+          ],
+          "dtype": "<f4",
+          "strides": [
+            1280,
+            4
+          ]
+        },
+        "beta": {
+          "sos": "37ca0d4fc05f683a24e1646872f31fbf01c10e623a0fa7d74c425256b3e5bf33",
+          "zi": "672a5ab2784e1b395aee496b0e7f8e3c68d3bee48ed1befd7e218185b287ef8c",
+          "filtered_float64": "7d2f6b3efae317d8ddaacef5453be2e0bb65ce845c563c925dc5be3c66799764",
+          "resampled_float64": "0aa13d0313b1f942fc90b63d75113c486db47173a1882fb1831aea199ea73019",
+          "crop_float64": "789893ac3e7f663beae9c98dfe207e652f1b4a955f8f1c3156211bcc6eb21074",
+          "final_float32": "1361e278bee004f5691a0e5e2a7be12c17a1bec253f3463b0d9817c088e455e6",
+          "shape": [
+            19,
+            320
+          ],
+          "dtype": "<f4",
+          "strides": [
+            1280,
+            4
+          ]
+        }
+      },
+      "checks": {
+        "broad": {
+          "expected": "d30acb059fc3c84006ed0c7b83ab6e669dc9544555a5f68dde0b641bdacae145",
+          "actual": "d30acb059fc3c84006ed0c7b83ab6e669dc9544555a5f68dde0b641bdacae145",
+          "matches": true,
+          "repeat_identical": true
+        },
+        "mu": {
+          "expected": "239f1f431ac9974fc64404b583365cd214ef3e79fe5263113480a27efd890932",
+          "actual": "9a1a3c0d2582ecc4c0ddbe0c726e5a2005dbf5a1d5c90b5922d7543df2d70847",
+          "matches": false,
+          "repeat_identical": true
+        },
+        "beta": {
+          "expected": "1361e278bee004f5691a0e5e2a7be12c17a1bec253f3463b0d9817c088e455e6",
+          "actual": "1361e278bee004f5691a0e5e2a7be12c17a1bec253f3463b0d9817c088e455e6",
+          "matches": true,
+          "repeat_identical": true
+        }
+      },
+      "npy_roundtrip_identical": {
+        "broad": true,
+        "mu": true,
+        "beta": true
+      },
+      "mu_rounding_hypothesis": {
+        "already_matches": false,
+        "candidates_checked": 64,
+        "exact_reference_matches": [],
+        "interpretation": "Exact candidate hash can identify an output-byte delta, not its numerical root cause; no match is inconclusive"
+      }
+    },
+    {
+      "sample_id": "s02_1test_r2_t32",
+      "role": "preceding_binary_control",
+      "raw_sha256": "d63c454005d3a9b41d8440629482e855afc823339bdd0b5721842a7ee9cc7b12",
+      "stages": {
+        "native_context": "3b9fc96d604ccedf385017199932156ff903be661a2915703f958457079b7777",
+        "CAR19": "d99186a8584d17751adeca0083237347da4e831e436ac42dc6f75278e65d0e2d",
+        "broad": {
+          "sos": "10166c009ce4e4ef400181f4cdd1d72a6857fa022979459b7f24015abfdb58b1",
+          "zi": "7854438b379d744ebe493103e3bf57e17c513e95b398dbc8ebc8f42dc76a0c15",
+          "filtered_float64": "5f6c3ea47af1adc54ac4a435136b581352bda76e00b16c9f25009dc8f3f84163",
+          "resampled_float64": "a85702a476712adf0e30f13ef48dad1ddc6e20d8efa485afc025aab677b81d91",
+          "crop_float64": "8048807ba6fc7774bf1868b1d239985e47957f611f126d513029093f08840be0",
+          "final_float32": "7f9e5cde6e7a1d24ecccc27b41ba0e9e8deb478cfae06a042c9a05be6f3c699e",
+          "shape": [
+            19,
+            320
+          ],
+          "dtype": "<f4",
+          "strides": [
+            1280,
+            4
+          ]
+        },
+        "mu": {
+          "sos": "00a49b443deca46cccde3b1ee0495c4d8ae906646175628ae6c5205758059a0c",
+          "zi": "ff50d1508f773d568e54fbb66539221d5a08881fc985e44024134a6cb13f47d8",
+          "filtered_float64": "e475377fda26ba6bfb13d6bf889895faf8230581f2a2e43136d25443516b3b86",
+          "resampled_float64": "012546cc685ff755ff7cbc75f0d2361f9f47a3c5e87f29fcbe8f70a6be5eb6a2",
+          "crop_float64": "b1d049ed76e944060b87f87f9a3bbb42ba3b7fd31bc593aed6750fe10ae6bec3",
+          "final_float32": "90d3391ff75331c5df7190b4b70ccc90e73e5655a4c5960c615d7d1f1fe6ec1b",
+          "shape": [
+            19,
+            320
+          ],
+          "dtype": "<f4",
+          "strides": [
+            1280,
+            4
+          ]
+        },
+        "beta": {
+          "sos": "37ca0d4fc05f683a24e1646872f31fbf01c10e623a0fa7d74c425256b3e5bf33",
+          "zi": "672a5ab2784e1b395aee496b0e7f8e3c68d3bee48ed1befd7e218185b287ef8c",
+          "filtered_float64": "6efd95d537a0ca10c5295e634895d0b9d7a664050f77b601c0aac2b529fc151a",
+          "resampled_float64": "c7017206d4570012607f02384496b68e1327b5ca3b45c75e5280df2fed5e835f",
+          "crop_float64": "c7f1c96b6061b39827c6be75a4590a657c65027347942c4010e1bf119b22b8bb",
+          "final_float32": "8b438c11cf4cd870efa3d9a558c60cf5d33face9b80b9e128d3358235499511a",
+          "shape": [
+            19,
+            320
+          ],
+          "dtype": "<f4",
+          "strides": [
+            1280,
+            4
+          ]
+        }
+      },
+      "checks": {
+        "broad": {
+          "expected": "7f9e5cde6e7a1d24ecccc27b41ba0e9e8deb478cfae06a042c9a05be6f3c699e",
+          "actual": "7f9e5cde6e7a1d24ecccc27b41ba0e9e8deb478cfae06a042c9a05be6f3c699e",
+          "matches": true,
+          "repeat_identical": true
+        },
+        "mu": {
+          "expected": "90d3391ff75331c5df7190b4b70ccc90e73e5655a4c5960c615d7d1f1fe6ec1b",
+          "actual": "90d3391ff75331c5df7190b4b70ccc90e73e5655a4c5960c615d7d1f1fe6ec1b",
+          "matches": true,
+          "repeat_identical": true
+        },
+        "beta": {
+          "expected": "8b438c11cf4cd870efa3d9a558c60cf5d33face9b80b9e128d3358235499511a",
+          "actual": "8b438c11cf4cd870efa3d9a558c60cf5d33face9b80b9e128d3358235499511a",
+          "matches": true,
+          "repeat_identical": true
+        }
+      },
+      "npy_roundtrip_identical": {
+        "broad": true,
+        "mu": true,
+        "beta": true
+      },
+      "mu_rounding_hypothesis": {
+        "already_matches": true,
+        "candidates_checked": 0,
+        "exact_reference_matches": []
+      }
+    },
+    {
+      "sample_id": "s03_1test_r0_t06",
+      "role": "mismatch",
+      "raw_sha256": "d4229267ec7624fa8bd3af5cbebac17f415f7c722de6cb676748f8cb3b717d97",
+      "stages": {
+        "native_context": "08f54c366b85c6ba6d58b8402beb95ea793d037815ffdb50bcb3e5f242bba424",
+        "CAR19": "f9dbd8893ffbad6c66abf62afb5bd97af44aea6c4f3125e7a6a1fc51fe6abace",
+        "broad": {
+          "sos": "10166c009ce4e4ef400181f4cdd1d72a6857fa022979459b7f24015abfdb58b1",
+          "zi": "7854438b379d744ebe493103e3bf57e17c513e95b398dbc8ebc8f42dc76a0c15",
+          "filtered_float64": "bd75d2191ebd27a4c2f23305c8d2579411988754f1fbc09e9acf7e390e6e63e4",
+          "resampled_float64": "ab388d76bb4aaf28dfd59771e0d43064b79218473fe502569251236147978b13",
+          "crop_float64": "8ac00bdc9425229da2162d229d41ac951879909ba06be41dfbb30d1d86944f09",
+          "final_float32": "a5aff8c4a8d761c9249a0e3c0f3ec05579d25f97792670e32a0dafc389521508",
+          "shape": [
+            19,
+            320
+          ],
+          "dtype": "<f4",
+          "strides": [
+            1280,
+            4
+          ]
+        },
+        "mu": {
+          "sos": "00a49b443deca46cccde3b1ee0495c4d8ae906646175628ae6c5205758059a0c",
+          "zi": "ff50d1508f773d568e54fbb66539221d5a08881fc985e44024134a6cb13f47d8",
+          "filtered_float64": "86808d646750ddcb9c23d0ceea893273daa32dde2ecd8ca3fe5122063ef09063",
+          "resampled_float64": "c9b2c6abd959646cc89bc1ac4df7caf461e1279944785d06de1234db39bc5996",
+          "crop_float64": "4f31160b2ae0ec3da1a2d83ac4fbc9ce9c5cba6a4ac1290901e35777795e9487",
+          "final_float32": "74856d9eeaa682a58c519075c3875d3df62a03a393e49931adc836ac9ee4dc39",
+          "shape": [
+            19,
+            320
+          ],
+          "dtype": "<f4",
+          "strides": [
+            1280,
+            4
+          ]
+        },
+        "beta": {
+          "sos": "37ca0d4fc05f683a24e1646872f31fbf01c10e623a0fa7d74c425256b3e5bf33",
+          "zi": "672a5ab2784e1b395aee496b0e7f8e3c68d3bee48ed1befd7e218185b287ef8c",
+          "filtered_float64": "2efb6c8fba8b4333e26d65cf219a84f77da46f6cdf1d40b94b146e90ff58453f",
+          "resampled_float64": "e2a0a837eec233991846685e1e4233168a2be56580c9e7bdcc0846086d281747",
+          "crop_float64": "3b16f8c1d0ec6511aab12dffce48a0aeeec02345aaf4e4c81e56d6e7feafb2d5",
+          "final_float32": "c30744cc6584c94f61744873c2140aa356c6128dbcff0891b8d15c220fd56dee",
+          "shape": [
+            19,
+            320
+          ],
+          "dtype": "<f4",
+          "strides": [
+            1280,
+            4
+          ]
+        }
+      },
+      "checks": {
+        "broad": {
+          "expected": "a5aff8c4a8d761c9249a0e3c0f3ec05579d25f97792670e32a0dafc389521508",
+          "actual": "a5aff8c4a8d761c9249a0e3c0f3ec05579d25f97792670e32a0dafc389521508",
+          "matches": true,
+          "repeat_identical": true
+        },
+        "mu": {
+          "expected": "1ef1688e653f9d9baafc959e4b7a483ef58db924ea69899cd16d8866394a31fc",
+          "actual": "74856d9eeaa682a58c519075c3875d3df62a03a393e49931adc836ac9ee4dc39",
+          "matches": false,
+          "repeat_identical": true
+        },
+        "beta": {
+          "expected": "c30744cc6584c94f61744873c2140aa356c6128dbcff0891b8d15c220fd56dee",
+          "actual": "c30744cc6584c94f61744873c2140aa356c6128dbcff0891b8d15c220fd56dee",
+          "matches": true,
+          "repeat_identical": true
+        }
+      },
+      "npy_roundtrip_identical": {
+        "broad": true,
+        "mu": true,
+        "beta": true
+      },
+      "mu_rounding_hypothesis": {
+        "already_matches": false,
+        "candidates_checked": 64,
+        "exact_reference_matches": [
+          {
+            "channel_index": 5,
+            "time_index": 164,
+            "direction": "up",
+            "candidate_rank": 0,
+            "distance_to_midpoint_in_float32_ULP": 2.421438694000244e-08,
+            "changed_elements": 1,
+            "adjacent_float32_steps": 1
+          }
+        ],
+        "interpretation": "Exact candidate hash can identify an output-byte delta, not its numerical root cause; no match is inconclusive"
+      }
+    },
+    {
+      "sample_id": "s03_1test_r0_t05",
+      "role": "preceding_binary_control",
+      "raw_sha256": "d4229267ec7624fa8bd3af5cbebac17f415f7c722de6cb676748f8cb3b717d97",
+      "stages": {
+        "native_context": "dfaaee2f3a801532bfcf1669b1f336b49e148c685c27599ea0b8b1d60053287c",
+        "CAR19": "7f385dc7748c10e2140aad3e184df2acfd7170ab70edf803ddd17d0bbf30a47f",
+        "broad": {
+          "sos": "10166c009ce4e4ef400181f4cdd1d72a6857fa022979459b7f24015abfdb58b1",
+          "zi": "7854438b379d744ebe493103e3bf57e17c513e95b398dbc8ebc8f42dc76a0c15",
+          "filtered_float64": "df4b706e880e8f330606c25067b977cf203f62e126cf3aa0d3c7fa3abced6012",
+          "resampled_float64": "4093bbadfaef55501338f447d03c0eec0dcfc4d1840a107bdb96e6223ae34c9b",
+          "crop_float64": "6e8ace7a421ff262e1e25f86d28819e4f677888bebfa8c93b4f1deda5c0d98c3",
+          "final_float32": "999c1c289b10e9dd58a60ba70f790368390fe5c42f93913b7b9a5082d86d643a",
+          "shape": [
+            19,
+            320
+          ],
+          "dtype": "<f4",
+          "strides": [
+            1280,
+            4
+          ]
+        },
+        "mu": {
+          "sos": "00a49b443deca46cccde3b1ee0495c4d8ae906646175628ae6c5205758059a0c",
+          "zi": "ff50d1508f773d568e54fbb66539221d5a08881fc985e44024134a6cb13f47d8",
+          "filtered_float64": "f6b48b70c32ea8033ca8ed8f3adf3c9b8af78c5fb2a8359a09691fbb8c03efab",
+          "resampled_float64": "7959cc881653918befb176fa07852261b37d5a9b5eca0819ffcc0abe03749640",
+          "crop_float64": "077de56dd07e86a88c83789bb3faabc47161ba18d69b42601abaad77b43df83e",
+          "final_float32": "1cbde97fed71cb23b3daf0feeb8430023493e42f650c68fcee4ca05d2a5d3786",
+          "shape": [
+            19,
+            320
+          ],
+          "dtype": "<f4",
+          "strides": [
+            1280,
+            4
+          ]
+        },
+        "beta": {
+          "sos": "37ca0d4fc05f683a24e1646872f31fbf01c10e623a0fa7d74c425256b3e5bf33",
+          "zi": "672a5ab2784e1b395aee496b0e7f8e3c68d3bee48ed1befd7e218185b287ef8c",
+          "filtered_float64": "c8383753d8a5e1c1402c2ee2ef51cbc9d6ed85d5b67081703d0de0eb99b6cf8a",
+          "resampled_float64": "d68efc2decc60df294aa9008d98c145248fcbe547966c117101d83c6d9a17757",
+          "crop_float64": "d9dfdb71f65e38905e5678a71073cfad72e7c38c19c292b4297d8044f2ca639d",
+          "final_float32": "8648da2c3d994afe048c20e22f3dfbec95a99d79aa8af58d6474bbd7310b3567",
+          "shape": [
+            19,
+            320
+          ],
+          "dtype": "<f4",
+          "strides": [
+            1280,
+            4
+          ]
+        }
+      },
+      "checks": {
+        "broad": {
+          "expected": "999c1c289b10e9dd58a60ba70f790368390fe5c42f93913b7b9a5082d86d643a",
+          "actual": "999c1c289b10e9dd58a60ba70f790368390fe5c42f93913b7b9a5082d86d643a",
+          "matches": true,
+          "repeat_identical": true
+        },
+        "mu": {
+          "expected": "1cbde97fed71cb23b3daf0feeb8430023493e42f650c68fcee4ca05d2a5d3786",
+          "actual": "1cbde97fed71cb23b3daf0feeb8430023493e42f650c68fcee4ca05d2a5d3786",
+          "matches": true,
+          "repeat_identical": true
+        },
+        "beta": {
+          "expected": "8648da2c3d994afe048c20e22f3dfbec95a99d79aa8af58d6474bbd7310b3567",
+          "actual": "8648da2c3d994afe048c20e22f3dfbec95a99d79aa8af58d6474bbd7310b3567",
+          "matches": true,
+          "repeat_identical": true
+        }
+      },
+      "npy_roundtrip_identical": {
+        "broad": true,
+        "mu": true,
+        "beta": true
+      },
+      "mu_rounding_hypothesis": {
+        "already_matches": true,
+        "candidates_checked": 0,
+        "exact_reference_matches": []
+      }
+    },
+    {
+      "sample_id": "s07_0train_r0_t06",
+      "role": "mismatch",
+      "raw_sha256": "43b6bbef0be78f0ac2b66cb2d9679091f1f5b7f0a5d4ebef73d2c7cc8e11aa96",
+      "stages": {
+        "native_context": "d014f570845a9ffed221903b4919cc6064f6300abd91b1e45614cfde1ef60e23",
+        "CAR19": "52764474188f7038df94c0b8f29d3ab3ca113b801b9d9993fff5b7bad736e3dd",
+        "broad": {
+          "sos": "10166c009ce4e4ef400181f4cdd1d72a6857fa022979459b7f24015abfdb58b1",
+          "zi": "7854438b379d744ebe493103e3bf57e17c513e95b398dbc8ebc8f42dc76a0c15",
+          "filtered_float64": "c430f462bcb51e7b7b055333f77717249d0aede1915aef888e80bb855f856d48",
+          "resampled_float64": "00106fbd699be212774d1d509c573e8aabc21f4665bb9b27c7c164d6b33bf248",
+          "crop_float64": "dfea288fb17e5d13e7b2d8c4ef2f88a0a16141e65fc3824abcfa46b12dd6aedc",
+          "final_float32": "e81bd9c4487c3eea2798b06aff3bb02b83974101417b76ce7843f33229fb9742",
+          "shape": [
+            19,
+            320
+          ],
+          "dtype": "<f4",
+          "strides": [
+            1280,
+            4
+          ]
+        },
+        "mu": {
+          "sos": "00a49b443deca46cccde3b1ee0495c4d8ae906646175628ae6c5205758059a0c",
+          "zi": "ff50d1508f773d568e54fbb66539221d5a08881fc985e44024134a6cb13f47d8",
+          "filtered_float64": "56af1de00392acd9e8f16b82673fac39fd4690a8ffecbc505f257046a96a4c7e",
+          "resampled_float64": "89b6c3b2c675a41bc59c6e46206277287e5aeb0f2642d700ee0bdeb4a51f3ce5",
+          "crop_float64": "1c2b412e1cf214b810a7bf198ad506beee7d22ba9b4d7fa202135c9e40a2018f",
+          "final_float32": "0079dead3ba0f8551fd3b5a13e411d2fc9a65ff8f08ae97e680cfc8e3ace5c02",
+          "shape": [
+            19,
+            320
+          ],
+          "dtype": "<f4",
+          "strides": [
+            1280,
+            4
+          ]
+        },
+        "beta": {
+          "sos": "37ca0d4fc05f683a24e1646872f31fbf01c10e623a0fa7d74c425256b3e5bf33",
+          "zi": "672a5ab2784e1b395aee496b0e7f8e3c68d3bee48ed1befd7e218185b287ef8c",
+          "filtered_float64": "1f1ee4ba6a696180a1f3afca883481fc7e44e18034ce53209b6677f0a1e4274c",
+          "resampled_float64": "377b8dcbfd2d68b4f4a6bdb909fabee5bada0aa0fac1ed8a916e2fb6e3153f99",
+          "crop_float64": "26873d0285d24b9a438a98ca3529bc3ae6cce2f6935bcf65d6cf42325def4dc7",
+          "final_float32": "49501b1a54de66e25e6fc1312d4e2c54ad98fe07ee69fe6ab423315f95b42df2",
+          "shape": [
+            19,
+            320
+          ],
+          "dtype": "<f4",
+          "strides": [
+            1280,
+            4
+          ]
+        }
+      },
+      "checks": {
+        "broad": {
+          "expected": "e81bd9c4487c3eea2798b06aff3bb02b83974101417b76ce7843f33229fb9742",
+          "actual": "e81bd9c4487c3eea2798b06aff3bb02b83974101417b76ce7843f33229fb9742",
+          "matches": true,
+          "repeat_identical": true
+        },
+        "mu": {
+          "expected": "9371b0c8ed879bd383869b69315e2b623b73c86f3d7793e0911025ec1fff14fe",
+          "actual": "0079dead3ba0f8551fd3b5a13e411d2fc9a65ff8f08ae97e680cfc8e3ace5c02",
+          "matches": false,
+          "repeat_identical": true
+        },
+        "beta": {
+          "expected": "49501b1a54de66e25e6fc1312d4e2c54ad98fe07ee69fe6ab423315f95b42df2",
+          "actual": "49501b1a54de66e25e6fc1312d4e2c54ad98fe07ee69fe6ab423315f95b42df2",
+          "matches": true,
+          "repeat_identical": true
+        }
+      },
+      "npy_roundtrip_identical": {
+        "broad": true,
+        "mu": true,
+        "beta": true
+      },
+      "mu_rounding_hypothesis": {
+        "already_matches": false,
+        "candidates_checked": 64,
+        "exact_reference_matches": [
+          {
+            "channel_index": 18,
+            "time_index": 278,
+            "direction": "up",
+            "candidate_rank": 0,
+            "distance_to_midpoint_in_float32_ULP": 6.57886266708374e-05,
+            "changed_elements": 1,
+            "adjacent_float32_steps": 1
+          }
+        ],
+        "interpretation": "Exact candidate hash can identify an output-byte delta, not its numerical root cause; no match is inconclusive"
+      }
+    },
+    {
+      "sample_id": "s07_0train_r0_t05",
+      "role": "preceding_binary_control",
+      "raw_sha256": "43b6bbef0be78f0ac2b66cb2d9679091f1f5b7f0a5d4ebef73d2c7cc8e11aa96",
+      "stages": {
+        "native_context": "617016aa4e9090c1d51416204c5dc6cf45396004a9e578303f2baa19ad6ab9b3",
+        "CAR19": "60365f591bbed4906e5c5b74f8d7deeaafd543f77febb22bd4f057ece181b1c0",
+        "broad": {
+          "sos": "10166c009ce4e4ef400181f4cdd1d72a6857fa022979459b7f24015abfdb58b1",
+          "zi": "7854438b379d744ebe493103e3bf57e17c513e95b398dbc8ebc8f42dc76a0c15",
+          "filtered_float64": "0eba0f8710f7ad9498f8c9015f1f1d15fa7d6835f53494258e7613897b9448ce",
+          "resampled_float64": "f17ebda8508f509cc4cbf863c781fc9f48a1b6210695f5a8de4836ce72939934",
+          "crop_float64": "814b9612568c6b8650dd71c0c3d31655321cb67d63e5664c9a71caacd63949ab",
+          "final_float32": "f72ce313573053e68c9f17078868146729aa5101017f0c7d6eb1b5d35ac896af",
+          "shape": [
+            19,
+            320
+          ],
+          "dtype": "<f4",
+          "strides": [
+            1280,
+            4
+          ]
+        },
+        "mu": {
+          "sos": "00a49b443deca46cccde3b1ee0495c4d8ae906646175628ae6c5205758059a0c",
+          "zi": "ff50d1508f773d568e54fbb66539221d5a08881fc985e44024134a6cb13f47d8",
+          "filtered_float64": "eafe6488437caaf9bdd646fae6a4661798568b82bfa69bae6cca2835ffe24ced",
+          "resampled_float64": "375b5f437324d4b0a05c702f18e8c0981192f07e8110180097b5b71a663185b6",
+          "crop_float64": "41d15c4bbf9e8a25e5b9e020b7ef907f3d7d9ad8b76327d3a62f72b510cdd359",
+          "final_float32": "a5e0d3730fc4c845d431a8833a2b56faf2c2316c3274bb0a7d153e13251e478a",
+          "shape": [
+            19,
+            320
+          ],
+          "dtype": "<f4",
+          "strides": [
+            1280,
+            4
+          ]
+        },
+        "beta": {
+          "sos": "37ca0d4fc05f683a24e1646872f31fbf01c10e623a0fa7d74c425256b3e5bf33",
+          "zi": "672a5ab2784e1b395aee496b0e7f8e3c68d3bee48ed1befd7e218185b287ef8c",
+          "filtered_float64": "0784290e429cdf3b31d74424bfa364185330a5ac8d78c95cef1a3b345bcacd13",
+          "resampled_float64": "6556ad48dc5fa6900fcdb373d274825ffb4e861d429302668d33f186d1521873",
+          "crop_float64": "2b543ee72bf8aef2fc10a768731aeb1e4b911f740998824cb918434d57e9aa51",
+          "final_float32": "996a64be35b6a7f3ba8e384434f9713af62331c9740d058ff133c423a9d136e2",
+          "shape": [
+            19,
+            320
+          ],
+          "dtype": "<f4",
+          "strides": [
+            1280,
+            4
+          ]
+        }
+      },
+      "checks": {
+        "broad": {
+          "expected": "f72ce313573053e68c9f17078868146729aa5101017f0c7d6eb1b5d35ac896af",
+          "actual": "f72ce313573053e68c9f17078868146729aa5101017f0c7d6eb1b5d35ac896af",
+          "matches": true,
+          "repeat_identical": true
+        },
+        "mu": {
+          "expected": "a5e0d3730fc4c845d431a8833a2b56faf2c2316c3274bb0a7d153e13251e478a",
+          "actual": "a5e0d3730fc4c845d431a8833a2b56faf2c2316c3274bb0a7d153e13251e478a",
+          "matches": true,
+          "repeat_identical": true
+        },
+        "beta": {
+          "expected": "996a64be35b6a7f3ba8e384434f9713af62331c9740d058ff133c423a9d136e2",
+          "actual": "996a64be35b6a7f3ba8e384434f9713af62331c9740d058ff133c423a9d136e2",
+          "matches": true,
+          "repeat_identical": true
+        }
+      },
+      "npy_roundtrip_identical": {
+        "broad": true,
+        "mu": true,
+        "beta": true
+      },
+      "mu_rounding_hypothesis": {
+        "already_matches": true,
+        "candidates_checked": 0,
+        "exact_reference_matches": []
+      }
+    }
+  ],
+  "raw_files_read": 3,
+  "trials_per_mode": 6,
+  "new_fits": 0,
+  "target_EEG_read": false,
+  "frozen_arrays_modified": false,
+  "training_authorization": false
+}
