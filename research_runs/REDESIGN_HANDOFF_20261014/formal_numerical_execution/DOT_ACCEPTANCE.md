@@ -20,16 +20,21 @@ deleted. The final command is added after code commit and public byte readback.
 
 ## Fixed source-only acceptance command
 
-Execution code commit: `261f27757cad974a5c956e122766b9d8efa5d82b`.
-All 23 changed files have been publicly read back byte-for-byte. dot alone runs
+The exact supplied archive is now independently audited. This command does not
+re-run the old native/counterfactual diagnostic; it is the separately registered
+formal input acceptance. If a prior formal acceptance output exists, return that
+evidence first rather than deleting it or inventing another retry directory.
+
+Execution code commit: `97f1f42a712c4feb1a0be7eca25ac04b06c9c946`.
+All 30 changed files have been publicly read back byte-for-byte. dot alone runs
 this command on the existing server, once. It performs CPU source acceptance
 only and intentionally keeps the private-package/training-runtime gates pending.
 
 ```bash
 set -euo pipefail
-PAPER1_NUMERICS_REV=261f27757cad974a5c956e122766b9d8efa5d82b
+PAPER1_NUMERICS_REV=97f1f42a712c4feb1a0be7eca25ac04b06c9c946
 PAPER1_OLD_CODE=/workspace/paper1-source-diagnostic-c802
-PAPER1_REVIEW_CODE=/workspace/paper1-formal-numerics-review-261f2775
+PAPER1_REVIEW_CODE=/workspace/paper1-formal-numerics-review-97f1f42a
 PAPER1_ACCEPT_OUT=/workspace/paper1-readonly-probe/formal-source-numerics-acceptance-run01
 test -z "$(git -C "$PAPER1_OLD_CODE" status --porcelain)"
 test ! -e "$PAPER1_REVIEW_CODE"
