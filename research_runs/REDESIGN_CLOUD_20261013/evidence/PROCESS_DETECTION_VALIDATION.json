@@ -1,0 +1,44 @@
+{
+  "status": "PASS_EXPLICIT_PYTHON_ENTRYPOINT_AND_DUPLICATE_WORKER_GUARDS",
+  "checked_at_utc": "2026-10-14T07:18:59.967101+00:00",
+  "tests": 309,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "process_detection_tests": 37,
+  "baseline_commit": "de58c41349223db6cd0ac1b76db16089de1c3342",
+  "outside_cloud_package_changed_paths": [],
+  "scientific_config_sha256": "8ba78d4ead0e41fc5a5fc6f9890b750f0bdfdaba74a57efab5422b43d57feff0",
+  "scientific_config_unchanged": true,
+  "before_fix_local_reproduction": {
+    "scope": "Exact local stdin-wrapper reproduction; not remote PID observation",
+    "fault_reproduced": true,
+    "wrapper_pid": 39566,
+    "child_result": {
+      "blocked": true,
+      "owner_pid": 39566
+    }
+  },
+  "after_fix_local_reproduction": {
+    "scope": "Exact local stdin-wrapper reproduction; not remote PID observation",
+    "fault_reproduced_after_fix": false,
+    "wrapper_pid": 40530,
+    "child_result": {
+      "blocked": false
+    },
+    "child_exit_code": 0,
+    "new_EEG_fits": 0,
+    "new_target_predictions": 0
+  },
+  "external_PID_1125_observed_live": false,
+  "real_same_root_worker_guard_tested": true,
+  "local_kernel_mutex_retained": true,
+  "original_execution_registration_retained": true,
+  "original_budget_clock_retained": true,
+  "original_fit_counters_retained": true,
+  "new_EEG_fits": 0,
+  "new_target_predictions": 0,
+  "live_GPU_or_remote_server_verified": false,
+  "credential_values_printed": false,
+  "scope": "CPU software fixtures and live inert local subprocesses only; not cloud scientific execution"
+}

@@ -182,15 +182,48 @@ def registered_status(registration):
  obj=read(path)
  return {k:obj.get(k) for k in ('stage','pid','actual_neural_fits_started','actual_neural_fits_completed','updated_at_utc')}
 
+def executed_python_script(arguments):
+ """Identify the interpreter's executed file, never a wrapper's later operand.
+
+ Stdin, -c and -m launch wrappers are not file-script workers. Our scientific
+ subprocesses execute explicit .py files; their remaining arguments are data.
+ """
+ import re
+ if not arguments:return None
+ try:
+  values=[os.fsdecode(a) if isinstance(a,bytes) else str(a) for a in arguments if a not in (b'', '')]
+ except (UnicodeError,TypeError):return None
+ if not values or not re.fullmatch(r'(?:python|pypy)(?:[0-9]+(?:\.[0-9]+)*)?',Path(values[0]).name):return None
+ i=1
+ while i<len(values):
+  value=values[i]
+  if value in ('-','-c','-m','-h','--help','-V','--version','--help-env','--help-xoptions','--help-all'):return None
+  if value=='--':
+   i+=1
+   return values[i] if i<len(values) and values[i]!='-' else None
+  if value in ('-W','-X','--check-hash-based-pycs'):
+   if i+1>=len(values):return None
+   i+=2;continue
+  if value.startswith('-'):
+   if value.startswith(('-c','-m')):return None
+   if value.startswith(('-W','-X','--check-hash-based-pycs=')):i+=1;continue
+   if not value.startswith('--') and set(value[1:])<=set('bBEIOosSuvqRiP'):i+=1;continue
+   return None
+  return value
+ return None
+
 def reject_other_local_processes(resume=None):
- """Detect still-running pre-fix launchers without displaying command arguments."""
+ """Reject real explicit-script workers; do not display process arguments."""
+ names={'cloud_supervisor.py','train_exploratory.py','infer_exploratory.py','prepare_data.py'}
  for proc in Path('/proc').iterdir():
   if not proc.name.isdigit() or int(proc.name)==os.getpid():continue
   try:
    arguments=(proc/'cmdline').read_bytes().split(b'\0')
-   names=(b'/cloud_supervisor.py',b'/train_exploratory.py',b'/infer_exploratory.py',b'/prepare_data.py')
-   if not any(arg.endswith(names) for arg in arguments):continue
-   if any(str(CLOUD_BASE).encode() in arg for arg in arguments):
+   script=executed_python_script(arguments)
+   if script is None or Path(script).name not in names:continue
+   path=Path(script)
+   if not path.is_absolute():path=Path(os.readlink(proc/'cwd'))/path
+   if path.resolve().is_relative_to(CLOUD_BASE.resolve()):
     raise LockBusy('existing_cloud_supervisor',int(proc.name))
   except (PermissionError,FileNotFoundError,ProcessLookupError):continue
 

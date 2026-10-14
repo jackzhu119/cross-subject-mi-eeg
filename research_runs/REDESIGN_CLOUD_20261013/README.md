@@ -20,6 +20,8 @@ Use the immutable command in `RUN_INSTRUCTIONS_ZH.md`. It downloads this launche
 
 Process locks use checked private `/tmp` files, not FUSE/network working storage. An actual local lock conflict still blocks duplicate execution. Locks coordinate processes on one host/container; they do not claim a distributed cross-Pod mutex. Persistent registrations and original machine/budget checks remain authoritative.
 
+The process guard identifies the Python interpreter's executed file rather than scanning every command argument. The launcher's own stdin budget wrapper can mention `cloud_supervisor.py` as an operand without being misidentified as another worker. A real same-work-root supervisor, training, inference or preparation process still blocks duplicate startup, including relative-path and interpreter-option invocations. See `PROCESS_DETECTION_FIX_20261014.md` for the regression evidence.
+
 Each job uses `research_runs/REDESIGN_CLOUD_20261013/jobs/<job-id>` inside the isolated checkout `<work-root>/code-<revision>`. The default work root is `/workspace/mi-eeg-cloud` when `/workspace` exists, otherwise `~/mi-eeg-cloud`; `--work-dir` selects a provider-specific persistent disk. Data/input arrays stay in `<work-root>/data`, outside Git. Results use a dedicated branch `redesign/run-<job-id>`; no main branch, old paper branch or old result is overwritten. The execution registration prevents repeated commands from silently launching a second budgeted job.
 
 ## Stage sequence and evidence
