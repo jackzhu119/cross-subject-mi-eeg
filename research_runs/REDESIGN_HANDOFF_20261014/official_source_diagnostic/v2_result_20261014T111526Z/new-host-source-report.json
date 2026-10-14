@@ -1,0 +1,87 @@
+{
+  "status": "NEW_HOST_SOURCE_INPUT_MISMATCH_BLOCKED",
+  "checked_at_utc": "2026-10-14T11:19:11.930748+00:00",
+  "checks": {
+    "array_hashes": false,
+    "source_labels_sha256": true,
+    "source_metadata_sha256": true,
+    "source_sample_ids_sha256": true
+  },
+  "actual_array_hashes": {
+    "broad": "420cd1635c3748e4706c3635e795384f7f859961736bbe7400eae9eb4db7dcd0",
+    "mu": "1d82a64d2229d82d628a3ede0c20f9f6971994ec696ca74089221cc20789a049",
+    "beta": "8e2a88db18e4db719a4b1e396a7871bc102123f99358751f332e0dbd678c6462"
+  },
+  "expected_array_hashes": {
+    "broad": "420cd1635c3748e4706c3635e795384f7f859961736bbe7400eae9eb4db7dcd0",
+    "mu": "704635466155eb4965a732d389ffcb71a1a7a862ffc41e0d615dc3c68b7d17dc",
+    "beta": "8e2a88db18e4db719a4b1e396a7871bc102123f99358751f332e0dbd678c6462"
+  },
+  "per_trial_mismatches": {
+    "broad": {
+      "count": 0,
+      "first_sample_ids": []
+    },
+    "mu": {
+      "count": 3,
+      "first_sample_ids": [
+        "s02_1test_r2_t36",
+        "s03_1test_r0_t06",
+        "s07_0train_r0_t06"
+      ]
+    },
+    "beta": {
+      "count": 0,
+      "first_sample_ids": []
+    }
+  },
+  "filter_coefficients": {
+    "broad": {
+      "identical": true,
+      "max_absolute_difference": 0.0
+    },
+    "mu": {
+      "identical": true,
+      "max_absolute_difference": 0.0
+    },
+    "beta": {
+      "identical": true,
+      "max_absolute_difference": 0.0
+    }
+  },
+  "source_files_verified": 18,
+  "trials": 2592,
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "pandas": "2.2.3",
+  "python": "3.12.3",
+  "machine": "x86_64",
+  "enabled_numpy_cpu_features": [
+    "AVX",
+    "AVX2",
+    "F16C",
+    "FMA3",
+    "MMX",
+    "POPCNT",
+    "SSE",
+    "SSE2",
+    "SSE3",
+    "SSE41",
+    "SSE42",
+    "SSSE3"
+  ],
+  "frozen_file_identities": {
+    "research_runs/REDESIGN_CLOUD_20261013/config/experiment.json": "8ba78d4ead0e41fc5a5fc6f9890b750f0bdfdaba74a57efab5422b43d57feff0",
+    "research_runs/REDESIGN_SOURCE_SELECTION_20261012/scripts/core_source_inputs.py": "03f47bceb3998e407a28e7da56da4875b5d3e1e38746d196739be7262be7cff5",
+    "src/mi_eeg/data/q15_context.py": "849ee22e2a1c1987c2a83ed3a837f9f358b505133ce2ffe13ee876f01adc3d61",
+    "research_runs/Q8-E001/results/source_files.json": "0ccef780ed5bfbc2d430b8caf0c108641fb230a2dc27e4189e7e771c999f64a6",
+    "research_runs/REDESIGN_EXPLORATORY_20261013/evidence/source_exact_input_fingerprints.csv": "e142e927228d9c46afb872fa649335cc6e9ec286b1d291b94ac0e43a6d59e4cf",
+    "research_runs/REDESIGN_EXPLORATORY_20261013/evidence/source_exact_input_fingerprints_receipt.json": "66c5aa472809cf29fe68b7b56401c4f0aa4b4f577156425a1f4e1fc20d45d8dd"
+  },
+  "baseline_revision": "eae194514def23e5d1ec6cbb117d4f84fc6f067f",
+  "new_model_fits": 0,
+  "target_predictions": 0,
+  "old_failure_root_cause_established": false,
+  "old_registration_recreated": false,
+  "training_authorization": false
+}
