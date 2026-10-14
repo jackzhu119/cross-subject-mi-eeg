@@ -11,13 +11,14 @@ import acquire_exposure_unconfirmed as access
 import audit_acquisition_signal_qc as qc
 import core_source_inputs as source
 
-def source_one(row,directory):
+def source_one(row,directory,allow_download=True):
  name=Path(row['path']).name
  if not name.startswith('A') or name not in {f'A{i:02d}{s}.mat' for i in range(1,10) for s in ['T','E']}:raise ValueError('source_path_invalid')
  p=directory/name
  if p.exists():
   if p.is_symlink() or p.stat().st_size!=row['bytes'] or sha(p)!=row['sha256']:raise ValueError('source_cached_hash_mismatch:'+name)
  else:
+  if not allow_download:raise ValueError('r2_only_source_cache_missing')
   tmp=p.with_name(p.name+'.transfer');tmp.unlink(missing_ok=True);size=0
   try:
    with urllib.request.urlopen('https://bnci-horizon-2020.eu/database/data-sets/001-2014/'+name,timeout=90) as r,tmp.open('xb') as f:
@@ -45,10 +46,13 @@ def verified_tensor(path,arrays,event_ids):
 def prepare(job_dir,data_dir):
  started_at=now();job_dir=Path(job_dir);data_dir=Path(data_dir);job_dir.mkdir(parents=True,exist_ok=True);data_dir.mkdir(parents=True,exist_ok=True)
  src=data_dir/'bnci';raw=data_dir/'dreyer_acquisition';tensors=data_dir/'dreyer_inputs';src.mkdir(exist_ok=True);raw.mkdir(exist_ok=True);tensors.mkdir(exist_ok=True)
+ from r2_only import import_from_environment
+ imported=import_from_environment(ROOT,data_dir)
+ write(job_dir/'r2_import_receipt.json',imported)
  records=read(ROOT/'research_runs/Q8-E001/results/source_files.json')
  # Historical provenance is an array rather than a gate object.
  if len(records)!=18:raise ValueError('source_manifest_incomplete')
- with ThreadPoolExecutor(max_workers=3) as pool:source_files=list(pool.map(lambda r:source_one(r,src),records))
+ with ThreadPoolExecutor(max_workers=3) as pool:source_files=list(pool.map(lambda r:source_one(r,src,False),records))
  cfg=read(STUDY/'config/experiment.json');_,source_rows,source_audit=source.load_source19(src,cfg)
  del _
  expected_source=read(AUDIT/'evidence/source_exact_input_fingerprints_receipt.json')['source_file_provenance']
@@ -56,7 +60,7 @@ def prepare(job_dir,data_dir):
   if source_audit[key]!=expected_source[key]:raise ValueError('frozen_source_input_changed:'+key)
  manifest,_=access.verified_plan();access.author_uncertainty_gate();header=access.import_previous('scripts/check_dreyer_metadata.py','cloud_edf_header')
  acquired=[]
- def one(row):return access.run_one(row,raw,data_dir/'pilot_unused',True,header)
+ def one(row):return access.run_one(row,raw,data_dir/'pilot_unused',False,header)
  with ThreadPoolExecutor(max_workers=3) as pool:
   for result in pool.map(one,manifest):
    acquired.append(result);print(json.dumps({'stage':'raw_download_verified','completed':len(acquired),'expected':174}),flush=True)

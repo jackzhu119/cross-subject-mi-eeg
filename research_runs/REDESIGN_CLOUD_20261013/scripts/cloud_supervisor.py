@@ -15,7 +15,7 @@ def protocol_files():
  paths=[p for p in STUDY.rglob('*') if p.is_file() and p.suffix in {'.py','.sh','.json','.md','.txt'} and not p.is_relative_to(JOBS) and '__pycache__' not in p.parts and '.pytest_cache' not in p.parts and not p.is_relative_to(STUDY/'evidence')]
  v1=ROOT/'research_runs/REDESIGN_SOURCE_SELECTION_20261012';aud=ROOT/'research_runs/REDESIGN_EXPLORATORY_20261013'
  paths += [v1/'scripts'/n for n in ['train_source_selection_core.py','core_source_inputs.py','infer_selection_core.py','analyze_redesign_scores.py','check_dreyer_metadata.py','acquire_dreyer_runs.py']]
- paths += [v1/'config/core_experiment_v1.json',v1/'evidence/dataset_sources/dreyer_nemar_manifest.txt',ROOT/'research_runs/Q8-E001/results/source_files.json',ROOT/'src/mi_eeg/data/q15_context.py']
+ paths += [v1/'config/core_experiment_v1.json',v1/'evidence/dataset_sources/dreyer_nemar_manifest.txt',v1/'evidence/dataset_sources/dreyer_nemar_acquisition_edf_manifest.json',ROOT/'research_runs/Q8-E001/results/source_files.json',ROOT/'src/mi_eeg/data/q15_context.py']
  paths += [aud/n for n in ['EXPLORATORY_DATA_ACCESS_PLAN.json','config/RAW_QC_RULES_V2.json','evidence/author_prior_use_uncertain.json','evidence/author_conditional_gpu_budget.json','evidence/source_exact_input_fingerprints.csv','evidence/source_exact_input_fingerprints_receipt.json','scripts/acquire_exposure_unconfirmed.py','scripts/audit_acquisition_signal_qc.py','results/raw-qc-543feb2f/raw_only_roster.json','results/raw-qc-543feb2f/raw_only_event_roster.csv','results/raw-qc-543feb2f/full_raw_qc_report.json']]
  return sorted(set(paths))
 
@@ -165,12 +165,24 @@ def work_locked(job):
    write(job/'r2_backup_receipt.json',r2.upload_and_verify({p.relative_to(job).as_posix():p for p in paths},key_prefix='redesign/'+job.name))
   status(job,'COMPLETED_EXPLORATORY_VALIDATED_GITHUB_BACKED_UP_MANUAL_STOP_REQUIRED',github_result_commit=backup['commit'],target_predictions_computed=True,manual_next_step='Use Stop in the cloud provider console. Worker exit does not stop billing.')
   final=publish(job,publisher,'Verified completion and manual stop instructions')
+  if os.environ.get('MI_EEG_ENV_ONLY_CREDENTIALS')=='1':
+   from private_recovery import backup_terminal_log
+   from r2_only import environment_client
+   client,bucket=environment_client()
+   write(job/'private_terminal_log_receipt.json',backup_terminal_log(job,client,bucket,tuple(credentials.values())))
   write(job/'completed_backup_receipt.json',final)
  except BaseException as error:
   code=error.code if isinstance(error,TransportError) else str(error) if isinstance(error,(RuntimeError,ValueError)) else type(error).__name__
   # Credential values and arbitrary API response bodies never enter failure records.
   for secret in credentials.values():code=code.replace(secret,'[redacted]')
   status(job,'FAILED_OR_BLOCKED_MANUAL_REVIEW_REQUIRED',error_code=code[:400],manual_next_step='Inspect job status/log; stop Pod billing manually if no immediate repair is planned.')
+  try:
+   if os.environ.get('MI_EEG_ENV_ONLY_CREDENTIALS')!='1':raise ValueError('legacy_mode_no_private_log_call')
+   from private_recovery import backup_terminal_log
+   from r2_only import environment_client
+   client,bucket=environment_client()
+   write(job/'private_terminal_log_receipt.json',backup_terminal_log(job,client,bucket,tuple(credentials.values())))
+  except Exception:pass
   try:publish(job,publisher,'Record blocked run without changing scientific conditions')
   except Exception:pass
   raise SystemExit(1) from None

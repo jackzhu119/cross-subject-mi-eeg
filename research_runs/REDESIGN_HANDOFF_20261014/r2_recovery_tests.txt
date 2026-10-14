@@ -1,0 +1,17 @@
+........................................................................ [ 20%]
+........................................................................ [ 41%]
+........................................................................ [ 62%]
+........................................................................ [ 82%]
+...........................................................              [100%]
+=============================== warnings summary ===============================
+research_runs/REDESIGN_CLOUD_20261013/tests/test_train_exploratory.py::test_synthetic_shared_forward_preserves_parameter_and_eval_state
+  /workspace/cross-subject-mi-eeg/.venv-cloud/lib/python3.12/site-packages/braindecode/models/eegpt.py:497: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
+    montage = mne.channels.make_standard_montage("standard_1020")
+
+research_runs/REDESIGN_CLOUD_20261013/tests/test_train_exploratory.py::test_synthetic_shared_forward_preserves_parameter_and_eval_state
+research_runs/REDESIGN_CLOUD_20261013/tests/test_train_exploratory.py::test_synthetic_shared_forward_preserves_parameter_and_eval_state
+  /workspace/cross-subject-mi-eeg/.venv-cloud/lib/python3.12/site-packages/braindecode/models/eegnet.py:172: DeprecationWarning: Parameter 'final_layer_with_constraint=False' is deprecated and will be removed in a future release. Please use `final_layer_linear=True`.
+    warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+347 passed, 3 warnings in 25.35s

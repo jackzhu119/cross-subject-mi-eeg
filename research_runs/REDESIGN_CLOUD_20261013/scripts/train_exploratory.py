@@ -354,6 +354,8 @@ def _execute_locked(job, source_data_dir):
     validate_runtime(runtime, read_json(job / "runtime_lock.json"))
     authorization = validate_budget(read_json(job / "budget_authorization.json"), runtime)
     validate_prepared_data(job, data, source_data_dir)
+    from private_recovery import from_environment
+    recovery = from_environment(job)
     output = job / "source"
     output.mkdir(parents=True, exist_ok=True)
     budget = PersistentBudget(job, authorization)
@@ -385,6 +387,8 @@ def _execute_locked(job, source_data_dir):
         status["updated_at_utc"] = now()
         write_json(output / "source_status.json", status)
 
+    save_status()
+    recovery.snapshot("source_preflight")
     device = torch.device("cuda:0")
     y = torch.as_tensor([r["label_index"] for r in records], dtype=torch.long, device=device)
     config_sha = file_hash(CONFIG)
@@ -426,6 +430,7 @@ def _execute_locked(job, source_data_dir):
         else:
             if (path / "resume_state.pt").exists() or (path / "update_intent.json").exists():
                 raise ValueError("Unowned resume artifacts cannot authorize a fresh fit")
+            recovery.begin("consume_fit_ordinal", budget.state["actual_neural_fits_started"] + 1)
             budget.start_fit()
             receipt = {**identity, "status": "started", "fit_ordinal": budget.state["actual_neural_fits_started"],
                 "started_at_utc": now(), "n_training_trials": len(train), "n_validation_trials": 0 if validation is None else len(validation),
@@ -445,6 +450,7 @@ def _execute_locked(job, source_data_dir):
                 "global_updates": budget.state["optimizer_updates"], "active_seconds": 0.}
             atomic_torch_save(path / "resume_state.pt", state)
         save_status()
+        recovery.snapshot("fit_initialized_or_restored")
         started = time.monotonic()
         active_before = state["active_seconds"]
         torch.cuda.reset_peak_memory_stats(device)
@@ -457,6 +463,7 @@ def _execute_locked(job, source_data_dir):
                 order = state["order"].to(device)
             for offset in range(state["batch_offset"], len(order), 64):
                 budget.before_update()
+                recovery.begin("optimizer_update", budget.state["optimizer_updates"] + 1)
                 batch = order[offset:offset + 64]
                 write_json(path / "update_intent.json", {"fit_identity": identity, "epoch": epoch,
                     "batch_offset": offset, "next_global_update": budget.state["optimizer_updates"] + 1,
@@ -477,6 +484,7 @@ def _execute_locked(job, source_data_dir):
                 atomic_torch_save(path / "resume_state.pt", state)
                 (path / "update_intent.json").unlink()
                 budget.save()
+                recovery.snapshot("committed_batch")
             validation_ce = None if val_t is None else evaluate_source_ce(model, x, y, val_t, 64)
             curve.append({"epoch": epoch, "training_cross_entropy": state["epoch_ce_sum"] / len(train),
                           "validation_cross_entropy": validation_ce, "optimizer_updates": math.ceil(len(train) / 64)})
@@ -486,6 +494,7 @@ def _execute_locked(job, source_data_dir):
             atomic_torch_save(path / "resume_state.pt", state)
             write_json(path / "source_curve.json", curve)
             save_status()
+            recovery.snapshot("committed_epoch")
         torch.cuda.synchronize(device)
         checkpoint = path / "checkpoint.pt"
         atomic_torch_save(checkpoint, {"state_dict": model.state_dict(), "architecture": config["architecture"], "model": name,
@@ -505,6 +514,7 @@ def _execute_locked(job, source_data_dir):
         budget.state["actual_neural_fits_completed"] = sum(read_json(p).get("status") == "completed" for p in output.glob("**/fit_receipt.json"))
         budget.save()
         save_status()
+        recovery.snapshot("completed_fit")
         del optimizer, model
         return curve
 
@@ -545,6 +555,7 @@ def _execute_locked(job, source_data_dir):
             "selected_epochs": selections, "final_cells": final_cells, "source_validation_passed": False,
             "protocol_commit": freeze.get("commit_sha", freeze.get("protocol_commit")),
             "external_experiment_completed": False, "target_scores_released": False})
+        recovery.snapshot("source_completed")
         return output
     except Exception as error:
         status.update(status="FAILED_OR_BLOCKED", error_type=type(error).__name__, error_message=str(error))

@@ -209,6 +209,13 @@ def secure_credentials(*, require_github: bool = True, enable_r2: bool = False, 
     Nothing is API-validated here. Returned values are private and callers must
     never serialize them into receipts, exceptions, logs or GitHub artifacts.
     """
+    environment = os.environ if environ is None else environ
+    if environment.get("MI_EEG_ENV_ONLY_CREDENTIALS") == "1":
+        names = (["GH_TOKEN"] if require_github else []) + (list(R2_NAMES) if enable_r2 else [])
+        values = {name: environment.get(name, "").strip() for name in names}
+        if reset or any(not value or any(ord(c) < 32 or ord(c) == 127 for c in value) for value in values.values()):
+            raise TransportError("existing_secure_environment_bindings_required_no_cache_or_prompt")
+        return values
     root = private_credential_root(private_root)
     path = root / "credentials.json"
     values = {} if reset else _load_private_cache(path)
