@@ -1,7 +1,7 @@
 {
   "created_at_utc": "2026-10-14T00:31:36.695791+00:00",
   "status": "PASS_SOFTWARE_DATA_RECONSTRUCTION_NOT_GPU_EXPERIMENT",
-  "tests": 226,
+  "tests": 229,
   "failures": 0,
   "errors": 0,
   "skipped": 0,
@@ -16,5 +16,6 @@
   "GPU_execution_tested": false,
   "provider_billing_stop_verified": false,
   "live_cloud_token_authentication_tested": false,
-  "fixture_tests_scope": "Transport mocks, orchestration failure injections, immutable gates, numerical BA/t/CI/bootstrap/Holm and mathematical forward/resume states; no real EEG scientific outcomes."
+  "fixture_tests_scope": "Transport mocks, orchestration failure injections, immutable gates, numerical BA/t/CI/bootstrap/Holm and mathematical forward/resume states; no real EEG scientific outcomes.",
+  "bootstrap_retry_test": "Actual shell control flow against command stubs: failed dependency install retries; malformed/mismatched revisions block"
 }

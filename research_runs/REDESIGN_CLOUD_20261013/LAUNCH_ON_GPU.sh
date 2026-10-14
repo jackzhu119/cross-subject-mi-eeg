@@ -57,7 +57,10 @@ fi
 RUNTIME="$BASE/runtime-$REVISION"
 if [[ ! -x "$RUNTIME/bin/python" ]]; then
  python -m venv --system-site-packages "$RUNTIME"
+fi
+if [[ ! -f "$RUNTIME/.requirements-installed" ]]; then
  "$RUNTIME/bin/python" -m pip install --disable-pip-version-check -r "$CODE/research_runs/REDESIGN_CLOUD_20261013/requirements.txt" > "$BASE/dependency-install-$REVISION.log" 2>&1 || { echo 'Dependency installation failed. Inspect the non-credential dependency log in /workspace/mi-eeg-cloud.'; exit 1; }
+ touch "$RUNTIME/.requirements-installed"
 fi
 ARGS=(--code-revision "$REVISION" --launch-started-at "$LAUNCH_STARTED_UTC")
 [[ -z "$RATE" ]] || ARGS+=(--hourly-rate "$RATE")
