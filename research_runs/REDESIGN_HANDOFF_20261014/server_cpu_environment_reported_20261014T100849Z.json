@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "status": "SERVER_CPU_ENVIRONMENT_INSTALLATION_REPORTED_SUCCESS_RAW_LOG_VERIFICATION_PENDING",
+  "evidence_source": "Parent conversation browser-operation report; not a direct server observation by this Codex task",
+  "source_thread_id": "01a139a2-97f9-706d-bdb9-0c49bdd5b02a",
+  "reported_operation": "Install isolated paper1 CPU diagnostic environment on existing server",
+  "started_at_utc": "2026-10-14T10:08:26Z",
+  "finished_at_utc": "2026-10-14T10:08:49Z",
+  "reported_exit_code": 0,
+  "reported_environment_size_bytes": 319173368,
+  "reported_checks": {
+    "fixed_sha256_verification": "PASS",
+    "pip_check": "PASS",
+    "pinned_version_assertions": "PASS"
+  },
+  "raw_log_location": "Not supplied in this report; remains on server pending verified off-machine preservation",
+  "raw_log_sha256": null,
+  "raw_log_independently_read_back": false,
+  "complete_backup_verified": false,
+  "raw_eeg_read": false,
+  "scientific_fits_started": 0,
+  "source_input_reconstruction_completed": false,
+  "old_failed_job": "20261014T071918Z-exploratory-89b0c07d",
+  "old_failure_root_cause_resolved": false,
+  "frozen_inputs_changed": false,
+  "budget_limits_changed": false,
+  "training_started": false,
+  "provider_stop_verified": false,
+  "next_step": "Preserve and independently read back the raw installation log with SHA256; retain this reported-evidence record without upgrading it to complete backup proof."
+}
