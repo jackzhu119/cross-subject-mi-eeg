@@ -37,3 +37,16 @@ cat /workspace/mi-eeg-cloud/code-<revision>/research_runs/REDESIGN_CLOUD_2026101
 出现 `COMPLETED_EXPLORATORY_VALIDATED_GITHUB_BACKED_UP_MANUAL_STOP_REQUIRED` 表示数值验证与GitHub备份已通过。**到RunPod控制台点击Stop；本程序不会自动关机，退出后服务器仍可能计费。** 保留磁盘直到确认模型和结果备份。失败或预算到期且不准备立即修复时，也应手动Stop。
 
 这些新增结果只能作为探索性外部评估，不能称为首次使用独立验证。原有Q1–Q16结果保持原样。
+
+## 固定执行版本
+
+执行版本：`abfb0b28d3f1d845fc85bd8ce0aad91fe99c7e25`。下面的命令无需填写任何密钥值：
+
+```bash
+curl -fSsL --retry 3 \
+  https://raw.githubusercontent.com/jackzhu119/cross-subject-mi-eeg/abfb0b28d3f1d845fc85bd8ce0aad91fe99c7e25/research_runs/REDESIGN_CLOUD_20261013/LAUNCH_ON_GPU.sh \
+  -o /tmp/mi-eeg-launch.sh && \
+  bash /tmp/mi-eeg-launch.sh --revision abfb0b28d3f1d845fc85bd8ce0aad91fe99c7e25
+```
+
+如需额外R2备份，在最后一行加 `--r2`。恢复时加 `--resume <job-id>`；凭据错误时再加 `--reset-credentials`。
