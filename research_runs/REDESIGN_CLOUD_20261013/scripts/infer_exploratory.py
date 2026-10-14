@@ -264,7 +264,7 @@ def verify_freeze(job, required_artifacts, public_reader=public_bytes):
         binding = bound.get(name, {})
         require(isinstance(binding, dict) and binding.get('sha256') == sha(path)
                 and files.get(binding.get('public_path')) == sha(path), 'preinference_job_artifact_not_publicly_bound:' + name)
-    required_code = [Path(__file__), HERE / 'validate_predictions.py', HERE / 'analyze_exploratory.py', CONFIG, AUTHOR,
+    required_code = [Path(__file__), HERE / 'validate_predictions.py', HERE / 'cloud_locks.py', HERE / 'analyze_exploratory.py', CONFIG, AUTHOR,
                      LEGACY / 'core_source_inputs.py', LEGACY / 'train_source_selection_core.py',
                      LEGACY / 'analyze_redesign_scores.py', HERE / 'train_exploratory.py', HERE / 'validate_source.py',
                      LEGACY.parent / 'config/core_experiment_v1.json', ROOT / 'src/mi_eeg/data/q15_context.py']
@@ -390,13 +390,9 @@ def execution_gates(job):
 
 def execute(job, cache):
     gates = execution_gates(job)  # No output/tensor is opened before these pass.
-    import fcntl
-    lock = (Path(job) / 'target_inference.lock').open('a')
-    try:
-        fcntl.flock(lock.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
+    from cloud_locks import local_lock
+    with local_lock('inference', job):
         return _execute_validated(job, cache, gates)
-    finally:
-        lock.close()
 
 
 def _execute_validated(job, cache, gates):

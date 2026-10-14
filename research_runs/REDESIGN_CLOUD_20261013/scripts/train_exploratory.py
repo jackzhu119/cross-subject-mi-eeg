@@ -124,7 +124,7 @@ def required_execution_paths(job, data):
     """Actual runtime, budget, raw-only eligibility and author records are frozen."""
     job = Path(job).resolve()
     required = [CONFIG, Path(__file__), HERE / "validate_source.py", HERE / "cloud_contract.py",
-        HERE / "prepare_data.py", LEGACY / "scripts/train_source_selection_core.py",
+        HERE / "prepare_data.py", HERE / "cloud_locks.py", LEGACY / "scripts/train_source_selection_core.py",
         LEGACY / "scripts/core_source_inputs.py", LEGACY / "config/core_experiment_v1.json",
         ROOT / "research_runs/Q8-E001/results/source_files.json", ROOT / "src/mi_eeg/data/q15_context.py",
         EXPLORATORY / "evidence/author_prior_use_uncertain.json",
@@ -339,13 +339,9 @@ def execute(job_dir, source_data_dir):
     import fcntl
     job = Path(job_dir).resolve()
     job.mkdir(parents=True, exist_ok=True)
-    lock_stream = (job / "source_worker.lock").open("a")
-    fcntl.flock(lock_stream.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
-    try:
+    from cloud_locks import local_lock
+    with local_lock("source", job):
         return _execute_locked(job, Path(source_data_dir).resolve())
-    finally:
-        fcntl.flock(lock_stream.fileno(), fcntl.LOCK_UN)
-        lock_stream.close()
 
 
 def _execute_locked(job, source_data_dir):

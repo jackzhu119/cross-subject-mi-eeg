@@ -418,5 +418,5 @@ def test_supervisor_lock_blocks_second_worker_before_credentials(job, monkeypatc
     def locked(*unused): raise BlockingIOError('fixture-lock-owned')
     monkeypatch.setattr(supervisor.fcntl, 'flock', locked)
     prevent_side_effects(monkeypatch)
-    with pytest.raises(SystemExit, match='existing supervisor'):
+    with pytest.raises(supervisor.LockBusy, match='local_process_lock_busy:supervisor'):
         supervisor.work(job)

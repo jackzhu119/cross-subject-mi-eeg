@@ -4,10 +4,11 @@ from pathlib import Path
 from datetime import datetime,timezone,timedelta
 from cloud_contract import ROOT,STUDY,sha,read,write,inside,now
 from cloud_transport import secure_credentials,GitHubPublisher,TransportError
+from cloud_locks import local_lock,LockBusy
 
 REPO='jackzhu119/cross-subject-mi-eeg'
 JOBS=STUDY/'jobs'
-CLOUD_BASE=Path('/workspace/mi-eeg-cloud')
+CLOUD_BASE=Path(os.environ.get('MI_EEG_WORK_ROOT','/workspace/mi-eeg-cloud')).resolve()
 NAMES=('torch','torchaudio','braindecode','numpy','scipy','pandas','mne','scikit-learn','skorch','einops')
 
 def protocol_files():
@@ -118,9 +119,11 @@ def run_step(job,script,args,publisher,periodic=False):
   raise
 
 def work(job):
- job=Path(job);lock=(job/'.supervisor.lock').open('a')
- try:fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
- except BlockingIOError:raise SystemExit('An existing supervisor already owns this job.')
+ with local_lock('supervisor',Path(job)):
+  return work_locked(job)
+
+def work_locked(job):
+ job=Path(job)
  credentials=secure_credentials(enable_r2=read(job/'launch_record.json').get('r2_enabled',False),interactive=False)
  publisher=GitHubPublisher(credentials['GH_TOKEN'],secret_values=list(credentials.values()))
  try:
@@ -172,6 +175,25 @@ def work(job):
   except Exception:pass
   raise SystemExit(1) from None
 
+def registered_status(registration):
+ old=CLOUD_BASE/('code-'+registration['code_revision'])/'research_runs/REDESIGN_CLOUD_20261013/jobs'/registration['job_id']
+ path=old/'job_status.json'
+ if not path.is_file():return {'status_file_present':False}
+ obj=read(path)
+ return {k:obj.get(k) for k in ('stage','pid','actual_neural_fits_started','actual_neural_fits_completed','updated_at_utc')}
+
+def reject_other_local_processes(resume=None):
+ """Detect still-running pre-fix launchers without displaying command arguments."""
+ for proc in Path('/proc').iterdir():
+  if not proc.name.isdigit() or int(proc.name)==os.getpid():continue
+  try:
+   arguments=(proc/'cmdline').read_bytes().split(b'\0')
+   names=(b'/cloud_supervisor.py',b'/train_exploratory.py',b'/infer_exploratory.py',b'/prepare_data.py')
+   if not any(arg.endswith(names) for arg in arguments):continue
+   if any(str(CLOUD_BASE).encode() in arg for arg in arguments):
+    raise LockBusy('existing_cloud_supervisor',int(proc.name))
+  except (PermissionError,FileNotFoundError,ProcessLookupError):continue
+
 def prior_registered_job():
  registration=CLOUD_BASE/'execution_registration.json'
  if registration.exists():return read(registration)
@@ -179,11 +201,14 @@ def prior_registered_job():
 
 def launch(args):
  CLOUD_BASE.mkdir(parents=True,exist_ok=True)
- launch_lock=(CLOUD_BASE/'.launch.lock').open('a')
- fcntl.flock(launch_lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
+ with local_lock('launch',CLOUD_BASE):
+  return launch_locked(args)
+
+def launch_locked(args):
+ reject_other_local_processes(args.resume)
  previous_registration=prior_registered_job()
  if previous_registration and not args.resume:
-  print(json.dumps({'status':'EXISTING_BUDGETED_JOB_DO_NOT_START_DUPLICATE','job_id':previous_registration['job_id'],'code_revision':previous_registration['code_revision'],'next_step':'Use --resume with the same immutable revision; do not create a second experiment.'}))
+  print(json.dumps({'status':'EXISTING_BUDGETED_JOB_DO_NOT_START_DUPLICATE','job_id':previous_registration['job_id'],'code_revision':previous_registration['code_revision'],'existing_status':registered_status(previous_registration),'next_step':'Use --resume with the same immutable revision; do not create a second experiment.'}))
   return
  if args.resume:
   if previous_registration and (previous_registration['job_id']!=args.resume or previous_registration['code_revision']!=args.code_revision):raise ValueError('registered_job_or_revision_mismatch')
@@ -203,7 +228,7 @@ def launch(args):
   started=datetime.fromisoformat(args.launch_started_at)
   if started.tzinfo is None or started>datetime.now(timezone.utc):raise ValueError('launch_timestamp_invalid')
   job=JOBS/(datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')+'-exploratory-'+uuid.uuid4().hex[:8]);job.mkdir(parents=True)
-  record={'job_id':job.name,'code_revision':args.code_revision,'data_dir':'/workspace/mi-eeg-cloud/data','launch_started_at_utc':started.isoformat(),'r2_enabled':args.r2,'prior_use':'unknown','independent_confirmation_qualified':False,'RunPod_API_required':False,'manual_billing_control_required':True}
+  record={'job_id':job.name,'code_revision':args.code_revision,'data_dir':str(CLOUD_BASE/'data'),'launch_started_at_utc':started.isoformat(),'r2_enabled':args.r2,'prior_use':'unknown','independent_confirmation_qualified':False,'RunPod_API_required':False,'manual_billing_control_required':True}
   write(job/'launch_record.json',record);write(job/'code_identity.json',{'code_revision':args.code_revision,'files':files})
   write(CLOUD_BASE/'execution_registration.json',{'job_id':job.name,'code_revision':args.code_revision,'created_at_utc':now(),'approved_total_budget_usd':10,'scope':'One exploratory source-selection core job only'})
   write(job/'runtime_lock.json',actual)
@@ -236,6 +261,7 @@ def launch(args):
 def main():
  p=argparse.ArgumentParser();sub=p.add_subparsers(dest='operation',required=True);l=sub.add_parser('launch');l.add_argument('--code-revision',required=True);l.add_argument('--launch-started-at',required=True);l.add_argument('--hourly-rate',type=float);l.add_argument('--resume');l.add_argument('--r2',action='store_true');l.add_argument('--reset-credentials',action='store_true');w=sub.add_parser('work');w.add_argument('--job-dir',type=Path,required=True);args=p.parse_args()
  try:launch(args) if args.operation=='launch' else work(args.job_dir)
+ except LockBusy as e:print(json.dumps({'status':'LOCK_BUSY_NO_NEW_WORKER_STARTED','error_code':e.code,'lock_scope':e.scope,'owner_pid':e.owner_pid,'next_step':'An actual local mutex is occupied. Check the existing job; do not delete locks or start duplicate fits.'}));raise SystemExit(2) from None
  except TransportError as e:print(json.dumps({'status':'NOT_STARTED_OR_BLOCKED','error_code':e.code}));raise SystemExit(2) from None
  except Exception as e:print(json.dumps({'status':'NOT_STARTED_OR_BLOCKED','error_class':type(e).__name__,'next_step':'Inspect the job log; no automatic Pod stop or paid budget expansion is performed.'}));raise SystemExit(2) from None
 if __name__=='__main__':main()
