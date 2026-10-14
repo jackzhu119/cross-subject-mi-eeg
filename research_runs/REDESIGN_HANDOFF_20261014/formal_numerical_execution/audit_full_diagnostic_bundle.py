@@ -18,7 +18,9 @@ import zipfile
 
 EXPECTED_ARCHIVE_SHA256 = '2871f422755bf5d0b939d0db59fc41547b192d6c939db1a6a13b97a91ba49ae9'
 EXPECTED_ARCHIVE_BYTES = 134436
-EXPECTED_MEMBERS = 12
+EXPECTED_PAYLOAD_MEMBERS = 12
+EXPECTED_MEMBERS = EXPECTED_PAYLOAD_MEMBERS  # Compatibility alias; excludes inventory files.
+EXPECTED_PHYSICAL_MEMBERS = 13
 MAX_MEMBER_BYTES = 2 * 1024 * 1024
 MAX_TOTAL_BYTES = 8 * 1024 * 1024
 MAX_ARCHIVE_BYTES = 256 * 1024
@@ -40,6 +42,10 @@ BOUND_PUBLIC_FILES = {
     OFFICIAL + 'fixed_zi_mediation_design.json': 'e6aaad1be0e30496c809bb5dfe795f0ce81055adf5e7bdef5e1382b177348c44',
     OFFICIAL + 'fixed_zi_result_20261014T1200Z/report.json': '88e5b75d18e913640988419d9f693e9650116a13049e5b8e683a9a74ee8073e3',
     OFFICIAL + 'v2_result_20261014T111526Z/new-host-source-report.json': 'a481ee98d6a1184dd6a696754b8c47a9a3bcfc6b92941393a90e7dcecbbd0a2b',
+}
+BOUND_LAUNCH_FILES = {
+    'launch-full-source-fixed-zi-run01.sh': '107692de7c470b49c543fa13989790edcf0ea83fd9adf80f3ee15ffff89876e2',
+    'launch-full-source-fixed-zi-run01.log': '27a82b83b608f58f97e152aa1399af2244c6dc9e78494425443224b43bf6fa4c',
 }
 ARRAY_EXTENSIONS = {'.mat', '.npy', '.npz', '.edf', '.gdf', '.h5', '.hdf5', '.pkl', '.pickle', '.pt', '.pth', '.safetensors', '.bin'}
 TEXT_EXTENSIONS = {'.json', '.csv', '.py', '.txt', '.log', '.md', '.sha256', '.exit-code'}
@@ -72,7 +78,8 @@ def _validate_members(members):
     for name, data in members.items():
         _require(_safe_name(name) == name, 'noncanonical_member_name')
         suffix = Path(name).suffix.lower()
-        _require(suffix not in ARRAY_EXTENSIONS and suffix in TEXT_EXTENSIONS, 'non_evidence_or_array_member')
+        allowed_shell = PurePosixPath(name).name == 'launch-full-source-fixed-zi-run01.sh' and _sha(data) == BOUND_LAUNCH_FILES['launch-full-source-fixed-zi-run01.sh']
+        _require(suffix not in ARRAY_EXTENSIONS and (suffix in TEXT_EXTENSIONS or allowed_shell), 'non_evidence_or_array_member')
         _require(isinstance(data, bytes) and len(data) <= MAX_MEMBER_BYTES, 'member_size_limit')
         _require(b'\x00' not in data, 'binary_member_forbidden')
         try:
@@ -226,6 +233,10 @@ def _validate_manifests(members):
         elif base.endswith('manifest.json') or base == 'inventory.json':
             obj = _json(data)
             _require(isinstance(obj, dict), 'invalid_manifest_object')
+            if 'new_fits' in obj:
+                _require(type(obj['new_fits']) is int and obj['new_fits'] == 0, 'manifest_fit_scope_changed')
+            if 'contains_EEG_arrays' in obj:
+                _require(obj['contains_EEG_arrays'] is False, 'manifest_declares_EEG_arrays')
             entries = obj.get('members', obj.get('files'))
             _require(entries is not None, 'manifest_member_inventory_missing')
             if isinstance(entries, dict):
@@ -249,6 +260,22 @@ def _validate_manifests(members):
     return {n: len(v) for n, v in inventories.items()}
 
 
+def _validate_launch_records(members, *, required):
+    present = {PurePosixPath(n).name for n in members} & set(BOUND_LAUNCH_FILES)
+    if not present and not required:
+        return None
+    _require(present == set(BOUND_LAUNCH_FILES), 'full_launch_records_incomplete')
+    for basename, digest in BOUND_LAUNCH_FILES.items():
+        _require(_sha(_member(members, basename)) == digest, 'full_launch_record_changed:' + basename)
+    log = _member(members, 'launch-full-source-fixed-zi-run01.log').decode().splitlines()
+    for line in ('START=2026-10-14T12:29:03Z', 'END=2026-10-14T12:29:58Z', 'OUTER_EXIT_CODE=0', 'FULL_DIAGNOSTIC_COMPLETED'):
+        _require(log.count(line) == 1, 'full_launch_completion_or_timing_changed')
+    _require(log.index('START=2026-10-14T12:29:03Z') < log.index('FULL_DIAGNOSTIC_COMPLETED') < log.index('OUTER_EXIT_CODE=0') < log.index('END=2026-10-14T12:29:58Z'), 'full_launch_record_order_changed')
+    return {'script_and_log_exact_hashes': BOUND_LAUNCH_FILES, 'started_at_utc': '2026-10-14T12:29:03Z',
+            'ended_at_utc': '2026-10-14T12:29:58Z', 'elapsed_seconds': 55, 'outer_exit_code': 0,
+            'completion_marker_verified': True, 'archived_script_executed_by_this_auditor': False}
+
+
 def audit_members(members, checkout, *, require_member_count=True):
     """Audit semantic evidence; this lower layer does NOT certify archive identity.
 
@@ -256,12 +283,17 @@ def audit_members(members, checkout, *, require_member_count=True):
     which has no option for replacing the expected package SHA or byte length.
     """
     _validate_members(members)
-    if require_member_count:
-        _require(len(members) == EXPECTED_MEMBERS, 'archive_member_count_changed')
     refs = _bound_references(checkout)
     for basename in ('diagnose_full_source_fixed_zi.py', 'probe_fixed_zi_mediation.py', 'fixed_zi_mediation_design.json'):
         _require(_member(members, basename) == refs[OFFICIAL + basename], 'diagnostic_implementation_changed:' + basename)
     manifests = _validate_manifests(members)
+    payload_count = len(members) - len(manifests)
+    if require_member_count:
+        _require(payload_count == EXPECTED_PAYLOAD_MEMBERS, 'archive_member_count_changed')
+    launch_records = _validate_launch_records(members, required=False)
+    for name, data in members.items():
+        if PurePosixPath(name).name == 'new-host-source-report.json':
+            _require(data == refs[OFFICIAL + 'v2_result_20261014T111526Z/new-host-source-report.json'], 'archived_original_native_report_changed')
     expected = _json(refs[EVIDENCE + 'source_exact_input_fingerprints_receipt.json'])['source_file_provenance']
     old = _json(refs[OFFICIAL + 'v2_result_20261014T111526Z/new-host-source-report.json'])
     six = _json(refs[OFFICIAL + 'fixed_zi_result_20261014T1200Z/report.json'])
@@ -287,7 +319,14 @@ def audit_members(members, checkout, *, require_member_count=True):
     _require(report.get('native_per_trial_mismatches') == expected_mismatches, 'original_native_anomaly_evidence_changed')
     _require(report.get('fixed_zi_mu_mismatches') == [], 'fixed_trial_mismatches_present')
     _require(report.get('changed_from_native') == [{'sample_id': sid, 'elements': 1} for sid in anomalies], 'changed_element_inventory_changed')
-    expected_native = {**expected, 'array_hashes': old['actual_array_hashes']}
+    # The diagnostic executed the exact pinned cloud config, while the earlier
+    # source fingerprint receipt hashed its smaller base source config. Keep
+    # every preprocessing field exact; derive this metadata-only full-config
+    # identity from the already byte-bound cloud config, never from the archive.
+    cloud_config = _json(refs['research_runs/REDESIGN_CLOUD_20261013/config/experiment.json'])
+    cloud_config_canonical_sha = _sha(json.dumps(cloud_config, sort_keys=True, separators=(',', ':'), allow_nan=False).encode())
+    expected_native = {**expected, 'array_hashes': old['actual_array_hashes'],
+        'preprocessing': {**expected['preprocessing'], 'config_canonical_sha256': cloud_config_canonical_sha}}
     _require(native == expected_native, 'native_source_audit_changed')
     _require(all(type(native[k]) is int and native[k] == 0 for k in ('new_model_fits', 'target_fits')) and
              native.get('target_eeg_read') is False and native.get('target_predictions_computed') is False, 'native_audit_scope_changed')
@@ -319,13 +358,16 @@ def audit_members(members, checkout, *, require_member_count=True):
     return {'status': 'FULL_DIAGNOSTIC_SEMANTICS_PASSED_ARCHIVE_IDENTITY_NOT_CHECKED',
             'training_authorization': False, 'new_fits': 0, 'target_EEG_read': False,
             'historical_generator_OpenBLAS_identity_established': False,
-            'members': len(members), 'full_report_member': report_name, 'trials': 2592, 'unique_sample_ids': 2592,
+            'members': payload_count, 'physical_regular_members': len(members), 'inventory_members': len(manifests), 'launch_records_checked': launch_records, 'full_report_member': report_name, 'trials': 2592, 'unique_sample_ids': 2592,
             'raw_files': 18, 'raw_file_bytes': 779873919, 'runs': 108,
             'native_mu_anomalies_retained': anomalies, 'all_fixed_mu_trial_hashes_match': True,
             'all_reported_fixed_array_hashes_match': True, 'frozen_source_identity_hashes_match': True,
             'unchanged_broad_beta_native_audit_matches': True,
             'six_stage_anchor_assertion_bound_to_exact_script_and_prior_report': True,
             'six_final_trial_hashes_checked': 6, 'internal_manifests_checked': manifests,
+            'diagnostic_cloud_config_canonical_sha256': cloud_config_canonical_sha,
+            'historical_receipt_base_source_config_canonical_sha256': expected['preprocessing']['config_canonical_sha256'],
+            'config_hash_scope_explanation': 'Diagnostic hashes byte-bound full cloud config; prior fingerprint receipt hashes earlier base source config. All numeric preprocessing fields remain exact.',
             'bound_public_files': BOUND_PUBLIC_FILES,
             'member_inventory': {n: {'bytes': len(v), 'sha256': _sha(v)} for n, v in sorted(members.items())},
             'limitations': ['No archived code executed or EEG loaded.', 'Reported whole-array hashes and intermediate six-stage assertions are evidence checks, not recomputation.', 'This diagnostic audit does not authorize training or prove historical machine identity.']}
@@ -338,7 +380,11 @@ def audit_bundle(path, checkout):
     _require(path.stat().st_size == EXPECTED_ARCHIVE_BYTES, 'immutable_archive_byte_length_changed')
     data = path.read_bytes()
     _require(len(data) == EXPECTED_ARCHIVE_BYTES and _sha(data) == EXPECTED_ARCHIVE_SHA256, 'immutable_archive_sha256_changed')
-    result = audit_members(_read_archive_bytes(data), checkout)
+    members = _read_archive_bytes(data)
+    _require(len(members) == EXPECTED_PHYSICAL_MEMBERS, 'immutable_archive_physical_member_count_changed')
+    _member(members, 'new-host-source-report.json')
+    _validate_launch_records(members, required=True)
+    result = audit_members(members, checkout)
     result.update({'status': 'FULL_DIAGNOSTIC_PRIVATE_BUNDLE_AUDIT_PASSED_TRAINING_BLOCKED',
                    'archive_bytes': len(data), 'archive_sha256': _sha(data)})
     return result

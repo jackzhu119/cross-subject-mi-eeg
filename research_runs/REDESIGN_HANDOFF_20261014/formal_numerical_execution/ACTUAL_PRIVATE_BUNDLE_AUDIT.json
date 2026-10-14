@@ -1,0 +1,119 @@
+{
+  "status": "FULL_DIAGNOSTIC_PRIVATE_BUNDLE_AUDIT_PASSED_TRAINING_BLOCKED",
+  "training_authorization": false,
+  "new_fits": 0,
+  "target_EEG_read": false,
+  "historical_generator_OpenBLAS_identity_established": false,
+  "members": 12,
+  "physical_regular_members": 13,
+  "inventory_members": 1,
+  "launch_records_checked": {
+    "script_and_log_exact_hashes": {
+      "launch-full-source-fixed-zi-run01.sh": "107692de7c470b49c543fa13989790edcf0ea83fd9adf80f3ee15ffff89876e2",
+      "launch-full-source-fixed-zi-run01.log": "27a82b83b608f58f97e152aa1399af2244c6dc9e78494425443224b43bf6fa4c"
+    },
+    "started_at_utc": "2026-10-14T12:29:03Z",
+    "ended_at_utc": "2026-10-14T12:29:58Z",
+    "elapsed_seconds": 55,
+    "outer_exit_code": 0,
+    "completion_marker_verified": true,
+    "archived_script_executed_by_this_auditor": false
+  },
+  "full_report_member": "paper1-readonly-probe/full-source-fixed-zi-diagnostic-run01/report.json",
+  "trials": 2592,
+  "unique_sample_ids": 2592,
+  "raw_files": 18,
+  "raw_file_bytes": 779873919,
+  "runs": 108,
+  "native_mu_anomalies_retained": [
+    "s02_1test_r2_t36",
+    "s03_1test_r0_t06",
+    "s07_0train_r0_t06"
+  ],
+  "all_fixed_mu_trial_hashes_match": true,
+  "all_reported_fixed_array_hashes_match": true,
+  "frozen_source_identity_hashes_match": true,
+  "unchanged_broad_beta_native_audit_matches": true,
+  "six_stage_anchor_assertion_bound_to_exact_script_and_prior_report": true,
+  "six_final_trial_hashes_checked": 6,
+  "internal_manifests_checked": {
+    "manifest.json": 12
+  },
+  "diagnostic_cloud_config_canonical_sha256": "2e568211d49a97e399bc172f438d8e46251eba035dc1097545c124a04e865cb4",
+  "historical_receipt_base_source_config_canonical_sha256": "95b0448685eedfe1a5c44a4e4527c920e67d1d8d96ccd4c2e243db4056e1720e",
+  "config_hash_scope_explanation": "Diagnostic hashes byte-bound full cloud config; prior fingerprint receipt hashes earlier base source config. All numeric preprocessing fields remain exact.",
+  "bound_public_files": {
+    "research_runs/REDESIGN_CLOUD_20261013/config/experiment.json": "8ba78d4ead0e41fc5a5fc6f9890b750f0bdfdaba74a57efab5422b43d57feff0",
+    "research_runs/REDESIGN_SOURCE_SELECTION_20261012/scripts/core_source_inputs.py": "03f47bceb3998e407a28e7da56da4875b5d3e1e38746d196739be7262be7cff5",
+    "src/mi_eeg/data/q15_context.py": "849ee22e2a1c1987c2a83ed3a837f9f358b505133ce2ffe13ee876f01adc3d61",
+    "research_runs/Q8-E001/results/source_files.json": "0ccef780ed5bfbc2d430b8caf0c108641fb230a2dc27e4189e7e771c999f64a6",
+    "research_runs/REDESIGN_EXPLORATORY_20261013/evidence/source_exact_input_fingerprints.csv": "e142e927228d9c46afb872fa649335cc6e9ec286b1d291b94ac0e43a6d59e4cf",
+    "research_runs/REDESIGN_EXPLORATORY_20261013/evidence/source_exact_input_fingerprints_receipt.json": "66c5aa472809cf29fe68b7b56401c4f0aa4b4f577156425a1f4e1fc20d45d8dd",
+    "research_runs/REDESIGN_HANDOFF_20261014/official_source_diagnostic/diagnose_full_source_fixed_zi.py": "7a192acf5c4911e010c1fd48d0f96af2c808d93a929644c3c228e06aa5fe4124",
+    "research_runs/REDESIGN_HANDOFF_20261014/official_source_diagnostic/probe_fixed_zi_mediation.py": "18c51bbe10d4113c2ad92a6d7dad332590ae2941aeb15a0a70012f09a2527014",
+    "research_runs/REDESIGN_HANDOFF_20261014/official_source_diagnostic/fixed_zi_mediation_design.json": "e6aaad1be0e30496c809bb5dfe795f0ce81055adf5e7bdef5e1382b177348c44",
+    "research_runs/REDESIGN_HANDOFF_20261014/official_source_diagnostic/fixed_zi_result_20261014T1200Z/report.json": "88e5b75d18e913640988419d9f693e9650116a13049e5b8e683a9a74ee8073e3",
+    "research_runs/REDESIGN_HANDOFF_20261014/official_source_diagnostic/v2_result_20261014T111526Z/new-host-source-report.json": "a481ee98d6a1184dd6a696754b8c47a9a3bcfc6b92941393a90e7dcecbbd0a2b"
+  },
+  "member_inventory": {
+    "manifest.json": {
+      "bytes": 2556,
+      "sha256": "6fa16ca7a6c29891a3f225a3a99952360206d3850e2652a34cba1cdf51a08482"
+    },
+    "paper1-official-source-bootstrap/diagnose_full_source_fixed_zi.py": {
+      "bytes": 10046,
+      "sha256": "7a192acf5c4911e010c1fd48d0f96af2c808d93a929644c3c228e06aa5fe4124"
+    },
+    "paper1-official-source-bootstrap/fixed_zi_mediation_design.json": {
+      "bytes": 1248,
+      "sha256": "e6aaad1be0e30496c809bb5dfe795f0ce81055adf5e7bdef5e1382b177348c44"
+    },
+    "paper1-official-source-bootstrap/launch-full-source-fixed-zi-run01.log": {
+      "bytes": 546,
+      "sha256": "27a82b83b608f58f97e152aa1399af2244c6dc9e78494425443224b43bf6fa4c"
+    },
+    "paper1-official-source-bootstrap/launch-full-source-fixed-zi-run01.sh": {
+      "bytes": 2505,
+      "sha256": "107692de7c470b49c543fa13989790edcf0ea83fd9adf80f3ee15ffff89876e2"
+    },
+    "paper1-official-source-bootstrap/probe_fixed_zi_mediation.py": {
+      "bytes": 9372,
+      "sha256": "18c51bbe10d4113c2ad92a6d7dad332590ae2941aeb15a0a70012f09a2527014"
+    },
+    "paper1-readonly-probe/fixed-zi-mediation-run01/report.json": {
+      "bytes": 9422,
+      "sha256": "88e5b75d18e913640988419d9f693e9650116a13049e5b8e683a9a74ee8073e3"
+    },
+    "paper1-readonly-probe/full-source-fixed-zi-diagnostic-run01/native_audit.json": {
+      "bytes": 63836,
+      "sha256": "f59a997ef670292639d46aca5e91dfd94c4c3cabb21d3790ed03a0b5dfa70717"
+    },
+    "paper1-readonly-probe/full-source-fixed-zi-diagnostic-run01/report.json": {
+      "bytes": 2676,
+      "sha256": "94833a6220f01af8107faff9b08a98c0d44ddf70c35cd0efb0af408583d540a5"
+    },
+    "paper1-readonly-probe/full-source-fixed-zi-diagnostic-run01/supervision.json": {
+      "bytes": 92,
+      "sha256": "a25542fc7b390288359af763af5eb8f60dccf973eeee0fdbdac28dc563a8d8e9"
+    },
+    "paper1-readonly-probe/full-source-fixed-zi-diagnostic-run01/trial_hash_comparison.csv": {
+      "bytes": 571634,
+      "sha256": "bc70cfa1a02cd26c36eac1fffb6d2cc9b465d012672618545020e083734a2cb7"
+    },
+    "paper1-readonly-probe/full-source-fixed-zi-diagnostic-run01/worker.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "paper1-readonly-probe/new-host-source-report.json": {
+      "bytes": 2881,
+      "sha256": "a481ee98d6a1184dd6a696754b8c47a9a3bcfc6b92941393a90e7dcecbbd0a2b"
+    }
+  },
+  "limitations": [
+    "No archived code executed or EEG loaded.",
+    "Reported whole-array hashes and intermediate six-stage assertions are evidence checks, not recomputation.",
+    "This diagnostic audit does not authorize training or prove historical machine identity."
+  ],
+  "archive_bytes": 134436,
+  "archive_sha256": "2871f422755bf5d0b939d0db59fc41547b192d6c939db1a6a13b97a91ba49ae9"
+}

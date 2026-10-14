@@ -1,5 +1,5 @@
 {
-  "status": "SOFTWARE_AND_LOCAL_SOURCE_VERIFIED_REMOTE_PACKAGE_AND_TARGET_PENDING",
+  "status": "FORMAL_CODE_READY_PRIVATE_BUNDLE_AUDITED_REMOTE_TRAINING_ACCEPTANCE_PENDING",
   "checked_at_utc": "2026-10-14T13:49:50.313626+00:00",
   "base_handoff_commit": "5f20b35ab720f05ee208d4ceb12d582148719bf8",
   "combined_software_suite": {
@@ -43,8 +43,8 @@
     "research_runs/REDESIGN_EXPLORATORY_20261013",
     "src/mi_eeg/data/q15_context.py"
   ],
-  "private_full_package_available_to_this_task": false,
-  "private_full_package_independent_audit_completed": false,
+  "private_full_package_available_to_this_task": true,
+  "private_full_package_independent_audit_completed": true,
   "claimed_private_package_sha256": "2871f422755bf5d0b939d0db59fc41547b192d6c939db1a6a13b97a91ba49ae9",
   "remote_actual_training_consumer_accepted": false,
   "target_full_restore_or_formal_512_input_acceptance_completed": false,
@@ -52,5 +52,9 @@
   "new_model_fits": 0,
   "new_target_predictions": 0,
   "RunPod_Stop_or_Terminate_called": false,
-  "scientific_results_changed": false
+  "scientific_results_changed": false,
+  "actual_private_bundle_audit_sha256": "039a1b6a06325b9370b58969981f689de41396da5ded95a2d0a9f96c8bca2143",
+  "actual_bundle_auditor_tests_passed": 95,
+  "diagnostic_rerun_after_receiving_bundle": false,
+  "source_EEG_read_after_receiving_bundle": false
 }

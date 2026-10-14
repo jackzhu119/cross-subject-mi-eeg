@@ -48,11 +48,15 @@ def members():
                 'fixed_zi_mu_sha256': mu, 'frozen_mu_sha256': mu, 'changed_elements': 1 if sid in anomalies else 0, 'fixed_zi_matches': True})
     m = {basename: (ROOT / (a.OFFICIAL + basename)).read_bytes() for basename in
          ('diagnose_full_source_fixed_zi.py', 'probe_fixed_zi_mediation.py', 'fixed_zi_mediation_design.json')}
-    m.update({'result/report.json': encoded(report), 'result/native_audit.json': encoded({**expected, 'array_hashes': old['actual_array_hashes']}),
+    cloud_config = json.loads((ROOT / 'research_runs/REDESIGN_CLOUD_20261013/config/experiment.json').read_text())
+    cloud_config_sha = a._sha(json.dumps(cloud_config, sort_keys=True, separators=(',', ':'), allow_nan=False).encode())
+    m.update({'result/report.json': encoded(report), 'result/native_audit.json': encoded({**expected, 'array_hashes': old['actual_array_hashes'],
+        'preprocessing': {**expected['preprocessing'], 'config_canonical_sha256': cloud_config_sha}}),
         'result/trial_hash_comparison.csv': out.getvalue().encode(),
         'result/supervision.json': encoded({'exit_code': 0, 'timeout': False, 'new_fits': 0, 'training_authorization': False}),
         'result/worker.log': b'Synthetic fixture: no actual diagnostic performed.\n',
-        'full-diagnostic.exit-code': b'0\n', 'README.md': b'Synthetic software-test fixture, not actual evidence.\n', 'timing.json': b'{"synthetic_fixture":true}\n'})
+        'full-diagnostic.exit-code': b'0\n', 'README.md': b'Synthetic software-test fixture, not actual evidence.\n', 'timing.json': b'{"synthetic_fixture":true}\n',
+        'new-host-source-report.json': (ROOT / (a.OFFICIAL + 'v2_result_20261014T111526Z/new-host-source-report.json')).read_bytes()})
     return with_manifest(m)
 
 
@@ -82,7 +86,9 @@ def test_complete_synthetic_semantics_are_not_archive_certification(members):
     assert result['status'] == 'FULL_DIAGNOSTIC_SEMANTICS_PASSED_ARCHIVE_IDENTITY_NOT_CHECKED'
     assert result['training_authorization'] is False
     assert result['unique_sample_ids'] == 2592
-    assert result['internal_manifests_checked'] == {'manifest.json': 11}
+    assert result['internal_manifests_checked'] == {'manifest.json': 12}
+    assert result['physical_regular_members'] == 13
+    assert result['members'] == 12
     assert result['six_final_trial_hashes_checked'] == 6
 
 
@@ -184,7 +190,7 @@ def test_manifest_size_must_match(members):
 def test_text_checksum_manifest_also_verified(members):
     m = {n: v for n, v in members.items() if n != 'manifest.json'}
     m['SHA256SUMS.txt'] = ''.join(a._sha(v) + '  ' + n + '\n' for n, v in m.items()).encode()
-    assert a.audit_members(m, ROOT)['internal_manifests_checked']['SHA256SUMS.txt'] == 11
+    assert a.audit_members(m, ROOT)['internal_manifests_checked']['SHA256SUMS.txt'] == 12
 
 
 def test_ambiguous_report_basename_rejected(members):
@@ -324,4 +330,98 @@ def test_ambiguous_flattened_supervision_rejected(members):
 def test_native_fit_count_boolean_cannot_impersonate_zero(members):
     members = update_json(members, 'result/native_audit.json', lambda obj: obj.update({'new_model_fits': False}))
     with pytest.raises(a.AuditError, match='native_audit_scope_changed'):
+        a.audit_members(members, ROOT)
+
+# Exact text fixtures for schema checks; stored as inert byte literals only.
+KNOWN_LAUNCH_SCRIPT = b'#!/usr/bin/env bash\nset -Eeuo pipefail\nset -o noclobber\nexec > /workspace/paper1-official-source-bootstrap/launch-full-source-fixed-zi-run01.log 2>&1\ntrap \'rc=$?; echo OUTER_EXIT_CODE=$rc; echo END=$(date -u +%Y-%m-%dT%H:%M:%SZ)\' EXIT\necho START=$(date -u +%Y-%m-%dT%H:%M:%SZ)\necho DISPATCH_PID=$$\nps -eo pid,ppid,comm | grep -E \'python|pip|uv|bash|timeout|torch\' || true\nnvidia-smi --query-compute-apps=pid,process_name,used_memory --format=csv,noheader\ndf -B1 /workspace\ntest "$(df -B1 --output=avail /workspace | tail -1)" -gt 6442450944\ntest ! -e /workspace/paper1-readonly-probe/full-source-fixed-zi-diagnostic-run01\ntest "$(git -C /workspace/paper1-source-diagnostic-c802 rev-parse HEAD)" = c802e65709103189becf7e6ff3a55c99a405a7e8\ntest -z "$(git -C /workspace/paper1-source-diagnostic-c802 status --porcelain)"\ncd /workspace/paper1-official-source-bootstrap\ntest ! -e diagnose_full_source_fixed_zi.py\ncurl --fail --silent --show-error --max-time 60 --max-redirs 0 --proto \'=https\' --retry 0 \'https://raw.githubusercontent.com/jackzhu119/cross-subject-mi-eeg/5f20b35ab720f05ee208d4ceb12d582148719bf8/research_runs/REDESIGN_HANDOFF_20261014/official_source_diagnostic/diagnose_full_source_fixed_zi.py\' -o diagnose_full_source_fixed_zi.py\nprintf \'%s\\n\' \'7a192acf5c4911e010c1fd48d0f96af2c808d93a929644c3c228e06aa5fe4124  diagnose_full_source_fixed_zi.py\' \'18c51bbe10d4113c2ad92a6d7dad332590ae2941aeb15a0a70012f09a2527014  probe_fixed_zi_mediation.py\' \'e6aaad1be0e30496c809bb5dfe795f0ce81055adf5e7bdef5e1382b177348c44  fixed_zi_mediation_design.json\' \'88e5b75d18e913640988419d9f693e9650116a13049e5b8e683a9a74ee8073e3  /workspace/paper1-readonly-probe/fixed-zi-mediation-run01/report.json\' \'a481ee98d6a1184dd6a696754b8c47a9a3bcfc6b92941393a90e7dcecbbd0a2b  /workspace/paper1-readonly-probe/new-host-source-report.json\' | sha256sum -c -\n/workspace/paper1-diagnostic-runtime/bin/python /workspace/paper1-official-source-bootstrap/diagnose_full_source_fixed_zi.py --checkout /workspace/paper1-source-diagnostic-c802 --data-dir /workspace/paper1-readonly-probe/data --helper /workspace/paper1-official-source-bootstrap/probe_fixed_zi_mediation.py --design /workspace/paper1-official-source-bootstrap/fixed_zi_mediation_design.json --six-report /workspace/paper1-readonly-probe/fixed-zi-mediation-run01/report.json --original-report /workspace/paper1-readonly-probe/new-host-source-report.json --output-dir /workspace/paper1-readonly-probe/full-source-fixed-zi-diagnostic-run01\necho FULL_DIAGNOSTIC_COMPLETED\n'
+KNOWN_LAUNCH_LOG = b'START=2026-10-14T12:29:03Z\nDISPATCH_PID=26135\n   3721     128 bash\n  26133    3721 bash\n  26135   26133 bash\nFilesystem       1B-blocks        Used   Available Use% Mounted on\noverlay        32212254720 10727948288 21484306432  34% /\ndiagnose_full_source_fixed_zi.py: OK\nprobe_fixed_zi_mediation.py: OK\nfixed_zi_mediation_design.json: OK\n/workspace/paper1-readonly-probe/fixed-zi-mediation-run01/report.json: OK\n/workspace/paper1-readonly-probe/new-host-source-report.json: OK\nFULL_DIAGNOSTIC_COMPLETED\nOUTER_EXIT_CODE=0\nEND=2026-10-14T12:29:58Z\n'
+
+
+def actual_layout_fixture(members):
+    """Same member schema, synthetic full report; no actual audit substituted."""
+    for name in ('timing.json', 'README.md', 'full-diagnostic.exit-code'):
+        members.pop(name)
+    members['prior_six/report.json'] = (ROOT / (a.OFFICIAL + 'fixed_zi_result_20261014T1200Z/report.json')).read_bytes()
+    members['bootstrap/launch-full-source-fixed-zi-run01.sh'] = KNOWN_LAUNCH_SCRIPT
+    members['bootstrap/launch-full-source-fixed-zi-run01.log'] = KNOWN_LAUNCH_LOG
+    return with_manifest(members)
+
+
+def test_actual_schema_counts_manifest_separately_from_payload(members):
+    result = a.audit_members(actual_layout_fixture(members), ROOT)
+    assert result['members'] == 12
+    assert result['physical_regular_members'] == 13
+    assert result['inventory_members'] == 1
+    assert result['internal_manifests_checked'] == {'manifest.json': 12}
+    assert result['launch_records_checked']['elapsed_seconds'] == 55
+    assert result['launch_records_checked']['archived_script_executed_by_this_auditor'] is False
+
+
+def test_actual_manifest_list_schema(members):
+    m = actual_layout_fixture(members)
+    inventory = json.loads(m['manifest.json'])['files']
+    m['manifest.json'] = encoded({'files': [{'path': n, **record} for n, record in inventory.items()], 'new_fits': 0, 'contains_EEG_arrays': False})
+    assert a.audit_members(m, ROOT)['internal_manifests_checked'] == {'manifest.json': 12}
+
+
+def test_unknown_shell_rejected(members):
+    m = actual_layout_fixture(members)
+    m['bootstrap/unknown.sh'] = m.pop('bootstrap/launch-full-source-fixed-zi-run01.sh')
+    with pytest.raises(a.AuditError, match='non_evidence_or_array_member'):
+        a.audit_members(with_manifest(m), ROOT)
+
+
+def test_changed_launch_shell_rejected(members):
+    m = actual_layout_fixture(members); m['bootstrap/launch-full-source-fixed-zi-run01.sh'] += b'\n'
+    with pytest.raises(a.AuditError, match='non_evidence_or_array_member'):
+        a.audit_members(with_manifest(m), ROOT)
+
+
+def test_changed_launcher_log_rejected(members):
+    m = actual_layout_fixture(members)
+    m['bootstrap/launch-full-source-fixed-zi-run01.log'] = KNOWN_LAUNCH_LOG.replace(b'OUTER_EXIT_CODE=0', b'OUTER_EXIT_CODE=2')
+    with pytest.raises(a.AuditError, match='full_launch_record_changed'):
+        a.audit_members(with_manifest(m), ROOT)
+
+
+def test_missing_launch_record_rejected(members):
+    m = actual_layout_fixture(members); m.pop('bootstrap/launch-full-source-fixed-zi-run01.log')
+    m['extra.json'] = b'{}'
+    with pytest.raises(a.AuditError, match='full_launch_records_incomplete'):
+        a.audit_members(with_manifest(m), ROOT)
+
+
+def test_archived_original_native_report_exact_sha_required(members):
+    members['new-host-source-report.json'] += b'\n'
+    with pytest.raises(a.AuditError, match='archived_original_native_report_changed'):
+        a.audit_members(with_manifest(members), ROOT)
+
+
+def test_cloud_config_scope_hash_must_come_from_bound_config(members):
+    obj = json.loads(members['result/native_audit.json'])
+    obj['preprocessing']['config_canonical_sha256'] = '0' * 64
+    members['result/native_audit.json'] = encoded(obj)
+    with pytest.raises(a.AuditError, match='native_source_audit_changed'):
+        a.audit_members(with_manifest(members), ROOT)
+
+
+def test_old_base_config_hash_does_not_impersonate_actual_execution_config(members):
+    old_sha = json.loads((ROOT / (a.EVIDENCE + 'source_exact_input_fingerprints_receipt.json')).read_text())['source_file_provenance']['preprocessing']['config_canonical_sha256']
+    obj = json.loads(members['result/native_audit.json']); obj['preprocessing']['config_canonical_sha256'] = old_sha
+    members['result/native_audit.json'] = encoded(obj)
+    with pytest.raises(a.AuditError, match='native_source_audit_changed'):
+        a.audit_members(with_manifest(members), ROOT)
+
+
+def test_manifest_false_zero_must_not_authorize_fits(members):
+    manifest = json.loads(members['manifest.json']); manifest['new_fits'] = False
+    members['manifest.json'] = encoded(manifest)
+    with pytest.raises(a.AuditError, match='manifest_fit_scope_changed'):
+        a.audit_members(members, ROOT)
+
+
+def test_manifest_EEG_array_claim_is_rejected(members):
+    manifest = json.loads(members['manifest.json']); manifest['contains_EEG_arrays'] = True
+    members['manifest.json'] = encoded(manifest)
+    with pytest.raises(a.AuditError, match='manifest_declares_EEG_arrays'):
         a.audit_members(members, ROOT)

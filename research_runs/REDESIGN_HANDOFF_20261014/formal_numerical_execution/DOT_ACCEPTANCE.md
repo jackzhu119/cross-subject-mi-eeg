@@ -81,10 +81,11 @@ intentional pending gate, not evidence of a failed source hash check.
 
 ## Private archive
 
-The complete 134436-byte archive is not accessible to this Codex task from its
-Library ID. Provide its already retrieved private file path to
+The author attached the exact 134436-byte archive and this task's independent
+read-only audit passed (see ACTUAL_PRIVATE_BUNDLE_AUDIT.json). Provide its already
+retrieved private file path to
 `--diagnostic-package`; never upload it into GitHub. The strict auditor checks
-the named package SHA, 12 safe members, file inventories, frozen implementation,
+the named package SHA, 12 safe payloads plus one manifest, file inventories, frozen implementation,
 native audit, 2592 unique ordered CSV identities, exact mu trial/aggregate hashes,
 retained native anomalies, stage-anchor declarations and actual zero exit. The
 software does not claim independent signal recomputation from archived hashes.

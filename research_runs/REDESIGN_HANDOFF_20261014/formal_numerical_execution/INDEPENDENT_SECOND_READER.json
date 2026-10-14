@@ -1,0 +1,33 @@
+{
+  "status": "INDEPENDENT_SECOND_READER_PRIVATE_ARCHIVE_EVIDENCE_CONSISTENT_NOT_TRAINING_AUTHORIZATION",
+  "archive_sha256": "2871f422755bf5d0b939d0db59fc41547b192d6c939db1a6a13b97a91ba49ae9",
+  "archive_bytes": 134436,
+  "physical_members": 13,
+  "manifest_payload_files": 12,
+  "all_manifest_bytes_and_hashes_match": true,
+  "unique_ordered_trials": 2592,
+  "all_fixed_mu_trial_hashes_match": true,
+  "changed_from_native": [
+    [
+      "s02_1test_r2_t36",
+      1
+    ],
+    [
+      "s03_1test_r0_t06",
+      1
+    ],
+    [
+      "s07_0train_r0_t06",
+      1
+    ]
+  ],
+  "native_source_identity_hashes_match": true,
+  "source_runs": 108,
+  "source_recorded_raw_files": 18,
+  "source_recorded_raw_file_bytes": 779873919,
+  "new_fits": 0,
+  "diagnostic_rerun": false,
+  "EEG_read": false,
+  "training_authorization": false,
+  "scope": "Archive source/report/CSV and manifest consistency only; no signal recomputation or live Pod filesystem verification."
+}

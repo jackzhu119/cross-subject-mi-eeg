@@ -59,16 +59,29 @@ Training runtime mode imports the exact exported trainer/validator loader and
 checks the cu128 PyTorch pair WITHOUT creating a model or CUDA tensor. Even its
 complete source acceptance ends with TRAINING_STILL_BLOCKED.
 
-The named 134436-byte/12-member private package, Library ID
+The named 134436-byte private package, Library ID
 `libfile_3c3b07bf384c8191ae80231636941a1b`, has author-provided SHA256
 `2871f422755bf5d0b939d0db59fc41547b192d6c939db1a6a13b97a91ba49ae9`.
-Current tools expose its ID but cannot download this binary Library archive.
-Therefore this task has NOT independently audited the actual package. A strict
-read-only auditor is delivered; synthetic tests and local source reconstruction
-do not substitute for its actual archive pass. It never extracts or executes
-archived code. Its reported full-array and intermediate-stage evidence checks
-are distinguished from signal recomputation. Any actual archive layout mismatch
-must be examined explicitly, not bypassed.
+It initially could not be retrieved from its Library ID. The author subsequently
+attached the exact archive; its bytes and SHA match and independent read-only
+audits now pass. It has twelve manifest-listed payloads plus one manifest,
+thirteen physical regular members. Every member size/hash, bound implementation,
+prior six/native reports, complete ordered CSV, native source audit and inner/
+outer zero-exit record were checked without executing any archived script,
+re-running a diagnostic or reading EEG. See ACTUAL_PRIVATE_BUNDLE_AUDIT.json and
+INDEPENDENT_SECOND_READER.json. The initial verifier format rejection is retained
+in AUDITOR_FORMAT_AMENDMENT.json; package identity and scientific gates were not
+weakened to address it.
+
+One metadata scope difference is recorded explicitly: the historical source
+receipt uses base configuration canonical hash `95b0448685eedfe1a5c44a4e4527c920e67d1d8d96ccd4c2e243db4056e1720e`,
+whereas this diagnostic used the already byte-bound full cloud configuration,
+canonical hash `2e568211d49a97e399bc172f438d8e46251eba035dc1097545c124a04e865cb4`.
+The latter is independently computed from the fixed `8ba78d…` config. All source
+numerical preprocessing/population fields remain exact; the old receipt/hash is
+unchanged. Reported whole-array and intermediate-stage assertions remain evidence
+checks, not new signal recomputation. Actual training-runtime acceptance and
+target restoration are still pending.
 
 `numerical_review_gate.py` blocks production preparation/training without a
 separate, exact bound source acceptance and review. This release does not
