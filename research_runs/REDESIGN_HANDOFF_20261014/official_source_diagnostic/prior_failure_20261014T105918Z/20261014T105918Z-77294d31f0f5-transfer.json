@@ -1,0 +1,24 @@
+{
+  "status": "FAILED_OR_BLOCKED_SOURCE_RESTORATION",
+  "attempt": "20261014T105918Z-77294d31f0f5",
+  "started_at_utc": "2026-10-14T10:59:18.842379+00:00",
+  "manifest_sha256": "e553d65cd86e5309e077ccfea21a9bee6020c5d9d5040de12089c2b859770b86",
+  "maximum_seconds": 1800,
+  "file_attempts": 1,
+  "automatic_retries": 0,
+  "source_expected_files": 18,
+  "files": [],
+  "scientific_fits": 0,
+  "target_EEG_accessed": false,
+  "R2_requests": 0,
+  "budget_modified": false,
+  "old_failed_job": "20261014T071918Z-exploratory-89b0c07d",
+  "old_failure_root_cause_resolved": false,
+  "active_file": "A01E.mat",
+  "error_type": "ValueError",
+  "error_code": "redirect_or_url_outside_exact_official_https_file",
+  "retained_partials": [
+    ".A01E.mat.20261014T105918Z-77294d31f0f5.partial"
+  ],
+  "finished_at_utc": "2026-10-14T10:59:19.024642+00:00"
+}
