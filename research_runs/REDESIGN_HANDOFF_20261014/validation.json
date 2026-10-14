@@ -1,0 +1,23 @@
+{
+  "checked_at_utc": "2026-10-14T09:33:56.916608+00:00",
+  "tested_revision": "eae194514def23e5d1ec6cbb117d4f84fc6f067f",
+  "tests_passed": 316,
+  "warnings": 3,
+  "initial_attempt": {
+    "passed": 315,
+    "failed": 1,
+    "reason": "diagnostic correctly rejected numpy2.5.3 scipy1.18.1"
+  },
+  "numerical_overlay": {
+    "numpy": "2.3.5",
+    "scipy": "1.17.0"
+  },
+  "runtime_torch": "2.14.0+cu130",
+  "cuda_available": false,
+  "full_pinned_gpu_runtime_validated": false,
+  "original_package_checksums": "all passed",
+  "server_probe_bash_syntax": "passed",
+  "new_research_fits": 0,
+  "raw_data_downloads": 0,
+  "limitations": "Software fixtures only; no real remote discrepancy reconstruction or GPU training."
+}
