@@ -1,0 +1,185 @@
+{
+  "status": "FIXED_ZI_MEDIATION_DIAGNOSTIC_ONLY_TRAINING_BLOCKED",
+  "results": [
+    {
+      "sample_id": "s02_1test_r2_t36",
+      "role": "mismatch",
+      "branches": {
+        "native_calibration": {
+          "stages": {
+            "filtered_float64": "da2e2fd7ce868acd6f790299e925b3a129aff0aed29c23da2b9c101de9979a11",
+            "resampled_float64": "d0f23efa20350bc11d758c4933b642d20867ee9ed1d20445938ee1d0b1511f7e",
+            "crop_float64": "cddb26ab576f039f0f454593eda1b149c976e78815b3e43da30a4635121153e3",
+            "final_float32": "9a1a3c0d2582ecc4c0ddbe0c726e5a2005dbf5a1d5c90b5922d7543df2d70847"
+          },
+          "matches_frozen_mu": false,
+          "elements_changed_from_native": 0
+        },
+        "fixed_zi_counterfactual": {
+          "stages": {
+            "filtered_float64": "301cb8c14dbad52dd458a4ca4d8818da0bdc920fdd9c356fa854b9ba89189543",
+            "resampled_float64": "d69ddbc40a5a3f838e8a4faef7683f1afcbf02516236e413af747cf6b7e3bd38",
+            "crop_float64": "ddbf265e00946e40177aa3267a4c83f999384fb36acdeeb6b67209fde17fdf79",
+            "final_float32": "239f1f431ac9974fc64404b583365cd214ef3e79fe5263113480a27efd890932"
+          },
+          "matches_frozen_mu": true,
+          "elements_changed_from_native": 1
+        }
+      },
+      "expected_mu_sha256": "239f1f431ac9974fc64404b583365cd214ef3e79fe5263113480a27efd890932"
+    },
+    {
+      "sample_id": "s02_1test_r2_t32",
+      "role": "preceding_binary_control",
+      "branches": {
+        "native_calibration": {
+          "stages": {
+            "filtered_float64": "e475377fda26ba6bfb13d6bf889895faf8230581f2a2e43136d25443516b3b86",
+            "resampled_float64": "012546cc685ff755ff7cbc75f0d2361f9f47a3c5e87f29fcbe8f70a6be5eb6a2",
+            "crop_float64": "b1d049ed76e944060b87f87f9a3bbb42ba3b7fd31bc593aed6750fe10ae6bec3",
+            "final_float32": "90d3391ff75331c5df7190b4b70ccc90e73e5655a4c5960c615d7d1f1fe6ec1b"
+          },
+          "matches_frozen_mu": true,
+          "elements_changed_from_native": 0
+        },
+        "fixed_zi_counterfactual": {
+          "stages": {
+            "filtered_float64": "b796b0801f678e3091788afd431258b06c338a6ba3ca5c87faf4cba8534a5bc6",
+            "resampled_float64": "e4c98f8ba591e4b05b1ce0872aa8f4eebd096bf641590729587ee26af8483927",
+            "crop_float64": "4a6afe0c2b5827515b83b6cdb2425e5e653866fdcf3f4e59e40d8c778f7a6d0f",
+            "final_float32": "90d3391ff75331c5df7190b4b70ccc90e73e5655a4c5960c615d7d1f1fe6ec1b"
+          },
+          "matches_frozen_mu": true,
+          "elements_changed_from_native": 0
+        }
+      },
+      "expected_mu_sha256": "90d3391ff75331c5df7190b4b70ccc90e73e5655a4c5960c615d7d1f1fe6ec1b"
+    },
+    {
+      "sample_id": "s03_1test_r0_t06",
+      "role": "mismatch",
+      "branches": {
+        "native_calibration": {
+          "stages": {
+            "filtered_float64": "86808d646750ddcb9c23d0ceea893273daa32dde2ecd8ca3fe5122063ef09063",
+            "resampled_float64": "c9b2c6abd959646cc89bc1ac4df7caf461e1279944785d06de1234db39bc5996",
+            "crop_float64": "4f31160b2ae0ec3da1a2d83ac4fbc9ce9c5cba6a4ac1290901e35777795e9487",
+            "final_float32": "74856d9eeaa682a58c519075c3875d3df62a03a393e49931adc836ac9ee4dc39"
+          },
+          "matches_frozen_mu": false,
+          "elements_changed_from_native": 0
+        },
+        "fixed_zi_counterfactual": {
+          "stages": {
+            "filtered_float64": "3c439f4ded4c384f9c073741ecdc40741cd8877661573c2243a7c18cc6ab95e4",
+            "resampled_float64": "e265e7b2a656887da345544809a7dac2ab18309ec65bc6ec4a4e585f400d7461",
+            "crop_float64": "47391a4674c9f8895461e6c41f983f638749b0f170e8dfd110f3e9816a084b0e",
+            "final_float32": "1ef1688e653f9d9baafc959e4b7a483ef58db924ea69899cd16d8866394a31fc"
+          },
+          "matches_frozen_mu": true,
+          "elements_changed_from_native": 1
+        }
+      },
+      "expected_mu_sha256": "1ef1688e653f9d9baafc959e4b7a483ef58db924ea69899cd16d8866394a31fc"
+    },
+    {
+      "sample_id": "s03_1test_r0_t05",
+      "role": "preceding_binary_control",
+      "branches": {
+        "native_calibration": {
+          "stages": {
+            "filtered_float64": "f6b48b70c32ea8033ca8ed8f3adf3c9b8af78c5fb2a8359a09691fbb8c03efab",
+            "resampled_float64": "7959cc881653918befb176fa07852261b37d5a9b5eca0819ffcc0abe03749640",
+            "crop_float64": "077de56dd07e86a88c83789bb3faabc47161ba18d69b42601abaad77b43df83e",
+            "final_float32": "1cbde97fed71cb23b3daf0feeb8430023493e42f650c68fcee4ca05d2a5d3786"
+          },
+          "matches_frozen_mu": true,
+          "elements_changed_from_native": 0
+        },
+        "fixed_zi_counterfactual": {
+          "stages": {
+            "filtered_float64": "d0840565cbba8f20dfe73fa642998e70432d091bb71650cf3c3c88994a1e3dbf",
+            "resampled_float64": "b6fe6a38b9d1dddfb3426ff83492c0c1dd3b131488fab1642d5bf5344c6cc970",
+            "crop_float64": "dad4c878ef67cb6aa704aa3d10624c9fe7957db43cf84dd4875829a5e96b1a64",
+            "final_float32": "1cbde97fed71cb23b3daf0feeb8430023493e42f650c68fcee4ca05d2a5d3786"
+          },
+          "matches_frozen_mu": true,
+          "elements_changed_from_native": 0
+        }
+      },
+      "expected_mu_sha256": "1cbde97fed71cb23b3daf0feeb8430023493e42f650c68fcee4ca05d2a5d3786"
+    },
+    {
+      "sample_id": "s07_0train_r0_t06",
+      "role": "mismatch",
+      "branches": {
+        "native_calibration": {
+          "stages": {
+            "filtered_float64": "56af1de00392acd9e8f16b82673fac39fd4690a8ffecbc505f257046a96a4c7e",
+            "resampled_float64": "89b6c3b2c675a41bc59c6e46206277287e5aeb0f2642d700ee0bdeb4a51f3ce5",
+            "crop_float64": "1c2b412e1cf214b810a7bf198ad506beee7d22ba9b4d7fa202135c9e40a2018f",
+            "final_float32": "0079dead3ba0f8551fd3b5a13e411d2fc9a65ff8f08ae97e680cfc8e3ace5c02"
+          },
+          "matches_frozen_mu": false,
+          "elements_changed_from_native": 0
+        },
+        "fixed_zi_counterfactual": {
+          "stages": {
+            "filtered_float64": "1b229fc39a83ec98a5fb764b2016de2834ac770a8e271b052617385025286ac0",
+            "resampled_float64": "88f96d9245c5ccd1bee0fee789c93b9912a04390ea3cb70bf8d6db520b1afd4a",
+            "crop_float64": "e7370c1a634b4dc8da2329a3fc1b9a61fd5e3a66ff06e0f19f8718027feb6937",
+            "final_float32": "9371b0c8ed879bd383869b69315e2b623b73c86f3d7793e0911025ec1fff14fe"
+          },
+          "matches_frozen_mu": true,
+          "elements_changed_from_native": 1
+        }
+      },
+      "expected_mu_sha256": "9371b0c8ed879bd383869b69315e2b623b73c86f3d7793e0911025ec1fff14fe"
+    },
+    {
+      "sample_id": "s07_0train_r0_t05",
+      "role": "preceding_binary_control",
+      "branches": {
+        "native_calibration": {
+          "stages": {
+            "filtered_float64": "eafe6488437caaf9bdd646fae6a4661798568b82bfa69bae6cca2835ffe24ced",
+            "resampled_float64": "375b5f437324d4b0a05c702f18e8c0981192f07e8110180097b5b71a663185b6",
+            "crop_float64": "41d15c4bbf9e8a25e5b9e020b7ef907f3d7d9ad8b76327d3a62f72b510cdd359",
+            "final_float32": "a5e0d3730fc4c845d431a8833a2b56faf2c2316c3274bb0a7d153e13251e478a"
+          },
+          "matches_frozen_mu": true,
+          "elements_changed_from_native": 0
+        },
+        "fixed_zi_counterfactual": {
+          "stages": {
+            "filtered_float64": "ce3ec64c50c790a9e71e553f3f4ba0e844394737b646f5c9ae1ad119292c08fb",
+            "resampled_float64": "807842032af16ce72e3fd46b9ff255245815a46ff75ba2b4cb6c38825898d4af",
+            "crop_float64": "6d21437b83bf613c0f32b9b85a27d6cde5f7ce2563fbd8ddc591d0d770786fb9",
+            "final_float32": "a5e0d3730fc4c845d431a8833a2b56faf2c2316c3274bb0a7d153e13251e478a"
+          },
+          "matches_frozen_mu": true,
+          "elements_changed_from_native": 0
+        }
+      },
+      "expected_mu_sha256": "a5e0d3730fc4c845d431a8833a2b56faf2c2316c3274bb0a7d153e13251e478a"
+    }
+  ],
+  "design_sha256": "e6aaad1be0e30496c809bb5dfe795f0ce81055adf5e7bdef5e1382b177348c44",
+  "frozen_file_identities": {
+    "research_runs/REDESIGN_CLOUD_20261013/config/experiment.json": "8ba78d4ead0e41fc5a5fc6f9890b750f0bdfdaba74a57efab5422b43d57feff0",
+    "research_runs/REDESIGN_SOURCE_SELECTION_20261012/scripts/core_source_inputs.py": "03f47bceb3998e407a28e7da56da4875b5d3e1e38746d196739be7262be7cff5",
+    "src/mi_eeg/data/q15_context.py": "849ee22e2a1c1987c2a83ed3a837f9f358b505133ce2ffe13ee876f01adc3d61",
+    "research_runs/Q8-E001/results/source_files.json": "0ccef780ed5bfbc2d430b8caf0c108641fb230a2dc27e4189e7e771c999f64a6",
+    "research_runs/REDESIGN_EXPLORATORY_20261013/evidence/source_exact_input_fingerprints.csv": "e142e927228d9c46afb872fa649335cc6e9ec286b1d291b94ac0e43a6d59e4cf",
+    "research_runs/REDESIGN_EXPLORATORY_20261013/evidence/source_exact_input_fingerprints_receipt.json": "66c5aa472809cf29fe68b7b56401c4f0aa4b4f577156425a1f4e1fc20d45d8dd"
+  },
+  "raw_files_read": 3,
+  "trials": 6,
+  "intervention": "Only explicit initial filter state in independent diagnostic calculation; no monkeypatch or loader change",
+  "mu_fir_sha256": "d9f26e0fbbe0d25bb58decc78c6a3dd432ed350c8f3c9a63c87528744ed39c61",
+  "new_fits": 0,
+  "target_EEG_read": false,
+  "scientific_arrays_saved_or_replaced": false,
+  "historical_generator_OpenBLAS_identity_established": false,
+  "training_authorization": false
+}

@@ -1,0 +1,27 @@
+{
+  "sample_id": "s03_1test_r0_t06",
+  "role": "mismatch",
+  "branches": {
+    "native_calibration": {
+      "stages": {
+        "filtered_float64": "86808d646750ddcb9c23d0ceea893273daa32dde2ecd8ca3fe5122063ef09063",
+        "resampled_float64": "c9b2c6abd959646cc89bc1ac4df7caf461e1279944785d06de1234db39bc5996",
+        "crop_float64": "4f31160b2ae0ec3da1a2d83ac4fbc9ce9c5cba6a4ac1290901e35777795e9487",
+        "final_float32": "74856d9eeaa682a58c519075c3875d3df62a03a393e49931adc836ac9ee4dc39"
+      },
+      "matches_frozen_mu": false,
+      "elements_changed_from_native": 0
+    },
+    "fixed_zi_counterfactual": {
+      "stages": {
+        "filtered_float64": "3c439f4ded4c384f9c073741ecdc40741cd8877661573c2243a7c18cc6ab95e4",
+        "resampled_float64": "e265e7b2a656887da345544809a7dac2ab18309ec65bc6ec4a4e585f400d7461",
+        "crop_float64": "47391a4674c9f8895461e6c41f983f638749b0f170e8dfd110f3e9816a084b0e",
+        "final_float32": "1ef1688e653f9d9baafc959e4b7a483ef58db924ea69899cd16d8866394a31fc"
+      },
+      "matches_frozen_mu": true,
+      "elements_changed_from_native": 1
+    }
+  },
+  "expected_mu_sha256": "1ef1688e653f9d9baafc959e4b7a483ef58db924ea69899cd16d8866394a31fc"
+}

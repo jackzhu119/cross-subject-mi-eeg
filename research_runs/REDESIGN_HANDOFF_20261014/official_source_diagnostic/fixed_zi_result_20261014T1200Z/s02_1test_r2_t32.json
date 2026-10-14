@@ -1,0 +1,27 @@
+{
+  "sample_id": "s02_1test_r2_t32",
+  "role": "preceding_binary_control",
+  "branches": {
+    "native_calibration": {
+      "stages": {
+        "filtered_float64": "e475377fda26ba6bfb13d6bf889895faf8230581f2a2e43136d25443516b3b86",
+        "resampled_float64": "012546cc685ff755ff7cbc75f0d2361f9f47a3c5e87f29fcbe8f70a6be5eb6a2",
+        "crop_float64": "b1d049ed76e944060b87f87f9a3bbb42ba3b7fd31bc593aed6750fe10ae6bec3",
+        "final_float32": "90d3391ff75331c5df7190b4b70ccc90e73e5655a4c5960c615d7d1f1fe6ec1b"
+      },
+      "matches_frozen_mu": true,
+      "elements_changed_from_native": 0
+    },
+    "fixed_zi_counterfactual": {
+      "stages": {
+        "filtered_float64": "b796b0801f678e3091788afd431258b06c338a6ba3ca5c87faf4cba8534a5bc6",
+        "resampled_float64": "e4c98f8ba591e4b05b1ce0872aa8f4eebd096bf641590729587ee26af8483927",
+        "crop_float64": "4a6afe0c2b5827515b83b6cdb2425e5e653866fdcf3f4e59e40d8c778f7a6d0f",
+        "final_float32": "90d3391ff75331c5df7190b4b70ccc90e73e5655a4c5960c615d7d1f1fe6ec1b"
+      },
+      "matches_frozen_mu": true,
+      "elements_changed_from_native": 0
+    }
+  },
+  "expected_mu_sha256": "90d3391ff75331c5df7190b4b70ccc90e73e5655a4c5960c615d7d1f1fe6ec1b"
+}

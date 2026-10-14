@@ -1,0 +1,27 @@
+{
+  "sample_id": "s07_0train_r0_t05",
+  "role": "preceding_binary_control",
+  "branches": {
+    "native_calibration": {
+      "stages": {
+        "filtered_float64": "eafe6488437caaf9bdd646fae6a4661798568b82bfa69bae6cca2835ffe24ced",
+        "resampled_float64": "375b5f437324d4b0a05c702f18e8c0981192f07e8110180097b5b71a663185b6",
+        "crop_float64": "41d15c4bbf9e8a25e5b9e020b7ef907f3d7d9ad8b76327d3a62f72b510cdd359",
+        "final_float32": "a5e0d3730fc4c845d431a8833a2b56faf2c2316c3274bb0a7d153e13251e478a"
+      },
+      "matches_frozen_mu": true,
+      "elements_changed_from_native": 0
+    },
+    "fixed_zi_counterfactual": {
+      "stages": {
+        "filtered_float64": "ce3ec64c50c790a9e71e553f3f4ba0e844394737b646f5c9ae1ad119292c08fb",
+        "resampled_float64": "807842032af16ce72e3fd46b9ff255245815a46ff75ba2b4cb6c38825898d4af",
+        "crop_float64": "6d21437b83bf613c0f32b9b85a27d6cde5f7ce2563fbd8ddc591d0d770786fb9",
+        "final_float32": "a5e0d3730fc4c845d431a8833a2b56faf2c2316c3274bb0a7d153e13251e478a"
+      },
+      "matches_frozen_mu": true,
+      "elements_changed_from_native": 0
+    }
+  },
+  "expected_mu_sha256": "a5e0d3730fc4c845d431a8833a2b56faf2c2316c3274bb0a7d153e13251e478a"
+}
