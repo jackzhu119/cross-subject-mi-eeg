@@ -44,3 +44,16 @@ cat /workspace/mi-eeg-cloud/code-<revision>/research_runs/REDESIGN_CLOUD_2026101
 无需填写Pod ID、服务器IP或旧账号。默认使用 `/workspace/mi-eeg-cloud`，没有 `/workspace` 时使用 `~/mi-eeg-cloud`。AutoDL等平台可在命令最后加 `--work-dir /root/autodl-tmp/mi-eeg-cloud`（路径以该平台实际持久盘为准）。所有数据、任务和运行环境都在指定目录，密钥不会保存在该工作目录。
 
 已将共享盘上的flock移到容器本地 `/tmp`。真正存在其他进程时仍会阻止启动；不得通过删除锁、删除注册或清空计数解决。已有旧版本注册的磁盘会显示原job和原版本，修复命令不会把它当作新任务，也不会刷新原八小时预算。不同服务器/UUID不自动续跑已拟合的任务；需要核对已有模型、冻结记录和预算。
+
+## 通用固定执行版本
+
+执行版本：`05e683e91e2bb39b977970d04402221761e575d2`，不包含Pod ID、账号ID、服务器IP或旧云服务器地址。
+
+```bash
+curl -fSsL --retry 3 \
+https://raw.githubusercontent.com/jackzhu119/cross-subject-mi-eeg/05e683e91e2bb39b977970d04402221761e575d2/research_runs/REDESIGN_CLOUD_20261013/LAUNCH_ON_GPU.sh \
+-o /tmp/mi-eeg-launch.sh && \
+bash /tmp/mi-eeg-launch.sh --revision 05e683e91e2bb39b977970d04402221761e575d2
+```
+
+默认直接从固定官方源云端下载，模型与统计结果自动备份GitHub。只输入当前云服务器总小时价与GH_TOKEN（隐藏输入）；无需RunPod API。额外R2备份加 `--r2`，指定实际持久盘加 `--work-dir <路径>`。新服务器只有初始化通过、出现已验证脱离终端启动回执后，才可关闭本地电脑；完成或失败时请手动停止云平台实例。
