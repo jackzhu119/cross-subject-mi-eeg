@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "status": "PASS_INDEPENDENT_PRIVATE_LIBRARY_ARCHIVE_AND_PAPER1_LOG_VERIFICATION",
+  "checked_at_utc": "2026-10-14T10:30:06.632471+00:00",
+  "archive": {
+    "filename": "installation-evidence-20261014.tar.gz",
+    "bytes": 14247,
+    "sha256": "d000a45b9db03eca32ea124bd533ce234a5028c5471410ac9efdca2586ff0a1c",
+    "manifest_sha256": "d7fba14f714100167661e91774dbfb6603d170aec0f8013489bfbe4aa9263df2"
+  },
+  "verification_scope": {
+    "archive_complete_bytes": true,
+    "manifest_listed_files_size_and_sha256": 15,
+    "archive_extra_unlisted_files": 0,
+    "paper1_files_content_reviewed": 6,
+    "paper1_bootstrap_manifest_entries_verified": 4,
+    "paper2_content_or_experiment_reviewed": false,
+    "R2_requests_by_this_task": 0,
+    "R2_copy_independently_verified_by_this_task": false
+  },
+  "paper1_file_identities": [
+    {
+      "path": "paper1-diagnostic-bootstrap/run-bootstrap.sh",
+      "bytes": 1800,
+      "sha256": "e82b4b2f124fc8fce1993358cbf801e51f8da44f6fdafc6011b988a255b153f6"
+    },
+    {
+      "path": "paper1-diagnostic-bootstrap/bootstrap.log",
+      "bytes": 6907,
+      "sha256": "8cd72689e331ada5d2484d8a9af995380c689f7fe7aa7e735d17d672571cf47d"
+    },
+    {
+      "path": "paper1-diagnostic-bootstrap/PREPARE_DIAGNOSTIC_ENV.sh",
+      "bytes": 1003,
+      "sha256": "b1f2332e89a10b15c6e4167d089c188a3aa8b8b80d6b650cda34c679f280be12"
+    },
+    {
+      "path": "paper1-diagnostic-bootstrap/requirements-diagnostic.txt",
+      "bytes": 193,
+      "sha256": "237efccc68ad2f58245dbb6e7b790dbd00100206e4a18a3ab06bda6ccfedb021"
+    },
+    {
+      "path": "paper1-diagnostic-bootstrap/bootstrap-manifest.sha256",
+      "bytes": 395,
+      "sha256": "2c9c469029ae9514ec054650baaf4547a3ca7d6524038a56745544dccb9cc8e6"
+    },
+    {
+      "path": "paper1-diagnostic-runtime/installed-packages.txt",
+      "bytes": 193,
+      "sha256": "237efccc68ad2f58245dbb6e7b790dbd00100206e4a18a3ab06bda6ccfedb021"
+    }
+  ],
+  "pinned_code_revision": "c802e65709103189becf7e6ff3a55c99a405a7e8",
+  "bootstrap_script_and_requirements_match_pinned_git_bytes": true,
+  "installed_packages_exactly_match_pinned_requirements": true,
+  "log_evidence": {
+    "path": "paper1-diagnostic-bootstrap/bootstrap.log",
+    "sha256": "8cd72689e331ada5d2484d8a9af995380c689f7fe7aa7e735d17d672571cf47d",
+    "bytes": 6907,
+    "line_numbered_verbatim_safe_excerpts": {
+      "1": "CPU_DIAGNOSTIC_BOOTSTRAP_START",
+      "2": "2026-10-14T10:08:26Z",
+      "20": "preflight_free_bytes 32195616768",
+      "21": "PREPARE_DIAGNOSTIC_ENV.sh: OK",
+      "22": "requirements-diagnostic.txt: OK",
+      "74": "No broken requirements found.",
+      "75": "PINNED_CPU_DIAGNOSTIC_ENV_READY_NO_FITS",
+      "76": "319173368\t/workspace/paper1-diagnostic-runtime",
+      "80": "postinstall_free_bytes 31846727680",
+      "81": "CPU_DIAGNOSTIC_BOOTSTRAP_COMPLETE_NO_EEG_NO_FITS",
+      "82": "BOOTSTRAP_EXIT_CODE=0",
+      "83": "2026-10-14T10:08:49Z"
+    }
+  },
+  "interpretation": {
+    "installation_success_supported_by_verified_log": true,
+    "reported_environment_size_bytes": 319173368,
+    "size_measurement_scope": "Verified du output in archived log, not a current remeasurement of server filesystem",
+    "installation_evidence_available_off_machine": true,
+    "full_installed_environment_archived": false,
+    "current_server_environment_reinspected": false,
+    "raw_EEG_read": false,
+    "scientific_fits_started": 0,
+    "source_input_reconstruction_completed": false,
+    "old_failure_root_cause_resolved": false,
+    "budget_or_frozen_limits_changed": false
+  },
+  "third_party_evidence": {
+    "paper2_R2_upload_and_full_GET": "Reported by parent as verified by paper2 task; not independently checked here"
+  }
+}

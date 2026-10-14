@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "status": "SERVER_CPU_ENVIRONMENT_INSTALLATION_REPORTED_SUCCESS_RAW_LOG_VERIFICATION_PENDING",
+  "status": "SERVER_CPU_INSTALLATION_LOG_INDEPENDENTLY_VERIFIED_OFF_MACHINE_VIA_LIBRARY",
   "evidence_source": "Parent conversation browser-operation report; not a direct server observation by this Codex task",
   "source_thread_id": "01a139a2-97f9-706d-bdb9-0c49bdd5b02a",
   "reported_operation": "Install isolated paper1 CPU diagnostic environment on existing server",
@@ -13,9 +13,9 @@
     "pip_check": "PASS",
     "pinned_version_assertions": "PASS"
   },
-  "raw_log_location": "Not supplied in this report; remains on server pending verified off-machine preservation",
-  "raw_log_sha256": null,
-  "raw_log_independently_read_back": false,
+  "raw_log_location": "Private installation-evidence-20261014.tar.gz, paper1-diagnostic-bootstrap/bootstrap.log; archive identity in verification receipt",
+  "raw_log_sha256": "8cd72689e331ada5d2484d8a9af995380c689f7fe7aa7e735d17d672571cf47d",
+  "raw_log_independently_read_back": true,
   "complete_backup_verified": false,
   "raw_eeg_read": false,
   "scientific_fits_started": 0,
@@ -26,5 +26,9 @@
   "budget_limits_changed": false,
   "training_started": false,
   "provider_stop_verified": false,
-  "next_step": "Preserve and independently read back the raw installation log with SHA256; retain this reported-evidence record without upgrading it to complete backup proof."
+  "next_step": "Retain verified evidence; continue source-only reconstruction only after safe data access is resolved. Do not reinstall or treat installation as training.",
+  "initial_report_status": "SERVER_CPU_ENVIRONMENT_INSTALLATION_REPORTED_SUCCESS_RAW_LOG_VERIFICATION_PENDING",
+  "installation_evidence_off_machine_verified": true,
+  "complete_backup_scope_note": "Full installed runtime, research data and experiment outputs are not part of this archive; this task did not verify the R2 copy.",
+  "verification_receipt": "server_cpu_installation_library_verified_20261014.json"
 }
