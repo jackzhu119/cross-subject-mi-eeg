@@ -1,0 +1,192 @@
+{
+  "status": "PASS_ALL_ENTRYPOINT_FIX_EXECUTION_PACKAGE_PUBLIC_BYTES",
+  "execution_commit": "68b3bb56b59170c0fae9430740a4a10a6ab467c0",
+  "checked_at_utc": "2026-10-14T07:19:58.210601+00:00",
+  "files": [
+    {
+      "path": "research_runs/REDESIGN_CLOUD_20261013/LAUNCH_ON_GPU.sh",
+      "sha256": "9c594ee5f2d7e47493216c3b09040ca5dc328a832d8f946242544ca65be4704e",
+      "public_identical": true
+    },
+    {
+      "path": "research_runs/REDESIGN_CLOUD_20261013/PORTABILITY_FIX_20261014.md",
+      "sha256": "e48a93969cc9417483b87c8c607584b6a545c32223cd66018654dfaf5a4eee63",
+      "public_identical": true
+    },
+    {
+      "path": "research_runs/REDESIGN_CLOUD_20261013/PROCESS_DETECTION_FIX_20261014.md",
+      "sha256": "c9042ad314a89df7a874c6d11b9acc42e1da563912e2efde68994359162b2a06",
+      "public_identical": true
+    },
+    {
+      "path": "research_runs/REDESIGN_CLOUD_20261013/README.md",
+      "sha256": "569a583b7c543fb00aa776afd6e5bd2e21403dab0675d4870171f2347ce42266",
+      "public_identical": true
+    },
+    {
+      "path": "research_runs/REDESIGN_CLOUD_20261013/RUN_INSTRUCTIONS_ZH.md",
+      "sha256": "432e224ef510ac1b873267375364688f37ea27f5784a45010ec6c7d99f6e0f3b",
+      "public_identical": true
+    },
+    {
+      "path": "research_runs/REDESIGN_CLOUD_20261013/SHA256SUMS.txt",
+      "sha256": "9fa57668309f3318ba8305185f2082f5cf5f179f12d0d911c0e17bb8918282c4",
+      "public_identical": true
+    },
+    {
+      "path": "research_runs/REDESIGN_CLOUD_20261013/STATISTICAL_SCOPE.md",
+      "sha256": "6bab029ccd66a35ef64ccb09c09ea3cca41b5ac33081c6d642ca11575b70bc18",
+      "public_identical": true
+    },
+    {
+      "path": "research_runs/REDESIGN_CLOUD_20261013/config/experiment.json",
+      "sha256": "8ba78d4ead0e41fc5a5fc6f9890b750f0bdfdaba74a57efab5422b43d57feff0",
+      "public_identical": true
+    },
+    {
+      "path": "research_runs/REDESIGN_CLOUD_20261013/evidence/CPU_COMPATIBILITY_RUNTIME.json",
+      "sha256": "b0c9cce84c7bd2a6d1f632058d9c609bf3335af56813e7bacab65af6fcdbfd0f",
+      "public_identical": true
+    },
+    {
+      "path": "research_runs/REDESIGN_CLOUD_20261013/evidence/PORTABILITY_VALIDATION.json",
+      "sha256": "df28dc0b509cf7061382f4d47697a47015ef89b6a96aabc76ed9e457bd390834",
+      "public_identical": true
+    },
+    {
+      "path": "research_runs/REDESIGN_CLOUD_20261013/evidence/PORTABLE_EXECUTION_PUBLIC_READBACK.json",
+      "sha256": "6cfda238c7da00a68a719cce9b302174a24ca741b465cc6a543d63f14788f193",
+      "public_identical": true
+    },
+    {
+      "path": "research_runs/REDESIGN_CLOUD_20261013/evidence/PROCESS_DETECTION_VALIDATION.json",
+      "sha256": "7b546a727ef69e5639931b7041d144be5b715dbf765163fb491e5b027bb29414",
+      "public_identical": true
+    },
+    {
+      "path": "research_runs/REDESIGN_CLOUD_20261013/evidence/actual_data_reconstruction.json",
+      "sha256": "8c282e02437ea0e52d3443281bbb39827f0a586a876ecedcfc8ee2222354ac58",
+      "public_identical": true
+    },
+    {
+      "path": "research_runs/REDESIGN_CLOUD_20261013/evidence/execution_package_public_readback.json",
+      "sha256": "4f74ad49adfc2c5cb168b0900551d9963c5009eba24281490667f0e8d9bf8f03",
+      "public_identical": true
+    },
+    {
+      "path": "research_runs/REDESIGN_CLOUD_20261013/evidence/software_delivery_validation.json",
+      "sha256": "1e4c54960bb597050f08fba308f8fd143f7361a9201ca9aa6b8aa5014d299124",
+      "public_identical": true
+    },
+    {
+      "path": "research_runs/REDESIGN_CLOUD_20261013/requirements.txt",
+      "sha256": "7322d4f85f25064ef8c29efa502c67417fc9b8a0d3297692263c1e618804769a",
+      "public_identical": true
+    },
+    {
+      "path": "research_runs/REDESIGN_CLOUD_20261013/scripts/analyze_exploratory.py",
+      "sha256": "fbd342488b002cee3dbc5fa6acb410b4feace5d8d60efce0c5a3de8329ff9d6f",
+      "public_identical": true
+    },
+    {
+      "path": "research_runs/REDESIGN_CLOUD_20261013/scripts/cloud_contract.py",
+      "sha256": "5206155b88398233d6d6dd20326d140c464308a9165bb6d1bac0c1e56438f785",
+      "public_identical": true
+    },
+    {
+      "path": "research_runs/REDESIGN_CLOUD_20261013/scripts/cloud_locks.py",
+      "sha256": "cd62e32265269bcce7d2c4bedfaff68a8040b281e1fe43711963b13432a60f0a",
+      "public_identical": true
+    },
+    {
+      "path": "research_runs/REDESIGN_CLOUD_20261013/scripts/cloud_supervisor.py",
+      "sha256": "c19a977632bf4a2f4048984c9411113e5cb2b4f0c5f48615aee23ffa366510a6",
+      "public_identical": true
+    },
+    {
+      "path": "research_runs/REDESIGN_CLOUD_20261013/scripts/cloud_transport.py",
+      "sha256": "1f64ba54d0f8e2aa0b8bf4139623f9bf37bf985e4c8c1dc94e9b2382f3a77ee6",
+      "public_identical": true
+    },
+    {
+      "path": "research_runs/REDESIGN_CLOUD_20261013/scripts/infer_exploratory.py",
+      "sha256": "2c3a55ccd2358e928670f9e577f92c84b84da075248e7dfa768e0fa43282a220",
+      "public_identical": true
+    },
+    {
+      "path": "research_runs/REDESIGN_CLOUD_20261013/scripts/prepare_data.py",
+      "sha256": "b27bd0b0601fac9c5c7c8e4417f1dcd45891e5ce2656164a03e732b5dceb89b4",
+      "public_identical": true
+    },
+    {
+      "path": "research_runs/REDESIGN_CLOUD_20261013/scripts/train_exploratory.py",
+      "sha256": "5c2202f2492eb2346b396e704621129c35a1fc4c1fa3fbcbb6577e6abed36ef4",
+      "public_identical": true
+    },
+    {
+      "path": "research_runs/REDESIGN_CLOUD_20261013/scripts/validate_analysis.py",
+      "sha256": "f5a7c1431b8708bfa3316e95c03283d47830c4bfbddf808bb6551422c33552e3",
+      "public_identical": true
+    },
+    {
+      "path": "research_runs/REDESIGN_CLOUD_20261013/scripts/validate_predictions.py",
+      "sha256": "ad91aac65df0d0dc0359cae54d1acbf93af053513e94062075fef10cb468e510",
+      "public_identical": true
+    },
+    {
+      "path": "research_runs/REDESIGN_CLOUD_20261013/scripts/validate_source.py",
+      "sha256": "a6cb96c574011ae85b41dd06b8c0d0ac124125906466887213fb3528e84c2829",
+      "public_identical": true
+    },
+    {
+      "path": "research_runs/REDESIGN_CLOUD_20261013/tests/test_cloud_locks.py",
+      "sha256": "cfd265860002f5c281ad7f65b8887828d8678340f17a8b528bd13a9319c6a484",
+      "public_identical": true
+    },
+    {
+      "path": "research_runs/REDESIGN_CLOUD_20261013/tests/test_cloud_supervisor.py",
+      "sha256": "27120f830af46c655ab42f6ca0bfce37cc97da3e879b9b2044bc369bbe0940f8",
+      "public_identical": true
+    },
+    {
+      "path": "research_runs/REDESIGN_CLOUD_20261013/tests/test_cloud_transport.py",
+      "sha256": "f6f0704462cbf74079387f31c779d545f721c33f2bb0f35bbb423d594432594c",
+      "public_identical": true
+    },
+    {
+      "path": "research_runs/REDESIGN_CLOUD_20261013/tests/test_infer_exploratory.py",
+      "sha256": "d14eeeca63df469418af3ef3ab706bc4f7c5e6f991274244b5fe03675466b940",
+      "public_identical": true
+    },
+    {
+      "path": "research_runs/REDESIGN_CLOUD_20261013/tests/test_launcher_retry.py",
+      "sha256": "82933f70372a670892a00fd242cc75245cb2b669aa5b708a0d5e48ce6f962a54",
+      "public_identical": true
+    },
+    {
+      "path": "research_runs/REDESIGN_CLOUD_20261013/tests/test_portable_launcher.py",
+      "sha256": "28a2cd2afc848722ecd3610db087e70a8b6f183c58cea0af2d2c327ead8b567c",
+      "public_identical": true
+    },
+    {
+      "path": "research_runs/REDESIGN_CLOUD_20261013/tests/test_process_detection.py",
+      "sha256": "7bfac1c078454f556b21b66eda50a76c815f3d68d8fd87b69bf9f6bcdac1d0c8",
+      "public_identical": true
+    },
+    {
+      "path": "research_runs/REDESIGN_CLOUD_20261013/tests/test_train_exploratory.py",
+      "sha256": "0bae9031c640ba17a35408d2867d1906d6f41c09555993abf2ceb504cf2873c3",
+      "public_identical": true
+    },
+    {
+      "path": "research_runs/REDESIGN_CLOUD_20261013/tests/test_validate_analysis.py",
+      "sha256": "62922db6efe32fec78e4206244f622ef3806a1c4977e692b1028a01df0b1ea10",
+      "public_identical": true
+    }
+  ],
+  "tests_passed": 309,
+  "process_detection_tests_passed": 37,
+  "new_EEG_fits": 0,
+  "new_target_predictions": 0,
+  "live_remote_GPU_verified": false
+}

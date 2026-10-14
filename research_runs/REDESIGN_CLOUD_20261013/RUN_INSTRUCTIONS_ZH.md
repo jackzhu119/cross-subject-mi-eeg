@@ -51,4 +51,19 @@ cat /workspace/mi-eeg-cloud/code-<revision>/research_runs/REDESIGN_CLOUD_2026101
 
 新服务器仍使用同一个通用启动器，无需填写Pod ID。实际每小时总价包含所有运行中的收费资源；按实际账单报价输入，不仅看GPU单价。未测试当前服务器实时状态；出现验证后的脱离终端启动回执才表示该服务器已启动工作进程。
 
-固定执行版本将在完成GitHub公开字节回读后列于本文件末尾。默认直接从固定官方源云端下载，模型与统计结果自动备份GitHub。只输入当前云服务器总小时价与GH_TOKEN（隐藏输入）；无需RunPod API。额外R2备份加 `--r2`，指定实际持久盘加 `--work-dir <路径>`。完成或失败时请手动停止云平台实例。
+固定执行版本见下方。默认直接从固定官方源云端下载，模型与统计结果自动备份GitHub。只输入当前云服务器总小时价与GH_TOKEN（隐藏输入）；无需RunPod API。额外R2备份加 `--r2`，指定实际持久盘加 `--work-dir <路径>`。完成或失败时请手动停止云平台实例。
+
+## 通用固定执行版本
+
+执行版本：`68b3bb56b59170c0fae9430740a4a10a6ab467c0`。已通过309项软件检查，其中37项覆盖进程检测；该版本36个包文件已按Git原始字节在公开GitHub逐一回读核验。未进行当前Pod实时检查或真实GPU训练。
+
+```bash
+curl -fSsL --retry 3 \
+https://raw.githubusercontent.com/jackzhu119/cross-subject-mi-eeg/68b3bb56b59170c0fae9430740a4a10a6ab467c0/research_runs/REDESIGN_CLOUD_20261013/LAUNCH_ON_GPU.sh \
+-o /tmp/mi-eeg-launch.sh && \
+bash /tmp/mi-eeg-launch.sh --revision 68b3bb56b59170c0fae9430740a4a10a6ab467c0
+```
+
+这是原探索性方案的软件启动修复，不重跑历史Q1–Q16。仍然要求实际CUDA预检、GitHub写入/回读、固定数据/输入检查和已提交source冻结。启动后运行source-only训练、target推理、独立验证和统计汇总；不进行target拟合。全流程受原批准预算/计数/期限约束，未通过门控就停止，不保证在任何新服务器上按时跑完。
+
+请等待 `DETACHED_WORKER_STARTED_NOT_SCIENTIFICALLY_COMPLETE` 回执后再关闭终端或本地电脑；启动器打印实际job ID、状态文件、日志文件和GitHub结果分支。若提示已有任务，保留原记录并查看其状态，不通过更改工作目录或删除文件绕过任务或预算检查。完成、失败或期限到达均需手动停止实例计费。
