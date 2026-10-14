@@ -1,0 +1,21 @@
+{
+  "status": "SOURCE_NUMERICS_MATCH_PRIVATE_PACKAGE_OR_TRAINING_RUNTIME_PENDING",
+  "code_revision": "261f27757cad974a5c956e122766b9d8efa5d82b",
+  "source_complete_exact_hash_gate_passed": true,
+  "source_files": 18,
+  "source_runs": 108,
+  "source_trials": 2592,
+  "numerical_execution": {
+    "policy_id": "explicit_sos_initial_state_v1_20261014",
+    "policy_sha256": "04f562ddddc4e5019e56240b980d6d9c2d78645860857a5ab0d9746e788ae476",
+    "execution_module_sha256": "bcd89d6747f00fb03bf1793df3753c53f67cfbf2f95275d40b042b682db61577",
+    "historical_loader_sha256": "03f47bceb3998e407a28e7da56da4875b5d3e1e38746d196739be7262be7cff5",
+    "historical_generation_BLAS_identity_established": false,
+    "state_application": "every_band_every_trial_source_and_target"
+  },
+  "training_consumer_imports_verified": false,
+  "private_full_package_independently_verified": false,
+  "training_authorization": false,
+  "new_fits": 0,
+  "target_EEG_read": false
+}
