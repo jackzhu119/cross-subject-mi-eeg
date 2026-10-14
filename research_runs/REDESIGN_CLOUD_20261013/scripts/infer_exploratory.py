@@ -145,6 +145,9 @@ def target_metadata(job):
             'tensor_cache_receipt_not_bound_to_actual_raw_qc')
     require(tensor.get('target_fits') == 0 and tensor.get('target_predictions_computed') is False,
             'tensor_cache_must_be_pre_outcome')
+    from formal_core_inputs import numerical_identity
+    require(tensor.get('numerical_execution') == numerical_identity(),
+            'target_tensor_numerical_execution_not_bound')
     require(len(tensor.get('files', [])) == 85 and {r.get('subject_id') for r in tensor['files']} == set(people),
             'full_subject_tensor_inventory_required')
     return roster, tensor
@@ -172,6 +175,9 @@ def source_cells(job, config):
     audit = read_json(inside(job, 'source/source19_input_audit.json'))
     require(audit.get('status') == 'PASS_SOURCE19_INPUTS_ONLY' and audit.get('n_binary_trials') == 2592
             and audit.get('n_raw_files') == 18 and audit.get('target_eeg_read') is False, 'actual_source19_audit_required')
+    from formal_core_inputs import numerical_identity
+    require(audit.get('preprocessing', {}).get('numerical_execution') == numerical_identity(),
+            'source_actual_numerical_execution_not_bound')
     selected = read_json(inside(job, 'source/selected_epochs.json'))
     _, _, _, select_epochs, schedule_cells = numerical_helpers()
     output, actual, aliases = [], 8, 0
@@ -265,6 +271,10 @@ def verify_freeze(job, required_artifacts, public_reader=public_bytes):
         require(isinstance(binding, dict) and binding.get('sha256') == sha(path)
                 and files.get(binding.get('public_path')) == sha(path), 'preinference_job_artifact_not_publicly_bound:' + name)
     required_code = [Path(__file__), HERE / 'validate_predictions.py', HERE / 'cloud_locks.py', HERE / 'analyze_exploratory.py', CONFIG, AUTHOR,
+                     HERE / 'formal_core_inputs.py', HERE / 'numerical_review_gate.py', HERE.parent / 'config/numerical_execution_v1.json',
+                     ROOT / 'research_runs/REDESIGN_HANDOFF_20261014/formal_numerical_execution/accept_source_numerics.py',
+                     ROOT / 'research_runs/REDESIGN_HANDOFF_20261014/formal_numerical_execution/audit_full_diagnostic_bundle.py',
+                     ROOT / 'research_runs/REDESIGN_HANDOFF_20261014/formal_numerical_execution/OPERATION_AMENDMENT.md',
                      LEGACY / 'core_source_inputs.py', LEGACY / 'train_source_selection_core.py',
                      LEGACY / 'analyze_redesign_scores.py', HERE / 'train_exploratory.py', HERE / 'validate_source.py',
                      LEGACY.parent / 'config/core_experiment_v1.json', ROOT / 'src/mi_eeg/data/q15_context.py']

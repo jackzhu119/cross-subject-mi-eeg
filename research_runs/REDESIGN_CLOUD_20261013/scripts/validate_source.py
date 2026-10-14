@@ -20,7 +20,7 @@ STUDY = HERE.parent
 ROOT = STUDY.parents[1]
 LEGACY = ROOT / "research_runs/REDESIGN_SOURCE_SELECTION_20261012"
 sys.path.insert(0, str(LEGACY / "scripts"))
-from core_source_inputs import load_source19
+from formal_core_inputs import load_source19
 from train_source_selection_core import build_model
 
 

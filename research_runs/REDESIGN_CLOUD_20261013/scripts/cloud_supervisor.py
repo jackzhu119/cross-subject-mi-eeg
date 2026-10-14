@@ -17,6 +17,8 @@ def protocol_files():
  paths += [v1/'scripts'/n for n in ['train_source_selection_core.py','core_source_inputs.py','infer_selection_core.py','analyze_redesign_scores.py','check_dreyer_metadata.py','acquire_dreyer_runs.py']]
  paths += [v1/'config/core_experiment_v1.json',v1/'evidence/dataset_sources/dreyer_nemar_manifest.txt',v1/'evidence/dataset_sources/dreyer_nemar_acquisition_edf_manifest.json',ROOT/'research_runs/Q8-E001/results/source_files.json',ROOT/'src/mi_eeg/data/q15_context.py']
  paths += [aud/n for n in ['EXPLORATORY_DATA_ACCESS_PLAN.json','config/RAW_QC_RULES_V2.json','evidence/author_prior_use_uncertain.json','evidence/author_conditional_gpu_budget.json','evidence/source_exact_input_fingerprints.csv','evidence/source_exact_input_fingerprints_receipt.json','scripts/acquire_exposure_unconfirmed.py','scripts/audit_acquisition_signal_qc.py','results/raw-qc-543feb2f/raw_only_roster.json','results/raw-qc-543feb2f/raw_only_event_roster.csv','results/raw-qc-543feb2f/full_raw_qc_report.json']]
+ formal=ROOT/'research_runs/REDESIGN_HANDOFF_20261014/formal_numerical_execution'
+ paths += [formal/n for n in ['accept_source_numerics.py','audit_full_diagnostic_bundle.py','OPERATION_AMENDMENT.md']]
  return sorted(set(paths))
 
 def checked_code_revision(revision):

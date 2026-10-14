@@ -28,7 +28,8 @@ def encoded(value):
 
 def allowed(name):
     relative(name)
-    if name in STATIC or name in ('work_root/execution_registration.json', 'work_root/budget_origin.json',
+    if name in STATIC or name in ('numerical_execution_review.json', 'formal_source_acceptance.json',
+                                  'work_root/execution_registration.json', 'work_root/budget_origin.json',
                                   'logs/supervisor.redacted.log'):
         return True
     p = Path(name)
@@ -213,6 +214,13 @@ class Recovery:
             if not p.is_file():
                 raise ValueError('snapshot_required_record_missing:' + name)
             files[name] = p
+        # Retain old snapshots as reviewable evidence; new amended executions
+        # bind these mandatory-at-training records when present, without silently
+        # modifying or reclassifying historical recovery manifests.
+        for name in ('numerical_execution_review.json', 'formal_source_acceptance.json'):
+            p = self.local(name)
+            if p.is_file():
+                files[name] = p
         source = self.job / 'source'
         for p in source.rglob('*') if source.exists() else []:
             if p.is_symlink():

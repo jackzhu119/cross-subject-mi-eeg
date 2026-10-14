@@ -9,7 +9,7 @@ AUDIT=ROOT/'research_runs/REDESIGN_EXPLORATORY_20261013'
 sys.path.insert(0,str(AUDIT/'scripts'));sys.path.insert(0,str(V1/'scripts'))
 import acquire_exposure_unconfirmed as access
 import audit_acquisition_signal_qc as qc
-import core_source_inputs as source
+import formal_core_inputs as source
 
 def source_one(row,directory,allow_download=True):
  name=Path(row['path']).name
@@ -44,6 +44,8 @@ def verified_tensor(path,arrays,event_ids):
  return sha(path)
 
 def prepare(job_dir,data_dir):
+ from numerical_review_gate import verify_review
+ verify_review(job_dir)
  started_at=now();job_dir=Path(job_dir);data_dir=Path(data_dir);job_dir.mkdir(parents=True,exist_ok=True);data_dir.mkdir(parents=True,exist_ok=True)
  src=data_dir/'bnci';raw=data_dir/'dreyer_acquisition';tensors=data_dir/'dreyer_inputs';src.mkdir(exist_ok=True);raw.mkdir(exist_ok=True);tensors.mkdir(exist_ok=True)
  from r2_only import import_from_environment
@@ -97,12 +99,13 @@ def prepare(job_dir,data_dir):
   print(json.dumps({'stage':'full_signal_input_reconstruction','people_processed':person,'expected':87,'target_fits':0}),flush=True)
  if len(audit_files)!=174 or len(tensor_files)!=85 or sum(x['n_events'] for x in tensor_files)!=6800:raise ValueError('complete_roster_required')
  q=job_dir/'qc';q.mkdir(exist_ok=True);shutil.copyfile(frozen_dir/'raw_only_roster.json',q/'raw_only_roster.json');shutil.copyfile(frozen_dir/'raw_only_event_roster.csv',q/'raw_only_event_roster.csv')
- write(q/'file_signal_audit.json',{'files':audit_files});write(q/'tensor_cache_receipt.json',{'files':tensor_files,'new_model_fits':0,'target_fits':0,'target_predictions_computed':False})
+ write(q/'file_signal_audit.json',{'files':audit_files});write(q/'tensor_cache_receipt.json',{'files':tensor_files,'new_model_fits':0,'target_fits':0,'target_predictions_computed':False,'numerical_execution':source.numerical_identity()})
  report={**read(frozen_dir/'full_raw_qc_report.json'),'started_at_utc':started_at,'finished_at_utc':now(),'cloud_exact_reconstruction':True,'source_frozen_qc_report_sha256':sha(frozen_dir/'full_raw_qc_report.json'),'roster_sha256':sha(q/'raw_only_roster.json'),'file_audit_sha256':sha(q/'file_signal_audit.json'),'tensor_cache_receipt_sha256':sha(q/'tensor_cache_receipt.json'),'acquisition_receipt_sha256':sha(job_dir/'acquisition_receipt.json')}
+ report['numerical_execution']=source.numerical_identity()
  # Do not mislabel the old audit timestamp/public registration as newly issued.
  report['public_registration']={'code_revision':read(job_dir/'launch_record.json')['code_revision'],'scope':'New pinned cloud reconstruction; original QC registration is preserved in source_frozen_qc_report.'}
  write(q/'full_raw_qc_report.json',report)
- receipt={'status':'PASS_DATA_PREPARATION_EXPLORATORY','checked_at_utc':now(),'source_dir':str(src),'source_data_dir':str(src),'source_raw_files_verified':18,'qualified_independent_confirmation':False,'source_files':source_files,'source_input_audit':source_audit,'raw_dir':str(raw),'tensor_cache':str(tensors),'roster_path':str(q/'raw_only_roster.json'),'roster_sha256':sha(q/'raw_only_roster.json'),'raw_qc_report_path':str(q/'full_raw_qc_report.json'),'tensor_cache_receipt_path':str(q/'tensor_cache_receipt.json'),'independent_confirmation_qualified':False,'author_prior_use':'unknown','target_fits':0,'target_predictions_computed':False,'source_file_count':18,'target_file_count':174,'retained_participants':85,'retained_events':6800,'exact_frozen_input_reconstruction':True}
+ receipt={'status':'PASS_DATA_PREPARATION_EXPLORATORY','checked_at_utc':now(),'source_dir':str(src),'source_data_dir':str(src),'source_raw_files_verified':18,'qualified_independent_confirmation':False,'source_files':source_files,'source_input_audit':source_audit,'raw_dir':str(raw),'tensor_cache':str(tensors),'roster_path':str(q/'raw_only_roster.json'),'roster_sha256':sha(q/'raw_only_roster.json'),'raw_qc_report_path':str(q/'full_raw_qc_report.json'),'tensor_cache_receipt_path':str(q/'tensor_cache_receipt.json'),'independent_confirmation_qualified':False,'author_prior_use':'unknown','target_fits':0,'target_predictions_computed':False,'source_file_count':18,'target_file_count':174,'retained_participants':85,'retained_events':6800,'exact_frozen_input_reconstruction':True,'numerical_execution':source.numerical_identity()}
  write(job_dir/'data_prepare_receipt.json',receipt);return receipt
 
 def main():

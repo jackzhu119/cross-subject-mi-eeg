@@ -1,0 +1,56 @@
+{
+  "status": "SOFTWARE_AND_LOCAL_SOURCE_VERIFIED_REMOTE_PACKAGE_AND_TARGET_PENDING",
+  "checked_at_utc": "2026-10-14T13:49:50.313626+00:00",
+  "base_handoff_commit": "5f20b35ab720f05ee208d4ceb12d582148719bf8",
+  "combined_software_suite": {
+    "tests": 543,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "final_targeted_guards_tests_passed": 196,
+  "local_source_exact_acceptance": {
+    "status": "LOCAL_FORMAL_INPUT_COMPLETE_STRICT_MATCH_NO_MODEL_EXECUTION",
+    "source_array_hashes": {
+      "broad": "420cd1635c3748e4706c3635e795384f7f859961736bbe7400eae9eb4db7dcd0",
+      "mu": "704635466155eb4965a732d389ffcb71a1a7a862ffc41e0d615dc3c68b7d17dc",
+      "beta": "8e2a88db18e4db719a4b1e396a7871bc102123f99358751f332e0dbd678c6462"
+    },
+    "source_files": 18,
+    "source_runs": 108,
+    "source_trials": 2592,
+    "strict_trial_hashes_checked": 7776,
+    "numerical_execution": {
+      "policy_id": "explicit_sos_initial_state_v1_20261014",
+      "policy_sha256": "04f562ddddc4e5019e56240b980d6d9c2d78645860857a5ab0d9746e788ae476",
+      "execution_module_sha256": "bcd89d6747f00fb03bf1793df3753c53f67cfbf2f95275d40b042b682db61577",
+      "historical_loader_sha256": "03f47bceb3998e407a28e7da56da4875b5d3e1e38746d196739be7262be7cff5",
+      "historical_generation_BLAS_identity_established": false,
+      "state_application": "every_band_every_trial_source_and_target"
+    },
+    "source_identity_hashes": {
+      "source_labels_sha256": "cad1b62c58a3950f06330b85fcdfaa0aed72987c14fa29bb05bc5b5e8947a75a",
+      "source_metadata_sha256": "9d3f257c9496622e09de19c424280d3c85b69d5cbda94059b7c0e096600192c5",
+      "source_sample_ids_sha256": "824455eb730790015247a374828138fc0fa4e2a586087d451c3c8d92643367ff"
+    },
+    "new_fits": 0,
+    "target_EEG_read": false,
+    "training_authorization": false
+  },
+  "protected_science_paths_unchanged": [
+    "research_runs/REDESIGN_CLOUD_20261013/config/experiment.json",
+    "research_runs/REDESIGN_SOURCE_SELECTION_20261012",
+    "research_runs/REDESIGN_EXPLORATORY_20261013",
+    "src/mi_eeg/data/q15_context.py"
+  ],
+  "private_full_package_available_to_this_task": false,
+  "private_full_package_independent_audit_completed": false,
+  "claimed_private_package_sha256": "2871f422755bf5d0b939d0db59fc41547b192d6c939db1a6a13b97a91ba49ae9",
+  "remote_actual_training_consumer_accepted": false,
+  "target_full_restore_or_formal_512_input_acceptance_completed": false,
+  "old_machine_identity_or_budget_transition_authorized": false,
+  "new_model_fits": 0,
+  "new_target_predictions": 0,
+  "RunPod_Stop_or_Terminate_called": false,
+  "scientific_results_changed": false
+}

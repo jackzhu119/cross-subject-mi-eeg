@@ -31,7 +31,7 @@ ROOT = STUDY.parents[1]
 LEGACY = ROOT / "research_runs/REDESIGN_SOURCE_SELECTION_20261012"
 EXPLORATORY = ROOT / "research_runs/REDESIGN_EXPLORATORY_20261013"
 sys.path.insert(0, str(LEGACY / "scripts"))
-from core_source_inputs import array_hash, load_source19, check_processing
+from formal_core_inputs import array_hash, load_source19, check_processing, numerical_identity
 from train_source_selection_core import (build_model, compute_accounting, source_partition,
                                          select_epochs, schedule_cells, state_hash, seed_everything,
                                          evaluate_source_ce)
@@ -124,14 +124,21 @@ def required_execution_paths(job, data):
     """Actual runtime, budget, raw-only eligibility and author records are frozen."""
     job = Path(job).resolve()
     required = [CONFIG, Path(__file__), HERE / "validate_source.py", HERE / "cloud_contract.py",
-        HERE / "prepare_data.py", HERE / "cloud_locks.py", LEGACY / "scripts/train_source_selection_core.py",
+        HERE / "prepare_data.py", HERE / "cloud_locks.py", HERE / "formal_core_inputs.py", HERE / "numerical_review_gate.py",
+        HERE.parent / "config/numerical_execution_v1.json", LEGACY / "scripts/train_source_selection_core.py",
         LEGACY / "scripts/core_source_inputs.py", LEGACY / "config/core_experiment_v1.json",
         ROOT / "research_runs/Q8-E001/results/source_files.json", ROOT / "src/mi_eeg/data/q15_context.py",
         EXPLORATORY / "evidence/author_prior_use_uncertain.json",
         EXPLORATORY / "evidence/author_conditional_gpu_budget.json",
         EXPLORATORY / "results/raw-qc-543feb2f/raw_only_roster.json",
         EXPLORATORY / "results/raw-qc-543feb2f/full_raw_qc_report.json",
-        job / "runtime_lock.json", job / "budget_authorization.json", job / "data_prepare_receipt.json"]
+        EXPLORATORY / "evidence/source_exact_input_fingerprints.csv",
+        EXPLORATORY / "evidence/source_exact_input_fingerprints_receipt.json",
+        ROOT / "research_runs/REDESIGN_HANDOFF_20261014/formal_numerical_execution/accept_source_numerics.py",
+        ROOT / "research_runs/REDESIGN_HANDOFF_20261014/formal_numerical_execution/audit_full_diagnostic_bundle.py",
+        ROOT / "research_runs/REDESIGN_HANDOFF_20261014/formal_numerical_execution/OPERATION_AMENDMENT.md",
+        job / "runtime_lock.json", job / "budget_authorization.json", job / "data_prepare_receipt.json",
+        job / "numerical_execution_review.json", job / "formal_source_acceptance.json"]
     for key in ("roster_path", "raw_qc_report_path", "tensor_cache_receipt_path"):
         raw_path = Path(data.get(key, ""))
         if raw_path.is_symlink() or not raw_path.resolve().is_relative_to(job):
@@ -142,6 +149,10 @@ def required_execution_paths(job, data):
 
 def validate_prepared_data(job, data, source_data_dir):
     """Metadata-only full-cohort gate; never opens target EEG or input arrays."""
+    if data.get('numerical_execution') != numerical_identity():
+        raise ValueError('Prepared numerical execution identity differs from registered adapter')
+    from numerical_review_gate import verify_review
+    verify_review(job)
     expected = {"status": "PASS_DATA_PREPARATION_EXPLORATORY", "source_raw_files_verified": 18,
         "qualified_independent_confirmation": False, "independent_confirmation_qualified": False,
         "target_fits": 0, "target_predictions_computed": False, "author_prior_use": "unknown",
@@ -374,7 +385,9 @@ def _execute_locked(job, source_data_dir):
     write_json(output / "source_metadata.json", records)
     runtime.update(protocol_commit=freeze.get("commit_sha", freeze.get("protocol_commit")),
                    config_sha256=file_hash(CONFIG), executor_sha256=file_hash(__file__),
-                   input_loader_sha256=file_hash(LEGACY / "scripts/core_source_inputs.py"),
+                   input_loader_sha256=file_hash(HERE / "formal_core_inputs.py"),
+                   historical_input_loader_sha256=file_hash(LEGACY / "scripts/core_source_inputs.py"),
+                   numerical_execution=numerical_identity(),
                    runtime_lock_sha256=file_hash(job / "runtime_lock.json"),
                    budget_authorization_sha256=file_hash(job / "budget_authorization.json"),
                    data_prepare_receipt_sha256=file_hash(job / "data_prepare_receipt.json"))

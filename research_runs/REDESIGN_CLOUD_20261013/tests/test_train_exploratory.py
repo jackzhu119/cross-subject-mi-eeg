@@ -335,12 +335,17 @@ def test_runtime_budget_preparation_author_and_full_raw_qc_are_mandatory_frozen_
 @pytest.mark.parametrize("key,value", [("retained_participants", 84), ("retained_events", 6799),
     ("target_file_count", 173), ("source_file_count", 17), ("qualified_independent_confirmation", True),
     ("author_prior_use", "never_used"), ("target_predictions_computed", True), ("target_fits", 1)])
-def test_prepared_cohort_or_qualification_cannot_be_changed_before_source_fits(tmp_path, key, value):
+def test_prepared_cohort_or_qualification_cannot_be_changed_before_source_fits(tmp_path, key, value, monkeypatch):
+    # This isolated test reaches the cohort gate after a synthetic completed
+    # review gate. Separate numerical-amendment tests exercise real review bytes.
+    import numerical_review_gate
+    monkeypatch.setattr(numerical_review_gate, "verify_review", lambda job: {"synthetic_fixture": True})
     data = {"status": "PASS_DATA_PREPARATION_EXPLORATORY", "source_raw_files_verified": 18,
         "qualified_independent_confirmation": False, "independent_confirmation_qualified": False,
         "target_fits": 0, "target_predictions_computed": False, "author_prior_use": "unknown",
         "source_file_count": 18, "target_file_count": 174, "retained_participants": 85,
-        "retained_events": 6800, "exact_frozen_input_reconstruction": True}
+        "retained_events": 6800, "exact_frozen_input_reconstruction": True,
+        "numerical_execution": train.numerical_identity()}
     data[key] = value
     with pytest.raises(ValueError, match="preparation gate differs"):
         train.validate_prepared_data(tmp_path, data, tmp_path / "source")

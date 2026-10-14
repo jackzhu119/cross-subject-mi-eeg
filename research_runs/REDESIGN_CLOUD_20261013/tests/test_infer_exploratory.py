@@ -17,6 +17,7 @@ sys.path.insert(0, str(SCRIPTS))
 import infer_exploratory as m
 import validate_predictions as v
 import analyze_exploratory as a
+import formal_core_inputs
 
 
 def hash_json(value):
@@ -317,7 +318,8 @@ def source_fixture(tmp_path, monkeypatch):
         path.write_text(json.dumps(value))
         artifacts[path.relative_to(job).as_posix()] = m.sha(path)
     save(source / 'source19_input_audit.json', {'status': 'PASS_SOURCE19_INPUTS_ONLY', 'n_binary_trials': 2592,
-                                             'n_raw_files': 18, 'target_eeg_read': False})
+                                             'n_raw_files': 18, 'target_eeg_read': False,
+                                             'preprocessing': {'numerical_execution': formal_core_inputs.numerical_identity()}})
     save(source / 'runtime_provenance.json', {'software_fixture': True})
     for arch in m.ARCH_MAP:
         curves = []

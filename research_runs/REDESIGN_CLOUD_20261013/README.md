@@ -1,5 +1,12 @@
 # Cloud execution package: exploratory source-selection reliability
 
+**Current paper1 handoff:** source numerical acceptance is being amended on
+`research/paper1-handoff-20261014`. Use the versioned handoff in
+`research_runs/REDESIGN_HANDOFF_20261014/formal_numerical_execution/`; do not launch
+another old task or treat a diagnostic match as recovery authorization. dot alone
+operates the shared Pod and keeps it running for the coordinated papers under the
+current user instruction. This repair performs no Stop/Terminate action.
+
 **2026-10-14 R2-only recovery update:** Current data preparation requires a reviewed R2 mapping and verified bytes; source fitting now requires synchronous private recovery snapshots. Use the new `LAUNCH_R2_ONLY.sh` only after the blocked input/migration gates are resolved. The older direct-download/optional-R2 instructions below describe the preserved prior release and are not the current launch procedure. See [implementation and safe new-host diagnostic](../REDESIGN_HANDOFF_20261014/R2_RECOVERY_IMPLEMENTATION.md). No live R2 or GPU validation is claimed for this update.
 
 This package implements the locked 19-channel source-selection core on a **Dreyer2023 prior-exposure-unconfirmed exploratory cohort**. It is not a first-use independent confirmation. Historic Q1–Q16, submitted manuscripts, and earlier frozen data/code/results remain unchanged.
