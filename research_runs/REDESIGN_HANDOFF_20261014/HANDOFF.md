@@ -1,6 +1,39 @@
 # 论文1接手与服务器交接 — 2026-10-14
 
-## 最新操作交接：正式数值代码已交付，恢复仍阻塞
+## 容器重建更新：所有旧现场路径过期，当前仅交付恢复方案
+
+用户报告同Pod `52ivinpjwv947i` 于2026-10-14 14:59:11UTC重建，容器
+`b5646c12356b`→`a7d3f0e408a4`，`/workspace`仅余`.cache`，overlay30→50GiB。
+原因未核实，dot没有Stop/Restart，fit7未执行。下文的旧源/源码/runtime目录
+均不能当作当前存在；本轮没有连接Pod或执行现场preflight。旧临时SSH也不恢复，
+不新增密钥/凭据或安全设置，仅规划既有HTTPS/browser路径。
+
+源文件和正式验收、论文2前6fit离机/R2备份为用户报告，须恢复时核验真实snapshot/
+manifest/hash，不假定目前可访问。完整清单、精确依赖条件与待审命令方案见
+`runtime_transition/DOT_RUNTIME_ACCEPTANCE.md`及该目录容器重建说明。
+原48小时授权仍截止2026-10-16 09:54UTC，不因恢复延长；旧八小时程序账本保留，
+恢复原任务身份/失败/计数/预算/断点门，不能重新注册科学实验或默默清零。
+当前仅只读材料审计及代码/协议交付，不触碰Pod、不安装、不训练。
+
+## 最新状态：正式 CPU 源验收包审计通过，训练 runtime 与恢复仍待验
+
+dot 已在 `97f1f42a` 实际完成一次 diagnostic-role 正式源验收，18文件/108runs/
+2592trial 三频带严格 hash 匹配，退出3属于预期 pending。新12299字节包的整包
+SHA、16载荷加manifest、10执行文件身份、命令/源码/报告/日志/退出码和原解析
+错误保留均已独立核验；没有重跑诊断或该验收。见
+`formal_numerical_execution/FORMAL_SOURCE_RECEIPT_INDEPENDENT_AUDIT.json`。
+10条并行快照中6条有GPU PID，只有5条是非僵尸态；论文2本地fit/备份待验回执
+不是其结果独立审计。本侧只观察提交的包，不掌握当前 Pod 实时状态。
+
+新 `runtime_transition/` 交付只读 donor 预检、最多新增3GiB的隔离训练 runtime
+方案、实际训练消费者的一次CPU源验收包装器及旧任务/预算/断点/目标 metadata
+门。下一步命令见该目录 `DOT_RUNTIME_ACCEPTANCE.md`；不要重跑下面旧的
+`DOT_ACCEPTANCE.md`。论文2 NumPy2.2.6/SciPy1.15.3 不满足论文1精确依赖；不能
+直接开训或修改论文2环境。Dreyer全部174对象键仍缺，旧登记/原八小时预算未
+迁移，真实恢复/512Hz输入、GPU算术、备份与训练授权均未通过。dot 唯一操作，
+保持Pod运行；本任务不GPU fit、不读额外目标EEG、不改冻结数字或旧投稿。
+
+## 上一轮操作交接：正式数值代码已交付，恢复仍阻塞
 
 最新固定执行提交 `97f1f42a712c4feb1a0be7eca25ac04b06c9c946`；完整说明与 dot 一次性
 验收命令见 [formal_numerical_execution/DOT_ACCEPTANCE.md](formal_numerical_execution/DOT_ACCEPTANCE.md)。

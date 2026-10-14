@@ -1,0 +1,369 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:paper1:readonly-transition-plan:20261014",
+  "title": "Paper1 transition preparation plan \u2014 does not authorize execution",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "record_kind",
+    "old_job_id",
+    "old_code_revision",
+    "original_authorized_at_utc",
+    "original_expires_at_utc",
+    "private_full_diagnostic_package_sha256",
+    "source_exact_input_receipt_sha256",
+    "source_exact_trial_fingerprints_sha256",
+    "training_authorization",
+    "new_budget_authorization",
+    "pending_gates",
+    "scope"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "record_kind": {
+      "const": "PLAN_ONLY_NOT_AUTHORIZATION"
+    },
+    "old_job_id": {
+      "const": "20261014T071918Z-exploratory-89b0c07d"
+    },
+    "old_code_revision": {
+      "const": "05e683e91e2bb39b977970d04402221761e575d2"
+    },
+    "original_authorized_at_utc": {
+      "const": "2026-10-14T07:07:45.290107+00:00"
+    },
+    "original_expires_at_utc": {
+      "const": "2026-10-14T15:07:45.290107+00:00"
+    },
+    "private_full_diagnostic_package_sha256": {
+      "const": "2871f422755bf5d0b939d0db59fc41547b192d6c939db1a6a13b97a91ba49ae9"
+    },
+    "source_exact_input_receipt_sha256": {
+      "const": "66c5aa472809cf29fe68b7b56401c4f0aa4b4f577156425a1f4e1fc20d45d8dd"
+    },
+    "source_exact_trial_fingerprints_sha256": {
+      "const": "e142e927228d9c46afb872fa649335cc6e9ec286b1d291b94ac0e43a6d59e4cf"
+    },
+    "training_authorization": {
+      "const": false
+    },
+    "new_budget_authorization": {
+      "const": null
+    },
+    "pending_gates": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "actual_training_runtime_source_acceptance",
+        "old_identity_and_counters",
+        "checkpoint_and_remote_backup",
+        "explicit_machine_budget_amendment",
+        "dreyer_actual_r2_mapping",
+        "dreyer_full_raw_and_tensor_identity",
+        "reviewed_execution_transition"
+      ],
+      "properties": {
+        "actual_training_runtime_source_acceptance": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "state",
+            "evidence_path",
+            "evidence_sha256",
+            "reviewer"
+          ],
+          "properties": {
+            "state": {
+              "enum": [
+                "UNKNOWN",
+                "EVIDENCE_PRESENT_REVIEW_REQUIRED",
+                "BLOCKED"
+              ]
+            },
+            "evidence_path": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "evidence_sha256": {
+              "anyOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                }
+              ]
+            },
+            "reviewer": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        },
+        "old_identity_and_counters": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "state",
+            "evidence_path",
+            "evidence_sha256",
+            "reviewer"
+          ],
+          "properties": {
+            "state": {
+              "enum": [
+                "UNKNOWN",
+                "EVIDENCE_PRESENT_REVIEW_REQUIRED",
+                "BLOCKED"
+              ]
+            },
+            "evidence_path": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "evidence_sha256": {
+              "anyOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                }
+              ]
+            },
+            "reviewer": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        },
+        "checkpoint_and_remote_backup": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "state",
+            "evidence_path",
+            "evidence_sha256",
+            "reviewer"
+          ],
+          "properties": {
+            "state": {
+              "enum": [
+                "UNKNOWN",
+                "EVIDENCE_PRESENT_REVIEW_REQUIRED",
+                "BLOCKED"
+              ]
+            },
+            "evidence_path": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "evidence_sha256": {
+              "anyOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                }
+              ]
+            },
+            "reviewer": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        },
+        "explicit_machine_budget_amendment": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "state",
+            "evidence_path",
+            "evidence_sha256",
+            "reviewer"
+          ],
+          "properties": {
+            "state": {
+              "enum": [
+                "UNKNOWN",
+                "EVIDENCE_PRESENT_REVIEW_REQUIRED",
+                "BLOCKED"
+              ]
+            },
+            "evidence_path": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "evidence_sha256": {
+              "anyOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                }
+              ]
+            },
+            "reviewer": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        },
+        "dreyer_actual_r2_mapping": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "state",
+            "evidence_path",
+            "evidence_sha256",
+            "reviewer"
+          ],
+          "properties": {
+            "state": {
+              "enum": [
+                "UNKNOWN",
+                "EVIDENCE_PRESENT_REVIEW_REQUIRED",
+                "BLOCKED"
+              ]
+            },
+            "evidence_path": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "evidence_sha256": {
+              "anyOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                }
+              ]
+            },
+            "reviewer": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        },
+        "dreyer_full_raw_and_tensor_identity": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "state",
+            "evidence_path",
+            "evidence_sha256",
+            "reviewer"
+          ],
+          "properties": {
+            "state": {
+              "enum": [
+                "UNKNOWN",
+                "EVIDENCE_PRESENT_REVIEW_REQUIRED",
+                "BLOCKED"
+              ]
+            },
+            "evidence_path": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "evidence_sha256": {
+              "anyOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                }
+              ]
+            },
+            "reviewer": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        },
+        "reviewed_execution_transition": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "state",
+            "evidence_path",
+            "evidence_sha256",
+            "reviewer"
+          ],
+          "properties": {
+            "state": {
+              "enum": [
+                "UNKNOWN",
+                "EVIDENCE_PRESENT_REVIEW_REQUIRED",
+                "BLOCKED"
+              ]
+            },
+            "evidence_path": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "evidence_sha256": {
+              "anyOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                }
+              ]
+            },
+            "reviewer": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "scope": {
+      "type": "string"
+    }
+  }
+}

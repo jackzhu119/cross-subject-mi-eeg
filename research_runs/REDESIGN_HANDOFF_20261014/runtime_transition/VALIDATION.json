@@ -1,0 +1,114 @@
+{
+  "status": "SOFTWARE_AND_ARCHIVED_EVIDENCE_VERIFIED_ACTUAL_DONOR_AND_RUNTIME_PENDING",
+  "base_revision": "e276cf6bf2595260487a69fb40ea17cbcd770839",
+  "archived_formal_acceptance_revision": "97f1f42a712c4feb1a0be7eca25ac04b06c9c946",
+  "archive_bytes": 12299,
+  "archive_sha256": "a4c6c3f7beadf6ce0c927c6e4b9d20b6d37ff3bc2c033ad4b4fd836ca38a6b0d",
+  "source_acceptance_rerun": false,
+  "diagnostic_rerun": false,
+  "actual_remote_GPU_donor_inventoried": false,
+  "new_environment_prepared_or_installed": false,
+  "new_fits": 0,
+  "target_EEG_read": false,
+  "raw_data_downloaded": false,
+  "credentials_touched": false,
+  "training_authorization": false,
+  "original_budget_or_registration_modified": false,
+  "paper2_environment_modified": false,
+  "Pod_control_requested": false,
+  "protected_scientific_file_sha256": {
+    "research_runs/REDESIGN_CLOUD_20261013/config/experiment.json": "8ba78d4ead0e41fc5a5fc6f9890b750f0bdfdaba74a57efab5422b43d57feff0",
+    "research_runs/REDESIGN_CLOUD_20261013/config/numerical_execution_v1.json": "04f562ddddc4e5019e56240b980d6d9c2d78645860857a5ab0d9746e788ae476",
+    "research_runs/REDESIGN_CLOUD_20261013/scripts/formal_core_inputs.py": "bcd89d6747f00fb03bf1793df3753c53f67cfbf2f95275d40b042b682db61577",
+    "research_runs/REDESIGN_SOURCE_SELECTION_20261012/scripts/core_source_inputs.py": "03f47bceb3998e407a28e7da56da4875b5d3e1e38746d196739be7262be7cff5",
+    "research_runs/REDESIGN_EXPLORATORY_20261013/evidence/source_exact_input_fingerprints_receipt.json": "66c5aa472809cf29fe68b7b56401c4f0aa4b4f577156425a1f4e1fc20d45d8dd",
+    "research_runs/REDESIGN_EXPLORATORY_20261013/evidence/source_exact_input_fingerprints.csv": "e142e927228d9c46afb872fa649335cc6e9ec286b1d291b94ac0e43a6d59e4cf"
+  },
+  "tests": [
+    {
+      "evidence_file": "runtime-handoff-combined.xml",
+      "sha256": "10e739d90f009dee6d4736b6ba7e77a7772e846b45250aca25752ee75e107cd8",
+      "tests": 717,
+      "failures": 0,
+      "errors": 0,
+      "scope": "Synthetic unit/guard tests and immutable archived evidence; no EEG fit/reconstruction/prediction experiment"
+    },
+    {
+      "evidence_file": "runtime-transition-guards-latest.xml",
+      "sha256": "8217cd26e8cf42df0108011dc96c7150ad6fa147da34d92a52658135c798bf42",
+      "tests": 135,
+      "failures": 0,
+      "errors": 0,
+      "scope": "Synthetic unit/guard tests and immutable archived evidence; no EEG fit/reconstruction/prediction experiment"
+    }
+  ],
+  "pending": [
+    "Read-only recovery planning only now; no current Pod commands or stale donor reuse. Recover exact existing scientific identity/backup snapshots into new container after separately reviewed restoration.",
+    "Actual donor metadata inventory and independent review",
+    "Child runtime construction under measured3GiB/10GiBstorageguards",
+    "ONE actual training-runtime CPU source acceptance plus full134436bytepackagebinding",
+    "Separate numerical source review, actualGPUruntime computation, oldtask/accounting/checkpoint and backup transition",
+    "Explicit future budget/machine amendment retaining old07:07:45\u201315:07:45clock",
+    "Actual192-fileR2mapping including174Dreyerkeys, thenauthorizedtargetrestoreandexact512Hzinputaudits"
+  ],
+  "container_rebuild_reported_by_author": {
+    "pod_id": "52ivinpjwv947i",
+    "event_at_utc": "2026-10-14T14:59:11+00:00",
+    "previous_container": "b5646c12356b",
+    "reported_current_container": "a7d3f0e408a4",
+    "workspace_reported_contents": [
+      ".cache"
+    ],
+    "previous_overlay_capacity_gib": 30,
+    "reported_overlay_capacity_gib": 50,
+    "cause": "NOT_VERIFIED",
+    "dot_stop_or_restart": "AUTHOR_REPORTS_NOT_PERFORMED",
+    "paper2_fit7": "AUTHOR_REPORTS_NOT_EXECUTED",
+    "live_Pod_independently_observed": false,
+    "previous_workspace_and_runtime_paths": "EXPIRED_NOT_CURRENT_PREFLIGHT"
+  },
+  "existing_authorization_reported_by_author": {
+    "kind": "EXISTING_48_HOUR_AUTHORIZATION_NOT_NEW_BUDGET",
+    "expires_at_utc": "2026-10-16T09:54:00+00:00",
+    "original_authorization_start": "NOT_RECONSTRUCTED_FROM_DURATION",
+    "extended_by_this_task": false,
+    "old_program_eight_hour_ledger_modified": false,
+    "reviewed_transition_required": true
+  },
+  "backups_reported_by_author": {
+    "paper1_raw_source_and_formal_acceptance": "OFF_HOST_OR_R2_REPORTED_NOT_CURRENT_REMOTE_VERIFIED",
+    "paper2_first_six_fits": "R2_REPORTED_NOT_CURRENT_REMOTE_VERIFIED",
+    "paper2_fit7": "NOT_EXECUTED_REPORTED"
+  },
+  "old_public_record_readback": {
+    "runtime_lock.json": {
+      "bytes": 562,
+      "sha256": "a18529ba66d7e73f47438981eafe1b2f7761d6b028998871d621a7656c7e1fa6",
+      "url": "https://raw.githubusercontent.com/jackzhu119/cross-subject-mi-eeg/d612f0cc2bcca045ff1304bc95a87df76bfd4a82/research_runs/REDESIGN_CLOUD_20261013/jobs/20261014T071918Z-exploratory-89b0c07d/runtime_lock.json"
+    },
+    "launch_record.json": {
+      "bytes": 399,
+      "sha256": "edb2b3e4790d383878106144eddc3ee8ffc9dc65c6ae4128ec92330757fca49e",
+      "url": "https://raw.githubusercontent.com/jackzhu119/cross-subject-mi-eeg/d612f0cc2bcca045ff1304bc95a87df76bfd4a82/research_runs/REDESIGN_CLOUD_20261013/jobs/20261014T071918Z-exploratory-89b0c07d/launch_record.json"
+    },
+    "budget_authorization.json": {
+      "bytes": 890,
+      "sha256": "fcb8de686bf53a419beccd00d833f0e253ff922824b3227683e9c1ae2c93e790",
+      "url": "https://raw.githubusercontent.com/jackzhu119/cross-subject-mi-eeg/d612f0cc2bcca045ff1304bc95a87df76bfd4a82/research_runs/REDESIGN_CLOUD_20261013/jobs/20261014T071918Z-exploratory-89b0c07d/budget_authorization.json"
+    },
+    "job_status.json": {
+      "bytes": 639,
+      "sha256": "ec07e6a6f8d6a4bdb5ae24e270b4e870c6f971a46b0d5ae5f57a2cc7268fd00f",
+      "url": "https://raw.githubusercontent.com/jackzhu119/cross-subject-mi-eeg/d612f0cc2bcca045ff1304bc95a87df76bfd4a82/research_runs/REDESIGN_CLOUD_20261013/jobs/20261014T071918Z-exploratory-89b0c07d/job_status.json"
+    }
+  },
+  "old_public_record_commit": "d612f0cc2bcca045ff1304bc95a87df76bfd4a82",
+  "actual_local_test_python": "3.12.14 (synthetic guard tests only; not accepted paper1runtime)",
+  "required_paper1_runtime_python": "3.12.3",
+  "required_paper2_runtime_python": "3.11.16",
+  "cross_ABI_whole_GPU_package_reuse_allowed": false,
+  "fixture_amendment_after_python_freeze_lookup": {
+    "reason": "Added actual frozen Python3.12.3 gate after public record lookup;9 import fixture cases initially hit newguard in local3.12.14 CPU tests;fixtures explicitly simulate3.12.3 and3 mismatchingPythonversionsare checkedrejected",
+    "scientific_failures_or_runtime_guard_loosening": false
+  }
+}

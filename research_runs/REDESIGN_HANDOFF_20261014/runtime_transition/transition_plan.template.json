@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "record_kind": "PLAN_ONLY_NOT_AUTHORIZATION",
+  "old_job_id": "20261014T071918Z-exploratory-89b0c07d",
+  "old_code_revision": "05e683e91e2bb39b977970d04402221761e575d2",
+  "original_authorized_at_utc": "2026-10-14T07:07:45.290107+00:00",
+  "original_expires_at_utc": "2026-10-14T15:07:45.290107+00:00",
+  "private_full_diagnostic_package_sha256": "2871f422755bf5d0b939d0db59fc41547b192d6c939db1a6a13b97a91ba49ae9",
+  "source_exact_input_receipt_sha256": "66c5aa472809cf29fe68b7b56401c4f0aa4b4f577156425a1f4e1fc20d45d8dd",
+  "source_exact_trial_fingerprints_sha256": "e142e927228d9c46afb872fa649335cc6e9ec286b1d291b94ac0e43a6d59e4cf",
+  "training_authorization": false,
+  "new_budget_authorization": null,
+  "pending_gates": {
+    "actual_training_runtime_source_acceptance": {
+      "state": "UNKNOWN",
+      "evidence_path": null,
+      "evidence_sha256": null,
+      "reviewer": null
+    },
+    "old_identity_and_counters": {
+      "state": "UNKNOWN",
+      "evidence_path": null,
+      "evidence_sha256": null,
+      "reviewer": null
+    },
+    "checkpoint_and_remote_backup": {
+      "state": "UNKNOWN",
+      "evidence_path": null,
+      "evidence_sha256": null,
+      "reviewer": null
+    },
+    "explicit_machine_budget_amendment": {
+      "state": "UNKNOWN",
+      "evidence_path": null,
+      "evidence_sha256": null,
+      "reviewer": null
+    },
+    "dreyer_actual_r2_mapping": {
+      "state": "UNKNOWN",
+      "evidence_path": null,
+      "evidence_sha256": null,
+      "reviewer": null
+    },
+    "dreyer_full_raw_and_tensor_identity": {
+      "state": "UNKNOWN",
+      "evidence_path": null,
+      "evidence_sha256": null,
+      "reviewer": null
+    },
+    "reviewed_execution_transition": {
+      "state": "UNKNOWN",
+      "evidence_path": null,
+      "evidence_sha256": null,
+      "reviewer": null
+    }
+  },
+  "scope": "Preparation only. Unknown is not false, cleared, absent, or passed. Fill references from observed immutable evidence; do not use this plan as a budget receipt or execution registration."
+}
