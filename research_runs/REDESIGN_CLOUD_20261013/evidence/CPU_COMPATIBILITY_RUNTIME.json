@@ -1,0 +1,22 @@
+{
+  "python": "3.12.14",
+  "runtime_role": "Software compatibility only, no CUDA/EEG scientific fit",
+  "packages": {
+    "torch": "2.8.0+cpu",
+    "torchaudio": "2.8.0+cpu",
+    "braindecode": "1.5.1",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "mne": "1.13.2",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.8.0",
+    "skorch": "1.4.0",
+    "einops": "0.8.2",
+    "h5py": "3.16.0",
+    "joblib": "1.5.3",
+    "threadpoolctl": "3.6.0",
+    "pytest": "9.1.1"
+  },
+  "new_EEG_fits": 0,
+  "target_predictions": 0
+}

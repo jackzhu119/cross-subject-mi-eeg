@@ -1,0 +1,20 @@
+{
+  "created_at_utc": "2026-10-14T00:31:36.695791+00:00",
+  "status": "PASS_SOFTWARE_DATA_RECONSTRUCTION_NOT_GPU_EXPERIMENT",
+  "tests": 226,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "target_runtime_API_software_test": "torch2.8.0+cpu andtorchaudio2.8.0+cpu; CUDA execution remains launch-gated",
+  "scientific_data_test": "18BNCI/174EDF/85persons/6800window input fingerprints match; no decoder run",
+  "independent_code_review": "Sub-agent read-only cross-component review,34mock control tests and70transport tests; not external human peer review",
+  "prior_frozen_baseline_commit": "77ea54cbbd05d5ce25a3b54a85efc48612768df3",
+  "historical_tracked_changes": [],
+  "new_EEG_model_fits": 0,
+  "new_target_predictions": 0,
+  "independent_confirmation_qualified": false,
+  "GPU_execution_tested": false,
+  "provider_billing_stop_verified": false,
+  "live_cloud_token_authentication_tested": false,
+  "fixture_tests_scope": "Transport mocks, orchestration failure injections, immutable gates, numerical BA/t/CI/bootstrap/Holm and mathematical forward/resume states; no real EEG scientific outcomes."
+}
