@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "status": "STATIC_REVIEW_PASSED_NO_POD_OR_TRAINING_EXECUTION",
+  "reviewed_at_utc": "2026-10-15T08:57:12.232281+00:00",
+  "script_sha256": "5a5fb300c800c0d9884df9d29f0287f46ee2304ce8b21f815c2f93138eb188db",
+  "preserved_original_script_sha256": "65507374bc7640d4c6b2b7d9b609d86b809a11d61a1aa55d61e6527ced4e5190",
+  "unchanged_inherited_guard_AST": {
+    "require": true,
+    "safe": true,
+    "digest": true,
+    "load_module": true,
+    "validate_slot": true,
+    "allocated": true,
+    "atomic": true,
+    "append": true,
+    "live_control_check_closure": true
+  },
+  "fixed_metadata_fixtures": {
+    "run01.claim.json": {
+      "bytes": 725,
+      "sha256": "43ab15e83b921a8be9b3794f3abddc1390bf3157d226ec6c694a8ef2fa397ff7",
+      "matches_bound_code": true
+    },
+    "run01.journal.jsonl": {
+      "bytes": 1088,
+      "sha256": "fb735cbfda52acea32c56c2035039b0c1a93baf9b0cd00064946337f7bf9951f",
+      "matches_bound_code": true
+    },
+    "run01.outer.json": {
+      "bytes": 263,
+      "sha256": "04963eb245867ed026a338ddb59471a20e4d92135b765efbefcd22cb3255a823",
+      "matches_bound_code": true
+    },
+    "same-pod-first-object-head-run01.json": {
+      "bytes": 564,
+      "sha256": "a1d19255b427122f9f961cde33873693f35c0db3773112fdaebaa17ae8629ebe",
+      "matches_bound_code": true
+    }
+  },
+  "resolved_review_findings": [
+    "Prior outer JSON now parsed using protected bounded/stable/exact-SHA continuity.load.",
+    "Successful HTTP200 does not invent Location absence; location_present is null when not observed."
+  ],
+  "remaining_blockers": [],
+  "verified_scope": [
+    "Exactly one distinct run02 claim, journal, log and summary; no old claim reuse or generic resume.",
+    "Exact original metadata and frozen controller/outer/same-Pod HEAD bindings retained and continuously checked.",
+    "Empty raw cache and original three metadata files only before new requests; unknown partials or objects block.",
+    "New parent review explicitly permits one additional bounded attempt; fresh dot slot still required.",
+    "Protected transport, frozen EDF manifest/license, TLS/no redirects/full bytes/SHA, disk allocation/floor, Paper2 reserve and wall/deadline unchanged.",
+    "HTTP diagnostics expose bounded status and only exact public frozen Location; arbitrary location/headers/body omitted.",
+    "Source/runtime acceptance is JSON reuse, and old continuity remains unknown rather than zero.",
+    "Production still pins original raw controller SHA, so its guard blocks run02 success until separate reviewed binding update."
+  ],
+  "observation_limits": [
+    "Same-Pod HEAD record is supplied metadata; this reviewer performed no request and does not infer old GET cause.",
+    "Static review does not prove the new transfer, full174 cached bytes, process exit, scientific input preparation or training."
+  ],
+  "actions": {
+    "Pod_operations": 0,
+    "network_requests": 0,
+    "EEG_or_checkpoint_reads": 0,
+    "controller_or_archived_code_execution": false,
+    "repository_files_modified": false,
+    "tests_run_by_this_review": 0
+  }
+}

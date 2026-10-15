@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "status": "FOCUSED_SYNTHETIC_TESTS_AND_INDEPENDENT_STATIC_REVIEW_PASSED_NO_POD_EXECUTION",
+  "recorded_at_utc": "2026-10-15T08:59:15.329334+00:00",
+  "tests": {
+    "command": "/workspace/mi-eeg-cloud-cpu28-tests/bin/python -m pytest research_runs/REDESIGN_HANDOFF_20261015/target_restore/http_recovery_run02/test_run02.py -q",
+    "executed_by": "preflight_compat_audit subagent",
+    "reported_stdout": "16 passed in 0.21s",
+    "test_file_sha256": "49cbe8c6379c6f0064fdb8b196053e5347f66b52ba714e37063b7c1d0329b010",
+    "actual_UTC_start_end_not_recorded": true
+  },
+  "independent_review_sha256": "151523c1d48f05038c0e199c2452a7039c237fa700b43f95fba51d767b16506f",
+  "new_script_sha256": "5a5fb300c800c0d9884df9d29f0287f46ee2304ce8b21f815c2f93138eb188db",
+  "unchanged_function_AST": [
+    "require",
+    "safe",
+    "digest",
+    "load_module",
+    "validate_slot",
+    "allocated",
+    "atomic",
+    "append"
+  ],
+  "unchanged_live_check_AST": true,
+  "original_code_manifest_TLS_scientific_files_and_production_code_unchanged": true,
+  "current_actions": {
+    "HTTP_requests": 0,
+    "Pod_operations": 0,
+    "EEG_read": false,
+    "installed_packages": false,
+    "fits": 0,
+    "retry_old_claim": false
+  },
+  "training_authorization": false
+}
