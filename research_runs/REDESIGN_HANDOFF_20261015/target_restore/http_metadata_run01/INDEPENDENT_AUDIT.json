@@ -1,0 +1,177 @@
+{
+  "schema_version": 1,
+  "status": "OFFLINE_TARGET_FAILURE_AUDIT_PASSED_FAILURE_PRESERVED_HTTP_CAUSE_UNKNOWN",
+  "checked_at_utc": "2026-10-15T08:51:18.830038+00:00",
+  "archive": {
+    "bytes": 64961,
+    "sha256": "599a690184f657da06d2dcf35fd519fd6c8d4999115bc763396bf220d4242e43",
+    "payload_count": 30,
+    "manifest_count": 1,
+    "physical_regular_member_count": 31,
+    "safe_unique_members": true,
+    "complete_payload_lengths_SHA256": true
+  },
+  "execution": {
+    "delivery_revision": "5e58526918169a15080cc79e3c44d8024e24f911",
+    "controller_sha256": "65507374bc7640d4c6b2b7d9b609d86b809a11d61a1aa55d61e6527ced4e5190",
+    "bundle_manifest_sha256": "95fb6dc01b61da863441d16b1d559ce5f9cfa07f87e65df42029b46272439063",
+    "archived_fixed_files_match_fixed_Git_commit": true,
+    "review_sha256": "7c7118cb5ee8e928a7b6088c18cf25ed30496a111ab9a9a0d77e6fe5dec74bb6",
+    "slot_sha256": "aaa62472b609b85ba3ac96cd70ae5447b4dcd574fb02bca7d6473fa5362f5fe0",
+    "started_at_utc": "2026-10-15T08:41:48.388294+00:00",
+    "failure_journal_at_utc": "2026-10-15T08:41:49.720668+00:00",
+    "outer_completion_at_utc": "2026-10-15T08:41:49.744257+00:00",
+    "elapsed_seconds": 1.355963,
+    "controller_pid": 26841,
+    "supervisor_pid": 26767,
+    "outer_exit_code": 3,
+    "verified_target_files": 0,
+    "verified_target_bytes": 0,
+    "target_summary_sha256": null,
+    "postflight_contains_no_EDF_or_partial": true,
+    "claim_consumed": true,
+    "old_counters": null,
+    "unknown_history_reset": false,
+    "financial_preconditions": "superseded-by-user",
+    "training_authorization": false
+  },
+  "HTTP_failure": {
+    "error_class": "HTTPError",
+    "error_code": "target_restore_controlled_operation_failed",
+    "errno": null,
+    "affected_basename": "sub-01_task-R1acquisition_eeg.edf",
+    "actual_GET_HTTP_status": null,
+    "actual_GET_Location": null,
+    "cause_established": false,
+    "redirect_or_auth_or_notfound_cause_inferred": false
+  },
+  "first_frozen_request_identity": {
+    "url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-01/eeg/sub-01_task-R1acquisition_eeg.edf",
+    "provider_path": "sourcedata/sub-01/eeg/sub-01_task-R1acquisition_eeg.edf",
+    "bytes": 14805604,
+    "sha256": "a678fe6d37e0496eb381dcac6b877b047d02dfffc659ae4cfc38226f4850e185",
+    "basis": "frozen manifest ordered first object plus exact fixedcontroller/transport code and actualaffectedbasename, not packet trace"
+  },
+  "current_executor_HEAD_separate_observation": {
+    "head_record_path": "/workspace/mi-eeg-redesign-qa-20261012/target-http-head-run01/head_observation.json",
+    "head_record_sha256": "7e79a6e126c9c1e0a4991d87396dbe8304c0d6e03a3325a69847231e0abfe5ca",
+    "executed_script_path": "/workspace/mi-eeg-redesign-qa-20261012/target-http-head-run01/one_head.py",
+    "executed_script_sha256": "c2570dc8927c2dcdbf83819a31e42f2dc5426e4815f4889eedf2ee1b0715694f",
+    "started_at_utc": "2026-10-15T08:49:15.825958+00:00",
+    "finished_at_utc": "2026-10-15T08:49:16.611013+00:00",
+    "HTTP_status": 200,
+    "Location_present": false,
+    "Content_Length": 14805604,
+    "ETag_matches_frozen_SHA_header": true,
+    "body_read_calls": 0,
+    "redirects_followed": 0,
+    "attempts": 1,
+    "default_TLS_proxy_CA_preserved": true,
+    "script_statically_has_one_HEAD_open_no_bodyread_no_retry": true,
+    "scope": "current Codex executor only, not old Pod GET",
+    "full_EDF_bytes_verified": false,
+    "old_GET_error_cause_established": false,
+    "redirect_amendment_supported": false
+  },
+  "metadata_bindings": {
+    "dispatch/command.json": {
+      "bytes": 764,
+      "sha256": "bc557e6b4f42a22909743c75184566f2361513fa87972ff5b6bb9cb5dd7ad364"
+    },
+    "dispatch/start.json": {
+      "bytes": 118,
+      "sha256": "99576bca58568ed498d5a09762fdcbc5f061fd0cfd00551d4b35817a92a32620"
+    },
+    "dispatch/completion.json": {
+      "bytes": 95,
+      "sha256": "a810a742a542e52e8d11479b9dde8a72f6082ecfc2e8692040f6f353a6936ed2"
+    },
+    "dispatch/observed_outer.json": {
+      "bytes": 263,
+      "sha256": "04963eb245867ed026a338ddb59471a20e4d92135b765efbefcd22cb3255a823"
+    },
+    "dispatch/parent-raw-review.json": {
+      "bytes": 1918,
+      "sha256": "7c7118cb5ee8e928a7b6088c18cf25ed30496a111ab9a9a0d77e6fe5dec74bb6"
+    },
+    "dispatch/target-raw-slot.json": {
+      "bytes": 1062,
+      "sha256": "aaa62472b609b85ba3ac96cd70ae5447b4dcd574fb02bca7d6473fa5362f5fe0"
+    },
+    "dispatch/postflight.json": {
+      "bytes": 834,
+      "sha256": "5a0ab59244ad92dfe294ade0d06e6b25d528a1f17857f3884eb07ca445e63a6e"
+    },
+    "raw-attempt/target_restore_run01.claim.json": {
+      "bytes": 725,
+      "sha256": "43ab15e83b921a8be9b3794f3abddc1390bf3157d226ec6c694a8ef2fa397ff7"
+    },
+    "raw-attempt/target_restore_run01.journal.jsonl": {
+      "bytes": 1088,
+      "sha256": "fb735cbfda52acea32c56c2035039b0c1a93baf9b0cd00064946337f7bf9951f"
+    }
+  },
+  "fixed_code_bindings": {
+    "research_runs/REDESIGN_HANDOFF_20261015/target_restore/EXECUTION_BUNDLE_SHA256SUMS.txt": {
+      "bytes": 1569,
+      "sha256": "95fb6dc01b61da863441d16b1d559ce5f9cfa07f87e65df42029b46272439063"
+    },
+    "research_runs/REDESIGN_HANDOFF_20261015/continuity_resume/continuity_review.py": {
+      "bytes": 20656,
+      "sha256": "2d7904b7787c92449dd0ffe7b56c09327ffb803eb942a417fd0e2fabad0fd8d7"
+    },
+    "research_runs/REDESIGN_HANDOFF_20261015/official_edf_transport/official_edf_transport.py": {
+      "bytes": 16511,
+      "sha256": "1aa2da0b710b3ef109d00d19c75a00fda013a79f947e9aebbe3480c8e99b895f"
+    },
+    "research_runs/REDESIGN_HANDOFF_20261015/runtime/priority_gate.py": {
+      "bytes": 8248,
+      "sha256": "eb88b6c75381a714bd91d9b0bb0acb4fd82edf295b73a25abed4f0236c054fff"
+    },
+    "research_runs/REDESIGN_HANDOFF_20261015/target_restore/parent_raw_review.PLAN_ONLY.json": {
+      "bytes": 1830,
+      "sha256": "8966ecefea9bcc18be6c41d374de3a1f9f38d518fbba5a35edfeaa2402b36e2c"
+    },
+    "research_runs/REDESIGN_HANDOFF_20261015/target_restore/raw_slot.PLAN_ONLY.json": {
+      "bytes": 793,
+      "sha256": "848b26afcb3f2a9b1e64143d10f6a25f426aa9b68d679170b5af338a74fc7514"
+    },
+    "research_runs/REDESIGN_HANDOFF_20261015/target_restore/target_restore_once.py": {
+      "bytes": 16929,
+      "sha256": "65507374bc7640d4c6b2b7d9b609d86b809a11d61a1aa55d61e6527ced4e5190"
+    },
+    "research_runs/REDESIGN_HANDOFF_20261015/target_restore/target_restore_outer.PLAN_ONLY.json": {
+      "bytes": 248,
+      "sha256": "df67b3269ad0d4a06abce9cb0a755e5cfa9e038a1db2dfe0aee0a099581bc176"
+    },
+    "research_runs/REDESIGN_SOURCE_SELECTION_20261012/evidence/dataset_sources/dreyer_nemar_acquisition_edf_manifest.json": {
+      "bytes": 80828,
+      "sha256": "2cfdf35aa7990df880826d1b84d1230e0bda3c9393c17d3ec6e27b7b311d2bf2"
+    },
+    "research_runs/REDESIGN_SOURCE_SELECTION_20261012/evidence/dataset_sources/dreyer_nemar_sourcedata_provenance.json": {
+      "bytes": 122394,
+      "sha256": "0d45bdd3394555e33d8dd153ad1ff15f9340f6f867a99e7bd13cf1e3b582b274"
+    },
+    "research_runs/REDESIGN_SOURCE_SELECTION_20261012/evidence/dataset_sources/dreyer_nemar_sourcedata_readme.txt": {
+      "bytes": 1032,
+      "sha256": "a86264010041a9980e425275b8e1cdba3d051ec9d0deb4f047b1cf646547c9db"
+    }
+  },
+  "auditor_actions": {
+    "network_requests": 0,
+    "HEAD": 0,
+    "GET": 0,
+    "archived_code_executed": false,
+    "Pod_operations": 0,
+    "EEG_or_checkpoint_read": false,
+    "source_acceptance_rerun": false
+  },
+  "limitations": [
+    "30 payloads plus oneMANIFEST=31physical regularmembers; archivefailure and consumedclaim preserved.",
+    "HTTPError occurred but oldstatus/Location are not logged. Do not inferredirect,403,404 or othercause.",
+    "Zero verifiedEDF and noEDF/partial are supported by suppliedjournal/postflightinventory, not measured transientnetwork bytes or universalabsence.",
+    "Currentexecutor oneHEAD200/noLocation/ContentLength/ETag observation is not oldPodGETcause, fullbytes verification, or evidence supportingredirect amendment.",
+    "No newnetwork action by this auditor; rootalone executed separatelyauthorizedHEAD.",
+    "No retry, claimreuse, scientificpreparation orfit authorized by this audit."
+  ]
+}

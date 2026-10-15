@@ -1,5 +1,15 @@
 # Dot: official target bytes → unchanged scientific input preparation
 
+**2026-10-15 run01 update: do not execute step1 again.** The actual first
+attempt exited3 with `HTTPError`, zero objects verified and its claim consumed.
+Keep that claim, logs and empty cache intact. The subsequently authorized
+single HEAD, from the Codex executor rather than the Pod, returned200 without
+`Location`; it does not identify the earlier Pod GET error or authorize retry.
+See [the failure audit and HEAD observation](http_metadata_run01/README.md).
+No redirect-policy or transfer amendment has been issued. The commands below
+remain the original reviewed procedure, not a new execution authorization;
+step2 still requires a real successful raw restoration and observed exit0.
+
 This is the current executable continuation-preparation handoff. Do not rerun
 the completed continuity observation, source restoration, runtime repair,
 diagnostic or actual-runtime CPU acceptance. Dot is the sole Pod operator;

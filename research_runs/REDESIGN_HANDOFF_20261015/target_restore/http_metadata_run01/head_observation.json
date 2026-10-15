@@ -1,0 +1,40 @@
+{
+  "attempts": 1,
+  "default_proxy_and_CA_preserved": true,
+  "edf_body_bytes_read": 0,
+  "explicit_auth_denial": false,
+  "finished_at_utc": "2026-10-15T08:49:16.611013+00:00",
+  "frozen_directory": {
+    "dataset": "nm000250",
+    "tree_sha": "f77f8859a84df42bd775920d288261260b2236db",
+    "version": "v1.0.5"
+  },
+  "frozen_first_object_bytes": 14805604,
+  "frozen_first_object_sha256": "a678fe6d37e0496eb381dcac6b877b047d02dfffc659ae4cfc38226f4850e185",
+  "http_status": 200,
+  "location_present": false,
+  "observation_scope": "current Codex executor, not live Pod",
+  "prior_GET_HTTP_status": "NOT_RECORDED_NOT_INFERRED",
+  "redirects_followed": 0,
+  "request_headers": {
+    "Accept-Encoding": "identity"
+  },
+  "request_method": "HEAD",
+  "request_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-01/eeg/sub-01_task-R1acquisition_eeg.edf",
+  "response_body_read_calls": 0,
+  "response_headers": {
+    "content-length": "14805604",
+    "content-type": "application/octet-stream",
+    "date": "Thu, 15 Oct 2026 08:49:16 GMT",
+    "etag": "\"sha256:a678fe6d37e0496eb381dcac6b877b047d02dfffc659ae4cfc38226f4850e185\"",
+    "last-modified": "Tue, 06 Oct 2026 19:06:03 GMT",
+    "server": "envoy"
+  },
+  "response_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-01/eeg/sub-01_task-R1acquisition_eeg.edf",
+  "schema_version": 1,
+  "started_at_utc": "2026-10-15T08:49:15.825958+00:00",
+  "status": "HTTP_METADATA_OBSERVED_NO_BODY_NO_REDIRECT",
+  "tls_certificate_verified_by_client": true,
+  "tls_hostname_check_enabled": true,
+  "training_authorization": false
+}
