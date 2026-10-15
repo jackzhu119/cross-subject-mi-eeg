@@ -13,6 +13,9 @@ slots remain necessary, with the original$10/$2reserve and scientific gates
 intact. Availability does not guarantee48 paid hours or grant any fit.
 
 See the current [fixed delivery](repaired_acceptance/AUTHOR48_PIN.md).
+The new CPU-scope code pin is `709a213c04689f4c388ee40c7cfa24b4d4f45ab1`;
+all16 changed code-commit files passed public byte readback and76 focused gate
+tests passed. Original source restore/acceptance execution code is unchanged.
 No Pod operation, install, EEG read or fit was performed for this update.
 
 The earlier author-pending30minute proposal below is retained as historical
