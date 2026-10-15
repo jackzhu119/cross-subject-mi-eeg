@@ -2,6 +2,8 @@
 
 The source_raw_restore operation is a new, explicit operational amendment.
 It does not reinterpret any expired metadata/preparation/source slot.
+The author's48hour CPU recovery availability is pinned separately from the
+unchanged original fit deadline and never certifies funds for continuous use.
 """
 from datetime import datetime, timedelta, timezone
 import hashlib
@@ -16,7 +18,11 @@ BASE_REVISION = '1efe9d1ba2ab8671ad1bf76c360e067fb63fd7ac'
 REPAIR_ARCHIVE_SHA = '7ebd6080181ec3bb5d2c9faf74d754af68c0ea4eea48978467df713e8465f8a1'
 REPAIR_RECEIPT_SHA = '0e487c7c8dcc83006681c8bdb066254da4184d49ab9f6ce96a07ad53d7cf092b'
 REPAIR_ENDED = datetime(2026, 10, 15, 4, 26, 22, 935336, tzinfo=timezone.utc)
-DEADLINE = datetime(2026, 10, 16, 9, 54, tzinfo=timezone.utc)
+HISTORICAL_FIT_DEADLINE = datetime(2026, 10, 16, 9, 54, tzinfo=timezone.utc)
+GRANT_PATH = Path(__file__).with_name('AUTHOR_CPU_RECOVERY_48H_20261015.json')
+GRANT_SHA = 'ae0ee5135586a7c49bfd690946120455367b14d2c1426c5f7217347bedd12fb5'
+GRANT_START = datetime(2026, 10, 15, 5, 7, 25, tzinfo=timezone.utc)
+DEADLINE = datetime(2026, 10, 17, 5, 7, 25, tzinfo=timezone.utc)
 OPERATIONS = {'source_raw_restore': 1200, 'source_cpu_acceptance': 300}
 GIB = 1024**3
 TRUE_REVIEW = ('repair_evidence_independently_reviewed', 'paper2_absolute_priority',
@@ -107,11 +113,11 @@ def validate(review, slot, operation, revision, script_sha, gate_sha, current):
     reviewed, review_end = map(timestamp, (review['reviewed_at_utc'], review['expires_at_utc']))
     window_start, window_end = map(timestamp, (review['cpu_recovery_window_start_utc'],
                                               review['cpu_recovery_window_end_utc']))
-    if (not isinstance(review['cpu_recovery_grant_sha256'], str)
-            or not re.fullmatch('[0-9a-f]{64}', review['cpu_recovery_grant_sha256'])
+    if (review['cpu_recovery_grant_sha256'] != GRANT_SHA
+            or window_start != GRANT_START or window_end != DEADLINE
             or not window_start <= reviewed <= current < review_end <= window_end <= DEADLINE
-            or not timedelta(0) < window_end - window_start <= timedelta(minutes=30)):
-        raise ValueError('separately_authorized_at_most30minute_CPU_recovery_window_required')
+            or window_end - window_start != timedelta(hours=48)):
+        raise ValueError('pinned_author48hour_CPU_recovery_availability_required')
     wall = review['maximum_wall_seconds']
     if (not REPAIR_ENDED < reviewed <= current < review_end <= DEADLINE
             or type(wall) is not int or not 1 <= wall <= OPERATIONS[operation]
@@ -144,6 +150,8 @@ def validate(review, slot, operation, revision, script_sha, gate_sha, current):
 
 class Gate:
     def __init__(self, review_path, slot_path, operation, revision, code_sha256):
+        if digest(no_symlink(GRANT_PATH)) != GRANT_SHA:
+            raise ValueError('actual_author48hour_record_missing_or_changed')
         self.review_path, self.slot_path = map(no_symlink, (review_path, slot_path))
         self.operation, self.revision, self.script_sha = operation, revision, code_sha256
         self.gate_sha = digest(__file__)
@@ -166,7 +174,7 @@ class Gate:
             _, current_sha, current_identity = read_record(path)
             if current_sha != digest_value or current_identity != identity:
                 raise ValueError('review_or_slot_revoked_replaced_or_changed')
-        if digest(__file__) != self.gate_sha:
+        if digest(__file__) != self.gate_sha or digest(no_symlink(GRANT_PATH)) != GRANT_SHA:
             raise ValueError('operation_gate_source_changed')
         validate(self.review, self.slot, self.operation, self.revision, self.script_sha,
             self.gate_sha, datetime.now(timezone.utc))

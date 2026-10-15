@@ -1,5 +1,36 @@
 # Conservative recovery accounting proposal: 04:49–04:51 UTC observation
 
+> **Current authorization update — historical proposal preserved below.**
+> The author has now answered the explicit CPU-recovery exception question:
+> **“我批准48小时，别再问了”**. The append-only
+> [authorization record](AUTHOR_CPU_RECOVERY_48H_20261015.json), SHA256
+> `ae0ee5135586a7c49bfd690946120455367b14d2c1426c5f7217347bedd12fb5`,
+> adopts up to 48 hours of CPU restoration/import/source-acceptance
+> authorization availability: **2026-10-15 05:07:25 UTC to
+> 2026-10-17 05:07:25 UTC**. The start is an assistant-observed tool-clock
+> anchor after receipt, not the user message's transmission timestamp.
+> The earlier 30-minute proposal and unanswered-author passages below are
+> retained as the historical 04:51 accounting snapshot, not a current request
+> for another time approval. Do not repeat that question.
+>
+> This is not 48 paid hours guaranteed by existing funds or a passed old
+> eight-hour/fit-budget gate. At $0.257/hour, continuous 48-hour allocation
+> costs $12.336 before old expenses or the $2 reserve, exceeding the unchanged
+> $10 total. The old actual costs, allocation hours, checkpoints and counters
+> remain unknown and unreset. Every actual short operation still needs a
+> refreshed, complete dollar upper bound and affordable increment; the
+> 04:51 calculations below remain conditional examples, not current balances
+> or task-attributed costs. No future top-up is presumed completed.
+>
+> The updated CPU-operation gate binds the literal new record SHA and exact
+> window. Distinct newly reviewed dot slots remain at most 30 minutes;
+> restoration retains a 1200-second wall limit and acceptance 300 seconds.
+> Single-attempt markers, no automatic retries, Paper 2 priority and all
+> independent scientific/target/accounting/backup gates remain in force.
+> The original GPU-fit validator and **2026-10-16 09:54 UTC** fit deadline
+> are unchanged. No GPU fit, purchase, target EEG access or Pod control is
+> authorized by this amendment; dot remains the sole Pod operator.
+
 **Status: proposal for parent review, not an approved budget or a passed execution gate.**
 This is an append-only accounting proposal. It does not modify the old job,
 receipt, costs, hours, checkpoints, fit/update counters, or production budget

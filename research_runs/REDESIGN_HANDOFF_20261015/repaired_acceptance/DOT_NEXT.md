@@ -32,13 +32,30 @@ repeated in this new archive. The earlier original failure archive was also
 verified offline. These boundaries do not invalidate the successful repair;
 they prevent metadata success from being misreported as runtime acceptance.
 
-## A real accounting decision now precedes any next CPU operation
+## The recorded 48-hour CPU exception still requires a real dollar review
 
 The new official-console transcription shows 19h29m current Pod uptime.
 CPU-only work on a paid GPU allocation still consumes allocation hours. The
 original eight-hour cap cannot be certified from that observation or bypassed
 with a claim of zero fits. Read
 [the concrete conservative accounting proposal](ACCOUNTING_REVIEW_0449UTC.md).
+
+The author answered the explicit CPU-recovery exception question:
+**“我批准48小时，别再问了”**. The append-only
+[authorization record](AUTHOR_CPU_RECOVERY_48H_20261015.json) has SHA256
+`ae0ee5135586a7c49bfd690946120455367b14d2c1426c5f7217347bedd12fb5`.
+The adopted operational interpretation is an **up-to-48-hour CPU recovery
+authorization availability**, from **2026-10-15 05:07:25 UTC** to
+**2026-10-17 05:07:25 UTC**. The start is the assistant's observed tool-clock
+anchor after receiving the reply, not a claimed user-message timestamp.
+This answers the time-authorization question; do not ask it again.
+
+It is not a guarantee of 48 paid hours. At the reported $0.257/hour,
+continuous 48-hour allocation alone would cost $12.336, before old expenses
+or the protected $2 reserve, and cannot fit the unchanged $10 total. Each
+actual operation therefore needs a refreshed, fully covered dollar upper
+bound and an affordable finite increment. CPU recovery availability does
+not authorize a new fit or convert the old eight-hour constraint to PASS.
 
 Before either future command below, the parent needs:
 
@@ -47,30 +64,37 @@ Before either future command below, the parent needs:
    and $2 reserve intact. The 04:51 examples are conditional arithmetic, not
    observed Paper 1 expense or remaining funds. Do not query another route,
    assume a top-up, or fill historical costs/checkpoints with zero.
-2. A real author-approved **single, finite CPU recovery exception** to the
-   possibly exhausted allocation-hour limit: at most 30 minutes in total,
-   or a smaller explicitly approved affordable window. This preserves unknown
-   historical hours and the old cap/breach record; it grants no fit hours.
-   Without it, the committed templates fail closed. The current keep-running
-   instruction is not silently converted to this new approval.
+2. The recorded author-approved **single 48-hour CPU recovery availability
+   window** above, bound to the exact authorization-record SHA. Preserve
+   unknown historical hours and the old cap/breach record. Do not reset the
+   old ledger or represent idle gaps, CPU work or zero new fits as zero
+   allocated GPU hours. This exception grants no fit hours and no additional
+   dollars; record and finance actual recovery increments within the window.
 3. A parent review for each exact operation, followed by its own fresh dot slot.
    Both stages must share the same actual grant SHA and absolute recovery
-   window, no longer than 30 minutes. A second slot is not a second allowance.
+   window above. Each new slot is at most 30 minutes; restoration remains
+   capped at 1200 seconds and acceptance at 300 seconds. A second slot does
+   not reset dollars, counters or consumed single-attempt markers.
 
-The required fields `bounded_cpu_recovery_exception_authorized` and
-`covered_dollar_upper_bound_reviewed` remain false in both templates. The
-parent supplies the real author approval provenance as `cpu_recovery_grant_sha256`
-and real window start/end only after review. A syntactically valid hash does
-not prove author approval or account completeness. Both reviews and slots
-must end inside that window and by 2026-10-16 09:54:00 UTC.
+The review templates now record
+`bounded_cpu_recovery_exception_authorized=true` solely from this exact author
+reply and bind its fixed `cpu_recovery_grant_sha256` and window. Their
+`covered_dollar_upper_bound_reviewed` and all other parent-review conditions
+remain false until actually verified; they remain invalid approval records.
+The gate accepts only the literal recorded grant SHA and exact 48-hour window,
+not any syntactically valid hash or later rolling window. Both actual reviews
+and distinct slots must fit inside this availability; old or expired slots
+remain invalid. No new slot extends the authorization deadline.
 
 The original GPU-fit budget validator is unchanged and is **not passed by this
 adapter**. Its old identity/accounting/checkpoint/fit/update/backup gates remain
-independent. There is no budget reset, new purchase or automatic retry.
+independent, including its original **2026-10-16 09:54:00 UTC** deadline. The
+new CPU-only availability deadline does not extend that fit validator or any
+scientific protocol. There is no budget reset, new purchase or automatic retry.
 
 ## Small fixed delivery, same existing code and runtime
 
-Use the public commit and SHA identities in `ACCEPTANCE_PIN.md`. Obtain only
+Use the public commit and SHA identities in `AUTHOR48_PIN.md`. Obtain only
 the three small execution files plus invalid review/slot templates; do not
 clone another full repository or create/install an environment. The existing
 checkout must still be clean at
@@ -110,13 +134,13 @@ origin Location to `lampx.tugraz.at` are required. No mirror substitution,
 unverified redirect, size/SHA tolerance or repeated download is allowed.
 
 After those actual gates, dot runs once (fixed delivery revision supplied by
-`ACCEPTANCE_PIN.md`; these variables contain public identities/pathnames):
+`AUTHOR48_PIN.md`; these variables contain public identities/pathnames):
 
 ```bash
 (
 set -eu
-: "${P1_ACCEPT_DIR:?verified small execution bundle from ACCEPTANCE_PIN.md}"
-: "${P1_ACCEPT_REVISION:?fixed delivery code commit from ACCEPTANCE_PIN.md}"
+: "${P1_ACCEPT_DIR:?verified small execution bundle from AUTHOR48_PIN.md}"
+: "${P1_ACCEPT_REVISION:?fixed delivery code commit from AUTHOR48_PIN.md}"
 : "${P1_SOURCE_RESTORE_REVIEW:?actual new parent source_raw_restore review}"
 : "${P1_SOURCE_RESTORE_SLOT:?new dot source_raw_restore slot after review}"
 /usr/bin/python3 -I -B "$P1_ACCEPT_DIR/restore_source_once.py" \

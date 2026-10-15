@@ -1,6 +1,24 @@
 # Paper 1 recovery preparation — 15 October 2026
 
-## Latest: real repair independently accepted; source/runtime adapter prepared
+## Latest: author approved48-hour CPU recovery availability
+
+The author answered **“我批准48小时，别再问了”**. The exact reply is recorded
+in [the pinned authorization record](repaired_acceptance/AUTHOR_CPU_RECOVERY_48H_20261015.json).
+The [operational handoff](repaired_acceptance/AUTHOR_48H_HANDOFF.md) uses the
+tool-observed anchor2026-10-15 05:07:25UTC and CPU-scope expiry2026-10-17
+05:07:25UTC; this is not a claim about the user's message transmission time.
+Do not ask for this time authorization again. The new gate and templates bind
+this exact author record. Parent dollar/resource review and fresh short dot
+slots remain necessary, with the original$10/$2reserve and scientific gates
+intact. Availability does not guarantee48 paid hours or grant any fit.
+
+See the current [fixed delivery](repaired_acceptance/AUTHOR48_PIN.md).
+No Pod operation, install, EEG read or fit was performed for this update.
+
+The earlier author-pending30minute proposal below is retained as historical
+context and is superseded by the actual48hour reply above.
+
+## Previous delivery: real repair independently accepted; source/runtime adapter prepared
 
 The new 442155-byte repair archive passed full 30-payload review. The actual
 unique repair exited 0 and kept its independent receipt; the original failed

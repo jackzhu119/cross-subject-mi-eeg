@@ -1,5 +1,11 @@
 # Fixed repaired-runtime recovery code
 
+**Historical30-minute delivery.** The author has since approved48-hour CPU
+recovery availability. Use [AUTHOR48_PIN.md](AUTHOR48_PIN.md) and its new
+gate/author-record bundle for the current operation. Keep this old immutable
+pin as evidence; do not mix its gate SHA with the new author window or ask
+for the same time approval again.
+
 Execution code commit:
 **`8766036b1b5b8f76d07f5bb015d653f242cafc11`**.
 Branch: `research/paper1-handoff-20261014`.
