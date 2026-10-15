@@ -1,5 +1,10 @@
 # Paper 1 recovery preparation — 15 October 2026
 
+Fixed operational execution patch:
+**`1efe9d1ba2ab8671ad1bf76c360e067fb63fd7ac`**. Its30 changed files passed
+immutable public byte readback. See [EXECUTION_PIN.md](EXECUTION_PIN.md) for
+helper SHA256 identities and the exact metadata-first handoff.
+
 **HOLD: code and acceptance preparation only. No Pod operation, installation,
 source/target EEG read or model execution was performed in this update.** Dot
 is the sole Pod operator. Paper 2 has absolute priority. Its completed fit7 and
