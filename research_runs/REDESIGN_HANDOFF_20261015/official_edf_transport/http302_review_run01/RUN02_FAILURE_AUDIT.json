@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "status": "OFFLINE_RUN02_TARGET_FAILURE_AUDIT_PASSED_HTTP302_PRESERVED_REDACTED_LOCATION_UNKNOWN",
+  "checked_at_utc": "2026-10-15T09:14:07.808990+00:00",
+  "archive": {
+    "bytes": 14244,
+    "sha256": "6f9bbb8e6070bf0df1a0ffdcd57b484184e9b6d244c82b08bc3285fa0e1bf176",
+    "payloads": 24,
+    "manifests": 1,
+    "physical_regular_members": 25,
+    "safe_unique_members": true,
+    "full_payload_lengths_and_sha256_verified": true
+  },
+  "fixed_code": {
+    "commit": "790adc6eed78c8d5792b4e9d5ba3682c88594e69",
+    "files": {
+      "target_restore_once.py": {
+        "bytes": 16929,
+        "sha256": "65507374bc7640d4c6b2b7d9b609d86b809a11d61a1aa55d61e6527ced4e5190",
+        "matches_fixed_commit": true
+      },
+      "target_restore_run02.py": {
+        "bytes": 20653,
+        "sha256": "5a5fb300c800c0d9884df9d29f0287f46ee2304ce8b21f815c2f93138eb188db",
+        "matches_fixed_commit": true
+      }
+    }
+  },
+  "actual_execution": {
+    "started_at_utc": "2026-10-15T09:03:57.420562+00:00",
+    "failed_journal_at_utc": "2026-10-15T09:03:58.689014+00:00",
+    "completed_at_utc": "2026-10-15T09:03:58.718980+00:00",
+    "elapsed_seconds": 1.298418,
+    "controller_pid": 26987,
+    "supervisor_pid": 26980,
+    "outer_exit_code": 3,
+    "target_summary_sha256": null,
+    "verified_target_files": 0,
+    "verified_target_bytes": 0,
+    "postflight_no_EDF_or_partial": true,
+    "run01_and_run02_claims_consumed_separately": true,
+    "old_records_byte_preserved_against_original_archive": true,
+    "old_counters": null,
+    "history_unknowns_reset": false,
+    "training_authorization": false,
+    "financial_preconditions": "superseded-by-user"
+  },
+  "observed_GET_failure": {
+    "frozen_first_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-01/eeg/sub-01_task-R1acquisition_eeg.edf",
+    "HTTP_status": 302,
+    "Location_present": true,
+    "public_location": null,
+    "unsafe_location_omitted": true,
+    "raw_Location_in_archive": false,
+    "redirect_host_path_or_signed_mechanism_proven": false,
+    "response_body_read_reported": false,
+    "redirects_followed": 0,
+    "automatic_retry": false,
+    "affected_basename": "sub-01_task-R1acquisition_eeg.edf",
+    "HTTP_error_message_or_query_not_exposed": true
+  },
+  "earlier_same_Pod_HEAD_metadata": {
+    "sha256": "a1d19255b427122f9f961cde33873693f35c0db3773112fdaebaa17ae8629ebe",
+    "started_at_utc": "2026-10-15T08:50:56.723734+00:00",
+    "finished_at_utc": "2026-10-15T08:50:57.160548+00:00",
+    "HTTP_status": 200,
+    "Location_present": false,
+    "Content_Length": "14805604",
+    "basis": "Supplied exact SHA-bound JSON, its original execution script is not in run02archive",
+    "not_GET_behavior_or_fullbyte_verification": true
+  },
+  "metadata_bindings": {
+    "dispatch/command.json": {
+      "bytes": 973,
+      "sha256": "9a1ed126bc412d34b6f502b02a8476af0ef879a567f64c43668a313addeea1cd"
+    },
+    "dispatch/start.json": {
+      "bytes": 118,
+      "sha256": "0905662a25b44b1c612d4137db175b10a51be6f05fa12558c26b4ded151bcfd0"
+    },
+    "dispatch/completion.json": {
+      "bytes": 95,
+      "sha256": "c4361cc138c176d395fc32d0f69dc47218560f2f922691a867f109567219de10"
+    },
+    "dispatch/observed_outer.json": {
+      "bytes": 263,
+      "sha256": "c9e1508e776a3b2dcb80ee473fff991fc3f9fca8916865c8d7221fd645c3d367"
+    },
+    "dispatch/parent-run02-review.json": {
+      "bytes": 2518,
+      "sha256": "66c63fcc4c9ff69908c90ee0930d469375e5235556cac26db2ecfbb7491ffd15"
+    },
+    "dispatch/target-raw-slot.json": {
+      "bytes": 1091,
+      "sha256": "6940169bb7c6b9ee359acb0c1804051818eccf40626e475701df1e9b593ee8e3"
+    },
+    "dispatch/postflight.json": {
+      "bytes": 1169,
+      "sha256": "b0ff12d9b40863d282c9be93e03b2e45004dbdd370798cb9636336bea617c76f"
+    },
+    "prior/observed_outer.json": {
+      "bytes": 263,
+      "sha256": "04963eb245867ed026a338ddb59471a20e4d92135b765efbefcd22cb3255a823"
+    },
+    "prior/same-pod-first-object-head-run01.json": {
+      "bytes": 564,
+      "sha256": "a1d19255b427122f9f961cde33873693f35c0db3773112fdaebaa17ae8629ebe"
+    },
+    "target-records/target_restore_run02.claim.json": {
+      "bytes": 1266,
+      "sha256": "0850d68a286366a4c904cfed04badf6a288958f9629e0426a043616fb700d169"
+    },
+    "target-records/target_restore_run02.journal.jsonl": {
+      "bytes": 1813,
+      "sha256": "8f66687515b35b601cbfc4ed620c5116d43c3b0a0237c03624cc8519c5da640d"
+    }
+  },
+  "auditor_actions": {
+    "network_calls": 0,
+    "GET": 0,
+    "HEAD": 0,
+    "archived_code_executed": false,
+    "Pod_operations": 0,
+    "EEG_read": false,
+    "fits": 0
+  },
+  "limitations": [
+    "One preserved run02failurereport givesHTTP302 andLocationpresence, but destination value was deliberately omitted. Do not inferhost,path,query or officialsignedURLmechanism from this archive.",
+    "NoEDF/partial andzeroverified derive from exactjournal/postflightinventory, not measured transient networkbody bytes or globalremoteabsence.",
+    "Originalrun01records/outer are byteidentical; no failureclaim was rewritten into success.",
+    "This auditor made no network request; rootexclusively performs any separatelyauthorized GETmetadata diagnostic or officialmechanism research.",
+    "No targetscientificpreparation, claimreuse, furtherretry, sourceacceptancererun orGPUfit is authorized by this evidenceaudit."
+  ]
+}

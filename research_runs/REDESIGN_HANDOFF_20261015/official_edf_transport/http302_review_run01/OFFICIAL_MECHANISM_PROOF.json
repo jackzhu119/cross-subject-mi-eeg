@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "status": "OFFICIAL_PRIMARY_SOURCE_SIGNED_REDIRECT_MECHANISM_AND_FROZEN_FIRST_POINTER_VERIFIED_NO_EDF_REQUEST",
+  "source_repository": "nemarOrg/nemar-cli",
+  "pinned_source_commit": "e77013a858f8242783d91bdef2f6e832781b9506",
+  "official_documentation": [
+    {
+      "url": "https://docs.nemar.org/platform/data-api/",
+      "sections": "GET file, response codes, backing storage",
+      "observed_contract": "Canonical versioned file URL may return302 to a backing annex object; storage URLs are transient, not the persistent dataset identity; complete length/checksum remains required."
+    },
+    {
+      "url": "https://docs.nemar.org/platform/for-agents/",
+      "section": "Downloading data.nemar.org",
+      "observed_contract": "The official guide describes file GET302 and presignedS3 delivery; HEAD reports metadata without redirect body."
+    }
+  ],
+  "primary_source_files": [
+    {
+      "url": "https://raw.githubusercontent.com/nemarOrg/nemar-cli/e77013a858f8242783d91bdef2f6e832781b9506/backend/src/services/data-router.ts",
+      "bytes": 86652,
+      "sha256": "38c6dabb43f9ce7d8f2c0a843f8d1114335f9e101b9b6f5b266be7e6a5f84578",
+      "relevant_lines": [
+        [
+          237,
+          280
+        ],
+        [
+          348,
+          393
+        ]
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/nemarOrg/nemar-cli/e77013a858f8242783d91bdef2f6e832781b9506/backend/src/services/s3.ts",
+      "bytes": 80373,
+      "sha256": "e8302af55295e00d8cfee130607eee7cc730e30c178adae8a554ed33ed918d20",
+      "relevant_lines": [
+        [
+          132,
+          164
+        ],
+        [
+          189,
+          202
+        ]
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/nemarOrg/nemar-cli/e77013a858f8242783d91bdef2f6e832781b9506/backend/src/routes/data.ts",
+      "bytes": 102501,
+      "sha256": "53fa266fa0b5c1327fb77cc8784a92aa09edb773ab6424dcffff6067f24d8d36",
+      "relevant_lines": [
+        [
+          1469,
+          1492
+        ]
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/nemarOrg/nemar-cli/e77013a858f8242783d91bdef2f6e832781b9506/backend/wrangler-sccn.toml",
+      "bytes": 34174,
+      "sha256": "9241fd2a6cde15b9b03e33be78c68582fdd84a0a1c528c0d2d79bb9770fe1b8f",
+      "relevant_lines": [
+        [
+          225,
+          250
+        ]
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/nemarDatasets/.github/fe7f821a82fa8d84030a6e74e06e4fccf97b4490/scripts/emit_manifest.py",
+      "bytes": 27340,
+      "sha256": "99c0c049a54063386269b13bee4b89ce3ed59886cab2d461284bee908cfed1a8",
+      "relevant_lines": [
+        [
+          48,
+          61
+        ],
+        [
+          134,
+          200
+        ],
+        [
+          270,
+          300
+        ]
+      ]
+    }
+  ],
+  "mechanism": {
+    "canonical_host": "data.nemar.org",
+    "storage_bucket": "nemar",
+    "storage_region": "us-east-2",
+    "storage_host": "nemar.s3.us-east-2.amazonaws.com",
+    "plain_annex_storage_key_template": "<datasetId>/objects/<manifest.file.key>",
+    "presign_default_seconds": 3600,
+    "signature_scheme": "AWS SigV4 GET query via aws4fetch signQuery:true",
+    "content_disposition": "BIDS basename is encoded into response-content-disposition before signing",
+    "returned_302_has_no_EDF_body": true,
+    "storage_host_is_from_public_production_config_and_router_not_a_guessed_R2_key": true
+  },
+  "frozen_first_object": {
+    "dataset": "nm000250",
+    "version": "v1.0.5",
+    "bids_path": "sourcedata/sub-01/eeg/sub-01_task-R1acquisition_eeg.edf",
+    "frozen_bytes": 14805604,
+    "frozen_sha256": "a678fe6d37e0496eb381dcac6b877b047d02dfffc659ae4cfc38226f4850e185",
+    "frozen_tree_sha": "f77f8859a84df42bd775920d288261260b2236db",
+    "frozen_tree_API_url": "https://api.github.com/repos/nemarDatasets/nm000250/git/trees/f77f8859a84df42bd775920d288261260b2236db?recursive=1",
+    "frozen_tree_response_sha256": "b4c9a9f30c91a6bc96bc9a60361062f9d8cd9569f346878e1714ca07851ab7ab",
+    "frozen_tree_truncated": false,
+    "pointer_git_blob_sha1": "5f67d2a5f58592c8ff4ffcbf790ead40922b135e",
+    "pointer_API_url": "https://api.github.com/repos/nemarDatasets/nm000250/git/blobs/5f67d2a5f58592c8ff4ffcbf790ead40922b135e",
+    "pointer_bytes": 103,
+    "pointer_sha256": "2b211a0a6b62e911e8d9245ed83c2da39111d37bf51fcb798cdd5f7b691e3464",
+    "pointer_text": "/annex/objects/SHA256E-s14805604--a678fe6d37e0496eb381dcac6b877b047d02dfffc659ae4cfc38226f4850e185.edf\n",
+    "annex_key": "SHA256E-s14805604--a678fe6d37e0496eb381dcac6b877b047d02dfffc659ae4cfc38226f4850e185.edf",
+    "expected_storage_path": "/nm000250/objects/SHA256E-s14805604--a678fe6d37e0496eb381dcac6b877b047d02dfffc659ae4cfc38226f4850e185.edf",
+    "full_signed_URL_retained": false,
+    "live_redirect_path_was_observed": false
+  },
+  "all174_policy_boundary": {
+    "official_key_semantics": "The official parser extracts algorithm, byte size and content checksum from git-annex keys; the router uses the exact manifest key.",
+    "individual_pointer_blobs_read_this_task": 1,
+    "all174_pointer_blobs_independently_recovered": false,
+    "conservative_future_redirect_rule": "For a frozenEDF row accept only the fresh actual originLocation with exactHTTPS host, no username/password/fragment/port override, and exact /nm000250/objects/SHA256E-s<row.size>--<row.checksum>.edf path; fail if different. This is a strict new transport acceptance rule, not a claim that all174 current redirect paths were observed. Preserve original full size/SHA body checks.",
+    "credentials_in_query": "Provider-issued signature is ephemeral delivery authorization; do not persist/log completeLocation/query or send it to any alternate host. Do not create client credentials."
+  },
+  "live_observation_boundary": {
+    "root_reported_single_frozen_URL_GET_at_UTC": [
+      "2026-10-15T09:13:46.186894Z",
+      "2026-10-15T09:13:47.015579Z"
+    ],
+    "root_reported_status": 302,
+    "root_parsed_host": "nemar.s3.us-east-2.amazonaws.com",
+    "root_did_not_retain_path_or_query": true,
+    "root_no_follow_and_body_bytes": 0,
+    "this_agent_EDF_URL_requests": 0,
+    "this_agent_EDF_redirect_follows": 0,
+    "this_agent_credential_or_Pod_operations": 0
+  },
+  "limitations": [
+    "Official repository commit is a pinned public implementation observation, not proof that the liveWorker deploy equals that commit.",
+    "Frozenfirstpointer identity is bound to the originalf77tree and exact103-byte Gitblob; the tag-basedtree query returned7fe4e880fae4dd676bc4df1d5aeddc509ca1908a, which is not claimed identical to the frozen tree. Both selected the same exactfirstpointer blob.",
+    "The live redirectpath was withheld in the root metadata probe; only future operation-local parsing can establish exactpath match before a boundedGET. No additionalEDF request is authorized by this research.",
+    "No EDFbytes, rawsignals, target outcomes, private credentials, R2data, Pod actions or science runs were performed."
+  ]
+}

@@ -1,5 +1,10 @@
 # Fixed run02 raw recovery: dot executes once
 
+**Historical executed pin: run02 is now failed/consumed, not reusable.**
+The actual first GET returned302 and exit3. Preserve its originals and see
+the [separate transport-only correction](../../official_edf_transport/http302_review_run01/ADAPTATION.md).
+Commands below document the original dispatch; no third attempt is granted.
+
 **Execution commit:** `790adc6eed78c8d5792b4e9d5ba3682c88594e69`.
 Branch: `research/paper1-handoff-20261014`.
 

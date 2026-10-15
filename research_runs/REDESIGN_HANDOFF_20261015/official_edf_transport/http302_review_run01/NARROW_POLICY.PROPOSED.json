@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "status": "PROPOSED_NARROW_TRANSPORT_ADAPTER_TESTED_NOT_RESTORE_AUTHORIZATION",
+  "canonical_origin": "https://data.nemar.org",
+  "frozen_dataset_version": "nm000250/v1.0.5",
+  "frozen_manifest_sha256": "2cfdf35aa7990df880826d1b84d1230e0bda3c9393c17d3ec6e27b7b311d2bf2",
+  "original_helper_sha256": "1aa2da0b710b3ef109d00d19c75a00fda013a79f947e9aebbe3480c8e99b895f",
+  "adapter_sha256": "7a717fd63b4c0945e2a232c7560f475b5618c3c992c069cb9f451a569e5d4716",
+  "allowlist": {
+    "canonical_redirect_status": 302,
+    "maximum_followed_redirects": 1,
+    "storage_scheme": "https",
+    "storage_hostname": "nemar.s3.us-east-2.amazonaws.com",
+    "explicit_storage_port_allowed": false,
+    "storage_userinfo_allowed": false,
+    "storage_fragment_delimiter_allowed": false,
+    "storage_path": "/nm000250/objects/SHA256E-s{frozen_bytes}--{frozen_sha256}.edf",
+    "query": "opaque transient provider query, at most8192 characters, never persisted/logged",
+    "forwarded_origin_headers": []
+  },
+  "verification": {
+    "final_status": 200,
+    "actual_final_URL_compared_in_memory": true,
+    "content_length_exact": true,
+    "identity_encoding": true,
+    "full_size_and_SHA256": true,
+    "atomic_no_overwrite_publication": true,
+    "retain_existing_partial_or_corruption": true,
+    "per_hop_timeout_seconds": 30,
+    "check_original_caller_control_before_each_request_and_chunk": true,
+    "automatic_retries": 0,
+    "auth_refresh_or_401_403_retry": false,
+    "further_redirects": false,
+    "fallback_hosts": false,
+    "signed_URL_persisted": false
+  },
+  "controller_integration": "Not performed. Original slot/review/wall/global3GiB/floor+Paper2reserve checks must remain mandatory in any separately reviewed new controller.",
+  "current_actions": {
+    "provider_canonical_GET_metadata_requests": 1,
+    "storage_host_requests": 0,
+    "redirects_followed": 0,
+    "response_body_read_calls": 0,
+    "Pod_operations": 0,
+    "restore_attempts": 0,
+    "EEG_processing": false,
+    "fitting": false
+  },
+  "old_claims": "run01 and run02 both consumed and preserved; neither reusable",
+  "training_authorization": false
+}

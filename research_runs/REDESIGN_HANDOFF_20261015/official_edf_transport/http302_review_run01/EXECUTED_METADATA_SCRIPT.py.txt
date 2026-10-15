@@ -1,0 +1,39 @@
+"""One requested GET header diagnostic; never follow or read response bodies."""
+import datetime, hashlib, importlib.util, json, re, urllib.error
+from pathlib import Path
+from urllib.parse import urlsplit
+OUT=Path('/workspace/mi-eeg-redesign-qa-20261012/target-get-location-run01/get_metadata.json')
+if OUT.exists(): raise SystemExit('observation_exists_no_retry')
+p=Path('/workspace/mi-eeg-redesign-20261012/research_runs/REDESIGN_HANDOFF_20261015/official_edf_transport/official_edf_transport.py')
+assert hashlib.sha256(p.read_bytes()).hexdigest()=='1aa2da0b710b3ef109d00d19c75a00fda013a79f947e9aebbe3480c8e99b895f'
+spec=importlib.util.spec_from_file_location('original_frozen_transport',p)
+m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
+row=m.frozen_plan()['files'][0]
+r={'schema_version':1,'method':'GET','request_url':row['url'],'request_attempts':1,'redirects_followed':0,'response_body_read_calls':0,'full_object_downloaded':False,'default_TLS_CA_proxy_preserved':True,'observation_scope':'Codex executor, not retrospective Pod response','started_at_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'training_authorization':False}
+response=None
+try:
+ try:
+  response=m.secure_opener().open(m.urllib.request.Request(row['url'],headers={'Accept-Encoding':'identity'},method='GET'),timeout=30)
+ except urllib.error.HTTPError as exc:
+  response=exc
+ r['http_status']=response.code
+ raw=response.headers.get('Location')
+ r['location_present']=raw is not None
+ if raw is not None:
+  try:
+   loc=urlsplit(raw)
+   host=loc.hostname
+   host=host if isinstance(host,str) and len(host)<=253 and re.fullmatch(r'[A-Za-z0-9.-]+',host) else None
+   scheme=loc.scheme if loc.scheme in ('https','http','') else 'other'
+   r['location_components']={'scheme':scheme,'hostname':host,'port':loc.port,'query_present':bool(loc.query),'fragment_present':bool(loc.fragment)}
+  except (ValueError,UnicodeError):
+   r['location_parse_error']='invalid_location_components'
+ r['explicit_auth_denial']=response.code in (401,403)
+ r['status']='ONE_GET_METADATA_OBSERVED_NO_FOLLOW_NO_BODY'
+except Exception as exc:
+ r.update(status='GET_METADATA_FAILED_NO_RETRY',error_class=type(exc).__name__)
+finally:
+ if response is not None: response.close()
+ r['finished_at_utc']=datetime.datetime.now(datetime.timezone.utc).isoformat()
+ with OUT.open('x') as f:json.dump(r,f,sort_keys=True,indent=2);f.write('\n')
+print(json.dumps(r,sort_keys=True,indent=2))

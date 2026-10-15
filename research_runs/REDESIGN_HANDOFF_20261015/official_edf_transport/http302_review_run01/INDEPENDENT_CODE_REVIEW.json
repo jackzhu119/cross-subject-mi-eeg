@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "status": "INDEPENDENT_STATIC_SECURITY_AND_FROZEN_SCIENTIFIC_GUARD_REVIEW_PASSED_NO_EXECUTION_AUTHORITY",
+  "reviewed_at_utc": "2026-10-15T09:24:39.137178+00:00",
+  "new_library_sha256": "7a717fd63b4c0945e2a232c7560f475b5618c3c992c069cb9f451a569e5d4716",
+  "original_read_write_loop_AST_equal_after_exceptionclass_rename": true,
+  "preserved_code": {
+    "original_transport": {
+      "sha256": "1aa2da0b710b3ef109d00d19c75a00fda013a79f947e9aebbe3480c8e99b895f",
+      "matches_previous_freeze": true
+    },
+    "run01_controller": {
+      "sha256": "65507374bc7640d4c6b2b7d9b609d86b809a11d61a1aa55d61e6527ced4e5190",
+      "matches_previous_freeze": true
+    },
+    "run02_controller": {
+      "sha256": "5a5fb300c800c0d9884df9d29f0287f46ee2304ce8b21f815c2f93138eb188db",
+      "matches_previous_freeze": true
+    }
+  },
+  "checked_controls": [
+    "Canonical request row must equal complete original frozen plan including canonical URL, size and SHA.",
+    "Only a canonical302 may cause one additional GET; storage redirect,403 or any non200 fails without retry.",
+    "Storage scheme HTTPS, exact nemar.s3.us-east-2.amazonaws.com netloc/host, no explicit port or userinfo; any literal fragment delimiter is rejected.",
+    "Storage object path is exactly derived from frozen dataset/size/SHA256E key; no prefix-only acceptance or arbitrary storage path.",
+    "Default original verified TLS/proxy/CA remains; a fresh opener/request per hop carries only Accept-Encoding identity, with no cookie/auth forwarding.",
+    "Caller control_check executes immediately before each canonical/storage GET, including after receiving302.",
+    "Final actual response.geturl is compared against the actual transient URL in memory; geturl is neither replaced nor forged.",
+    "Signed query/actual path is not in route metadata or controlled error arguments; public error normalization strips original network exception context/inner traceback frames.",
+    "Original exact Content-Length/identity encoding/bounded body reads/complete size and SHA/partial preservation/exclusive hardlink publication/fsync remain.",
+    "Original byte-only verify_cached_manifest and frozen manifest/provenance/license identities are reused."
+  ],
+  "resource_authority_boundary": {
+    "library_is_not_a_launcher_or_recovery_claim": true,
+    "caller_must_supply_real_fresh_slot_parent_review_wall_and_total_allocation_checks": true,
+    "library_retains_original_primitive_nonnegative_reserve_semantics": true,
+    "approved_caller_must_enforce_actual_Paper2_reserve_at_least_5GiB": true,
+    "per_request_control_callback_is_not_by_itself_evidence_of_authorization": true
+  },
+  "proof_metadata": {
+    "official_mechanism_proof_sha256": "b840d408b8beeb51508002d0a2d4018ae1d976ccb32765b6c8170dbee11d252f",
+    "live_redirect_path_observed_by_this_reviewer": false,
+    "all174_current_redirect_paths_observed": false,
+    "derived_path_policy_is_not_reported_as_an_observed_path_match": true
+  },
+  "coder_test_artifact_inspected_not_rerun": {
+    "junit_sha256": "99041caa04c806f1eeb800b5bf6a40b7fb992f768b29cf05edec3400fd146568",
+    "counts": {
+      "tests": 31,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "remaining_blockers": [],
+  "actions": {
+    "network_requests": 0,
+    "Pod_operations": 0,
+    "EEG_or_checkpoint_reads": 0,
+    "module_import_or_execution": false,
+    "tests_executed_by_this_review": 0,
+    "repository_files_modified": false,
+    "recovery_or_fit_authorized_by_this_review": false
+  }
+}

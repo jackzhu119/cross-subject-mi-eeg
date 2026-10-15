@@ -1,5 +1,10 @@
 # Dot: official target bytes → unchanged scientific input preparation
 
+**Run02 has also exited3 and consumed its claim.** Its actual first GET
+returned302 with Location withheld. Do not execute either old restoration
+entry again. The [official302 transport correction](../official_edf_transport/http302_review_run01/ADAPTATION.md)
+is a code-review delivery only; it grants no new recovery attempt or claim.
+
 **2026-10-15 run01 update: do not execute step1 again.** The actual first
 attempt exited3 with `HTTPError`, zero objects verified and its claim consumed.
 Keep that claim, logs and empty cache intact. The subsequently authorized
