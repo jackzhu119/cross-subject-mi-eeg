@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "status": "READ_ONLY_METADATA_ROUTES_CHECKED_NO_AUTHENTIC_LATEST_PRIVATE_CONTINUITY_RECOVERED",
+  "observed_at_execution_clock_utc": "2026-10-15T08:16:17.994Z",
+  "old_job_id": "20261014T071918Z-exploratory-89b0c07d",
+  "old_revision": "05e683e91e2bb39b977970d04402221761e575d2",
+  "route_observations": [
+    {
+      "route": "codex_app__list_threads",
+      "requested_limit": 25,
+      "attempts": 1,
+      "result": "NO_RESPONSE_FROM_HOST_BRIDGE_BEFORE_BOUNDED_CANCELLATION",
+      "initial_wait_seconds": 31,
+      "subsequent_polls": "Five one-second bounded polls returned still running; caller terminated the waiting exec cell without retry.",
+      "thread_ids_obtained": false,
+      "read_thread_called": false,
+      "thread_messages_sent": false,
+      "not_claimed": "This observation does not prove that no relevant thread or backup exists. It does not establish an authorization denial."
+    },
+    {
+      "route": "mcp__codex_apps__chatgpt_space_find_pages",
+      "query": "20261014T071918Z-exploratory-89b0c07d",
+      "attempts": 1,
+      "items": [],
+      "next_cursor": null,
+      "partial_results": false,
+      "incomplete_reasons": [],
+      "interpretation": "No match in this bounded accessible-Page search; not a Library-file search and not proof of global absence."
+    },
+    {
+      "route": "available_tool_catalogue_targeted_inspection",
+      "Files_Library_project_file_search_list_get_tool_available": false,
+      "tool_search_tool_available": false,
+      "Page_linked_read_reference_available": true,
+      "Page_linked_reference_limitation": "Requires an already accessible Page ID and exact project-file/library-file reference; neither was returned by the exact-job Page search. A libfile identifier alone is not an accepted substitute.",
+      "plugins_installed_or_connected": false,
+      "credentials_created_or_accessed": false
+    },
+    {
+      "route": "existing_local_offhost_metadata_evidence",
+      "bounded_filename_search_roots": ["/workspace/attachments", "/workspace/mi-eeg-redesign-qa-20261012"],
+      "prior_observation_read": "/workspace/mi-eeg-redesign-qa-20261012/original-job-continuity-public-observation.json",
+      "prior_fixed_public_snapshot": "d612f0cc2bcca045ff1304bc95a87df76bfd4a82",
+      "new_latest_private_ledger_or_checkpoint_manifest_discovered": false,
+      "public_seven_file_GETs_repeated": false,
+      "original_local_roots_rescanned": false,
+      "interpretation": "Existing metadata already records the old public failed-prepare zero snapshot and missing private continuity; that snapshot is not a latest authoritative ledger. Newly present continuity metadata evidence belongs to the new metadata review and does not replace the lost original task state."
+    }
+  ],
+  "authentic_latest_original_registration_recovered": false,
+  "latest_actual_neural_fits_started": null,
+  "latest_actual_neural_fits_completed": null,
+  "latest_optimizer_updates": null,
+  "latest_private_checkpoint_manifest_recovered": false,
+  "latest_private_HEAD_state": null,
+  "remote_backup_absence_proven": false,
+  "financial_execution_preconditions": "superseded-by-user",
+  "historical_unknowns_filled_as_zero": false,
+  "R2_requests_or_prior401_retries": 0,
+  "Pod_operations": 0,
+  "EEG_or_checkpoint_binary_reads": 0,
+  "Torch_or_CUDA_imports": 0,
+  "GPU_fits_started": 0,
+  "training_authorization": false,
+  "minimum_honest_next_decision": "Continue already authorized noninterfering metadata/target raw restoration preparation. Original-task automatic fitting remains blocked until genuine latest fit/update/claim/backup continuity is supplied through an existing authorized offhost route. An unavailable route is not evidence of zero fits or absence of backup. Do not initialize a new zero ledger, repeat an unknown fit, or claim source acceptance repaired missing historical state.",
+  "missing_access_capability": "A responsive read-only thread bridge or an authorized Files/Library/project-file metadata search/read capability, or an explicitly identified existing original-task ledger/HEAD/manifest evidence file. No new credentials, plugin installation or failed-endpoint retry has been attempted."
+}

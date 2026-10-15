@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "status": "OFFLINE_CONTINUITY_METADATA_EXECUTION_AUDIT_PASSED_UNKNOWN_CONTINUITY_RETAINED",
+  "checked_at_utc": "2026-10-15T08:15:42.151097+00:00",
+  "archive": {
+    "bytes": 14261,
+    "sha256": "a5cfd59730ee2e60e8765c8a5e3a27133c3d3a769cc2bffd4d101f805dd007a5",
+    "payloads": 15,
+    "safe_unique_regular_members": true,
+    "complete_manifest_lengths_SHA256_verified": true,
+    "manifest_sha256": "c78e9889d813bb0dacf205789926bb76dd1a42ea1ea1d4f4b011bb4856ba0a1f"
+  },
+  "fixed_code": {
+    "commit": "6710cf4e14c6182896668320fe96dfd3efa1e901",
+    "files": {
+      "metadata/continuity_review.py": {
+        "repository_path": "research_runs/REDESIGN_HANDOFF_20261015/continuity_resume/continuity_review.py",
+        "sha256": "2d7904b7787c92449dd0ffe7b56c09327ffb803eb942a417fd0e2fabad0fd8d7",
+        "bytes": 20656,
+        "exact_fixed_git_commit_bytes_match": true
+      },
+      "metadata/priority_gate.py": {
+        "repository_path": "research_runs/REDESIGN_HANDOFF_20261015/runtime/priority_gate.py",
+        "sha256": "eb88b6c75381a714bd91d9b0bb0acb4fd82edf295b73a25abed4f0236c054fff",
+        "bytes": 8248,
+        "exact_fixed_git_commit_bytes_match": true
+      }
+    },
+    "code_statically_reviewed_only": true,
+    "collector_import_modules": [
+      "argparse",
+      "datetime",
+      "hashlib",
+      "importlib",
+      "json",
+      "os",
+      "pathlib",
+      "re",
+      "shutil",
+      "stat",
+      "sys"
+    ]
+  },
+  "actual_execution": {
+    "started_at_utc": "2026-10-15T08:09:37.836964+00:00",
+    "completed_at_utc": "2026-10-15T08:09:37.951385+00:00",
+    "elapsed_seconds": 0.114421,
+    "outer_exit_code": 0,
+    "inner_exit_code_file": 0,
+    "supervisor_pid": 26567,
+    "metadata_pid": 26573,
+    "command_sha256": "ca47d1374b25660d514cca47bf2441d27c297d044dc2dfc3fcfaf0dba992a3bf",
+    "report_sha256": "ec86526fb6af6c01a19e4d86b0fb69532098175181d2e7175c1e6668038aa6cc",
+    "stdout_summary_matches_report": true,
+    "slot_sha256": "90a02418a72c4f762f88f4469bf8846a165e858bba3d66bbc4362678caab6ad1",
+    "fresh_metadata_slot_actual_execution_within_window": true,
+    "parent_authority_sha256": "08517a3c716fd9716fcd878cad134be57458e266bde65710e7993c02614e18d6",
+    "max_new_bytes": 2097152,
+    "observed_report_directory_bytes": 32613,
+    "required_disk_floor_plus_Paper2_reserve_bytes": 16106127360,
+    "effective_cgroup_CPUs": 10.2,
+    "effective_memory_limit_bytes": 61999996928
+  },
+  "source_runtime_evidence_reused_without_rerun": {
+    "prior_independent_audit_path": "/workspace/mi-eeg-redesign-qa-20261012/source-runtime-acceptance-independent-audit.json",
+    "prior_audit_sha256": "a9ee45e1432ad02ea5bf14eab1876f8c415974b35486822b66108fc902d007c5",
+    "source_archive_sha256": "2c943a5f70608d10cb1f0720be5874ce53c01e3bed6d5bf2cbcafbc636ff312d",
+    "five_metadata_bindings": {
+      "restore": "acdaa915e5f5c0dd66e1b0178fa8602791a70146f46734fd023e2c455acb196c",
+      "completion": "60023885557693cdd10f96a746eceebc3f66b3788701cb9a74bbd609675ded77",
+      "outer": "1566370c2d6b0b0b30c828290f3d443e59e694016cbd1ecff8d10ed266fee52e",
+      "formal": "9f6980404ccd2ceb8f96aa300d497919caa185b02bbff0cc441451ae0a8a59e9",
+      "runtime": "8e5ae3890240b130c875180a18e455dcd3158eab53926dcabb95c2f40768a39b"
+    },
+    "source18_bytes": 779873919,
+    "actual_training_runtime_imports_and_strict_hashes_accepted": true,
+    "new_acceptance_performed": false,
+    "raw_or_runtime_files_inspected": false
+  },
+  "actual_old_task_observation": {
+    "old_job_id": "20261014T071918Z-exploratory-89b0c07d",
+    "old_code_revision": "05e683e91e2bb39b977970d04402221761e575d2",
+    "counters": null,
+    "observed_counters_by_record": {},
+    "records": {},
+    "fit_receipts": [],
+    "checkpoint_stat_inventory": {},
+    "unresolved_update_intents": [],
+    "checkpoint_contents_verified": false,
+    "missing": [
+      "original_registration",
+      "latest_fit_update_ledger",
+      "fit_checkpoint_inventory",
+      "verified_backup_continuity"
+    ],
+    "issues": [],
+    "state": "OLD_WORK_ROOT_NOT_OBSERVED"
+  },
+  "actual_backup_observation": {
+    "state": "NOT_OBSERVED",
+    "remote_latest_proven": false,
+    "blob_readback_verified": false,
+    "checkpoint_contents_verified": false,
+    "issues": []
+  },
+  "financial_preconditions": "SUPERSEDED_BY_USER_NOT_PASSED",
+  "history_unknowns_reset": false,
+  "training_authorization": false,
+  "GPU_fit_started": false,
+  "target_EEG_read": false,
+  "checkpoint_bytes_read": false,
+  "GPU_deadline_utc": "2026-10-16T09:54:00Z",
+  "metadata_payload_bindings": {
+    "dispatch/command.json": {
+      "bytes": 655,
+      "sha256": "ca47d1374b25660d514cca47bf2441d27c297d044dc2dfc3fcfaf0dba992a3bf"
+    },
+    "dispatch/completion.json": {
+      "bytes": 214,
+      "sha256": "e2dbd2c9b6dd3715ad8c2e9b88af1d76001cf798d3ff92869bd12f0c9ecb9936"
+    },
+    "dispatch/download-continuity_review.py.command.json": {
+      "bytes": 470,
+      "sha256": "fe4c3ac619ade2d01f40d9bfa96c74860da243f549a692b9346448c488564ec5"
+    },
+    "dispatch/download-priority_gate.py.command.json": {
+      "bytes": 452,
+      "sha256": "96b94fbf3ec1ae9d112476868025b41d5af4253625ea3c9c23d4172a8d630d12"
+    },
+    "dispatch/metadata-slot.json": {
+      "bytes": 1128,
+      "sha256": "90a02418a72c4f762f88f4469bf8846a165e858bba3d66bbc4362678caab6ad1"
+    },
+    "dispatch/parent-authority.json": {
+      "bytes": 386,
+      "sha256": "08517a3c716fd9716fcd878cad134be57458e266bde65710e7993c02614e18d6"
+    },
+    "dispatch/preflight.json": {
+      "bytes": 749,
+      "sha256": "c89dae827c1c91bbafe9de90fecf159837ea7d64f1312b50ed7a4b1b01abcd2b"
+    },
+    "dispatch/start.json": {
+      "bytes": 100,
+      "sha256": "fe71d33e09bedc6d996bd336a9c2ed9a67ba0d7142c9eae52b018edf4696840e"
+    },
+    "metadata/continuity_review_run01.json": {
+      "bytes": 3424,
+      "sha256": "ec86526fb6af6c01a19e4d86b0fb69532098175181d2e7175c1e6668038aa6cc"
+    }
+  },
+  "limitations": [
+    "Offline archive/code/metadata review only; no archived code executed, Pod operation, fitting, EEG/checkpoint content, runtime install/import, network to Pod/R2, source diagnostic or acceptance rerun.",
+    "Actual collector exited0 means metadata review succeeded, not old continuity/target/GPU training gates passed.",
+    "OLD_WORK_ROOT_NOT_OBSERVED is this execution observation; it does not prove offhost/remote historical ledger/checkpoint backups absent.",
+    "P2 complete_exported36/exit75 appears in supervisor assertions and preflight snapshot, but underlyingP2 state/completion files are not included; no independentP2 scientific verification is established by this package.",
+    "Report Paper2_remaining_items_reported_by_user=36 and queue-priority fields are historical collector context, not independent current pending-queue measurement.",
+    "No source MAT/runtime rehash was performed by this metadata operation; five already independently audited metadata records were exact-SHA reused."
+  ]
+}
