@@ -1,6 +1,33 @@
 # Paper 1 recovery preparation — 15 October 2026
 
-## Latest: original preparation safely failed; single offline repair prepared
+## Latest: real repair independently accepted; source/runtime adapter prepared
+
+The new 442155-byte repair archive passed full 30-payload review. The actual
+unique repair exited 0 and kept its independent receipt; the original failed
+preparation receipt remains absent. Metadata and manpages establish successful
+repair, not actual training-runtime/source acceptance. No live Pod operation
+or EEG read occurred in this delivery.
+
+Follow [the new source-restoration and CPU acceptance handoff](repaired_acceptance/DOT_NEXT.md).
+It reuses the existing 1efe checkout and repaired child, restores only the
+18 missing exact official source MATs under a new source-only slot, then
+performs one separately reviewed actual-runtime CPU acceptance. It does not
+rerun repair, installation or the old diagnostics. All scientific hashes,
+versions and results remain fixed. The author now reports Paper 2 accepted
+18/18; that independent work continues and is not re-audited here.
+
+The newly reported official Billing observation has a conditional dollar-bound
+[proposal with explicit assumptions](repaired_acceptance/ACCOUNTING_REVIEW_0449UTC.md).
+Current Pod uptime19h29m cannot certify the old8-hour allocation cap. Therefore
+future CPU recovery additionally requires a real limited author exception and
+covered dollar-bound review, with a single <=30-minute absolute window shared
+by both stages. The invalid templates grant neither. No old spending, counter,
+budget, deadline or fit gate is reset or represented as passed.
+
+The historical sections below are retained; their preparation/repair commands
+are completed history, not instructions to repeat them.
+
+## Previous delivery: original preparation safely failed; single offline repair prepared
 
 The newly supplied 423996-byte failed-preparation archive passed independent
 review: all 26 payloads, the complete 79-wheel recorded closure and exact

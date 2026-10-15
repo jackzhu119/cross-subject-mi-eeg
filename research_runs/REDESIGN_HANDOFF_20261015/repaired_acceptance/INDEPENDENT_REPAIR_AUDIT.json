@@ -1,0 +1,85 @@
+{
+  "all_payload_bytes_sha256_verified": true,
+  "archive": {
+    "bytes": 442155,
+    "payloads": 30,
+    "sha256": "7ebd6080181ec3bb5d2c9faf74d754af68c0ea4eea48978467df713e8465f8a1"
+  },
+  "base_revision": "1efe9d1ba2ab8671ad1bf76c360e067fb63fd7ac",
+  "budget_expanded": false,
+  "budget_reset": false,
+  "closure": {
+    "compressed_bytes": 148288134,
+    "installed_metadata_distribution_count": 97,
+    "official_resolution_identities_verified": true,
+    "only_offline_install_and_pip_check_recorded": true,
+    "partition": {
+      "frozen_wheel_closure": 79,
+      "gpu_donor": 17,
+      "seed_pip": 1
+    },
+    "two_installed_manpage_payloads_verified": true,
+    "wheel_count": 79
+  },
+  "environment": "/workspace/paper1-training-runtime-cp312-run01",
+  "fixed_git_source_readback": {
+    "frozen_wheel_cache_index.json": "8a973c03b28297a5c533b8f86ea62a83da82b246197a99dd929a2d21494d51bf",
+    "manpage_policy.py": "701cf5e37461307776ef8f476655366cb4cb49619fc63ee7600e6ec1cb62a9b5",
+    "repair_preparation_once.py": "a6d6b30bdbda3594bf459cbc98031b82f3f2e7fe76fc26a29d15b687303375fc"
+  },
+  "limits": [
+    "No wheel binaries are contained in this archive; cached-wheel rehash is an authenticated controller observation, not an independent offline rehash of wheel bytes.",
+    "No installed scientific files or exhaustive donor payload bytes are included; 97 installed versions are metadata observations, not runtime import acceptance.",
+    "Old failure log bytes are not repeated in this archive; fresh postflight hashes agree with historical evidence, but this audit cannot reobserve Pod files.",
+    "Pre/post GPU and disk snapshots do not establish continuous monitoring or present Pod state.",
+    "Source MAT files are not in the archive and have not been observed as restored in the new container.",
+    "This offline audit performs no network calls, installation, CUDA imports, EEG reads, source diagnostic or fit; no next Pod operation is authorized."
+  ],
+  "manifest_created_at_utc": "2026-10-15T04:27:35.321555+00:00",
+  "old_accounting_reconciled": false,
+  "old_cost_known": false,
+  "old_failure": {
+    "four_logs_recorded_hashes_match_historical_index": true,
+    "original_failure_archive_locally_verified": true,
+    "original_preparation_receipt_absent_in_postflight": true
+  },
+  "payload_pins": {
+    "environment/repair_run01.journal.jsonl": "db82e716e22ce7bcf48e6d7908f279b4b8a5ae9ececbd67714ec083d6aa89b0d",
+    "environment/runtime_repair_run01.json": "0e487c7c8dcc83006681c8bdb066254da4184d49ab9f6ce96a07ad53d7cf092b",
+    "environment/wheel-resolution.json": "a0ed2680c8e057a60aec9cde0d736c9869f3ea9e747f5a6216d79766d07f9b5a",
+    "fixed-original-source/prepare_runtime_only.py": "7a1fbc9b364c8dd42faf6894450ae065a49d59a977d4c5470a3c2daffff50cc3",
+    "fixed-repair-source/frozen_wheel_cache_index.json": "8a973c03b28297a5c533b8f86ea62a83da82b246197a99dd929a2d21494d51bf",
+    "fixed-repair-source/manpage_policy.py": "701cf5e37461307776ef8f476655366cb4cb49619fc63ee7600e6ec1cb62a9b5",
+    "fixed-repair-source/repair_preparation_once.py": "a6d6b30bdbda3594bf459cbc98031b82f3f2e7fe76fc26a29d15b687303375fc",
+    "inputs/gpu_donor_inventory.json": "3a83a9cf93cca3e9813056645bc73f26a9429ee6f1f7bc06f2ae78a1c36471b1",
+    "installed-manpages/isympy.1": "f4365d48e2102e292b0131e56e4743674e0b0508a0643504d3fa025c10ef741b",
+    "installed-manpages/ttx.1": "70b6e6fe938e8f50bbe93d905ef0f1cf00e3f6093e193779473b6f4ccb28b85c"
+  },
+  "recorded_execution": {
+    "automatic_retry": false,
+    "controller_pid": 21825,
+    "ended_utc": "2026-10-15T04:26:22.935336+00:00",
+    "exit_code": 0,
+    "fresh_slot_covered_dispatch": true,
+    "review_covered_dispatch": true,
+    "started_utc": "2026-10-15T04:25:38.127630+00:00",
+    "supervisor_pid": 21824
+  },
+  "repair_revision": "461d079eca6e91addcfb59de944b966e51e1b30b",
+  "review_sha256": "5f98bca67b1659511853418b581deff983e399504a6f6ba62c9756d4fb69ed62",
+  "runtime_import_acceptance_passed": false,
+  "safe_regular_unique_members_only": true,
+  "schema_version": 1,
+  "slot_sha256": "64bed18ca00c8150949a9e7af2443da149a89bfd88c90faca61310b71ecd4a60",
+  "source_acceptance_passed": false,
+  "status": "INDEPENDENT_OFFLINE_REPAIR_EVIDENCE_PASS_RUNTIME_SOURCE_STILL_UNACCEPTED",
+  "storage": {
+    "new_environment_created": false,
+    "original_total_cap_bytes": 3221225472,
+    "postflight_free_bytes": 43565662208,
+    "recorded_peak_and_final_owned_bytes": 869490688,
+    "reserved_free_floor_bytes": 16106127360
+  },
+  "target_mapping_or_backup_accepted": false,
+  "training_authorization": false
+}
