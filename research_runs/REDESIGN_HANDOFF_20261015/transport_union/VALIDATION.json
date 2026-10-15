@@ -1,0 +1,58 @@
+{
+  "status": "OFFLINE_RECEIPT_UNION_CODE_VALIDATED_NOT_DEPLOYED",
+  "checked_at_utc": "2026-10-15T05:32:02.402442+00:00",
+  "previous_handoff_commit": "544fbf2c0438e744ca43e37763f4a29f3ee2830c",
+  "unit_test_interpreter": "/workspace/mi-eeg-cloud-cpu28-tests/bin/python",
+  "focused_test_command": "/workspace/mi-eeg-cloud-cpu28-tests/bin/python -B -m pytest -q research_runs/REDESIGN_HANDOFF_20261015/transport_union/test_transport_receipt_union.py --junitxml=/workspace/mi-eeg-redesign-qa-20261012/transport-union-targeted-tests.xml",
+  "focused_tests": {
+    "tests": 81,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0
+  },
+  "junit_sha256": "48ef476f848c291aeca48d8dc3fbfa749373476a07e1e092ac15921d22020a6a",
+  "default_CLI_result": {
+    "status": "OFFLINE_FROZEN_192_CATALOGUE_ROUTE_PLAN_ONLY",
+    "file_count": 192,
+    "source_files": 18,
+    "target_files": 174,
+    "total_bytes": 3295217315,
+    "raw_bytes_opened": false,
+    "training_authorization": false
+  },
+  "default_CLI_stdout_sha256": "f793fbd628470278fd771127f2ac2176ffcf9a85a2fc9bbe54f0ad327ef664e2",
+  "documented_bash_blocks_syntax_passed": {
+    "research_runs/REDESIGN_HANDOFF_20261015/DOT_RUN_NEXT.md": 1,
+    "research_runs/REDESIGN_HANDOFF_20261015/transport_union/README.md": 1
+  },
+  "independent_static_review": {
+    "metadata_schemas_and_frozen_catalogue": "no blocking discrepancy found",
+    "actual_cache_bytes_observed": false,
+    "production_route_and_private_backup_dependency": "explicitly still pending; original code unchanged"
+  },
+  "protected_files_unchanged_sha256": {
+    "research_runs/REDESIGN_CLOUD_20261013/config/numerical_execution_v1.json": "04f562ddddc4e5019e56240b980d6d9c2d78645860857a5ab0d9746e788ae476",
+    "research_runs/REDESIGN_CLOUD_20261013/scripts/formal_core_inputs.py": "bcd89d6747f00fb03bf1793df3753c53f67cfbf2f95275d40b042b682db61577",
+    "research_runs/REDESIGN_CLOUD_20261013/requirements.txt": "7322d4f85f25064ef8c29efa502c67417fc9b8a0d3297692263c1e618804769a",
+    "research_runs/REDESIGN_HANDOFF_20261014/runtime_transition/isolated_training_runtime.py": "cdd8c2d47fb6e1653e8b5c2eb48de6483d4dd57a0af392f2c1495669e3c0cd9e",
+    "research_runs/REDESIGN_CLOUD_20261013/scripts/train_exploratory.py": "4c8e66ce75b7f4133ea648be1bb9b58320b1df2d30e9bba19f4176b0ac665a3d",
+    "research_runs/REDESIGN_HANDOFF_20261015/repaired_acceptance/restore_source_once.py": "2ee6355f51b29bbeedd30f8422c078af76615c26873e16826156ebc015d7f220",
+    "research_runs/REDESIGN_HANDOFF_20261015/repaired_acceptance/accept_repaired_runtime_source.py": "83c30546f693511c7eee80d4520eb0cab70a945530e0321db575b7c75d25a7ca"
+  },
+  "scientific_results_modified": false,
+  "old_failure_or_accounting_records_reset": false,
+  "original_8GPU_hour_fit_validator_modified": false,
+  "new_Pod_operations": false,
+  "new_installs": false,
+  "scientific_imports": false,
+  "new_EEG_reads": false,
+  "new_target_downloads": false,
+  "new_fits_started_here": 0,
+  "current_Pod_runtime_source_target_acceptance_observed": false,
+  "dot_execution_channel_available_on_this_host": false,
+  "source_CPU_execution_pin_unchanged": "709a213c04689f4c388ee40c7cfa24b4d4f45ab1",
+  "author48_time_authorization_already_received": true,
+  "new_48hour_time_permission_question_needed": false,
+  "actual_old_task_fits_cost_GPU_hours_and_checkpoints": null,
+  "unknown_cost_is_zero": false
+}

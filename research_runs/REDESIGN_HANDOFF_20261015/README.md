@@ -1,5 +1,19 @@
 # Paper 1 recovery preparation — 15 October 2026
 
+## Current single execution handoff
+
+Use [DOT_RUN_NEXT.md](DOT_RUN_NEXT.md) for the immediate sequence. The recorded
+offline environment repair is complete; do not reinstall or repeat it. Source
+restoration and actual-runtime CPU acceptance remain executable at the existing
+709a213c pin after real parent/slot checks. No new live receipt or Pod execution
+is claimed here. The author48-hour time question is already answered.
+
+The new [192-input metadata union](transport_union/README.md) has81 focused
+synthetic tests passing. It prepares receipt correspondence without raw data,
+production routing or training. The handoff explicitly identifies the remaining
+R2 transport, private checkpoint/backup and old machine/budget transition gates;
+it does not falsely advertise the old launcher as a runnable recovery command.
+
 ## Latest: author approved48-hour CPU recovery availability
 
 The author answered **“我批准48小时，别再问了”**. The exact reply is recorded
