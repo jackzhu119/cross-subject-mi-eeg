@@ -15,6 +15,10 @@ performs one separately reviewed actual-runtime CPU acceptance. It does not
 rerun repair, installation or the old diagnostics. All scientific hashes,
 versions and results remain fixed. The author now reports Paper 2 accepted
 18/18; that independent work continues and is not re-audited here.
+The fixed execution pin is `8766036b1b5b8f76d07f5bb015d653f242cafc11`;
+[exact SHA values and delivery commands](repaired_acceptance/ACCEPTANCE_PIN.md)
+are available. All 22 code-commit files passed public byte readback, and
+167 focused synthetic CPU tests passed.
 
 The newly reported official Billing observation has a conditional dollar-bound
 [proposal with explicit assumptions](repaired_acceptance/ACCOUNTING_REVIEW_0449UTC.md).
