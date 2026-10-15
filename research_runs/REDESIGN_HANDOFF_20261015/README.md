@@ -15,6 +15,10 @@ journal. It approves only the two fixed manpages and three necessary directory
 entries, reuses all original 79 wheel bytes, and preserves the original total
 3 GiB cap, reserve and unknown accounting. Its distinct success receipt still
 denies runtime/source/target/fit acceptance. Paper 2 continues independently.
+Repair execution is pinned to `461d079eca6e91addcfb59de944b966e51e1b30b`;
+[exact commands and SHA values](repair_run01/REPAIR_PIN.md) are available.
+All 14 code-commit files passed public byte readback; 89 focused local CPU
+tests passed. Those tests do not represent a live repair or source acceptance.
 
 The historical sections below are retained. Preparation was subsequently
 executed once and failed, so their previous next-step instruction is superseded

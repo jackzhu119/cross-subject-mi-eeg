@@ -21,7 +21,7 @@
   "test_command": "/workspace/mi-eeg-cloud-cpu28-tests/bin/python -B -m pytest -q research_runs/REDESIGN_HANDOFF_20261015/repair_run01 --junitxml=/workspace/mi-eeg-redesign-qa-20261012/repair-run01-targeted-tests.xml",
   "local_test_scope": "Python3.12.14 CPU tests; synthetic archive/ZIP/metadata/control fixtures, not Pod3.12.3 runtime preparation or acceptance",
   "new_python_AST_and_JSON_valid": true,
-  "documented_bash_blocks_syntax_passed": 1,
+  "documented_bash_blocks_syntax_passed": 3,
   "protected_file_sha256_unchanged": {
     "research_runs/REDESIGN_CLOUD_20261013/config/numerical_execution_v1.json": "04f562ddddc4e5019e56240b980d6d9c2d78645860857a5ab0d9746e788ae476",
     "research_runs/REDESIGN_CLOUD_20261013/scripts/formal_core_inputs.py": "bcd89d6747f00fb03bf1793df3753c53f67cfbf2f95275d40b042b682db61577",
@@ -51,5 +51,7 @@
   "runtime_import_acceptance_passed": false,
   "source_acceptance_passed": false,
   "future_acceptance_adapter_review_required": true,
-  "training_authorization": false
+  "training_authorization": false,
+  "fixed_repair_code_commit": "461d079eca6e91addcfb59de944b966e51e1b30b",
+  "immutable_public_code_files_verified": 14
 }
