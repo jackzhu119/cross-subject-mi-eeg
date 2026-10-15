@@ -1,5 +1,66 @@
 # Paper 1 recovery preparation — 15 October 2026
 
+## Latest: metadata and actual runtime plan accepted; preparation still not executed
+
+The newly supplied6463-byte plan archive passed independent audit under its
+actual `MANIFEST.json`/`payloads` schema. The25128-byte stdout and fixed helper
+identity match; the recorded unique03:25 run exited0 without installation or
+environment creation. **Do not repeat the plan.** The next deliverable is the
+minimal preparation controller plus parent review and a NEW slot in
+[runtime_preparation/DOT_PREPARATION_NEXT.md](runtime_preparation/DOT_PREPARATION_NEXT.md).
+Neither the metadata slot nor the completed plan slot is an installation grant.
+See [plan independent review](metadata_acceptance/PLAN_RUN01_INDEPENDENT_REVIEW.json).
+
+The platform balance action did not receive completed site permission and was
+stopped without an alternate route. The00:02 value of$2.51 is author-reported
+history, not today's balance, Paper1 expenditure, or budget headroom. This task
+did not access the platform, retry401, install or operate the Pod.
+
+The sections below retain the prior metadata-stage preparation narrative; its
+plan-only next step has now been completed, not queued again.
+
+## Complete cp312 metadata package independently accepted
+
+The8589-byte run01 archive passed independent member/hash/source/command/slot
+review, including the complete22450-byte inventory. This closes the previous
+missing-full-helper-metadata item; **do not ask dot to repeat that observation**.
+Actual training-runtime imports, source acceptance and training remain pending.
+The fixed runtime helper remains1efe9d1b. Its now-completed plan stage is
+recorded at: [DOT_PLAN_ONLY_NEXT.md](metadata_acceptance/DOT_PLAN_ONLY_NEXT.md).
+The old metadata slot cannot authorise it. The supplied package is not the old
+2390-byte JSON and does not replace it. Detailed evidence is in
+[the independent audit](metadata_acceptance/INDEPENDENT_AUDIT_RUN01.json).
+
+All13 direct frozen package versions have public PyPI wheel metadata candidates;
+[the metadata index](metadata_acceptance/PYPI_PINNED_WHEEL_METADATA.json) records
+URLs/size/SHA without downloading wheels, solving a dependency closure, or
+authorising installation. Donor NumPy2.1.2 is **not reused**; Paper 1 retains
+NumPy2.3.5/SciPy1.17.0. The current per-filesystem resource/ABI/import gates remain.
+
+The author's latest report says Paper 2 development fits18/18 were actually
+executed/exported; **accepted remains7**. This task neither upgrades the11
+pending audits nor touches its cp311 environment. Paper 2 remains the priority.
+
+To avoid an unresolved-R2-key loop, a complete174-row same-byte official HTTPS
+mapping and [explicit proposed transport amendment](official_edf_transport/README.md)
+are prepared from the unchanged frozen NEMAR EDF manifest/license. This would
+replace only the target's R2-key transport premise after parent approval; it
+does not change input hashes or masquerade as an R2 receipt. No EDF was accessed.
+The new CLI is offline-only. The unchanged production R2-only route still needs
+a separately reviewed transport coordinator/adapter before actual recovery;
+placing EDF files in a cache alone does not pass that route or scientific gates.
+
+The [accounting recovery proposal](accounting_recovery/ACCOUNTING_AND_BOUNDED_RECOVERY_PROPOSAL.md)
+gives the minimum authentic records and conservative bound formula for review.
+Unknown historical cost/hours/checkpoints stay unknown. The arithmetic helper
+always denies execution authority, even if a supplied bound is feasible. It
+does not reset $10/8 cumulative GPU hours/counters or replace a budget receipt.
+All earlier failures, missing private records and R2 401 evidence are retained.
+
+The following sections retain the earlier preparation state and readback pins
+as history. Their metadata-only next step has now been completed by dot and
+independently reviewed here; follow the new plan-only link above instead.
+
 Fixed operational execution patch:
 **`1efe9d1ba2ab8671ad1bf76c360e067fb63fd7ac`**. Its30 changed files passed
 immutable public byte readback. See [EXECUTION_PIN.md](EXECUTION_PIN.md) for

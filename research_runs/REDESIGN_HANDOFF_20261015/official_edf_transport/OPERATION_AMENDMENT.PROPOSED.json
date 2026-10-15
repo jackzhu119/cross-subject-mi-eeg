@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "status": "PROPOSED_PENDING_DOT_PARENT_REVIEW_NOT_EXECUTION_AUTHORIZATION",
+  "old_job_id": "20261014T071918Z-exploratory-89b0c07d",
+  "scope": "Transport-only recovery of the 174 frozen NEMAR sourcedata acquisition EDF objects; no change to science, population, preprocessing, outcome rules, source fitting or target adaptation.",
+  "replacement_proposed": {
+    "previous_unresolved_transport_premise": "An authentic private R2 key was required for each of the 174 target EDF objects.",
+    "alternative": "Use the exact HTTPS NEMAR URLs already present in the frozen acquisition manifest. Accept each cache object only after full exact size and SHA-256 match, under a separately approved transfer operation.",
+    "scientific_identity_gate_replaced": false,
+    "r2_failure_evidence_retained": true,
+    "r2_keys_guessed_or_created": false,
+    "new_credentials_required": false,
+    "remote_object_availability_or_content_verified_now": false,
+    "production_prepare_data_route_modified_now": false
+  },
+  "frozen_identity": {
+    "dataset": "NEMAR nm000250 v1.0.5 sourcedata acquisition EDF",
+    "provider_tree_sha": "f77f8859a84df42bd775920d288261260b2236db",
+    "frozen_acquisition_manifest_sha256": "2cfdf35aa7990df880826d1b84d1230e0bda3c9393c17d3ec6e27b7b311d2bf2",
+    "provider_provenance_sha256": "0d45bdd3394555e33d8dd153ad1ff15f9340f6f867a99e7bd13cf1e3b582b274",
+    "files": 174,
+    "bytes": 2515343396,
+    "gdf_zip_or_bids_bdf_substitution_allowed": false,
+    "original_gdf_equivalence_claimed": false,
+    "target_exposure_status": "unknown; exploratory evaluation only"
+  },
+  "license": {
+    "identifier": "CC-BY-4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/",
+    "requirements": ["Keep attribution to dataset creators and provider source", "Keep dataset and original-paper DOI references", "State downstream processing changes", "Do not use the software license as a substitute for the data license"],
+    "evidence_scope": "Previously archived provider README, provenance, dataset description and original Zenodo metadata; no fresh remote EDF request"
+  },
+  "required_before_any_future_transfer": [
+    "dot parent independently approves and pins this transport-only amendment and helper revision",
+    "A new dot scheduling/transfer receipt states paper2 noninterference and actual resource reservation; the consumed metadata slot is invalid for transfer",
+    "An approved coordinator validates every supplied row against the complete frozen manifest and preserves one-object-at-a-time total byte accounting",
+    "The total old-job accounting, budget origin, checkpoints and backup recovery state are reconciled or a specifically approved conservative nonreset accounting transition is in force",
+    "A real local preflight shows enough free disk for all missing frozen EDF bytes plus at least 10GiB and a concrete paper2 reserve; 50GiB capacity is not free space",
+    "The new coordinator owns the cache exclusively, preserves partial/corrupt evidence and records actual times, bytes, SHA, TLS/URL results, failures and any disk reservation failure",
+    "No credentials are created, no failed R2 request retried, no target scores or EEG features used to alter rules"
+  ],
+  "required_after_transfer_before_scientific_consumption": [
+    "174 exact cached EDF sizes/SHA and all expected provider paths independently verified",
+    "Frozen header/event, full raw QC, retained 85-person/6800-event roster and per-event/context/three-band input hashes reconstructed under the approved actual training runtime",
+    "The source 18-file provenance, all original strict source input hashes and real training consumer imports pass",
+    "Old job identity, budget/cumulative GPU hours/fit ledger, checkpoints and backup gates pass with all unknowns retained until evidenced",
+    "Production transport routing is separately reviewed; no fake R2 object keys, R2 receipt or r2_enabled value is manufactured",
+    "Only the already authorized old scientific task can resume, with paper2 priority and original cumulative limits preserved"
+  ],
+  "budget": {
+    "deadline_only_authorization_end_utc": "2026-10-16T09:54:00+00:00",
+    "total_usd_cap_unchanged": 10,
+    "cumulative_gpu_hours_cap_unchanged": 8,
+    "current_total_attributable_spend_usd": null,
+    "current_cumulative_gpu_hours": null,
+    "budget_reset_or_expansion_authorized": false
+  },
+  "current_actions": {
+    "offline_metadata_plan_generated": true,
+    "pod_operation": false,
+    "packages_installed": false,
+    "target_eeg_download_or_read": false,
+    "source_diagnostic_rerun": false,
+    "training_fits_started": 0,
+    "training_authorization": false
+  }
+}

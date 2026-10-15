@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "status": "OFFLINE_PROPOSED_TRANSPORT_HELPER_TARGETED_TESTS_PASS_NO_TARGET_READ",
+  "tests": {
+    "command": "/workspace/mi-eeg-cloud-cpu28-tests/bin/python -B -m pytest -q research_runs/REDESIGN_HANDOFF_20261015/official_edf_transport/test_official_edf_transport.py",
+    "passed": 44,
+    "duration_seconds_reported": 0.09,
+    "scope": "Synthetic byte strings and pinned public JSON/README only; no source or target EEG read"
+  },
+  "frozen_mapping": {
+    "files": 174,
+    "bytes": 2515343396,
+    "plan_exactly_reproduced": true,
+    "actual_remote_bytes_verified": false,
+    "actual_cached_edf_verified": false
+  },
+  "boundaries": {
+    "pod_operated": false,
+    "network_requests": 0,
+    "r2_requests": 0,
+    "credentials_read_or_created": false,
+    "packages_installed": false,
+    "scientific_files_modified": false,
+    "target_eeg_downloaded_or_read": false,
+    "source_diagnostics_rerun": false,
+    "training_fits_started": 0,
+    "training_authorization": false,
+    "production_transport_route_changed": false
+  },
+  "files": [
+    {
+      "path": "OPERATION_AMENDMENT.PROPOSED.json",
+      "bytes": 4708,
+      "sha256": "b7a38cfcb16377796e591a1b3806a6c2a38409cf6e81d8b34912dd71d6d1a9c9"
+    },
+    {
+      "path": "README.md",
+      "bytes": 8859,
+      "sha256": "4a58b8e8d7c4868b91b79fb412652496f5f1c91787496e7f66a94a10a2585726"
+    },
+    {
+      "path": "frozen_official_edf_transport_plan.PROPOSED.json",
+      "bytes": 76012,
+      "sha256": "ca76443ffd01517f926a1f2c6d66374d002c05b4ef303f26f28e84195d08d1bd"
+    },
+    {
+      "path": "official_edf_transport.py",
+      "bytes": 16511,
+      "sha256": "1aa2da0b710b3ef109d00d19c75a00fda013a79f947e9aebbe3480c8e99b895f"
+    },
+    {
+      "path": "test_official_edf_transport.py",
+      "bytes": 11525,
+      "sha256": "2041d9fc4b10bfe8b28997349582a03719a6bc1007a171ce18cc68212c68e0e6"
+    }
+  ]
+}

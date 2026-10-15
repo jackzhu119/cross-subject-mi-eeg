@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "status": "ARCHIVE_COMPLETE_FIXED_HELPER_CP312_METADATA_CONFIRMED_RUNTIME_AND_TRAINING_PENDING",
+  "review_scope": "Offline independent archive review only; no archive code executed, no Pod/network/GPU/EEG/install/tests/source diagnostic.",
+  "archive": {
+    "bytes": 8589,
+    "sha256": "7a652a96eded108155188a366d4cf4d930e6ea404566cf44e9773ba0ce6f69d0",
+    "regular_members": 14,
+    "manifest_payloads": 13,
+    "all_manifest_bytes_sizes_and_hashes_verified": true,
+    "safe_member_paths_unique_no_links": true
+  },
+  "inventory": {
+    "bytes": 22450,
+    "sha256": "3a83a9cf93cca3e9813056645bc73f26a9429ee6f1f7bc06f2ae78a1c36471b1",
+    "fixed_helper_sha256": "33d50cdc2ad09c23fa4aa93526a0edb065611d52d51eb233215f217610aa07e1",
+    "python": "3.12.3",
+    "SOABI": "cpython-312-x86_64-linux-gnu",
+    "distributions": 17,
+    "distribution_metadata_and_record_hash_identities": 34,
+    "components": 24,
+    "critical_file_hash_identities": 5,
+    "reported_record_payload_bytes": 6659915854,
+    "original_2390_byte_json_reconstructed_or_substituted": false,
+    "five_fixed_source_hashes_match_git": true,
+    "fixed_source_commit": "1efe9d1ba2ab8671ad1bf76c360e067fb63fd7ac",
+    "complete_helper_compare": {
+      "status": "COMPLETE_HELPER_METADATA_MATCHES_TRANSCRIBED_FIELDS_RUNTIME_STILL_PENDING",
+      "GPU_distributions_compared": 17,
+      "helper_implementation_sha256": "33d50cdc2ad09c23fa4aa93526a0edb065611d52d51eb233215f217610aa07e1",
+      "original2390byte_JSON_verified_here": false,
+      "original2390byte_JSON_reconstructed": false,
+      "GPU_payload_bytes_exhaustively_verified": false,
+      "actual_training_consumer_imports_verified": false,
+      "source_hash_acceptance_verified": false,
+      "paper2_environment_used_or_modified": false,
+      "training_authorization": false
+    }
+  },
+  "dispatch": {
+    "started_utc": "2026-10-15T03:14:55.971963+00:00",
+    "ended_utc": "2026-10-15T03:14:58.843091+00:00",
+    "seconds": 2.871128,
+    "exit_code": 0,
+    "metadata_output_payload_bytes": 23109,
+    "same_slot_sha_bound": true,
+    "slot_valid_at_recorded_start_and_end": true,
+    "slot_operation": "metadata",
+    "slot_sha256": "4d359f9817b92c0e9934dd02b552e641033738994db870b7c790a8823ace1f90",
+    "continuous_monitor_claimed": false,
+    "source_command_before_after_same_permit_checks": true,
+    "new_fits": 0,
+    "observed_inventory_free_bytes": 44435963904,
+    "current_slot_reuse_authorized": false
+  },
+  "evidence_limits": [
+    "Raw donor METADATA/RECORD/critical source bytes and CUDA binary payloads are not archive members; their digests are recorded observations, not independently recomputed against live donor files.",
+    "RECORD-derived component/membership and dependency/version identities are internally consistent; exhaustive native/CUDA byte equality is not established.",
+    "The exact dispatch command is archived with shell variable placeholders; fixed identity/fetch log/report bind commit and helper, but separate expanded shell-variable invocation and raw git-status output are not archived.",
+    "Paper2 complete_exported/idle state/free space are archived dot observations near dispatch, not independently queried live platform state; no continuous no-impact monitoring is claimed.",
+    "Metadata interpreter/venv and ensurepip discoverability are confirmed by recorded helper observations; venv creation/ensurepip execution/install/import/CUDA computation/source acceptance have not been tested by this evidence.",
+    "The previously transcribed kernel/glibc string is not produced by this fixed helper; Linux/x86_64 and Python SOABI are, so full host environment identity remains unproven.",
+    "The archived metadata slot expired at its recorded time and grants neither runtime planning/preparation nor install/training.",
+    "Historical free bytes are not current disk headroom; recheck under a fresh runtime_preparation slot before any future plan/install."
+  ],
+  "training_authorization": false,
+  "source_hash_acceptance_passed_by_this_package": false,
+  "actual_training_runtime_imports_verified": false,
+  "new_fits_in_this_review": 0
+}

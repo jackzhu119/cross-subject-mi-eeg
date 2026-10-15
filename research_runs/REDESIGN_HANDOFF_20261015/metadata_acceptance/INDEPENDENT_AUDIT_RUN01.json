@@ -1,0 +1,187 @@
+{
+  "status": "CP312_METADATA_ARCHIVE_INDEPENDENT_AUDIT_PASSED_RUNTIME_STILL_PENDING",
+  "checked_at_utc": "2026-10-15T03:23:34.603826+00:00",
+  "archive_bytes": 8589,
+  "archive_sha256": "7a652a96eded108155188a366d4cf4d930e6ea404566cf44e9773ba0ce6f69d0",
+  "payloads_verified": 13,
+  "manifest_sha256": "b9ded8d1699326c07f86d5a027145506a2d7ac35634a075bb1f5a41d3690f45d",
+  "payload_manifest": [
+    {
+      "path": "dispatch/completion.json",
+      "bytes": 180,
+      "sha256": "c3e2ba61843a561ea8de9b03a5705820e2289046687619023b09a7e3e80b59ed"
+    },
+    {
+      "path": "dispatch/fixed-code-identity.json",
+      "bytes": 1382,
+      "sha256": "eb073ad8328a1f6035bec8ebab30af820da0a7c769797218fa22dfc8eccbeb3a"
+    },
+    {
+      "path": "dispatch/metadata-command.sh",
+      "bytes": 3095,
+      "sha256": "77406bc92efaaba45602474c7a11b0481881441c58eb341f14b6f7d49b1a382f"
+    },
+    {
+      "path": "dispatch/metadata-dispatch.log",
+      "bytes": 816,
+      "sha256": "bb34bf77fbce065db8a64d53317a0614ebd6407a7482ec3584ad396b12543701"
+    },
+    {
+      "path": "dispatch/metadata-slot.json",
+      "bytes": 1018,
+      "sha256": "4d359f9817b92c0e9934dd02b552e641033738994db870b7c790a8823ace1f90"
+    },
+    {
+      "path": "dispatch/preflight.json",
+      "bytes": 227,
+      "sha256": "dddbf1c38d9addcbfae1ef0565babf70102bf27e2e2207597406e56fbd2444e1"
+    },
+    {
+      "path": "dispatch/source-fetch.log",
+      "bytes": 819,
+      "sha256": "9dbfd691df430ac89a9f402aacfb4ab80fad2bec60dd9326aed2e4bf9d7813ca"
+    },
+    {
+      "path": "metadata/SHA256SUMS.txt",
+      "bytes": 426,
+      "sha256": "07c944c4a82655ecdb6a1b4cfde62e35f755eafb4e270beb072f3e78262403b6"
+    },
+    {
+      "path": "metadata/exit-code.txt",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "metadata/gpu_donor_inventory.json",
+      "bytes": 22450,
+      "sha256": "3a83a9cf93cca3e9813056645bc73f26a9429ee6f1f7bc06f2ae78a1c36471b1"
+    },
+    {
+      "path": "metadata/metadata_slot_check.json",
+      "bytes": 198,
+      "sha256": "3b107fcda3a7ffd439699e91403d6d499861def6481ff1fe66701290ac279e46"
+    },
+    {
+      "path": "metadata/observed-end-utc.txt",
+      "bytes": 33,
+      "sha256": "32b209245ac23d3dc2a68cc75407821e1433c10b46b79ae07d36d8e3edc27b36"
+    },
+    {
+      "path": "metadata/worker.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "fixed_execution_revision": "1efe9d1ba2ab8671ad1bf76c360e067fb63fd7ac",
+  "five_public_source_hashes_verified": {
+    "research_runs/REDESIGN_HANDOFF_20261014/runtime_transition/donor_gpu_inventory.py": "33d50cdc2ad09c23fa4aa93526a0edb065611d52d51eb233215f217610aa07e1",
+    "research_runs/REDESIGN_HANDOFF_20261015/runtime/priority_gate.py": "eb88b6c75381a714bd91d9b0bb0acb4fd82edf295b73a25abed4f0236c054fff",
+    "research_runs/REDESIGN_HANDOFF_20261015/runtime/compare_donor_transcript.py": "c3352c925e1d6fa32ced236c1af378877dcbe8be34813445e3292a95b7f030e3",
+    "research_runs/REDESIGN_HANDOFF_20261015/runtime/donor_metadata_transcript.json": "dac8e64366c691068306f08390d738f862f882e92dde8cf00bd469dd685ed86f",
+    "research_runs/REDESIGN_HANDOFF_20261015/runtime/paper2_priority_slot.PLAN_ONLY.json": "86ee222d7bdb2efe6cce28ba6d5f9ea8aefd76d245a060f3d5717c9b257f9d99"
+  },
+  "canonical_command_exact_byte_match": true,
+  "inner_checksums_verified": true,
+  "inventory_bytes": 22450,
+  "inventory_sha256": "3a83a9cf93cca3e9813056645bc73f26a9429ee6f1f7bc06f2ae78a1c36471b1",
+  "comparison": {
+    "status": "COMPLETE_HELPER_METADATA_MATCHES_TRANSCRIBED_FIELDS_RUNTIME_STILL_PENDING",
+    "GPU_distributions_compared": 17,
+    "helper_implementation_sha256": "33d50cdc2ad09c23fa4aa93526a0edb065611d52d51eb233215f217610aa07e1",
+    "original2390byte_JSON_verified_here": false,
+    "original2390byte_JSON_reconstructed": false,
+    "GPU_payload_bytes_exhaustively_verified": false,
+    "actual_training_consumer_imports_verified": false,
+    "source_hash_acceptance_verified": false,
+    "paper2_environment_used_or_modified": false,
+    "training_authorization": false
+  },
+  "observed_runtime_metadata": {
+    "python_version": "3.12.3",
+    "donor_python": "/usr/bin/python3",
+    "prefix": "/usr",
+    "base_prefix": "/usr",
+    "base_executable": "/usr/bin/python3",
+    "cache_tag": "cpython-312",
+    "SOABI": "cpython-312-x86_64-linux-gnu",
+    "platform": {
+      "machine": "x86_64",
+      "system": "Linux"
+    },
+    "site_packages": [
+      "/usr/local/lib/python3.12/dist-packages"
+    ],
+    "isolated_venv_prerequisites": {
+      "ensurepip_module_available": true,
+      "packages_installed_by_inventory": false,
+      "venv_module_available": true
+    }
+  },
+  "observed_GPU_distribution_count": 17,
+  "observed_component_count": 24,
+  "observed_critical_entry_files": {
+    "/usr/local/lib/python3.12/dist-packages/torch/__init__.py": {
+      "bytes": 102960,
+      "sha256": "2f0deb66d5dff6b9c02a62832c3bf3824c2ee031c462a3afeb9ca170466da5bf"
+    },
+    "/usr/local/lib/python3.12/dist-packages/torch/version.py": {
+      "bytes": 281,
+      "sha256": "ba23e699ea8931779f14ccfcb3ed6dc67a14452d5e49ebd91875d418dba2a7f1"
+    },
+    "/usr/local/lib/python3.12/dist-packages/torchaudio/__init__.py": {
+      "bytes": 1482,
+      "sha256": "70b653d766713932943f1d0a22ba4175e1d382f4e454200bd63f84eb759aba8a"
+    },
+    "/usr/local/lib/python3.12/dist-packages/torchaudio/version.py": {
+      "bytes": 85,
+      "sha256": "b568d2f892d48ea429b89b8dda43377a6109cf07f6c0556b03c4abec0266cbc9"
+    },
+    "/usr/local/lib/python3.12/dist-packages/triton/__init__.py": {
+      "bytes": 1464,
+      "sha256": "08441d399eb32c7b84546a09ee497663071f04120f064390cf30e31ebea26ce3"
+    }
+  },
+  "numerical_donor_observation_NOT_reused": {
+    "numpy": [
+      {
+        "metadata_dir": "/usr/local/lib/python3.12/dist-packages/numpy-2.1.2.dist-info",
+        "version": "2.1.2"
+      }
+    ]
+  },
+  "recorded_metadata_free_bytes_on_donor_prefix_filesystem": 44435963904,
+  "recorded_workspace_preflight": {
+    "utc": "2026-10-15T03:14:35.693917+00:00",
+    "hostname": "a7d3f0e408a4",
+    "paper2_state": "complete_exported",
+    "GPU_compute": "",
+    "free_bytes": 45675167744,
+    "paper2_reserve_bytes": 5368709120,
+    "p1_new_fit": false
+  },
+  "metadata_execution": {
+    "started_utc": "2026-10-15T03:14:55.971963+00:00",
+    "ended_utc": "2026-10-15T03:14:58.843091+00:00",
+    "exit_code": 0,
+    "automatic_retry": false,
+    "GPU_fit_started": false
+  },
+  "recorded_slot_sha256": "4d359f9817b92c0e9934dd02b552e641033738994db870b7c790a8823ace1f90",
+  "historical_slot_valid_at_start_and_end": true,
+  "same_slot_check_reported_and_canonical_controller_verified": true,
+  "continuous_mid_command_monitoring_claimed": false,
+  "old_metadata_slot_reusable_for_next_operation": false,
+  "current_Pod_state_independently_observed_here": false,
+  "metadata_hashes_independently_recomputed_from_live_Pod_files": false,
+  "all_GPU_payload_bytes_verified": false,
+  "actual_training_runtime_verified": false,
+  "source_input_acceptance_verified_by_this_metadata": false,
+  "historical_2390byte_JSON_reconstructed_or_verified": false,
+  "runtime_installation_authorization": false,
+  "training_authorization": false,
+  "archive_payloads_executed": false,
+  "Pod_operations": false,
+  "EEG_read": false,
+  "new_model_fits": 0,
+  "next_operation": "fixed1efe_plan_only_with_NEW_dot_runtime_preparation_slot"
+}

@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "status": "COMPLETED_PLAN_ONLY_ARCHIVE_INDEPENDENT_REVIEW_PASSED_NO_REPEAT_REQUIRED",
+  "archive_bytes": 6463,
+  "archive_sha256": "bca300252a44997e46f102e689c6d1a10f16c91d079f8ed4eb3752acf68ad526",
+  "manifest_name": "MANIFEST.json",
+  "manifest_schema": "paper1-plan-only-evidence-v1",
+  "verified_payloads": 6,
+  "all_payload_sizes_sha256_verified": true,
+  "archive_commands_executed": false,
+  "payload_manifest": [
+    {
+      "path": "runtime-plan-slot.json",
+      "bytes": 1049,
+      "sha256": "17edfc14fc4b8a96591b07896b0f61ff3ab3bafa6bcf666901de759dae3ed23f"
+    },
+    {
+      "path": "preflight.json",
+      "bytes": 291,
+      "sha256": "e474ba24d8a56f6e160d5f27ec7dd79a9f65b76ffc77190f819ab2835e2c5c33"
+    },
+    {
+      "path": "command.json",
+      "bytes": 549,
+      "sha256": "d6885b6db5729d219563a20dcfd7916d946dba42323dc320a06ed07108aaf4be"
+    },
+    {
+      "path": "plan.stdout.json",
+      "bytes": 25128,
+      "sha256": "e4852d1e2517abc69464c22e69658c2618d8e3950184fa40eb4c8a2af6ce5a0c"
+    },
+    {
+      "path": "plan.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "completion.json",
+      "bytes": 184,
+      "sha256": "7c1fad75cf1b1bf0c81c60b29365ac2b7855fe2072b3a81af7573368662365dd"
+    }
+  ],
+  "plan_stdout_bytes": 25128,
+  "plan_stdout_sha256": "e4852d1e2517abc69464c22e69658c2618d8e3950184fa40eb4c8a2af6ce5a0c",
+  "fixed_execution_revision": "1efe9d1ba2ab8671ad1bf76c360e067fb63fd7ac",
+  "four_execution_source_sha256_verified_against_git": {
+    "research_runs/REDESIGN_HANDOFF_20261014/runtime_transition/isolated_training_runtime.py": "cdd8c2d47fb6e1653e8b5c2eb48de6483d4dd57a0af392f2c1495669e3c0cd9e",
+    "research_runs/REDESIGN_HANDOFF_20261014/runtime_transition/donor_gpu_inventory.py": "33d50cdc2ad09c23fa4aa93526a0edb065611d52d51eb233215f217610aa07e1",
+    "research_runs/REDESIGN_CLOUD_20261013/requirements.txt": "7322d4f85f25064ef8c29efa502c67417fc9b8a0d3297692263c1e618804769a",
+    "research_runs/REDESIGN_HANDOFF_20261015/runtime/priority_gate.py": "eb88b6c75381a714bd91d9b0bb0acb4fd82edf295b73a25abed4f0236c054fff"
+  },
+  "accepted_complete_donor_report_sha256": "3a83a9cf93cca3e9813056645bc73f26a9429ee6f1f7bc06f2ae78a1c36471b1",
+  "fresh_donor_identity_matches_previous_audited_report": true,
+  "donor_distributions": 17,
+  "donor_components": 24,
+  "donor_critical_file_identities": 5,
+  "recorded_command_without_prepare": [
+    "/usr/bin/python3",
+    "-I",
+    "-B",
+    "/workspace/paper1-metadata-code-1efe9d1/research_runs/REDESIGN_HANDOFF_20261014/runtime_transition/isolated_training_runtime.py",
+    "--code-revision",
+    "1efe9d1ba2ab8671ad1bf76c360e067fb63fd7ac",
+    "--donor-python",
+    "/usr/bin/python3",
+    "--donor-report",
+    "/workspace/paper1-cp312-metadata-20261015-run01/gpu_donor_inventory.json",
+    "--environment",
+    "/workspace/paper1-training-runtime-cp312-run01",
+    "--priority-receipt",
+    "/workspace/paper1-runtime-plan-20261015-run01/runtime-plan-slot.json"
+  ],
+  "recorded_started_utc": "2026-10-15T03:25:18.247834+00:00",
+  "recorded_ended_utc": "2026-10-15T03:25:20.668962+00:00",
+  "recorded_elapsed_seconds": 2.421128,
+  "recorded_exit_code": 0,
+  "slot_sha256": "17edfc14fc4b8a96591b07896b0f61ff3ab3bafa6bcf666901de759dae3ed23f",
+  "slot_valid_at_recorded_start_and_end": true,
+  "continuous_slot_monitoring_verified": false,
+  "same_permit_postcheck_receipt_present": false,
+  "slot_current_or_reusable": false,
+  "recorded_destination": "/workspace/paper1-training-runtime-cp312-run01",
+  "destination_absent_reported_by_preflight_and_completion": true,
+  "destination_presence_independently_observed_live_here": false,
+  "recorded_free_bytes_at_helper_check": 44435890176,
+  "required_initial_bytes_cap_plus_floor_plus_reserve": 19327352832,
+  "actual_required_remaining_free_bytes": 16106127360,
+  "new_environment_byte_cap": 3221225472,
+  "evidence_limits": [
+    "This is the completed direct fixed-helper plan; no later outer controller is retroactively claimed to have run.",
+    "Slot time validity is independently checked against archived start/end, not live/continuous control or a separate postcheck receipt.",
+    "Donor metadata/RECORD/entry hash identities match prior evidence; exhaustive CUDA payload bytes and actual child imports remain unverified.",
+    "Destination absence, Paper2 complete_exported/idle state and disk availability are recorded dot/helper observations, not current Pod queries.",
+    "The parent initial manifest-name/schema parsing error is outside this original archive; no synthetic error payload is added.",
+    "No venv, installation, exact numerical package runtime, GPU arithmetic or source-input acceptance is proved by a plan.",
+    "Old accounting/cumulative GPU hours/checkpoints/backup/target-mapping gates remain unresolved by this evidence."
+  ],
+  "new_fits": 0,
+  "runtime_installation_performed_by_review": false,
+  "actual_training_runtime_accepted": false,
+  "source_hash_acceptance_passed": false,
+  "training_authorization": false,
+  "next_step": "No repeated plan; separately reviewed preparation controller and NEW dot slot only."
+}

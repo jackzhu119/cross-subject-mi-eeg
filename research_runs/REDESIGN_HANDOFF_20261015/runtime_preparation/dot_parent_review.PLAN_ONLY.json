@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "PLAN_ONLY_NOT_APPROVED",
+  "issuer": "dot_parent",
+  "code_revision": "1efe9d1ba2ab8671ad1bf76c360e067fb63fd7ac",
+  "helper_sha256": "cdd8c2d47fb6e1653e8b5c2eb48de6483d4dd57a0af392f2c1495669e3c0cd9e",
+  "donor_report_sha256": "3a83a9cf93cca3e9813056645bc73f26a9429ee6f1f7bc06f2ae78a1c36471b1",
+  "accepted_plan_sha256": "e4852d1e2517abc69464c22e69658c2618d8e3950184fa40eb4c8a2af6ce5a0c",
+  "environment": "/workspace/paper1-training-runtime-cp312-run01",
+  "reviewed_at_utc": "DOT_PARENT_ACTION_REQUIRED",
+  "expires_at_utc": "DOT_PARENT_ACTION_REQUIRED",
+  "maximum_wall_seconds": 1200,
+  "bounded_binary_wheel_policy_reviewed": false,
+  "resolver_closure_not_yet_observed": true,
+  "preparation_cost_handling_reviewed": false,
+  "old_accounting_unknown_retained": true,
+  "paper2_absolute_priority": true,
+  "budget_reset_authorized": false,
+  "budget_expansion_authorized": false,
+  "training_authorization": false,
+  "review_notes": "PLAN ONLY. Parent must independently review the preparation policy and handling of unknown historical cost. Then dot must issue a separate fresh runtime_preparation slot. This template grants no operation and no budget."
+}
