@@ -8,6 +8,7 @@ confined to a new environment/evidence directory. Donor sites are not inherited.
 from __future__ import annotations
 
 import argparse
+import importlib.util
 from email.parser import BytesParser
 import hashlib
 import json
@@ -31,6 +32,40 @@ MIN_FREE_BYTES = 10 * 1024**3
 MAX_WHEEL_BYTES = 512 * 1024**2
 SETUPTOOLS_PTH_SHA = '2638ce9e2500e572a5e0de7faed6661eb569d1b696fcba07b0dd223da5f5d224'
 FROZEN_PAPER1_PYTHON = '3.12.3'
+PRIORITY_PATH = ROOT / 'research_runs/REDESIGN_HANDOFF_20261015/runtime/priority_gate.py'
+ACTIVE_PRIORITY = None
+
+
+class UnvalidatedPriority:
+    """Poison a previous slot before a new receipt is checked."""
+    def __getattr__(self, name):
+        raise ValueError('fresh_dot_priority_slot_not_validated')
+
+
+def arm_priority(path, operation):
+    global ACTIVE_PRIORITY
+    ACTIVE_PRIORITY = UnvalidatedPriority()
+    if path is None:
+        raise ValueError('fresh_dot_paper2_priority_slot_required')
+    spec = importlib.util.spec_from_file_location('paper1_dot_priority_gate', PRIORITY_PATH)
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[spec.name] = module
+    spec.loader.exec_module(module)
+    ACTIVE_PRIORITY = module.validate_receipt(path, expected_operation=operation)
+    return ACTIVE_PRIORITY
+
+
+def priority_checkpoint():
+    if ACTIVE_PRIORITY is not None:
+        ACTIVE_PRIORITY.assert_active()
+
+
+def free_floor():
+    return max(MIN_FREE_BYTES, ACTIVE_PRIORITY.min_free_bytes) + ACTIVE_PRIORITY.paper2_reserve_bytes if ACTIVE_PRIORITY else MIN_FREE_BYTES
+
+
+def new_storage_cap():
+    return min(MAX_NEW_BYTES, ACTIVE_PRIORITY.max_new_bytes) if ACTIVE_PRIORITY else MAX_NEW_BYTES
 
 
 def sha(path):
@@ -65,7 +100,7 @@ def fixed_checkout(revision):
     head = subprocess.check_output(['git', '-C', str(ROOT), 'rev-parse', 'HEAD'], text=True).strip()
     if head != revision:
         raise ValueError('runtime_preparation_checkout_revision_mismatch')
-    paths = [Path(__file__), Path(__file__).with_name('donor_gpu_inventory.py'), REQ]
+    paths = [Path(__file__), Path(__file__).with_name('donor_gpu_inventory.py'), REQ, PRIORITY_PATH]
     identities = {}
     for path in paths:
         rel = str(path.relative_to(ROOT))
@@ -81,7 +116,8 @@ def identity(inventory):
     return {key: inventory[key] for key in ('donor_python', 'prefix', 'base_prefix',
         'base_executable', 'python_version', 'SOABI', 'cache_tag', 'platform', 'site_packages',
         'distributions', 'components', 'critical_module_files', 'torch_gpu_dependency_pins',
-        'numerical_donor_observation_not_reused')}
+        'numerical_donor_observation_not_reused', 'inventory_implementation_sha256',
+        'isolated_venv_prerequisites')}
 
 
 def donor_observation(python):
@@ -90,6 +126,8 @@ def donor_observation(python):
     report = json.loads(raw)
     if report.get('status') != 'GPU_DONOR_METADATA_EXACT_NOT_IMPORT_VERIFIED':
         raise ValueError('donor_metadata_not_exact')
+    if report.get('inventory_implementation_sha256') != sha(Path(__file__).with_name('donor_gpu_inventory.py')):
+        raise ValueError('donor_inventory_helper_identity_not_verified')
     return report
 
 
@@ -175,7 +213,7 @@ def wheel_budget(folder, items, protected=()):
                 expanded += m.file_size
     # Includes retained wheels, installed files, venv/pip and evidence overhead.
     peak = compressed + 2 * expanded + 256 * 1024**2
-    if peak > MAX_NEW_BYTES:
+    if peak > new_storage_cap():
         raise ValueError('new_runtime_peak_exceeds_3GiB')
     return {'wheel_compressed_bytes': compressed, 'wheel_expanded_bytes': expanded,
             'estimated_peak_new_bytes': peak, 'maximum_new_bytes': MAX_NEW_BYTES}
@@ -183,8 +221,10 @@ def wheel_budget(folder, items, protected=()):
 
 def download_wheels(items, folder, environment):
     """Stream bounded byte-authenticated wheels, with no package build execution."""
+    priority_checkpoint()
     started = time.monotonic()
     for item in items:
+        priority_checkpoint()
         url = item['download_info']['url']
         parsed = urllib.parse.urlsplit(url)
         if parsed.scheme != 'https' or parsed.hostname != 'files.pythonhosted.org' or parsed.username or parsed.password:
@@ -197,12 +237,14 @@ def download_wheels(items, folder, environment):
             length = response.headers.get('Content-Length')
             if length is None or not length.isdigit() or int(length) > MAX_WHEEL_BYTES:
                 raise ValueError('bounded_wheel_content_length_required')
-            if allocated(environment) + int(length) + 256 * 1024**2 > MAX_NEW_BYTES:
+            priority_checkpoint()
+            if allocated(environment) + int(length) + 256 * 1024**2 > new_storage_cap():
                 raise ValueError('wheel_download_would_exceed_3GiB_cap')
-            if shutil.disk_usage(environment).free < MIN_FREE_BYTES + int(length):
+            if shutil.disk_usage(environment).free < free_floor() + int(length):
                 raise ValueError('wheel_download_remaining_space_floor')
             with (folder / name).open('xb') as f:
                 while True:
+                    priority_checkpoint()
                     if time.monotonic() - started > 300:
                         raise ValueError('bounded_wheel_download_timeout')
                     block = response.read(1024 * 1024)
@@ -211,7 +253,7 @@ def download_wheels(items, folder, environment):
                     written += len(block)
                     if written > min(int(length), MAX_WHEEL_BYTES):
                         raise ValueError('wheel_response_exceeds_declared_size')
-                    if shutil.disk_usage(environment).free < MIN_FREE_BYTES + len(block):
+                    if shutil.disk_usage(environment).free < free_floor() + len(block):
                         raise ValueError('concurrent_storage_change_aborts_wheel_stream')
                     digest.update(block); f.write(block)
         if written != int(length) or digest.hexdigest() != item['download_info']['archive_info']['hashes']['sha256']:
@@ -263,6 +305,7 @@ def stop_owned_child(process):
 
 
 def run_command(command, log, folder):
+    priority_checkpoint()
     env = clean_env()
     temp = Path(folder) / 'bounded-temp'
     if Path(folder).is_dir():
@@ -276,11 +319,12 @@ def run_command(command, log, folder):
                                    env=env, start_new_session=True)
         try:
             while process.poll() is None:
+                priority_checkpoint()
                 if time.monotonic() - started > 300:
                     raise ValueError('bounded_environment_command_timeout')
-                if shutil.disk_usage(Path(folder).parent).free < MIN_FREE_BYTES:
+                if shutil.disk_usage(Path(folder).parent).free < free_floor():
                     raise ValueError('concurrent_storage_change_aborts_owned_installer')
-                if Path(folder).exists() and allocated(folder) > MAX_NEW_BYTES:
+                if Path(folder).exists() and allocated(folder) > new_storage_cap():
                     raise ValueError('new_runtime_allocation_exceeds_3GiB')
                 try:
                     process.wait(timeout=1)
@@ -295,29 +339,37 @@ def run_command(command, log, folder):
 
 def prepare(args):
     code = fixed_checkout(args.code_revision)
+    permit = arm_priority(getattr(args, 'priority_receipt', None), 'runtime_preparation')
     old = json.loads(args.donor_report.read_text())
     now = donor_observation(args.donor_python)
     if old.get('status') != now['status'] or identity(old) != identity(now):
         raise ValueError('reviewed_donor_identity_changed')
     if now['python_version'] != FROZEN_PAPER1_PYTHON:
         raise ValueError('paper1_requires_original_python_3_12_3_no_cross_ABI_donor')
+    prerequisites = now['isolated_venv_prerequisites']
+    if prerequisites.get('venv_module_available') is not True or prerequisites.get('ensurepip_module_available') is not True:
+        raise ValueError('existing_venv_and_ensurepip_required_no_global_install_fallback')
     dest = args.environment.resolve()
     if args.environment.exists() or args.environment.is_symlink():
         raise ValueError('new_environment_only_no_retry_overwrite')
-    protected = (ROOT, Path(now['prefix']), *[Path(p) for p in now['site_packages']], Path('/workspace/paper1-readonly-probe/data'), Path('/workspace/mi-eeg-cloud'))
+    protected = (ROOT, Path(now['prefix']), *[Path(p) for p in now['site_packages']], Path('/workspace/paper1-readonly-probe/data'), Path('/workspace/mi-eeg-cloud'), Path('/workspace/.venvs/paper2-gpu'))
     for forbidden in protected:
         if dest.is_relative_to(forbidden.resolve()) or forbidden.resolve().is_relative_to(dest):
             raise ValueError('new_environment_overlaps_protected_work')
     if dest.parent != Path('/workspace') or not dest.parent.is_dir():
         raise ValueError('environment_must_be_new_direct_child_of_workspace')
     free = shutil.disk_usage(dest.parent).free
-    if free < MIN_FREE_BYTES + MAX_NEW_BYTES:
-        raise ValueError('require_13GiB_free_before_runtime_creation')
+    if free < free_floor() + new_storage_cap():
+        raise ValueError('require_runtime_cap_plus_free_floor_and_paper2_reservation')
     plan = {'status': 'ISOLATED_RUNTIME_PLAN_ONLY_REVIEW_REQUIRED',
         'code_revision': args.code_revision, 'execution_files': code,
         'donor_report_sha256': sha(args.donor_report), 'donor_metadata': now,
         'environment': str(dest), 'maximum_new_bytes': MAX_NEW_BYTES,
         'minimum_remaining_free_bytes': MIN_FREE_BYTES, 'observed_free_bytes': free,
+        'paper2_priority_receipt_sha256': permit.receipt_sha256,
+        'paper2_additional_reserved_bytes': permit.paper2_reserve_bytes,
+        'actual_required_free_floor_bytes': free_floor(),
+        'actual_maximum_new_bytes': new_storage_cap(),
         'cuda_packages_downloaded': False, 'donor_modified': False,
         'source_acceptance_run': False, 'new_fits': 0, 'target_EEG_read': False,
         'budget_updated': False, 'training_authorization': False}
@@ -351,7 +403,7 @@ def prepare(args):
     wheels = dest / 'reviewed-wheels'; wheels.mkdir()
     download_wheels(items, wheels, dest)
     disk = wheel_budget(wheels, items, links)
-    if shutil.disk_usage(dest).free < MIN_FREE_BYTES + 2 * disk['wheel_expanded_bytes'] + 256 * 1024**2:
+    if shutil.disk_usage(dest).free < free_floor() + 2 * disk['wheel_expanded_bytes'] + 256 * 1024**2:
         raise ValueError('free_storage_dropped_before_install_do_not_proceed')
     # No resolver runs during installation; no donated package can be uninstalled.
     run_command([str(py), '-I', '-B', '-m', 'pip', 'install', '--no-deps', '--no-index',
@@ -364,7 +416,8 @@ def prepare(args):
         if not (site / name).is_symlink() or (site / name).resolve() != Path(path).resolve():
             raise ValueError('gpu_component_link_changed')
     used = allocated(dest)
-    if used > MAX_NEW_BYTES or shutil.disk_usage(dest).free < MIN_FREE_BYTES:
+    priority_checkpoint()
+    if used > new_storage_cap() or shutil.disk_usage(dest).free < free_floor():
         raise ValueError('runtime_storage_budget_exceeded')
     plan.update(status='ISOLATED_RUNTIME_PREPARED_IMPORT_AND_SOURCE_ACCEPTANCE_PENDING',
         donor_post_metadata=after, linked_gpu_components=links, disk_budget=disk,
@@ -383,6 +436,7 @@ def main():
     p.add_argument('--environment', type=Path, required=True)
     p.add_argument('--prepare', action='store_true')
     p.add_argument('--log', type=Path)
+    p.add_argument('--priority-receipt', type=Path, required=True)
     a = p.parse_args()
     if a.prepare and (a.log is None or a.log.exists() or a.log.is_symlink()):
         p.error('--prepare requires a NEW log path; existing failed logs/environments are retained')

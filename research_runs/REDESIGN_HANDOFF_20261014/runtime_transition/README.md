@@ -1,3 +1,12 @@
+# Operational update — 2026-10-15
+
+Use [the new recovery supplement](../../REDESIGN_HANDOFF_20261015/README.md)
+and [DOT_NEXT](../../REDESIGN_HANDOFF_20261015/DOT_NEXT.md) for current status,
+fixed execution pin and the required operation-specific priority receipts. The
+older text below is retained as history; do not infer current paths, Paper 2
+fit state or accounting from it. No Pod/install/EEG/fit operation is authorised
+by this preparation update.
+
 # After the first formal source acceptance: runtime and recovery remain pending
 
 ## Latest steering: container rebuilt; old paths expired

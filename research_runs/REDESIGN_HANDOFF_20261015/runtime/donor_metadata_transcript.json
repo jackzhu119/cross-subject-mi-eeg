@@ -1,0 +1,58 @@
+{
+  "record_kind": "AUTHOR_PROVIDED_READABLE_DONOR_METADATA_TRANSCRIPT_NOT_ORIGINAL_BYTES",
+  "observed_at_utc": "2026-10-15T00:05:16.005224+00:00",
+  "pod_id": "52ivinpjwv947i",
+  "container_id": "a7d3f0e408a4",
+  "original_json_claim": {
+    "bytes": 2390,
+    "sha256": "9a1224dc93b83c476d9012618adb2d9934fefa7478e5ac6aa92842add6ead159",
+    "dot_reported_off_host_verified": true,
+    "original_bytes_available_to_this_audit": false,
+    "original_bytes_independently_verified_here": false
+  },
+  "python_version": "3.12.3",
+  "donor_python": "/usr/bin/python3",
+  "SOABI": "cpython-312-x86_64-linux-gnu",
+  "reported_platform": "Linux-6.8.0-134-generic-x86_64-with-glibc2.39",
+  "metadata_site": "/usr/local/lib/python3.12/dist-packages",
+  "distributions": {
+    "torch": "2.8.0+cu128",
+    "torchaudio": "2.8.0+cu128",
+    "triton": "3.4.0",
+    "nvidia-cublas-cu12": "12.8.4.1",
+    "nvidia-cuda-cupti-cu12": "12.8.90",
+    "nvidia-cuda-nvrtc-cu12": "12.8.93",
+    "nvidia-cuda-runtime-cu12": "12.8.90",
+    "nvidia-cudnn-cu12": "9.10.2.21",
+    "nvidia-cufft-cu12": "11.3.3.83",
+    "nvidia-cufile-cu12": "1.13.1.3",
+    "nvidia-curand-cu12": "10.3.9.90",
+    "nvidia-cusolver-cu12": "11.7.3.90",
+    "nvidia-cusparse-cu12": "12.5.8.93",
+    "nvidia-cusparselt-cu12": "0.7.1",
+    "nvidia-nccl-cu12": "2.27.3",
+    "nvidia-nvjitlink-cu12": "12.8.93",
+    "nvidia-nvtx-cu12": "12.8.90"
+  },
+  "not_supplied_in_transcript": [
+    "prefix",
+    "base_prefix",
+    "base_executable",
+    "cache_tag",
+    "GPU METADATA/RECORD hashes",
+    "critical module hashes",
+    "component and distribution directory identities",
+    "actual installed payload hashes",
+    "current measured filesystem free bytes",
+    "paper2 additional disk reservation",
+    "venv/ensurepip availability"
+  ],
+  "bounds": {
+    "current_Pod_observed_by_this_task": false,
+    "CUDA_import_or_operation_by_this_task": false,
+    "installed_packages_modified": false,
+    "actual_training_consumer_imports_verified": false,
+    "source_current_runtime_acceptance_verified": false,
+    "training_authorization": false
+  }
+}

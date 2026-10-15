@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "record_kind": "SOURCED_DEADLINE_ONLY_OPERATIONAL_AMENDMENT_NOT_EXECUTION_RECEIPT",
+  "status": "DEADLINE_ONLY_AMENDMENT_RECORDED_EXECUTION_BLOCKED",
+  "old_job_id": "20261014T071918Z-exploratory-89b0c07d",
+  "old_code_revision": "05e683e91e2bb39b977970d04402221761e575d2",
+  "original_budget_authorization": {
+    "commit": "d612f0cc2bcca045ff1304bc95a87df76bfd4a82",
+    "path": "research_runs/REDESIGN_CLOUD_20261013/jobs/20261014T071918Z-exploratory-89b0c07d/budget_authorization.json",
+    "bytes": 890,
+    "sha256": "fcb8de686bf53a419beccd00d833f0e253ff922824b3227683e9c1ae2c93e790",
+    "authorized_at_utc": "2026-10-14T07:07:45.290107+00:00",
+    "expires_at_utc": "2026-10-14T15:07:45.290107+00:00",
+    "original_receipt_modified": false
+  },
+  "amended_execution_deadline_utc": "2026-10-16T09:54:00+00:00",
+  "amendment_scope": "Execution deadline only; no new budget, clock origin, job, model fit, optimizer update, GPU-hour allowance, machine authorization or credentials.",
+  "authorization_source": {
+    "source_kind": "CURRENT_AUTHOR_MESSAGE_WITH_SUPPLIED_TRANSCRIPT",
+    "independently_retrieved_conversation": false,
+    "current_author_explicit_instruction": "请追加有来源的deadline-only操作修订，不假造旧机器账户或已花费金额",
+    "current_author_summary": "dot父已据此确认仅延长执行期限到2026-10-16 09:54 UTC，原账本、拟合计数和$10总预算上限不重置、不扩大",
+    "supplied_transcript": [
+      {
+        "speaker": "assistant",
+        "at_utc": null,
+        "text": "两篇恢复方案已提交，前6个模型不用重训。现在有一个新的期限冲突需要确认：论文1旧任务的8小时期限已于北京时间23:07到期。\n\n推荐保留原账本、拟合数量和10美元预算上限，仅把恢复后的执行期限延长至原48小时授权截止，即10月16日17:54。你同意这项延期吗？平台状态核查仍等待访问审批恢复。"
+      },
+      {
+        "speaker": "user",
+        "at_utc": "2026-10-15T00:01:00+00:00",
+        "timestamp_precision": "minute_as_supplied",
+        "text": "继续任务，赶紧训练"
+      },
+      {
+        "speaker": "user",
+        "at_utc": "2026-10-15T00:48:15+00:00",
+        "timestamp_precision": "second_as_supplied",
+        "text": "尽快开始论文2，在不影响论文2训练的前提下再并行论文1"
+      }
+    ],
+    "interpretation_boundary": "The supplied quotations are preserved as author-provided transcript evidence. The present explicit deadline-only instruction records the operational amendment; neither quotation alone is represented as independently authenticated approval or as permission to bypass restoration gates."
+  },
+  "unchanged_ceiling_constraints": {
+    "maximum_total_usd": 10,
+    "non_gpu_reserved_usd": 2,
+    "maximum_gpu_hours": 8,
+    "maximum_neural_fits": 26,
+    "maximum_optimizer_updates": 34440,
+    "maximum_gpu_hourly_rate_usd": 0.75,
+    "target_fits_authorized": false,
+    "optional_grouping_authorized": false
+  },
+  "preservation_requirements": {
+    "original_budget_origin_preserved": true,
+    "original_accounting_and_counters_preserved": true,
+    "old_registration_and_failures_preserved": true,
+    "historical_machine_identity_not_relabelled": true,
+    "old_quote_not_reused_as_current_quote": true,
+    "maximum_gpu_hours_not_reset_or_expanded": true,
+    "paper2_environment_and_global_packages_untouched": true,
+    "paper2_priority_absolute": true,
+    "dot_sole_pod_operator": true,
+    "old_48_hour_authorization_not_extended": true
+  },
+  "observed_accounting_state": {
+    "actual_spend_usd": null,
+    "remaining_budget_usd": null,
+    "actual_cumulative_gpu_hours": null,
+    "current_machine_authorization": null,
+    "current_account_identity": null,
+    "restored_checkpoint_identity": null,
+    "zero_new_fits_proves_zero_cost": false
+  },
+  "pending_before_execution": [
+    "actual_training_runtime_and_source_strict_hash_acceptance",
+    "old_task_accounting_and_unchanged_fit_update_counters",
+    "cumulative_spend_and_remaining_budget_evidence",
+    "cumulative_gpu_hour_allowance_evidence",
+    "current_machine_and_current_total_hourly_quote_review",
+    "checkpoint_and_remote_backup_identity",
+    "complete_frozen_dreyer_mapping_license_and_restore_gates",
+    "reviewed_execution_transition_without_ledger_reset",
+    "paper2_priority_and_operator_scheduling_release"
+  ],
+  "permissions": {
+    "training_authorization": false,
+    "new_budget_authorization": false,
+    "create_or_replace_budget_receipt": false,
+    "automatic_resume": false,
+    "Pod_operations": false,
+    "package_installation": false,
+    "target_EEG_read": false,
+    "credentials_or_security_changes": false
+  },
+  "implementation_boundary": "Existing production budget validation still enforces the original eight-hour lifetime and machine identity. This append-only record does not alter or bypass that validator. Any future execution transition requires separately reviewed enforcement that preserves cumulative accounting, the unchanged GPU-hour and financial ceilings, and this absolute deadline."
+}

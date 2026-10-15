@@ -1,0 +1,64 @@
+{
+  "status": "RECOVERY_CODE_AND_METADATA_AUDIT_VALIDATED_TRAINING_BLOCKED",
+  "checked_at_utc": "2026-10-15T01:31:51.130330+00:00",
+  "base_handoff": "ec7ad35ab7460feb2425055f6117cc556966f22b",
+  "base_execution": "23bbe5e4d4ab0e2f9b39e955a057cc445ddb0d08",
+  "software_tests": {
+    "tests": 360,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "test_command": "/workspace/mi-eeg-cloud-cpu28-tests/bin/python -B -m pytest -q research_runs/REDESIGN_HANDOFF_20261014/runtime_transition research_runs/REDESIGN_HANDOFF_20261015",
+  "test_runtime_scope": "Existing local Python3.12.14 CPU test runtime; synthetic metadata/control/archive fixtures only, not the production3.12.3 runtime; no install in this task",
+  "junit_sha256": "08f74846f3d229954497295f17049e830e07f0a23d7bca5a5e30c8dcc3e51ae7",
+  "changed_python_AST_and_JSON_valid": true,
+  "documented_bash_blocks_syntax_passed": 4,
+  "scientific_paths_unchanged_vs_base": [
+    "research_runs/REDESIGN_CLOUD_20261013",
+    "research_runs/REDESIGN_EXPLORATORY_20261013",
+    "research_runs/REDESIGN_SOURCE_SELECTION_20261012",
+    "research_runs/PAPER_FINAL_20261006"
+  ],
+  "scientific_file_SHA256": {
+    "research_runs/REDESIGN_CLOUD_20261013/config/numerical_execution_v1.json": "04f562ddddc4e5019e56240b980d6d9c2d78645860857a5ab0d9746e788ae476",
+    "research_runs/REDESIGN_CLOUD_20261013/scripts/formal_core_inputs.py": "bcd89d6747f00fb03bf1793df3753c53f67cfbf2f95275d40b042b682db61577",
+    "research_runs/REDESIGN_EXPLORATORY_20261013/evidence/source_exact_input_fingerprints.csv": "e142e927228d9c46afb872fa649335cc6e9ec286b1d291b94ac0e43a6d59e4cf",
+    "research_runs/REDESIGN_CLOUD_20261013/requirements.txt": "7322d4f85f25064ef8c29efa502c67417fc9b8a0d3297692263c1e618804769a"
+  },
+  "public_old_records_verified": 7,
+  "private_R2_metadata_requests": 3,
+  "private_R2_metadata_all_HTTP401": true,
+  "R2_object_body_GET_requests": 0,
+  "R2_PUT_DELETE_requests": 0,
+  "source_archives_independently_audited_previously_not_rerun": true,
+  "Dreyer_frozen_rows_verified": 174,
+  "Dreyer_actual_R2_object_keys_verified": 0,
+  "original_2390byte_donor_JSON_available_here": false,
+  "original_2390byte_donor_JSON_verified_here": false,
+  "current_Pod_preflight_performed": false,
+  "Pod_operations": false,
+  "paper2_environment_access_or_changes": false,
+  "new_packages_installed": false,
+  "source_or_target_EEG_read": false,
+  "new_scientific_fits": 0,
+  "numerical_thread_changes": false,
+  "production_budget_gate_changed": false,
+  "actual_spend_usd": null,
+  "remaining_budget_usd": null,
+  "training_authorization": false,
+  "code_review_fixes": [
+    "Check priority at function entry and before each wheel URL request",
+    "Invalidate a previous permit when rearming fails",
+    "Recheck priority immediately before writing bound source-runtime receipt"
+  ],
+  "remaining_gates": [
+    "Complete fixed-helper cp312 metadata inventory and independent review",
+    "Actual same-ABI isolated runtime/source acceptance with strict hashes",
+    "Authentic cumulative old task accounting/checkpoint/backup transition",
+    "Complete actual174-object target R2 mapping and separate authorised restoration/input gates",
+    "Reviewed execution transition enforcing unchanged caps and appended deadline"
+  ],
+  "documented_metadata_controller_python_AST_valid": true,
+  "metadata_slot_snapshot_retained_across_subprocess": true
+}

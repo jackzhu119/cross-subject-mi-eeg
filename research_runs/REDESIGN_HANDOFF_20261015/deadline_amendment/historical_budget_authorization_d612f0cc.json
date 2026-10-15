@@ -1,0 +1,19 @@
+{
+  "status": "PASS_BOUNDED_MACHINE_BUDGET",
+  "config_sha256": "8ba78d4ead0e41fc5a5fc6f9890b750f0bdfdaba74a57efab5422b43d57feff0",
+  "machine_hostname": "8ffbcac94ece",
+  "gpu_uuid": "e94a4a56-be6c-4bc7-4815-450b939c7c58",
+  "maximum_neural_fits": 26,
+  "maximum_optimizer_updates": 34440,
+  "maximum_gpu_hours": 8,
+  "maximum_total_usd": 10,
+  "approved_hourly_rate_usd": 0.34,
+  "non_gpu_reserved_usd": 2,
+  "target_fits_authorized": false,
+  "target_predictions_authorized": true,
+  "optional_grouping_authorized": false,
+  "authorized_at_utc": "2026-10-14T07:07:45.290107+00:00",
+  "expires_at_utc": "2026-10-14T15:07:45.290107+00:00",
+  "approval_basis": "Existing author conditional US$10 approval plus explicit request for executable cloud training package; actual provider quote supplied at launch.",
+  "provider_billing_control": "AUTHOR_MANUAL_STOP_NOT_AUTOMATICALLY_VERIFIED"
+}

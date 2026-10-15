@@ -1,5 +1,15 @@
 # dot fixed recovery handoff — HOLD: protocol delivery only
 
+**2026-10-15 operational supplement:** see
+[current README](../../REDESIGN_HANDOFF_20261015/README.md) and
+[DOT_NEXT](../../REDESIGN_HANDOFF_20261015/DOT_NEXT.md). This file retains the
+23bbe historical command interfaces and then-current Paper 2 status. The new
+patch requires `--priority-receipt` for runtime planning/preparation and source
+acceptance; do not execute the historical calls against changed helpers. The
+author now reports Paper 2 fit7 complete and its cp311 environment restored;
+do not re-run it. The sourced deadline-only amendment preserves $10 and all
+cumulative caps. Current scope is still no Pod/install/EEG/fit operation.
+
 **Latest instruction: do not touch the Pod or start training.** This file records
 conditional future steps, not permission to execute them now. No current Pod
 preflight was performed. No old path is presumed to exist after the reported

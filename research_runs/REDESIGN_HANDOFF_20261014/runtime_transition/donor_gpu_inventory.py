@@ -11,6 +11,7 @@ import argparse
 import csv
 import hashlib
 import importlib.metadata as metadata
+import importlib.util
 import io
 import json
 from pathlib import Path, PurePosixPath
@@ -45,9 +46,22 @@ def gpu_name(name):
 
 def approved_site(path):
     path = Path(path).resolve()
-    return path.name in ("site-packages", "dist-packages") and any(
-        path.is_relative_to(Path(prefix).resolve())
-        for prefix in (sys.prefix, sys.base_prefix))
+    if path.name not in ("site-packages", "dist-packages"):
+        return False
+    for prefix in (sys.prefix, sys.base_prefix):
+        prefix = Path(prefix).resolve()
+        if not path.is_relative_to(prefix):
+            continue
+        # Distro Python can legitimately use /usr/local/lib/python3.12/
+        # dist-packages with prefix /usr, or generic python3/dist-packages.
+        # A different explicit major/minor below that measured prefix cannot
+        # donate native packages merely because its directory shares /usr.
+        explicit_versions = [re.fullmatch(r"python([0-9]+)\.([0-9]+)", part)
+            for part in path.relative_to(prefix).parts]
+        if all(match is None or tuple(map(int, match.groups())) == sys.version_info[:2]
+               for match in explicit_versions):
+            return True
+    return False
 
 
 def distribution_info(dist):
@@ -181,12 +195,16 @@ def inspect_donor(expected_python=None):
         root = Path(info["site_packages"]) / name
         for filename in ("__init__.py", "version.py"):
             path = root / filename
-            if path.exists():
+            # These packages are regular import packages, not namespaces.
+            # Missing entry modules must not silently disappear from the
+            # critical-file binding. version.py remains optional.
+            if filename == "__init__.py" or path.exists() or path.is_symlink():
                 if path.is_symlink() or not path.is_file():
                     raise ValueError("donor_critical_module_path_unsafe:" + name)
                 critical[str(path)] = {"bytes": path.stat().st_size, "sha256": digest(path)}
     return {
         "schema_version": 1, "status": "GPU_DONOR_METADATA_EXACT_NOT_IMPORT_VERIFIED",
+        "inventory_implementation_sha256": digest(Path(__file__)),
         "donor_python": str(Path(sys.executable).absolute()),
         "prefix": sys.prefix, "base_prefix": sys.base_prefix,
         "base_executable": str(Path(sys._base_executable).absolute()),
@@ -199,6 +217,11 @@ def inspect_donor(expected_python=None):
         "distributions": observed, "torch_gpu_dependency_pins": dependencies,
         "components": [components[n] for n in sorted(components)],
         "critical_module_files": critical,
+        "isolated_venv_prerequisites": {
+            "venv_module_available": importlib.util.find_spec('venv') is not None,
+            "ensurepip_module_available": importlib.util.find_spec('ensurepip') is not None,
+            "packages_installed_by_inventory": False,
+        },
         "numerical_donor_observation_not_reused": numerical,
         "gpu_payload_exhaustively_hashed": False,
         "torch_imported_by_inventory": False, "CUDA_operation_performed": False,

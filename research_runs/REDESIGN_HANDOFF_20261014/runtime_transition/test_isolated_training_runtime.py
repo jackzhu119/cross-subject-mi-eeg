@@ -404,6 +404,8 @@ def test_requirement_digest_change_is_rejected_before_import(import_context):
 
 @pytest.fixture
 def wrapper_context(tmp_path, monkeypatch):
+    monkeypatch.setattr(runtime, 'arm_priority', lambda *args: SimpleNamespace(receipt_sha256='f' * 64))
+    monkeypatch.setattr(runtime, 'priority_checkpoint', lambda: None)
     env = tmp_path / "isolated-child"; env.mkdir()
     receipt_path = env / "runtime_preparation.json"
     revision = "a" * 40

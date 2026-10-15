@@ -1,0 +1,1874 @@
+{
+  "schema_version": 1,
+  "observed_at_utc": "2026-10-15T01:11:17.265579+00:00",
+  "status": "FROZEN_PUBLIC_TARGET_METADATA_VERIFIED_ACTUAL_R2_MAPPING_PENDING",
+  "scope": "Read-only local byte verification of previously archived public provider metadata and committed frozen manifests. No current provider network request, Pod access, R2 call or EEG read.",
+  "base_handoff_commit": "ec7ad35ab7460feb2425055f6117cc556966f22b",
+  "dataset": {
+    "name": "Dreyer2023",
+    "provider": "NEMAR nm000250",
+    "version": "v1.0.5",
+    "provider_tree_sha": "f77f8859a84df42bd775920d288261260b2236db",
+    "dataset_doi": "10.82901/nemar.nm000250",
+    "original_paper_doi": "10.1038/s41597-023-02445-z",
+    "original_dataset_doi": "10.5281/zenodo.8089820",
+    "identity_boundary": "NEMAR sourcedata EDF mirror declared unchanged upstream MOABB/OSF files; not authenticated original Zenodo GDF ZIP bytes or root BIDS-derived BDF data."
+  },
+  "checks": {
+    "frozen_manifest_sha256": "2cfdf35aa7990df880826d1b84d1230e0bda3c9393c17d3ec6e27b7b311d2bf2",
+    "provider_source_manifest_sha256": "061a8e215093e1bb0db8f80f95b112c60266acfa640284d05f92c0c6a5ddc544",
+    "unique_acquisition_paths": 174,
+    "total_acquisition_bytes": 2515343396,
+    "participants_before_provider_exclusions": 87,
+    "two_acquisition_runs_per_participant": true,
+    "all_174_size_sha_rows_match_provider_provenance": true,
+    "all_174_paths_have_frozen_provider_tree_pointer_blobs": true,
+    "provider_text_provenance_and_description_git_blob_hashes_match": true,
+    "manifest_unchanged_since_commit": "a7278ef36e371b896271c836e7d1c19fc092b075"
+  },
+  "frozen_population_boundary": {
+    "retained_participants": 85,
+    "retained_events": 6800,
+    "events_per_retained_participant": 80,
+    "provider_montage_exclusions": [
+      "A17",
+      "A41"
+    ],
+    "prior_exposure": "unknown",
+    "target_role": "exploratory_external",
+    "independent_confirmation_qualified": false,
+    "note": "Recorded frozen design/population metadata; no target labels/outcomes used to select rules and no events/EEG reprocessed."
+  },
+  "license": {
+    "identifier": "CC-BY-4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/",
+    "evidence": [
+      "provider sourcedata README table",
+      "provider sourcedata provenance license field",
+      "provider dataset_description License field",
+      "original Zenodo API metadata license.id cc-by-4.0"
+    ],
+    "scope": "These are archived provider/license declarations verified against their saved receipt/blob hashes; they do not establish original GDF-to-EDF byte equivalence. Attribution to dataset creators and source, license link, and indication of changes must accompany reuse; repository software license does not replace data license."
+  },
+  "r2_recovery": {
+    "authentic_target_keys_recovered_from_this_public_scope": 0,
+    "target_r2_mapping_complete": false,
+    "unknown_r2_object_keys": 174,
+    "object_keys_generated_or_guessed": false,
+    "objects_currently_accessible": null,
+    "remote_raw_sha256_verified": null,
+    "search_scope": [
+      "current committed handoff and cloud recovery metadata",
+      "frozen dataset manifest and provider provenance",
+      "local branch/tag inventory and manifest Git history"
+    ],
+    "limitations": "Public provider paths/URLs and annex pointer IDs do not identify private R2 object keys. Root metadata-only recovery may locate authentic upload receipts separately; this report cannot assert private backups are absent."
+  },
+  "sources": [
+    {
+      "repository_path": "research_runs/REDESIGN_SOURCE_SELECTION_20261012/evidence/dataset_sources/dreyer_nemar_acquisition_edf_manifest.json",
+      "bytes": 80828,
+      "sha256": "2cfdf35aa7990df880826d1b84d1230e0bda3c9393c17d3ec6e27b7b311d2bf2",
+      "provider_url": null
+    },
+    {
+      "repository_path": "research_runs/REDESIGN_SOURCE_SELECTION_20261012/evidence/dataset_sources/dreyer_nemar_sourcedata_provenance.json",
+      "bytes": 122394,
+      "sha256": "0d45bdd3394555e33d8dd153ad1ff15f9340f6f867a99e7bd13cf1e3b582b274",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sourcedata_provenance.json",
+      "git_blob_sha1": "ff18613db4f03d1ad2f11516fcb140ece796b70a",
+      "provider_tree_blob_matches_saved_text": true
+    },
+    {
+      "repository_path": "research_runs/REDESIGN_SOURCE_SELECTION_20261012/evidence/dataset_sources/dreyer_nemar_sourcedata_readme.txt",
+      "bytes": 1032,
+      "sha256": "a86264010041a9980e425275b8e1cdba3d051ec9d0deb4f047b1cf646547c9db",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/README.md",
+      "git_blob_sha1": "ec3c0a31f056ce30ef10263dceabe67bb1feea5e",
+      "provider_tree_blob_matches_saved_text": true
+    },
+    {
+      "repository_path": "research_runs/REDESIGN_SOURCE_SELECTION_20261012/evidence/dataset_sources/dreyer_nemar_description.txt",
+      "bytes": 1326,
+      "sha256": "1721259d9db96e316f1897c4a177cf8a1c3e4265f631c9a649528a18896d8650",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/dataset_description.json",
+      "git_blob_sha1": "e4e5fc7cdc74189811d00b82c60bab7d8eee291b",
+      "provider_tree_blob_matches_saved_text": true,
+      "saved_original_fetch_receipt_verified": true
+    },
+    {
+      "repository_path": "research_runs/REDESIGN_SOURCE_SELECTION_20261012/evidence/dataset_sources/dreyer_zenodo.txt",
+      "bytes": 10495,
+      "sha256": "df936e2d7cc831c6d502eead0aa1023630fcef4908bde23a96430df6c7d8e003",
+      "provider_url": "https://zenodo.org/api/records/8089820",
+      "saved_original_fetch_receipt_verified": true
+    },
+    {
+      "repository_path": "research_runs/REDESIGN_SOURCE_SELECTION_20261012/evidence/dataset_sources/dreyer_nemar_gittree.txt",
+      "bytes": 1247884,
+      "sha256": "b4c9a9f30c91a6bc96bc9a60361062f9d8cd9569f346878e1714ca07851ab7ab",
+      "provider_url": "https://api.github.com/repos/nemarDatasets/nm000250/git/trees/f77f8859a84df42bd775920d288261260b2236db?recursive=1"
+    },
+    {
+      "repository_path": "research_runs/REDESIGN_SOURCE_SELECTION_20261012/evidence/dataset_sources/dreyer_nemar_manifest.txt",
+      "bytes": 1712419,
+      "sha256": "061a8e215093e1bb0db8f80f95b112c60266acfa640284d05f92c0c6a5ddc544",
+      "provider_url": null
+    }
+  ],
+  "files": [
+    {
+      "provider_path": "sourcedata/sub-01/eeg/sub-01_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-01/eeg/sub-01_task-R1acquisition_eeg.edf",
+      "bytes": 14805604,
+      "sha256": "a678fe6d37e0496eb381dcac6b877b047d02dfffc659ae4cfc38226f4850e185",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-01/eeg/sub-01_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "5f67d2a5f58592c8ff4ffcbf790ead40922b135e",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-01/eeg/sub-01_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-01/eeg/sub-01_task-R2acquisition_eeg.edf",
+      "bytes": 14805604,
+      "sha256": "e956c7f68aca5912c2cb9dbd75ea76bdfff6e2cca0ba1071ae70f08aa4aab5bf",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-01/eeg/sub-01_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "00e7bd8e99c09602914c24674ba8f5dd846a04e0",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-02/eeg/sub-02_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-02/eeg/sub-02_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "8f3f9619d48c8ab5297e4fba5876fe12570cc5adb2807b0c4ab579842edbc9ee",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-02/eeg/sub-02_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "edb8035ce512e54d4bfb135a666833eed2df6a81",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-02/eeg/sub-02_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-02/eeg/sub-02_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "03505e6aa89754dfdfaf9e99b1f9e436f8bbb29c607cb35935b084804b8f17cd",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-02/eeg/sub-02_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "ac6e8b0aacebafa1de6b49bfbdbc34c26e7c98fb",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-03/eeg/sub-03_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-03/eeg/sub-03_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "f34039aac8975a6b7b951f90648ff3ccb1f81f99ae29319b6478ec4d419f495e",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-03/eeg/sub-03_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "8235f88541ccd41f9ff22df99b67614a4550923a",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-03/eeg/sub-03_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-03/eeg/sub-03_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "ace4601375b7a035b4dab55a8b196d1e19ca8b52bce3b61ac8a9c9451c8a2057",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-03/eeg/sub-03_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "22a01f764dfb0fb84b131fec6a1ec45bff0a3429",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-04/eeg/sub-04_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-04/eeg/sub-04_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "071119dc6e8628c2d5824205d46c87f1455348d333b072bdb21487367ebc63a3",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-04/eeg/sub-04_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "88377f22e8995a795aa2b191c0a35e91208eab20",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-04/eeg/sub-04_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-04/eeg/sub-04_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "ba737bb6650abbff8aa33f7e6d147dbe95d529004760d9e63de0acd540ec9f67",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-04/eeg/sub-04_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "0f5386eab692224150fa7ae5aed91186c11063f3",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-05/eeg/sub-05_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-05/eeg/sub-05_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "29e1b7511ca0a5f70bc6871f53e425041905e1406294e1fa1dd25544dc68be74",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-05/eeg/sub-05_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "0e77fba6e8babd75390ac4ef5666ccdf7895b4c1",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-05/eeg/sub-05_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-05/eeg/sub-05_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "edf21e8790152103adcb15bc6106ce4a004a46d77e45fa1d8989d426f92b8a10",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-05/eeg/sub-05_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "5419bc6ee3b1bac4355b6fc61e973430ce8f9059",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-06/eeg/sub-06_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-06/eeg/sub-06_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "2f38b5eac588600cd222de940a7ab3a8a969a517a70e09894000bd45434b4232",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-06/eeg/sub-06_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "e0242e370933ae2048259808a626b9a863987062",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-06/eeg/sub-06_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-06/eeg/sub-06_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "03253b225d49caa5f9b67d67015914fad4a16841f1ca6fb8b3d06e24c6c28a6f",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-06/eeg/sub-06_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "8cbec6b93b829bc5a395dd22fdb2b80a12eff74e",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-07/eeg/sub-07_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-07/eeg/sub-07_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "3b4e0ea8a9e6c8621ad6435cfedf1e72c635fe12df53cc8a57533dfb8bc24bd2",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-07/eeg/sub-07_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "816237732d860556e704636aa189da5e5641f699",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-07/eeg/sub-07_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-07/eeg/sub-07_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "0fed5b038190b5cbd3fe1682b8217f0393788d96ce3c683ae71bc4c322f17517",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-07/eeg/sub-07_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "8f9ef3c87b89105704f1452994161148e5c3b99e",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-08/eeg/sub-08_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-08/eeg/sub-08_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "c275f9aacc4bd8bfded5761fa0ce6fc2cba89e2be9dafa63f2d4489b02d83bc2",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-08/eeg/sub-08_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "dbf8c031867f4d35f9c4d0304836fcd228c60828",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-08/eeg/sub-08_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-08/eeg/sub-08_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "a9dc771229eb0be5e755be1c8a3ae08132f1fdb4a7075ea1807e3b356cdb51d5",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-08/eeg/sub-08_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "d87cc1f05128dc11c5a090bdfc60e43f405b013b",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-09/eeg/sub-09_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-09/eeg/sub-09_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "8ec44b05360d0634baab803a39ee06fee27d66eb0756354b8d339fe73b19641b",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-09/eeg/sub-09_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "e6f0ac50f97a2713e6edb102c68f2d860dd49990",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-09/eeg/sub-09_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-09/eeg/sub-09_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "f4157c6fd8fd0ed86070507bb39c6c56511cc19847e93a0e76e8d8580b5f212d",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-09/eeg/sub-09_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "078933487eee2d8c4ae75cc40e89a1336e2d9e86",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-10/eeg/sub-10_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-10/eeg/sub-10_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "7e470d00d4ab699f9a97841ed9abac84cb8e02133880476c1c65620013589b0e",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-10/eeg/sub-10_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "7353dc442ee698c8a01a4cc2d637c0a55db497fc",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-10/eeg/sub-10_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-10/eeg/sub-10_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "a4764e21d66b8556d3196aac4728366ad4ff2e5d75d8df9dd94fdc84541a8c00",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-10/eeg/sub-10_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "dbae3badcd87f91a092e535ef78c19723c8dd0e7",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-11/eeg/sub-11_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-11/eeg/sub-11_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "653f9e0b97e213482602cbc44f2c2e43072892b882ec42a5922e512e1c02cf47",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-11/eeg/sub-11_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "a8083ccf0be13e3057ab4f6619e9a0717a512b53",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-11/eeg/sub-11_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-11/eeg/sub-11_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "cf849d174f0b8e841c7b0f4942c3a0e0d7264eba007667eb718ba5669e6b21ef",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-11/eeg/sub-11_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "a7481bf6a95d6b56e10a360f6f891d71a5d80a15",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-12/eeg/sub-12_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-12/eeg/sub-12_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "52a9e9860f0a84848a19bd5f8265d92ba1e616fca5287fde9d52c51fcf9bc66d",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-12/eeg/sub-12_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "97bb8e9b670888f76703b916ca4ba17384b2d1ad",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-12/eeg/sub-12_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-12/eeg/sub-12_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "01304fba021405f30f839da82bf21f652acaaa238a5fccbbb2fb351cdec57f1a",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-12/eeg/sub-12_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "1578c7894e3ef7cc01809262d3f985e7129409b5",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-13/eeg/sub-13_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-13/eeg/sub-13_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "b65ebce34d01f1b577c3c015c07ed6b1a1fcf7fe6437dcd7baebd30837becbda",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-13/eeg/sub-13_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "1741bae1a4357c89dfb0f867b2aa0151a98c4572",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-13/eeg/sub-13_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-13/eeg/sub-13_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "ac211e4160e20cbf31c614e03760f855ca96a438338367e8b12a18360bf84370",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-13/eeg/sub-13_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "3f27dc8cea5b130a749c05b733c03b307288fbae",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-14/eeg/sub-14_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-14/eeg/sub-14_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "b3b8c77a09d77f87ffef60ace2e9c43080b218d7d73c1c05d982a455bfe48a34",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-14/eeg/sub-14_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "e103074802a3816b9f8bf1d481435dbad550eff2",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-14/eeg/sub-14_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-14/eeg/sub-14_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "3590c3b0cde5af0930979f98bd74fd6b321ed56b66708922db28762bb41f7b10",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-14/eeg/sub-14_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "a22de7f1c92976438a97a35faa68aec7eb1edf4f",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-15/eeg/sub-15_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-15/eeg/sub-15_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "769e2c07f4b32278144723124978a8dae7389a25067b409f32e41a20aa4680ba",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-15/eeg/sub-15_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "5b42acc8d835b43ea04cdb43cea9f7c7ba692798",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-15/eeg/sub-15_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-15/eeg/sub-15_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "79aa0b6bd28ee04f6cb44843a31135bb4b45a8b7cbeaeee3846158407874330c",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-15/eeg/sub-15_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "73f207ca34f4bae02d167eb1bd8ea00627a2b286",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-16/eeg/sub-16_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-16/eeg/sub-16_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "ed867410d50d6a4f6b71e8689a1ec6578da51ccd0fa586587c55a8cc622f4691",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-16/eeg/sub-16_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "20f88bac8b8c2020e41e5b828d5546961cd0cbfb",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-16/eeg/sub-16_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-16/eeg/sub-16_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "78d6a8462867cad776a93bef8448b44ff41a1361659a8309eb279b25631cb296",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-16/eeg/sub-16_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "2b5f5815583b55a7d54af356806d48114741991b",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-17/eeg/sub-17_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-17/eeg/sub-17_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "cde05a777bf16b56cb7aea945834b30777e3678cdc1ee74817a314710ee21c2e",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-17/eeg/sub-17_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "6783fa72a17030e154b9f8bcfdfdbb82a80d0246",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-17/eeg/sub-17_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-17/eeg/sub-17_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "95d7c5adb84594423bb76a507cf27f1d6f782603e1dd969b5aba76712b167d26",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-17/eeg/sub-17_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "22a2d89a77242f4d0fee55213d5d06152b277796",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-18/eeg/sub-18_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-18/eeg/sub-18_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "23d10609a1d0ecfd874980afd86a013bbd18bcdf7725b021acea0aa6e88b835a",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-18/eeg/sub-18_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "15c088a28d8ab1062ab9b7e16a0b6f9bfe439c7d",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-18/eeg/sub-18_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-18/eeg/sub-18_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "e69c5d80d1683789ecb9addc18545f1a52d7dc187cf295a76297dc1951ba5109",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-18/eeg/sub-18_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "809fe4a301032ea7df37675ee3cc8ad778f08b17",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-19/eeg/sub-19_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-19/eeg/sub-19_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "fb75e8c8edeb098dd3ab5b8432f5c1c6f2e531f26537f132c41b581f96038db2",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-19/eeg/sub-19_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "b2484fa09d1dddebdcc947f2fcb50cf64c012db0",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-19/eeg/sub-19_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-19/eeg/sub-19_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "8cf738420fb21357ed42f9c50e842d8c296d56ec376af554bbf587bd3c3d9b49",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-19/eeg/sub-19_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "9d58c9e3b23f0acbd09ec6bfc821cf901e509c25",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-20/eeg/sub-20_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-20/eeg/sub-20_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "b3c45ac4a2a42cfd2eb7bb7ef8fa4a31203bb7105ffdc3b82b1e896722ebaaa3",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-20/eeg/sub-20_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "3147a3c72bf422b6dd9eb99e4ba6b0bff2593b43",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-20/eeg/sub-20_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-20/eeg/sub-20_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "2528c1462f692c9fc21800d1a886383e2e858bdd6d1a48ab71140b756392190f",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-20/eeg/sub-20_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "ef53c09851bb5a42ab30dd8e1a8f4bd8e360cfcf",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-21/eeg/sub-21_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-21/eeg/sub-21_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "adc0e608b432ad31d14e177abdda6cafe677dd7ff234393cf7b75c4eae08a54c",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-21/eeg/sub-21_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "1003e8a3bdc0f87e293782d3e3ec56f7aaa360d3",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-21/eeg/sub-21_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-21/eeg/sub-21_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "b36a42b42634ffae4367fa708e4b2196c0e1c42931d63506df2a3c2117577c1d",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-21/eeg/sub-21_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "6b686863d4e48cd29bec9eb9cbdc389ae9488df8",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-22/eeg/sub-22_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-22/eeg/sub-22_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "bcdf676e4aad5d8082002805c9a8225ad08bd5a122c2f5b05647c2834e0eaf7f",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-22/eeg/sub-22_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "77c45802031a86d5d3b1433aec9a3a38a474836b",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-22/eeg/sub-22_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-22/eeg/sub-22_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "265519031407b950f65bd40455fa577123c259702e066c7b773015ffcf8babdf",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-22/eeg/sub-22_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "16b50d9ae76c1bd9ed53a648e5e45ac341130094",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-23/eeg/sub-23_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-23/eeg/sub-23_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "9d74cb9d8c5bf5b4e2b0592dcb9a411b9f6d60dfee401090da44c6883c403695",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-23/eeg/sub-23_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "12d28b82ac58062730f36d3bd89bc0369a7e03e4",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-23/eeg/sub-23_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-23/eeg/sub-23_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "7a6e97b806bbc43bfc2494a7886ee1762f7c1d476e3dbe49f9919174456a7c76",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-23/eeg/sub-23_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "1c91b1557bb86eb8d3553f24f7e3b627c8681847",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-24/eeg/sub-24_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-24/eeg/sub-24_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "60ebab899965f819dd5a44131af8ab6ff6fd578df66250f8fa4c0adf1e9ceaf9",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-24/eeg/sub-24_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "cc32ad6e7ca882667cad1a09831c187a9c143088",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-24/eeg/sub-24_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-24/eeg/sub-24_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "643d5cc19e1b922cfcc572ee0a3a62c40ca8ccd07614857453d101d5940428f2",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-24/eeg/sub-24_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "8707c30a403dac3d22585ca9be41a93ddde35aa6",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-25/eeg/sub-25_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-25/eeg/sub-25_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "0cf1fff2dc0febb0b223c0297ddbef063a244aeadf5981ae2201d1638bdf930b",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-25/eeg/sub-25_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "803782b63964e624c4a9da5eaea1205f3a1808e2",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-25/eeg/sub-25_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-25/eeg/sub-25_task-R2acquisition_eeg.edf",
+      "bytes": 14772722,
+      "sha256": "56e36b6a38477c6cde54825ebb0d14ec4a3cd7e226649f6d1c749f8888d57891",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-25/eeg/sub-25_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "3782f8e27ba6a131ad60fcdedd260fcc30e18b9f",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-26/eeg/sub-26_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-26/eeg/sub-26_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "f318f3c2d6b60e69f8e5b4d6f29d84c34ba4687aa9f4f08acf43080d67edcc9c",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-26/eeg/sub-26_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "1ecee2fb6f53503688f068b76006411aa3043b1f",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-26/eeg/sub-26_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-26/eeg/sub-26_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "6c208f369a0d37940dedb304399df1c53114cd628ea41c31bbd70603591bf333",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-26/eeg/sub-26_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "9204511596a806a3f9d939945ac33a35f23714ec",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-27/eeg/sub-27_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-27/eeg/sub-27_task-R1acquisition_eeg.edf",
+      "bytes": 14805604,
+      "sha256": "662f950163c5339ad044f1c94669999a2988973b84ff32fb9ecbb84fb562a43c",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-27/eeg/sub-27_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "972399207cce11595cde3cd9e5a53588d12ecf23",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-27/eeg/sub-27_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-27/eeg/sub-27_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "0ec6e83f4496c818858974a0495d285b5d3de285fec741e912fff81393c38935",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-27/eeg/sub-27_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "f9a6c904e1a21d1e75e08edad1132134c097cee4",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-28/eeg/sub-28_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-28/eeg/sub-28_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "a98d3c501c1276c47919c14ed1a595fbd29608e902fd0942d146d34c32e2ccc5",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-28/eeg/sub-28_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "7a0a14a1255c50316c067d4fef220d2bf50bca7d",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-28/eeg/sub-28_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-28/eeg/sub-28_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "a97af4de877151a2c29e5cda12529a62d434b474f935f20e75db124a44bf7cb3",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-28/eeg/sub-28_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "d71412b22e3767ca65cb0b1380b576c100fa5d50",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-29/eeg/sub-29_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-29/eeg/sub-29_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "11626d8464e1eed93c1b8804034ab21c3759774d6bde91b8aa82a7bba99bd614",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-29/eeg/sub-29_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "2139333229f53f3233542b3961c60ea7adf28575",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-29/eeg/sub-29_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-29/eeg/sub-29_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "ab27005db5f15040b3ddd76637a404c1593b5f252c907c734536a2c67e3427d0",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-29/eeg/sub-29_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "904db251dbe75849e41e2c6cddc00332a1aa4479",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-30/eeg/sub-30_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-30/eeg/sub-30_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "5b56fffb184d73f6dae9625d2a0cfeaafe187538daf55278b4f80301f3d09eef",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-30/eeg/sub-30_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "80e06daca85ca0d52072e24ef6c142125a27ecba",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-30/eeg/sub-30_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-30/eeg/sub-30_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "6698e51d3a32b0ebad96e804c124c008af60c78b12d205486557740268d76588",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-30/eeg/sub-30_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "db96b0f00e7fc4556b3c351add3c74810bab8ab7",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-31/eeg/sub-31_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-31/eeg/sub-31_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "488803a357bf10df554e56e97a9141d2bdceaf285ae941ab2763bd95af0f2389",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-31/eeg/sub-31_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "309d6708d920de41834b28efb8aa71f7c62e4f0b",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-31/eeg/sub-31_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-31/eeg/sub-31_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "744be793d1654286c614bd36d99a66db8a3ec56130a3433827efad7391d34e7b",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-31/eeg/sub-31_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "c16c4cce33b3af9dc4242f3a9b7a051dfa0e5f53",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-32/eeg/sub-32_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-32/eeg/sub-32_task-R1acquisition_eeg.edf",
+      "bytes": 14706958,
+      "sha256": "2c391e6e0e476c8d09115faf6f2853498d2895acfadaf14ceb65ca8a52ddca68",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-32/eeg/sub-32_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "d8037d9a47ed5309d5d6e1d6120c2b57f6d3d51e",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-32/eeg/sub-32_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-32/eeg/sub-32_task-R2acquisition_eeg.edf",
+      "bytes": 14706958,
+      "sha256": "c5d077877d6247d2cda6f4304d7bd8981edb098f55536ed5041bc9e5c6db3217",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-32/eeg/sub-32_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "4329e8350f542e692fe6a3e63b33e9ae0ab2f5f4",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-33/eeg/sub-33_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-33/eeg/sub-33_task-R1acquisition_eeg.edf",
+      "bytes": 14805604,
+      "sha256": "bf936fa35701c71c593278f65703ae63bd5bb808ba549992ba6a98bcd3393cfd",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-33/eeg/sub-33_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "8aa53c5f9d542c544d5bad1afd58c5d40aba7819",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-33/eeg/sub-33_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-33/eeg/sub-33_task-R2acquisition_eeg.edf",
+      "bytes": 14739840,
+      "sha256": "3cffe5bd3a7518d815b0688a6a5fd25c36e0247feb2cff55ad20d5a1612623ef",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-33/eeg/sub-33_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "13d201db525a95786f55d9b896dec9e23d0ed159",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-34/eeg/sub-34_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-34/eeg/sub-34_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "a23668b1c48a8069b3687a3b015e09322dc7c7d97d4364f780566f345db59aac",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-34/eeg/sub-34_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "c721aeb4e9c3ad4ab3dcae51ce08aa0e420c1038",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-34/eeg/sub-34_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-34/eeg/sub-34_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "3f794b3bbc0400a35543b47c9d414593497a1f20d17d5d195510c20ffeeffdc1",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-34/eeg/sub-34_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "c00396dc5c3665e381a95de87ff50ab33149d985",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-35/eeg/sub-35_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-35/eeg/sub-35_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "374dee8d7dcfac560e87da39391ebbd806a9a28acc0a46588feddd32dd319728",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-35/eeg/sub-35_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "2db361101e5db51a691f7c7a2fe48b9f5750a9b2",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-35/eeg/sub-35_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-35/eeg/sub-35_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "66d4b2106c6540929ef253c901ea560c7ebd0a2ee789304cc38e22cb416c1f37",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-35/eeg/sub-35_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "1f9e512e9a436ec6ff5091c89410b38886d3a2e0",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-36/eeg/sub-36_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-36/eeg/sub-36_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "d6f72b05f99b157ef3d3e8e653f545d02d5b2f5ecd6aaa62787ae969694d99e8",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-36/eeg/sub-36_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "757d2418437f0d10deeccad9adc0444adaf70c1a",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-36/eeg/sub-36_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-36/eeg/sub-36_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "f737a6e48a10378eb2f9a899d9a32c542b82041b4bea48e5eb07696f22027431",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-36/eeg/sub-36_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "d7fa734c7ffc596d69d289de391d85f9b5907f78",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-37/eeg/sub-37_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-37/eeg/sub-37_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "a506b7079fe879a489e2a8726332156a18a690a19880f35db7f07534a6f7e236",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-37/eeg/sub-37_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "c9f31746d33a4fd2308c3e086566c22f794af469",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-37/eeg/sub-37_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-37/eeg/sub-37_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "db4a92b08d705483224666730d993276178a575b6e999152cba9a948475753af",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-37/eeg/sub-37_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "18ae310a43274f4ccbbe27d66c2c1c72efa0f966",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-38/eeg/sub-38_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-38/eeg/sub-38_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "129c9afefd7f66e5ef06e9a9b0341c19f50b57a482fcc4d8503a1d670d483b54",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-38/eeg/sub-38_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "dcc40015f55ab16dd13edfa216e123ed5a24d08c",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-38/eeg/sub-38_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-38/eeg/sub-38_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "8737a8107638c81565a06b5fdeab79b940b0a745d11e88887dc4faba809bce3e",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-38/eeg/sub-38_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "25c59933a11284b0c232a1bfe219438004ed61e3",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-39/eeg/sub-39_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-39/eeg/sub-39_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "2c54e20f2f0b3b71b61333d2401831e227080be3f77a2a4f9856d3a2758fe8bf",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-39/eeg/sub-39_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "25895b3fa634da8a16309090b229bcb54a20a3a5",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-39/eeg/sub-39_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-39/eeg/sub-39_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "a08237a61c6f19fc8152b57e907799b94e1234ecf28d8d9199e51a31ebec4379",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-39/eeg/sub-39_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "0456cccc16e1cf7c5150c41bda9e85ebf71cab1f",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-40/eeg/sub-40_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-40/eeg/sub-40_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "d96addfe6b05191fe5ab08c188fd7a3746121faccd6f1b1986bc219fc7e84b40",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-40/eeg/sub-40_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "50fdc3a56a208fa99be3e2b3f953a24c4cc9c03a",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-40/eeg/sub-40_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-40/eeg/sub-40_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "823d2ec2b3634d1f385ad990da1b9f2f33a16d57fee403a484e10a7adabf795d",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-40/eeg/sub-40_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "fc8d76cf0274ba0084e619a9d6d5ecfa3e384f18",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-41/eeg/sub-41_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-41/eeg/sub-41_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "1377fab5e1005b72b6d193a0b722e241f28544ed1efa05e8dacb8eec67dc5411",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-41/eeg/sub-41_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "1b5f9a8455eaf2b1baec65086e8352c1773ffe0d",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-41/eeg/sub-41_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-41/eeg/sub-41_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "a20f375162e67a57f40d1047d3a1e1084da2ed47806481b2b27719bbaf04920f",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-41/eeg/sub-41_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "26fe1a8ce3ceb4933fcfd78117d03d6819033019",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-42/eeg/sub-42_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-42/eeg/sub-42_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "03d60314cead82749567724fee4682b9657a6ff8798c38f7222d434a1ff41b3b",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-42/eeg/sub-42_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "c6eeafb2f2a89cb80a127b2d363e17e54a1f5443",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-42/eeg/sub-42_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-42/eeg/sub-42_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "b871c887e319afb4716cbd48512956961605c774d44b3648bfebb6f8b6e03423",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-42/eeg/sub-42_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "90ff6776fcf667ffdd467a99b5945e9707c36ba2",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-43/eeg/sub-43_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-43/eeg/sub-43_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "7acbf1ceed6ee4b288d8b9bb97c27f52fabd81fed19a07732dd5cc2f1ce841f1",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-43/eeg/sub-43_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "37c4fe2f4d39527f01c73ef7e8e24603bf453fc7",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-43/eeg/sub-43_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-43/eeg/sub-43_task-R2acquisition_eeg.edf",
+      "bytes": 14772722,
+      "sha256": "352342d2a9c645330fe3329c604d1fc4586474ab39293376482f3e05b45ff3d3",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-43/eeg/sub-43_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "e0b0b1b780608672b5d312c6d4395b3e7bb59677",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-44/eeg/sub-44_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-44/eeg/sub-44_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "b8186dfd26a0a74b088ca7f1269b400cc676b0e813f9e6480e68eaefca4ab914",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-44/eeg/sub-44_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "93d748806af2c81f79efc893666d316146752b0b",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-44/eeg/sub-44_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-44/eeg/sub-44_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "db8ac32b99ec4d5273447b9eb1f50460364ac39b39271760d1968aefe062e1a0",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-44/eeg/sub-44_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "98dd3ab14968ddf0e3c4ea6fcf0c74ff8168eceb",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-45/eeg/sub-45_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-45/eeg/sub-45_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "71749df611bddb11e6efb947292db2841c4d982265e6c5ba5d210df20d118a97",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-45/eeg/sub-45_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "5bb1c555e148edd666647c20c672453bee173290",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-45/eeg/sub-45_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-45/eeg/sub-45_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "918dd0d21ad54de33892bcaeaa787bd3c87eddf44c6541dae53f081efcfe8a18",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-45/eeg/sub-45_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "744eec1ccecc5fa4e3ce15750e4a5bca2eec4bbc",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-46/eeg/sub-46_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-46/eeg/sub-46_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "413ac681e6f17742b6ac7bbc50ea7499eccecbd98cbb0675eca927e75da38f21",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-46/eeg/sub-46_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "25136b82223deea9804e0a8f9e2a99f856e350cd",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-46/eeg/sub-46_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-46/eeg/sub-46_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "0e0284a624f76bc7d6a054c881a749dc88d83b34db5fd3719ea103d03b048483",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-46/eeg/sub-46_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "f52f5f6792e78a81a035e6a75268aecc5152b1b4",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-47/eeg/sub-47_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-47/eeg/sub-47_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "3158c44f481db222de8c34823d69ea98a8bed28c83de570292ecb8d89b2a8924",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-47/eeg/sub-47_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "99ba22ad3b62ef013dad14e50bb041648bc971d1",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-47/eeg/sub-47_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-47/eeg/sub-47_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "67929ca77cfbe364d77bf0df488b61c13fbc7783b9986a2ca313f637bc4b19d5",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-47/eeg/sub-47_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "b8f1d9b1cc8a8db9c8c2ab965392d8338d2eb1a7",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-48/eeg/sub-48_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-48/eeg/sub-48_task-R1acquisition_eeg.edf",
+      "bytes": 14674076,
+      "sha256": "35f01dd89d93f958ce2035a3d68d5c20686cf41b0c5c7ebc51bd415941147454",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-48/eeg/sub-48_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "f2f885f6336b0e6f5483d6bb91217cd5c1a69794",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-48/eeg/sub-48_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-48/eeg/sub-48_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "fb6ad5319eff8a4c8788fdbcc3f719c60489a6832d88f1559365a8fc70a40567",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-48/eeg/sub-48_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "3c85924d652a39bd4dce460021c98b6f961eec24",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-49/eeg/sub-49_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-49/eeg/sub-49_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "12733eaf8d216bb702b9ec8581216289faee6fa6d75b3573c5bce5b06a92adbc",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-49/eeg/sub-49_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "6ca1de9e62557f91dac05db4c675781fbd028429",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-49/eeg/sub-49_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-49/eeg/sub-49_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "ef5f24197a959bf61feaf9480fa298beebf0d23d5df2c426942957ae838f3544",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-49/eeg/sub-49_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "655e06883b2c258550d0afb2d09bcd1a79ee6033",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-50/eeg/sub-50_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-50/eeg/sub-50_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "6912a7820277103e75d08c64fa2a9c4c1a31bf45b9a40b54efbafa1657f3b4a5",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-50/eeg/sub-50_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "135a48aba9c7dce1ec4354406ceca1202ddf64d7",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-50/eeg/sub-50_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-50/eeg/sub-50_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "ab38bbabe38ea4edb406b4e37e42fb938629540a405ddbc1122e7621f078da5a",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-50/eeg/sub-50_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "dc40059a85a259cf440eac7d6f3add129dc1bdfa",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-51/eeg/sub-51_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-51/eeg/sub-51_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "7c71c597ce95d6ef4d833a95b33d72f508cb88669a446e9cabaae809f0d0d884",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-51/eeg/sub-51_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "e2c26c44977cdc359900e1e817032a0940221963",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-51/eeg/sub-51_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-51/eeg/sub-51_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "5e5d4b3768196bac9f7e41296c37447a7a0e630aa563c0fa602123b8019268c9",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-51/eeg/sub-51_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "795da12e7b6def0a9d7af5e54604af5fd6da7b9e",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-52/eeg/sub-52_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-52/eeg/sub-52_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "ac24f9813d7762ac5331bdaa702d5037e47604818db8952ddac0ff7a3475b7d8",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-52/eeg/sub-52_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "763746dc98f486eebd14f3cf9b5814837ad70bb7",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-52/eeg/sub-52_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-52/eeg/sub-52_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "1cbfe365d8b4e894bb3e4896ab0ebaef9065eebe3fb0ad6d4497387ece63be64",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-52/eeg/sub-52_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "82200d2b616f4927ce80231d961d570d592c75e9",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-53/eeg/sub-53_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-53/eeg/sub-53_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "21b67d79d0f23824c1fc9167519dc7a92e9455e8942fe3ec7d0a08add7990db8",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-53/eeg/sub-53_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "471812754f099900eaf20c42b74ddf3f142da32d",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-53/eeg/sub-53_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-53/eeg/sub-53_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "21c1dbbd0b64f1db1aa57cd5966f1b56536bf4b89ec6248adc99e1fa28305bf4",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-53/eeg/sub-53_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "1722d30bff9f1ff9e0fb61c70f4e9e261d841ed6",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-54/eeg/sub-54_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-54/eeg/sub-54_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "28cdf91b8dd9d68e6b336e85d919b8a396158a4927c1a6559fa022d1fbe8baad",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-54/eeg/sub-54_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "7efc20e88f4d0f4566257238f34c5248946ea470",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-54/eeg/sub-54_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-54/eeg/sub-54_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "7f07ed890f0730938df4093fa4809f27ad8f72f197b99f69dda6639eee07dda4",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-54/eeg/sub-54_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "2ac9bc27722536079429549fdfde3d8ede2733bf",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-55/eeg/sub-55_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-55/eeg/sub-55_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "5935bbd4eb53f77a7d3fcfb1749e9a8164f6bbf18ff254103f4c687d8eca688f",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-55/eeg/sub-55_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "9ad99fce1d0bbf5a21fd14c8cfba2c62ad5309e9",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-55/eeg/sub-55_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-55/eeg/sub-55_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "5573d052b8689db52501d47fde7239d2a400fcb647e78c827da303d6166e14b1",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-55/eeg/sub-55_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "efe79a015e55b1621d79d57e8c2230364ee2fafc",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-56/eeg/sub-56_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-56/eeg/sub-56_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "625cbb90a65dce4d56a2758cfcaea35901265493fc427e0c04675a82cf8cc270",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-56/eeg/sub-56_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "482f847ceb349cd8dc3ff858c5093b1b7ea92636",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-56/eeg/sub-56_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-56/eeg/sub-56_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "73715eadd24ab0d5cf4ba73f6353ab579a8b1cc19514361e1f1d960a0d4f70a2",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-56/eeg/sub-56_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "f9ab858aa41c7dd78b7cd3a7f2071c8cc4df56f4",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-57/eeg/sub-57_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-57/eeg/sub-57_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "9c07fd4de68e989b9ec251beaf03baa02c91c2ed8994148805d908b93ff4887d",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-57/eeg/sub-57_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "ff38197cfe0455f152a53c371d30968ba5a5762b",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-57/eeg/sub-57_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-57/eeg/sub-57_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "f5684815010e78bf170475acd7b4aae95437f63ddc440cf704302b58bdcda8d3",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-57/eeg/sub-57_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "5aca3a5e909c61204a19605a0852f81ddb622457",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-58/eeg/sub-58_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-58/eeg/sub-58_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "f6c17ce449e3c776a195f4b8be8a1a71e9656f093f2304845023e8e17afd33f6",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-58/eeg/sub-58_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "ccebfaa7834fff7d8e17a516be0d1390759f76d6",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-58/eeg/sub-58_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-58/eeg/sub-58_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "1fa520f50f489413ed7fbeaa0a2726af8ecc25ff66d1f6f2e76ecbc2349a9636",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-58/eeg/sub-58_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "7d6659d76f860e3ae48337ca7350e52a39ddd254",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-59/eeg/sub-59_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-59/eeg/sub-59_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "bbf686b06fa1f21e4e6df93becf777b2e1a70faf06c25eb864659c38e1ab1bae",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-59/eeg/sub-59_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "8cad3542706e6dada981ba67f776dcc452892b25",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-59/eeg/sub-59_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-59/eeg/sub-59_task-R2acquisition_eeg.edf",
+      "bytes": 14772722,
+      "sha256": "dd3626c31d6b305a0cf2dcd6dbb20b44eb6ab4720a7a95acadb506a02edf9b1a",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-59/eeg/sub-59_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "51afc5f97f404743f4712e042450ce1e4bfdd7c1",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-60/eeg/sub-60_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-60/eeg/sub-60_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "044b97e51f96753a771b5616e5b9212ba435496cffe147862ac95ddaac8780d6",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-60/eeg/sub-60_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "d054010d0cef0131531d20604aa6650d53725566",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-60/eeg/sub-60_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-60/eeg/sub-60_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "a2a28697360c192754cc7cc9abec980ae6dd40484e78d6e3c9d4ea94631dcbea",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-60/eeg/sub-60_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "b1c4e1cd47942ec568483583e6651da95d21fa61",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-61/eeg/sub-61_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-61/eeg/sub-61_task-R1acquisition_eeg.edf",
+      "bytes": 13523206,
+      "sha256": "842de0241dc1ebba62fc9c16a2e7e628e41d1acf1a01d1df98a5785c666224dc",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-61/eeg/sub-61_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "3e8433b0e8f4ffd8ca7a112f23a25b874128039b",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-61/eeg/sub-61_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-61/eeg/sub-61_task-R2acquisition_eeg.edf",
+      "bytes": 13523206,
+      "sha256": "d3e1f6c77c8df8dbd49da614400fd7f319acc1f3c0dbaec71ca393660a254a69",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-61/eeg/sub-61_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "0ed2853b0a583781e4b0d3138712cd695452e6be",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-62/eeg/sub-62_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-62/eeg/sub-62_task-R1acquisition_eeg.edf",
+      "bytes": 13523206,
+      "sha256": "e9b7db7066af6807249fb6f78993da187b8da58035b79296c8797094a9d243b7",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-62/eeg/sub-62_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "fa0e1b203d7cca6187a4f6ea1898e676f4f30b14",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-62/eeg/sub-62_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-62/eeg/sub-62_task-R2acquisition_eeg.edf",
+      "bytes": 13523206,
+      "sha256": "ef10c2f50b525d79323b8c97dea193aa405337e49a911feed82d643cb4533370",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-62/eeg/sub-62_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "97ec7b7351eda05a95efbab18db6995a59fe871f",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-63/eeg/sub-63_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-63/eeg/sub-63_task-R1acquisition_eeg.edf",
+      "bytes": 13523206,
+      "sha256": "82fd11cdb736d9074c096ee7b9ba7cbcb98cf1bdbd3b699de9556887581bf0b4",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-63/eeg/sub-63_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "66ded91b6329a791456a2dc07e0d4958494aa9ce",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-63/eeg/sub-63_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-63/eeg/sub-63_task-R2acquisition_eeg.edf",
+      "bytes": 13523206,
+      "sha256": "d47d93ad0b7e891150db1cd13d027c76be16727d9e49d1b3c972d02b05bb6bf1",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-63/eeg/sub-63_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "9ca39d716e8c61a1258b31e96775a65c08669b09",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-64/eeg/sub-64_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-64/eeg/sub-64_task-R1acquisition_eeg.edf",
+      "bytes": 13523206,
+      "sha256": "005469f52c17456a32e7abedf004d838d82f4fb13e8965ca98352f700700dcc9",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-64/eeg/sub-64_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "41ba089e4d85403aa2f1e96b7651a2733a06db82",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-64/eeg/sub-64_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-64/eeg/sub-64_task-R2acquisition_eeg.edf",
+      "bytes": 13523206,
+      "sha256": "76291be8e627a42bb1018954a92b853bb5eb348220a0191b790e0a894fb14923",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-64/eeg/sub-64_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "363f7cfb158f67f849973771abec15f3f461f7b7",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-65/eeg/sub-65_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-65/eeg/sub-65_task-R1acquisition_eeg.edf",
+      "bytes": 13523206,
+      "sha256": "ca061e098dddf43ae65a118223e9fb93626418c87e9bdbfda1950366cb521cfe",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-65/eeg/sub-65_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "497e83309a0dbf7f9797c9e8dac1568f4608137e",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-65/eeg/sub-65_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-65/eeg/sub-65_task-R2acquisition_eeg.edf",
+      "bytes": 13523206,
+      "sha256": "1ffdb52ac551599ac93eca7764ef2a1998366c49bd06ab07a47850c8ec1e491c",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-65/eeg/sub-65_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "e54964423f740e1b831994176d21873ce8739c1a",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-66/eeg/sub-66_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-66/eeg/sub-66_task-R1acquisition_eeg.edf",
+      "bytes": 13523206,
+      "sha256": "fc173e05b90a0f6105b5f681c8844a7347cfae015612f98a0b7e3b93e590a9d1",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-66/eeg/sub-66_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "36d4d6cc895d930c3128eeb8f02fac1ebd2a8b51",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-66/eeg/sub-66_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-66/eeg/sub-66_task-R2acquisition_eeg.edf",
+      "bytes": 13523206,
+      "sha256": "beb160170d5ce77e8341f3704966fcec35362d40c7c164d5830b1980ff5ea973",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-66/eeg/sub-66_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "ca08d3f5b005a7f0d91b79c26730e924d986987c",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-67/eeg/sub-67_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-67/eeg/sub-67_task-R1acquisition_eeg.edf",
+      "bytes": 13523206,
+      "sha256": "df5112b643d71eab58e9891303046d8f06f6154440ba94d347fbea339b9d5e82",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-67/eeg/sub-67_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "17a2311125a3078b5bd5ab26ec58485f08829559",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-67/eeg/sub-67_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-67/eeg/sub-67_task-R2acquisition_eeg.edf",
+      "bytes": 13523206,
+      "sha256": "d2fbf1cedbfcf828ff28286af6a4b0a57f933fa122f5e9621a53bdcdf38e447e",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-67/eeg/sub-67_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "a852e60a92818fe20fe1ae627f2a6538ae9fcacf",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-68/eeg/sub-68_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-68/eeg/sub-68_task-R1acquisition_eeg.edf",
+      "bytes": 13523206,
+      "sha256": "941267f1618ad7791465e9ec8f2fddedc6b0fdbde8e67f809bad2fcfe3845b0b",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-68/eeg/sub-68_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "5483ebaea4a685dc7eba85265538bae11bb526c1",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-68/eeg/sub-68_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-68/eeg/sub-68_task-R2acquisition_eeg.edf",
+      "bytes": 13523206,
+      "sha256": "92a13fccca59cb425624d455548c020125d86a5dd832969da1c64a83fc42867e",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-68/eeg/sub-68_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "571f9d4f5b1bdc0b6abef890815613864bfb0d1d",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-69/eeg/sub-69_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-69/eeg/sub-69_task-R1acquisition_eeg.edf",
+      "bytes": 13523206,
+      "sha256": "b17a96b3c9b96552fcc1d55216cd23ae68fc4c149a69abee83650329673d79c8",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-69/eeg/sub-69_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "00a202aff44c8c17fb19c5be9ad428b6480b6aa0",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-69/eeg/sub-69_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-69/eeg/sub-69_task-R2acquisition_eeg.edf",
+      "bytes": 13523206,
+      "sha256": "f74c59947d5470f2d2d7fad4f27b261f4af859ec1a57ee8c7f8d041d9edd39bb",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-69/eeg/sub-69_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "05340175e58d00b866f4774a72918bc075540320",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-70/eeg/sub-70_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-70/eeg/sub-70_task-R1acquisition_eeg.edf",
+      "bytes": 13523206,
+      "sha256": "016b56f1a46de270bd49e65aa1607a7311f944dde197909042af71e15dab78cc",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-70/eeg/sub-70_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "a515ebdecc4e5a9243683b8e2fc9b18dea76c36a",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-70/eeg/sub-70_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-70/eeg/sub-70_task-R2acquisition_eeg.edf",
+      "bytes": 13523206,
+      "sha256": "165b0cc3d4ade1873fcbd1bca9ed31219462d03ae238eb96ee5df129a1e07688",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-70/eeg/sub-70_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "c8cc5e15c94e6a10c562aa27167cc874f242a9e0",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-71/eeg/sub-71_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-71/eeg/sub-71_task-R1acquisition_eeg.edf",
+      "bytes": 13523206,
+      "sha256": "39d1f63a7f38a798ae9ad7a66016695ab58c441baf840c3189bbd4e2fc722ada",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-71/eeg/sub-71_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "cb20faff7590ca77c25b6d60c518a5a208e0fda2",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-71/eeg/sub-71_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-71/eeg/sub-71_task-R2acquisition_eeg.edf",
+      "bytes": 13523206,
+      "sha256": "fa6430cee4c365a3475ce0b8a29d3b1d43ca15db17cc635e7cac29c8bf085a9a",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-71/eeg/sub-71_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "9af8a6dacdf80117fa02c08fa51099df8128beed",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-72/eeg/sub-72_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-72/eeg/sub-72_task-R1acquisition_eeg.edf",
+      "bytes": 13523206,
+      "sha256": "b6c1523123ec9e08a0115a15db042b7d59ae4d4027ad8196a06ae482b04a9e67",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-72/eeg/sub-72_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "3c9fd26b62d1bf8909b33da59cf241ce78b9e7f3",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-72/eeg/sub-72_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-72/eeg/sub-72_task-R2acquisition_eeg.edf",
+      "bytes": 13523206,
+      "sha256": "9530417bcd1f92fa60e429280aa4439aa75662d890b1bf4dd35607084a41ef9d",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-72/eeg/sub-72_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "02f8d241f828c8c2ae06975f5f252b568dd09402",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-73/eeg/sub-73_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-73/eeg/sub-73_task-R1acquisition_eeg.edf",
+      "bytes": 13523206,
+      "sha256": "4d1f355856b057e47f8df2661b92c9aa84be2b608eac6ec4aa418a304f3d5170",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-73/eeg/sub-73_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "21b99f23eede774a9486356a965c4339182a21ee",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-73/eeg/sub-73_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-73/eeg/sub-73_task-R2acquisition_eeg.edf",
+      "bytes": 13523206,
+      "sha256": "f0cc1635ea6ca799c29987ed2e6e8a8cc854e8a2b962e67602f91e6054d5e90e",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-73/eeg/sub-73_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "4227563c1d78bd0f30ed96739cfc5f1f160cb820",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-74/eeg/sub-74_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-74/eeg/sub-74_task-R1acquisition_eeg.edf",
+      "bytes": 13523206,
+      "sha256": "6a516eb3ae9594e29ba384a91bb39d5c53b5b07ee83cd59077dda8203d7b1d67",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-74/eeg/sub-74_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "7d3899ecccba80000f0bd3b0a66bd11e761440e6",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-74/eeg/sub-74_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-74/eeg/sub-74_task-R2acquisition_eeg.edf",
+      "bytes": 13523206,
+      "sha256": "85ee1c76821618ed75d69d3abdcd3c33e075ca0260ceb296cc91769664c79c3f",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-74/eeg/sub-74_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "70943033348ca8009309b5414990b976eb4a13dd",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-75/eeg/sub-75_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-75/eeg/sub-75_task-R1acquisition_eeg.edf",
+      "bytes": 13523206,
+      "sha256": "21193e5efd21ad115a5cbda309da36990feca4199f85114b9f2805dddfb5b20c",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-75/eeg/sub-75_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "a826e1e22d324e6048399761aaa507280a19ac5c",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-75/eeg/sub-75_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-75/eeg/sub-75_task-R2acquisition_eeg.edf",
+      "bytes": 13523206,
+      "sha256": "fd8b91256abf1b31ff1bd20fc81b7353e66536457e3d6deeb7778ebcd03be6b7",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-75/eeg/sub-75_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "5cebf51809f9fce32ab9f0f62b03ad570cf45b81",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-76/eeg/sub-76_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-76/eeg/sub-76_task-R1acquisition_eeg.edf",
+      "bytes": 13523206,
+      "sha256": "29428768dae636ae9e77b5d8c4a83d61cba28c5bc4f1c287978036bc21344d58",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-76/eeg/sub-76_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "ee2f19d7279e002ec323435d662da04494aefd82",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-76/eeg/sub-76_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-76/eeg/sub-76_task-R2acquisition_eeg.edf",
+      "bytes": 13523206,
+      "sha256": "9eceb169ffca13b55b882a43a9f516a6eb9dea04dbdeaa053ea8d9e361943412",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-76/eeg/sub-76_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "db5e5ff71394d2b842bad4562e9ac08525e8c7bb",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-77/eeg/sub-77_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-77/eeg/sub-77_task-R1acquisition_eeg.edf",
+      "bytes": 13523206,
+      "sha256": "290b0896741b299ed28e02311dbca8cbc4306e06d8bf2d7f6998d63867f0aae3",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-77/eeg/sub-77_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "9add57df43447eeee07d3b68208e27d9fd03c679",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-77/eeg/sub-77_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-77/eeg/sub-77_task-R2acquisition_eeg.edf",
+      "bytes": 13523206,
+      "sha256": "8ce31bbe74f9e9a6dc23d3e6036e2265f96028006e64de37dc44dab197a7abb0",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-77/eeg/sub-77_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "50f58dd0341ffe1db8aacf0d8b3764081b2af1e5",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-78/eeg/sub-78_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-78/eeg/sub-78_task-R1acquisition_eeg.edf",
+      "bytes": 13523206,
+      "sha256": "b4dfb3859578159f873f0ea9a1c7544fb5778eb4ea028af5a364106a578683e8",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-78/eeg/sub-78_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "7f1e71c4d264ce86f66fb52f686685d2022c416f",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-78/eeg/sub-78_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-78/eeg/sub-78_task-R2acquisition_eeg.edf",
+      "bytes": 13523206,
+      "sha256": "c369042423ad6c3f7b5e9b79f0d07079316ca0c8d8832e0699eca853838f1e64",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-78/eeg/sub-78_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "01754bc7d8dca552ab0ef6d84fdc1915da5edfbf",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-79/eeg/sub-79_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-79/eeg/sub-79_task-R1acquisition_eeg.edf",
+      "bytes": 13523206,
+      "sha256": "634fe390a071a178c8dbbb49438fb38038d9204dea77836faf5a3640942d2bc0",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-79/eeg/sub-79_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "2b4c4e680272f5c385346b699f90260cedff61a9",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-79/eeg/sub-79_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-79/eeg/sub-79_task-R2acquisition_eeg.edf",
+      "bytes": 13523206,
+      "sha256": "f25b1d94fe8b178198037a0f249c5e4aeb444000eecbeb492a73872953cfcab3",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-79/eeg/sub-79_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "384e1905a732dae885cbca7222e3972580776612",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-80/eeg/sub-80_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-80/eeg/sub-80_task-R1acquisition_eeg.edf",
+      "bytes": 13523206,
+      "sha256": "a5492727a08545609dfe2ebba41b836f45bf9cc118e1383cf92259b909c88740",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-80/eeg/sub-80_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "2d0f923f543679ca7ce11598b276f71c36667bb2",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-80/eeg/sub-80_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-80/eeg/sub-80_task-R2acquisition_eeg.edf",
+      "bytes": 13523206,
+      "sha256": "fde43d72dd4916100286aa68d9f16bb5e068576220f4be1f51063e805b7bc70d",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-80/eeg/sub-80_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "0e0cc1bf6251d098e2e6c2e971b89df419fb1f6c",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-81/eeg/sub-81_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-81/eeg/sub-81_task-R1acquisition_eeg.edf",
+      "bytes": 13523206,
+      "sha256": "7dc27ec260c12e290124c35851cda3ffb88f616fc8753fac2dca355d4d2246c0",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-81/eeg/sub-81_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "e8ac8540ceb46cde23e81205ddcbba38287c0327",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-81/eeg/sub-81_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-81/eeg/sub-81_task-R2acquisition_eeg.edf",
+      "bytes": 13523206,
+      "sha256": "806d470dc24abef70bec62b5fd8cadc23ffac6f9ab8a4ac036839026d9525700",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-81/eeg/sub-81_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "f4df5f414cc066c4d64e9ccedb5081885f356d9b",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-82/eeg/sub-82_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-82/eeg/sub-82_task-R1acquisition_eeg.edf",
+      "bytes": 13523206,
+      "sha256": "2ca2c7e68baeaee0484a042f62d2c2ef165aef3c7520909924b9bf4ff64d2d8f",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-82/eeg/sub-82_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "d54647e6ed694abf7558d4d02756a66cbbab3b46",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-82/eeg/sub-82_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-82/eeg/sub-82_task-R2acquisition_eeg.edf",
+      "bytes": 13523206,
+      "sha256": "1e29a85ccb848c8cbd7fad0d6ba9aa97c5ffd4453789eb991fb7aa7f1cbcfc7a",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-82/eeg/sub-82_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "0533d9919656fbfefbe71ddf83c3bd4527b26495",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-83/eeg/sub-83_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-83/eeg/sub-83_task-R1acquisition_eeg.edf",
+      "bytes": 14871368,
+      "sha256": "c08471e672a6cda7a08e4f8c1feaf69047d08e46acdaee4561870847b21e21ca",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-83/eeg/sub-83_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "e86e37b5e947113a77f45a71632c6e92fd974526",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-83/eeg/sub-83_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-83/eeg/sub-83_task-R2acquisition_eeg.edf",
+      "bytes": 14871368,
+      "sha256": "1c35aa1c3bf2450c61a94321a913f93b0658653216c36f417ba8e8c8a11d6360",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-83/eeg/sub-83_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "2502dac909294a7df1ae56da60c075e2a3b668f9",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-84/eeg/sub-84_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-84/eeg/sub-84_task-R1acquisition_eeg.edf",
+      "bytes": 13523206,
+      "sha256": "c7cf2c900e44c0c20f4b5167f470710698db40ca63ccdf48ebd3936531c778ce",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-84/eeg/sub-84_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "2df1e2f6353142b853093ad2a1a2401709e73a6a",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-84/eeg/sub-84_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-84/eeg/sub-84_task-R2acquisition_eeg.edf",
+      "bytes": 13523206,
+      "sha256": "82bb1c9dfcaf8c409cd7b0c8128e5e6080d0482aa4026fd08fff07cad8d26ea6",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-84/eeg/sub-84_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "26deda27b6e75e0cc57212f8e7eb98d6172efbe3",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-85/eeg/sub-85_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-85/eeg/sub-85_task-R1acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "f5b10a41b96fc91b95cd59ea665399ac494cdb92565ca63e50dd0ac64142565b",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-85/eeg/sub-85_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "b5a88976daeaf17044cdacdffdf6594785404638",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-85/eeg/sub-85_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-85/eeg/sub-85_task-R2acquisition_eeg.edf",
+      "bytes": 14838486,
+      "sha256": "903ea643a1d28fb6a7c6b248e8b8e7869ee77f4273d0e5986e47c713bbcd13e6",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-85/eeg/sub-85_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "b813bec038d89298858f4c8966b40e9bff96cfd3",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-86/eeg/sub-86_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-86/eeg/sub-86_task-R1acquisition_eeg.edf",
+      "bytes": 13523206,
+      "sha256": "f58e97813c24babf2bfac355be38ce0c5e8b482165c502d8f34d78b158c897b3",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-86/eeg/sub-86_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "06cc70793162a9dd744c64b36c395159e992e543",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-86/eeg/sub-86_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-86/eeg/sub-86_task-R2acquisition_eeg.edf",
+      "bytes": 13523206,
+      "sha256": "ef8074ce111224033e0d683150e80e1f0fcfb9741b045da70f73c54d2411cca8",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-86/eeg/sub-86_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "89fb251575cda8a8853f3c50521b9e7f88d8791e",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-87/eeg/sub-87_task-R1acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-87/eeg/sub-87_task-R1acquisition_eeg.edf",
+      "bytes": 13523206,
+      "sha256": "4d0749ca8be9aebcbdb65b6ca853a790d822a3adbaff39c09e7a238409b851d0",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-87/eeg/sub-87_task-R1acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "e9c6c91aa303018bdb90bb4888a22d04a64d724d",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    },
+    {
+      "provider_path": "sourcedata/sub-87/eeg/sub-87_task-R2acquisition_eeg.edf",
+      "restore_relative_path": "dreyer_acquisition/sourcedata/sub-87/eeg/sub-87_task-R2acquisition_eeg.edf",
+      "bytes": 13523206,
+      "sha256": "9c1e7f650057536664490119b8b21d5cf5eddd68807d7793a66fd4859394fb3d",
+      "provider_url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-87/eeg/sub-87_task-R2acquisition_eeg.edf",
+      "provider_git_annex_pointer_blob_sha1": "4806298147ccaea785a58006467c3d850f1cde67",
+      "r2_object_key": null,
+      "r2_upload_receipt": null
+    }
+  ],
+  "actions": {
+    "pod_operated": false,
+    "network_calls": 0,
+    "r2_calls": 0,
+    "credentials_read": false,
+    "raw_eeg_opened": false,
+    "raw_eeg_downloaded": false,
+    "target_outcomes_read": false,
+    "packages_installed": false,
+    "diagnostic_or_acceptance_rerun": false,
+    "new_gpu_fits": 0,
+    "training_authorization": false
+  }
+}

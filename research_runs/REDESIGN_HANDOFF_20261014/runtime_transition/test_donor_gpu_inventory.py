@@ -187,3 +187,45 @@ def test_default_site_approval_requires_measured_prefix_and_site_suffix(tmp_path
     assert inventory.approved_site(tmp_path / "base/lib/python3.12/dist-packages")
     assert not inventory.approved_site(tmp_path / "unrelated/lib/python3.12/site-packages")
     assert not inventory.approved_site(tmp_path / "base/foreign-directory")
+
+
+def test_distro_usr_prefix_accepts_current_minor_local_dist_packages_and_generic_python3(monkeypatch):
+    monkeypatch.setattr(inventory.sys, "prefix", "/usr")
+    monkeypatch.setattr(inventory.sys, "base_prefix", "/usr")
+    monkeypatch.setattr(inventory.sys, "version_info", (3, 12, 3))
+    assert inventory.approved_site("/usr/local/lib/python3.12/dist-packages")
+    assert inventory.approved_site("/usr/lib/python3/dist-packages")
+    assert not inventory.approved_site("/workspace/.venvs/paper2-gpu/lib/python3.11/site-packages")
+
+
+@pytest.mark.parametrize("foreign_minor", ["python3.11", "python3.13", "python2.7"])
+def test_same_measured_prefix_does_not_authorize_foreign_explicit_python_minor(monkeypatch, foreign_minor):
+    monkeypatch.setattr(inventory.sys, "prefix", "/usr")
+    monkeypatch.setattr(inventory.sys, "base_prefix", "/usr")
+    monkeypatch.setattr(inventory.sys, "version_info", (3, 12, 3))
+    assert not inventory.approved_site(f"/usr/local/lib/{foreign_minor}/dist-packages")
+    assert not inventory.approved_site(f"/usr/lib/{foreign_minor}/site-packages")
+
+
+def test_version_like_name_of_measured_prefix_is_not_mistaken_for_site_abi(tmp_path, monkeypatch):
+    prefix = tmp_path / "python3.11"
+    monkeypatch.setattr(inventory.sys, "prefix", str(prefix))
+    monkeypatch.setattr(inventory.sys, "base_prefix", "/usr")
+    monkeypatch.setattr(inventory.sys, "version_info", (3, 12, 3))
+    assert inventory.approved_site(prefix / "lib/python3.12/site-packages")
+
+
+@pytest.mark.parametrize("name", ["torch", "torchaudio", "triton"])
+def test_missing_critical_package_entrypoint_cannot_be_omitted_from_binding(donor, name):
+    site, _ = donor
+    (site / name / "__init__.py").unlink()
+    with pytest.raises(ValueError, match="donor_critical_module_path_unsafe:" + name):
+        inventory.inspect_donor()
+
+
+@pytest.mark.parametrize("name", ["torch", "torchaudio", "triton"])
+def test_broken_critical_version_symlink_is_not_silently_omitted(donor, name):
+    site, _ = donor
+    (site / name / "version.py").symlink_to(site / "does-not-exist.py")
+    with pytest.raises(ValueError, match="donor_critical_module_path_unsafe:" + name):
+        inventory.inspect_donor()

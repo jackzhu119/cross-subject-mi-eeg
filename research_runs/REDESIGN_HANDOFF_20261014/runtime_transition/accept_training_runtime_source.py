@@ -83,6 +83,7 @@ def run(args):
     wrapper_rel = str(Path(__file__).relative_to(ROOT))
     if Path(__file__).read_bytes() != subprocess.check_output(['git', '-C', str(ROOT), 'show', args.code_revision + ':' + wrapper_rel]):
         raise ValueError('uncommitted_runtime_acceptance_wrapper')
+    permit = runtime.arm_priority(getattr(args, 'priority_receipt', None), 'source_cpu_acceptance')
     if args.runtime_receipt.is_symlink():
         raise ValueError('runtime_receipt_symlink')
     receipt = json.loads(args.runtime_receipt.read_text())
@@ -94,6 +95,7 @@ def run(args):
     if runtime.identity(observed) != runtime.identity(receipt['donor_post_metadata']):
         raise ValueError('gpu_donor_changed_since_runtime_preparation')
     imports = exact_imports(receipt)
+    runtime.priority_checkpoint()
     from importlib.util import spec_from_file_location, module_from_spec
     path = ROOT / 'research_runs/REDESIGN_HANDOFF_20261014/formal_numerical_execution/accept_source_numerics.py'
     spec = spec_from_file_location('actual_runtime_source_acceptance', path)
@@ -102,6 +104,7 @@ def run(args):
     # The existing implementation calls training.load_source19 on CPU and
     # separately audits the exact full diagnostic private package, never target.
     code = acceptance.run(args)
+    runtime.priority_checkpoint()
     final = runtime.donor_observation(Path(receipt['donor_metadata']['donor_python']))
     if runtime.identity(final) != runtime.identity(observed):
         raise ValueError('gpu_donor_changed_during_source_acceptance')
@@ -111,6 +114,7 @@ def run(args):
         raise ValueError('training_runtime_source_or_private_package_gate_pending')
     bound = {'status': 'ACTUAL_TRAINING_RUNTIME_SOURCE_MATCH_REVIEW_AND_RECOVERY_PENDING',
         'code_revision': args.code_revision, 'runtime_receipt_sha256': runtime.sha(args.runtime_receipt),
+        'paper2_priority_receipt_sha256': permit.receipt_sha256,
         'formal_source_acceptance_sha256': runtime.sha(report_path),
         'private_full_package_sha256': acceptance.FULL_PACKAGE_SHA,
         'imported_packages': imports, 'GPU_donor_metadata_unchanged': True,
@@ -118,6 +122,7 @@ def run(args):
         'target_EEG_read': False, 'new_fits': 0, 'training_authorization': False,
         'old_task_transition_authorized': False, 'budget_transition_authorized': False,
         'checkpoint_and_backup_transition_verified': False, 'target_restoration_verified': False}
+    runtime.priority_checkpoint()
     runtime.emit(args.output_dir / 'runtime_bound_acceptance.json', bound)
     print(json.dumps(bound, indent=2))
 
@@ -130,6 +135,7 @@ def main():
     p.add_argument('--output-dir', type=Path, required=True)
     p.add_argument('--diagnostic-package', type=Path, required=True)
     p.add_argument('--old-work-root', type=Path)
+    p.add_argument('--priority-receipt', type=Path, required=True)
     run(p.parse_args())
 
 
