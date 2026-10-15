@@ -1,5 +1,9 @@
 # Paper 1 recovery preparation — 15 October 2026
 
+## Current source failure repair — do not repeat run01
+
+Source restore run01 actually failed with outer exit3. The stale RUNNING11-row receipt is not success. Follow [SOURCE_RESTORE_REPAIR.md](repaired_acceptance/SOURCE_RESTORE_REPAIR.md) and its fixed pin for one new failure-bound claim, exact12-file reuse and only6 missing GETs. Step B remains blocked until actual18/18 and observed outer exit0. No environment/scientific change or financial review is required.
+
 ## Current: narrow author supersession of financial prerequisites
 
 For the existing source restore/CPU acceptance only, financial execution prerequisites are **superseded-by-user**, not passed. Do not wait for billing or balance. Use [the minimal amendment and two-stage commands](repaired_acceptance/FINANCIAL_SUPERSESSION.md) and its fixed pin. Historical accounts, unknowns and failures remain intact; all time/resource/scientific controls remain unchanged. The older dollar-review instructions below are superseded for these two operations.

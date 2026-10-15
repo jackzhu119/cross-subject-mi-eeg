@@ -1,5 +1,7 @@
 # Fixed supersession delivery for dot
 
+> **Source run01 has now failed:** this authorization history remains valid, but do not rerun its source entry/claim. Use [SOURCE_RESTORE_REPAIR_PIN.md](SOURCE_RESTORE_REPAIR_PIN.md) for the new single repair and updated acceptance provenance. No Step B until actual18/18 and observed outer exit0.
+
 Execution commit: **`0603c43fb082d7a63234ccbf5da849c5c2264687`** on `research/paper1-handoff-20261014`.
 All15 changed files passed immutable public byte readback;84 focused gate tests passed.
 Only the gate/template authorization changes. Both execution scripts and the original48-hour record retain their exact709a213c bytes.

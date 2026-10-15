@@ -1,0 +1,72 @@
+{
+  "status": "FAILURE_BOUND_SOURCE_REPAIR_CODE_READY_NOT_EXECUTED",
+  "checked_at_utc": "2026-10-15T06:29:17.768032+00:00",
+  "previous_handoff_commit": "ebc8c3ab35f5faf4adab4c4636a7c36919007e1b",
+  "original_failed_execution_revision": "0603c43fb082d7a63234ccbf5da849c5c2264687",
+  "original_failure_archive": {
+    "bytes": 26831,
+    "sha256": "89f8b8b05dc2b94a97038e6800fb94238081e63657e2b1492361da2aa4d7c536",
+    "payloads_verified": 27
+  },
+  "original_outer_exit": 3,
+  "original_receipt_still_RUNNING": true,
+  "original_specific_missing_path_proven": false,
+  "repair_candidate": "bounded allocation remeasurement of exact receipt tmp/partial publication races; not established original root cause",
+  "present_cache_evidence_class": "12 source whole-file SHA matches reported in original postflight metadata; no MAT bytes in archive; controller must rehash all12 actual files before GET",
+  "present_files": 12,
+  "present_bytes": 513941297,
+  "missing_files": 6,
+  "missing_bytes": 265932622,
+  "source_full_files": 18,
+  "source_full_bytes": 779873919,
+  "tests": {
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "test_command": "/workspace/mi-eeg-cloud-cpu28-tests/bin/python -B -m pytest -q research_runs/REDESIGN_HANDOFF_20261015/repaired_acceptance/test_source_owned_measurement.py --junitxml=/workspace/mi-eeg-redesign-qa-20261012/source-repair-owned-measurement-tests.xml",
+  "junit_sha256": "1488029f432e7c980e3c870765e56bcbffaef17b9f53faf278999a9eace5bedd",
+  "code_sha256": {
+    "restore_source_after_failure_once.py": "b07902555e0f07efbdb4ee17e34ea25a1f4cc70a74b6dcb86014381966a7c3fb",
+    "source_owned_measurement.py": "96221076dc8d13c5f30dca4c271c971935af671061498486aa018aaf6c553582",
+    "RUN_SOURCE_RESTORE_REPAIR_ONCE.sh": "8b4c49fd857525bf79ede17007e24f087fe2cf7219e296191512f379c8fd89d8",
+    "accept_repaired_runtime_source.py": "96de59deb33cb7b353b9fb197f450807fdd967eb36ed6165d708ef144456d279",
+    "test_source_owned_measurement.py": "51058b38f9e4da7885f471b4376408653a2c63dcb755edf9d72a00a96eb30935"
+  },
+  "unchanged_old_delivery_sha256": {
+    "restore_source_once.py": "2ee6355f51b29bbeedd30f8422c078af76615c26873e16826156ebc015d7f220",
+    "acceptance_gate.py": "579067cf8eab2d3e6d20a00f54bc303f619796db04df9bd33eee4fdea066f528",
+    "AUTHOR_CPU_RECOVERY_48H_20261015.json": "ae0ee5135586a7c49bfd690946120455367b14d2c1426c5f7217347bedd12fb5",
+    "AUTHOR_FINANCIAL_SUPERSESSION_20261015.json": "d3a4e670332a9bf158da98abae0ab84702d092018c6043cbc36bf4f3f5fb7d90"
+  },
+  "unchanged_numerical_policy_sha256": "04f562ddddc4e5019e56240b980d6d9c2d78645860857a5ab0d9746e788ae476",
+  "acceptance_adapter_change": "Only explicit new repaired receipt/failure/journal/outer-exit provenance branch and postcheck; existing exact import/source numerical acceptor is unchanged.",
+  "independent_static_review": "No blocking findings on final controller/meter/wrapper/acceptance provenance; final SHA constants synchronized.",
+  "ast_syntax": "passed",
+  "wrapper_bash_syntax": "passed",
+  "documented_bash_blocks_checked": 2,
+  "metadata_only_CLI_and_failure_package_binding_smoke": "passed; no run() call",
+  "bounded_measurement_total_scans": 3,
+  "ordinary_missing_files_ignored": false,
+  "repair_claim_limit": 1,
+  "automatic_retry": false,
+  "restore_wall_seconds": 1200,
+  "CPU_acceptance_wall_seconds": 300,
+  "financial_preconditions_status": "superseded-by-user",
+  "new_cost_or_balance_analysis": false,
+  "old_failure_records_or_claim_overwritten": false,
+  "CPU_window_UTC": [
+    "2026-10-15T05:07:25Z",
+    "2026-10-17T05:07:25Z"
+  ],
+  "GPU_deadline_UTC": "2026-10-16T09:54:00Z",
+  "actual_source_repair_success_observed": false,
+  "Step_B_authorized_by_code_tests": false,
+  "Pod_operations": false,
+  "installation": false,
+  "new_EEG_reads": false,
+  "new_fits": 0,
+  "scientific_diagnostics_repeated": false,
+  "frozen_scientific_inputs_or_results_changed": false
+}

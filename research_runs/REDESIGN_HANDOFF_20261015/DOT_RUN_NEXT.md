@@ -1,5 +1,7 @@
 # 当前唯一执行交接：复用已修复环境，先取得真实验收
 
+> **Current source correction:** run01 failed and its claim is consumed. Do not repeat the old restore command or start Step B from its RUNNING receipt. Use [the new failure-bound repair entry and explicit acceptance bridge](repaired_acceptance/SOURCE_RESTORE_REPAIR.md). Financial supersession remains in force; all technical/time/resource/scientific gates remain.
+
 > **Current correction:** Financial execution prerequisites below are superseded-by-user for source_raw_restore/source_cpu_acceptance. Do not wait for billing or balance. Use [the narrow amendment and exact two-stage commands](repaired_acceptance/FINANCIAL_SUPERSESSION.md) with its new fixed pin. Earlier dollar-review wording is historical; it is not a condition for these two operations. All technical/resource/Paper2 and no-fit boundaries remain.
 
 此页合并当前步骤，避免重复安装或另起任务。**交给 dot 执行；本助手没有

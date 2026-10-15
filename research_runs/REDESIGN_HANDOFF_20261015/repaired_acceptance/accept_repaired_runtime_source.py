@@ -33,6 +33,9 @@ JOURNAL_SHA = 'db82e716e22ce7bcf48e6d7908f279b4b8a5ae9ececbd67714ec083d6aa89b0d'
 FULL_SHA = '2871f422755bf5d0b939d0db59fc41547b192d6c939db1a6a13b97a91ba49ae9'
 FORMAL_SHA = 'a4c6c3f7beadf6ce0c927c6e4b9d20b6d37ff3bc2c033ad4b4fd836ca38a6b0d'
 MANIFEST_SHA = 'e553d65cd86e5309e077ccfea21a9bee6020c5d9d5040de12089c2b859770b86'
+SOURCE_FAILURE_SHA = '89f8b8b05dc2b94a97038e6800fb94238081e63657e2b1492361da2aa4d7c536'
+SOURCE_REPAIR_CONTROLLER_SHA = 'b07902555e0f07efbdb4ee17e34ea25a1f4cc70a74b6dcb86014381966a7c3fb'
+SOURCE_REPAIR_WRAPPER_SHA = '8b4c49fd857525bf79ede17007e24f087fe2cf7219e296191512f379c8fd89d8'
 REQ_SHA = '7322d4f85f25064ef8c29efa502c67417fc9b8a0d3297692263c1e618804769a'
 BASE_OWNED = 869490688
 HISTORICAL_ENV_DU = 869425152
@@ -218,9 +221,63 @@ def verify_source_files(data_dir, code_dir):
 
 
 
+def source_repair_provenance(data_dir, raw, receipt, gate):
+    """A repaired success cannot replace the failed run01 or omit actual exit."""
+    if str(no_symlink(data_dir)) != '/workspace/paper1-source-recovery-run01':
+        raise ValueError('source_repair_must_use_exact_same_cache')
+    old = {'source_restore_run01.json': '9042616a19d99fb67038749b33bff9d149e84d1dc825bc443f68c4bf07c37d0a',
+           'source_restore_run01.journal.jsonl': '67ca560b409de314537d046bf09101349852cdc8f0243ed5be845343798b30b8',
+           'source_restore_run01.log': hashlib.sha256(b'').hexdigest()}
+    for name, expected in old.items():
+        regular_bytes(data_dir / name, 131072, expected=expected)
+    if (receipt.get('prior_source_restore_failure_archive_sha256') != SOURCE_FAILURE_SHA
+            or receipt.get('prior_source_restore_receipt_sha256') != old['source_restore_run01.json']
+            or receipt.get('prior_source_restore_journal_sha256') != old['source_restore_run01.journal.jsonl']
+            or receipt.get('controller_sha256') != SOURCE_REPAIR_CONTROLLER_SHA
+            or receipt.get('old_task') != '20261014T071918Z-exploratory-89b0c07d'
+            or receipt.get('attempt') != 'source-restore-repair-run01'
+            or receipt.get('old_failure_receipt_overwritten') is not False):
+        raise ValueError('source_repair_prior_failure_and_controller_binding_required')
+    completion_raw = regular_bytes(data_dir / 'source_restore_repair_run01.completion.json', 16384)
+    completion = parse(completion_raw)
+    journal = regular_bytes(data_dir / 'source_restore_repair_run01.journal.jsonl', 2 * 1024**2)
+    outer = parse(regular_bytes(data_dir / 'source_restore_repair_run01.outer_exit.json', 16384))
+    if (completion.get('status') != 'SOURCE_RESTORE_REPAIR_CONTROLLER_VERIFIED_EXTERNAL_EXIT_REQUIRED'
+            or type(completion.get('worker_exit_code_observed')) is not int or completion['worker_exit_code_observed'] != 0
+            or completion.get('controller_process_exit_observed') is not False
+            or completion.get('receipt_sha256') != digest(raw) or completion.get('journal_sha256') != digest(journal)
+            or completion.get('controller_sha256') != SOURCE_REPAIR_CONTROLLER_SHA
+            or completion.get('source_root') != str(data_dir)
+            or completion.get('prior_source_restore_failure_archive_sha256') != SOURCE_FAILURE_SHA
+            or completion.get('training_authorization') is not False
+            or outer.get('status') != 'OBSERVED_SOURCE_REPAIR_PROCESS_EXIT'
+            or type(outer.get('exit_code')) is not int or outer['exit_code'] != 0
+            or outer.get('receipt_sha256') != digest(raw)
+            or outer.get('controller_completion_sha256') != digest(completion_raw)
+            or outer.get('wrapper_sha256') != SOURCE_REPAIR_WRAPPER_SHA
+            or outer.get('prior_source_restore_failure_archive_sha256') != SOURCE_FAILURE_SHA
+            or outer.get('training_authorization') is not False
+            or type(outer.get('new_fits')) is not int or outer['new_fits'] != 0
+            or outer.get('source_root') != str(data_dir)):
+        raise ValueError('source_repair_actual_outer_exit0_and_complete_bindings_required')
+    entries = [parse(line) for line in journal.splitlines()]
+    if (not entries or entries[0].get('phase') != 'single_repair_attempt_claimed'
+            or entries[-1].get('phase') != 'supervisor_verified_new_repair_no_training'):
+        raise ValueError('source_repair_failed_or_incomplete_journal')
+    reused = {r['filename'] for r in receipt['files'] if r.get('status') == 'REUSED_VERIFIED_CACHE'}
+    restored = {r['filename'] for r in receipt['files'] if r.get('status') == 'RESTORED_OFFICIAL_EXACT_BYTES'}
+    if reused != {f'A{i:02d}{s}.mat' for i in range(1,7) for s in 'ET'} or restored != {f'A{i:02d}{s}.mat' for i in range(7,10) for s in 'ET'}:
+        raise ValueError('source_repair_exact12_reuse_and6_restored_required')
+    times = [datetime.fromisoformat(value.replace('Z', '+00:00')) for value in
+             (completion['finished_at_utc'], outer['observed_at_utc'], gate.review['reviewed_at_utc'])]
+    if any(t.tzinfo is None or t.utcoffset().total_seconds() != 0 for t in times) or not times[0] <= times[1] <= times[2]:
+        raise ValueError('source_repair_acceptance_review_must_follow_observed_outer_exit')
+
+
 def source_restore_binding(path, data_dir, source_files, gate):
     path = no_symlink(path)
-    if path != no_symlink(data_dir) / 'source_restore_run01.json':
+    data_dir = no_symlink(data_dir)
+    if path not in {data_dir / 'source_restore_run01.json', data_dir / 'source_restore_repair_run01.json'}:
         raise ValueError('independent_source_restore_receipt_must_bind_actual_source_root')
     raw = regular_bytes(path, 128 * 1024)
     receipt = parse(raw)
@@ -250,6 +307,8 @@ def source_restore_binding(path, data_dir, source_files, gate):
         observed.append({key: row[key] for key in ('filename', 'bytes', 'sha256')})
     if sorted(observed, key=lambda row: row['filename']) != sorted(source_files, key=lambda row: row['filename']):
         raise ValueError('source_restore_receipt_does_not_match_actual_strict_source_bytes')
+    if path.name == 'source_restore_repair_run01.json':
+        source_repair_provenance(data_dir, raw, receipt, gate)
     finished = datetime.fromisoformat(receipt['finished_at_utc'].replace('Z', '+00:00'))
     reviewed = datetime.fromisoformat(gate.review['reviewed_at_utc'].replace('Z', '+00:00'))
     if (finished.tzinfo is None or finished.utcoffset().total_seconds() != 0
@@ -401,6 +460,8 @@ def run(args):
     repair_binding(args)  # Exact independent receipt/journal/config/manpage preservation.
     if digest(regular_bytes(args.source_restore_receipt, 128 * 1024)) != source_restore_sha:
         raise ValueError('new_source_restore_receipt_changed_during_acceptance')
+    if args.source_restore_receipt.name == 'source_restore_repair_run01.json':
+        source_restore_binding(args.source_restore_receipt, args.data_dir, source_files, gate)
     report_path = args.output_dir / 'formal_source_acceptance.json'
     report_data = regular_bytes(report_path, 2 * 1024**2)
     report = parse(report_data)

@@ -1,5 +1,7 @@
 # Current narrow amendment: financial preconditions superseded by user
 
+> **Current source correction:** actual source run01 failed. Preserve its RUNNING receipt and old claim; do not execute the old Stage A below. Follow [SOURCE_RESTORE_REPAIR.md](SOURCE_RESTORE_REPAIR.md) for the new one-shot repair. Stage B remains blocked until that repair completes18/18 with observed outer exit0. The financial supersession itself is unchanged.
+
 The author explicitly reports dot's question, “旧累计10美元门是否改为本次30分钟增量独立授权”,
 and the immediate author reply, **“别再计算这该死的费用了，把有关费用和钱的都移出去”**.
 The new immutable record is `AUTHOR_FINANCIAL_SUPERSESSION_20261015.json`, SHA256
