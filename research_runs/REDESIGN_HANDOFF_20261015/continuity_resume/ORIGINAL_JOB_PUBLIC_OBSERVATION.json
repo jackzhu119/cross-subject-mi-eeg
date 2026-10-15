@@ -1,0 +1,195 @@
+{
+  "schema_version": 1,
+  "status": "CURRENT_PUBLIC_OLD_JOB_SNAPSHOT_OBSERVED_PRIVATE_CONTINUITY_UNKNOWN",
+  "checked_at_utc": "2026-10-15T07:29:58.890040+00:00",
+  "repository": "jackzhu119/cross-subject-mi-eeg",
+  "branch": "redesign/run-20261014T071918Z-exploratory-89b0c07d",
+  "branch_head_readonly_ls_remote": "d612f0cc2bcca045ff1304bc95a87df76bfd4a82",
+  "old_job_id": "20261014T071918Z-exploratory-89b0c07d",
+  "original_science_revision": "05e683e91e2bb39b977970d04402221761e575d2",
+  "read_scope": {
+    "git_ls_remote_calls": 1,
+    "GitHub_tree_query": "fixed branch HEAD full recursive tree, truncated=false",
+    "raw_JSON_GETs": 7,
+    "Pod_operations": 0,
+    "R2_requests": 0,
+    "checkpoint_binary_reads": 0,
+    "EEG_reads": 0,
+    "Torch_imports": 0,
+    "cost_or_balance_analysis": false
+  },
+  "public_directory_exactly_seven_JSON_files": true,
+  "public_records_current_raw_sha256_rechecked": [
+    {
+      "name": "budget_authorization.json",
+      "path": "research_runs/REDESIGN_CLOUD_20261013/jobs/20261014T071918Z-exploratory-89b0c07d/budget_authorization.json",
+      "size": 890,
+      "git_blob_sha1": "eee297a480fb53365c5ef3b3520cef362767aafc",
+      "html_url": "https://github.com/jackzhu119/cross-subject-mi-eeg/blob/d612f0cc2bcca045ff1304bc95a87df76bfd4a82/research_runs/REDESIGN_CLOUD_20261013/jobs/20261014T071918Z-exploratory-89b0c07d/budget_authorization.json",
+      "sha256": "fcb8de686bf53a419beccd00d833f0e253ff922824b3227683e9c1ae2c93e790",
+      "raw_bytes_verified_against_Git_blob": true
+    },
+    {
+      "name": "code_identity.json",
+      "path": "research_runs/REDESIGN_CLOUD_20261013/jobs/20261014T071918Z-exploratory-89b0c07d/code_identity.json",
+      "size": 7117,
+      "git_blob_sha1": "e3133cce3ac872311ea0096482ff464b56ba96d6",
+      "html_url": "https://github.com/jackzhu119/cross-subject-mi-eeg/blob/d612f0cc2bcca045ff1304bc95a87df76bfd4a82/research_runs/REDESIGN_CLOUD_20261013/jobs/20261014T071918Z-exploratory-89b0c07d/code_identity.json",
+      "sha256": "6016338dca3e4b699018b45c5b5b11cfeb95baaff054a4af04be50ecec6f60ea",
+      "raw_bytes_verified_against_Git_blob": true
+    },
+    {
+      "name": "job_status.json",
+      "path": "research_runs/REDESIGN_CLOUD_20261013/jobs/20261014T071918Z-exploratory-89b0c07d/job_status.json",
+      "size": 639,
+      "git_blob_sha1": "459600acf4e4b669eda7f84be360a2928cbb8561",
+      "html_url": "https://github.com/jackzhu119/cross-subject-mi-eeg/blob/d612f0cc2bcca045ff1304bc95a87df76bfd4a82/research_runs/REDESIGN_CLOUD_20261013/jobs/20261014T071918Z-exploratory-89b0c07d/job_status.json",
+      "sha256": "ec07e6a6f8d6a4bdb5ae24e270b4e870c6f971a46b0d5ae5f57a2cc7268fd00f",
+      "raw_bytes_verified_against_Git_blob": true
+    },
+    {
+      "name": "last_publication_receipt.json",
+      "path": "research_runs/REDESIGN_CLOUD_20261013/jobs/20261014T071918Z-exploratory-89b0c07d/last_publication_receipt.json",
+      "size": 1907,
+      "git_blob_sha1": "bebc07a814cbfbb16cab638d4ec76bc020bf0456",
+      "html_url": "https://github.com/jackzhu119/cross-subject-mi-eeg/blob/d612f0cc2bcca045ff1304bc95a87df76bfd4a82/research_runs/REDESIGN_CLOUD_20261013/jobs/20261014T071918Z-exploratory-89b0c07d/last_publication_receipt.json",
+      "sha256": "a5919b52f643c7756da1415f0b4f42c1b5b21714c8721b2d03ff6b94fcc42f52",
+      "raw_bytes_verified_against_Git_blob": true
+    },
+    {
+      "name": "launch_record.json",
+      "path": "research_runs/REDESIGN_CLOUD_20261013/jobs/20261014T071918Z-exploratory-89b0c07d/launch_record.json",
+      "size": 399,
+      "git_blob_sha1": "93cc172555756017885557f039b604066f3f448e",
+      "html_url": "https://github.com/jackzhu119/cross-subject-mi-eeg/blob/d612f0cc2bcca045ff1304bc95a87df76bfd4a82/research_runs/REDESIGN_CLOUD_20261013/jobs/20261014T071918Z-exploratory-89b0c07d/launch_record.json",
+      "sha256": "edb2b3e4790d383878106144eddc3ee8ffc9dc65c6ae4128ec92330757fca49e",
+      "raw_bytes_verified_against_Git_blob": true
+    },
+    {
+      "name": "publication_manifest.json",
+      "path": "research_runs/REDESIGN_CLOUD_20261013/jobs/20261014T071918Z-exploratory-89b0c07d/publication_manifest.json",
+      "size": 1789,
+      "git_blob_sha1": "3119cc0092b4891b20ddaaf98c5da3d4c5d4a0d1",
+      "html_url": "https://github.com/jackzhu119/cross-subject-mi-eeg/blob/d612f0cc2bcca045ff1304bc95a87df76bfd4a82/research_runs/REDESIGN_CLOUD_20261013/jobs/20261014T071918Z-exploratory-89b0c07d/publication_manifest.json",
+      "sha256": "33d8c2e21912b71908cffe943e934651e74eb9a9ee304f4aed6e803665cde575",
+      "raw_bytes_verified_against_Git_blob": true
+    },
+    {
+      "name": "runtime_lock.json",
+      "path": "research_runs/REDESIGN_CLOUD_20261013/jobs/20261014T071918Z-exploratory-89b0c07d/runtime_lock.json",
+      "size": 562,
+      "git_blob_sha1": "273fd9e6d6087a52930931ef25d63d2d5fc6f3e6",
+      "html_url": "https://github.com/jackzhu119/cross-subject-mi-eeg/blob/d612f0cc2bcca045ff1304bc95a87df76bfd4a82/research_runs/REDESIGN_CLOUD_20261013/jobs/20261014T071918Z-exploratory-89b0c07d/runtime_lock.json",
+      "sha256": "a18529ba66d7e73f47438981eafe1b2f7761d6b028998871d621a7656c7e1fa6",
+      "raw_bytes_verified_against_Git_blob": true
+    }
+  ],
+  "current_public_status_exactly_as_recorded": {
+    "stage": "FAILED_OR_BLOCKED_MANUAL_REVIEW_REQUIRED",
+    "updated_at_utc": "2026-10-14T07:20:18.419354+00:00",
+    "job_id": "20261014T071918Z-exploratory-89b0c07d",
+    "pid": 2140,
+    "target_fits": 0,
+    "independent_confirmation_qualified": false,
+    "automatic_pod_stop_requested": false,
+    "provider_billing_stop_verified": false,
+    "actual_neural_fits_started": 0,
+    "actual_neural_fits_completed": 0,
+    "optimizer_updates": 0,
+    "target_predictions_computed": false,
+    "error_code": "scientific_step_failed:prepare_data.py",
+    "manual_next_step": "Inspect job status/log; stop Pod billing manually if no immediate repair is planned."
+  },
+  "current_status_interpretation": "2026-10-14T07:20:18.419354Z failed prepare_data.py snapshot with0/0 fits and0 updates; not evidence of latest private state or absence of later training",
+  "current_publication_manifest": {
+    "bytes": 1789,
+    "sha256": "33d8c2e21912b71908cffe943e934651e74eb9a9ee304f4aed6e803665cde575",
+    "contains_current_failed_job_status": true,
+    "checkpoints_in_github": false,
+    "raw_eeg_in_github": false
+  },
+  "current_last_publication_receipt": {
+    "bytes": 1907,
+    "sha256": "a5919b52f643c7756da1415f0b4f42c1b5b21714c8721b2d03ff6b94fcc42f52",
+    "receipt_publication_commit": "ad2ee52923b700f7e60a4fbff498c721b9565cb4",
+    "github_public_readback_verified": true,
+    "checkpoint_backup_verified": false,
+    "completed_checkpoint_count_at_snapshot": 0,
+    "snapshot_is_older_than_current_manifest": true
+  },
+  "historical_machine_lock": {
+    "hostname": "8ffbcac94ece",
+    "GPU": "NVIDIA RTX2000 Ada Generation",
+    "measured_at_utc": "2026-10-14T07:19:18.587714+00:00",
+    "status": "FROZEN_BEFORE_SOURCE_FITS",
+    "not_current_Pod_identity": true
+  },
+  "known_local_offhost_metadata_search": {
+    "roots": [
+      {
+        "root": "/workspace/mi-eeg-cloud",
+        "exists_in_this_offhost_environment": true,
+        "direct_child_names_only": [
+          ".launch.lock"
+        ]
+      },
+      {
+        "root": "/workspace/library-files",
+        "exists_in_this_offhost_environment": true,
+        "direct_child_names_only": []
+      },
+      {
+        "root": "/workspace/shared",
+        "exists_in_this_offhost_environment": true,
+        "direct_child_names_only": [
+          "downloads"
+        ]
+      },
+      {
+        "root": "/workspace/scratch",
+        "exists_in_this_offhost_environment": true,
+        "direct_child_names_only": []
+      }
+    ],
+    "explicit_filename_patterns": [
+      "*registration*.json",
+      "*registry*.json",
+      "*ledger*.json",
+      "*ledger*.jsonl",
+      "*checkpoint*.json",
+      "*backup*.json",
+      "*publication*.json",
+      "job_status.json",
+      "launch_record.json",
+      "*continuity*.json"
+    ],
+    "matching_real_old_execution_records_found": [],
+    "existing_metadata_summary_only": {
+      "path": "/workspace/mi-eeg-redesign-20261012/research_runs/REDESIGN_HANDOFF_20261015/metadata/old_task_accounting_recovery.json",
+      "sha256": "3055d21fab287cefb7e615f636cd00eaa560d72aa8bd1ea07c9e584b0a10e2e0",
+      "status": "OLD_PUBLIC_TASK_METADATA_RECOVERED_PRIVATE_ACCOUNTING_AND_CHECKPOINT_PENDING",
+      "known_401s_preserved_not_retried": true,
+      "not_treated_as_private_ledger": true
+    }
+  },
+  "still_missing_minimum_real_continuity_evidence": [
+    "Original execution_registration.json and registered job/source revision identity including transitions, without overwriting historical identity.",
+    "Latest authoritative actual_neural_fits_started/completed and optimizer_updates ledger, including interrupted or claimed model IDs and update intent; not infer zero from Oct14 snapshot or new_fits=0.",
+    "Private checkpoint manifest only: model/condition/fold/seed IDs, status, bytes andSHA, resume/optimizer/RNG continuity metadata; no model tensor loading required for collection.",
+    "Offhost backup/publication receipt bound to checkpoint inventory and job ID, with verification scope and exact hashes; latest private HEAD/update state if available."
+  ],
+  "independent_gates_not_inferred": {
+    "old_actual_fit_counts": null,
+    "old_actual_optimizer_updates": null,
+    "latest_private_checkpoint_inventory": null,
+    "verified_checkpoint_backup_continuity": false,
+    "training_authorization": false,
+    "financial_preconditions": "SUPERSEDED_BY_USER_NOT_PASSED"
+  },
+  "limitations": [
+    "Exact seven-file public directory absence of a ledger/checkpoint record proves only not published at this branch HEAD, not absence of private backups or later records.",
+    "Local offhost roots are this execution environment, not the rebuilt Pod or all remote backups; absence here cannot prove remote absence.",
+    "Read only JSON metadata and directory names; no R2 request, auth retry, Pod action, model/checkpoint/EEG payload, or financial investigation was performed.",
+    "Historical budget authorization is retained only as immutable public identity metadata; financial conditions have been superseded by user and are not reintroduced."
+  ]
+}

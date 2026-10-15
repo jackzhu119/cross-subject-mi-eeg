@@ -1,5 +1,27 @@
 # Paper 1 recovery preparation — 15 October 2026
 
+## Current: source18 and actual training-runtime CPU acceptance passed
+
+Use [the original-job continuity handoff](continuity_resume/DOT_CONTINUITY_NEXT.md).
+The real151363-byte package passed independent49-payload and nested27/31-payload
+audit. Source18/779873919 bytes, actual97-package runtime imports and strict
+trial/aggregate hashes passed; the single CPU acceptance exited0 at07:15:08UTC.
+**Do not repeat restoration, installation, diagnostics or source acceptance.**
+
+The immediate next operation is a small JSON-only continuity review for original
+job `20261014T071918Z-exploratory-89b0c07d`, not a new training job. It preserves
+unknown oldfit/update/checkpoint/backup state rather than creating zero counters.
+Current GitHub still contains only the old07:20 failed-prepare public snapshot;
+it does not prove the latest private state. Financial execution prerequisites
+are superseded-by-user, not passed and not a reason to wait for billing.
+Paper2's reported remaining36 GPU items have absolute priority. No Pod or GPU
+operation is performed by this delivery. See [the operational amendment and
+remaining evidence](continuity_resume/CONTINUATION_AMENDMENT.md).
+
+**All sections below are chronological history. Their restore/acceptance and
+earlier metadata/preparation commands are completed or superseded, not current
+instructions. Older financial prerequisite wording is not in force.**
+
 ## Current: exact old-tmp preflight compatibility
 
 The5c7e repair preflight failed before consuming its claim. Preserve its failedouter and exact0-byte oldtmp; use [SOURCE_PREFLIGHT_COMPATIBILITY.md](repaired_acceptance/SOURCE_PREFLIGHT_COMPATIBILITY.md) and its new fixed pin. Only the known records are allowed; other unknowns still stop. Source12/6, strictSHA/resource/Paper2 and no-install/no-fit boundaries are unchanged.

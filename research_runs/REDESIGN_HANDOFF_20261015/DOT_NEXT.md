@@ -1,4 +1,12 @@
-# dot next step — metadata first, execution remains blocked
+# Historical metadata/runtime handoff — completed; do not rerun
+
+**Superseded by [the actual source/runtime acceptance and original-job
+continuity handoff](continuity_resume/DOT_CONTINUITY_NEXT.md).** The complete
+actual acceptance package has now been independently verified. Do not execute
+the preparation/diagnostic/acceptance commands below again. Financial
+prerequisites are superseded-by-user; the historical wording below is retained
+as evidence, not a current requirement. Paper2's remaining36 GPU items have
+absolute priority; current P1 work is bounded metadata-only preparation by dot.
 
 This file supplements, rather than erases, ec7ad35a/23bbe5e4 and all original
 failure/acceptance evidence. Use the immutable execution commit and helper SHA

@@ -1,3 +1,24 @@
+# 当前执行交接：源与实际 runtime 已验收，接续原任务元数据
+
+本次真实源恢复及实际训练 runtime 的严格 CPU 验收均已通过独立审计。
+不再安装、恢复 source18、重跑诊断或重复验收。
+
+唯一当前入口见 [DOT_CONTINUITY_NEXT.md](continuity_resume/DOT_CONTINUITY_NEXT.md)。
+该入口只读取现有验收回执、原任务 JSON 和显式提供的备份元数据，写出新的续接审查报告。
+原任务仍为 `20261014T071918Z-exploratory-89b0c07d`；缺失旧计数不是零。
+
+费用执行前提已被用户明确撤销，状态为 superseded-by-user，不再等待费用账本、
+余额或覆盖计算。fit/update、checkpoint、备份连续性、原科学规则和期限仍分别核对。
+论文2剩余36项 GPU 队列优先，dot是唯一Pod操作者；此处无GPU启动指令。
+
+详见 [续接操作修订](continuity_resume/CONTINUATION_AMENDMENT.md)、
+[真实源验收独立审计](continuity_resume/SOURCE_RUNTIME_RUN01_INDEPENDENT_AUDIT.json) 和
+[本次旧任务公共元数据查证](continuity_resume/ORIGINAL_JOB_PUBLIC_OBSERVATION.json)。
+
+以下原页完整保留作历史操作说明，其费用/源恢复/验收命令均不再是当前指令。
+
+---
+
 # 当前唯一执行交接：复用已修复环境，先取得真实验收
 
 > **Current source correction:** run01 failed and its claim is consumed. Do not repeat the old restore command or start Step B from its RUNNING receipt. Use [the new failure-bound repair entry and explicit acceptance bridge](repaired_acceptance/SOURCE_RESTORE_REPAIR.md). Financial supersession remains in force; all technical/time/resource/scientific gates remain.
