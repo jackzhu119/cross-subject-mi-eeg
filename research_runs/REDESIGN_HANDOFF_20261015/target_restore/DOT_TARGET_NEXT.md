@@ -1,5 +1,10 @@
 # Dot: official target bytes → unchanged scientific input preparation
 
+**Current explicit new dispatch:** the [fixed run03 integration pin](http_recovery_run03/EXECUTION_PIN.md)
+uses the reviewed single-hop adapter, both preserved failures and fresh
+parent/dot records. Run03 is a separate one-shot identity; it does not reuse
+run01/run02 claims. Follow that pin for the newly authorized raw operation.
+
 **Run02 has also exited3 and consumed its claim.** Its actual first GET
 returned302 with Location withheld. Do not execute either old restoration
 entry again. The [official302 transport correction](../official_edf_transport/http302_review_run01/ADAPTATION.md)
