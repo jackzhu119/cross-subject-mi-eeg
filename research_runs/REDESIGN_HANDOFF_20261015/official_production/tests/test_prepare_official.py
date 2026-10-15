@@ -149,4 +149,3 @@ def test_atomic_output_guard_is_synchronous_and_timer_never_enumerates(tmp_path)
     execute = next(n for n in tree.body if isinstance(n, ast.FunctionDef) and n.name == 'execute')
     timer = next(n for n in execute.body if isinstance(n, ast.FunctionDef) and n.name == 'time_guard')
     assert 'owned_bytes' not in ast.unparse(timer) and 'rglob' not in ast.unparse(timer) and 'scandir' not in ast.unparse(timer)
-
