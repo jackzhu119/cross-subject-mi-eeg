@@ -2,6 +2,13 @@
 
 ## Latest: metadata and actual runtime plan accepted; preparation still not executed
 
+Fixed outer-controller/evidence commit:
+**`b07892c320e25e3465c50ea3a31d1a21bf722df3`**; the inner runtime helper
+remains1efe9d1b. See [controller pin and source SHA](runtime_preparation/CONTROLLER_PIN.md)
+and [exact preparation command](runtime_preparation/DOT_PREPARATION_NEXT.md).
+All32 changed files passed public byte readback and139 targeted tests passed.
+No preparation or Pod operation was executed here.
+
 The newly supplied6463-byte plan archive passed independent audit under its
 actual `MANIFEST.json`/`payloads` schema. The25128-byte stdout and fixed helper
 identity match; the recorded unique03:25 run exited0 without installation or
