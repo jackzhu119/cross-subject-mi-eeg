@@ -6,7 +6,10 @@ Keep that claim, logs and empty cache intact. The subsequently authorized
 single HEAD, from the Codex executor rather than the Pod, returned200 without
 `Location`; it does not identify the earlier Pod GET error or authorize retry.
 See [the failure audit and HEAD observation](http_metadata_run01/README.md).
-No redirect-policy or transfer amendment has been issued. The commands below
+No redirect-policy amendment has been issued. Parent has since approved one
+additional bounded attempt under a new failure-bound identity; use only the
+[fixed run02 pin](http_recovery_run02/EXECUTION_PIN.md), after genuine new
+review/slot, rather than reusing the failed run01 entry or claim. The commands below
 remain the original reviewed procedure, not a new execution authorization;
 step2 still requires a real successful raw restoration and observed exit0.
 

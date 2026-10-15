@@ -7,7 +7,9 @@
     "executed_by": "preflight_compat_audit subagent",
     "reported_stdout": "16 passed in 0.21s",
     "test_file_sha256": "49cbe8c6379c6f0064fdb8b196053e5347f66b52ba714e37063b7c1d0329b010",
-    "actual_UTC_start_end_not_recorded": true
+    "actual_UTC_start_end_not_recorded": true,
+    "current_test_file_sha256": "0e611c27c837e2ef273e81b94f816d357b4de5ac90c95d4ae0aa865e681568d6",
+    "post_test_formatting_only": "Removed trailing empty line; AST identical to tested source. No production code change."
   },
   "independent_review_sha256": "151523c1d48f05038c0e199c2452a7039c237fa700b43f95fba51d767b16506f",
   "new_script_sha256": "5a5fb300c800c0d9884df9d29f0287f46ee2304ce8b21f815c2f93138eb188db",
@@ -24,12 +26,13 @@
   "unchanged_live_check_AST": true,
   "original_code_manifest_TLS_scientific_files_and_production_code_unchanged": true,
   "current_actions": {
-    "HTTP_requests": 0,
     "Pod_operations": 0,
     "EEG_read": false,
     "installed_packages": false,
     "fits": 0,
-    "retry_old_claim": false
+    "retry_old_claim": false,
+    "target_HTTP_requests": 0
   },
-  "training_authorization": false
+  "training_authorization": false,
+  "public_code_metadata_readback": "PUBLIC_CODE_READBACK.json"
 }

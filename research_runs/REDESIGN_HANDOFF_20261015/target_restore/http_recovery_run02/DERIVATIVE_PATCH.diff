@@ -1,26 +1,14 @@
 --- frozen-run01/target_restore_once.py
 +++ run02/target_restore_run02.py
-@@ -1,4 +1,4 @@
+@@ -1 +1 @@
 -"""One dot-reviewed, sequential official target-byte restoration; never fit/QC.
 +"""One explicitly reviewed run02 after the preserved first HTTP failure.
- 
- The protected priority gate remains unchanged. This adapter accepts only a new
- target_raw_restore operation with its otherwise identical slot schema.
-@@ -18,6 +18,7 @@
- import stat
- import sys
- import time
+@@ -20,0 +21 @@
 +import urllib.error
- 
- sys.dont_write_bytecode = True
- HERE = Path(__file__).absolute().parent
-@@ -31,9 +32,18 @@
-     'transport': ('official_edf_transport/official_edf_transport.py', '1aa2da0b710b3ef109d00d19c75a00fda013a79f947e9aebbe3480c8e99b895f'),
-     'continuity': ('continuity_resume/continuity_review.py', '2d7904b7787c92449dd0ffe7b56c09327ffb803eb942a417fd0e2fabad0fd8d7'),
-     'priority': ('runtime/priority_gate.py', 'eb88b6c75381a714bd91d9b0bb0acb4fd82edf295b73a25abed4f0236c054fff')}
+@@ -34 +35 @@
 -CLAIM, JOURNAL, LOG = ('target_restore_run01.' + x for x in ('claim.json', 'journal.jsonl', 'log'))
 +CLAIM, JOURNAL, LOG = ('target_restore_run02.' + x for x in ('claim.json', 'journal.jsonl', 'log'))
- BYTE_RECEIPT = 'target_bytes_receipt.json'
+@@ -36 +37,10 @@
 -SUMMARY = 'target_restore_run01.json'
 +SUMMARY = 'target_restore_run02.json'
 +RECOVERY_ID = 'target_raw_restore_run02_after_first_HTTPError'
@@ -32,16 +20,10 @@
 +PRIOR_OUTER_SHA = '04963eb245867ed026a338ddb59471a20e4d92135b765efbefcd22cb3255a823'
 +HEAD_SHA = 'a1d19255b427122f9f961cde33873693f35c0db3773112fdaebaa17ae8629ebe'
 +ORIGINAL_SCRIPT_SHA = '65507374bc7640d4c6b2b7d9b609d86b809a11d61a1aa55d61e6527ced4e5190'
- 
- 
- def require(condition, message):
-@@ -68,8 +78,29 @@
-         'source_restore_repair_run01.compat_outer_exit.json', 'formal_source_acceptance.json',
-         'repaired_runtime_bound_acceptance.json'} | {Path(rel).name for rel, _ in MODULES.values()}
-     safe_name = name if name in known or re.fullmatch(r'sub-[0-9]{2}_task-R[12]acquisition_eeg\.edf(?:\.partial)?', name) else None
+@@ -71 +81 @@
 -    return {'error_class': type(error).__name__, 'error_code': code if re.fullmatch(r'[a-z][a-z0-9_]{0,95}', code) else 'target_restore_controlled_operation_failed',
 +    result = {'error_class': type(error).__name__, 'error_code': code if re.fullmatch(r'[a-z][a-z0-9_]{0,95}', code) else 'target_restore_controlled_operation_failed',
-         'errno': error.errno if type(getattr(error, 'errno', None)) is int else None, 'affected_basename': safe_name}
+@@ -72,0 +83,21 @@
 +    if isinstance(error, urllib.error.HTTPError):
 +        location = error.headers.get('Location') if error.headers is not None else None
 +        match = re.fullmatch(r'https://data\.nemar\.org/nm000250/v1\.0\.5/sourcedata/sub-(\d{2})/eeg/sub-\1_task-R[12]acquisition_eeg\.edf', location) if isinstance(location, str) and len(location) <= 256 else None
@@ -63,81 +45,36 @@
 +    require(outer['exit_code'] == 3 and outer['target_restore_summary_sha256'] is None
 +        and outer['training_authorization'] is False, 'target_run02_actual_prior_failure_required')
 +    return bindings
- 
- 
- def load_module(name):
-@@ -123,6 +154,11 @@
-         'training_authorization': False, 'GPU_fit_authorized': False,
-         'target_scientific_processing_authorized': False, 'source_EEG_read_authorized': False,
-         'new_resources_or_credentials_authorized': False, 'automatic_retry_authorized': False}
+@@ -125,0 +157,5 @@
 +    expected.update(recovery_identity=RECOVERY_ID, prior_failure_archive_sha256=FAILURE_ARCHIVE_SHA,
 +        prior_claim_sha256=PRIOR_FILES['target_restore_run01.claim.json'],
 +        prior_journal_sha256=PRIOR_FILES['target_restore_run01.journal.jsonl'],
 +        prior_outer_sha256=PRIOR_OUTER_SHA, same_pod_head_sha256=HEAD_SHA,
 +        one_additional_bounded_attempt_authorized=True)
-     require(set(review) == set(expected) | {'reviewed_at_utc', 'expires_at_utc', 'maximum_wall_seconds'}, 'target_parent_exact_schema')
-     require(all(type(review[k]) is type(v) and review[k] == v for k, v in expected.items()), 'target_parent_fixed_bindings')
-     gate = load_module('priority')
-@@ -154,6 +190,8 @@
- def cache_preflight(root, rows, helper):
-     """Verify every cached object before any GET; preserve unknown/partial files."""
-     expected = {r['restore_relative_path']: r for r in rows}
+@@ -156,0 +193,2 @@
 +    require(root.is_dir() and all(digest(root / name) == sha for name, sha in PRIOR_FILES.items()),
 +        'target_run02_preserved_exact_run01_metadata_required')
-     allowed_dirs = {str(p) for rel in expected for p in Path(rel).parents if str(p) != '.'}
-     if root.exists():
-         require(root.is_dir(), 'target_restore_root_directory')
-@@ -164,7 +202,8 @@
-                 path = safe(Path(base) / name)
-                 relative = path.relative_to(root).as_posix()
-                 require((relative in allowed_dirs and path.is_dir()) or
+@@ -167 +205,2 @@
 -                    (relative in expected and path.is_file()), 'target_restore_unknown_member_or_consumed_claim_preserved')
 +                    (relative in PRIOR_FILES and path.is_file() and digest(path) == PRIOR_FILES[relative]),
 +                    'target_restore_unknown_member_or_consumed_claim_preserved')
-     missing = []
-     for relative, row in expected.items():
-         path = helper.safe_path(root, relative)
-@@ -214,8 +253,9 @@
-         and gate._timestamp(slot['expires_at_utc']) <= gate._timestamp(review['expires_at_utc']), 'target_slot_must_follow_parent_review')
-     plan = helper.frozen_plan()
-     require(plan['total_bytes'] == TOTAL_BYTES and plan['file_count'] == 174, 'target_restore_frozen174')
+@@ -216,0 +256 @@
 +    prior_bindings = prior_failure_bindings(args, root)
-     started = time.monotonic()
+@@ -218 +258 @@
 -    bound_files = [(Path(__file__), digest(__file__)), (args.continuity_report, CONTINUITY_SHA)]
 +    bound_files = [(Path(__file__), digest(__file__)), (args.continuity_report, CONTINUITY_SHA)] + prior_bindings
-     for key, (name, _, sha) in continuity.BINDINGS.items():
-         bound_files.append((Path(args.source_restore_root if key in ('restore', 'completion', 'outer') else args.source_acceptance_root) / name, sha))
-     bound_files += [(HERE.parent / rel, sha) for rel, sha in MODULES.values()]
-@@ -237,7 +277,11 @@
-     remaining = sum(r['bytes'] for r in missing)
-     check()
-     root.mkdir(mode=0o700, exist_ok=True)
+@@ -240 +280,5 @@
 -    claim = {'status': 'ONE_TARGET_RAW_RESTORE_CLAIM_CONSUMED', 'operation': OPERATION,
 +    claim = {'status': 'ONE_TARGET_RAW_RESTORE_RUN02_CLAIM_CONSUMED', 'operation': OPERATION,
 +        'recovery_identity': RECOVERY_ID, 'prior_failure_archive_sha256': FAILURE_ARCHIVE_SHA,
 +        'prior_claim_sha256': PRIOR_FILES['target_restore_run01.claim.json'],
 +        'prior_journal_sha256': PRIOR_FILES['target_restore_run01.journal.jsonl'],
 +        'prior_outer_sha256': PRIOR_OUTER_SHA, 'same_pod_head_sha256': HEAD_SHA,
-         'delivery_revision': args.delivery_revision, 'script_sha256': digest(__file__),
-         'review_sha256': review_sha, 'slot_sha256': hashlib.sha256(slot_raw).hexdigest(),
-         'continuity_report_sha256': CONTINUITY_SHA, 'old_task': continuity.OLD_JOB,
-@@ -257,7 +301,9 @@
-             outcomes.append(outcome)
-             if outcome['status'] == 'new_exact_bytes_atomic_publish':
-                 remaining -= row['bytes']
+@@ -260 +304,3 @@
 -            append(root, dict(outcome, phase='frozen_target_object_verified'))
 +            append(root, dict(outcome, phase='frozen_target_object_verified',
 +                http_status=200 if outcome['status'] == 'new_exact_bytes_atomic_publish' else None,
 +                location_present=None, redirects_followed=0, automatic_retry=False))
-         byte_receipt = helper.verify_cached_manifest(root, control_check=check)
-         check()
-         atomic(root / BYTE_RECEIPT, byte_receipt)
-@@ -281,6 +327,8 @@
-         parser.add_argument('--' + name, type=Path, required=True)
-     parser.add_argument('--delivery-revision', required=True)
-     parser.add_argument('--data-dir', type=Path, default=ROOT)
+@@ -283,0 +330,2 @@
 +    parser.add_argument('--prior-outer', type=Path, default=Path('/workspace/paper1-target-dispatch-20261015-run01/observed_outer.json'))
 +    parser.add_argument('--same-pod-head', type=Path, required=True)
-     args = parser.parse_args()
-     signal.signal(signal.SIGTERM, lambda *_: (_ for _ in ()).throw(TimeoutError('target_restore_outer_timeout')))
-     try:

@@ -249,4 +249,3 @@ def test_coordinator_single_synthetic_http_failure_preserves_old_claim_and_block
     with pytest.raises(ValueError, match='unknown_member_or_consumed_claim'):
         M.run(args)
     assert len(called) == 1
-
