@@ -1,5 +1,11 @@
 # Current continuation pin
 
+The actual6710cf4e continuity observation is complete. The current immediate
+operation uses [the standalone174 EDF recovery pin](target_restore/EXECUTION_PIN.md),
+code `5e58526918169a15080cc79e3c44d8024e24f911`. Dot can execute raw recovery
+without waiting for production routing. Do not repeat the completed continuity
+command below. Later production preparation has a separate supplemental pin.
+
 Source restoration and actual-runtime CPU acceptance are now complete and
 independently audited. Use the [original-job metadata continuation pin](continuity_resume/EXECUTION_PIN.md)
 (`6710cf4e14c6182896668320fe96dfd3efa1e901`) for the next operation. The earlier

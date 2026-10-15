@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "status": "MINIMAL_OFFICIAL_CACHE_ADAPTER_VALIDATED_NO_SCIENTIFIC_EXECUTION",
+  "raw_execution_revision": "5e58526918169a15080cc79e3c44d8024e24f911",
+  "fixed_source_hashes": {
+    "target_restore/target_restore_once.py": "65507374bc7640d4c6b2b7d9b609d86b809a11d61a1aa55d61e6527ced4e5190",
+    "official_production/prepare_official.py": "c75a025b9e632d9b06400ef71e85b77efd8b33508decad1400c1566d7fa34cc4",
+    "official_production/frozen_preparation_dependencies.json": "5d193bfc68cc775435301630122b4a5ac1c4ff0f910e6a14356e64eb1cda26d7",
+    "target_restore/EXECUTION_BUNDLE_SHA256SUMS.txt": "95fb6dc01b61da863441d16b1d559ce5f9cfa07f87e65df42029b46272439063"
+  },
+  "original_prepare_and_all_science_dependencies_unchanged": 23,
+  "scientific_suffix_AST_independently_verified_identical": true,
+  "focused_test_reports": [
+    {
+      "path": "target_restore/test_results.xml",
+      "passed": 8,
+      "sha256": "6c25de1340e2635baa7197c829dab42dbe0d710e3685a0b45f00d1dbea027459"
+    },
+    {
+      "path": "official_production/test_results.xml",
+      "passed": 8,
+      "sha256": "5c6bc32d9421c55a6178257427932233d188d966b1988719fc72454ac1f59cd4"
+    }
+  ],
+  "test_reports_reviewed_not_science_rerun": true,
+  "exact_Bash_command_blocks_syntax_passed": 3,
+  "no_source_acceptance_or_diagnostic_repeated": true,
+  "Pod_operated": false,
+  "EEG_read": false,
+  "new_fits": 0,
+  "training_authorization": false,
+  "latest_old_counters": null,
+  "financial_execution_preconditions": "superseded-by-user"
+}

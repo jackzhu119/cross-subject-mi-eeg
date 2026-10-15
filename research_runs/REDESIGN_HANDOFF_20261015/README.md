@@ -1,5 +1,26 @@
 # Paper 1 recovery preparation — 15 October 2026
 
+## Current: standalone174 EDF recovery delivered; production preparation separate
+
+Dot can run the [standalone raw-restoration pin](target_restore/EXECUTION_PIN.md)
+now, using fixed execution commit `5e58526918169a15080cc79e3c44d8024e24f911`
+after actual parent review and a fresh raw slot. This ten-file code bundle
+does not wait for production routing or old monetary records. It performs
+actual174-object exact official EDF restoration, with no fit or model use.
+
+The actual08:09 continuity package passed independent15-payload audit. Do not
+repeat source/runtime/continuity work. The separately prepared
+[production routing handoff](target_restore/DOT_TARGET_NEXT.md) retains the
+original scientific preparation body and all strict gates. Its later code
+supplement and separate review/slot cannot modify the immutable raw pin.
+
+Three authentic original public identity records have been recovered; latest
+private fit/update/checkpoint/backup continuity remains unknown, not0. No401
+was retried. The user reports Paper2's36-item queue completed/off-host with
+audit/R2 continuing; dot still checks actual noninterference before each slot.
+Financial conditions remain superseded-by-user. Older sections below are
+completed preparation history, not commands to repeat.
+
 ## Current: source18 and actual training-runtime CPU acceptance passed
 
 Use [the original-job continuity handoff](continuity_resume/DOT_CONTINUITY_NEXT.md).

@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "status": "STATIC_OFFICIAL_TARGET_TRANSITION_REVIEW_PASSED_ACTUAL_EXECUTION_AND_TRAINING_NOT_AUTHORIZED",
+  "checked_at_utc": "2026-10-15T08:27:49.751922+00:00",
+  "reviewed_files": {
+    "research_runs/REDESIGN_HANDOFF_20261015/target_restore/target_restore_once.py": {
+      "bytes": 16929,
+      "sha256": "65507374bc7640d4c6b2b7d9b609d86b809a11d61a1aa55d61e6527ced4e5190"
+    },
+    "research_runs/REDESIGN_HANDOFF_20261015/official_production/prepare_official.py": {
+      "bytes": 31266,
+      "sha256": "c75a025b9e632d9b06400ef71e85b77efd8b33508decad1400c1566d7fa34cc4"
+    },
+    "research_runs/REDESIGN_HANDOFF_20261015/official_production/frozen_preparation_dependencies.json": {
+      "bytes": 3744,
+      "sha256": "5d193bfc68cc775435301630122b4a5ac1c4ff0f910e6a14356e64eb1cda26d7"
+    }
+  },
+  "concrete_code_blockers": [],
+  "fixed_operational_issues_checked": {
+    "target_metadata_digest_bounded_regular_stable_fstat_NOFOLLOW_NONBLOCK": true,
+    "target_walk_errors_not_silently_swallowed": true,
+    "target_error_code_errno_whitelisted_basename_not_arbitrary_sensitive_message": true,
+    "production_v1_cpu_and_cpuacct_memory_fallback_present_no_host_substitution": true,
+    "production_async_timer_only_slot_review_time_free_disk_no_owned_enumeration": true,
+    "production_owned_scans_synchronous_before_and_after_original_IO_calls": true,
+    "production_guard_IO_returns_original_results_without_mutating_producer_module_globals": true,
+    "production_fixed_delivery_revision_bound_to_parent_and_transition": true,
+    "production_target_controller_pin_matches_final_reviewed_bytes": true
+  },
+  "target_raw_restore": {
+    "operation": "target_raw_restore",
+    "actual_coordinator_calls_transport_one_and_verify_cached_manifest": true,
+    "frozen_files": 174,
+    "frozen_bytes": 2515343396,
+    "manifest_sha256": "2cfdf35aa7990df880826d1b84d1230e0bda3c9393c17d3ec6e27b7b311d2bf2",
+    "transport_helper_sha256": "1aa2da0b710b3ef109d00d19c75a00fda013a79f947e9aebbe3480c8e99b895f",
+    "TLS": "default trust plus certificate/hostname verification, exactHTTPSNEMARorigin, no redirects",
+    "license": "CC-BY-4.0 plus frozen provenance/README hashes and attribution fields",
+    "no_automatic_retry": true,
+    "unknown_partial_corrupt_member_or_consumed_claim": "preserve and stop",
+    "single_exclusive_claim": true,
+    "raw_target_allocation_cap_bytes": 3221225472,
+    "free_disk_floor_bytes": 10737418240,
+    "additional_Paper2_reserve_at_least_bytes": 5368709120,
+    "resource_accounting_scope": "new target directory only, separate from retained source/runtime allocation",
+    "five_source_acceptance_and_ec865_continuity_metadata_SHA_binding": true,
+    "old_unknown_counters_retained_null_not_zero": true,
+    "source_EEG_or_target_scientific_processing_or_fit": false
+  },
+  "production_preparation": {
+    "operation": "target_input_preparation",
+    "default_mode": "static plan only",
+    "execution_requires_actual_target_summary_plus_distinct_dot_observed_exit0_receipt": true,
+    "actual_five_record_route_union_and_fixed_source_receipts_required": true,
+    "raw_data_roots_separate_noR2credential_or_fakeR2receipt": true,
+    "original_prepare_path": "research_runs/REDESIGN_CLOUD_20261013/scripts/prepare_data.py",
+    "original_prepare_sha256": "426252640951bdbcfd1cafebc5b103b2846bac2f363d1bbbc6cb8586afe8e3db",
+    "original_prepare_unchanged": true,
+    "science_revision": "1efe9d1ba2ab8671ad1bf76c360e067fb63fd7ac",
+    "frozen_dependency_files": 23,
+    "all_dependencies_match_worktree_and_fixed_science_commit": true,
+    "scientific_body_records_through_return_AST_identical": true,
+    "source_strict_gate": [
+      "array_hashes",
+      "source_labels_sha256",
+      "source_metadata_sha256",
+      "source_sample_ids_sha256"
+    ],
+    "target_strict_gate": [
+      "174whole-file SHA/header/events",
+      "174native signal and frozenevent/context identity",
+      "everytrial threeband inputSHA",
+      "87 examined/85retained/6800events",
+      "author prior exposure unknown exploratory status preserved"
+    ],
+    "original_numerical_review_gate_called_unchanged": true,
+    "no_R2_monkeypatch_or_original_producer_global_mutation": true,
+    "new_machine_transition_is_data_prep_not_old_identity_or_fit_permission": true,
+    "explicit_two_GiB_write_reservation": true,
+    "separate_cap_at_most_three_GiB": true,
+    "synchronous_local_IO_guards_with_at_least_eight_MiB_or_actual_serialized_write_reserve": true,
+    "asynchronous_owned_file_publication_scan_avoided": true,
+    "no_target_outcomes_for_model_selection_or_BN_updates": true,
+    "no_GPU_fit_or_prediction_dispatch": true
+  },
+  "focused_test_evidence": [
+    {
+      "path": "/workspace/mi-eeg-redesign-qa-20261012/target-restore-focused-tests.xml",
+      "sha256": "6c25de1340e2635baa7197c829dab42dbe0d710e3685a0b45f00d1dbea027459",
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "execution_scope": "Agent-run focused synthetic/metadata/static tests only; independently read report, not rerun by reviewer"
+    },
+    {
+      "path": "/workspace/mi-eeg-redesign-qa-20261012/official-production-targeted-tests.xml",
+      "sha256": "5c6bc32d9421c55a6178257427932233d188d966b1988719fc72454ac1f59cd4",
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "execution_scope": "Agent-run focused synthetic/metadata/static tests only; independently read report, not rerun by reviewer"
+    }
+  ],
+  "earlier_source_runtime_acceptance_reused": {
+    "archive_sha256": "2c943a5f70608d10cb1f0720be5874ce53c01e3bed6d5bf2cbcafbc636ff312d",
+    "formal_sha256": "9f6980404ccd2ceb8f96aa300d497919caa185b02bbff0cc441451ae0a8a59e9",
+    "runtime_bound_sha256": "8e5ae3890240b130c875180a18e455dcd3158eab53926dcabb95c2f40768a39b",
+    "continuity_report_sha256": "ec86526fb6af6c01a19e4d86b0fb69532098175181d2e7175c1e6668038aa6cc",
+    "diagnostic_or_acceptance_rerun_by_reviewer": false
+  },
+  "boundaries": {
+    "actual_target_restore_performed": false,
+    "actual_target_preparation_performed": false,
+    "actual_current_Pod_runtime_or_resources_verified_by_this_review": false,
+    "Pod_or_network_or_EEG_or_Torch_operations_by_reviewer": false,
+    "old_fit_update_checkpoint_backup_continuity_passed": false,
+    "financial_preconditions": "superseded-by-user, not passed or reintroduced",
+    "training_authorization": false,
+    "Paper2_priority_requires_new_genuine_per_operation_dot_slot": true
+  },
+  "limitations": [
+    "Static code/manifest/AST and existing targeted test-report review only; no Pod access, data restoration, EEG read, inference, scientific acceptance rerun, or archived-code execution.",
+    "These adapters enable separately reviewed nonfitting restoration/preparation; old task ledger/checkpoint/backup unknowns remain blockers for later actual resume, not assumed0 from newfits0.",
+    "No claim that historical FileNotFoundError actual path/cause has been proved; synchronous meter design avoids that class of asynchronous publication sampling risk.",
+    "Actual provider availability/full object bytes and actual production target scientific gate can be established only by dot execution and independent resulting evidence."
+  ]
+}

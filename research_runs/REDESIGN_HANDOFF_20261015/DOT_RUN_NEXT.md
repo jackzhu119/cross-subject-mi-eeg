@@ -1,4 +1,19 @@
-# 当前执行交接：源与实际 runtime 已验收，接续原任务元数据
+# 当前执行交接：先运行已独立固定的174 EDF恢复
+
+dot当前可执行 [raw-only pin](target_restore/EXECUTION_PIN.md)，代码固定
+`5e58526918169a15080cc79e3c44d8024e24f911`。不等生产路由，不等费用账本；
+只保留既定真实parent review、新raw slot、严格SHA、磁盘/Paper2及单次claim门。
+后续生产路由另见 [DOT_TARGET_NEXT.md](target_restore/DOT_TARGET_NEXT.md)。
+
+本次真实continuity原包已核验通过；不重跑下方已完成的元数据、源恢复、环境或验收。
+复用97包runtime和18源文件；旧fit/断点/备份未知不补零，无GPU fit命令。
+dot保持唯一Pod操作者。本助手没有操作Pod、下载EEG或拟合模型。
+
+以下为此前原样保留的历史交接，不是当前待执行指令。
+
+---
+
+# 前次交接：源与实际 runtime 已验收，接续原任务元数据
 
 本次真实源恢复及实际训练 runtime 的严格 CPU 验收均已通过独立审计。
 不再安装、恢复 source18、重跑诊断或重复验收。
