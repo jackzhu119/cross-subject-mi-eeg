@@ -1,5 +1,7 @@
 # Repaired runtime: separate source restoration and actual CPU acceptance
 
+> **Current correction:** The financial-review prerequisite in this historical handoff is **superseded-by-user**, not passed. Follow [FINANCIAL_SUPERSESSION.md](FINANCIAL_SUPERSESSION.md) and its new fixed code pin for the same two execution scripts. Do not wait for billing or balance. The original48-hour record is immutable history; its monetary-review clause is explicitly overridden for these two operations only.
+
 This is a code/protocol delivery. No Pod operation, installation, wheel fetch,
 EEG access, diagnostic, model or fit was performed here. Dot is the sole Pod
 operator. The author's latest instruction reports Paper 2 accepted 18/18;

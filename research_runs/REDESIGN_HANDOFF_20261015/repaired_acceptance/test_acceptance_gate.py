@@ -16,6 +16,7 @@ def records():
         issuer='dot_parent', operation='source_cpu_acceptance', base_revision=g.BASE_REVISION,
         delivery_revision='a'*40, operation_script_sha256='b'*64, gate_sha256=g.digest(g.__file__),
         repair_archive_sha256=g.REPAIR_ARCHIVE_SHA, repair_receipt_sha256=g.REPAIR_RECEIPT_SHA,
+        financial_preconditions_status='superseded-by-user', financial_supersession_sha256=g.SUPERSESSION_SHA,
         cpu_recovery_grant_sha256=g.GRANT_SHA, cpu_recovery_window_start_utc='2026-10-15T05:07:25Z',
         cpu_recovery_window_end_utc='2026-10-17T05:07:25Z',
         source_restore_receipt_sha256='f'*64,
@@ -52,7 +53,8 @@ def test_every_slot_condition_enforced(records,key):
 
 
 @pytest.mark.parametrize('key',['status','issuer','operation','base_revision','delivery_revision',
-    'operation_script_sha256','gate_sha256','repair_archive_sha256','repair_receipt_sha256'])
+    'operation_script_sha256','gate_sha256','repair_archive_sha256','repair_receipt_sha256',
+    'financial_preconditions_status','financial_supersession_sha256'])
 def test_fixed_review_bindings(records,key):
     records[0][key]='other'
     with pytest.raises(ValueError):validate(records)
@@ -166,6 +168,60 @@ def test_author_record_rechecked_during_active_operation(records,tmp_path,monkey
     monkeypatch.setattr(g,'GRANT_PATH',author)
     p,q=tmp_path/'review',tmp_path/'slot'
     p.write_text(json.dumps(records[0]));q.write_text(json.dumps(records[1]))
+    gate=g.Gate(p,q,'source_cpu_acceptance','a'*40,'b'*64);gate.check()
+    author.write_text('{}')
+    with pytest.raises(ValueError,match='operation_gate_source_changed'):gate.check()
+
+
+def test_author_supersession_retains_original_window_and_unknown_history():
+    value=json.loads(g.SUPERSESSION_PATH.read_text())
+    assert g.digest(g.SUPERSESSION_PATH)==g.SUPERSESSION_SHA
+    assert value['status']=='superseded-by-user'
+    assert value['author_reply_verbatim']=='别再计算这该死的费用了，把有关费用和钱的都移出去'
+    assert value['author_message_sent_at_utc'] is None
+    assert value['supersedes_historical_author_record_field']=='covered_refreshed_dollar_upper_bound_still_required'
+    assert value['covered_dollar_upper_bound_review_required'] is False
+    assert value['old_financial_gate_passed'] is False
+    assert value['historical_cost_or_ledger_filled_with_zero'] is False
+    assert value['scope']==list(g.OPERATIONS)
+    assert value['cpu_recovery_window_start_utc']=='2026-10-15T05:07:25Z'
+    assert value['cpu_recovery_window_end_utc']=='2026-10-17T05:07:25Z'
+    assert value['GPU_deadline_preserved_utc']=='2026-10-16T09:54:00Z'
+    assert value['purchase_payment_topup_or_new_resource_authorized'] is False
+    assert value['GPU_fit_authorized_by_this_amendment'] is False
+
+
+@pytest.mark.parametrize('operation',['source_raw_restore','source_cpu_acceptance'])
+def test_both_operations_accept_no_financial_review_field(records,operation):
+    review,slot=records
+    assert 'covered_dollar_upper_bound_reviewed' not in review
+    review['operation']=slot['operation']=operation
+    review['maximum_wall_seconds']=g.OPERATIONS[operation]
+    review['source_restore_receipt_sha256']=None if operation=='source_raw_restore' else 'f'*64
+    assert g.validate(review,slot,operation,'a'*40,'b'*64,g.digest(g.__file__),NOW)[0]==g.OPERATIONS[operation]
+
+
+@pytest.mark.parametrize('value',[False,True])
+def test_obsolete_financial_field_cannot_masquerade_as_old_gate_pass(records,value):
+    records[0]['covered_dollar_upper_bound_reviewed']=value
+    with pytest.raises(ValueError,match='exact_new_parent_review_schema'):validate(records)
+
+
+def test_missing_or_changed_supersession_record_blocks_before_operation(tmp_path,monkeypatch):
+    path=tmp_path/'supersession.json';monkeypatch.setattr(g,'SUPERSESSION_PATH',path)
+    with pytest.raises(FileNotFoundError):g.Gate(tmp_path/'review',tmp_path/'slot','source_cpu_acceptance','a'*40,'b'*64)
+    path.write_text('{}')
+    with pytest.raises(ValueError,match='author_supersession_record'):g.Gate(tmp_path/'review',tmp_path/'slot','source_cpu_acceptance','a'*40,'b'*64)
+
+
+def test_supersession_rechecked_during_operation(records,tmp_path,monkeypatch):
+    class Clock(datetime):
+        @classmethod
+        def now(cls,tz=None):return NOW
+    monkeypatch.setattr(g,'datetime',Clock)
+    author=tmp_path/'supersession.json';author.write_bytes(g.SUPERSESSION_PATH.read_bytes())
+    monkeypatch.setattr(g,'SUPERSESSION_PATH',author)
+    p,q=tmp_path/'review',tmp_path/'slot';p.write_text(json.dumps(records[0]));q.write_text(json.dumps(records[1]))
     gate=g.Gate(p,q,'source_cpu_acceptance','a'*40,'b'*64);gate.check()
     author.write_text('{}')
     with pytest.raises(ValueError,match='operation_gate_source_changed'):gate.check()

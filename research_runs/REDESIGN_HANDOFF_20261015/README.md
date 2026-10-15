@@ -1,5 +1,9 @@
 # Paper 1 recovery preparation — 15 October 2026
 
+## Current: narrow author supersession of financial prerequisites
+
+For the existing source restore/CPU acceptance only, financial execution prerequisites are **superseded-by-user**, not passed. Do not wait for billing or balance. Use [the minimal amendment and two-stage commands](repaired_acceptance/FINANCIAL_SUPERSESSION.md) and its fixed pin. Historical accounts, unknowns and failures remain intact; all time/resource/scientific controls remain unchanged. The older dollar-review instructions below are superseded for these two operations.
+
 ## Current single execution handoff
 
 Use [DOT_RUN_NEXT.md](DOT_RUN_NEXT.md) for the immediate sequence. The recorded

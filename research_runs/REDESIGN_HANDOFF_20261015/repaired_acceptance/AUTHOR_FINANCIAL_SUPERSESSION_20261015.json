@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "status": "superseded-by-user",
+  "source": "Current user instruction explicitly reports the immediately preceding dot question and author reply, and requests this narrow execution-gate revision.",
+  "reported_dot_question_verbatim": "旧累计10美元门是否改为本次30分钟增量独立授权",
+  "author_reply_verbatim": "别再计算这该死的费用了，把有关费用和钱的都移出去",
+  "author_message_sent_at_utc": null,
+  "recorded_at_observed_tool_clock_utc": "2026-10-15T05:48:30Z",
+  "superseded_execution_preconditions": [
+    "old_total_10_USD_gate",
+    "old_2_USD_monetary_reserve",
+    "account_balance_observation",
+    "covered_dollar_upper_bound_reviewed"
+  ],
+  "covered_dollar_upper_bound_review_required": false,
+  "old_financial_gate_passed": false,
+  "historical_accounts_unknowns_and_failure_records_preserved": true,
+  "historical_cost_or_ledger_filled_with_zero": false,
+  "scope": [
+    "source_raw_restore",
+    "source_cpu_acceptance"
+  ],
+  "original_48hour_author_record_sha256_preserved": "ae0ee5135586a7c49bfd690946120455367b14d2c1426c5f7217347bedd12fb5",
+  "cpu_recovery_window_start_utc": "2026-10-15T05:07:25Z",
+  "cpu_recovery_window_end_utc": "2026-10-17T05:07:25Z",
+  "GPU_deadline_preserved_utc": "2026-10-16T09:54:00Z",
+  "source_expected_files": 18,
+  "source_expected_bytes": 779873919,
+  "restore_maximum_wall_seconds": 1200,
+  "CPU_acceptance_maximum_wall_seconds": 300,
+  "strict_hashes_single_claim_disk_and_paper2_gates_unchanged": true,
+  "purchase_payment_topup_or_new_resource_authorized": false,
+  "Pod_operation_authorized_for_this_assistant": false,
+  "GPU_fit_authorized_by_this_amendment": false,
+  "target_EEG_read_authorized_by_this_amendment": false,
+  "old_accounting_or_training_acceptance_established": false,
+  "dot_remains_sole_Pod_operator": true,
+  "supersedes_historical_author_record_field": "covered_refreshed_dollar_upper_bound_still_required"
+}

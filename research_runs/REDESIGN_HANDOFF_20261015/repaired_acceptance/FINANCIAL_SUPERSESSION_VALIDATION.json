@@ -1,0 +1,51 @@
+{
+  "status": "NARROW_USER_SUPERSESSION_PATCH_VALIDATED_NOT_EXECUTED",
+  "checked_at_utc": "2026-10-15T05:52:29.782483+00:00",
+  "previous_handoff_commit": "97e3cb64554344b1360880d16e59e132e5e25aa8",
+  "technical_baseline_execution_commit": "709a213c04689f4c388ee40c7cfa24b4d4f45ab1",
+  "focused_test_command": "/workspace/mi-eeg-cloud-cpu28-tests/bin/python -B -m pytest -q research_runs/REDESIGN_HANDOFF_20261015/repaired_acceptance/test_acceptance_gate.py --junitxml=/workspace/mi-eeg-redesign-qa-20261012/financial-supersession-gate-tests.xml",
+  "focused_gate_tests": {
+    "tests": 84,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0
+  },
+  "junit_sha256": "e4a608a9c363ee9b28dd9550ea4bb71a9905b1096ed0375a2bf8bd8400bc14cc",
+  "gate_sha256": "579067cf8eab2d3e6d20a00f54bc303f619796db04df9bd33eee4fdea066f528",
+  "new_author_supersession_sha256": "d3a4e670332a9bf158da98abae0ab84702d092018c6043cbc36bf4f3f5fb7d90",
+  "financial_execution_status": "superseded-by-user",
+  "old_financial_gate_passed": false,
+  "complete_billing_or_balance_required_for_these_operations": false,
+  "preserved_unknown_historical_costs_filled_with_zero": false,
+  "existing48hour_author_record_modified": false,
+  "original_restore_and_acceptance_scripts_modified": false,
+  "CPU_window_UTC": [
+    "2026-10-15T05:07:25Z",
+    "2026-10-17T05:07:25Z"
+  ],
+  "original_GPU_deadline_UTC": "2026-10-16T09:54:00Z",
+  "maximum_restore_seconds": 1200,
+  "maximum_CPU_acceptance_seconds": 300,
+  "maximum_slot_seconds": 1800,
+  "source_files": 18,
+  "source_bytes": 779873919,
+  "new_disk_or_environment_allowance": false,
+  "documented_stage_bash_blocks_syntax_passed": 2,
+  "protected_files_unchanged_sha256": {
+    "research_runs/REDESIGN_CLOUD_20261013/config/numerical_execution_v1.json": "04f562ddddc4e5019e56240b980d6d9c2d78645860857a5ab0d9746e788ae476",
+    "research_runs/REDESIGN_CLOUD_20261013/scripts/formal_core_inputs.py": "bcd89d6747f00fb03bf1793df3753c53f67cfbf2f95275d40b042b682db61577",
+    "research_runs/REDESIGN_CLOUD_20261013/requirements.txt": "7322d4f85f25064ef8c29efa502c67417fc9b8a0d3297692263c1e618804769a",
+    "research_runs/REDESIGN_HANDOFF_20261014/runtime_transition/isolated_training_runtime.py": "cdd8c2d47fb6e1653e8b5c2eb48de6483d4dd57a0af392f2c1495669e3c0cd9e",
+    "research_runs/REDESIGN_CLOUD_20261013/scripts/train_exploratory.py": "4c8e66ce75b7f4133ea648be1bb9b58320b1df2d30e9bba19f4176b0ac665a3d",
+    "research_runs/REDESIGN_HANDOFF_20261015/repaired_acceptance/restore_source_once.py": "2ee6355f51b29bbeedd30f8422c078af76615c26873e16826156ebc015d7f220",
+    "research_runs/REDESIGN_HANDOFF_20261015/repaired_acceptance/accept_repaired_runtime_source.py": "83c30546f693511c7eee80d4520eb0cab70a945530e0321db575b7c75d25a7ca",
+    "research_runs/REDESIGN_HANDOFF_20261015/repaired_acceptance/AUTHOR_CPU_RECOVERY_48H_20261015.json": "ae0ee5135586a7c49bfd690946120455367b14d2c1426c5f7217347bedd12fb5"
+  },
+  "independent_review": "Approved; no blocking findings. Monetary precondition removed; history/resource/science/no-fit boundaries retained.",
+  "Pod_operations": false,
+  "installation": false,
+  "new_EEG_reads": false,
+  "new_fits": 0,
+  "new_payment_topup_purchase_or_resource_authority": false,
+  "actual_runtime_or_training_acceptance_claimed": false
+}

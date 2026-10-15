@@ -1,5 +1,7 @@
 # 当前唯一执行交接：复用已修复环境，先取得真实验收
 
+> **Current correction:** Financial execution prerequisites below are superseded-by-user for source_raw_restore/source_cpu_acceptance. Do not wait for billing or balance. Use [the narrow amendment and exact two-stage commands](repaired_acceptance/FINANCIAL_SUPERSESSION.md) with its new fixed pin. Earlier dollar-review wording is historical; it is not a condition for these two operations. All technical/resource/Paper2 and no-fit boundaries remain.
+
 此页合并当前步骤，避免重复安装或另起任务。**交给 dot 执行；本助手没有
 Pod 执行通道，也未观察到新一轮现场验收或训练。** 代码推送不是现场运行回执。
 论文2保持独立优先；不 Stop / Restart / Terminate，不更改其 cp311 环境、全局包或数值线程。

@@ -1,5 +1,7 @@
 # Current execution pin — author-approved48-hour CPU availability
 
+> **Superseded execution pin for this amendment:** Keep this709a213c delivery intact as history. Use [FINANCIAL_SUPERSESSION_PIN.md](FINANCIAL_SUPERSESSION_PIN.md) for the new gate and author-supersession record. The monetary execution prerequisites described below are superseded-by-user for the two CPU operations; do not wait for billing or balance. The original48-hour record and both execution scripts remain unchanged.
+
 Use code commit **`709a213c04689f4c388ee40c7cfa24b4d4f45ab1`** on
 `research/paper1-handoff-20261014`. All16 changed files passed immutable
 public byte readback; see `AUTHOR48_PUBLIC_READBACK.json`. The older8766036b

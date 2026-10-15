@@ -2,8 +2,8 @@
 
 The source_raw_restore operation is a new, explicit operational amendment.
 It does not reinterpret any expired metadata/preparation/source slot.
-The author's48hour CPU recovery availability is pinned separately from the
-unchanged original fit deadline and never certifies funds for continuous use.
+The author's48hour CPU recovery availability and explicit supersession of
+financial execution preconditions are pinned; neither grants a GPU fit.
 """
 from datetime import datetime, timedelta, timezone
 import hashlib
@@ -21,6 +21,8 @@ REPAIR_ENDED = datetime(2026, 10, 15, 4, 26, 22, 935336, tzinfo=timezone.utc)
 HISTORICAL_FIT_DEADLINE = datetime(2026, 10, 16, 9, 54, tzinfo=timezone.utc)
 GRANT_PATH = Path(__file__).with_name('AUTHOR_CPU_RECOVERY_48H_20261015.json')
 GRANT_SHA = 'ae0ee5135586a7c49bfd690946120455367b14d2c1426c5f7217347bedd12fb5'
+SUPERSESSION_PATH = Path(__file__).with_name('AUTHOR_FINANCIAL_SUPERSESSION_20261015.json')
+SUPERSESSION_SHA = 'd3a4e670332a9bf158da98abae0ab84702d092018c6043cbc36bf4f3f5fb7d90'
 GRANT_START = datetime(2026, 10, 15, 5, 7, 25, tzinfo=timezone.utc)
 DEADLINE = datetime(2026, 10, 17, 5, 7, 25, tzinfo=timezone.utc)
 OPERATIONS = {'source_raw_restore': 1200, 'source_cpu_acceptance': 300}
@@ -28,7 +30,7 @@ GIB = 1024**3
 TRUE_REVIEW = ('repair_evidence_independently_reviewed', 'paper2_absolute_priority',
     'paper2_noninterference_reviewed', 'preserved_old_failure_and_repair_identity',
     'unknown_accounting_retained', 'operation_scope_reviewed',
-    'bounded_cpu_recovery_exception_authorized', 'covered_dollar_upper_bound_reviewed')
+    'bounded_cpu_recovery_exception_authorized')
 FALSE_REVIEW = ('training_authorization', 'fit_authorized', 'GPU_computation_authorized',
     'target_EEG_read_authorized', 'automatic_retry_authorized', 'pod_control_authorized',
     'numerical_thread_changes_authorized', 'budget_reset_authorized', 'budget_expansion_authorized')
@@ -94,7 +96,9 @@ def validate(review, slot, operation, revision, script_sha, gate_sha, current):
         'issuer': 'dot_parent', 'operation': operation, 'base_revision': BASE_REVISION,
         'delivery_revision': revision, 'operation_script_sha256': script_sha,
         'gate_sha256': gate_sha, 'repair_archive_sha256': REPAIR_ARCHIVE_SHA,
-        'repair_receipt_sha256': REPAIR_RECEIPT_SHA}
+        'repair_receipt_sha256': REPAIR_RECEIPT_SHA,
+        'financial_preconditions_status': 'superseded-by-user',
+        'financial_supersession_sha256': SUPERSESSION_SHA}
     keys = set(bindings) | set(TRUE_REVIEW) | set(FALSE_REVIEW) | {
         'reviewed_at_utc', 'expires_at_utc', 'maximum_wall_seconds', 'review_notes',
         'cpu_recovery_grant_sha256', 'cpu_recovery_window_start_utc', 'cpu_recovery_window_end_utc',
@@ -104,7 +108,7 @@ def validate(review, slot, operation, revision, script_sha, gate_sha, current):
     if type(review['schema_version']) is not int or any(review[k] != v for k, v in bindings.items()):
         raise ValueError('new_parent_review_binding_mismatch')
     if any(review[k] is not True for k in TRUE_REVIEW) or any(review[k] is not False for k in FALSE_REVIEW):
-        raise ValueError('review_must_preserve_scientific_and_budget_gates')
+        raise ValueError('review_must_preserve_scientific_scope_and_history')
     source_sha = review['source_restore_receipt_sha256']
     if ((operation == 'source_raw_restore' and source_sha is not None) or
             (operation == 'source_cpu_acceptance' and
@@ -152,6 +156,8 @@ class Gate:
     def __init__(self, review_path, slot_path, operation, revision, code_sha256):
         if digest(no_symlink(GRANT_PATH)) != GRANT_SHA:
             raise ValueError('actual_author48hour_record_missing_or_changed')
+        if digest(no_symlink(SUPERSESSION_PATH)) != SUPERSESSION_SHA:
+            raise ValueError('actual_author_supersession_record_missing_or_changed')
         self.review_path, self.slot_path = map(no_symlink, (review_path, slot_path))
         self.operation, self.revision, self.script_sha = operation, revision, code_sha256
         self.gate_sha = digest(__file__)
@@ -174,7 +180,8 @@ class Gate:
             _, current_sha, current_identity = read_record(path)
             if current_sha != digest_value or current_identity != identity:
                 raise ValueError('review_or_slot_revoked_replaced_or_changed')
-        if digest(__file__) != self.gate_sha or digest(no_symlink(GRANT_PATH)) != GRANT_SHA:
+        if (digest(__file__) != self.gate_sha or digest(no_symlink(GRANT_PATH)) != GRANT_SHA
+                or digest(no_symlink(SUPERSESSION_PATH)) != SUPERSESSION_SHA):
             raise ValueError('operation_gate_source_changed')
         validate(self.review, self.slot, self.operation, self.revision, self.script_sha,
             self.gate_sha, datetime.now(timezone.utc))
