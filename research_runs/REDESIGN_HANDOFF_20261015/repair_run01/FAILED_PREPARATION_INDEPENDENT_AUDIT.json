@@ -1,0 +1,76 @@
+{
+  "archive": {
+    "all_payload_bytes_and_hashes_verified": true,
+    "bytes": 423996,
+    "manifest_sha256": "6ed8125ea6151a79bbbe34060d955bea1f4d512544482858f500fa31d985186a",
+    "regular_payload_count": 26,
+    "sha256": "7c83bcb991857dd99b7cda2b4bd8f9fe467d87217fb3a73c408b7b1474f4b3a0"
+  },
+  "closure": {
+    "all_recorded_names_versions_hashes_match_resolution": true,
+    "all_recorded_urls_https_files_pythonhosted_org": true,
+    "committed_direct_requirements_count": 13,
+    "committed_requirements_revision": "1efe9d1ba2ab8671ad1bf76c360e067fb63fd7ac",
+    "committed_requirements_sha256": "7322d4f85f25064ef8c29efa502c67417fc9b8a0d3297692263c1e618804769a",
+    "compressed_bytes_as_recorded": 148288134,
+    "frozen_scientific_versions_match": {
+      "boto3": "1.40.61",
+      "braindecode": "1.5.1",
+      "einops": "0.8.2",
+      "h5py": "3.16.0",
+      "joblib": "1.5.3",
+      "mne": "1.13.2",
+      "numpy": "2.3.5",
+      "pandas": "2.2.3",
+      "pytest": "9.1.1",
+      "scikit-learn": "1.8.0",
+      "scipy": "1.17.0",
+      "skorch": "1.4.0",
+      "threadpoolctl": "3.6.0"
+    },
+    "hashed_requirements_match_resolution": true,
+    "no_torch_torchaudio_triton_or_nvidia_wheels": true,
+    "precise_guard_member_count": 5,
+    "resolution_bytes": 1399863,
+    "resolution_sha256": "a0ed2680c8e057a60aec9cde0d736c9869f3ea9e747f5a6216d79766d07f9b5a",
+    "unique_distributions": 79
+  },
+  "limitations": [
+    "These are authenticated archived observations, not a current Pod preflight.",
+    "No wheel binaries are in the archive: member and wheel hashes are archived observations; retained wheel bytes require fresh local verification by dot before repair.",
+    "No complete installed-distribution inventory is in this archive: exact allowed uninstalled partial state must be independently checked before repair.",
+    "No wheel or archived script was executed, downloaded, installed, or imported during this audit.",
+    "Preparation does not authorize GPU imports, source acceptance, target EEG reads, or fitting.",
+    "Old total cost and cumulative GPU hours remain unknown; no budget or deadline is reset."
+  ],
+  "partial_state_as_recorded": {
+    "allocated_bytes": 165703680,
+    "environment": "/workspace/paper1-training-runtime-cp312-run01",
+    "include_system_site_packages": false,
+    "peak_owned_allocated_bytes": 168755200,
+    "postflight_free_bytes": 44269973504,
+    "python": "3.12.3",
+    "runtime_preparation_receipt_exists": false,
+    "scientific_wheels_not_installed_by_failed_helper": true
+  },
+  "recorded_execution": {
+    "automatic_retry": false,
+    "ended_utc": "2026-10-15T03:54:43.978652+00:00",
+    "failure_guard_line": 205,
+    "helper_revision": "1efe9d1ba2ab8671ad1bf76c360e067fb63fd7ac",
+    "inner_exit": 1,
+    "new_fits": 0,
+    "outer_exit": 3,
+    "started_utc": "2026-10-15T03:54:00.757256+00:00"
+  },
+  "runtime_import_acceptance_passed": false,
+  "schema_version": 1,
+  "source_acceptance_passed": false,
+  "source_controller": {
+    "bytes": 22347,
+    "fixed_commit": "b07892c320e25e3465c50ea3a31d1a21bf722df3",
+    "sha256": "7a1fbc9b364c8dd42faf6894450ae065a49d59a977d4c5470a3c2daffff50cc3"
+  },
+  "status": "FAILED_PREPARATION_EVIDENCE_INDEPENDENTLY_VERIFIED_REPAIR_STILL_REQUIRED",
+  "training_authorization": false
+}

@@ -1,6 +1,26 @@
 # Paper 1 recovery preparation — 15 October 2026
 
-## Latest: metadata and actual runtime plan accepted; preparation still not executed
+## Latest: original preparation safely failed; single offline repair prepared
+
+The newly supplied 423996-byte failed-preparation archive passed independent
+review: all 26 payloads, the complete 79-wheel recorded closure and exact
+manpage member evidence agree. The actual 03:54 run failed before scientific
+wheel installation; its partial, original helper/controller and all failures
+remain preserved. No Pod operation or live cache/site observation was made here.
+
+Follow [the repair-only handoff](repair_run01/DOT_REPAIR_NEXT.md), not the old
+preparation command. The new controller requires independent parent review,
+a fresh slot, exact retained partial/cache checks and a single exclusive repair
+journal. It approves only the two fixed manpages and three necessary directory
+entries, reuses all original 79 wheel bytes, and preserves the original total
+3 GiB cap, reserve and unknown accounting. Its distinct success receipt still
+denies runtime/source/target/fit acceptance. Paper 2 continues independently.
+
+The historical sections below are retained. Preparation was subsequently
+executed once and failed, so their previous next-step instruction is superseded
+by the repair handoff. Do not repeat the plan or original failed preparation.
+
+## Earlier delivery: metadata and actual runtime plan accepted
 
 Fixed outer-controller/evidence commit:
 **`b07892c320e25e3465c50ea3a31d1a21bf722df3`**; the inner runtime helper
