@@ -66,3 +66,11 @@ resetting $10/8GPUhours/fit/update counters. The unchanged production budget
 gate still blocks. All source strict hashes, real-runtime acceptance, old
 accounting and complete target mapping/restoration gates must pass before any
 separately reviewed Paper 1 execution transition can be considered.
+# Current continuation pin
+
+Source restoration and actual-runtime CPU acceptance are now complete and
+independently audited. Use the [original-job metadata continuation pin](continuity_resume/EXECUTION_PIN.md)
+(`6710cf4e14c6182896668320fe96dfd3efa1e901`) for the next operation. The earlier
+pin and commands below are preserved historical metadata/runtime preparation
+evidence, not instructions to repeat completed work.
+
