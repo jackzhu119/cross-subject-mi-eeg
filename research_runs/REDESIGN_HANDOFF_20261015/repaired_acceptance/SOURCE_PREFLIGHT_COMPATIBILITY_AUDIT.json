@@ -1,0 +1,275 @@
+{
+  "archive": {
+    "all_manifest_lengths_and_hashes_verified": true,
+    "bytes": 63678,
+    "payload_count": 31,
+    "safe_unique_regular_inventory_verified": true,
+    "sha256": "89569e3a18402665d81f74064a420de522c74115458883b9af9eac6d5bfe8dab"
+  },
+  "current_failed_outer": {
+    "bytes": 490,
+    "must_preserve_readonly": true,
+    "relative_filename": "source_restore_repair_run01.outer_exit.json",
+    "sha256": "112aac0310e0dd5d239e81c88414361a501e6b26a4fcb5189521afe9b60329e9"
+  },
+  "frozen_preserved_evidence": [
+    {
+      "bytes": 16670,
+      "matches_prior_archive": true,
+      "relative_filename": "source_restore_run01.json",
+      "sha256": "9042616a19d99fb67038749b33bff9d149e84d1dc825bc443f68c4bf07c37d0a"
+    },
+    {
+      "bytes": 4486,
+      "matches_prior_archive": true,
+      "relative_filename": "source_restore_run01.journal.jsonl",
+      "sha256": "67ca560b409de314537d046bf09101349852cdc8f0243ed5be845343798b30b8"
+    },
+    {
+      "bytes": 0,
+      "matches_prior_archive": true,
+      "relative_filename": "source_restore_run01.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "nested_original_failure": {
+    "all_manifest_lengths_and_hashes_verified": true,
+    "bytes": 26831,
+    "payload_count": 27,
+    "sha256": "89f8b8b05dc2b94a97038e6800fb94238081e63657e2b1492361da2aa4d7c536"
+  },
+  "no_new_attempt_evidence": {
+    "code_order_blocks_before_new_get": true,
+    "repair_claim_exists": false,
+    "repair_journal_in_inventory": false,
+    "repair_receipt_in_inventory": false,
+    "scientific_acceptance_or_fit_authorized": false,
+    "source_receipt_is_success": false,
+    "source_receipt_preserved_running_with_file_rows": 11
+  },
+  "observed_execution": {
+    "controller_stdout": {
+      "failure": {
+        "code_location": "restore_source_after_failure_once.py:146",
+        "errno": null,
+        "error_class": "ValueError",
+        "relative_filename": "not-recorded-or-outside-controlled-roots",
+        "stage": "dispatch"
+      },
+      "new_fits": 0,
+      "status": "SOURCE_REPAIR_FAILED_OR_BLOCKED_NO_RETRY",
+      "training_authorization": false
+    },
+    "delivery_revision": "5c7e153d09cdba4ecf83d2a54991f34d032205c4",
+    "exit_code": 3,
+    "finished_at_utc": "2026-10-15T06:37:36.134424+00:00",
+    "free_bytes": 43050700800,
+    "no_automatic_retry": true,
+    "outer_exit": {
+      "controller_completion_sha256": null,
+      "exit_code": 3,
+      "new_fits": 0,
+      "observed_at_utc": "2026-10-15T06:37:36.118335+00:00",
+      "prior_source_restore_failure_archive_sha256": "89f8b8b05dc2b94a97038e6800fb94238081e63657e2b1492361da2aa4d7c536",
+      "receipt_sha256": null,
+      "source_root": "/workspace/paper1-source-recovery-run01",
+      "status": "OBSERVED_SOURCE_REPAIR_PROCESS_EXIT",
+      "training_authorization": false,
+      "wrapper_sha256": "8b4c49fd857525bf79ede17007e24f087fe2cf7219e296191512f379c8fd89d8"
+    },
+    "source_outer_exit_exists": true,
+    "started_at_utc": "2026-10-15T06:37:35.768120+00:00"
+  },
+  "postflight_root_inventory": [
+    {
+      "bytes": 4096,
+      "name": "bnci",
+      "regular": false,
+      "sha256": null
+    },
+    {
+      "bytes": 490,
+      "name": "source_restore_repair_run01.outer_exit.json",
+      "regular": true,
+      "sha256": "112aac0310e0dd5d239e81c88414361a501e6b26a4fcb5189521afe9b60329e9"
+    },
+    {
+      "bytes": 4486,
+      "name": "source_restore_run01.journal.jsonl",
+      "regular": true,
+      "sha256": "67ca560b409de314537d046bf09101349852cdc8f0243ed5be845343798b30b8"
+    },
+    {
+      "bytes": 16670,
+      "name": "source_restore_run01.json",
+      "regular": true,
+      "sha256": "9042616a19d99fb67038749b33bff9d149e84d1dc825bc443f68c4bf07c37d0a"
+    },
+    {
+      "bytes": 0,
+      "name": "source_restore_run01.json.tmp-a0f96cd0b1ed43c0967091e562c9884a",
+      "regular": true,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 0,
+      "name": "source_restore_run01.log",
+      "regular": true,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "precise_historical_tmp": {
+    "bytes": 0,
+    "must_preserve_readonly": true,
+    "regular_file_metadata_observed": true,
+    "relative_filename": "source_restore_run01.json.tmp-a0f96cd0b1ed43c0967091e562c9884a",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "schema_version": 1,
+  "scope": {
+    "interpretation": "Package attests historical metadata observations; no current Pod state inferred.",
+    "network_access": false,
+    "pod_access": false,
+    "raw_eeg_read": false,
+    "scientific_execution": false
+  },
+  "source_cache_metadata": {
+    "current_raw_mat_hashes_recomputed": false,
+    "current_raw_mat_opened_by_auditor": false,
+    "missing_frozen_files": [
+      "A07E.mat",
+      "A07T.mat",
+      "A08E.mat",
+      "A08T.mat",
+      "A09E.mat",
+      "A09T.mat"
+    ],
+    "observed_file_count": 12,
+    "prior_full_sha_rows": [
+      {
+        "bytes": 43772146,
+        "filename": "A01E.mat",
+        "matches_frozen": true,
+        "sha256": "53d415f39c3d7b0c88b894d7b08d99bcdfe855ede63831d3691af1a45607fb62"
+      },
+      {
+        "bytes": 42806453,
+        "filename": "A01T.mat",
+        "matches_frozen": true,
+        "sha256": "054f02e70cf9c4ada1517e9b9864f45407939c1062c6793516585c6f511d0325"
+      },
+      {
+        "bytes": 44218409,
+        "filename": "A02E.mat",
+        "matches_frozen": true,
+        "sha256": "d63c454005d3a9b41d8440629482e855afc823339bdd0b5721842a7ee9cc7b12"
+      },
+      {
+        "bytes": 43068077,
+        "filename": "A02T.mat",
+        "matches_frozen": true,
+        "sha256": "5ddd5cb520b1692c3ba1363f48d98f58f0e46f3699ee50d749947950fc39db27"
+      },
+      {
+        "bytes": 42316292,
+        "filename": "A03E.mat",
+        "matches_frozen": true,
+        "sha256": "d4229267ec7624fa8bd3af5cbebac17f415f7c722de6cb676748f8cb3b717d97"
+      },
+      {
+        "bytes": 44057065,
+        "filename": "A03T.mat",
+        "matches_frozen": true,
+        "sha256": "7e731ee8b681d5da6ecb11ae1d4e64b1653c7f15aad5d6b7620b25ce53141e80"
+      },
+      {
+        "bytes": 41730824,
+        "filename": "A04E.mat",
+        "matches_frozen": true,
+        "sha256": "81916dff2c12997974ba50ffc311da006ea66e525010d010765f0047e771c86a"
+      },
+      {
+        "bytes": 37150377,
+        "filename": "A04T.mat",
+        "matches_frozen": true,
+        "sha256": "15850d81b95fc88cc8b9589eb9b713d49fa071e28adaf32d675b3eaa30591d6e"
+      },
+      {
+        "bytes": 44392496,
+        "filename": "A05E.mat",
+        "matches_frozen": true,
+        "sha256": "8b357470865610c28b2f1d351beac247a56a856f02b2859d650736eb2ef77808"
+      },
+      {
+        "bytes": 42452392,
+        "filename": "A05T.mat",
+        "matches_frozen": true,
+        "sha256": "77387d3b669f4ed9a7c1dac4dcba4c2c40c8910bae20fb961bb7cf5a94912950"
+      },
+      {
+        "bytes": 43395510,
+        "filename": "A06E.mat",
+        "matches_frozen": true,
+        "sha256": "bf67a40621b74b6af7a986c2f6edfff7fc2bbbca237aadd07b575893032998d1"
+      },
+      {
+        "bytes": 44581256,
+        "filename": "A06T.mat",
+        "matches_frozen": true,
+        "sha256": "4dc3be1b0d60279134d1220323c73c68cf73799339a7fb224087a3c560a9a7e2"
+      }
+    ],
+    "rows": [
+      {
+        "bytes": 43772146,
+        "name": "A01E.mat"
+      },
+      {
+        "bytes": 42806453,
+        "name": "A01T.mat"
+      },
+      {
+        "bytes": 44218409,
+        "name": "A02E.mat"
+      },
+      {
+        "bytes": 43068077,
+        "name": "A02T.mat"
+      },
+      {
+        "bytes": 42316292,
+        "name": "A03E.mat"
+      },
+      {
+        "bytes": 44057065,
+        "name": "A03T.mat"
+      },
+      {
+        "bytes": 41730824,
+        "name": "A04E.mat"
+      },
+      {
+        "bytes": 37150377,
+        "name": "A04T.mat"
+      },
+      {
+        "bytes": 44392496,
+        "name": "A05E.mat"
+      },
+      {
+        "bytes": 42452392,
+        "name": "A05T.mat"
+      },
+      {
+        "bytes": 43395510,
+        "name": "A06E.mat"
+      },
+      {
+        "bytes": 44581256,
+        "name": "A06T.mat"
+      }
+    ],
+    "same_names_sizes_as_prior_full_sha_observation": true
+  },
+  "status": "OFFLINE_EVIDENCE_AUDIT_MATCH_PREFLIGHT_COMPATIBILITY_ONLY"
+}

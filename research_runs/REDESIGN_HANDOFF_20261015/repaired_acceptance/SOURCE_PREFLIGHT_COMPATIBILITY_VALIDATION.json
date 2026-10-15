@@ -1,0 +1,58 @@
+{
+  "status": "EXACT_OLD_TMP_COMPATIBILITY_PATCH_VALIDATED_NOT_EXECUTED",
+  "checked_at_utc": "2026-10-15T06:49:36.951458+00:00",
+  "previous_code_commit": "5c7e153d09cdba4ecf83d2a54991f34d032205c4",
+  "preflight_failure_archive_bytes": 63678,
+  "preflight_failure_archive_sha256": "89569e3a18402665d81f74064a420de522c74115458883b9af9eac6d5bfe8dab",
+  "payloads_independently_verified": 31,
+  "preflight_failed_exit": 3,
+  "repair_claim_consumed_by_that_preflight": false,
+  "precise_old_tmp": "source_restore_run01.json.tmp-a0f96cd0b1ed43c0967091e562c9884a",
+  "precise_old_tmp_required_bytes": 0,
+  "precise_old_tmp_required_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "preserved_old_outer_sha256": "112aac0310e0dd5d239e81c88414361a501e6b26a4fcb5189521afe9b60329e9",
+  "new_wrapper_outer_record": "source_restore_repair_run01.compat_outer_exit.json",
+  "unknown_root_members_allowed": false,
+  "old_failures_modified_or_relabelled": false,
+  "unchanged_claim_names_remain_exclusive": true,
+  "tests": {
+    "tests": 3,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0
+  },
+  "test_command": "/workspace/mi-eeg-cloud-cpu28-tests/bin/python -B -m pytest -q research_runs/REDESIGN_HANDOFF_20261015/repaired_acceptance/test_source_preflight_compatibility.py --junitxml=/workspace/mi-eeg-redesign-qa-20261012/source-preflight-compatibility-tests.xml",
+  "junit_sha256": "f3d947e69e967d0ce74f34c2881ded2a4b8314caed88f2c606919df36a7a508f",
+  "changed_execution_sha256": {
+    "restore_source_after_failure_once.py": "dcbbfb50088795c6667834d86e02cc7a343c32a0b8370b3da065acf41b6147c6",
+    "RUN_SOURCE_RESTORE_REPAIR_ONCE.sh": "32f591fc9b4be45ee50ccb200be1ff2f7a1d52fe567a0a6675e630563ed4aef9",
+    "accept_repaired_runtime_source.py": "a48b3ffb655b4fb85cc94f9310c0fff9908982405d54fd497af0ac4b38c6fff9"
+  },
+  "unchanged_prior_execution_sha256": {
+    "restore_source_once.py": "2ee6355f51b29bbeedd30f8422c078af76615c26873e16826156ebc015d7f220",
+    "acceptance_gate.py": "579067cf8eab2d3e6d20a00f54bc303f619796db04df9bd33eee4fdea066f528",
+    "source_owned_measurement.py": "96221076dc8d13c5f30dca4c271c971935af671061498486aa018aaf6c553582",
+    "AUTHOR_CPU_RECOVERY_48H_20261015.json": "ae0ee5135586a7c49bfd690946120455367b14d2c1426c5f7217347bedd12fb5",
+    "AUTHOR_FINANCIAL_SUPERSESSION_20261015.json": "d3a4e670332a9bf158da98abae0ab84702d092018c6043cbc36bf4f3f5fb7d90"
+  },
+  "new_environment_or_framework": false,
+  "frozen_scientific_input_or_protocol_changed": false,
+  "source_reuse_files": 12,
+  "source_missing_files_to_GET_only": 6,
+  "new_current_raw_cache_SHA_observation_by_this_assistant": false,
+  "max_restore_seconds": 1200,
+  "max_CPU_acceptance_seconds": 300,
+  "CPU_window_UTC": [
+    "2026-10-15T05:07:25Z",
+    "2026-10-17T05:07:25Z"
+  ],
+  "GPU_deadline_UTC": "2026-10-16T09:54:00Z",
+  "resource_disk_and_Paper2_gates_unchanged": true,
+  "financial_preconditions_status": "superseded-by-user",
+  "independent_static_review": "No blocking findings in three-file minimal patch; only exact oldtmp and priorfailedouter accepted; original failure-package validation unchanged.",
+  "Pod_operation": false,
+  "install": false,
+  "EEG_reads": false,
+  "fits": 0,
+  "Step_B_authorized": false
+}

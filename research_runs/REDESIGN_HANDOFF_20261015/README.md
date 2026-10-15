@@ -1,5 +1,9 @@
 # Paper 1 recovery preparation — 15 October 2026
 
+## Current: exact old-tmp preflight compatibility
+
+The5c7e repair preflight failed before consuming its claim. Preserve its failedouter and exact0-byte oldtmp; use [SOURCE_PREFLIGHT_COMPATIBILITY.md](repaired_acceptance/SOURCE_PREFLIGHT_COMPATIBILITY.md) and its new fixed pin. Only the known records are allowed; other unknowns still stop. Source12/6, strictSHA/resource/Paper2 and no-install/no-fit boundaries are unchanged.
+
 ## Current source failure repair — do not repeat run01
 
 Source restore run01 actually failed with outer exit3. The stale RUNNING11-row receipt is not success. Follow [SOURCE_RESTORE_REPAIR.md](repaired_acceptance/SOURCE_RESTORE_REPAIR.md) and its fixed pin for one new failure-bound claim, exact12-file reuse and only6 missing GETs. Step B remains blocked until actual18/18 and observed outer exit0. No environment/scientific change or financial review is required.

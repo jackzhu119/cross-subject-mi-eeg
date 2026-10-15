@@ -34,6 +34,11 @@ METER_SHA = '96221076dc8d13c5f30dca4c271c971935af671061498486aa018aaf6c553582'
 OLD_FILES = {'source_restore_run01.json': OLD_RECEIPT_SHA,
              'source_restore_run01.journal.jsonl': OLD_JOURNAL_SHA,
              'source_restore_run01.log': EMPTY_SHA}
+PREFLIGHT_FAILURE_SHA = '89569e3a18402665d81f74064a420de522c74115458883b9af9eac6d5bfe8dab'
+OLD_TMP = 'source_restore_run01.json.tmp-a0f96cd0b1ed43c0967091e562c9884a'
+PREFLIGHT_OUTER_SHA = '112aac0310e0dd5d239e81c88414361a501e6b26a4fcb5189521afe9b60329e9'
+PREFLIGHT_PRESERVED_FILES = {OLD_TMP: EMPTY_SHA,
+                           'source_restore_repair_run01.outer_exit.json': PREFLIGHT_OUTER_SHA}
 ATTEMPT = 'source-restore-repair-run01'
 RECEIPT = 'source_restore_repair_run01.json'
 JOURNAL = 'source_restore_repair_run01.journal.jsonl'
@@ -58,9 +63,11 @@ meter = load('paper1_source_repair_measurement', HERE / 'source_owned_measuremen
 
 
 def old_records(root):
-    for name, expected in OLD_FILES.items():
+    for name, expected in {**OLD_FILES, **PREFLIGHT_PRESERVED_FILES}.items():
         path = base.no_symlink(root / name)
-        if not stat.S_ISREG(path.lstat().st_mode) or base.sha(path) != expected:
+        info = path.lstat()
+        if (not stat.S_ISREG(info.st_mode) or (name == OLD_TMP and info.st_size != 0)
+                or base.sha(path) != expected):
             raise ValueError('source_repair_prior_failure_record_missing_or_changed')
 
 
@@ -139,7 +146,7 @@ def cache_preflight(root, rows, helper, worker=False):
     if root != base.SOURCE_ROOT or not root.is_dir():
         raise ValueError('source_repair_same_existing_cache_required')
     old_records(root)
-    expected = {'bnci', *OLD_FILES}
+    expected = {'bnci', *OLD_FILES, *PREFLIGHT_PRESERVED_FILES}
     if worker:
         expected |= {JOURNAL, LOG}
     if {p.name for p in root.iterdir()} != expected:
@@ -161,7 +168,7 @@ def gate_for(args):
     guard = load('paper1_source_repair_gate', HERE / 'acceptance_gate.py', GATE_SHA)
     gate = guard.Gate(args.review_record, args.priority_receipt, 'source_raw_restore',
                       args.delivery_revision, base.sha(Path(__file__)))
-    if base.datetime.fromisoformat(gate.review['reviewed_at_utc'].replace('Z', '+00:00')) <= base.datetime.fromisoformat('2026-10-15T06:02:59.928544+00:00'):
+    if base.datetime.fromisoformat(gate.review['reviewed_at_utc'].replace('Z', '+00:00')) <= base.datetime.fromisoformat('2026-10-15T06:37:36.134424+00:00'):
         raise ValueError('source_repair_new_technical_review_must_follow_actual_failure')
     original = gate.check
     paths = [(Path(__file__), gate.script_sha), (HERE / 'restore_source_once.py', BASE_SHA),
@@ -186,7 +193,7 @@ def resources(root, gate, rows, *, before_next_write=0, claimed=True):
         if row['filename'] in MISSING and (root / 'bnci' / row['filename']).exists():
             observed.add(row['filename'])
     gate._repair_observed_mat_names = observed
-    required = list(OLD_FILES) + ['bnci/' + name for name in sorted(observed)]
+    required = list(OLD_FILES) + list(PREFLIGHT_PRESERVED_FILES) + ['bnci/' + name for name in sorted(observed)]
     if claimed:
         required += [JOURNAL, LOG]
     total = meter.owned_bytes(root, receipt_name=RECEIPT, attempt=ATTEMPT,
@@ -275,6 +282,8 @@ def run(args):
         delivery_revision=args.delivery_revision, review_sha256=gate.review_sha256, slot_sha256=gate.slot_sha256,
         prior_source_restore_failure_archive_sha256=FAILURE_SHA,
         prior_source_restore_receipt_sha256=OLD_RECEIPT_SHA, prior_source_restore_journal_sha256=OLD_JOURNAL_SHA,
+        prior_preflight_failure_archive_sha256=PREFLIGHT_FAILURE_SHA,
+        preserved_preflight_outer_exit_sha256=PREFLIGHT_OUTER_SHA, preserved_exact_old_tmp=OLD_TMP,
         prior_outer_exit_code=3, old_failure_receipt_overwritten=False, same_cache_12_verified=reused,
         remaining_frozen_files=sorted(MISSING), remaining_frozen_bytes=265932622,
         baseline_disk=baseline, automatic_retry=False, maximum_seconds=min(1200, gate.max_wall_seconds))

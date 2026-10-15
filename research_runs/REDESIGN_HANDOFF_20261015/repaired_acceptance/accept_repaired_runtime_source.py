@@ -34,8 +34,8 @@ FULL_SHA = '2871f422755bf5d0b939d0db59fc41547b192d6c939db1a6a13b97a91ba49ae9'
 FORMAL_SHA = 'a4c6c3f7beadf6ce0c927c6e4b9d20b6d37ff3bc2c033ad4b4fd836ca38a6b0d'
 MANIFEST_SHA = 'e553d65cd86e5309e077ccfea21a9bee6020c5d9d5040de12089c2b859770b86'
 SOURCE_FAILURE_SHA = '89f8b8b05dc2b94a97038e6800fb94238081e63657e2b1492361da2aa4d7c536'
-SOURCE_REPAIR_CONTROLLER_SHA = 'b07902555e0f07efbdb4ee17e34ea25a1f4cc70a74b6dcb86014381966a7c3fb'
-SOURCE_REPAIR_WRAPPER_SHA = '8b4c49fd857525bf79ede17007e24f087fe2cf7219e296191512f379c8fd89d8'
+SOURCE_REPAIR_CONTROLLER_SHA = 'dcbbfb50088795c6667834d86e02cc7a343c32a0b8370b3da065acf41b6147c6'
+SOURCE_REPAIR_WRAPPER_SHA = '32f591fc9b4be45ee50ccb200be1ff2f7a1d52fe567a0a6675e630563ed4aef9'
 REQ_SHA = '7322d4f85f25064ef8c29efa502c67417fc9b8a0d3297692263c1e618804769a'
 BASE_OWNED = 869490688
 HISTORICAL_ENV_DU = 869425152
@@ -227,12 +227,17 @@ def source_repair_provenance(data_dir, raw, receipt, gate):
         raise ValueError('source_repair_must_use_exact_same_cache')
     old = {'source_restore_run01.json': '9042616a19d99fb67038749b33bff9d149e84d1dc825bc443f68c4bf07c37d0a',
            'source_restore_run01.journal.jsonl': '67ca560b409de314537d046bf09101349852cdc8f0243ed5be845343798b30b8',
-           'source_restore_run01.log': hashlib.sha256(b'').hexdigest()}
+           'source_restore_run01.log': hashlib.sha256(b'').hexdigest(),
+           'source_restore_run01.json.tmp-a0f96cd0b1ed43c0967091e562c9884a': hashlib.sha256(b'').hexdigest(),
+           'source_restore_repair_run01.outer_exit.json': '112aac0310e0dd5d239e81c88414361a501e6b26a4fcb5189521afe9b60329e9'}
     for name, expected in old.items():
         regular_bytes(data_dir / name, 131072, expected=expected)
     if (receipt.get('prior_source_restore_failure_archive_sha256') != SOURCE_FAILURE_SHA
             or receipt.get('prior_source_restore_receipt_sha256') != old['source_restore_run01.json']
             or receipt.get('prior_source_restore_journal_sha256') != old['source_restore_run01.journal.jsonl']
+            or receipt.get('prior_preflight_failure_archive_sha256') != '89569e3a18402665d81f74064a420de522c74115458883b9af9eac6d5bfe8dab'
+            or receipt.get('preserved_preflight_outer_exit_sha256') != old['source_restore_repair_run01.outer_exit.json']
+            or receipt.get('preserved_exact_old_tmp') != 'source_restore_run01.json.tmp-a0f96cd0b1ed43c0967091e562c9884a'
             or receipt.get('controller_sha256') != SOURCE_REPAIR_CONTROLLER_SHA
             or receipt.get('old_task') != '20261014T071918Z-exploratory-89b0c07d'
             or receipt.get('attempt') != 'source-restore-repair-run01'
@@ -241,7 +246,7 @@ def source_repair_provenance(data_dir, raw, receipt, gate):
     completion_raw = regular_bytes(data_dir / 'source_restore_repair_run01.completion.json', 16384)
     completion = parse(completion_raw)
     journal = regular_bytes(data_dir / 'source_restore_repair_run01.journal.jsonl', 2 * 1024**2)
-    outer = parse(regular_bytes(data_dir / 'source_restore_repair_run01.outer_exit.json', 16384))
+    outer = parse(regular_bytes(data_dir / 'source_restore_repair_run01.compat_outer_exit.json', 16384))
     if (completion.get('status') != 'SOURCE_RESTORE_REPAIR_CONTROLLER_VERIFIED_EXTERNAL_EXIT_REQUIRED'
             or type(completion.get('worker_exit_code_observed')) is not int or completion['worker_exit_code_observed'] != 0
             or completion.get('controller_process_exit_observed') is not False
@@ -256,6 +261,8 @@ def source_repair_provenance(data_dir, raw, receipt, gate):
             or outer.get('controller_completion_sha256') != digest(completion_raw)
             or outer.get('wrapper_sha256') != SOURCE_REPAIR_WRAPPER_SHA
             or outer.get('prior_source_restore_failure_archive_sha256') != SOURCE_FAILURE_SHA
+            or outer.get('prior_preflight_failure_archive_sha256') != '89569e3a18402665d81f74064a420de522c74115458883b9af9eac6d5bfe8dab'
+            or outer.get('preserved_preflight_outer_exit_sha256') != old['source_restore_repair_run01.outer_exit.json']
             or outer.get('training_authorization') is not False
             or type(outer.get('new_fits')) is not int or outer['new_fits'] != 0
             or outer.get('source_root') != str(data_dir)):

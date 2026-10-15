@@ -3,7 +3,7 @@
 set -eu
 P1_REPAIR_BUNDLE=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 P1_REPAIR_CACHE=/workspace/paper1-source-recovery-run01
-P1_REPAIR_EXIT_RECORD="$P1_REPAIR_CACHE/source_restore_repair_run01.outer_exit.json"
+P1_REPAIR_EXIT_RECORD="$P1_REPAIR_CACHE/source_restore_repair_run01.compat_outer_exit.json"
 if [ -e "$P1_REPAIR_EXIT_RECORD" ] || [ -L "$P1_REPAIR_EXIT_RECORD" ]; then
   echo 'Repair outer-exit record already exists; no retry.' >&2
   exit 3
@@ -23,6 +23,8 @@ value={'status':'OBSERVED_SOURCE_REPAIR_PROCESS_EXIT','exit_code':code,
        'observed_at_utc':datetime.now(timezone.utc).isoformat(),'source_root':str(root),
        'wrapper_sha256':hashlib.sha256(wrapper.read_bytes()).hexdigest(),
        'prior_source_restore_failure_archive_sha256':'89f8b8b05dc2b94a97038e6800fb94238081e63657e2b1492361da2aa4d7c536',
+       'prior_preflight_failure_archive_sha256':'89569e3a18402665d81f74064a420de522c74115458883b9af9eac6d5bfe8dab',
+       'preserved_preflight_outer_exit_sha256':'112aac0310e0dd5d239e81c88414361a501e6b26a4fcb5189521afe9b60329e9',
        'training_authorization':False,'new_fits':0}
 for name,key in [('source_restore_repair_run01.json','receipt_sha256'),
                  ('source_restore_repair_run01.completion.json','controller_completion_sha256')]:
@@ -33,7 +35,7 @@ for name,key in [('source_restore_repair_run01.json','receipt_sha256'),
         if not stat.S_ISREG(info.st_mode) or info.st_size>131072:raise SystemExit('Bounded regular metadata required.')
         value[key]=hashlib.sha256(path.read_bytes()).hexdigest()
     else:value[key]=None
-path=root/'source_restore_repair_run01.outer_exit.json'
+path=root/'source_restore_repair_run01.compat_outer_exit.json'
 with path.open('x') as stream:
     json.dump(value,stream,sort_keys=True);stream.write('\n');stream.flush();os.fsync(stream.fileno())
 PY

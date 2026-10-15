@@ -1,5 +1,7 @@
 # Fixed failure-bound source repair for dot
 
+> **Superseded for this preflight compatibility:** the5c7e invocation failed before claiming. Do not rerun that wrapper, overwrite its failedouter or delete the oldtmp. Use [SOURCE_PREFLIGHT_COMPATIBILITY_PIN.md](SOURCE_PREFLIGHT_COMPATIBILITY_PIN.md) for the exact whitelisted records and separate new outer filename.
+
 Execution commit: **`5c7e153d09cdba4ecf83d2a54991f34d032205c4`** on `research/paper1-handoff-20261014`.
 All16 changed files and all12 small execution-bundle members passed immutable public byte readback (22 distinct paths). Exactly2 relevant synthetic tests passed. No server operation, raw EEG read, installation or scientific rerun occurred here.
 

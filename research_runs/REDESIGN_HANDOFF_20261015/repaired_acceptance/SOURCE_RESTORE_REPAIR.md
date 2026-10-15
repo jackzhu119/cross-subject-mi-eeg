@@ -1,5 +1,7 @@
 # One source restore repair; Step B remains blocked until actual complete success
 
+> **Current compatibility correction:** preserve the exact oldtmp and failedouter described in [SOURCE_PREFLIGHT_COMPATIBILITY.md](SOURCE_PREFLIGHT_COMPATIBILITY.md). Use its new pin; the wrapper now writes `source_restore_repair_run01.compat_outer_exit.json`. The repair/CPU commands below otherwise keep the same arguments and strict gates.
+
 Original run01 failed. The26831-byte archive has SHA256
 `89f8b8b05dc2b94a97038e6800fb94238081e63657e2b1492361da2aa4d7c536`;
 all27 payload sizes/SHAs passed independent review. Outer exit3 and the final
