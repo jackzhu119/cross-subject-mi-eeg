@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "status": "EXACT_RUN02_FAILURE_BINDINGS_FOR_INDEPENDENT_RUN03_REVIEW_NOT_AUTHORIZATION",
+  "checked_at_utc": "2026-10-15T09:38:47.341442+00:00",
+  "prior_archive": {
+    "bytes": 14244,
+    "sha256": "6f9bbb8e6070bf0df1a0ffdcd57b484184e9b6d244c82b08bc3285fa0e1bf176"
+  },
+  "bindings": {
+    "target_restore_run01.claim.json": {
+      "archive_payload": "target-records/target_restore_run01.claim.json",
+      "actual_preserved_path": "/workspace/paper1-target-recovery-run01/target_restore_run01.claim.json",
+      "bytes": 725,
+      "sha256": "43ab15e83b921a8be9b3794f3abddc1390bf3157d226ec6c694a8ef2fa397ff7"
+    },
+    "target_restore_run01.journal.jsonl": {
+      "archive_payload": "target-records/target_restore_run01.journal.jsonl",
+      "actual_preserved_path": "/workspace/paper1-target-recovery-run01/target_restore_run01.journal.jsonl",
+      "bytes": 1088,
+      "sha256": "fb735cbfda52acea32c56c2035039b0c1a93baf9b0cd00064946337f7bf9951f"
+    },
+    "target_restore_run01.log": {
+      "archive_payload": "target-records/target_restore_run01.log",
+      "actual_preserved_path": "/workspace/paper1-target-recovery-run01/target_restore_run01.log",
+      "bytes": 1088,
+      "sha256": "fb735cbfda52acea32c56c2035039b0c1a93baf9b0cd00064946337f7bf9951f"
+    },
+    "target_restore_run02.claim.json": {
+      "archive_payload": "target-records/target_restore_run02.claim.json",
+      "actual_preserved_path": "/workspace/paper1-target-recovery-run01/target_restore_run02.claim.json",
+      "bytes": 1266,
+      "sha256": "0850d68a286366a4c904cfed04badf6a288958f9629e0426a043616fb700d169"
+    },
+    "target_restore_run02.journal.jsonl": {
+      "archive_payload": "target-records/target_restore_run02.journal.jsonl",
+      "actual_preserved_path": "/workspace/paper1-target-recovery-run01/target_restore_run02.journal.jsonl",
+      "bytes": 1813,
+      "sha256": "8f66687515b35b601cbfc4ed620c5116d43c3b0a0237c03624cc8519c5da640d"
+    },
+    "target_restore_run02.log": {
+      "archive_payload": "target-records/target_restore_run02.log",
+      "actual_preserved_path": "/workspace/paper1-target-recovery-run01/target_restore_run02.log",
+      "bytes": 1813,
+      "sha256": "8f66687515b35b601cbfc4ed620c5116d43c3b0a0237c03624cc8519c5da640d"
+    },
+    "run02_observed_outer": {
+      "archive_payload": "dispatch/observed_outer.json",
+      "actual_preserved_path": "/workspace/paper1-target-dispatch-20261015-run02/observed_outer.json",
+      "bytes": 263,
+      "sha256": "c9e1508e776a3b2dcb80ee473fff991fc3f9fca8916865c8d7221fd645c3d367"
+    },
+    "run01_observed_outer": {
+      "archive_payload": "prior/observed_outer.json",
+      "actual_preserved_path": "/workspace/paper1-target-dispatch-20261015-run01/observed_outer.json",
+      "bytes": 263,
+      "sha256": "04963eb245867ed026a338ddb59471a20e4d92135b765efbefcd22cb3255a823"
+    },
+    "same_pod_HEAD": {
+      "archive_payload": "prior/same-pod-first-object-head-run01.json",
+      "actual_preserved_path": "/workspace/paper1-target-dispatch-20261015-run01/same-pod-first-object-head-run01.json",
+      "bytes": 564,
+      "sha256": "a1d19255b427122f9f961cde33873693f35c0db3773112fdaebaa17ae8629ebe"
+    }
+  },
+  "raw_cache": {
+    "root": "/workspace/paper1-target-recovery-run01",
+    "postflight_at_utc": "2026-10-15T09:09:52.026851+00:00",
+    "postflight_file_count": 6,
+    "postflight_exact_file_names": [
+      "target_restore_run01.claim.json",
+      "target_restore_run01.journal.jsonl",
+      "target_restore_run01.log",
+      "target_restore_run02.claim.json",
+      "target_restore_run02.journal.jsonl",
+      "target_restore_run02.log"
+    ],
+    "preflight_allowed_existing_directories": [
+      "dreyer_acquisition",
+      "dreyer_acquisition/sourcedata",
+      "dreyer_acquisition/sourcedata/sub-01",
+      "dreyer_acquisition/sourcedata/sub-01/eeg"
+    ],
+    "EDF_or_partial_files_observed": false,
+    "postflight_inventory_lists_files_only_not_an_independent_full_directory_walk_proof": true
+  },
+  "required_new_attempt_policy": {
+    "preserve_and_verify_all_six_prior_records_and_old_outer": true,
+    "new_unique_run03_claim_only_no_old_claim_reset": true,
+    "unknown_member_or_partial": "preserve and refuse before any target GET",
+    "hash_mismatched_prior_record": "preserve and refuse",
+    "existing_exact_frozen_EDF": "fullsize_andSHA_only_if_explicitly_allowed_by_new_review",
+    "new_fit_or_target_scientific_processing_authorization": false
+  },
+  "auditor_network_or_Pod_or_archive_execution": false
+}

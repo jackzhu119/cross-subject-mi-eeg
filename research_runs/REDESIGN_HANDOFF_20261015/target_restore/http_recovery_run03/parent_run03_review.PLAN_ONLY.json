@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "status": "PLAN_ONLY_NOT_GRANTED",
+  "issuer": "NOT_ISSUED",
+  "operation": "target_raw_restore",
+  "delivery_revision": null,
+  "operation_script_sha256": "11e02a4f487a74a46ba99567f82d2642f1785323afc2eb58871ec799a7887947",
+  "frozen_manifest_sha256": "2cfdf35aa7990df880826d1b84d1230e0bda3c9393c17d3ec6e27b7b311d2bf2",
+  "transport_helper_sha256": "7a717fd63b4c0945e2a232c7560f475b5618c3c992c069cb9f451a569e5d4716",
+  "priority_helper_sha256": "eb88b6c75381a714bd91d9b0bb0acb4fd82edf295b73a25abed4f0236c054fff",
+  "continuity_helper_sha256": "2d7904b7787c92449dd0ffe7b56c09327ffb803eb942a417fd0e2fabad0fd8d7",
+  "continuity_report_sha256": "ec86526fb6af6c01a19e4d86b0fb69532098175181d2e7175c1e6668038aa6cc",
+  "source_runtime_metadata_sha256": {
+    "restore": "acdaa915e5f5c0dd66e1b0178fa8602791a70146f46734fd023e2c455acb196c",
+    "completion": "60023885557693cdd10f96a746eceebc3f66b3788701cb9a74bbd609675ded77",
+    "outer": "1566370c2d6b0b0b30c828290f3d443e59e694016cbd1ecff8d10ed266fee52e",
+    "formal": "9f6980404ccd2ceb8f96aa300d497919caa185b02bbff0cc441451ae0a8a59e9",
+    "runtime": "8e5ae3890240b130c875180a18e455dcd3158eab53926dcabb95c2f40768a39b"
+  },
+  "target_raw_byte_transport_authorized": false,
+  "paper2_absolute_priority": true,
+  "paper2_noninterference_reviewed": false,
+  "new_target_allocation_separate_from_retained_source_runtime": false,
+  "old_task_unknowns_and_failures_retained": true,
+  "financial_preconditions": "superseded-by-user",
+  "training_authorization": false,
+  "GPU_fit_authorized": false,
+  "target_scientific_processing_authorized": false,
+  "source_EEG_read_authorized": false,
+  "new_resources_or_credentials_authorized": false,
+  "automatic_retry_authorized": false,
+  "reviewed_at_utc": null,
+  "expires_at_utc": null,
+  "maximum_wall_seconds": 1200,
+  "recovery_identity": "target_raw_restore_run03_exact_host_single_hop",
+  "prior_failure_archive_sha256": {
+    "run01": "599a690184f657da06d2dcf35fd519fd6c8d4999115bc763396bf220d4242e43",
+    "run02": "6f9bbb8e6070bf0df1a0ffdcd57b484184e9b6d244c82b08bc3285fa0e1bf176"
+  },
+  "prior_outer_sha256": {
+    "run01": "04963eb245867ed026a338ddb59471a20e4d92135b765efbefcd22cb3255a823",
+    "run02": "c9e1508e776a3b2dcb80ee473fff991fc3f9fca8916865c8d7221fd645c3d367"
+  },
+  "same_pod_head_sha256": "a1d19255b427122f9f961cde33873693f35c0db3773112fdaebaa17ae8629ebe",
+  "one_additional_bounded_attempt_authorized": false,
+  "prior_cache_records_sha256": {
+    "target_restore_run01.claim.json": "43ab15e83b921a8be9b3794f3abddc1390bf3157d226ec6c694a8ef2fa397ff7",
+    "target_restore_run01.journal.jsonl": "fb735cbfda52acea32c56c2035039b0c1a93baf9b0cd00064946337f7bf9951f",
+    "target_restore_run01.log": "fb735cbfda52acea32c56c2035039b0c1a93baf9b0cd00064946337f7bf9951f",
+    "target_restore_run02.claim.json": "0850d68a286366a4c904cfed04badf6a288958f9629e0426a043616fb700d169",
+    "target_restore_run02.journal.jsonl": "8f66687515b35b601cbfc4ed620c5116d43c3b0a0237c03624cc8519c5da640d",
+    "target_restore_run02.log": "8f66687515b35b601cbfc4ed620c5116d43c3b0a0237c03624cc8519c5da640d"
+  },
+  "single_hop_adapter_GO_commit": "009a3629bd6b50648f580421ef596b40b271e8a4",
+  "single_hop_adapter_reviewed": false,
+  "original_transport_helper_sha256": "1aa2da0b710b3ef109d00d19c75a00fda013a79f947e9aebbe3480c8e99b895f",
+  "outer_wrapper_sha256": "ee3ed081f01c40d09e8ea0d15a273cd9b39991ce5d8c2ea4b7aedfaed74636ec"
+}

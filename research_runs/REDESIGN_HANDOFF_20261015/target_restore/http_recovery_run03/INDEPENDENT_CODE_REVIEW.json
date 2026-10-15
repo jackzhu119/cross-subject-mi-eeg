@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "status": "INDEPENDENT_RUN03_CONTROLLER_AND_OUTER_STATIC_REVIEW_PASSED_NO_EXECUTION_AUTHORITY",
+  "reviewed_at_utc": "2026-10-15T09:47:30.568735+00:00",
+  "controller_sha256": "11e02a4f487a74a46ba99567f82d2642f1785323afc2eb58871ec799a7887947",
+  "wrapper_sha256": "ee3ed081f01c40d09e8ea0d15a273cd9b39991ce5d8c2ea4b7aedfaed74636ec",
+  "unchanged_inherited_guard_AST": {
+    "require": true,
+    "safe": true,
+    "digest": true,
+    "load_module": true,
+    "validate_slot": true,
+    "allocated": true,
+    "atomic": true,
+    "append": true,
+    "live_control_check_closure": true
+  },
+  "preserved_code": {
+    "original_transport": {
+      "sha256": "1aa2da0b710b3ef109d00d19c75a00fda013a79f947e9aebbe3480c8e99b895f",
+      "matches_freeze": true
+    },
+    "single_hop_adapter": {
+      "sha256": "7a717fd63b4c0945e2a232c7560f475b5618c3c992c069cb9f451a569e5d4716",
+      "matches_freeze": true
+    },
+    "run01_controller": {
+      "sha256": "65507374bc7640d4c6b2b7d9b609d86b809a11d61a1aa55d61e6527ced4e5190",
+      "matches_freeze": true
+    },
+    "run02_controller": {
+      "sha256": "5a5fb300c800c0d9884df9d29f0287f46ee2304ce8b21f815c2f93138eb188db",
+      "matches_freeze": true
+    },
+    "priority_gate": {
+      "sha256": "eb88b6c75381a714bd91d9b0bb0acb4fd82edf295b73a25abed4f0236c054fff",
+      "matches_freeze": true
+    }
+  },
+  "controller_checks": [
+    "Separate run03 claim/journal/log/summary/byte-receipt names; exclusive one-attempt claim, no automatic retry.",
+    "Exact six prior cache-record hashes, both failed outer records, original run01/run02 code and supplied HEAD record bound before and throughout new operation.",
+    "Fresh parent review explicitly binds additional bounded attempt, fixed adapter technical-GO commit, adapter/original helper SHA and actual wrapper SHA.",
+    "Read-only initial remaining0, complete full-size/SHA cache verification, exact missing-byte reservation and renewed resource check all precede claim and GET.",
+    "Unknown files, any partial, symlink/special members, unreadable traversal, mismatched caches and existing run03 records fail without deleting/overwriting evidence.",
+    "Resource closure retains per-chunk source/runtime metadata/slot/code checks,1200-second cap, target allocation3GiB,10GiB floor plus actual Paper2 reserve>=5GiB and remaining writes.",
+    "Signed redirect behavior comes only from unchanged7a717 adapter; unchanged original helper supplies frozen catalogue and byte-only complete cache verification.",
+    "Byte receipt keeps the exact original strict schema; run03 provenance lives separately in its claim/summary.",
+    "Diagnostics use a literal error-code whitelist and strictly typed host/scheme/status/port/boolean whitelist; no arbitrary str(error), Location/query or dictionary merge.",
+    "Historical unknown counters remain unknown; no source EEG, model import/fitting, target QC/inference, ledger initialization, Pod control or financial prerequisite is introduced."
+  ],
+  "outer_checks": [
+    "Controller SHA is literal and pinned; wrapper validates its exact location and bounded stable code/input metadata before the command.",
+    "Existing dispatch output or claim blocks another attempt; outer claim and every output use O_EXCL/no-follow writes.",
+    "One1200-second timeout command at most; shell captures the actual subshell/timeout return code without substituting controller stdout status.",
+    "Start metadata explicitly does not claim verified controller startup; controller_command_invoked marks invocation branch only.",
+    "Completion reads its own claim with a bounded stable metadata function and checks the shell claim owner.",
+    "Observed outer contains the actual command exit and observed summary hash or null; absence of a summary cannot become scientific success.",
+    "If final evidence cannot be written, wrapper returns3 rather than a clean success; partial evidence is preserved and no retry occurs.",
+    "Command exit0 alone remains insufficient: downstream review must validate complete actual summary, strict174-byte receipt, observed outer0 and metadata hashes."
+  ],
+  "remaining_blockers": [],
+  "observation_boundaries": [
+    "This is static source/AST/hash review only, not a Pod preflight, restored bytes, scientific acceptance or permission to fit.",
+    "External interruption can leave consumed claims with incomplete outer evidence; that state must remain blocked rather than retried.",
+    "Current production SHA guards remain unchanged and require a separate reviewed update after genuine run03 success."
+  ],
+  "actions": {
+    "network_requests": 0,
+    "Pod_operations": 0,
+    "EEG_or_checkpoint_reads": 0,
+    "controller_or_wrapper_execution": false,
+    "tests_executed_by_this_review": 0,
+    "repository_files_modified": false
+  }
+}

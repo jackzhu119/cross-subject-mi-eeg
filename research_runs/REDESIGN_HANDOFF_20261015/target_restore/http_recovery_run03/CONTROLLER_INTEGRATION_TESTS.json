@@ -1,0 +1,36 @@
+{
+  "command": [
+    "/workspace/mi-eeg-cloud-cpu28-tests/bin/python",
+    "-m",
+    "pytest",
+    "--override-ini=addopts=",
+    "/workspace/mi-eeg-redesign-20261012/research_runs/REDESIGN_HANDOFF_20261015/target_restore/http_recovery_run03/test_run03.py",
+    "-q",
+    "-p",
+    "no:cacheprovider",
+    "--junitxml=/workspace/mi-eeg-redesign-qa-20261012/run03-integration-tests.xml"
+  ],
+  "cwd": "/workspace/mi-eeg-redesign-20261012",
+  "environment_overrides": {
+    "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "started_at_utc": "2026-10-15T09:46:35.474006+00:00",
+  "completed_at_utc": "2026-10-15T09:46:38.070493+00:00",
+  "exit_code": 0,
+  "before_sha256": {
+    "controller": "11e02a4f487a74a46ba99567f82d2642f1785323afc2eb58871ec799a7887947",
+    "wrapper": "ee3ed081f01c40d09e8ea0d15a273cd9b39991ce5d8c2ea4b7aedfaed74636ec",
+    "test": "119bb59b74f8681f3cf55dd07470b41e8c4d7cdd0afadbc9e462de143b2b6036"
+  },
+  "after_sha256": {
+    "controller": "11e02a4f487a74a46ba99567f82d2642f1785323afc2eb58871ec799a7887947",
+    "wrapper": "ee3ed081f01c40d09e8ea0d15a273cd9b39991ce5d8c2ea4b7aedfaed74636ec",
+    "test": "119bb59b74f8681f3cf55dd07470b41e8c4d7cdd0afadbc9e462de143b2b6036"
+  },
+  "stdout_path": "/workspace/mi-eeg-redesign-qa-20261012/run03-integration-tests.stdout.txt",
+  "stdout_sha256": "7052fbf329a332cda269397e3060cca6b0b8019a1986f35ce17c6b7861a347bd",
+  "junit_path": "/workspace/mi-eeg-redesign-qa-20261012/run03-integration-tests.xml",
+  "junit_sha256": "5eac7e15e8d27b551162f62bb2bc2ed07ddd96e3770e582c396b3def9666b428",
+  "scope": "Only new run03 narrow integration tests; metadata and tiny local synthetic objects; no HTTP/Pod/EEG/Torch/fits"
+}

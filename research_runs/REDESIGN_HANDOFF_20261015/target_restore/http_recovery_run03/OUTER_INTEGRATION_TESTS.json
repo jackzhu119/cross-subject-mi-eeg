@@ -1,0 +1,20 @@
+{
+  "command": [
+    "/workspace/mi-eeg-cloud-cpu28-tests/bin/python",
+    "-m",
+    "pytest",
+    "research_runs/REDESIGN_HANDOFF_20261015/target_restore/http_recovery_run03/test_outer_run03.py",
+    "-q"
+  ],
+  "started_at_utc": "2026-10-15T09:46:22.447298+00:00",
+  "finished_at_utc": "2026-10-15T09:46:23.027709+00:00",
+  "exit_code": 0,
+  "stdout": "..                                                                       [100%]\n2 passed in 0.22s\n",
+  "stderr": "",
+  "synthetic_TEMP_paths_only": true,
+  "Pod_operations": 0,
+  "network_requests": 0,
+  "controller_source_sha256": "11e02a4f487a74a46ba99567f82d2642f1785323afc2eb58871ec799a7887947",
+  "wrapper_source_sha256": "ee3ed081f01c40d09e8ea0d15a273cd9b39991ce5d8c2ea4b7aedfaed74636ec",
+  "production_controller_executed": false
+}
