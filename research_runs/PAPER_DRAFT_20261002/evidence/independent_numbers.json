@@ -1,0 +1,5316 @@
+{
+  "Q13_E006_interpretation": {
+    "claim": "E006 retains the fixed20 advantage direction and approximate magnitude, replacing the historical potentially cross-runtime contrast as preferred duration evidence. This is exploratory schedule sensitivity, not a rerun of inner selection in the new runtime; sign-flip p=0.125 does not establish significant general superiority.",
+    "historical_fixed20_minus_reused_Q5_raw_CE": 0.10268775720164605,
+    "matched_runtime_raw_CE_minus_fixed20_exact_sign_flip_p": 0.125,
+    "overturns_historical_direction": false,
+    "preferred_matched_runtime_fixed20_minus_historical_raw_CE_schedule": 0.1006301440329218
+  },
+  "Q13_saved_person_difference_check": {
+    "all_match_at_1e_minus_12": true,
+    "max_absolute_error": 1.6046192152785466e-16,
+    "rows": 99
+  },
+  "Q14_external_primary": {
+    "all109_saved_person_differences_match_at_1e_minus_12": true,
+    "bootstrap_draws": 20000,
+    "bootstrap_seed": 20260924,
+    "descriptive_difference_vs_CSP": {
+      "BROAD_EEGNET": 0.07352872076611122,
+      "MU_BETA_SHARED": 0.07926168283598511
+    },
+    "exact_two_sided_sign_test_p_excluding_ties": 0.0644635919894938,
+    "floating_tolerance_1e_minus_14_sensitivity": {
+      "exact_sign_test_p": 0.05044215663996978,
+      "interpretation": "Sensitivity only; primary uses the frozen exact-zero rule. Person10 raw recomputed delta is -1.1102230246251565e-16, so numerical tie tolerance changes sign counts without changing the non-superiority conclusion.",
+      "negative_subjects": 42,
+      "positive_subjects": 63,
+      "tied_subjects": 4
+    },
+    "inference_unit": "external person after within-person three-seed mean",
+    "mean_difference": 0.005732962069873878,
+    "n_subjects": 109,
+    "native_128_hz_mean_difference": 0.005138964909079853,
+    "native_128_hz_subjects": [
+      88,
+      92,
+      100
+    ],
+    "native_160_hz_mean_difference": 0.005749773310273709,
+    "negative_subjects": 43,
+    "per_person_difference": {
+      "1": -0.007905138339920903,
+      "10": -1.1102230246251565e-16,
+      "100": 0.0092592592592593,
+      "101": 0.045454545454545525,
+      "102": 0.025691699604743046,
+      "103": -0.0009881422924901129,
+      "104": 0.008658008658008642,
+      "105": -0.06752305665349145,
+      "106": -0.06547619047619047,
+      "107": 0.026785714285714246,
+      "108": -0.000988142292490224,
+      "109": 0.0,
+      "11": 0.007246376811594235,
+      "12": 0.02281746031746046,
+      "13": 0.0016469038208168918,
+      "14": 0.044795783926218746,
+      "15": 0.064558629776021,
+      "16": 0.08333333333333348,
+      "17": 0.014163372859025025,
+      "18": 0.03129117259552039,
+      "19": -0.035573122529644285,
+      "2": 0.0009881422924900019,
+      "20": -0.010540184453227908,
+      "21": 0.059523809523809534,
+      "22": -0.03820816864295129,
+      "23": 0.0741106719367588,
+      "24": 0.0,
+      "25": 0.00032938076416333395,
+      "26": 0.08234126984126977,
+      "27": -0.014492753623188415,
+      "28": 0.006587615283267567,
+      "29": 0.022397891963109373,
+      "3": 0.01416337285902497,
+      "30": -0.051587301587301626,
+      "31": 0.007905138339920903,
+      "32": 0.009920634920634885,
+      "33": -0.0019762845849801147,
+      "34": -0.006944444444444531,
+      "35": 0.008234519104084348,
+      "36": -0.040184453227931516,
+      "37": -0.022727272727272707,
+      "38": -0.006258234519104122,
+      "39": 0.0016469038208168918,
+      "4": -0.007246376811594124,
+      "40": 0.009920634920634996,
+      "41": 0.02083333333333337,
+      "42": -0.01449275362318836,
+      "43": -0.035573122529644396,
+      "44": 0.007575757575757569,
+      "45": -0.06126482213438744,
+      "46": -0.025032938076416267,
+      "47": -0.0277777777777779,
+      "48": 0.02075098814229248,
+      "49": 0.03623188405797095,
+      "5": 0.005952380952380987,
+      "50": -0.0006587615283267789,
+      "51": 0.0029761904761905766,
+      "52": 0.03472222222222232,
+      "53": 0.014822134387351804,
+      "54": -0.02832674571804994,
+      "55": -0.015810276679841806,
+      "56": 0.07279314888010546,
+      "57": -0.02876984126984128,
+      "58": 0.00694444444444442,
+      "59": 0.04365079365079377,
+      "6": -0.05357142857142855,
+      "60": -0.007575757575757458,
+      "61": -0.0013175230566535578,
+      "62": 0.00032938076416322293,
+      "63": 0.031620553359683834,
+      "64": 0.033926218708827505,
+      "65": 0.06646825396825395,
+      "66": 0.01449275362318836,
+      "67": 0.00955204216073774,
+      "68": 0.02305665349143604,
+      "69": -0.003968253968254065,
+      "7": 0.04413702239789197,
+      "70": -0.03623188405797095,
+      "71": -0.0434782608695653,
+      "72": 0.03063241106719361,
+      "73": -0.024703557312253044,
+      "74": -0.038690476190476275,
+      "75": -0.06884057971014501,
+      "76": 0.10013175230566534,
+      "77": 0.004960317460317332,
+      "78": 0.008563899868247682,
+      "79": -0.016139657444005362,
+      "8": -0.00032938076416344497,
+      "80": -0.007246376811594235,
+      "81": -0.01449275362318836,
+      "82": 0.02140974967061926,
+      "83": 0.052371541501976315,
+      "84": 0.04512516469038197,
+      "85": 0.014822134387351804,
+      "86": 0.014822134387351804,
+      "87": 0.025691699604743046,
+      "88": 0.00615763546798026,
+      "89": 0.07837301587301582,
+      "9": 0.0575396825396825,
+      "90": -0.09420289855072461,
+      "91": 0.030303030303030165,
+      "92": 0.0,
+      "93": -0.022397891963109373,
+      "94": 0.0375494071146244,
+      "95": 0.007905138339920903,
+      "96": 0.02898550724637683,
+      "97": 0.037549407114624456,
+      "98": -0.05204216073781298,
+      "99": -0.05105401844532276
+    },
+    "positive_subjects": 63,
+    "primary_sign_test_tie_rule": "exact_zero_as_frozen",
+    "reported_primary_statistics": {
+      "bootstrap_resamples": 20000,
+      "bootstrap_seed": 20260924,
+      "contrast": "MU_BETA_SHARED_minus_BROAD_EEGNET_subject_level_balanced_accuracy",
+      "mean_difference": 0.005732962069873878,
+      "n_subjects": 109,
+      "negative_subjects": 43,
+      "positive_subjects": 63,
+      "protocol_amendment": "R2 metadata-triggered 128-to-160-Hz polyphase resampling",
+      "subject_bootstrap_percentile_95_ci": [
+        -0.0009668274012807706,
+        0.012415551025224094
+      ],
+      "tied_subjects": 3,
+      "two_sided_exact_sign_test_p_excluding_ties": 0.0644635919894938,
+      "unit": "external_subject_after_averaging_three_fixed_seeds"
+    },
+    "reported_primary_stats_reproduced_at_1e_minus_12": true,
+    "saved_person_difference_max_error": 9.71445146547012e-17,
+    "subject_bootstrap_percentile_95ci": [
+      -0.0009668274012807706,
+      0.012415551025224094
+    ],
+    "tied_subjects": 3
+  },
+  "arm_count": 38,
+  "arms": {
+    "Q12-E001/SOURCE_BALANCED_ERM": {
+      "all_cells_match_at_1e_minus_12": true,
+      "all_classes_positive_support_every_cell": true,
+      "chance_ba": 0.25,
+      "classes": 4,
+      "evaluation_cells_per_person": {
+        "1": 3,
+        "2": 3,
+        "3": 3,
+        "4": 3,
+        "5": 3,
+        "6": 3,
+        "7": 3,
+        "8": 3,
+        "9": 3
+      },
+      "max_absolute_reported_cell_ba_error": 1.1102230246251565e-16,
+      "mean_person_ba": 0.43184156378600824,
+      "median_person_ba": 0.3744212962962963,
+      "metric_path": "/workspace/cross-subject-mi-eeg/results/Q12-E001/SOURCE_BALANCED_ERM/per_subject_metrics.csv",
+      "n_evaluation_cells": 27,
+      "n_prediction_rows": 15552,
+      "n_subjects": 9,
+      "n_unique_target_trials": 5184,
+      "no_duplicate_prediction_identities": true,
+      "per_person_ba": {
+        "1": 0.560763888888889,
+        "2": 0.2916666666666667,
+        "3": 0.6168981481481481,
+        "4": 0.3744212962962963,
+        "5": 0.24826388888888887,
+        "6": 0.2824074074074074,
+        "7": 0.3234953703703704,
+        "8": 0.6255787037037037,
+        "9": 0.5630787037037037
+      },
+      "per_seed_equal_person_mean_ba": {
+        "20260924": 0.4139660493827161,
+        "20260925": 0.4415509259259259,
+        "20260926": 0.4400077160493827
+      },
+      "prediction_paths": [
+        "/workspace/cross-subject-mi-eeg/results/Q12-E001/SOURCE_BALANCED_ERM/predictions.csv"
+      ],
+      "reported_cell_count": 27,
+      "sd_person_ba": 0.15666065553644268,
+      "seeds": [
+        "20260924",
+        "20260925",
+        "20260926"
+      ],
+      "source_subset_ids": [],
+      "zero_recall_evaluation_cells": 4
+    },
+    "Q12-E001/SOURCE_GROUP_DRO": {
+      "all_cells_match_at_1e_minus_12": true,
+      "all_classes_positive_support_every_cell": true,
+      "chance_ba": 0.25,
+      "classes": 4,
+      "evaluation_cells_per_person": {
+        "1": 3,
+        "2": 3,
+        "3": 3,
+        "4": 3,
+        "5": 3,
+        "6": 3,
+        "7": 3,
+        "8": 3,
+        "9": 3
+      },
+      "max_absolute_reported_cell_ba_error": 1.1102230246251565e-16,
+      "mean_person_ba": 0.36734825102880664,
+      "median_person_ba": 0.32465277777777773,
+      "metric_path": "/workspace/cross-subject-mi-eeg/results/Q12-E001/SOURCE_GROUP_DRO/per_subject_metrics.csv",
+      "n_evaluation_cells": 27,
+      "n_prediction_rows": 15552,
+      "n_subjects": 9,
+      "n_unique_target_trials": 5184,
+      "no_duplicate_prediction_identities": true,
+      "per_person_ba": {
+        "1": 0.45486111111111116,
+        "2": 0.2986111111111111,
+        "3": 0.5231481481481481,
+        "4": 0.3119212962962963,
+        "5": 0.2523148148148148,
+        "6": 0.32465277777777773,
+        "7": 0.2991898148148148,
+        "8": 0.42766203703703703,
+        "9": 0.4137731481481482
+      },
+      "per_seed_equal_person_mean_ba": {
+        "20260924": 0.3587962962962963,
+        "20260925": 0.3638117283950617,
+        "20260926": 0.37943672839506176
+      },
+      "prediction_paths": [
+        "/workspace/cross-subject-mi-eeg/results/Q12-E001/SOURCE_GROUP_DRO/predictions.csv"
+      ],
+      "reported_cell_count": 27,
+      "sd_person_ba": 0.09029343934003435,
+      "seeds": [
+        "20260924",
+        "20260925",
+        "20260926"
+      ],
+      "source_subset_ids": [],
+      "zero_recall_evaluation_cells": 2
+    },
+    "Q12-E001/SOURCE_POOLED_WHITEN": {
+      "all_cells_match_at_1e_minus_12": true,
+      "all_classes_positive_support_every_cell": true,
+      "chance_ba": 0.25,
+      "classes": 4,
+      "evaluation_cells_per_person": {
+        "1": 3,
+        "2": 3,
+        "3": 3,
+        "4": 3,
+        "5": 3,
+        "6": 3,
+        "7": 3,
+        "8": 3,
+        "9": 3
+      },
+      "max_absolute_reported_cell_ba_error": 1.1102230246251565e-16,
+      "mean_person_ba": 0.44335133744855965,
+      "median_person_ba": 0.3923611111111111,
+      "metric_path": "/workspace/cross-subject-mi-eeg/results/Q12-E001/SOURCE_POOLED_WHITEN/per_subject_metrics.csv",
+      "n_evaluation_cells": 27,
+      "n_prediction_rows": 15552,
+      "n_subjects": 9,
+      "n_unique_target_trials": 5184,
+      "no_duplicate_prediction_identities": true,
+      "per_person_ba": {
+        "1": 0.5873842592592592,
+        "2": 0.3020833333333333,
+        "3": 0.6493055555555556,
+        "4": 0.3923611111111111,
+        "5": 0.25,
+        "6": 0.27777777777777773,
+        "7": 0.3269675925925926,
+        "8": 0.6099537037037037,
+        "9": 0.5943287037037037
+      },
+      "per_seed_equal_person_mean_ba": {
+        "20260924": 0.4297839506172839,
+        "20260925": 0.4608410493827161,
+        "20260926": 0.439429012345679
+      },
+      "prediction_paths": [
+        "/workspace/cross-subject-mi-eeg/results/Q12-E001/SOURCE_POOLED_WHITEN/predictions.csv"
+      ],
+      "reported_cell_count": 27,
+      "sd_person_ba": 0.16378885328185785,
+      "seeds": [
+        "20260924",
+        "20260925",
+        "20260926"
+      ],
+      "source_subset_ids": [],
+      "zero_recall_evaluation_cells": 5
+    },
+    "Q12-E002/CHANNEL_AND_GAIN": {
+      "all_cells_match_at_1e_minus_12": true,
+      "all_classes_positive_support_every_cell": true,
+      "chance_ba": 0.25,
+      "classes": 4,
+      "evaluation_cells_per_person": {
+        "1": 3,
+        "2": 3,
+        "3": 3,
+        "4": 3,
+        "5": 3,
+        "6": 3,
+        "7": 3,
+        "8": 3,
+        "9": 3
+      },
+      "max_absolute_reported_cell_ba_error": 1.1102230246251565e-16,
+      "mean_person_ba": 0.40920781893004116,
+      "median_person_ba": 0.36689814814814814,
+      "metric_path": "/workspace/cross-subject-mi-eeg/results/Q12-E002/CHANNEL_AND_GAIN/per_subject_metrics.csv",
+      "n_evaluation_cells": 27,
+      "n_prediction_rows": 15552,
+      "n_subjects": 9,
+      "n_unique_target_trials": 5184,
+      "no_duplicate_prediction_identities": true,
+      "per_person_ba": {
+        "1": 0.5584490740740741,
+        "2": 0.29050925925925924,
+        "3": 0.5381944444444445,
+        "4": 0.36689814814814814,
+        "5": 0.24305555555555558,
+        "6": 0.328125,
+        "7": 0.29340277777777773,
+        "8": 0.5341435185185185,
+        "9": 0.5300925925925926
+      },
+      "per_seed_equal_person_mean_ba": {
+        "20260924": 0.40335648148148145,
+        "20260925": 0.41087962962962965,
+        "20260926": 0.41338734567901236
+      },
+      "prediction_paths": [
+        "/workspace/cross-subject-mi-eeg/results/Q12-E002/CHANNEL_AND_GAIN/predictions.csv"
+      ],
+      "reported_cell_count": 27,
+      "sd_person_ba": 0.12874578699400313,
+      "seeds": [
+        "20260924",
+        "20260925",
+        "20260926"
+      ],
+      "source_subset_ids": [],
+      "zero_recall_evaluation_cells": 5
+    },
+    "Q12-E002/CHANNEL_DROPOUT": {
+      "all_cells_match_at_1e_minus_12": true,
+      "all_classes_positive_support_every_cell": true,
+      "chance_ba": 0.25,
+      "classes": 4,
+      "evaluation_cells_per_person": {
+        "1": 3,
+        "2": 3,
+        "3": 3,
+        "4": 3,
+        "5": 3,
+        "6": 3,
+        "7": 3,
+        "8": 3,
+        "9": 3
+      },
+      "max_absolute_reported_cell_ba_error": 1.1102230246251565e-16,
+      "mean_person_ba": 0.4100437242798354,
+      "median_person_ba": 0.35300925925925924,
+      "metric_path": "/workspace/cross-subject-mi-eeg/results/Q12-E002/CHANNEL_DROPOUT/per_subject_metrics.csv",
+      "n_evaluation_cells": 27,
+      "n_prediction_rows": 15552,
+      "n_subjects": 9,
+      "n_unique_target_trials": 5184,
+      "no_duplicate_prediction_identities": true,
+      "per_person_ba": {
+        "1": 0.5607638888888888,
+        "2": 0.29050925925925924,
+        "3": 0.5792824074074074,
+        "4": 0.35300925925925924,
+        "5": 0.24826388888888892,
+        "6": 0.3292824074074074,
+        "7": 0.2766203703703704,
+        "8": 0.5434027777777778,
+        "9": 0.5092592592592592
+      },
+      "per_seed_equal_person_mean_ba": {
+        "20260924": 0.4018132716049383,
+        "20260925": 0.41628086419753085,
+        "20260926": 0.412037037037037
+      },
+      "prediction_paths": [
+        "/workspace/cross-subject-mi-eeg/results/Q12-E002/CHANNEL_DROPOUT/predictions.csv"
+      ],
+      "reported_cell_count": 27,
+      "sd_person_ba": 0.1355659317251825,
+      "seeds": [
+        "20260924",
+        "20260925",
+        "20260926"
+      ],
+      "source_subset_ids": [],
+      "zero_recall_evaluation_cells": 6
+    },
+    "Q12-E002/GAIN_PERTURB": {
+      "all_cells_match_at_1e_minus_12": true,
+      "all_classes_positive_support_every_cell": true,
+      "chance_ba": 0.25,
+      "classes": 4,
+      "evaluation_cells_per_person": {
+        "1": 3,
+        "2": 3,
+        "3": 3,
+        "4": 3,
+        "5": 3,
+        "6": 3,
+        "7": 3,
+        "8": 3,
+        "9": 3
+      },
+      "max_absolute_reported_cell_ba_error": 1.1102230246251565e-16,
+      "mean_person_ba": 0.4342206790123457,
+      "median_person_ba": 0.37210648148148145,
+      "metric_path": "/workspace/cross-subject-mi-eeg/results/Q12-E002/GAIN_PERTURB/per_subject_metrics.csv",
+      "n_evaluation_cells": 27,
+      "n_prediction_rows": 15552,
+      "n_subjects": 9,
+      "n_unique_target_trials": 5184,
+      "no_duplicate_prediction_identities": true,
+      "per_person_ba": {
+        "1": 0.5659722222222222,
+        "2": 0.2980324074074074,
+        "3": 0.6278935185185185,
+        "4": 0.37210648148148145,
+        "5": 0.2378472222222222,
+        "6": 0.2962962962962963,
+        "7": 0.31597222222222227,
+        "8": 0.6354166666666666,
+        "9": 0.5584490740740741
+      },
+      "per_seed_equal_person_mean_ba": {
+        "20260924": 0.4415509259259259,
+        "20260925": 0.43634259259259256,
+        "20260926": 0.4247685185185185
+      },
+      "prediction_paths": [
+        "/workspace/cross-subject-mi-eeg/results/Q12-E002/GAIN_PERTURB/predictions.csv"
+      ],
+      "reported_cell_count": 27,
+      "sd_person_ba": 0.1599820082691228,
+      "seeds": [
+        "20260924",
+        "20260925",
+        "20260926"
+      ],
+      "source_subset_ids": [],
+      "zero_recall_evaluation_cells": 3
+    },
+    "Q13-E001/Q8_FIXED20": {
+      "all_cells_match_at_1e_minus_12": true,
+      "all_classes_positive_support_every_cell": true,
+      "chance_ba": 0.25,
+      "classes": 4,
+      "evaluation_cells_per_person": {
+        "1": 3,
+        "2": 3,
+        "3": 3,
+        "4": 3,
+        "5": 3,
+        "6": 3,
+        "7": 3,
+        "8": 3,
+        "9": 3
+      },
+      "max_absolute_reported_cell_ba_error": 1.1102230246251565e-16,
+      "mean_person_ba": 0.4398791152263375,
+      "median_person_ba": 0.3501157407407407,
+      "metric_path": "/workspace/cross-subject-mi-eeg/results/Q13-E001/Q8_FIXED20/per_subject_metrics.csv",
+      "n_evaluation_cells": 27,
+      "n_prediction_rows": 15552,
+      "n_subjects": 9,
+      "n_unique_target_trials": 5184,
+      "no_duplicate_prediction_identities": true,
+      "per_person_ba": {
+        "1": 0.5515046296296297,
+        "2": 0.30671296296296297,
+        "3": 0.6846064814814815,
+        "4": 0.3501157407407407,
+        "5": 0.24363425925925922,
+        "6": 0.2835648148148148,
+        "7": 0.292824074074074,
+        "8": 0.6498842592592592,
+        "9": 0.5960648148148148
+      },
+      "per_seed_equal_person_mean_ba": {
+        "20260924": 0.4297839506172839,
+        "20260925": 0.4444444444444444,
+        "20260926": 0.4454089506172839
+      },
+      "prediction_paths": [
+        "/workspace/cross-subject-mi-eeg/results/Q13-E001/Q8_FIXED20/predictions.csv"
+      ],
+      "reported_cell_count": 27,
+      "sd_person_ba": 0.17720396058597984,
+      "seeds": [
+        "20260924",
+        "20260925",
+        "20260926"
+      ],
+      "source_subset_ids": [
+        "all"
+      ],
+      "zero_recall_evaluation_cells": 6
+    },
+    "Q13-E001/Q9_SHARED_FIXED20": {
+      "all_cells_match_at_1e_minus_12": true,
+      "all_classes_positive_support_every_cell": true,
+      "chance_ba": 0.25,
+      "classes": 4,
+      "evaluation_cells_per_person": {
+        "1": 3,
+        "2": 3,
+        "3": 3,
+        "4": 3,
+        "5": 3,
+        "6": 3,
+        "7": 3,
+        "8": 3,
+        "9": 3
+      },
+      "max_absolute_reported_cell_ba_error": 5.551115123125783e-17,
+      "mean_person_ba": 0.4397505144032922,
+      "median_person_ba": 0.33217592592592593,
+      "metric_path": "/workspace/cross-subject-mi-eeg/results/Q13-E001/Q9_SHARED_FIXED20/per_subject_metrics.csv",
+      "n_evaluation_cells": 27,
+      "n_prediction_rows": 15552,
+      "n_subjects": 9,
+      "n_unique_target_trials": 5184,
+      "no_duplicate_prediction_identities": true,
+      "per_person_ba": {
+        "1": 0.6001157407407408,
+        "2": 0.2991898148148148,
+        "3": 0.6493055555555556,
+        "4": 0.33217592592592593,
+        "5": 0.2488425925925926,
+        "6": 0.2899305555555556,
+        "7": 0.3055555555555556,
+        "8": 0.6354166666666666,
+        "9": 0.5972222222222222
+      },
+      "per_seed_equal_person_mean_ba": {
+        "20260924": 0.44984567901234573,
+        "20260925": 0.4436728395061728,
+        "20260926": 0.42573302469135804
+      },
+      "prediction_paths": [
+        "/workspace/cross-subject-mi-eeg/results/Q13-E001/Q9_SHARED_FIXED20/predictions.csv"
+      ],
+      "reported_cell_count": 27,
+      "sd_person_ba": 0.17354489585183452,
+      "seeds": [
+        "20260924",
+        "20260925",
+        "20260926"
+      ],
+      "source_subset_ids": [
+        "all"
+      ],
+      "zero_recall_evaluation_cells": 4
+    },
+    "Q13-E001/Q9_SHARED_RAW_CE": {
+      "all_cells_match_at_1e_minus_12": true,
+      "all_classes_positive_support_every_cell": true,
+      "chance_ba": 0.25,
+      "classes": 4,
+      "evaluation_cells_per_person": {
+        "1": 3,
+        "2": 3,
+        "3": 3,
+        "4": 3,
+        "5": 3,
+        "6": 3,
+        "7": 3,
+        "8": 3,
+        "9": 3
+      },
+      "max_absolute_reported_cell_ba_error": 1.1102230246251565e-16,
+      "mean_person_ba": 0.40065586419753085,
+      "median_person_ba": 0.3587962962962963,
+      "metric_path": "/workspace/cross-subject-mi-eeg/results/Q13-E001/Q9_SHARED_RAW_CE/per_subject_metrics.csv",
+      "n_evaluation_cells": 27,
+      "n_prediction_rows": 15552,
+      "n_subjects": 9,
+      "n_unique_target_trials": 5184,
+      "no_duplicate_prediction_identities": true,
+      "per_person_ba": {
+        "1": 0.5636574074074074,
+        "2": 0.24189814814814814,
+        "3": 0.5520833333333334,
+        "4": 0.3587962962962963,
+        "5": 0.2511574074074074,
+        "6": 0.29050925925925924,
+        "7": 0.3304398148148148,
+        "8": 0.48726851851851855,
+        "9": 0.5300925925925926
+      },
+      "per_seed_equal_person_mean_ba": {
+        "20260924": 0.3921682098765432,
+        "20260925": 0.40933641975308643,
+        "20260926": 0.400462962962963
+      },
+      "prediction_paths": [
+        "/workspace/cross-subject-mi-eeg/results/Q13-E001/Q9_SHARED_RAW_CE/predictions.csv"
+      ],
+      "reported_cell_count": 27,
+      "sd_person_ba": 0.13234613359807976,
+      "seeds": [
+        "20260924",
+        "20260925",
+        "20260926"
+      ],
+      "source_subset_ids": [
+        "all"
+      ],
+      "zero_recall_evaluation_cells": 8
+    },
+    "Q13-E004/Q8_SRC2": {
+      "all_cells_match_at_1e_minus_12": true,
+      "all_classes_positive_support_every_cell": true,
+      "chance_ba": 0.25,
+      "classes": 4,
+      "evaluation_cells_per_person": {
+        "1": 12,
+        "2": 12,
+        "3": 12,
+        "4": 12,
+        "5": 12,
+        "6": 12,
+        "7": 12,
+        "8": 12,
+        "9": 12
+      },
+      "max_absolute_reported_cell_ba_error": 1.1102230246251565e-16,
+      "mean_person_ba": 0.3295717592592593,
+      "median_person_ba": 0.3304398148148148,
+      "metric_path": "/workspace/cross-subject-mi-eeg/results/Q13-E004/Q8_SRC2/per_subject_metrics.csv",
+      "n_evaluation_cells": 108,
+      "n_prediction_rows": 62208,
+      "n_subjects": 9,
+      "n_unique_target_trials": 5184,
+      "no_duplicate_prediction_identities": true,
+      "per_person_ba": {
+        "1": 0.4010416666666667,
+        "2": 0.2599826388888889,
+        "3": 0.3820891203703704,
+        "4": 0.28125,
+        "5": 0.25202546296296297,
+        "6": 0.3304398148148148,
+        "7": 0.2702546296296296,
+        "8": 0.3748553240740741,
+        "9": 0.4142071759259259
+      },
+      "per_seed_equal_person_mean_ba": {
+        "20260924": 0.3285590277777778,
+        "20260925": 0.34293016975308643,
+        "20260926": 0.31722608024691357
+      },
+      "prediction_paths": [
+        "/workspace/cross-subject-mi-eeg/results/Q13-E004/Q8_SRC2/predictions.csv"
+      ],
+      "reported_cell_count": 108,
+      "sd_person_ba": 0.06499049683283178,
+      "seeds": [
+        "20260924",
+        "20260925",
+        "20260926"
+      ],
+      "source_subset_ids": [
+        "k2_start0",
+        "k2_start2",
+        "k2_start4",
+        "k2_start6"
+      ],
+      "zero_recall_evaluation_cells": 51
+    },
+    "Q13-E004/Q8_SRC4": {
+      "all_cells_match_at_1e_minus_12": true,
+      "all_classes_positive_support_every_cell": true,
+      "chance_ba": 0.25,
+      "classes": 4,
+      "evaluation_cells_per_person": {
+        "1": 12,
+        "2": 12,
+        "3": 12,
+        "4": 12,
+        "5": 12,
+        "6": 12,
+        "7": 12,
+        "8": 12,
+        "9": 12
+      },
+      "max_absolute_reported_cell_ba_error": 1.6653345369377348e-16,
+      "mean_person_ba": 0.3889049639917695,
+      "median_person_ba": 0.3346354166666667,
+      "metric_path": "/workspace/cross-subject-mi-eeg/results/Q13-E004/Q8_SRC4/per_subject_metrics.csv",
+      "n_evaluation_cells": 108,
+      "n_prediction_rows": 62208,
+      "n_subjects": 9,
+      "n_unique_target_trials": 5184,
+      "no_duplicate_prediction_identities": true,
+      "per_person_ba": {
+        "1": 0.5380497685185185,
+        "2": 0.28544560185185186,
+        "3": 0.48582175925925924,
+        "4": 0.3346354166666667,
+        "5": 0.2505787037037037,
+        "6": 0.30570023148148145,
+        "7": 0.3210358796296296,
+        "8": 0.5163483796296297,
+        "9": 0.4625289351851852
+      },
+      "per_seed_equal_person_mean_ba": {
+        "20260924": 0.3908179012345679,
+        "20260925": 0.39014274691358025,
+        "20260926": 0.3857542438271605
+      },
+      "prediction_paths": [
+        "/workspace/cross-subject-mi-eeg/results/Q13-E004/Q8_SRC4/predictions.csv"
+      ],
+      "reported_cell_count": 108,
+      "sd_person_ba": 0.11046026946191544,
+      "seeds": [
+        "20260924",
+        "20260925",
+        "20260926"
+      ],
+      "source_subset_ids": [
+        "k4_start0",
+        "k4_start2",
+        "k4_start4",
+        "k4_start6"
+      ],
+      "zero_recall_evaluation_cells": 19
+    },
+    "Q13-E004/Q8_SRC6": {
+      "all_cells_match_at_1e_minus_12": true,
+      "all_classes_positive_support_every_cell": true,
+      "chance_ba": 0.25,
+      "classes": 4,
+      "evaluation_cells_per_person": {
+        "1": 12,
+        "2": 12,
+        "3": 12,
+        "4": 12,
+        "5": 12,
+        "6": 12,
+        "7": 12,
+        "8": 12,
+        "9": 12
+      },
+      "max_absolute_reported_cell_ba_error": 1.1102230246251565e-16,
+      "mean_person_ba": 0.4315522119341564,
+      "median_person_ba": 0.3645833333333333,
+      "metric_path": "/workspace/cross-subject-mi-eeg/results/Q13-E004/Q8_SRC6/per_subject_metrics.csv",
+      "n_evaluation_cells": 108,
+      "n_prediction_rows": 62208,
+      "n_subjects": 9,
+      "n_unique_target_trials": 5184,
+      "no_duplicate_prediction_identities": true,
+      "per_person_ba": {
+        "1": 0.5978009259259259,
+        "2": 0.3046875,
+        "3": 0.6280381944444444,
+        "4": 0.3645833333333333,
+        "5": 0.2504340277777778,
+        "6": 0.29340277777777773,
+        "7": 0.33622685185185186,
+        "8": 0.576388888888889,
+        "9": 0.5324074074074074
+      },
+      "per_seed_equal_person_mean_ba": {
+        "20260924": 0.4307966820987654,
+        "20260925": 0.4336902006172839,
+        "20260926": 0.43016975308641975
+      },
+      "prediction_paths": [
+        "/workspace/cross-subject-mi-eeg/results/Q13-E004/Q8_SRC6/predictions.csv"
+      ],
+      "reported_cell_count": 108,
+      "sd_person_ba": 0.149561978194672,
+      "seeds": [
+        "20260924",
+        "20260925",
+        "20260926"
+      ],
+      "source_subset_ids": [
+        "k6_start0",
+        "k6_start2",
+        "k6_start4",
+        "k6_start6"
+      ],
+      "zero_recall_evaluation_cells": 17
+    },
+    "Q13-E004/Q9_SHARED_SRC2": {
+      "all_cells_match_at_1e_minus_12": true,
+      "all_classes_positive_support_every_cell": true,
+      "chance_ba": 0.25,
+      "classes": 4,
+      "evaluation_cells_per_person": {
+        "1": 12,
+        "2": 12,
+        "3": 12,
+        "4": 12,
+        "5": 12,
+        "6": 12,
+        "7": 12,
+        "8": 12,
+        "9": 12
+      },
+      "max_absolute_reported_cell_ba_error": 1.1102230246251565e-16,
+      "mean_person_ba": 0.34743119855967075,
+      "median_person_ba": 0.3190104166666667,
+      "metric_path": "/workspace/cross-subject-mi-eeg/results/Q13-E004/Q9_SHARED_SRC2/per_subject_metrics.csv",
+      "n_evaluation_cells": 108,
+      "n_prediction_rows": 62208,
+      "n_subjects": 9,
+      "n_unique_target_trials": 5184,
+      "no_duplicate_prediction_identities": true,
+      "per_person_ba": {
+        "1": 0.42303240740740744,
+        "2": 0.26750578703703703,
+        "3": 0.4291087962962963,
+        "4": 0.2957175925925926,
+        "5": 0.2573784722222222,
+        "6": 0.3190104166666667,
+        "7": 0.27488425925925924,
+        "8": 0.42230902777777773,
+        "9": 0.43793402777777773
+      },
+      "per_seed_equal_person_mean_ba": {
+        "20260924": 0.34307484567901236,
+        "20260925": 0.35223765432098764,
+        "20260926": 0.34698109567901236
+      },
+      "prediction_paths": [
+        "/workspace/cross-subject-mi-eeg/results/Q13-E004/Q9_SHARED_SRC2/predictions.csv"
+      ],
+      "reported_cell_count": 108,
+      "sd_person_ba": 0.07860254875910372,
+      "seeds": [
+        "20260924",
+        "20260925",
+        "20260926"
+      ],
+      "source_subset_ids": [
+        "k2_start0",
+        "k2_start2",
+        "k2_start4",
+        "k2_start6"
+      ],
+      "zero_recall_evaluation_cells": 56
+    },
+    "Q13-E004/Q9_SHARED_SRC4": {
+      "all_cells_match_at_1e_minus_12": true,
+      "all_classes_positive_support_every_cell": true,
+      "chance_ba": 0.25,
+      "classes": 4,
+      "evaluation_cells_per_person": {
+        "1": 12,
+        "2": 12,
+        "3": 12,
+        "4": 12,
+        "5": 12,
+        "6": 12,
+        "7": 12,
+        "8": 12,
+        "9": 12
+      },
+      "max_absolute_reported_cell_ba_error": 1.6653345369377348e-16,
+      "mean_person_ba": 0.3888888888888889,
+      "median_person_ba": 0.3236400462962963,
+      "metric_path": "/workspace/cross-subject-mi-eeg/results/Q13-E004/Q9_SHARED_SRC4/per_subject_metrics.csv",
+      "n_evaluation_cells": 108,
+      "n_prediction_rows": 62208,
+      "n_subjects": 9,
+      "n_unique_target_trials": 5184,
+      "no_duplicate_prediction_identities": true,
+      "per_person_ba": {
+        "1": 0.5221354166666666,
+        "2": 0.28443287037037035,
+        "3": 0.4713541666666667,
+        "4": 0.3208912037037037,
+        "5": 0.2526041666666667,
+        "6": 0.2881944444444445,
+        "7": 0.3236400462962963,
+        "8": 0.5494791666666666,
+        "9": 0.48726851851851855
+      },
+      "per_seed_equal_person_mean_ba": {
+        "20260924": 0.38695987654320985,
+        "20260925": 0.3910590277777778,
+        "20260926": 0.388647762345679
+      },
+      "prediction_paths": [
+        "/workspace/cross-subject-mi-eeg/results/Q13-E004/Q9_SHARED_SRC4/predictions.csv"
+      ],
+      "reported_cell_count": 108,
+      "sd_person_ba": 0.11647317349647955,
+      "seeds": [
+        "20260924",
+        "20260925",
+        "20260926"
+      ],
+      "source_subset_ids": [
+        "k4_start0",
+        "k4_start2",
+        "k4_start4",
+        "k4_start6"
+      ],
+      "zero_recall_evaluation_cells": 22
+    },
+    "Q13-E004/Q9_SHARED_SRC6": {
+      "all_cells_match_at_1e_minus_12": true,
+      "all_classes_positive_support_every_cell": true,
+      "chance_ba": 0.25,
+      "classes": 4,
+      "evaluation_cells_per_person": {
+        "1": 12,
+        "2": 12,
+        "3": 12,
+        "4": 12,
+        "5": 12,
+        "6": 12,
+        "7": 12,
+        "8": 12,
+        "9": 12
+      },
+      "max_absolute_reported_cell_ba_error": 1.1102230246251565e-16,
+      "mean_person_ba": 0.4248488940329218,
+      "median_person_ba": 0.37138310185185186,
+      "metric_path": "/workspace/cross-subject-mi-eeg/results/Q13-E004/Q9_SHARED_SRC6/per_subject_metrics.csv",
+      "n_evaluation_cells": 108,
+      "n_prediction_rows": 62208,
+      "n_subjects": 9,
+      "n_unique_target_trials": 5184,
+      "no_duplicate_prediction_identities": true,
+      "per_person_ba": {
+        "1": 0.580295138888889,
+        "2": 0.29296875,
+        "3": 0.5949074074074074,
+        "4": 0.37138310185185186,
+        "5": 0.2507233796296296,
+        "6": 0.2860243055555555,
+        "7": 0.3146701388888889,
+        "8": 0.5826099537037037,
+        "9": 0.5500578703703703
+      },
+      "per_seed_equal_person_mean_ba": {
+        "20260924": 0.42742091049382713,
+        "20260925": 0.4217303240740741,
+        "20260926": 0.42539544753086417
+      },
+      "prediction_paths": [
+        "/workspace/cross-subject-mi-eeg/results/Q13-E004/Q9_SHARED_SRC6/predictions.csv"
+      ],
+      "reported_cell_count": 108,
+      "sd_person_ba": 0.148168635031079,
+      "seeds": [
+        "20260924",
+        "20260925",
+        "20260926"
+      ],
+      "source_subset_ids": [
+        "k6_start0",
+        "k6_start2",
+        "k6_start4",
+        "k6_start6"
+      ],
+      "zero_recall_evaluation_cells": 14
+    },
+    "Q13-E005/Q8_SOURCE_SESSION_E": {
+      "all_cells_match_at_1e_minus_12": true,
+      "all_classes_positive_support_every_cell": true,
+      "chance_ba": 0.25,
+      "classes": 4,
+      "evaluation_cells_per_person": {
+        "1": 3,
+        "2": 3,
+        "3": 3,
+        "4": 3,
+        "5": 3,
+        "6": 3,
+        "7": 3,
+        "8": 3,
+        "9": 3
+      },
+      "max_absolute_reported_cell_ba_error": 1.1102230246251565e-16,
+      "mean_person_ba": 0.4140303497942387,
+      "median_person_ba": 0.359375,
+      "metric_path": "/workspace/cross-subject-mi-eeg/results/Q13-E005/Q8_SOURCE_SESSION_E/per_subject_metrics.csv",
+      "n_evaluation_cells": 27,
+      "n_prediction_rows": 15552,
+      "n_subjects": 9,
+      "n_unique_target_trials": 5184,
+      "no_duplicate_prediction_identities": true,
+      "per_person_ba": {
+        "1": 0.5549768518518519,
+        "2": 0.2922453703703704,
+        "3": 0.6157407407407408,
+        "4": 0.359375,
+        "5": 0.24942129629629628,
+        "6": 0.29571759259259256,
+        "7": 0.32523148148148145,
+        "8": 0.5474537037037037,
+        "9": 0.4861111111111111
+      },
+      "per_seed_equal_person_mean_ba": {
+        "20260924": 0.42148919753086417,
+        "20260925": 0.41782407407407407,
+        "20260926": 0.4027777777777778
+      },
+      "prediction_paths": [
+        "/workspace/cross-subject-mi-eeg/results/Q13-E005/Q8_SOURCE_SESSION_E/predictions.csv"
+      ],
+      "reported_cell_count": 27,
+      "sd_person_ba": 0.13708961588898286,
+      "seeds": [
+        "20260924",
+        "20260925",
+        "20260926"
+      ],
+      "source_subset_ids": [
+        "all"
+      ],
+      "zero_recall_evaluation_cells": 6
+    },
+    "Q13-E005/Q8_SOURCE_SESSION_T": {
+      "all_cells_match_at_1e_minus_12": true,
+      "all_classes_positive_support_every_cell": true,
+      "chance_ba": 0.25,
+      "classes": 4,
+      "evaluation_cells_per_person": {
+        "1": 3,
+        "2": 3,
+        "3": 3,
+        "4": 3,
+        "5": 3,
+        "6": 3,
+        "7": 3,
+        "8": 3,
+        "9": 3
+      },
+      "max_absolute_reported_cell_ba_error": 1.1102230246251565e-16,
+      "mean_person_ba": 0.4224537037037037,
+      "median_person_ba": 0.37789351851851855,
+      "metric_path": "/workspace/cross-subject-mi-eeg/results/Q13-E005/Q8_SOURCE_SESSION_T/per_subject_metrics.csv",
+      "n_evaluation_cells": 27,
+      "n_prediction_rows": 15552,
+      "n_subjects": 9,
+      "n_unique_target_trials": 5184,
+      "no_duplicate_prediction_identities": true,
+      "per_person_ba": {
+        "1": 0.5885416666666666,
+        "2": 0.296875,
+        "3": 0.6296296296296297,
+        "4": 0.37789351851851855,
+        "5": 0.2523148148148148,
+        "6": 0.2806712962962963,
+        "7": 0.31539351851851855,
+        "8": 0.5775462962962963,
+        "9": 0.48321759259259256
+      },
+      "per_seed_equal_person_mean_ba": {
+        "20260924": 0.4172453703703704,
+        "20260925": 0.4236111111111111,
+        "20260926": 0.42650462962962965
+      },
+      "prediction_paths": [
+        "/workspace/cross-subject-mi-eeg/results/Q13-E005/Q8_SOURCE_SESSION_T/predictions.csv"
+      ],
+      "reported_cell_count": 27,
+      "sd_person_ba": 0.14854293778927902,
+      "seeds": [
+        "20260924",
+        "20260925",
+        "20260926"
+      ],
+      "source_subset_ids": [
+        "all"
+      ],
+      "zero_recall_evaluation_cells": 3
+    },
+    "Q13-E005/Q9_SHARED_SOURCE_SESSION_E": {
+      "all_cells_match_at_1e_minus_12": true,
+      "all_classes_positive_support_every_cell": true,
+      "chance_ba": 0.25,
+      "classes": 4,
+      "evaluation_cells_per_person": {
+        "1": 3,
+        "2": 3,
+        "3": 3,
+        "4": 3,
+        "5": 3,
+        "6": 3,
+        "7": 3,
+        "8": 3,
+        "9": 3
+      },
+      "max_absolute_reported_cell_ba_error": 1.1102230246251565e-16,
+      "mean_person_ba": 0.4189171810699588,
+      "median_person_ba": 0.35763888888888884,
+      "metric_path": "/workspace/cross-subject-mi-eeg/results/Q13-E005/Q9_SHARED_SOURCE_SESSION_E/per_subject_metrics.csv",
+      "n_evaluation_cells": 27,
+      "n_prediction_rows": 15552,
+      "n_subjects": 9,
+      "n_unique_target_trials": 5184,
+      "no_duplicate_prediction_identities": true,
+      "per_person_ba": {
+        "1": 0.5578703703703703,
+        "2": 0.308449074074074,
+        "3": 0.5775462962962963,
+        "4": 0.35763888888888884,
+        "5": 0.25578703703703703,
+        "6": 0.2824074074074074,
+        "7": 0.3570601851851852,
+        "8": 0.5885416666666666,
+        "9": 0.4849537037037037
+      },
+      "per_seed_equal_person_mean_ba": {
+        "20260924": 0.42245370370370366,
+        "20260925": 0.41628086419753085,
+        "20260926": 0.41801697530864196
+      },
+      "prediction_paths": [
+        "/workspace/cross-subject-mi-eeg/results/Q13-E005/Q9_SHARED_SOURCE_SESSION_E/predictions.csv"
+      ],
+      "reported_cell_count": 27,
+      "sd_person_ba": 0.1335268490525061,
+      "seeds": [
+        "20260924",
+        "20260925",
+        "20260926"
+      ],
+      "source_subset_ids": [
+        "all"
+      ],
+      "zero_recall_evaluation_cells": 3
+    },
+    "Q13-E005/Q9_SHARED_SOURCE_SESSION_T": {
+      "all_cells_match_at_1e_minus_12": true,
+      "all_classes_positive_support_every_cell": true,
+      "chance_ba": 0.25,
+      "classes": 4,
+      "evaluation_cells_per_person": {
+        "1": 3,
+        "2": 3,
+        "3": 3,
+        "4": 3,
+        "5": 3,
+        "6": 3,
+        "7": 3,
+        "8": 3,
+        "9": 3
+      },
+      "max_absolute_reported_cell_ba_error": 1.1102230246251565e-16,
+      "mean_person_ba": 0.41808127572016457,
+      "median_person_ba": 0.35648148148148145,
+      "metric_path": "/workspace/cross-subject-mi-eeg/results/Q13-E005/Q9_SHARED_SOURCE_SESSION_T/per_subject_metrics.csv",
+      "n_evaluation_cells": 27,
+      "n_prediction_rows": 15552,
+      "n_subjects": 9,
+      "n_unique_target_trials": 5184,
+      "no_duplicate_prediction_identities": true,
+      "per_person_ba": {
+        "1": 0.5891203703703703,
+        "2": 0.3032407407407407,
+        "3": 0.6030092592592592,
+        "4": 0.35648148148148145,
+        "5": 0.25752314814814814,
+        "6": 0.2777777777777778,
+        "7": 0.3501157407407407,
+        "8": 0.5642361111111112,
+        "9": 0.46122685185185186
+      },
+      "per_seed_equal_person_mean_ba": {
+        "20260924": 0.4247685185185185,
+        "20260925": 0.421875,
+        "20260926": 0.4076003086419753
+      },
+      "prediction_paths": [
+        "/workspace/cross-subject-mi-eeg/results/Q13-E005/Q9_SHARED_SOURCE_SESSION_T/predictions.csv"
+      ],
+      "reported_cell_count": 27,
+      "sd_person_ba": 0.13862795920035237,
+      "seeds": [
+        "20260924",
+        "20260925",
+        "20260926"
+      ],
+      "source_subset_ids": [
+        "all"
+      ],
+      "zero_recall_evaluation_cells": 3
+    },
+    "Q13-E006/Q8_RAW_CE_MATCHED": {
+      "all_cells_match_at_1e_minus_12": true,
+      "all_classes_positive_support_every_cell": true,
+      "chance_ba": 0.25,
+      "classes": 4,
+      "evaluation_cells_per_person": {
+        "1": 3,
+        "2": 3,
+        "3": 3,
+        "4": 3,
+        "5": 3,
+        "6": 3,
+        "7": 3,
+        "8": 3,
+        "9": 3
+      },
+      "max_absolute_reported_cell_ba_error": 1.1102230246251565e-16,
+      "mean_person_ba": 0.3392489711934156,
+      "median_person_ba": 0.2962962962962963,
+      "metric_path": "/workspace/cross-subject-mi-eeg/results/Q13-E006/Q8_RAW_CE_MATCHED/per_subject_metrics.csv",
+      "n_evaluation_cells": 27,
+      "n_prediction_rows": 15552,
+      "n_subjects": 9,
+      "n_unique_target_trials": 5184,
+      "no_duplicate_prediction_identities": true,
+      "per_person_ba": {
+        "1": 0.5752314814814814,
+        "2": 0.24421296296296294,
+        "3": 0.2609953703703704,
+        "4": 0.3645833333333333,
+        "5": 0.24537037037037038,
+        "6": 0.2853009259259259,
+        "7": 0.2962962962962963,
+        "8": 0.2962962962962963,
+        "9": 0.4849537037037037
+      },
+      "per_seed_equal_person_mean_ba": {
+        "20260924": 0.33661265432098764,
+        "20260925": 0.33661265432098764,
+        "20260926": 0.3445216049382716
+      },
+      "prediction_paths": [
+        "/workspace/cross-subject-mi-eeg/results/Q13-E006/Q8_RAW_CE_MATCHED/predictions.csv"
+      ],
+      "reported_cell_count": 27,
+      "sd_person_ba": 0.11625852704600338,
+      "seeds": [
+        "20260924",
+        "20260925",
+        "20260926"
+      ],
+      "source_subset_ids": [
+        "all"
+      ],
+      "zero_recall_evaluation_cells": 9
+    },
+    "Q14-E001/BROAD_EEGNET": {
+      "all_cells_match_at_1e_minus_12": true,
+      "all_classes_positive_support_every_cell": true,
+      "chance_ba": 0.5,
+      "classes": 2,
+      "evaluation_cells_per_person": {
+        "1": 3,
+        "2": 3,
+        "3": 3,
+        "4": 3,
+        "5": 3,
+        "6": 3,
+        "7": 3,
+        "8": 3,
+        "9": 3
+      },
+      "max_absolute_reported_cell_ba_error": 1.1102230246251565e-16,
+      "mean_person_ba": 0.6820987654320987,
+      "median_person_ba": 0.6736111111111112,
+      "metric_path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/subject_seed_metrics.csv",
+      "n_evaluation_cells": 27,
+      "n_prediction_rows": 7776,
+      "n_subjects": 9,
+      "n_unique_target_trials": 2592,
+      "no_duplicate_prediction_identities": true,
+      "per_person_ba": {
+        "1": 0.7638888888888888,
+        "2": 0.576388888888889,
+        "3": 0.8217592592592592,
+        "4": 0.5752314814814815,
+        "5": 0.5092592592592592,
+        "6": 0.6736111111111112,
+        "7": 0.5462962962962963,
+        "8": 0.9282407407407408,
+        "9": 0.7442129629629631
+      },
+      "per_seed_equal_person_mean_ba": {
+        "20260924": 0.6570216049382717,
+        "20260925": 0.685570987654321,
+        "20260926": 0.7037037037037037
+      },
+      "prediction_paths": [
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_01/final_seed_20260924/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_01/final_seed_20260925/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_01/final_seed_20260926/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_02/final_seed_20260924/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_02/final_seed_20260925/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_02/final_seed_20260926/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_03/final_seed_20260924/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_03/final_seed_20260925/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_03/final_seed_20260926/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_04/final_seed_20260924/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_04/final_seed_20260925/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_04/final_seed_20260926/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_05/final_seed_20260924/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_05/final_seed_20260925/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_05/final_seed_20260926/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_06/final_seed_20260924/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_06/final_seed_20260925/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_06/final_seed_20260926/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_07/final_seed_20260924/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_07/final_seed_20260925/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_07/final_seed_20260926/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_08/final_seed_20260924/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_08/final_seed_20260925/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_08/final_seed_20260926/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_09/final_seed_20260924/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_09/final_seed_20260925/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_09/final_seed_20260926/predictions.csv"
+      ],
+      "reported_cell_count": 27,
+      "sd_person_ba": 0.14213627419924926,
+      "seeds": [
+        "20260924",
+        "20260925",
+        "20260926"
+      ],
+      "source_subset_ids": [],
+      "zero_recall_evaluation_cells": 0
+    },
+    "Q14-E001/CSP4_LDA": {
+      "all_cells_match_at_1e_minus_12": true,
+      "all_classes_positive_support_every_cell": true,
+      "chance_ba": 0.5,
+      "classes": 2,
+      "evaluation_cells_per_person": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1
+      },
+      "max_absolute_reported_cell_ba_error": 5.551115123125783e-17,
+      "mean_person_ba": 0.6153549382716048,
+      "median_person_ba": 0.5729166666666666,
+      "metric_path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/subject_seed_metrics.csv",
+      "n_evaluation_cells": 9,
+      "n_prediction_rows": 2592,
+      "n_subjects": 9,
+      "n_unique_target_trials": 2592,
+      "no_duplicate_prediction_identities": true,
+      "per_person_ba": {
+        "1": 0.53125,
+        "2": 0.5277777777777778,
+        "3": 0.6770833333333334,
+        "4": 0.6319444444444444,
+        "5": 0.48958333333333337,
+        "6": 0.5347222222222222,
+        "7": 0.5729166666666666,
+        "8": 0.9236111111111112,
+        "9": 0.6493055555555556
+      },
+      "per_seed_equal_person_mean_ba": {
+        "deterministic": 0.6153549382716049
+      },
+      "prediction_paths": [
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/CSP4_LDA/target_01/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/CSP4_LDA/target_02/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/CSP4_LDA/target_03/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/CSP4_LDA/target_04/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/CSP4_LDA/target_05/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/CSP4_LDA/target_06/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/CSP4_LDA/target_07/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/CSP4_LDA/target_08/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/CSP4_LDA/target_09/predictions.csv"
+      ],
+      "reported_cell_count": 9,
+      "sd_person_ba": 0.13187335641841755,
+      "seeds": [
+        "deterministic"
+      ],
+      "source_subset_ids": [],
+      "zero_recall_evaluation_cells": 0
+    },
+    "Q14-E001/MU_BETA_SHARED": {
+      "all_cells_match_at_1e_minus_12": true,
+      "all_classes_positive_support_every_cell": true,
+      "chance_ba": 0.5,
+      "classes": 2,
+      "evaluation_cells_per_person": {
+        "1": 3,
+        "2": 3,
+        "3": 3,
+        "4": 3,
+        "5": 3,
+        "6": 3,
+        "7": 3,
+        "8": 3,
+        "9": 3
+      },
+      "max_absolute_reported_cell_ba_error": 0.0,
+      "mean_person_ba": 0.6734825102880658,
+      "median_person_ba": 0.6782407407407408,
+      "metric_path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/subject_seed_metrics.csv",
+      "n_evaluation_cells": 27,
+      "n_prediction_rows": 7776,
+      "n_subjects": 9,
+      "n_unique_target_trials": 2592,
+      "no_duplicate_prediction_identities": true,
+      "per_person_ba": {
+        "1": 0.7361111111111112,
+        "2": 0.5370370370370371,
+        "3": 0.8414351851851851,
+        "4": 0.5706018518518519,
+        "5": 0.5011574074074074,
+        "6": 0.6782407407407408,
+        "7": 0.5439814814814815,
+        "8": 0.9363425925925926,
+        "9": 0.7164351851851852
+      },
+      "per_seed_equal_person_mean_ba": {
+        "20260924": 0.6643518518518519,
+        "20260925": 0.6709104938271605,
+        "20260926": 0.6851851851851852
+      },
+      "prediction_paths": [
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_01/final_seed_20260924/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_01/final_seed_20260925/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_01/final_seed_20260926/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_02/final_seed_20260924/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_02/final_seed_20260925/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_02/final_seed_20260926/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_03/final_seed_20260924/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_03/final_seed_20260925/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_03/final_seed_20260926/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_04/final_seed_20260924/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_04/final_seed_20260925/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_04/final_seed_20260926/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_05/final_seed_20260924/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_05/final_seed_20260925/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_05/final_seed_20260926/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_06/final_seed_20260924/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_06/final_seed_20260925/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_06/final_seed_20260926/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_07/final_seed_20260924/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_07/final_seed_20260925/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_07/final_seed_20260926/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_08/final_seed_20260924/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_08/final_seed_20260925/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_08/final_seed_20260926/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_09/final_seed_20260924/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_09/final_seed_20260925/predictions.csv",
+        "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_09/final_seed_20260926/predictions.csv"
+      ],
+      "reported_cell_count": 27,
+      "sd_person_ba": 0.14948314835998663,
+      "seeds": [
+        "20260924",
+        "20260925",
+        "20260926"
+      ],
+      "source_subset_ids": [],
+      "zero_recall_evaluation_cells": 0
+    },
+    "Q14-E002R2/BROAD_EEGNET": {
+      "all_cells_match_at_1e_minus_12": true,
+      "all_classes_positive_support_every_cell": true,
+      "chance_ba": 0.5,
+      "classes": 2,
+      "evaluation_cells_per_person": {
+        "1": 3,
+        "10": 3,
+        "100": 3,
+        "101": 3,
+        "102": 3,
+        "103": 3,
+        "104": 3,
+        "105": 3,
+        "106": 3,
+        "107": 3,
+        "108": 3,
+        "109": 3,
+        "11": 3,
+        "12": 3,
+        "13": 3,
+        "14": 3,
+        "15": 3,
+        "16": 3,
+        "17": 3,
+        "18": 3,
+        "19": 3,
+        "2": 3,
+        "20": 3,
+        "21": 3,
+        "22": 3,
+        "23": 3,
+        "24": 3,
+        "25": 3,
+        "26": 3,
+        "27": 3,
+        "28": 3,
+        "29": 3,
+        "3": 3,
+        "30": 3,
+        "31": 3,
+        "32": 3,
+        "33": 3,
+        "34": 3,
+        "35": 3,
+        "36": 3,
+        "37": 3,
+        "38": 3,
+        "39": 3,
+        "4": 3,
+        "40": 3,
+        "41": 3,
+        "42": 3,
+        "43": 3,
+        "44": 3,
+        "45": 3,
+        "46": 3,
+        "47": 3,
+        "48": 3,
+        "49": 3,
+        "5": 3,
+        "50": 3,
+        "51": 3,
+        "52": 3,
+        "53": 3,
+        "54": 3,
+        "55": 3,
+        "56": 3,
+        "57": 3,
+        "58": 3,
+        "59": 3,
+        "6": 3,
+        "60": 3,
+        "61": 3,
+        "62": 3,
+        "63": 3,
+        "64": 3,
+        "65": 3,
+        "66": 3,
+        "67": 3,
+        "68": 3,
+        "69": 3,
+        "7": 3,
+        "70": 3,
+        "71": 3,
+        "72": 3,
+        "73": 3,
+        "74": 3,
+        "75": 3,
+        "76": 3,
+        "77": 3,
+        "78": 3,
+        "79": 3,
+        "8": 3,
+        "80": 3,
+        "81": 3,
+        "82": 3,
+        "83": 3,
+        "84": 3,
+        "85": 3,
+        "86": 3,
+        "87": 3,
+        "88": 3,
+        "89": 3,
+        "9": 3,
+        "90": 3,
+        "91": 3,
+        "92": 3,
+        "93": 3,
+        "94": 3,
+        "95": 3,
+        "96": 3,
+        "97": 3,
+        "98": 3,
+        "99": 3
+      },
+      "max_absolute_reported_cell_ba_error": 1.1102230246251565e-16,
+      "mean_person_ba": 0.6181459187169062,
+      "median_person_ba": 0.5823451910408433,
+      "metric_path": "/workspace/cross-subject-mi-eeg/results/Q14-E002R2V1/external/subject_seed_metrics.csv",
+      "n_evaluation_cells": 327,
+      "n_prediction_rows": 14754,
+      "n_subjects": 109,
+      "n_unique_target_trials": 4918,
+      "no_duplicate_prediction_identities": true,
+      "per_person_ba": {
+        "1": 0.6963109354413701,
+        "10": 0.6220238095238095,
+        "100": 0.611111111111111,
+        "101": 0.5408432147562582,
+        "102": 0.6666666666666666,
+        "103": 0.6399868247694335,
+        "104": 0.4761904761904762,
+        "105": 0.6169301712779974,
+        "106": 0.6557539682539683,
+        "107": 0.435515873015873,
+        "108": 0.647562582345191,
+        "109": 0.5,
+        "11": 0.4845191040843215,
+        "12": 0.677579365079365,
+        "13": 0.6212121212121212,
+        "14": 0.5662055335968379,
+        "15": 0.746376811594203,
+        "16": 0.6258234519104083,
+        "17": 0.5592885375494071,
+        "18": 0.4654150197628459,
+        "19": 0.6584321475625824,
+        "2": 0.9173254281949935,
+        "20": 0.48188405797101447,
+        "21": 0.6458333333333334,
+        "22": 0.5487483530961792,
+        "23": 0.5813570487483531,
+        "24": 0.5,
+        "25": 0.5530303030303031,
+        "26": 0.6706349206349206,
+        "27": 0.4785902503293808,
+        "28": 0.5691699604743082,
+        "29": 0.9413702239789196,
+        "3": 0.4433465085638999,
+        "30": 0.5833333333333334,
+        "31": 0.8089591567852438,
+        "32": 0.558531746031746,
+        "33": 0.7631752305665348,
+        "34": 0.8690476190476191,
+        "35": 0.6218708827404479,
+        "36": 0.4334650856389987,
+        "37": 0.5227272727272727,
+        "38": 0.5645586297760211,
+        "39": 0.5154808959156786,
+        "4": 0.5507246376811593,
+        "40": 0.4662698412698412,
+        "41": 0.5595238095238094,
+        "42": 0.6884057971014492,
+        "43": 0.8158761528326747,
+        "44": 0.7565876152832675,
+        "45": 0.6320816864295126,
+        "46": 0.7193675889328063,
+        "47": 0.5694444444444445,
+        "48": 0.6870882740447958,
+        "49": 0.5217391304347826,
+        "5": 0.4871031746031746,
+        "50": 0.5240447957839263,
+        "51": 0.5158730158730158,
+        "52": 0.6984126984126983,
+        "53": 0.5108695652173912,
+        "54": 0.7272727272727272,
+        "55": 0.9110671936758893,
+        "56": 0.6930171277997365,
+        "57": 0.5317460317460317,
+        "58": 0.5416666666666666,
+        "59": 0.4692460317460317,
+        "6": 0.5079365079365079,
+        "60": 0.7938076416337285,
+        "61": 0.7104743083003954,
+        "62": 0.9094202898550726,
+        "63": 0.538866930171278,
+        "64": 0.6189064558629775,
+        "65": 0.689484126984127,
+        "66": 0.5471014492753623,
+        "67": 0.49571805006587616,
+        "68": 0.6623847167325428,
+        "69": 0.5486111111111112,
+        "7": 0.849802371541502,
+        "70": 0.5652173913043478,
+        "71": 0.8254281949934125,
+        "72": 0.8787878787878788,
+        "73": 0.5806982872200264,
+        "74": 0.5694444444444445,
+        "75": 0.780961791831357,
+        "76": 0.44235836627140973,
+        "77": 0.621031746031746,
+        "78": 0.575098814229249,
+        "79": 0.5823451910408433,
+        "8": 0.6030961791831357,
+        "80": 0.5945322793148881,
+        "81": 0.5217391304347826,
+        "82": 0.6080368906455863,
+        "83": 0.6778656126482213,
+        "84": 0.6254940711462451,
+        "85": 0.955862977602108,
+        "86": 0.5770750988142292,
+        "87": 0.4627799736495389,
+        "88": 0.4597701149425288,
+        "89": 0.5793650793650794,
+        "9": 0.45337301587301587,
+        "90": 0.6399868247694335,
+        "91": 0.5540184453227932,
+        "92": 0.6907407407407407,
+        "93": 0.7934782608695653,
+        "94": 0.8642951251646904,
+        "95": 0.5793807641633729,
+        "96": 0.6617259552042161,
+        "97": 0.44894598155467724,
+        "98": 0.560935441370224,
+        "99": 0.5079051383399209
+      },
+      "per_seed_equal_person_mean_ba": {
+        "20260924": 0.6182297883916111,
+        "20260925": 0.6131117524528044,
+        "20260926": 0.623096215306303
+      },
+      "prediction_paths": [
+        "/workspace/cross-subject-mi-eeg/results/Q14-E002R2/external/predictions.csv"
+      ],
+      "reported_cell_count": 327,
+      "reported_person_metric_max_error": 1.1102230246251565e-16,
+      "sd_person_ba": 0.12564943287402153,
+      "seeds": [
+        "20260924",
+        "20260925",
+        "20260926"
+      ],
+      "source_subset_ids": [],
+      "zero_recall_evaluation_cells": 16
+    },
+    "Q14-E002R2/CSP4_LDA": {
+      "all_cells_match_at_1e_minus_12": true,
+      "all_classes_positive_support_every_cell": true,
+      "chance_ba": 0.5,
+      "classes": 2,
+      "evaluation_cells_per_person": {
+        "1": 1,
+        "10": 1,
+        "100": 1,
+        "101": 1,
+        "102": 1,
+        "103": 1,
+        "104": 1,
+        "105": 1,
+        "106": 1,
+        "107": 1,
+        "108": 1,
+        "109": 1,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "14": 1,
+        "15": 1,
+        "16": 1,
+        "17": 1,
+        "18": 1,
+        "19": 1,
+        "2": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1,
+        "26": 1,
+        "27": 1,
+        "28": 1,
+        "29": 1,
+        "3": 1,
+        "30": 1,
+        "31": 1,
+        "32": 1,
+        "33": 1,
+        "34": 1,
+        "35": 1,
+        "36": 1,
+        "37": 1,
+        "38": 1,
+        "39": 1,
+        "4": 1,
+        "40": 1,
+        "41": 1,
+        "42": 1,
+        "43": 1,
+        "44": 1,
+        "45": 1,
+        "46": 1,
+        "47": 1,
+        "48": 1,
+        "49": 1,
+        "5": 1,
+        "50": 1,
+        "51": 1,
+        "52": 1,
+        "53": 1,
+        "54": 1,
+        "55": 1,
+        "56": 1,
+        "57": 1,
+        "58": 1,
+        "59": 1,
+        "6": 1,
+        "60": 1,
+        "61": 1,
+        "62": 1,
+        "63": 1,
+        "64": 1,
+        "65": 1,
+        "66": 1,
+        "67": 1,
+        "68": 1,
+        "69": 1,
+        "7": 1,
+        "70": 1,
+        "71": 1,
+        "72": 1,
+        "73": 1,
+        "74": 1,
+        "75": 1,
+        "76": 1,
+        "77": 1,
+        "78": 1,
+        "79": 1,
+        "8": 1,
+        "80": 1,
+        "81": 1,
+        "82": 1,
+        "83": 1,
+        "84": 1,
+        "85": 1,
+        "86": 1,
+        "87": 1,
+        "88": 1,
+        "89": 1,
+        "9": 1,
+        "90": 1,
+        "91": 1,
+        "92": 1,
+        "93": 1,
+        "94": 1,
+        "95": 1,
+        "96": 1,
+        "97": 1,
+        "98": 1,
+        "99": 1
+      },
+      "max_absolute_reported_cell_ba_error": 5.551115123125783e-17,
+      "mean_person_ba": 0.5446171979507949,
+      "median_person_ba": 0.5207509881422925,
+      "metric_path": "/workspace/cross-subject-mi-eeg/results/Q14-E002R2V1/external/subject_seed_metrics.csv",
+      "n_evaluation_cells": 109,
+      "n_prediction_rows": 4918,
+      "n_subjects": 109,
+      "n_unique_target_trials": 4918,
+      "no_duplicate_prediction_identities": true,
+      "per_person_ba": {
+        "1": 0.4654150197628458,
+        "10": 0.6369047619047619,
+        "100": 0.5,
+        "101": 0.5,
+        "102": 0.6235177865612648,
+        "103": 0.49209486166007904,
+        "104": 0.5335497835497836,
+        "105": 0.44664031620553357,
+        "106": 0.5238095238095238,
+        "107": 0.5327380952380952,
+        "108": 0.5602766798418972,
+        "109": 0.5,
+        "11": 0.4772727272727273,
+        "12": 0.5297619047619048,
+        "13": 0.45849802371541504,
+        "14": 0.44664031620553357,
+        "15": 0.5385375494071146,
+        "16": 0.6254940711462451,
+        "17": 0.5,
+        "18": 0.5,
+        "19": 0.4199604743083004,
+        "2": 0.591897233201581,
+        "20": 0.5345849802371542,
+        "21": 0.6041666666666666,
+        "22": 0.5207509881422925,
+        "23": 0.6660079051383399,
+        "24": 0.5,
+        "25": 0.516798418972332,
+        "26": 0.5,
+        "27": 0.5602766798418972,
+        "28": 0.43675889328063244,
+        "29": 0.8191699604743083,
+        "3": 0.48122529644268774,
+        "30": 0.5714285714285714,
+        "31": 0.7361660079051384,
+        "32": 0.5803571428571428,
+        "33": 0.6067193675889329,
+        "34": 0.5982142857142857,
+        "35": 0.5207509881422925,
+        "36": 0.47529644268774707,
+        "37": 0.46047430830039526,
+        "38": 0.4150197628458498,
+        "39": 0.5553359683794465,
+        "4": 0.48616600790513836,
+        "40": 0.5565476190476191,
+        "41": 0.6547619047619048,
+        "42": 0.6136363636363636,
+        "43": 0.7519762845849802,
+        "44": 0.5009881422924901,
+        "45": 0.6007905138339921,
+        "46": 0.5227272727272727,
+        "47": 0.46130952380952384,
+        "48": 0.5207509881422925,
+        "49": 0.7164031620553359,
+        "5": 0.5,
+        "50": 0.5,
+        "51": 0.5,
+        "52": 0.5,
+        "53": 0.5,
+        "54": 0.5148221343873518,
+        "55": 0.6877470355731226,
+        "56": 0.5148221343873518,
+        "57": 0.5952380952380952,
+        "58": 0.5267857142857143,
+        "59": 0.5,
+        "6": 0.46130952380952384,
+        "60": 0.4782608695652174,
+        "61": 0.7341897233201581,
+        "62": 0.45652173913043476,
+        "63": 0.5642292490118577,
+        "64": 0.5187747035573123,
+        "65": 0.6339285714285714,
+        "66": 0.5523715415019763,
+        "67": 0.5217391304347826,
+        "68": 0.5,
+        "69": 0.4791666666666667,
+        "7": 0.5474308300395256,
+        "70": 0.5207509881422925,
+        "71": 0.607707509881423,
+        "72": 0.6709486166007905,
+        "73": 0.6373517786561265,
+        "74": 0.44047619047619047,
+        "75": 0.5,
+        "76": 0.5,
+        "77": 0.5565476190476191,
+        "78": 0.5237154150197628,
+        "79": 0.6067193675889329,
+        "8": 0.5,
+        "80": 0.5227272727272727,
+        "81": 0.5,
+        "82": 0.5,
+        "83": 0.6709486166007905,
+        "84": 0.5,
+        "85": 0.6956521739130435,
+        "86": 0.5,
+        "87": 0.5859683794466404,
+        "88": 0.5190886699507389,
+        "89": 0.49107142857142855,
+        "9": 0.5267857142857143,
+        "90": 0.47529644268774707,
+        "91": 0.5,
+        "92": 0.46296296296296297,
+        "93": 0.6630434782608696,
+        "94": 0.7381422924901186,
+        "95": 0.516798418972332,
+        "96": 0.6086956521739131,
+        "97": 0.4782608695652174,
+        "98": 0.5217391304347826,
+        "99": 0.5859683794466404
+      },
+      "per_seed_equal_person_mean_ba": {
+        "deterministic": 0.5446171979507949
+      },
+      "prediction_paths": [
+        "/workspace/cross-subject-mi-eeg/results/Q14-E002R2/external/predictions.csv"
+      ],
+      "reported_cell_count": 109,
+      "reported_person_metric_max_error": 5.551115123125783e-17,
+      "sd_person_ba": 0.07898496747992108,
+      "seeds": [
+        "deterministic"
+      ],
+      "source_subset_ids": [],
+      "zero_recall_evaluation_cells": 28
+    },
+    "Q14-E002R2/MU_BETA_SHARED": {
+      "all_cells_match_at_1e_minus_12": true,
+      "all_classes_positive_support_every_cell": true,
+      "chance_ba": 0.5,
+      "classes": 2,
+      "evaluation_cells_per_person": {
+        "1": 3,
+        "10": 3,
+        "100": 3,
+        "101": 3,
+        "102": 3,
+        "103": 3,
+        "104": 3,
+        "105": 3,
+        "106": 3,
+        "107": 3,
+        "108": 3,
+        "109": 3,
+        "11": 3,
+        "12": 3,
+        "13": 3,
+        "14": 3,
+        "15": 3,
+        "16": 3,
+        "17": 3,
+        "18": 3,
+        "19": 3,
+        "2": 3,
+        "20": 3,
+        "21": 3,
+        "22": 3,
+        "23": 3,
+        "24": 3,
+        "25": 3,
+        "26": 3,
+        "27": 3,
+        "28": 3,
+        "29": 3,
+        "3": 3,
+        "30": 3,
+        "31": 3,
+        "32": 3,
+        "33": 3,
+        "34": 3,
+        "35": 3,
+        "36": 3,
+        "37": 3,
+        "38": 3,
+        "39": 3,
+        "4": 3,
+        "40": 3,
+        "41": 3,
+        "42": 3,
+        "43": 3,
+        "44": 3,
+        "45": 3,
+        "46": 3,
+        "47": 3,
+        "48": 3,
+        "49": 3,
+        "5": 3,
+        "50": 3,
+        "51": 3,
+        "52": 3,
+        "53": 3,
+        "54": 3,
+        "55": 3,
+        "56": 3,
+        "57": 3,
+        "58": 3,
+        "59": 3,
+        "6": 3,
+        "60": 3,
+        "61": 3,
+        "62": 3,
+        "63": 3,
+        "64": 3,
+        "65": 3,
+        "66": 3,
+        "67": 3,
+        "68": 3,
+        "69": 3,
+        "7": 3,
+        "70": 3,
+        "71": 3,
+        "72": 3,
+        "73": 3,
+        "74": 3,
+        "75": 3,
+        "76": 3,
+        "77": 3,
+        "78": 3,
+        "79": 3,
+        "8": 3,
+        "80": 3,
+        "81": 3,
+        "82": 3,
+        "83": 3,
+        "84": 3,
+        "85": 3,
+        "86": 3,
+        "87": 3,
+        "88": 3,
+        "89": 3,
+        "9": 3,
+        "90": 3,
+        "91": 3,
+        "92": 3,
+        "93": 3,
+        "94": 3,
+        "95": 3,
+        "96": 3,
+        "97": 3,
+        "98": 3,
+        "99": 3
+      },
+      "max_absolute_reported_cell_ba_error": 1.1102230246251565e-16,
+      "mean_person_ba": 0.62387888078678,
+      "median_person_ba": 0.5872859025032938,
+      "metric_path": "/workspace/cross-subject-mi-eeg/results/Q14-E002R2V1/external/subject_seed_metrics.csv",
+      "n_evaluation_cells": 327,
+      "n_prediction_rows": 14754,
+      "n_subjects": 109,
+      "n_unique_target_trials": 4918,
+      "no_duplicate_prediction_identities": true,
+      "per_person_ba": {
+        "1": 0.6884057971014492,
+        "10": 0.6220238095238094,
+        "100": 0.6203703703703703,
+        "101": 0.5862977602108037,
+        "102": 0.6923583662714097,
+        "103": 0.6389986824769434,
+        "104": 0.48484848484848486,
+        "105": 0.549407114624506,
+        "106": 0.5902777777777778,
+        "107": 0.46230158730158727,
+        "108": 0.6465744400527008,
+        "109": 0.5,
+        "11": 0.4917654808959157,
+        "12": 0.7003968253968255,
+        "13": 0.6228590250329381,
+        "14": 0.6110013175230566,
+        "15": 0.810935441370224,
+        "16": 0.7091567852437418,
+        "17": 0.5734519104084321,
+        "18": 0.49670619235836627,
+        "19": 0.6228590250329381,
+        "2": 0.9183135704874835,
+        "20": 0.47134387351778656,
+        "21": 0.7053571428571429,
+        "22": 0.5105401844532279,
+        "23": 0.6554677206851119,
+        "24": 0.5,
+        "25": 0.5533596837944664,
+        "26": 0.7529761904761904,
+        "27": 0.4640974967061924,
+        "28": 0.5757575757575758,
+        "29": 0.9637681159420289,
+        "3": 0.45750988142292487,
+        "30": 0.5317460317460317,
+        "31": 0.8168642951251647,
+        "32": 0.5684523809523809,
+        "33": 0.7611989459815547,
+        "34": 0.8621031746031745,
+        "35": 0.6301054018445322,
+        "36": 0.3932806324110672,
+        "37": 0.5,
+        "38": 0.558300395256917,
+        "39": 0.5171277997364955,
+        "4": 0.5434782608695652,
+        "40": 0.4761904761904762,
+        "41": 0.5803571428571428,
+        "42": 0.6739130434782609,
+        "43": 0.7803030303030303,
+        "44": 0.764163372859025,
+        "45": 0.5708168642951251,
+        "46": 0.69433465085639,
+        "47": 0.5416666666666666,
+        "48": 0.7078392621870883,
+        "49": 0.5579710144927535,
+        "5": 0.4930555555555556,
+        "50": 0.5233860342555995,
+        "51": 0.5188492063492064,
+        "52": 0.7331349206349206,
+        "53": 0.525691699604743,
+        "54": 0.6989459815546772,
+        "55": 0.8952569169960475,
+        "56": 0.7658102766798419,
+        "57": 0.5029761904761905,
+        "58": 0.548611111111111,
+        "59": 0.5128968253968255,
+        "6": 0.45436507936507936,
+        "60": 0.7862318840579711,
+        "61": 0.7091567852437418,
+        "62": 0.9097496706192358,
+        "63": 0.5704874835309618,
+        "64": 0.652832674571805,
+        "65": 0.7559523809523809,
+        "66": 0.5615942028985507,
+        "67": 0.5052700922266139,
+        "68": 0.6854413702239789,
+        "69": 0.5446428571428571,
+        "7": 0.8939393939393939,
+        "70": 0.5289855072463768,
+        "71": 0.7819499341238472,
+        "72": 0.9094202898550724,
+        "73": 0.5559947299077733,
+        "74": 0.5307539682539683,
+        "75": 0.712121212121212,
+        "76": 0.5424901185770751,
+        "77": 0.6259920634920634,
+        "78": 0.5836627140974967,
+        "79": 0.5662055335968379,
+        "8": 0.6027667984189723,
+        "80": 0.5872859025032938,
+        "81": 0.5072463768115942,
+        "82": 0.6294466403162056,
+        "83": 0.7302371541501976,
+        "84": 0.6706192358366271,
+        "85": 0.9706851119894598,
+        "86": 0.591897233201581,
+        "87": 0.4884716732542819,
+        "88": 0.46592775041050905,
+        "89": 0.6577380952380952,
+        "9": 0.5109126984126984,
+        "90": 0.5457839262187089,
+        "91": 0.5843214756258234,
+        "92": 0.6907407407407407,
+        "93": 0.7710803689064559,
+        "94": 0.9018445322793148,
+        "95": 0.5872859025032938,
+        "96": 0.6907114624505929,
+        "97": 0.4864953886693017,
+        "98": 0.508893280632411,
+        "99": 0.45685111989459815
+      },
+      "per_seed_equal_person_mean_ba": {
+        "20260924": 0.6231366828467361,
+        "20260925": 0.6198990047187508,
+        "20260926": 0.6286009547948532
+      },
+      "prediction_paths": [
+        "/workspace/cross-subject-mi-eeg/results/Q14-E002R2/external/predictions.csv"
+      ],
+      "reported_cell_count": 327,
+      "reported_person_metric_max_error": 1.1102230246251565e-16,
+      "sd_person_ba": 0.12921726881470882,
+      "seeds": [
+        "20260924",
+        "20260925",
+        "20260926"
+      ],
+      "source_subset_ids": [],
+      "zero_recall_evaluation_cells": 19
+    },
+    "Q5-HISTORICAL/RAW_CE_REUSE": {
+      "all_cells_match_at_1e_minus_12": true,
+      "all_classes_positive_support_every_cell": true,
+      "chance_ba": 0.25,
+      "classes": 4,
+      "evaluation_cells_per_person": {
+        "1": 3,
+        "2": 3,
+        "3": 3,
+        "4": 3,
+        "5": 3,
+        "6": 3,
+        "7": 3,
+        "8": 3,
+        "9": 3
+      },
+      "max_absolute_reported_cell_ba_error": 1.1102230246251565e-16,
+      "mean_person_ba": 0.33719135802469136,
+      "median_person_ba": 0.28472222222222227,
+      "metric_path": "/workspace/cross-subject-mi-eeg/results/Q5-E001/per_subject_metrics.csv",
+      "n_evaluation_cells": 27,
+      "n_prediction_rows": 15552,
+      "n_subjects": 9,
+      "n_unique_target_trials": 5184,
+      "no_duplicate_prediction_identities": true,
+      "per_person_ba": {
+        "1": 0.5700231481481481,
+        "2": 0.24479166666666666,
+        "3": 0.2609953703703704,
+        "4": 0.36921296296296297,
+        "5": 0.24131944444444442,
+        "6": 0.2835648148148148,
+        "7": 0.28472222222222227,
+        "8": 0.296875,
+        "9": 0.4832175925925926
+      },
+      "per_seed_equal_person_mean_ba": {
+        "20260924": 0.3315972222222222,
+        "20260925": 0.33622685185185186,
+        "20260926": 0.34375
+      },
+      "prediction_paths": [
+        "/workspace/cross-subject-mi-eeg/results/Q5-E001/predictions.csv"
+      ],
+      "reported_cell_count": 27,
+      "sd_person_ba": 0.1158387172111961,
+      "seeds": [
+        "20260924",
+        "20260925",
+        "20260926"
+      ],
+      "source_subset_ids": [],
+      "zero_recall_evaluation_cells": 9
+    },
+    "Q8-E001/BROAD_MEAN_RANK": {
+      "all_cells_match_at_1e_minus_12": true,
+      "all_classes_positive_support_every_cell": true,
+      "chance_ba": 0.25,
+      "classes": 4,
+      "evaluation_cells_per_person": {
+        "1": 3,
+        "2": 3,
+        "3": 3,
+        "4": 3,
+        "5": 3,
+        "6": 3,
+        "7": 3,
+        "8": 3,
+        "9": 3
+      },
+      "max_absolute_reported_cell_ba_error": 1.1102230246251565e-16,
+      "mean_person_ba": 0.42669753086419754,
+      "median_person_ba": 0.36921296296296297,
+      "metric_path": "/workspace/cross-subject-mi-eeg/research_runs/Q8-E001/results/per_subject_metrics.csv",
+      "n_evaluation_cells": 27,
+      "n_prediction_rows": 15552,
+      "n_subjects": 9,
+      "n_unique_target_trials": 5184,
+      "no_duplicate_prediction_identities": true,
+      "per_person_ba": {
+        "1": 0.5700231481481481,
+        "2": 0.27835648148148145,
+        "3": 0.6087962962962963,
+        "4": 0.36921296296296297,
+        "5": 0.2505787037037037,
+        "6": 0.28530092592592593,
+        "7": 0.30324074074074076,
+        "8": 0.6545138888888888,
+        "9": 0.5202546296296297
+      },
+      "per_seed_equal_person_mean_ba": {
+        "20260924": 0.41512345679012347,
+        "20260925": 0.4220679012345679,
+        "20260926": 0.44290123456790126
+      },
+      "prediction_paths": [
+        "/workspace/cross-subject-mi-eeg/research_runs/Q8-E001/results/predictions.csv"
+      ],
+      "reported_cell_count": 27,
+      "sd_person_ba": 0.1604358825705619,
+      "seeds": [
+        "20260924",
+        "20260925",
+        "20260926"
+      ],
+      "source_subset_ids": [],
+      "zero_recall_evaluation_cells": 3
+    },
+    "Q9-A001/PSD44_LDA": {
+      "all_cells_match_at_1e_minus_12": true,
+      "all_classes_positive_support_every_cell": true,
+      "chance_ba": 0.25,
+      "classes": 4,
+      "evaluation_cells_per_person": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1
+      },
+      "max_absolute_reported_cell_ba_error": 0.0,
+      "mean_person_ba": 0.3628472222222222,
+      "median_person_ba": 0.3663194444444444,
+      "metric_path": "/workspace/cross-subject-mi-eeg/results/Q9-A001/per_subject_metrics.csv",
+      "n_evaluation_cells": 9,
+      "n_prediction_rows": 5184,
+      "n_subjects": 9,
+      "n_unique_target_trials": 5184,
+      "no_duplicate_prediction_identities": true,
+      "per_person_ba": {
+        "1": 0.4253472222222222,
+        "2": 0.2760416666666667,
+        "3": 0.4079861111111111,
+        "4": 0.3663194444444444,
+        "5": 0.2552083333333333,
+        "6": 0.2777777777777778,
+        "7": 0.3315972222222222,
+        "8": 0.4548611111111111,
+        "9": 0.4704861111111111
+      },
+      "per_seed_equal_person_mean_ba": {},
+      "prediction_paths": [
+        "/workspace/cross-subject-mi-eeg/results/Q9-A001/predictions.csv"
+      ],
+      "reported_cell_count": 9,
+      "sd_person_ba": 0.08165722527860358,
+      "seeds": [],
+      "source_subset_ids": [],
+      "zero_recall_evaluation_cells": 1
+    },
+    "Q9-A001/PSD44_LINEAR_SVM": {
+      "all_cells_match_at_1e_minus_12": true,
+      "all_classes_positive_support_every_cell": true,
+      "chance_ba": 0.25,
+      "classes": 4,
+      "evaluation_cells_per_person": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1
+      },
+      "max_absolute_reported_cell_ba_error": 5.551115123125783e-17,
+      "mean_person_ba": 0.3578317901234568,
+      "median_person_ba": 0.3663194444444444,
+      "metric_path": "/workspace/cross-subject-mi-eeg/results/Q9-A001/per_subject_metrics.csv",
+      "n_evaluation_cells": 9,
+      "n_prediction_rows": 5184,
+      "n_subjects": 9,
+      "n_unique_target_trials": 5184,
+      "no_duplicate_prediction_identities": true,
+      "per_person_ba": {
+        "1": 0.4444444444444444,
+        "2": 0.265625,
+        "3": 0.4079861111111111,
+        "4": 0.3663194444444444,
+        "5": 0.25,
+        "6": 0.28125,
+        "7": 0.3055555555555556,
+        "8": 0.43229166666666663,
+        "9": 0.46701388888888895
+      },
+      "per_seed_equal_person_mean_ba": {},
+      "prediction_paths": [
+        "/workspace/cross-subject-mi-eeg/results/Q9-A001/predictions.csv"
+      ],
+      "reported_cell_count": 9,
+      "sd_person_ba": 0.08387610980562242,
+      "seeds": [],
+      "source_subset_ids": [],
+      "zero_recall_evaluation_cells": 1
+    },
+    "Q9-E001/BETA_13_30": {
+      "all_cells_match_at_1e_minus_12": true,
+      "all_classes_positive_support_every_cell": true,
+      "chance_ba": 0.25,
+      "classes": 4,
+      "evaluation_cells_per_person": {
+        "1": 3,
+        "2": 3,
+        "3": 3,
+        "4": 3,
+        "5": 3,
+        "6": 3,
+        "7": 3,
+        "8": 3,
+        "9": 3
+      },
+      "max_absolute_reported_cell_ba_error": 1.1102230246251565e-16,
+      "mean_person_ba": 0.3153292181069959,
+      "median_person_ba": 0.27372685185185186,
+      "metric_path": "/workspace/cross-subject-mi-eeg/results/Q9-E001/BETA_13_30/per_subject_metrics.csv",
+      "n_evaluation_cells": 27,
+      "n_prediction_rows": 15552,
+      "n_subjects": 9,
+      "n_unique_target_trials": 5184,
+      "no_duplicate_prediction_identities": true,
+      "per_person_ba": {
+        "1": 0.2806712962962963,
+        "2": 0.24710648148148148,
+        "3": 0.2505787037037037,
+        "4": 0.2505787037037037,
+        "5": 0.2511574074074074,
+        "6": 0.30613425925925924,
+        "7": 0.27372685185185186,
+        "8": 0.5,
+        "9": 0.47800925925925924
+      },
+      "per_seed_equal_person_mean_ba": {
+        "20260924": 0.3136574074074074,
+        "20260925": 0.3123070987654321,
+        "20260926": 0.32002314814814814
+      },
+      "prediction_paths": [
+        "/workspace/cross-subject-mi-eeg/results/Q9-E001/BETA_13_30/predictions.csv"
+      ],
+      "reported_cell_count": 27,
+      "sd_person_ba": 0.1004627981374641,
+      "seeds": [
+        "20260924",
+        "20260925",
+        "20260926"
+      ],
+      "source_subset_ids": [],
+      "zero_recall_evaluation_cells": 15
+    },
+    "Q9-E001/MID_8_30": {
+      "all_cells_match_at_1e_minus_12": true,
+      "all_classes_positive_support_every_cell": true,
+      "chance_ba": 0.25,
+      "classes": 4,
+      "evaluation_cells_per_person": {
+        "1": 3,
+        "2": 3,
+        "3": 3,
+        "4": 3,
+        "5": 3,
+        "6": 3,
+        "7": 3,
+        "8": 3,
+        "9": 3
+      },
+      "max_absolute_reported_cell_ba_error": 1.1102230246251565e-16,
+      "mean_person_ba": 0.4455375514403292,
+      "median_person_ba": 0.3524305555555556,
+      "metric_path": "/workspace/cross-subject-mi-eeg/results/Q9-E001/MID_8_30/per_subject_metrics.csv",
+      "n_evaluation_cells": 27,
+      "n_prediction_rows": 15552,
+      "n_subjects": 9,
+      "n_unique_target_trials": 5184,
+      "no_duplicate_prediction_identities": true,
+      "per_person_ba": {
+        "1": 0.6024305555555556,
+        "2": 0.296875,
+        "3": 0.6863425925925926,
+        "4": 0.3524305555555556,
+        "5": 0.24884259259259256,
+        "6": 0.2818287037037037,
+        "7": 0.3460648148148148,
+        "8": 0.5758101851851851,
+        "9": 0.6192129629629629
+      },
+      "per_seed_equal_person_mean_ba": {
+        "20260924": 0.4481095679012345,
+        "20260925": 0.4403935185185185,
+        "20260926": 0.4481095679012345
+      },
+      "prediction_paths": [
+        "/workspace/cross-subject-mi-eeg/results/Q9-E001/MID_8_30/predictions.csv"
+      ],
+      "reported_cell_count": 27,
+      "sd_person_ba": 0.17171574481304575,
+      "seeds": [
+        "20260924",
+        "20260925",
+        "20260926"
+      ],
+      "source_subset_ids": [],
+      "zero_recall_evaluation_cells": 5
+    },
+    "Q9-E001/MU_8_13": {
+      "all_cells_match_at_1e_minus_12": true,
+      "all_classes_positive_support_every_cell": true,
+      "chance_ba": 0.25,
+      "classes": 4,
+      "evaluation_cells_per_person": {
+        "1": 3,
+        "2": 3,
+        "3": 3,
+        "4": 3,
+        "5": 3,
+        "6": 3,
+        "7": 3,
+        "8": 3,
+        "9": 3
+      },
+      "max_absolute_reported_cell_ba_error": 1.1102230246251565e-16,
+      "mean_person_ba": 0.4329989711934156,
+      "median_person_ba": 0.3883101851851852,
+      "metric_path": "/workspace/cross-subject-mi-eeg/results/Q9-E001/MU_8_13/per_subject_metrics.csv",
+      "n_evaluation_cells": 27,
+      "n_prediction_rows": 15552,
+      "n_subjects": 9,
+      "n_unique_target_trials": 5184,
+      "no_duplicate_prediction_identities": true,
+      "per_person_ba": {
+        "1": 0.5734953703703703,
+        "2": 0.3055555555555556,
+        "3": 0.6128472222222222,
+        "4": 0.3883101851851852,
+        "5": 0.24363425925925927,
+        "6": 0.2800925925925926,
+        "7": 0.28414351851851855,
+        "8": 0.6076388888888888,
+        "9": 0.6012731481481481
+      },
+      "per_seed_equal_person_mean_ba": {
+        "20260924": 0.4375,
+        "20260925": 0.42631172839506176,
+        "20260926": 0.4351851851851852
+      },
+      "prediction_paths": [
+        "/workspace/cross-subject-mi-eeg/results/Q9-E001/MU_8_13/predictions.csv"
+      ],
+      "reported_cell_count": 27,
+      "sd_person_ba": 0.16222520742026794,
+      "seeds": [
+        "20260924",
+        "20260925",
+        "20260926"
+      ],
+      "source_subset_ids": [],
+      "zero_recall_evaluation_cells": 3
+    },
+    "Q9-E001/MU_BETA_SHARED": {
+      "all_cells_match_at_1e_minus_12": true,
+      "all_classes_positive_support_every_cell": true,
+      "chance_ba": 0.25,
+      "classes": 4,
+      "evaluation_cells_per_person": {
+        "1": 3,
+        "2": 3,
+        "3": 3,
+        "4": 3,
+        "5": 3,
+        "6": 3,
+        "7": 3,
+        "8": 3,
+        "9": 3
+      },
+      "max_absolute_reported_cell_ba_error": 1.1102230246251565e-16,
+      "mean_person_ba": 0.421875,
+      "median_person_ba": 0.3819444444444444,
+      "metric_path": "/workspace/cross-subject-mi-eeg/results/Q9-E001/MU_BETA_SHARED/per_subject_metrics.csv",
+      "n_evaluation_cells": 27,
+      "n_prediction_rows": 15552,
+      "n_subjects": 9,
+      "n_unique_target_trials": 5184,
+      "no_duplicate_prediction_identities": true,
+      "per_person_ba": {
+        "1": 0.5584490740740741,
+        "2": 0.2864583333333333,
+        "3": 0.6151620370370371,
+        "4": 0.3819444444444444,
+        "5": 0.2540509259259259,
+        "6": 0.28009259259259256,
+        "7": 0.34085648148148145,
+        "8": 0.5520833333333334,
+        "9": 0.5277777777777778
+      },
+      "per_seed_equal_person_mean_ba": {
+        "20260924": 0.4311342592592593,
+        "20260925": 0.43036265432098764,
+        "20260926": 0.40412808641975306
+      },
+      "prediction_paths": [
+        "/workspace/cross-subject-mi-eeg/results/Q9-E001/MU_BETA_SHARED/predictions.csv"
+      ],
+      "reported_cell_count": 27,
+      "sd_person_ba": 0.14095445138249618,
+      "seeds": [
+        "20260924",
+        "20260925",
+        "20260926"
+      ],
+      "source_subset_ids": [],
+      "zero_recall_evaluation_cells": 3
+    },
+    "Q9-E002/MID_8_30_Q8_EPOCHS": {
+      "all_cells_match_at_1e_minus_12": true,
+      "all_classes_positive_support_every_cell": true,
+      "chance_ba": 0.25,
+      "classes": 4,
+      "evaluation_cells_per_person": {
+        "1": 3,
+        "2": 3,
+        "3": 3,
+        "4": 3,
+        "5": 3,
+        "6": 3,
+        "7": 3,
+        "8": 3,
+        "9": 3
+      },
+      "max_absolute_reported_cell_ba_error": 1.1102230246251565e-16,
+      "mean_person_ba": 0.42727623456790126,
+      "median_person_ba": 0.3819444444444445,
+      "metric_path": "/workspace/cross-subject-mi-eeg/results/Q9-E002/MID_8_30_Q8_EPOCHS/per_subject_metrics.csv",
+      "n_evaluation_cells": 27,
+      "n_prediction_rows": 15552,
+      "n_subjects": 9,
+      "n_unique_target_trials": 5184,
+      "no_duplicate_prediction_identities": true,
+      "per_person_ba": {
+        "1": 0.609375,
+        "2": 0.28703703703703703,
+        "3": 0.5815972222222222,
+        "4": 0.3819444444444445,
+        "5": 0.2511574074074074,
+        "6": 0.27372685185185186,
+        "7": 0.3020833333333333,
+        "8": 0.6168981481481481,
+        "9": 0.5416666666666666
+      },
+      "per_seed_equal_person_mean_ba": {
+        "20260924": 0.41608796296296297,
+        "20260925": 0.443479938271605,
+        "20260926": 0.42226080246913583
+      },
+      "prediction_paths": [
+        "/workspace/cross-subject-mi-eeg/results/Q9-E002/MID_8_30_Q8_EPOCHS/predictions.csv"
+      ],
+      "reported_cell_count": 27,
+      "sd_person_ba": 0.15732414353825763,
+      "seeds": [
+        "20260924",
+        "20260925",
+        "20260926"
+      ],
+      "source_subset_ids": [],
+      "zero_recall_evaluation_cells": 4
+    },
+    "Q9-E002/MU_BETA_SHARED_Q8_EPOCHS": {
+      "all_cells_match_at_1e_minus_12": true,
+      "all_classes_positive_support_every_cell": true,
+      "chance_ba": 0.25,
+      "classes": 4,
+      "evaluation_cells_per_person": {
+        "1": 3,
+        "2": 3,
+        "3": 3,
+        "4": 3,
+        "5": 3,
+        "6": 3,
+        "7": 3,
+        "8": 3,
+        "9": 3
+      },
+      "max_absolute_reported_cell_ba_error": 1.1102230246251565e-16,
+      "mean_person_ba": 0.4349922839506173,
+      "median_person_ba": 0.3819444444444444,
+      "metric_path": "/workspace/cross-subject-mi-eeg/results/Q9-E002/MU_BETA_SHARED_Q8_EPOCHS/per_subject_metrics.csv",
+      "n_evaluation_cells": 27,
+      "n_prediction_rows": 15552,
+      "n_subjects": 9,
+      "n_unique_target_trials": 5184,
+      "no_duplicate_prediction_identities": true,
+      "per_person_ba": {
+        "1": 0.6001157407407408,
+        "2": 0.2864583333333333,
+        "3": 0.6151620370370371,
+        "4": 0.3819444444444444,
+        "5": 0.25636574074074076,
+        "6": 0.27199074074074076,
+        "7": 0.34085648148148145,
+        "8": 0.6342592592592592,
+        "9": 0.5277777777777778
+      },
+      "per_seed_equal_person_mean_ba": {
+        "20260924": 0.4427083333333333,
+        "20260925": 0.44309413580246915,
+        "20260926": 0.4191743827160494
+      },
+      "prediction_paths": [
+        "/workspace/cross-subject-mi-eeg/results/Q9-E002/MU_BETA_SHARED_Q8_EPOCHS/predictions.csv"
+      ],
+      "reported_cell_count": 27,
+      "sd_person_ba": 0.1582159415639018,
+      "seeds": [
+        "20260924",
+        "20260925",
+        "20260926"
+      ],
+      "source_subset_ids": [],
+      "zero_recall_evaluation_cells": 3
+    },
+    "Q9-E004/MU_BETA_SHARED_SOURCE_CLEAN": {
+      "all_cells_match_at_1e_minus_12": true,
+      "all_classes_positive_support_every_cell": true,
+      "chance_ba": 0.25,
+      "classes": 4,
+      "evaluation_cells_per_person": {
+        "1": 3,
+        "2": 3,
+        "3": 3,
+        "4": 3,
+        "5": 3,
+        "6": 3,
+        "7": 3,
+        "8": 3,
+        "9": 3
+      },
+      "max_absolute_reported_cell_ba_error": 1.1102230246251565e-16,
+      "mean_person_ba": 0.42110339506172834,
+      "median_person_ba": 0.35127314814814814,
+      "metric_path": "/workspace/cross-subject-mi-eeg/results/Q9-E004/MU_BETA_SHARED_SOURCE_CLEAN/per_subject_metrics.csv",
+      "n_evaluation_cells": 27,
+      "n_prediction_rows": 15552,
+      "n_subjects": 9,
+      "n_unique_target_trials": 5184,
+      "no_duplicate_prediction_identities": true,
+      "per_person_ba": {
+        "1": 0.5567129629629629,
+        "2": 0.2696759259259259,
+        "3": 0.6122685185185185,
+        "4": 0.35127314814814814,
+        "5": 0.24131944444444442,
+        "6": 0.2789351851851852,
+        "7": 0.3478009259259259,
+        "8": 0.6047453703703703,
+        "9": 0.5271990740740741
+      },
+      "per_seed_equal_person_mean_ba": {
+        "20260924": 0.4332561728395061,
+        "20260925": 0.4176311728395061,
+        "20260926": 0.4124228395061728
+      },
+      "prediction_paths": [
+        "/workspace/cross-subject-mi-eeg/results/Q9-E004/MU_BETA_SHARED_SOURCE_CLEAN/predictions.csv"
+      ],
+      "reported_cell_count": 27,
+      "sd_person_ba": 0.1523271931182635,
+      "seeds": [
+        "20260924",
+        "20260925",
+        "20260926"
+      ],
+      "source_subset_ids": [],
+      "zero_recall_evaluation_cells": 4
+    },
+    "Q9-E005/MU_BETA_SHARED_SOURCE_NORM": {
+      "all_cells_match_at_1e_minus_12": true,
+      "all_classes_positive_support_every_cell": true,
+      "chance_ba": 0.25,
+      "classes": 4,
+      "evaluation_cells_per_person": {
+        "1": 3,
+        "2": 3,
+        "3": 3,
+        "4": 3,
+        "5": 3,
+        "6": 3,
+        "7": 3,
+        "8": 3,
+        "9": 3
+      },
+      "max_absolute_reported_cell_ba_error": 1.1102230246251565e-16,
+      "mean_person_ba": 0.41525205761316875,
+      "median_person_ba": 0.3616898148148148,
+      "metric_path": "/workspace/cross-subject-mi-eeg/results/Q9-E005/MU_BETA_SHARED_SOURCE_NORM/per_subject_metrics.csv",
+      "n_evaluation_cells": 27,
+      "n_prediction_rows": 15552,
+      "n_subjects": 9,
+      "n_unique_target_trials": 5184,
+      "no_duplicate_prediction_identities": true,
+      "per_person_ba": {
+        "1": 0.5885416666666666,
+        "2": 0.28761574074074076,
+        "3": 0.5434027777777778,
+        "4": 0.3616898148148148,
+        "5": 0.24305555555555555,
+        "6": 0.29108796296296297,
+        "7": 0.3287037037037037,
+        "8": 0.5734953703703703,
+        "9": 0.5196759259259259
+      },
+      "per_seed_equal_person_mean_ba": {
+        "20260924": 0.43364197530864196,
+        "20260925": 0.41358024691358025,
+        "20260926": 0.3985339506172839
+      },
+      "prediction_paths": [
+        "/workspace/cross-subject-mi-eeg/results/Q9-E005/MU_BETA_SHARED_SOURCE_NORM/predictions.csv"
+      ],
+      "reported_cell_count": 27,
+      "sd_person_ba": 0.13879666085427145,
+      "seeds": [
+        "20260924",
+        "20260925",
+        "20260926"
+      ],
+      "source_subset_ids": [],
+      "zero_recall_evaluation_cells": 4
+    }
+  },
+  "complete_check_scope": {
+    "Q14_external_all109_paired_difference_rows": true,
+    "Q14_external_three_model109_person_tables": true,
+    "aggregate_prediction_rows_in_every_selected_arm": true,
+    "all63_Q14_source_model_seed_person_cells": true,
+    "all6_Q12_and11_Q13_reported_contrasts_CIs_signflip_Holm_recomputed": true,
+    "all763_Q14_external_model_seed_person_cells": true,
+    "all99_Q13_saved_person_differences": true,
+    "every_all_stratum_metric_cell_recomputed": true,
+    "raw_signals_checkpoint_execution_not_in_scope": true
+  },
+  "created_at_utc": "2026-10-02T02:55:45.732582+00:00",
+  "discrepancies": [],
+  "input_artifacts": {
+    "research_runs/Q13-E006/AMENDMENT.md": {
+      "path": "/workspace/cross-subject-mi-eeg/research_runs/Q13-E006/AMENDMENT.md",
+      "roles": [
+        "governing_definition_read_only"
+      ],
+      "sha256": "0b7da50ee7a52d62458ad6e45a3bf4b7ee69d848eddbf2199f0ffb8bd439fbbb",
+      "size_bytes": 3109
+    },
+    "research_runs/Q8-E001/analysis/validation_report.json": {
+      "path": "/workspace/cross-subject-mi-eeg/research_runs/Q8-E001/analysis/validation_report.json",
+      "roles": [
+        "scientific_or_historical_status"
+      ],
+      "sha256": "167edce7058fcf958176ac6765c92f5827e2330284fcf9e3dff9709a3a21a5aa",
+      "size_bytes": 851
+    },
+    "research_runs/Q8-E001/results/per_subject_metrics.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/research_runs/Q8-E001/results/per_subject_metrics.csv",
+      "roles": [
+        "reported_cell_metrics"
+      ],
+      "sha256": "3a36bf0c67eea872613b7afca4beadd1a03734069365a5c6904a34b9342bc67b",
+      "size_bytes": 13801
+    },
+    "research_runs/Q8-E001/results/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/research_runs/Q8-E001/results/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "1c468c09f80ea96151b666f339ed582ef1f58dbad775b9e2c0e9addd262b8f4d",
+      "size_bytes": 2031947
+    },
+    "results/Q12-BATCH/paired_subject_contrasts.json": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q12-BATCH/paired_subject_contrasts.json",
+      "roles": [
+        "reported_Q12_statistics"
+      ],
+      "sha256": "3f32f1321ff833bc2a74b93bde40312bd4a5c96eca4b89321d8080cfadd4d97d",
+      "size_bytes": 4616
+    },
+    "results/Q12-BATCH/scientific_validation.json": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q12-BATCH/scientific_validation.json",
+      "roles": [
+        "scientific_or_historical_status"
+      ],
+      "sha256": "739910ee03b008fb374c7b026bbade0dc6b6d8ef0016cda3fac19a071c53e7e6",
+      "size_bytes": 1720
+    },
+    "results/Q12-E001/SOURCE_BALANCED_ERM/per_subject_metrics.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q12-E001/SOURCE_BALANCED_ERM/per_subject_metrics.csv",
+      "roles": [
+        "reported_cell_metrics"
+      ],
+      "sha256": "9db432d32811f0eeaabe7f89a2941425ff90028826eded33bcc3cdf9a0cdebb9",
+      "size_bytes": 14588
+    },
+    "results/Q12-E001/SOURCE_BALANCED_ERM/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q12-E001/SOURCE_BALANCED_ERM/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "8daa9cbca9ba01c762fb01a2db1b72381fb772ac0e18878e8a0dccc538714027",
+      "size_bytes": 2358020
+    },
+    "results/Q12-E001/SOURCE_GROUP_DRO/per_subject_metrics.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q12-E001/SOURCE_GROUP_DRO/per_subject_metrics.csv",
+      "roles": [
+        "reported_cell_metrics"
+      ],
+      "sha256": "23c8ebb7f5606bb84717d99e0644e5bb7a07fcc04650fc8d075b51dd60c452b6",
+      "size_bytes": 14290
+    },
+    "results/Q12-E001/SOURCE_GROUP_DRO/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q12-E001/SOURCE_GROUP_DRO/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "9bd4da51e698b19328c013120757b30139e43f3b615d10a4bedb87cc865feaa7",
+      "size_bytes": 2285532
+    },
+    "results/Q12-E001/SOURCE_POOLED_WHITEN/per_subject_metrics.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q12-E001/SOURCE_POOLED_WHITEN/per_subject_metrics.csv",
+      "roles": [
+        "reported_cell_metrics"
+      ],
+      "sha256": "1909cef92d7e18bee645aede16a94bf209b47b4bde9f7f931795a3ad773ae1c8",
+      "size_bytes": 14172
+    },
+    "results/Q12-E001/SOURCE_POOLED_WHITEN/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q12-E001/SOURCE_POOLED_WHITEN/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "e57234282f4c5503a47872c3af8be0ed167c4cfdc82ca948af6e5af06c2aebbf",
+      "size_bytes": 2361116
+    },
+    "results/Q12-E002/CHANNEL_AND_GAIN/per_subject_metrics.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q12-E002/CHANNEL_AND_GAIN/per_subject_metrics.csv",
+      "roles": [
+        "reported_cell_metrics"
+      ],
+      "sha256": "606d7e265ea81e9a827633e38f73d4b9a73ab2160fb5f32d934201af1007931f",
+      "size_bytes": 14408
+    },
+    "results/Q12-E002/CHANNEL_AND_GAIN/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q12-E002/CHANNEL_AND_GAIN/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "1ca6ba6ace4b50af1dc286b2f066b689665d54c8913140554c6cf0864421f921",
+      "size_bytes": 2304524
+    },
+    "results/Q12-E002/CHANNEL_DROPOUT/per_subject_metrics.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q12-E002/CHANNEL_DROPOUT/per_subject_metrics.csv",
+      "roles": [
+        "reported_cell_metrics"
+      ],
+      "sha256": "42d2e4111852836d1fe469df64526387ea9c6aab0873b9421563949be1163373",
+      "size_bytes": 14338
+    },
+    "results/Q12-E002/CHANNEL_DROPOUT/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q12-E002/CHANNEL_DROPOUT/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "597f5a38e1e1298c7a65e4f78c78b003d11ba5c47433b6304ab5d4a6fa105aec",
+      "size_bytes": 2289138
+    },
+    "results/Q12-E002/GAIN_PERTURB/per_subject_metrics.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q12-E002/GAIN_PERTURB/per_subject_metrics.csv",
+      "roles": [
+        "reported_cell_metrics"
+      ],
+      "sha256": "a6856dbe04b959f651b2a4a8f93084e9dd6ea09019b6f2feb5540be139df5d52",
+      "size_bytes": 14117
+    },
+    "results/Q12-E002/GAIN_PERTURB/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q12-E002/GAIN_PERTURB/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "e6ff78877897e286d2ce967121db80c7c576f7cc079151000c61ffdbe6e7b419",
+      "size_bytes": 2247181
+    },
+    "results/Q13-BATCH/validation_report.json": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q13-BATCH/validation_report.json",
+      "roles": [
+        "scientific_or_historical_status"
+      ],
+      "sha256": "3d21dbb98d775a19f8328dc4ad4a5d285c6c4ee18204b22543561c4ee14a0266",
+      "size_bytes": 554
+    },
+    "results/Q13-E001/Q8_FIXED20/per_subject_metrics.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q13-E001/Q8_FIXED20/per_subject_metrics.csv",
+      "roles": [
+        "reported_cell_metrics"
+      ],
+      "sha256": "0293d77127d2aa2a343e48cfeaf5ca5df4cbc0710d28057f40b0da774c8107ac",
+      "size_bytes": 13906
+    },
+    "results/Q13-E001/Q8_FIXED20/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q13-E001/Q8_FIXED20/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "1262c152b8b56f87fee6ed79eeb50785e74900048d9b29c6f324e6e4a3c55b25",
+      "size_bytes": 2455360
+    },
+    "results/Q13-E001/Q9_SHARED_FIXED20/per_subject_metrics.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q13-E001/Q9_SHARED_FIXED20/per_subject_metrics.csv",
+      "roles": [
+        "reported_cell_metrics"
+      ],
+      "sha256": "8b51132f3124ceba34cbd317270a7862391af07590ffef78a0d0643e6ac95612",
+      "size_bytes": 14481
+    },
+    "results/Q13-E001/Q9_SHARED_FIXED20/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q13-E001/Q9_SHARED_FIXED20/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "26f50f96b75b93d26c6daec1afbbee2f38e362df84801d983cbbcd835d72f2df",
+      "size_bytes": 2567597
+    },
+    "results/Q13-E001/Q9_SHARED_RAW_CE/per_subject_metrics.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q13-E001/Q9_SHARED_RAW_CE/per_subject_metrics.csv",
+      "roles": [
+        "reported_cell_metrics"
+      ],
+      "sha256": "f29eff1a3e9fbf45dec214a8cdc00caad153bf8ff455e8bffbcb50b50a2927eb",
+      "size_bytes": 14240
+    },
+    "results/Q13-E001/Q9_SHARED_RAW_CE/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q13-E001/Q9_SHARED_RAW_CE/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "96a57278c0f39946b37c2c09e9df1e9d576968b214145da2bf271fdb53748550",
+      "size_bytes": 2523823
+    },
+    "results/Q13-E004/Q8_SRC2/per_subject_metrics.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q13-E004/Q8_SRC2/per_subject_metrics.csv",
+      "roles": [
+        "reported_cell_metrics"
+      ],
+      "sha256": "9ee14cf39e616878fc181404bb5a956a374ec491896547bc88502aacf18642b9",
+      "size_bytes": 54751
+    },
+    "results/Q13-E004/Q8_SRC2/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q13-E004/Q8_SRC2/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "d27a28bb49ab7a105fc44adf8e6f4b1446f32fec419bc3a5a9997f0e597f5b44",
+      "size_bytes": 9289581
+    },
+    "results/Q13-E004/Q8_SRC4/per_subject_metrics.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q13-E004/Q8_SRC4/per_subject_metrics.csv",
+      "roles": [
+        "reported_cell_metrics"
+      ],
+      "sha256": "f0b3d10c11bcc5ec3c53c515de1f3e2892ff205f2b3f62e305b31548e9ea1d4b",
+      "size_bytes": 56115
+    },
+    "results/Q13-E004/Q8_SRC4/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q13-E004/Q8_SRC4/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "4aa6ac97805e4c02dea0def0f63c58a28fe5d44abd1a615511420c26b148dfb4",
+      "size_bytes": 9519782
+    },
+    "results/Q13-E004/Q8_SRC6/per_subject_metrics.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q13-E004/Q8_SRC6/per_subject_metrics.csv",
+      "roles": [
+        "reported_cell_metrics"
+      ],
+      "sha256": "ed819467f3e8769056e168e629274c2c588384e3711165877226ea1b2e318afb",
+      "size_bytes": 56182
+    },
+    "results/Q13-E004/Q8_SRC6/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q13-E004/Q8_SRC6/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "ca6317613478c1396f71c9ddbe681ca0a501fd8b38267b0e3a598eefbbbc23f8",
+      "size_bytes": 9762739
+    },
+    "results/Q13-E004/Q9_SHARED_SRC2/per_subject_metrics.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q13-E004/Q9_SHARED_SRC2/per_subject_metrics.csv",
+      "roles": [
+        "reported_cell_metrics"
+      ],
+      "sha256": "36eecdd78fc5808cd7c9d8068af936a330e4bebfa24d2c73921f73ed16d09137",
+      "size_bytes": 57813
+    },
+    "results/Q13-E004/Q9_SHARED_SRC2/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q13-E004/Q9_SHARED_SRC2/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "22574c1b35ef45ad3cf28ba0e30043176dc0eb2441066d7a5d3efdcba4ec0060",
+      "size_bytes": 9738520
+    },
+    "results/Q13-E004/Q9_SHARED_SRC4/per_subject_metrics.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q13-E004/Q9_SHARED_SRC4/per_subject_metrics.csv",
+      "roles": [
+        "reported_cell_metrics"
+      ],
+      "sha256": "a8142d1c0f8e970a3f7280401e5f248b80b416748e15b20386c5b546e2c61c37",
+      "size_bytes": 58115
+    },
+    "results/Q13-E004/Q9_SHARED_SRC4/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q13-E004/Q9_SHARED_SRC4/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "d13332543638b3020437cc0edecc91ad34773f4bf8a682ecc2d9cb24e44ec8c0",
+      "size_bytes": 9974129
+    },
+    "results/Q13-E004/Q9_SHARED_SRC6/per_subject_metrics.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q13-E004/Q9_SHARED_SRC6/per_subject_metrics.csv",
+      "roles": [
+        "reported_cell_metrics"
+      ],
+      "sha256": "7bd0c342dc97ca73248d2e3c2e59abefb708c865fe8401fa79fca84b5975abb8",
+      "size_bytes": 58693
+    },
+    "results/Q13-E004/Q9_SHARED_SRC6/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q13-E004/Q9_SHARED_SRC6/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "e4b150d6ab2e56a102f9c1ec884ad8726003794a7aa6982d356da8d23c7a68ef",
+      "size_bytes": 10211682
+    },
+    "results/Q13-E005/Q8_SOURCE_SESSION_E/per_subject_metrics.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q13-E005/Q8_SOURCE_SESSION_E/per_subject_metrics.csv",
+      "roles": [
+        "reported_cell_metrics"
+      ],
+      "sha256": "90414e07b0b6b277e657c6ec94c7ef599e454d9cd598a73ab7705f1f2be60689",
+      "size_bytes": 14639
+    },
+    "results/Q13-E005/Q8_SOURCE_SESSION_E/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q13-E005/Q8_SOURCE_SESSION_E/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "621acde75da1cd90ff8e3d8339a28ca57c139260a1428910e31bbfc0cde39e30",
+      "size_bytes": 2609351
+    },
+    "results/Q13-E005/Q8_SOURCE_SESSION_T/per_subject_metrics.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q13-E005/Q8_SOURCE_SESSION_T/per_subject_metrics.csv",
+      "roles": [
+        "reported_cell_metrics"
+      ],
+      "sha256": "4be88138c732ad5136c6267fc67009a019947996b6ca5218eb35611a1c8ef79d",
+      "size_bytes": 14602
+    },
+    "results/Q13-E005/Q8_SOURCE_SESSION_T/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q13-E005/Q8_SOURCE_SESSION_T/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "8c3689332a3a01067dbf1fe6a9d4f584f8fcb89f6dc7b1ebf7f76f0376c799ed",
+      "size_bytes": 2624282
+    },
+    "results/Q13-E005/Q9_SHARED_SOURCE_SESSION_E/per_subject_metrics.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q13-E005/Q9_SHARED_SOURCE_SESSION_E/per_subject_metrics.csv",
+      "roles": [
+        "reported_cell_metrics"
+      ],
+      "sha256": "b7d6f06e6d1120766cec8dce9344bac2efd250a8770e281748e41da452ca4ff8",
+      "size_bytes": 15210
+    },
+    "results/Q13-E005/Q9_SHARED_SOURCE_SESSION_E/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q13-E005/Q9_SHARED_SOURCE_SESSION_E/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "90820774ce75cb42f7794dd367bd97130197c182d48683358c99555b517e2e4a",
+      "size_bytes": 2720695
+    },
+    "results/Q13-E005/Q9_SHARED_SOURCE_SESSION_T/per_subject_metrics.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q13-E005/Q9_SHARED_SOURCE_SESSION_T/per_subject_metrics.csv",
+      "roles": [
+        "reported_cell_metrics"
+      ],
+      "sha256": "dd0197926b8488c6b20fd04c02d3ab511a30076b22cdb790a492b4be031668fa",
+      "size_bytes": 15299
+    },
+    "results/Q13-E005/Q9_SHARED_SOURCE_SESSION_T/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q13-E005/Q9_SHARED_SOURCE_SESSION_T/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "9531f23070c3a38fd9fc0ce7fdc8dc153c52247551c15ea200a4a5d27a0cb740",
+      "size_bytes": 2736665
+    },
+    "results/Q13-E006/Q8_RAW_CE_MATCHED/per_subject_metrics.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q13-E006/Q8_RAW_CE_MATCHED/per_subject_metrics.csv",
+      "roles": [
+        "reported_cell_metrics"
+      ],
+      "sha256": "bada29064aedb0febc6683b91b8dd0875fc28f6cc59958983eacd45db5387cc4",
+      "size_bytes": 14335
+    },
+    "results/Q13-E006/Q8_RAW_CE_MATCHED/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q13-E006/Q8_RAW_CE_MATCHED/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "b55a5be08eed454927cc2240881277fc1b57ebfc292f6c69bea866273612b51a",
+      "size_bytes": 2545420
+    },
+    "results/Q13-E006/postrun_statistics/paired_contrasts.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q13-E006/postrun_statistics/paired_contrasts.csv",
+      "roles": [
+        "reported_Q13_E006_statistics"
+      ],
+      "sha256": "81ef4b4236c08f1bf597cc3001bda9d0877d6cdbfcc5daf74698226bc20d0239",
+      "size_bytes": 3137
+    },
+    "results/Q13-E006/postrun_statistics/subject_paired_differences.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q13-E006/postrun_statistics/subject_paired_differences.csv",
+      "roles": [
+        "reported_Q13_person_differences"
+      ],
+      "sha256": "f0b6e890226741b8be6122c7ce2fd06f718208d941fa69fef753fcc3b2c89a29",
+      "size_bytes": 6652
+    },
+    "results/Q13-E006/validation_report.json": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q13-E006/validation_report.json",
+      "roles": [
+        "scientific_or_historical_status"
+      ],
+      "sha256": "ef60b412b8724dd51d648c8bc51e8f74ad5ace470bca93c0f2327ac959dd1ddd",
+      "size_bytes": 653
+    },
+    "results/Q14-E001/BROAD_EEGNET/target_01/final_seed_20260924/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_01/final_seed_20260924/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "c7152e3aa085bd9586c4fbcb335cf2a4d056970629aa9bc3b0ba93ba8a21022c",
+      "size_bytes": 26904
+    },
+    "results/Q14-E001/BROAD_EEGNET/target_01/final_seed_20260925/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_01/final_seed_20260925/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "de7bbd5db2a042f1cf9c1a938431e0eeb49ca299dd6cde9486f6f5f15efe095b",
+      "size_bytes": 26892
+    },
+    "results/Q14-E001/BROAD_EEGNET/target_01/final_seed_20260926/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_01/final_seed_20260926/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "446e17acc54790153ce1b1461a3825669fea6b756d72b1400afeda007d1a837d",
+      "size_bytes": 26886
+    },
+    "results/Q14-E001/BROAD_EEGNET/target_02/final_seed_20260924/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_02/final_seed_20260924/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "8d7fd44187ba53480ee3cf36f66f52a73ceb7601171590dc6b9102c47a3632cb",
+      "size_bytes": 26859
+    },
+    "results/Q14-E001/BROAD_EEGNET/target_02/final_seed_20260925/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_02/final_seed_20260925/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "252d15b476da0f9e8b0054688e6f317a29cdba3b5096c11138a94d9209c46d4c",
+      "size_bytes": 26863
+    },
+    "results/Q14-E001/BROAD_EEGNET/target_02/final_seed_20260926/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_02/final_seed_20260926/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "a8b23070e49f75fb82b9d6852953e24f659b40df32c17815ac92413549abb2c9",
+      "size_bytes": 26841
+    },
+    "results/Q14-E001/BROAD_EEGNET/target_03/final_seed_20260924/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_03/final_seed_20260924/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "de4983ec9537343a2e3f5a3d9fe7ad09e11ac0f75e74cd8acac926774af45002",
+      "size_bytes": 26888
+    },
+    "results/Q14-E001/BROAD_EEGNET/target_03/final_seed_20260925/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_03/final_seed_20260925/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "ee6d1989dddd86a59e86a01ccdafdfce9b8654176b588c83a099cff0ea1e2b6a",
+      "size_bytes": 26936
+    },
+    "results/Q14-E001/BROAD_EEGNET/target_03/final_seed_20260926/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_03/final_seed_20260926/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "1fae5a3c98d44d383fb3cd054e54755220e45c45d7747a36daea2f2a339e32e7",
+      "size_bytes": 26883
+    },
+    "results/Q14-E001/BROAD_EEGNET/target_04/final_seed_20260924/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_04/final_seed_20260924/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "bb38df56f22734c7a93a943f6cb473458ca0eae5a77e4b1296baeb32f6134bf5",
+      "size_bytes": 26884
+    },
+    "results/Q14-E001/BROAD_EEGNET/target_04/final_seed_20260925/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_04/final_seed_20260925/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "ddb91551fba226c924d843946cdbd76fbcf8d8de2c1bf49b29cdbace0cb9d794",
+      "size_bytes": 26825
+    },
+    "results/Q14-E001/BROAD_EEGNET/target_04/final_seed_20260926/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_04/final_seed_20260926/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "f37916338b6eeb5a95311aef5069dbb8ea28b635110f0e782dfc08f0d41ee029",
+      "size_bytes": 26821
+    },
+    "results/Q14-E001/BROAD_EEGNET/target_05/final_seed_20260924/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_05/final_seed_20260924/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "17ebad4657a993bebfab5ee6ed9aa1d9c09283db8c0490934b1113c4cedbb65c",
+      "size_bytes": 26809
+    },
+    "results/Q14-E001/BROAD_EEGNET/target_05/final_seed_20260925/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_05/final_seed_20260925/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "e8c2b8542a642344b803fa5a8e8d68c3e1ec4ea794434413cf8433c97649c8bd",
+      "size_bytes": 26792
+    },
+    "results/Q14-E001/BROAD_EEGNET/target_05/final_seed_20260926/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_05/final_seed_20260926/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "86f3a05a2bfd7e1d3717ab01b38f2eb9b3e4bb0f37e43d637ff3e461ccc43b4d",
+      "size_bytes": 26783
+    },
+    "results/Q14-E001/BROAD_EEGNET/target_06/final_seed_20260924/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_06/final_seed_20260924/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "e4eb57b463128e377222770f6b9b66e40333e8c532d861ee4c0c3c9acad7a363",
+      "size_bytes": 26964
+    },
+    "results/Q14-E001/BROAD_EEGNET/target_06/final_seed_20260925/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_06/final_seed_20260925/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "0678ca71dc601e8f92fb74bd61a9f4d87e6802f5baf75edf0385933028fab46f",
+      "size_bytes": 26870
+    },
+    "results/Q14-E001/BROAD_EEGNET/target_06/final_seed_20260926/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_06/final_seed_20260926/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "3c67d2d4d3102f91a8d98464587c2a35712e16316e883882579109c7c611a189",
+      "size_bytes": 26926
+    },
+    "results/Q14-E001/BROAD_EEGNET/target_07/final_seed_20260924/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_07/final_seed_20260924/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "b2c063c9fa3718515811d3365c02a639a6a91577db61b66cbb94e586b316c3e7",
+      "size_bytes": 26802
+    },
+    "results/Q14-E001/BROAD_EEGNET/target_07/final_seed_20260925/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_07/final_seed_20260925/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "5efc2e8236534df72f2f86a9702a77b4878da27507fce0690fcb3fd0ace3b733",
+      "size_bytes": 26805
+    },
+    "results/Q14-E001/BROAD_EEGNET/target_07/final_seed_20260926/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_07/final_seed_20260926/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "ae8a1d9575915d4cdf2cd66f2219f2092dce6c6aa014b5a768977c8f15794e53",
+      "size_bytes": 26843
+    },
+    "results/Q14-E001/BROAD_EEGNET/target_08/final_seed_20260924/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_08/final_seed_20260924/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "3b6397a50c75a81808dd635a0a1cdb499e551c6966140291b2f613c275a81b01",
+      "size_bytes": 27037
+    },
+    "results/Q14-E001/BROAD_EEGNET/target_08/final_seed_20260925/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_08/final_seed_20260925/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "4fd1de72d045a7e263a8015e15eaef05e61e35d9b69481d680a7fca63c707db8",
+      "size_bytes": 26975
+    },
+    "results/Q14-E001/BROAD_EEGNET/target_08/final_seed_20260926/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_08/final_seed_20260926/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "828bdcb5a5d0ab5ca5c977f00aa8cf16edb011b1c0ad89e538184ccc1cf4a2b1",
+      "size_bytes": 27006
+    },
+    "results/Q14-E001/BROAD_EEGNET/target_09/final_seed_20260924/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_09/final_seed_20260924/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "03cbe7e171bccdb211863eb3816a36f0c6ff2c0449871dfc655627413c9215ea",
+      "size_bytes": 27093
+    },
+    "results/Q14-E001/BROAD_EEGNET/target_09/final_seed_20260925/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_09/final_seed_20260925/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "b3a6ab0df4ab1b2194b00a720b22344b949db65f4258a5049f6b86104f02cea5",
+      "size_bytes": 27150
+    },
+    "results/Q14-E001/BROAD_EEGNET/target_09/final_seed_20260926/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/BROAD_EEGNET/target_09/final_seed_20260926/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "25cbb29bbff554be1ec578df421132593c9e8d2ba47418d9c695614477992f29",
+      "size_bytes": 27138
+    },
+    "results/Q14-E001/CSP4_LDA/target_01/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/CSP4_LDA/target_01/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "260ff218d43ab990a703ed8e84dd113b35d1aaa3e87b23fd5367f624e802f807",
+      "size_bytes": 32116
+    },
+    "results/Q14-E001/CSP4_LDA/target_02/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/CSP4_LDA/target_02/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "21e510c284667dbb109012025cea192cbe39a447ea4154d2c50e4ac3c475ab51",
+      "size_bytes": 32076
+    },
+    "results/Q14-E001/CSP4_LDA/target_03/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/CSP4_LDA/target_03/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "7bf5836ff53ee95301b1dffc136edb0feb5da767c1992d61cfc2e3813120d413",
+      "size_bytes": 32174
+    },
+    "results/Q14-E001/CSP4_LDA/target_04/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/CSP4_LDA/target_04/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "300ca64f42e0cdf367ccd0a0fced7ad9eb692e787c3125558a5f1f8393def722",
+      "size_bytes": 32068
+    },
+    "results/Q14-E001/CSP4_LDA/target_05/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/CSP4_LDA/target_05/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "9ef97f26931d1e5cfe826bc371e9d5e8df3d56de36269bcd1ba3c95a3607c688",
+      "size_bytes": 32067
+    },
+    "results/Q14-E001/CSP4_LDA/target_06/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/CSP4_LDA/target_06/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "3989a59b1d57b6acf366f06eed52cafcc40b8bd069980499122b613a5c12aa13",
+      "size_bytes": 32124
+    },
+    "results/Q14-E001/CSP4_LDA/target_07/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/CSP4_LDA/target_07/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "345c7134569c25ece7c82355ef7ab07e7ebdf3c8e321fc0b70498578210cc015",
+      "size_bytes": 32090
+    },
+    "results/Q14-E001/CSP4_LDA/target_08/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/CSP4_LDA/target_08/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "acdf0e6792eb3a1441f699f140d77c89726168fce5625fd97dc25c2341ea7146",
+      "size_bytes": 32136
+    },
+    "results/Q14-E001/CSP4_LDA/target_09/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/CSP4_LDA/target_09/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "c52fc580aabf7fb75d567910cf3ded59bd0efba5dde76f8387cc589ee09fb889",
+      "size_bytes": 32138
+    },
+    "results/Q14-E001/MU_BETA_SHARED/target_01/final_seed_20260924/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_01/final_seed_20260924/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "24b13862665425c81198b2665ab7c67d8b9740124b5c30bc375ce5727ea4f03e",
+      "size_bytes": 27499
+    },
+    "results/Q14-E001/MU_BETA_SHARED/target_01/final_seed_20260925/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_01/final_seed_20260925/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "82807206d67166622ac7abe0c14f8c818fb47c840e74ac9ec218688408a45679",
+      "size_bytes": 27482
+    },
+    "results/Q14-E001/MU_BETA_SHARED/target_01/final_seed_20260926/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_01/final_seed_20260926/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "792b3a5cfa9125e6c8c27349a6ac15dc733523d6a1056524f28de7bb65c10d1d",
+      "size_bytes": 27496
+    },
+    "results/Q14-E001/MU_BETA_SHARED/target_02/final_seed_20260924/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_02/final_seed_20260924/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "b8e0094539ff7f319c4e8a544220737bc871ce2746a94f039af74342f0ea2266",
+      "size_bytes": 27440
+    },
+    "results/Q14-E001/MU_BETA_SHARED/target_02/final_seed_20260925/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_02/final_seed_20260925/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "6b4d847bf894e2344775360206da004b23c3ac83e492225344d49a53d2e0c24e",
+      "size_bytes": 27420
+    },
+    "results/Q14-E001/MU_BETA_SHARED/target_02/final_seed_20260926/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_02/final_seed_20260926/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "0648d28951fce91aadbf962cb3426dc69a3f09c26e3167ee4dae77bb83c4e2f2",
+      "size_bytes": 27430
+    },
+    "results/Q14-E001/MU_BETA_SHARED/target_03/final_seed_20260924/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_03/final_seed_20260924/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "07e2ae2648af245a6e2c937285bea32c3b32e107635044e385731e4fa8c77912",
+      "size_bytes": 27477
+    },
+    "results/Q14-E001/MU_BETA_SHARED/target_03/final_seed_20260925/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_03/final_seed_20260925/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "0bee00e2b072b91fec85addaa4818480262e0cd3db462ad4069bd9212643a30c",
+      "size_bytes": 27452
+    },
+    "results/Q14-E001/MU_BETA_SHARED/target_03/final_seed_20260926/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_03/final_seed_20260926/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "85e5be601d84df6d7870a5a08838b6628a2ac27c734833542a5ff816ec92200d",
+      "size_bytes": 27486
+    },
+    "results/Q14-E001/MU_BETA_SHARED/target_04/final_seed_20260924/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_04/final_seed_20260924/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "1ff5850beba4473fa98fdde27cb993791397701540bec62a6d96753d533ac3fc",
+      "size_bytes": 27443
+    },
+    "results/Q14-E001/MU_BETA_SHARED/target_04/final_seed_20260925/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_04/final_seed_20260925/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "aae5555e7fa2d5c04ed9c4e31a19d4133d6453b1b9ed523899b100d8aa875ab4",
+      "size_bytes": 27487
+    },
+    "results/Q14-E001/MU_BETA_SHARED/target_04/final_seed_20260926/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_04/final_seed_20260926/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "90ed95f6bcf2962891f2c82e5c6e07cfd4495fbadc2435aabed1404f756aa228",
+      "size_bytes": 27448
+    },
+    "results/Q14-E001/MU_BETA_SHARED/target_05/final_seed_20260924/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_05/final_seed_20260924/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "07ed5ca053c5890943d3da6f4abf21ea6cd64b186a4a6f85dc1aa529cb6166f1",
+      "size_bytes": 27361
+    },
+    "results/Q14-E001/MU_BETA_SHARED/target_05/final_seed_20260925/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_05/final_seed_20260925/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "4674be59763787efad8fd2d01ea054debd0f4929d6d0e6a53e10c1eb57ea9df4",
+      "size_bytes": 27390
+    },
+    "results/Q14-E001/MU_BETA_SHARED/target_05/final_seed_20260926/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_05/final_seed_20260926/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "2e6665c6ddce1d25864ca8736580728290783f006ce16b9e43474900c523e8ff",
+      "size_bytes": 27431
+    },
+    "results/Q14-E001/MU_BETA_SHARED/target_06/final_seed_20260924/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_06/final_seed_20260924/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "607135f596a57d030513c2132a0b67ca69d1f3a1f900386951ef24f6172b04a1",
+      "size_bytes": 27522
+    },
+    "results/Q14-E001/MU_BETA_SHARED/target_06/final_seed_20260925/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_06/final_seed_20260925/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "c28c06b58dab04bcc2b52bf5f8448c712392c0ea3c2f988b986fcc85c1da8627",
+      "size_bytes": 27503
+    },
+    "results/Q14-E001/MU_BETA_SHARED/target_06/final_seed_20260926/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_06/final_seed_20260926/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "612c6a8712dab63272a3326c54e61ff118e4ec65b4176710a868973450a5a70a",
+      "size_bytes": 27465
+    },
+    "results/Q14-E001/MU_BETA_SHARED/target_07/final_seed_20260924/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_07/final_seed_20260924/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "616f0ed1d21d92eada266afe3633d0aea216633998931e2204ad4232ff97fd44",
+      "size_bytes": 27418
+    },
+    "results/Q14-E001/MU_BETA_SHARED/target_07/final_seed_20260925/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_07/final_seed_20260925/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "354cfb1d84bff680f7314473badcd142ccf37251923d426726ab63f9180ac884",
+      "size_bytes": 27408
+    },
+    "results/Q14-E001/MU_BETA_SHARED/target_07/final_seed_20260926/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_07/final_seed_20260926/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "dc04465942dde8d7125b6337d5630afdedc6fc109c7ba1d4053b668081c42bff",
+      "size_bytes": 27403
+    },
+    "results/Q14-E001/MU_BETA_SHARED/target_08/final_seed_20260924/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_08/final_seed_20260924/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "fded2c3a4ee3d6c70096dd2725fa2b8f07c1a6a77c8f1a6a39afaf324a10822e",
+      "size_bytes": 27629
+    },
+    "results/Q14-E001/MU_BETA_SHARED/target_08/final_seed_20260925/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_08/final_seed_20260925/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "6630da8bfbb2be75da5e1ee2ec151142538f0f3aabef7c41727e0ed6f44ef4d8",
+      "size_bytes": 27650
+    },
+    "results/Q14-E001/MU_BETA_SHARED/target_08/final_seed_20260926/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_08/final_seed_20260926/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "7c22e69b1ebeb819074cb25b71b3df47a9999eee47a6cba03612d5b0276c60c6",
+      "size_bytes": 27626
+    },
+    "results/Q14-E001/MU_BETA_SHARED/target_09/final_seed_20260924/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_09/final_seed_20260924/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "6bb078b34a8ebb84402a2074fb3f3a07dc15b8d78561e8443318b84c7b93f129",
+      "size_bytes": 27680
+    },
+    "results/Q14-E001/MU_BETA_SHARED/target_09/final_seed_20260925/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_09/final_seed_20260925/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "054fde23b5d205226569ba6103338012f6fc05d8abb6d19b49be700b09f749ff",
+      "size_bytes": 27675
+    },
+    "results/Q14-E001/MU_BETA_SHARED/target_09/final_seed_20260926/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/MU_BETA_SHARED/target_09/final_seed_20260926/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "1f7e0b82c670973f2e0cf3be740c4cb266b767e4c34c4db15c5eccede95f865e",
+      "size_bytes": 27653
+    },
+    "results/Q14-E001/subject_seed_metrics.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/subject_seed_metrics.csv",
+      "roles": [
+        "reported_cell_metrics"
+      ],
+      "sha256": "b756700f8e22f7dcb760c8f9ee7a4e0fa7f42d9f93c237d29ab728a66d4a7de5",
+      "size_bytes": 8343
+    },
+    "results/Q14-E001/validation_report.json": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/validation_report.json",
+      "roles": [
+        "scientific_or_historical_status"
+      ],
+      "sha256": "f96296e2dec3bb45f1eddca2deb0fa4b200f2ab3066f60e4e646232b6e414d53",
+      "size_bytes": 824
+    },
+    "results/Q14-E002R2/external/completion_receipt.json": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E002R2/external/completion_receipt.json",
+      "roles": [
+        "scientific_or_historical_status"
+      ],
+      "sha256": "b3199f751049b10a1a8b6751cbbab9d4722b4b91602e119c02ec2decdf4fd7b2",
+      "size_bytes": 877
+    },
+    "results/Q14-E002R2/external/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E002R2/external/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "fde382e9e637445ba276449224d65dbdea40ea31c209b35ec8c3075035f52e6e",
+      "size_bytes": 3709776
+    },
+    "results/Q14-E002R2V1/external/subject_metrics.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E002R2V1/external/subject_metrics.csv",
+      "roles": [
+        "reported_external_person_metrics"
+      ],
+      "sha256": "2199c89b591d7f0c87fbb02ed3fd8146e7f27c174ccd6c6bd2399db487ce5e54",
+      "size_bytes": 10856
+    },
+    "results/Q14-E002R2V1/external/subject_primary_contrast.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E002R2V1/external/subject_primary_contrast.csv",
+      "roles": [
+        "reported_external_person_differences"
+      ],
+      "sha256": "23c03eef128b79c2f5c853aadb1e743dc8846fe692aa6d3578980481f79cb4e0",
+      "size_bytes": 8922
+    },
+    "results/Q14-E002R2V1/external/subject_seed_metrics.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E002R2V1/external/subject_seed_metrics.csv",
+      "roles": [
+        "reported_cell_metrics"
+      ],
+      "sha256": "4bbd74158d8780dfa06f03fcfd60afa871e2da97244e31c60eab6ce7ee568b8b",
+      "size_bytes": 56589
+    },
+    "results/Q14-E002R2V1/validation_report.json": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E002R2V1/validation_report.json",
+      "roles": [
+        "controlling_external_scientific_validation",
+        "scientific_or_historical_status"
+      ],
+      "sha256": "1ed3959b303c06672257963ef177f8c7ef619bcac01e4a263cfd587e7d9b5320",
+      "size_bytes": 6176
+    },
+    "results/Q14-R2BATCH/batch_status.json": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-R2BATCH/batch_status.json",
+      "roles": [
+        "scientific_or_historical_status"
+      ],
+      "sha256": "20ed51e42bed3bdad1690e379e12e90b32902ce8e0fdc4e41fd57b21684869fb",
+      "size_bytes": 669
+    },
+    "results/Q5-E001/per_subject_metrics.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q5-E001/per_subject_metrics.csv",
+      "roles": [
+        "reported_cell_metrics"
+      ],
+      "sha256": "3c72e370b9fd590cf154106bb1710089decb37e5c9e0ce1a370b658b01287a21",
+      "size_bytes": 12712
+    },
+    "results/Q5-E001/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q5-E001/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "438364a8dee3b7d605bede33ab58278b1dfa9b82aaf4969d7815789d12876a33",
+      "size_bytes": 1700297
+    },
+    "results/Q9-A001/per_subject_metrics.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q9-A001/per_subject_metrics.csv",
+      "roles": [
+        "reported_cell_metrics"
+      ],
+      "sha256": "58afc1640c501943fb73d273561e1d5bcbe357e29173c8c6d855510acb103706",
+      "size_bytes": 8986
+    },
+    "results/Q9-A001/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q9-A001/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "c045a17aab8bbd284206b0e93b29bd32fea6892c5fdfc1d1eb6d63a1993af747",
+      "size_bytes": 1613376
+    },
+    "results/Q9-BATCH/validation_report.json": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q9-BATCH/validation_report.json",
+      "roles": [
+        "scientific_or_historical_status"
+      ],
+      "sha256": "85fd34163ac72a9ff91d1b4ae965e5da2beb0a7a8260bb138adfe3ad26562d21",
+      "size_bytes": 2396
+    },
+    "results/Q9-E001/BETA_13_30/per_subject_metrics.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q9-E001/BETA_13_30/per_subject_metrics.csv",
+      "roles": [
+        "reported_cell_metrics"
+      ],
+      "sha256": "9827ac22189e3de846af060fbee2b0f1da4e1c85b5d3f82af53ba5ecf55ba284",
+      "size_bytes": 12769
+    },
+    "results/Q9-E001/BETA_13_30/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q9-E001/BETA_13_30/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "891259ea9a295d0759c2ac0b95cccba0fd85ddc53530cff07975e17a2c90a21a",
+      "size_bytes": 2188641
+    },
+    "results/Q9-E001/MID_8_30/per_subject_metrics.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q9-E001/MID_8_30/per_subject_metrics.csv",
+      "roles": [
+        "reported_cell_metrics"
+      ],
+      "sha256": "452ce6e13f269b35c6c7e5fa04207877fc53eea62e99581e04fe0cb4a9cd8cdd",
+      "size_bytes": 13670
+    },
+    "results/Q9-E001/MID_8_30/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q9-E001/MID_8_30/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "98b9b2508b410d589a9b7a2ca05d24a58fba4a6325654d0923bb28f1c6889570",
+      "size_bytes": 2169355
+    },
+    "results/Q9-E001/MU_8_13/per_subject_metrics.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q9-E001/MU_8_13/per_subject_metrics.csv",
+      "roles": [
+        "reported_cell_metrics"
+      ],
+      "sha256": "f5a090c7ed0ca42f61535d4e928175aaab4540e4639ac34f9de4c6bf991f339d",
+      "size_bytes": 13652
+    },
+    "results/Q9-E001/MU_8_13/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q9-E001/MU_8_13/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "d4b74745f300f3c7a90d215e8077d6ac87de6fe96a22cd95c43976d21f96a298",
+      "size_bytes": 2156584
+    },
+    "results/Q9-E001/MU_BETA_SHARED/per_subject_metrics.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q9-E001/MU_BETA_SHARED/per_subject_metrics.csv",
+      "roles": [
+        "reported_cell_metrics"
+      ],
+      "sha256": "140c1e5e21d1ac39180161ddccb8ce1362936d3226bf9225bde7bf9897d64edd",
+      "size_bytes": 14049
+    },
+    "results/Q9-E001/MU_BETA_SHARED/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q9-E001/MU_BETA_SHARED/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "9774b3db174d2510d466bf034165331bf697ddf0344af110d64e040dff3ce488",
+      "size_bytes": 2261690
+    },
+    "results/Q9-E002/MID_8_30_Q8_EPOCHS/per_subject_metrics.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q9-E002/MID_8_30_Q8_EPOCHS/per_subject_metrics.csv",
+      "roles": [
+        "reported_cell_metrics"
+      ],
+      "sha256": "52f04307aea3235ad08cc1cee927b9a89d41727a6ed83a943cc78b77dc7afb3f",
+      "size_bytes": 14589
+    },
+    "results/Q9-E002/MID_8_30_Q8_EPOCHS/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q9-E002/MID_8_30_Q8_EPOCHS/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "fb7e86ad560ee4b0e0da36279f61f9871b2509dbaba57b81686ac765e7064452",
+      "size_bytes": 2437275
+    },
+    "results/Q9-E002/MU_BETA_SHARED_Q8_EPOCHS/per_subject_metrics.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q9-E002/MU_BETA_SHARED_Q8_EPOCHS/per_subject_metrics.csv",
+      "roles": [
+        "reported_cell_metrics"
+      ],
+      "sha256": "11a96d891f3cab43267da98cb324589fc0f60d830bdbf35e1c7d900f27e146d9",
+      "size_bytes": 14907
+    },
+    "results/Q9-E002/MU_BETA_SHARED_Q8_EPOCHS/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q9-E002/MU_BETA_SHARED_Q8_EPOCHS/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "113a8af21c62df3e1898b2b8f471d93147017ca126d1367e6a16bedd8a292352",
+      "size_bytes": 2532006
+    },
+    "results/Q9-E004/MU_BETA_SHARED_SOURCE_CLEAN/per_subject_metrics.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q9-E004/MU_BETA_SHARED_SOURCE_CLEAN/per_subject_metrics.csv",
+      "roles": [
+        "reported_cell_metrics"
+      ],
+      "sha256": "13161df126aae41343b85bdb4cd11067e17d77139cd5ee10a929827152cced1b",
+      "size_bytes": 15144
+    },
+    "results/Q9-E004/MU_BETA_SHARED_SOURCE_CLEAN/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q9-E004/MU_BETA_SHARED_SOURCE_CLEAN/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "389d5b4c23f9dfe2dc9ea9170c280f213d2bd66612ee3a1311da15943ceeeb9c",
+      "size_bytes": 2462064
+    },
+    "results/Q9-E005/MU_BETA_SHARED_SOURCE_NORM/per_subject_metrics.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q9-E005/MU_BETA_SHARED_SOURCE_NORM/per_subject_metrics.csv",
+      "roles": [
+        "reported_cell_metrics"
+      ],
+      "sha256": "1daaca8f01dcc8e9134805de43bed8e5d9d9762405a3bca1e7a2255962a56cfa",
+      "size_bytes": 15061
+    },
+    "results/Q9-E005/MU_BETA_SHARED_SOURCE_NORM/predictions.csv": {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q9-E005/MU_BETA_SHARED_SOURCE_NORM/predictions.csv",
+      "roles": [
+        "trial_predictions"
+      ],
+      "sha256": "c4c33b156d3a8bf583246e5181d6f0bd77b3f92e06a765a017a5ff97db26401c",
+      "size_bytes": 2448804
+    },
+    "scripts/q13_e006_postrun_stats.py": {
+      "path": "/workspace/cross-subject-mi-eeg/scripts/q13_e006_postrun_stats.py",
+      "roles": [
+        "governing_definition_read_only"
+      ],
+      "sha256": "4c3276921be3173e96c3c86ea8090ded00e32a5db14e67bb1e2d828b615d17f6",
+      "size_bytes": 25429
+    },
+    "scripts/q14_r2_validate.py": {
+      "path": "/workspace/cross-subject-mi-eeg/scripts/q14_r2_validate.py",
+      "roles": [
+        "governing_definition_read_only"
+      ],
+      "sha256": "7c3deebc223fd1b248bf408ac829974637bad1d0671064cee612195d29c83d2e",
+      "size_bytes": 22348
+    },
+    "scripts/validate_q11_e001.py": {
+      "path": "/workspace/cross-subject-mi-eeg/scripts/validate_q11_e001.py",
+      "roles": [
+        "governing_definition_read_only"
+      ],
+      "sha256": "5e21c90a1a3c614ab4b09380aba2b27b6339bb379bf06b75b9e0a8608ade3858",
+      "size_bytes": 26871
+    }
+  },
+  "limitations": [
+    "CSV arithmetic and saved identity checks are independently recomputed; raw EEG/checkpoints and historical scientific validation are not rerun.",
+    "Q9 batch status passed_orchestration_only is not scientific validation; this check does not promote it to checkpoint-replayed pass.",
+    "Four-class BNCI chanceBA0.25 and binary BNCI/PhysioNet chanceBA0.50 differ in task and acquisition/population; do not pool/rank raw BA as one endpoint or isolate causal dataset-shift from the gap.",
+    "Q8/Q9/Q12/Q13 reuse an already explored9-person BNCI cohort. Seeds/subsets/trials/sessions do not enlarge n; LOSO training sets overlap.",
+    "Q13 source counts also change natural optimizer-update exposure; E006 tests only the frozen historical epoch schedule under matched runtime.",
+    "Q14 primary positive point estimate has CI spanning zero and sign-test p>0.05; external superiority is not established.",
+    "Disclose Q14 post-freeze metadata-triggered128-to160Hz rate amendment after partial external execution and later validation-only portability amendment; retain original failed R2 attempt."
+  ],
+  "matched_contrasts": [
+    {
+      "bootstrap_draws": 20000,
+      "bootstrap_seed": 20260924,
+      "candidate": "Q8-E001/BROAD_MEAN_RANK",
+      "contrast": "Q8_MEAN_RANK_minus_historical_RAW_CE",
+      "control": "Q5-HISTORICAL/RAW_CE_REUSE",
+      "exact_sign_flip_p_exploratory": 0.015625,
+      "family": "Q8_descriptive",
+      "inference_unit": "person; seeds/subsets averaged within person",
+      "interpretation": "exploratory",
+      "mean_difference": 0.08950617283950615,
+      "median_difference": 0.01851851851851849,
+      "n_subjects": 9,
+      "per_person_difference": {
+        "1": 0.0,
+        "2": 0.0335648148148148,
+        "3": 0.3478009259259259,
+        "4": 0.0,
+        "5": 0.0092592592592593,
+        "6": 0.001736111111111105,
+        "7": 0.01851851851851849,
+        "8": 0.35763888888888884,
+        "9": 0.037037037037037035
+      },
+      "sd_difference": 0.1498744835400639,
+      "subject_bootstrap_percentile_95ci": [
+        0.010545267489711931,
+        0.20016718106995882
+      ],
+      "trial_identity_and_truth_match": true
+    },
+    {
+      "bootstrap_draws": 10000,
+      "bootstrap_seed": 20260926,
+      "candidate": "Q9-E001/MU_BETA_SHARED",
+      "contrast": "Q9_shared_minus_mid",
+      "control": "Q9-E001/MID_8_30",
+      "exact_sign_flip_p_exploratory": 0.109375,
+      "family": "Q9_descriptive",
+      "inference_unit": "person; seeds/subsets averaged within person",
+      "interpretation": "exploratory",
+      "mean_difference": -0.02366255144032921,
+      "median_difference": -0.010416666666666685,
+      "n_subjects": 9,
+      "per_person_difference": {
+        "1": -0.04398148148148151,
+        "2": -0.010416666666666685,
+        "3": -0.07118055555555547,
+        "4": 0.02951388888888884,
+        "5": 0.005208333333333315,
+        "6": -0.0017361111111111605,
+        "7": -0.00520833333333337,
+        "8": -0.02372685185185175,
+        "9": -0.09143518518518512
+      },
+      "sd_difference": 0.03860374959275114,
+      "subject_bootstrap_percentile_95ci": [
+        -0.04771090534979419,
+        -0.0016718106995885123
+      ],
+      "trial_identity_and_truth_match": true
+    },
+    {
+      "bootstrap_draws": 10000,
+      "bootstrap_seed": 20260926,
+      "candidate": "Q9-E001/MU_BETA_SHARED",
+      "contrast": "Q9_shared_minus_Q8",
+      "control": "Q8-E001/BROAD_MEAN_RANK",
+      "exact_sign_flip_p_exploratory": 0.9140625,
+      "family": "Q9_descriptive",
+      "inference_unit": "person; seeds/subsets averaged within person",
+      "interpretation": "exploratory",
+      "mean_difference": -0.004822530864197532,
+      "median_difference": 0.006365740740740811,
+      "n_subjects": 9,
+      "per_person_difference": {
+        "1": -0.01157407407407407,
+        "2": 0.00810185185185186,
+        "3": 0.006365740740740811,
+        "4": 0.012731481481481455,
+        "5": 0.0034722222222221544,
+        "6": -0.00520833333333337,
+        "7": 0.0376157407407407,
+        "8": -0.10243055555555547,
+        "9": 0.00752314814814814
+      },
+      "sd_difference": 0.03904427729961339,
+      "subject_bootstrap_percentile_95ci": [
+        -0.03202160493827158,
+        0.01427469135802466
+      ],
+      "trial_identity_and_truth_match": true
+    },
+    {
+      "bootstrap_draws": 10000,
+      "bootstrap_seed": 20260926,
+      "candidate": "Q9-E001/MU_8_13",
+      "contrast": "Q9_mu_minus_mid",
+      "control": "Q9-E001/MID_8_30",
+      "exact_sign_flip_p_exploratory": 0.359375,
+      "family": "Q9_descriptive",
+      "inference_unit": "person; seeds/subsets averaged within person",
+      "interpretation": "exploratory",
+      "mean_difference": -0.01253858024691357,
+      "median_difference": -0.005208333333333287,
+      "n_subjects": 9,
+      "per_person_difference": {
+        "1": -0.02893518518518523,
+        "2": 0.00868055555555558,
+        "3": -0.07349537037037035,
+        "4": 0.035879629629629595,
+        "5": -0.005208333333333287,
+        "6": -0.001736111111111105,
+        "7": -0.06192129629629628,
+        "8": 0.03182870370370372,
+        "9": -0.01793981481481477
+      },
+      "sd_difference": 0.037725756140831186,
+      "subject_bootstrap_percentile_95ci": [
+        -0.03632973251028804,
+        0.009903870884773657
+      ],
+      "trial_identity_and_truth_match": true
+    },
+    {
+      "bootstrap_draws": 10000,
+      "bootstrap_seed": 20260926,
+      "candidate": "Q9-E001/BETA_13_30",
+      "contrast": "Q9_beta_minus_mid",
+      "control": "Q9-E001/MID_8_30",
+      "exact_sign_flip_p_exploratory": 0.015625,
+      "family": "Q9_descriptive",
+      "inference_unit": "person; seeds/subsets averaged within person",
+      "interpretation": "exploratory",
+      "mean_difference": -0.13020833333333334,
+      "median_difference": -0.07581018518518512,
+      "n_subjects": 9,
+      "per_person_difference": {
+        "1": -0.3217592592592593,
+        "2": -0.04976851851851852,
+        "3": -0.43576388888888884,
+        "4": -0.10185185185185186,
+        "5": 0.002314814814814825,
+        "6": 0.024305555555555525,
+        "7": -0.07233796296296297,
+        "8": -0.07581018518518512,
+        "9": -0.14120370370370366
+      },
+      "sd_difference": 0.15214983228564213,
+      "subject_bootstrap_percentile_95ci": [
+        -0.23309381430041154,
+        -0.045516653806584456
+      ],
+      "trial_identity_and_truth_match": true
+    },
+    {
+      "bootstrap_draws": 10000,
+      "bootstrap_seed": 20260926,
+      "candidate": "Q9-E002/MU_BETA_SHARED_Q8_EPOCHS",
+      "contrast": "Q9_shared_Q8epochs_minus_mid_Q8epochs",
+      "control": "Q9-E002/MID_8_30_Q8_EPOCHS",
+      "exact_sign_flip_p_exploratory": 0.28125,
+      "family": "Q9_descriptive",
+      "inference_unit": "person; seeds/subsets averaged within person",
+      "interpretation": "exploratory",
+      "mean_difference": 0.007716049382716059,
+      "median_difference": -5.551115123125783e-17,
+      "n_subjects": 9,
+      "per_person_difference": {
+        "1": -0.00925925925925919,
+        "2": -0.0005787037037037202,
+        "3": 0.03356481481481488,
+        "4": -5.551115123125783e-17,
+        "5": 0.00520833333333337,
+        "6": -0.001736111111111105,
+        "7": 0.03877314814814814,
+        "8": 0.01736111111111105,
+        "9": -0.01388888888888884
+      },
+      "sd_difference": 0.018386938501524595,
+      "subject_bootstrap_percentile_95ci": [
+        -0.003086419753086409,
+        0.01941872427983536
+      ],
+      "trial_identity_and_truth_match": true
+    },
+    {
+      "bootstrap_draws": 10000,
+      "bootstrap_seed": 20260926,
+      "candidate": "Q9-E004/MU_BETA_SHARED_SOURCE_CLEAN",
+      "contrast": "Q9_source_clean_minus_shared",
+      "control": "Q9-E001/MU_BETA_SHARED",
+      "exact_sign_flip_p_exploratory": 0.93359375,
+      "family": "Q9_descriptive",
+      "inference_unit": "person; seeds/subsets averaged within person",
+      "interpretation": "exploratory",
+      "mean_difference": -0.0007716049382716269,
+      "median_difference": -0.0017361111111111605,
+      "n_subjects": 9,
+      "per_person_difference": {
+        "1": -0.0017361111111111605,
+        "2": -0.01678240740740744,
+        "3": -0.0028935185185186008,
+        "4": -0.03067129629629628,
+        "5": -0.012731481481481455,
+        "6": -0.0011574074074073848,
+        "7": 0.00694444444444442,
+        "8": 0.05266203703703698,
+        "9": -0.0005787037037037202
+      },
+      "sd_difference": 0.022950180670837286,
+      "subject_bootstrap_percentile_95ci": [
+        -0.012924382716049392,
+        0.014724794238683095
+      ],
+      "trial_identity_and_truth_match": true
+    },
+    {
+      "bootstrap_draws": 10000,
+      "bootstrap_seed": 20260926,
+      "candidate": "Q9-E005/MU_BETA_SHARED_SOURCE_NORM",
+      "contrast": "Q9_source_norm_minus_shared",
+      "control": "Q9-E001/MU_BETA_SHARED",
+      "exact_sign_flip_p_exploratory": 0.62109375,
+      "family": "Q9_descriptive",
+      "inference_unit": "person; seeds/subsets averaged within person",
+      "interpretation": "exploratory",
+      "mean_difference": -0.00662294238683127,
+      "median_difference": -0.00810185185185186,
+      "n_subjects": 9,
+      "per_person_difference": {
+        "1": 0.03009259259259256,
+        "2": 0.0011574074074074403,
+        "3": -0.0717592592592593,
+        "4": -0.020254629629629595,
+        "5": -0.010995370370370322,
+        "6": 0.010995370370370405,
+        "7": -0.012152777777777735,
+        "8": 0.02141203703703698,
+        "9": -0.00810185185185186
+      },
+      "sd_difference": 0.02954948480805555,
+      "subject_bootstrap_percentile_95ci": [
+        -0.026043274176954744,
+        0.010416666666666664
+      ],
+      "trial_identity_and_truth_match": true
+    },
+    {
+      "all_reported_statistics_reproduced_at_1e_minus_12": true,
+      "bootstrap_draws": 20000,
+      "bootstrap_seed": 20260924,
+      "candidate": "Q12-E001/SOURCE_POOLED_WHITEN",
+      "contrast": "SOURCE_POOLED_WHITEN-Q8-E001",
+      "control": "Q8-E001/BROAD_MEAN_RANK",
+      "exact_sign_flip_p_exploratory": 0.1796875,
+      "family": "Q12/source_only_domain_generalization",
+      "holm_within_family_p_exploratory": 0.359375,
+      "inference_unit": "person; seeds/subsets averaged within person",
+      "interpretation": "exploratory",
+      "mean_difference": 0.01665380658436214,
+      "median_difference": 0.02314814814814814,
+      "n_subjects": 9,
+      "per_person_difference": {
+        "1": 0.01736111111111105,
+        "2": 0.02372685185185186,
+        "3": 0.0405092592592593,
+        "4": 0.02314814814814814,
+        "5": -0.0005787037037037202,
+        "6": -0.0075231481481481954,
+        "7": 0.02372685185185186,
+        "8": -0.04456018518518512,
+        "9": 0.07407407407407407
+      },
+      "reported_ci": [
+        -0.003922325102880657,
+        0.03665123456790125
+      ],
+      "reported_holm_p": 0.359375,
+      "reported_mean_difference": 0.01665380658436216,
+      "reported_person_differences_max_error": 1.1102230246251565e-16,
+      "reported_sign_flip_p": 0.1796875,
+      "reported_statistics_max_errors": {
+        "CI": 1.3877787807814457e-17,
+        "Holm_p": 0.0,
+        "mean": 2.0816681711721685e-17,
+        "sign_flip_p": 0.0
+      },
+      "sd_difference": 0.03285867421814838,
+      "subject_bootstrap_percentile_95ci": [
+        -0.003922325102880659,
+        0.03665123456790124
+      ],
+      "trial_identity_and_truth_match": true
+    },
+    {
+      "all_reported_statistics_reproduced_at_1e_minus_12": true,
+      "bootstrap_draws": 20000,
+      "bootstrap_seed": 20260924,
+      "candidate": "Q12-E001/SOURCE_BALANCED_ERM",
+      "contrast": "SOURCE_BALANCED_ERM-Q8-E001",
+      "control": "Q8-E001/BROAD_MEAN_RANK",
+      "exact_sign_flip_p_exploratory": 0.4765625,
+      "family": "Q12/source_only_domain_generalization",
+      "holm_within_family_p_exploratory": 0.4765625,
+      "inference_unit": "person; seeds/subsets averaged within person",
+      "interpretation": "exploratory",
+      "mean_difference": 0.0051440329218107135,
+      "median_difference": 0.005208333333333315,
+      "n_subjects": 9,
+      "per_person_difference": {
+        "1": -0.00925925925925919,
+        "2": 0.01331018518518523,
+        "3": 0.00810185185185186,
+        "4": 0.005208333333333315,
+        "5": -0.002314814814814853,
+        "6": -0.0028935185185185452,
+        "7": 0.02025462962962965,
+        "8": -0.02893518518518512,
+        "9": 0.04282407407407407
+      },
+      "reported_ci": [
+        -0.007073045267489689,
+        0.017746913580246926
+      ],
+      "reported_holm_p": 0.4765625,
+      "reported_mean_difference": 0.0051440329218107195,
+      "reported_person_differences_max_error": 7.45931094670027e-17,
+      "reported_sign_flip_p": 0.4765625,
+      "reported_statistics_max_errors": {
+        "CI": 1.0408340855860843e-17,
+        "Holm_p": 0.0,
+        "mean": 6.071532165918825e-18,
+        "sign_flip_p": 0.0
+      },
+      "sd_difference": 0.02003945819941442,
+      "subject_bootstrap_percentile_95ci": [
+        -0.007073045267489679,
+        0.01774691358024693
+      ],
+      "trial_identity_and_truth_match": true
+    },
+    {
+      "all_reported_statistics_reproduced_at_1e_minus_12": true,
+      "bootstrap_draws": 20000,
+      "bootstrap_seed": 20260924,
+      "candidate": "Q12-E001/SOURCE_GROUP_DRO",
+      "contrast": "SOURCE_GROUP_DRO-SOURCE_BALANCED_ERM",
+      "control": "Q12-E001/SOURCE_BALANCED_ERM",
+      "exact_sign_flip_p_exploratory": 0.046875,
+      "family": "Q12/source_only_domain_generalization",
+      "holm_within_family_p_exploratory": 0.140625,
+      "inference_unit": "person; seeds/subsets averaged within person",
+      "interpretation": "exploratory",
+      "mean_difference": -0.06449331275720166,
+      "median_difference": -0.0625,
+      "n_subjects": 9,
+      "per_person_difference": {
+        "1": -0.10590277777777779,
+        "2": 0.00694444444444442,
+        "3": -0.09375,
+        "4": -0.0625,
+        "5": 0.004050925925925958,
+        "6": 0.04224537037037035,
+        "7": -0.02430555555555558,
+        "8": -0.19791666666666669,
+        "9": -0.14930555555555552
+      },
+      "reported_ci": [
+        -0.11471193415637858,
+        -0.01787551440329219
+      ],
+      "reported_holm_p": 0.140625,
+      "reported_mean_difference": -0.06449331275720165,
+      "reported_person_differences_max_error": 4.597017211338539e-17,
+      "reported_sign_flip_p": 0.046875,
+      "reported_statistics_max_errors": {
+        "CI": 2.7755575615628914e-17,
+        "Holm_p": 0.0,
+        "mean": 1.3877787807814457e-17,
+        "sign_flip_p": 0.0
+      },
+      "sd_difference": 0.07935635359704676,
+      "subject_bootstrap_percentile_95ci": [
+        -0.1147119341563786,
+        -0.017875514403292183
+      ],
+      "trial_identity_and_truth_match": true
+    },
+    {
+      "all_reported_statistics_reproduced_at_1e_minus_12": true,
+      "bootstrap_draws": 20000,
+      "bootstrap_seed": 20260924,
+      "candidate": "Q12-E002/CHANNEL_DROPOUT",
+      "contrast": "CHANNEL_DROPOUT-Q8-E001",
+      "control": "Q8-E001/BROAD_MEAN_RANK",
+      "exact_sign_flip_p_exploratory": 0.30078125,
+      "family": "Q12/source_only_augmentation",
+      "holm_within_family_p_exploratory": 0.76171875,
+      "inference_unit": "person; seeds/subsets averaged within person",
+      "interpretation": "exploratory",
+      "mean_difference": -0.016653806584362142,
+      "median_difference": -0.01099537037037046,
+      "n_subjects": 9,
+      "per_person_difference": {
+        "1": -0.0092592592592593,
+        "2": 0.01215277777777779,
+        "3": -0.02951388888888884,
+        "4": -0.01620370370370372,
+        "5": -0.0023148148148147973,
+        "6": 0.043981481481481455,
+        "7": -0.02662037037037035,
+        "8": -0.11111111111111105,
+        "9": -0.01099537037037046
+      },
+      "reported_ci": [
+        -0.04507619598765432,
+        0.006365740740740739
+      ],
+      "reported_holm_p": 0.76171875,
+      "reported_mean_difference": -0.01665380658436212,
+      "reported_person_differences_max_error": 7.28583859910259e-17,
+      "reported_sign_flip_p": 0.30078125,
+      "reported_statistics_max_errors": {
+        "CI": 2.3418766925686896e-17,
+        "Holm_p": 0.0,
+        "mean": 2.0816681711721685e-17,
+        "sign_flip_p": 0.0
+      },
+      "sd_difference": 0.04181187100959038,
+      "subject_bootstrap_percentile_95ci": [
+        -0.04507619598765432,
+        0.006365740740740715
+      ],
+      "trial_identity_and_truth_match": true
+    },
+    {
+      "all_reported_statistics_reproduced_at_1e_minus_12": true,
+      "bootstrap_draws": 20000,
+      "bootstrap_seed": 20260924,
+      "candidate": "Q12-E002/GAIN_PERTURB",
+      "contrast": "GAIN_PERTURB-Q8-E001",
+      "control": "Q8-E001/BROAD_MEAN_RANK",
+      "exact_sign_flip_p_exploratory": 0.25390625,
+      "family": "Q12/source_only_augmentation",
+      "holm_within_family_p_exploratory": 0.76171875,
+      "inference_unit": "person; seeds/subsets averaged within person",
+      "interpretation": "exploratory",
+      "mean_difference": 0.00752314814814814,
+      "median_difference": 0.01099537037037035,
+      "n_subjects": 9,
+      "per_person_difference": {
+        "1": -0.00405092592592593,
+        "2": 0.01967592592592593,
+        "3": 0.01909722222222221,
+        "4": 0.0028935185185184897,
+        "5": -0.01273148148148151,
+        "6": 0.01099537037037035,
+        "7": 0.01273148148148151,
+        "8": -0.01909722222222221,
+        "9": 0.03819444444444442
+      },
+      "reported_ci": [
+        -0.003407921810699573,
+        0.01858281893004116
+      ],
+      "reported_holm_p": 0.76171875,
+      "reported_mean_difference": 0.0075231481481481555,
+      "reported_person_differences_max_error": 5.551115123125783e-17,
+      "reported_sign_flip_p": 0.25390625,
+      "reported_statistics_max_errors": {
+        "CI": 1.431146867680866e-17,
+        "Holm_p": 0.0,
+        "mean": 1.5612511283791264e-17,
+        "sign_flip_p": 0.0
+      },
+      "sd_difference": 0.0178039584061518,
+      "subject_bootstrap_percentile_95ci": [
+        -0.0034079218106995873,
+        0.01858281893004115
+      ],
+      "trial_identity_and_truth_match": true
+    },
+    {
+      "all_reported_statistics_reproduced_at_1e_minus_12": true,
+      "bootstrap_draws": 20000,
+      "bootstrap_seed": 20260924,
+      "candidate": "Q12-E002/CHANNEL_AND_GAIN",
+      "contrast": "CHANNEL_AND_GAIN-Q8-E001",
+      "control": "Q8-E001/BROAD_MEAN_RANK",
+      "exact_sign_flip_p_exploratory": 0.3515625,
+      "family": "Q12/source_only_augmentation",
+      "holm_within_family_p_exploratory": 0.76171875,
+      "inference_unit": "person; seeds/subsets averaged within person",
+      "interpretation": "exploratory",
+      "mean_difference": -0.017489711934156375,
+      "median_difference": -0.00752314814814814,
+      "n_subjects": 9,
+      "per_person_difference": {
+        "1": -0.01157407407407407,
+        "2": 0.01215277777777779,
+        "3": -0.07060185185185175,
+        "4": -0.002314814814814825,
+        "5": -0.00752314814814814,
+        "6": 0.04282407407407407,
+        "7": -0.00983796296296302,
+        "8": -0.12037037037037035,
+        "9": 0.00983796296296291
+      },
+      "reported_ci": [
+        -0.05054012345679011,
+        0.009130658436214007
+      ],
+      "reported_holm_p": 0.76171875,
+      "reported_mean_difference": -0.017489711934156355,
+      "reported_person_differences_max_error": 9.194034422677078e-17,
+      "reported_sign_flip_p": 0.3515625,
+      "reported_statistics_max_errors": {
+        "CI": 6.418476861114186e-17,
+        "Holm_p": 0.0,
+        "mean": 2.0816681711721685e-17,
+        "sign_flip_p": 0.0
+      },
+      "sd_difference": 0.0488514521419913,
+      "subject_bootstrap_percentile_95ci": [
+        -0.05054012345679011,
+        0.009130658436213943
+      ],
+      "trial_identity_and_truth_match": true
+    },
+    {
+      "all_reported_statistics_reproduced_at_1e_minus_12": true,
+      "bootstrap_draws": 10000,
+      "bootstrap_seed": 20260926,
+      "candidate": "Q13-E004/Q8_SRC2",
+      "contrast": "Q8_BROAD_k2_minus_k8",
+      "control": "Q13-E001/Q8_FIXED20",
+      "exact_sign_flip_p_exploratory": 0.03125,
+      "family": "Q13/source_count",
+      "holm_within_family_p_exploratory": 0.1640625,
+      "inference_unit": "person; seeds/subsets averaged within person",
+      "interpretation": "exploratory_predeclared_Q13",
+      "mean_difference": -0.11030735596707816,
+      "median_difference": -0.0688657407407407,
+      "n_subjects": 9,
+      "per_person_difference": {
+        "1": -0.15046296296296297,
+        "2": -0.04673032407407407,
+        "3": -0.3025173611111111,
+        "4": -0.0688657407407407,
+        "5": 0.008391203703703748,
+        "6": 0.046875,
+        "7": -0.02256944444444442,
+        "8": -0.27502893518518506,
+        "9": -0.1818576388888889
+      },
+      "reported_ci": [
+        -0.1879505047582304,
+        -0.0356043434927983
+      ],
+      "reported_holm_p": 0.1640625,
+      "reported_mean_difference": -0.1103073559670781,
+      "reported_sign_flip_p": 0.03125,
+      "reported_statistics_max_errors": {
+        "CI": 6.938893903907228e-17,
+        "Holm_p": 0.0,
+        "mean": 6.938893903907228e-17,
+        "sign_flip_p": 0.0
+      },
+      "sd_difference": 0.12402763259023177,
+      "subject_bootstrap_percentile_95ci": [
+        -0.1879505047582304,
+        -0.03560434349279837
+      ],
+      "trial_identity_and_truth_match": true
+    },
+    {
+      "all_reported_statistics_reproduced_at_1e_minus_12": true,
+      "bootstrap_draws": 10000,
+      "bootstrap_seed": 20260926,
+      "candidate": "Q13-E004/Q8_SRC4",
+      "contrast": "Q8_BROAD_k4_minus_k8",
+      "control": "Q13-E001/Q8_FIXED20",
+      "exact_sign_flip_p_exploratory": 0.14453125,
+      "family": "Q13/source_count",
+      "holm_within_family_p_exploratory": 0.43359375,
+      "inference_unit": "person; seeds/subsets averaged within person",
+      "interpretation": "exploratory_predeclared_Q13",
+      "mean_difference": -0.05097415123456789,
+      "median_difference": -0.015480324074074014,
+      "n_subjects": 9,
+      "per_person_difference": {
+        "1": -0.01345486111111116,
+        "2": -0.021267361111111105,
+        "3": -0.19878472222222227,
+        "4": -0.015480324074074014,
+        "5": 0.006944444444444503,
+        "6": 0.02213541666666663,
+        "7": 0.02821180555555558,
+        "8": -0.13353587962962954,
+        "9": -0.1335358796296296
+      },
+      "reported_ci": [
+        -0.1036040380658436,
+        -0.0038258744855967
+      ],
+      "reported_holm_p": 0.43359375,
+      "reported_mean_difference": -0.0509741512345679,
+      "reported_sign_flip_p": 0.14453125,
+      "reported_statistics_max_errors": {
+        "CI": 1.3877787807814457e-17,
+        "Holm_p": 0.0,
+        "mean": 1.3877787807814457e-17,
+        "sign_flip_p": 0.0
+      },
+      "sd_difference": 0.08215901773471367,
+      "subject_bootstrap_percentile_95ci": [
+        -0.10360403806584359,
+        -0.00382587448559669
+      ],
+      "trial_identity_and_truth_match": true
+    },
+    {
+      "all_reported_statistics_reproduced_at_1e_minus_12": true,
+      "bootstrap_draws": 10000,
+      "bootstrap_seed": 20260926,
+      "candidate": "Q13-E004/Q8_SRC6",
+      "contrast": "Q8_BROAD_k6_minus_k8",
+      "control": "Q13-E001/Q8_FIXED20",
+      "exact_sign_flip_p_exploratory": 0.56640625,
+      "family": "Q13/source_count",
+      "holm_within_family_p_exploratory": 0.56640625,
+      "inference_unit": "person; seeds/subsets averaged within person",
+      "interpretation": "exploratory_predeclared_Q13",
+      "mean_difference": -0.008326903292181045,
+      "median_difference": 0.006799768518518573,
+      "n_subjects": 9,
+      "per_person_difference": {
+        "1": 0.04629629629629628,
+        "2": -0.002025462962962965,
+        "3": -0.05656828703703709,
+        "4": 0.014467592592592615,
+        "5": 0.006799768518518573,
+        "6": 0.00983796296296291,
+        "7": 0.043402777777777846,
+        "8": -0.07349537037037024,
+        "9": -0.06365740740740733
+      },
+      "reported_ci": [
+        -0.0367155349794238,
+        0.0188894515174896
+      ],
+      "reported_holm_p": 0.56640625,
+      "reported_mean_difference": -0.008326903292181,
+      "reported_sign_flip_p": 0.56640625,
+      "reported_statistics_max_errors": {
+        "CI": 1.0408340855860843e-16,
+        "Holm_p": 0.0,
+        "mean": 4.5102810375396984e-17,
+        "sign_flip_p": 0.0
+      },
+      "sd_difference": 0.04529535639619474,
+      "subject_bootstrap_percentile_95ci": [
+        -0.036715534979423814,
+        0.018889451517489705
+      ],
+      "trial_identity_and_truth_match": true
+    },
+    {
+      "all_reported_statistics_reproduced_at_1e_minus_12": true,
+      "bootstrap_draws": 10000,
+      "bootstrap_seed": 20260926,
+      "candidate": "Q13-E004/Q9_SHARED_SRC2",
+      "contrast": "Q9_MU_BETA_SHARED_k2_minus_k8",
+      "control": "Q13-E001/Q9_SHARED_FIXED20",
+      "exact_sign_flip_p_exploratory": 0.02734375,
+      "family": "Q13/source_count",
+      "holm_within_family_p_exploratory": 0.1640625,
+      "inference_unit": "person; seeds/subsets averaged within person",
+      "interpretation": "exploratory_predeclared_Q13",
+      "mean_difference": -0.09231931584362142,
+      "median_difference": -0.036458333333333315,
+      "n_subjects": 9,
+      "per_person_difference": {
+        "1": -0.17708333333333337,
+        "2": -0.03168402777777779,
+        "3": -0.2201967592592593,
+        "4": -0.036458333333333315,
+        "5": 0.008535879629629622,
+        "6": 0.029079861111111105,
+        "7": -0.030671296296296335,
+        "8": -0.2131076388888889,
+        "9": -0.15928819444444448
+      },
+      "reported_ci": [
+        -0.1541445634002058,
+        -0.0314589763374485
+      ],
+      "reported_holm_p": 0.1640625,
+      "reported_mean_difference": -0.0923193158436214,
+      "reported_sign_flip_p": 0.02734375,
+      "reported_statistics_max_errors": {
+        "CI": 6.938893903907228e-17,
+        "Holm_p": 0.0,
+        "mean": 2.7755575615628914e-17,
+        "sign_flip_p": 0.0
+      },
+      "sd_difference": 0.09881758784487683,
+      "subject_bootstrap_percentile_95ci": [
+        -0.15414456340020577,
+        -0.03145897633744857
+      ],
+      "trial_identity_and_truth_match": true
+    },
+    {
+      "all_reported_statistics_reproduced_at_1e_minus_12": true,
+      "bootstrap_draws": 10000,
+      "bootstrap_seed": 20260926,
+      "candidate": "Q13-E004/Q9_SHARED_SRC4",
+      "contrast": "Q9_MU_BETA_SHARED_k4_minus_k8",
+      "control": "Q13-E001/Q9_SHARED_FIXED20",
+      "exact_sign_flip_p_exploratory": 0.05859375,
+      "family": "Q13/source_count",
+      "holm_within_family_p_exploratory": 0.234375,
+      "inference_unit": "person; seeds/subsets averaged within person",
+      "interpretation": "exploratory_predeclared_Q13",
+      "mean_difference": -0.0508616255144033,
+      "median_difference": -0.014756944444444475,
+      "n_subjects": 9,
+      "per_person_difference": {
+        "1": -0.07798032407407418,
+        "2": -0.014756944444444475,
+        "3": -0.1779513888888889,
+        "4": -0.01128472222222221,
+        "5": 0.0037615740740740977,
+        "6": -0.001736111111111105,
+        "7": 0.0180844907407407,
+        "8": -0.0859375,
+        "9": -0.10995370370370366
+      },
+      "reported_ci": [
+        -0.0928341210133745,
+        -0.013085133744856
+      ],
+      "reported_holm_p": 0.234375,
+      "reported_mean_difference": -0.0508616255144033,
+      "reported_sign_flip_p": 0.05859375,
+      "reported_statistics_max_errors": {
+        "CI": 2.7755575615628914e-17,
+        "Holm_p": 0.0,
+        "mean": 0.0,
+        "sign_flip_p": 0.0
+      },
+      "sd_difference": 0.06579312155965983,
+      "subject_bootstrap_percentile_95ci": [
+        -0.09283412101337447,
+        -0.013085133744855978
+      ],
+      "trial_identity_and_truth_match": true
+    },
+    {
+      "all_reported_statistics_reproduced_at_1e_minus_12": true,
+      "bootstrap_draws": 10000,
+      "bootstrap_seed": 20260926,
+      "candidate": "Q13-E004/Q9_SHARED_SRC6",
+      "contrast": "Q9_MU_BETA_SHARED_k6_minus_k8",
+      "control": "Q13-E001/Q9_SHARED_FIXED20",
+      "exact_sign_flip_p_exploratory": 0.16796875,
+      "family": "Q13/source_count",
+      "holm_within_family_p_exploratory": 0.43359375,
+      "inference_unit": "person; seeds/subsets averaged within person",
+      "interpretation": "exploratory_predeclared_Q13",
+      "mean_difference": -0.014901620370370378,
+      "median_difference": -0.006221064814814825,
+      "n_subjects": 9,
+      "per_person_difference": {
+        "1": -0.01982060185185186,
+        "2": -0.006221064814814825,
+        "3": -0.05439814814814814,
+        "4": 0.03920717592592593,
+        "5": 0.0018807870370370072,
+        "6": -0.0039062500000000555,
+        "7": 0.009114583333333315,
+        "8": -0.05280671296296291,
+        "9": -0.04716435185185186
+      },
+      "reported_ci": [
+        -0.0341274434156378,
+        0.0041634516460904
+      ],
+      "reported_holm_p": 0.43359375,
+      "reported_mean_difference": -0.0149016203703704,
+      "reported_sign_flip_p": 0.16796875,
+      "reported_statistics_max_errors": {
+        "CI": 1.231653667943533e-16,
+        "Holm_p": 0.0,
+        "mean": 2.2551405187698492e-17,
+        "sign_flip_p": 0.0
+      },
+      "sd_difference": 0.03171019406695169,
+      "subject_bootstrap_percentile_95ci": [
+        -0.03412744341563786,
+        0.004163451646090523
+      ],
+      "trial_identity_and_truth_match": true
+    },
+    {
+      "all_reported_statistics_reproduced_at_1e_minus_12": true,
+      "bootstrap_draws": 10000,
+      "bootstrap_seed": 20260926,
+      "candidate": "Q13-E005/Q8_SOURCE_SESSION_E",
+      "contrast": "Q8_BROAD_1test_minus_0train",
+      "control": "Q13-E005/Q8_SOURCE_SESSION_T",
+      "exact_sign_flip_p_exploratory": 0.17578125,
+      "family": "Q13/source_session",
+      "holm_within_family_p_exploratory": 0.3515625,
+      "inference_unit": "person; seeds/subsets averaged within person",
+      "interpretation": "exploratory_predeclared_Q13",
+      "mean_difference": -0.008423353909465013,
+      "median_difference": -0.004629629629629595,
+      "n_subjects": 9,
+      "per_person_difference": {
+        "1": -0.03356481481481477,
+        "2": -0.004629629629629595,
+        "3": -0.01388888888888884,
+        "4": -0.018518518518518545,
+        "5": -0.0028935185185185452,
+        "6": 0.01504629629629628,
+        "7": 0.00983796296296291,
+        "8": -0.03009259259259256,
+        "9": 0.0028935185185185452
+      },
+      "reported_ci": [
+        -0.0189043209876543,
+        0.001930619855967
+      ],
+      "reported_holm_p": 0.3515625,
+      "reported_mean_difference": -0.008423353909465,
+      "reported_sign_flip_p": 0.17578125,
+      "reported_statistics_max_errors": {
+        "CI": 6.006480035569695e-17,
+        "Holm_p": 0.0,
+        "mean": 1.3877787807814457e-17,
+        "sign_flip_p": 0.0
+      },
+      "sd_difference": 0.016921792835964577,
+      "subject_bootstrap_percentile_95ci": [
+        -0.018904320987654297,
+        0.00193061985596706
+      ],
+      "trial_identity_and_truth_match": true
+    },
+    {
+      "all_reported_statistics_reproduced_at_1e_minus_12": true,
+      "bootstrap_draws": 10000,
+      "bootstrap_seed": 20260926,
+      "candidate": "Q13-E005/Q9_SHARED_SOURCE_SESSION_E",
+      "contrast": "Q9_MU_BETA_SHARED_1test_minus_0train",
+      "control": "Q13-E005/Q9_SHARED_SOURCE_SESSION_T",
+      "exact_sign_flip_p_exploratory": 0.8515625,
+      "family": "Q13/source_session",
+      "holm_within_family_p_exploratory": 0.8515625,
+      "inference_unit": "person; seeds/subsets averaged within person",
+      "interpretation": "exploratory_predeclared_Q13",
+      "mean_difference": 0.0008359053497942316,
+      "median_difference": 0.004629629629629595,
+      "n_subjects": 9,
+      "per_person_difference": {
+        "1": -0.03125,
+        "2": 0.005208333333333315,
+        "3": -0.02546296296296291,
+        "4": 0.0011574074074073848,
+        "5": -0.001736111111111105,
+        "6": 0.004629629629629595,
+        "7": 0.006944444444444475,
+        "8": 0.02430555555555547,
+        "9": 0.02372685185185186
+      },
+      "reported_ci": [
+        -0.0113811728395061,
+        0.0118328832304526
+      ],
+      "reported_holm_p": 0.8515625,
+      "reported_mean_difference": 0.0008359053497942,
+      "reported_sign_flip_p": 0.8515625,
+      "reported_statistics_max_errors": {
+        "CI": 5.724587470723463e-17,
+        "Holm_p": 0.0,
+        "mean": 3.165870343657673e-17,
+        "sign_flip_p": 0.0
+      },
+      "sd_difference": 0.01895223951704087,
+      "subject_bootstrap_percentile_95ci": [
+        -0.011381172839506157,
+        0.011832883230452647
+      ],
+      "trial_identity_and_truth_match": true
+    },
+    {
+      "all_reported_statistics_reproduced_at_1e_minus_12": true,
+      "bootstrap_draws": 10000,
+      "bootstrap_seed": 20260926,
+      "candidate": "Q13-E001/Q8_FIXED20",
+      "contrast": "Q8_FIXED20_minus_Q8_RAW_CE_REUSE_Q5",
+      "control": "Q5-HISTORICAL/RAW_CE_REUSE",
+      "exact_sign_flip_p_exploratory": 0.1015625,
+      "family": "Q13/selection",
+      "holm_within_family_p_exploratory": 0.15625,
+      "inference_unit": "person; seeds/subsets averaged within person",
+      "interpretation": "historical_cross_run_descriptive",
+      "mean_difference": 0.10268775720164605,
+      "median_difference": 0.008101851851851749,
+      "n_subjects": 9,
+      "per_person_difference": {
+        "1": -0.01851851851851849,
+        "2": 0.06192129629629631,
+        "3": 0.4236111111111111,
+        "4": -0.019097222222222265,
+        "5": 0.0023148148148147973,
+        "6": 0.0,
+        "7": 0.008101851851851749,
+        "8": 0.3530092592592592,
+        "9": 0.11284722222222215
+      },
+      "reported_ci": [
+        0.0095807613168724,
+        0.2162438914609053
+      ],
+      "reported_holm_p": 0.15625,
+      "reported_mean_difference": 0.1026877572016461,
+      "reported_sign_flip_p": 0.1015625,
+      "reported_statistics_max_errors": {
+        "CI": 5.551115123125783e-17,
+        "Holm_p": 0.0,
+        "mean": 4.163336342344337e-17,
+        "sign_flip_p": 0.0
+      },
+      "sd_difference": 0.1682655310668566,
+      "subject_bootstrap_percentile_95ci": [
+        0.009580761316872407,
+        0.21624389146090525
+      ],
+      "trial_identity_and_truth_match": true
+    },
+    {
+      "all_reported_statistics_reproduced_at_1e_minus_12": true,
+      "bootstrap_draws": 10000,
+      "bootstrap_seed": 20260926,
+      "candidate": "Q13-E001/Q9_SHARED_FIXED20",
+      "contrast": "Q9_SHARED_FIXED20_minus_Q9_SHARED_RAW_CE",
+      "control": "Q13-E001/Q9_SHARED_RAW_CE",
+      "exact_sign_flip_p_exploratory": 0.078125,
+      "family": "Q13/selection",
+      "holm_within_family_p_exploratory": 0.15625,
+      "inference_unit": "person; seeds/subsets averaged within person",
+      "interpretation": "exploratory_predeclared_Q13",
+      "mean_difference": 0.03909465020576133,
+      "median_difference": 0.03645833333333337,
+      "n_subjects": 9,
+      "per_person_difference": {
+        "1": 0.03645833333333337,
+        "2": 0.057291666666666685,
+        "3": 0.09722222222222221,
+        "4": -0.02662037037037035,
+        "5": -0.0023148148148147973,
+        "6": -0.0005787037037036646,
+        "7": -0.024884259259259245,
+        "8": 0.14814814814814808,
+        "9": 0.06712962962962965
+      },
+      "reported_ci": [
+        0.0044367283950617,
+        0.076197595164609
+      ],
+      "reported_holm_p": 0.15625,
+      "reported_mean_difference": 0.0390946502057613,
+      "reported_sign_flip_p": 0.078125,
+      "reported_statistics_max_errors": {
+        "CI": 4.9439619065339e-17,
+        "Holm_p": 0.0,
+        "mean": 3.469446951953614e-17,
+        "sign_flip_p": 0.0
+      },
+      "sd_difference": 0.05926213512585072,
+      "subject_bootstrap_percentile_95ci": [
+        0.00443672839506175,
+        0.07619759516460903
+      ],
+      "trial_identity_and_truth_match": true
+    },
+    {
+      "all_reported_statistics_reproduced_at_1e_minus_12": true,
+      "bootstrap_draws": 10000,
+      "bootstrap_seed": 20260926,
+      "candidate": "Q13-E006/Q8_RAW_CE_MATCHED",
+      "contrast": "Q8_E006_RAW_CE_minus_Q8_FIXED20",
+      "control": "Q13-E001/Q8_FIXED20",
+      "exact_sign_flip_p_exploratory": 0.125,
+      "family": "Q13/E006_matched_runtime_amendment",
+      "holm_within_family_p_exploratory": 0.125,
+      "inference_unit": "person; seeds/subsets averaged within person",
+      "interpretation": "exploratory_matched_runtime_schedule",
+      "mean_difference": -0.1006301440329218,
+      "median_difference": 0.0017361111111110494,
+      "n_subjects": 9,
+      "per_person_difference": {
+        "1": 0.02372685185185175,
+        "2": -0.06250000000000003,
+        "3": -0.4236111111111111,
+        "4": 0.014467592592592615,
+        "5": 0.0017361111111111605,
+        "6": 0.0017361111111110494,
+        "7": 0.0034722222222222654,
+        "8": -0.3535879629629629,
+        "9": -0.11111111111111105
+      },
+      "reported_ci": [
+        -0.21528420781893,
+        -0.0067515432098765
+      ],
+      "reported_holm_p": 0.125,
+      "reported_mean_difference": -0.1006301440329218,
+      "reported_sign_flip_p": 0.125,
+      "reported_statistics_max_errors": {
+        "CI": 8.326672684688674e-17,
+        "Holm_p": 0.0,
+        "mean": 0.0,
+        "sign_flip_p": 0.0
+      },
+      "sd_difference": 0.16969652186094586,
+      "subject_bootstrap_percentile_95ci": [
+        -0.21528420781893004,
+        -0.006751543209876584
+      ],
+      "trial_identity_and_truth_match": true
+    },
+    {
+      "bootstrap_draws": 10000,
+      "bootstrap_seed": 20260926,
+      "candidate": "Q13-E001/Q9_SHARED_FIXED20",
+      "contrast": "Q13_shared_fixed20_minus_broad_fixed20",
+      "control": "Q13-E001/Q8_FIXED20",
+      "exact_sign_flip_p_exploratory": 0.99609375,
+      "family": "Q13_descriptive",
+      "inference_unit": "person; seeds/subsets averaged within person",
+      "interpretation": "exploratory",
+      "mean_difference": -0.00012860082304523413,
+      "median_difference": 0.0011574074074074403,
+      "n_subjects": 9,
+      "per_person_difference": {
+        "1": 0.04861111111111116,
+        "2": -0.00752314814814814,
+        "3": -0.03530092592592593,
+        "4": -0.01793981481481477,
+        "5": 0.00520833333333337,
+        "6": 0.006365740740740755,
+        "7": 0.012731481481481566,
+        "8": -0.01446759259259256,
+        "9": 0.0011574074074074403
+      },
+      "sd_difference": 0.023526241210940532,
+      "subject_bootstrap_percentile_95ci": [
+        -0.01356899434156377,
+        0.015432098765432131
+      ],
+      "trial_identity_and_truth_match": true
+    },
+    {
+      "bootstrap_draws": 10000,
+      "bootstrap_seed": 20260926,
+      "candidate": "Q14-E001/MU_BETA_SHARED",
+      "contrast": "Q14_binary_development_shared_minus_broad",
+      "control": "Q14-E001/BROAD_EEGNET",
+      "exact_sign_flip_p_exploratory": 0.21875,
+      "family": "Q14_source_descriptive",
+      "inference_unit": "person; seeds/subsets averaged within person",
+      "interpretation": "exploratory",
+      "mean_difference": -0.00861625514403292,
+      "median_difference": -0.00462962962962965,
+      "n_subjects": 9,
+      "per_person_difference": {
+        "1": -0.02777777777777768,
+        "2": -0.03935185185185186,
+        "3": 0.01967592592592593,
+        "4": -0.00462962962962965,
+        "5": -0.008101851851851749,
+        "6": 0.00462962962962965,
+        "7": -0.0023148148148147696,
+        "8": 0.008101851851851749,
+        "9": -0.0277777777777779
+      },
+      "sd_difference": 0.01933347751599816,
+      "subject_bootstrap_percentile_95ci": [
+        -0.020704732510288062,
+        0.0029578189300411627
+      ],
+      "trial_identity_and_truth_match": true
+    }
+  ],
+  "method": {
+    "BA": "Mean per-class correct/support within each person/model/seed/subset evaluation cell, directly from CSV labels/predictions. No project scoring helper imported.",
+    "Holm": "Step-down within saved Q12 and Q13 families only.",
+    "aggregation": "Average seeds and source subsets within person, then equal-weight people; trial/session/run/seed/subset are nested repeated observations.",
+    "bootstrap": "Resample whole people with frozen seeds/counts: Q12 seed20260924/20000, Q13 seed20260926/10000, Q14 seed20260924/20000.",
+    "classes_binary": [
+      1,
+      2
+    ],
+    "classes_four": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "deterministic_CSP_seed": "The string deterministic identifies one fitted CSP arm, not a fourth random deep-model seed.",
+    "metric_tolerance": 1e-12,
+    "sign_flip": "Enumerate512 sign assignments for9 subject differences; two-sided, exploratory, not exact causal inference under overlapping LOSO source sets."
+  },
+  "new_fits": 0,
+  "new_model_predictions": 0,
+  "old_results_modified": false,
+  "raw_EEG_or_checkpoint_replay": false,
+  "schema_version": 1,
+  "scientific_status_records": [
+    {
+      "n_subjects": 9,
+      "path": "/workspace/cross-subject-mi-eeg/research_runs/Q8-E001/analysis/validation_report.json",
+      "sha256": "167edce7058fcf958176ac6765c92f5827e2330284fcf9e3dff9709a3a21a5aa",
+      "status": "passed"
+    },
+    {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q9-BATCH/validation_report.json",
+      "scientific_validation": "not_performed_by_this_batch_validator",
+      "sha256": "85fd34163ac72a9ff91d1b4ae965e5da2beb0a7a8260bb138adfe3ad26562d21",
+      "status": "passed_orchestration_only"
+    },
+    {
+      "final_fits": 162,
+      "inference_unit": "held_out_subject_after_paired_seed_mean",
+      "inner_fits": 216,
+      "path": "/workspace/cross-subject-mi-eeg/results/Q12-BATCH/scientific_validation.json",
+      "sha256": "739910ee03b008fb374c7b026bbade0dc6b6d8ef0016cda3fac19a071c53e7e6",
+      "status": "passed_scientific_checks"
+    },
+    {
+      "analysis_status": "exploratory_post_Q9_not_independent_confirmation",
+      "checkpoint_replays": 837,
+      "inference_unit": "held_out_subject; seeds and source subsets are repeated measurements",
+      "n_outer_subjects": 9,
+      "new_deep_fits": 837,
+      "path": "/workspace/cross-subject-mi-eeg/results/Q13-BATCH/validation_report.json",
+      "sha256": "3d21dbb98d775a19f8328dc4ad4a5d285c6c4ee18204b22543561c4ee14a0266",
+      "status": "passed",
+      "target_fit_or_selection": false
+    },
+    {
+      "analysis_status": "exploratory_not_independent_confirmation",
+      "checkpoint_replays": 27,
+      "matched_runtime_comparator": "Q13-E001/Q8_FIXED20",
+      "n_held_out_subjects": 9,
+      "new_final_fits": 27,
+      "path": "/workspace/cross-subject-mi-eeg/results/Q13-E006/validation_report.json",
+      "sha256": "ef60b412b8724dd51d648c8bc51e8f74ad5ace470bca93c0f2327ac959dd1ddd",
+      "status": "passed",
+      "target_fit_or_selection": false
+    },
+    {
+      "passed": true,
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/validation_report.json",
+      "sha256": "f96296e2dec3bb45f1eddca2deb0fa4b200f2ab3066f60e4e646232b6e414d53"
+    },
+    {
+      "external_target_fit_count": 0,
+      "n_prediction_rows": 34426,
+      "n_resampled_subjects": 3,
+      "n_subjects": 109,
+      "n_unique_trials": 4918,
+      "n_verified_official_edf_files": 327,
+      "new_inference_rows": 0,
+      "new_model_fits": 0,
+      "passed": true,
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E002R2V1/validation_report.json",
+      "protocol_amended_after_partial_external_execution": true,
+      "sha256": "1ed3959b303c06672257963ef177f8c7ef619bcac01e4a263cfd587e7d9b5320",
+      "status": "portable_independent_external_validation_passed"
+    },
+    {
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-R2BATCH/batch_status.json",
+      "sha256": "20ed51e42bed3bdad1690e379e12e90b32902ce8e0fdc4e41fd57b21684869fb",
+      "status": "failed_stopped"
+    },
+    {
+      "external_target_fit_count": 0,
+      "n_prediction_rows": 34426,
+      "n_resampled_subjects": 3,
+      "n_subjects": 109,
+      "path": "/workspace/cross-subject-mi-eeg/results/Q14-E002R2/external/completion_receipt.json",
+      "sha256": "b3199f751049b10a1a8b6751cbbab9d4722b4b91602e119c02ec2decdf4fd7b2",
+      "status": "all_109_subjects_inferred_under_r2_amendment"
+    }
+  ],
+  "scope": "Q8/Q9/Q12/Q13/Q14; Q15 excluded; Q5 read only as the explicitly reused Q13 historical comparator",
+  "status": "independent_saved_CSV_numbers_complete"
+}

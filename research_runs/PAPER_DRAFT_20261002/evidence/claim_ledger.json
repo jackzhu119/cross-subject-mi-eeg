@@ -1,0 +1,67 @@
+[
+  {
+    "claim": "Mean-loss/rank mean four-class BA",
+    "values_percent": [
+      33.71913580246913,
+      42.66975308641975
+    ],
+    "inputs": [
+      "results/Q5-E001/subject_seed_metrics.csv",
+      "research_runs/Q8-E001/results/subject_seed_metrics.csv"
+    ],
+    "status": "exploratory nine-person development"
+  },
+  {
+    "claim": "Rank minus CE CI",
+    "interval_pp": [
+      1.0480967078189296,
+      19.95884773662551
+    ],
+    "bootstrap_draws": 20000,
+    "seed": 20260923,
+    "input": "research_runs/Q8-E001/analysis/Q5_vs_Q8_paired_statistics.json",
+    "note": "Preserve archived nine-person sign sensitivity; conventional tie-excluding result separate"
+  },
+  {
+    "claim": "Shared minus internal broad CI",
+    "interval_pp": [
+      -3.20859053497942,
+      1.4146090534979399
+    ],
+    "bootstrap_draws": 20000,
+    "seed": 20260924,
+    "input": "results/Q10-V001/paired_contrasts.csv"
+  },
+  {
+    "claim": "Fixed20 minus matched historical CE schedule",
+    "difference_pp": 10.063014403292179,
+    "interval_pp": [
+      0.67515432098765,
+      21.528420781893
+    ],
+    "sign_flip_p": 0.125,
+    "bootstrap_draws": 10000,
+    "seed": 20260926,
+    "input": "results/Q13-E006/postrun_statistics/paired_contrasts.csv"
+  },
+  {
+    "claim": "External frozen binary primary",
+    "difference_pp": 0.5732962069873878,
+    "interval_pp": [
+      -0.09668274012807707,
+      1.2415551025224094
+    ],
+    "sign_test_p": 0.0644635919894938,
+    "bootstrap_draws": 20000,
+    "seed": 20260924,
+    "tie_rule": "Exact-zero differences excluded; numerical-tolerance sensitivity separately disclosed",
+    "input": "results/Q14-E002R2V1/validation_report.json",
+    "status": "Interval spans zero; no superiority established"
+  },
+  {
+    "claim": "Source-count durations",
+    "fixed_epochs": 20,
+    "input": "results/Q13-E004/Q8_SRC2/run_config.json",
+    "note": "All k counts fixed20; two single-session conditions have equal2304-trial720-update budgets"
+  }
+]

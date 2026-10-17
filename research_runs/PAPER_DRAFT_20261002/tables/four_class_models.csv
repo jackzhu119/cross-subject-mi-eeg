@@ -1,0 +1,14 @@
+label,path,mean_ba,subject_sd
+Q5 mean CE,results/Q5-E001/subject_seed_metrics.csv,0.33719135802469136,0.11583871721119608
+Q6 source normalization,research_runs/Q6-E001/results/subject_seed_metrics.csv,0.37930812757201643,0.15679376167236175
+Q8 mean rank,research_runs/Q8-E001/results/subject_seed_metrics.csv,0.42669753086419754,0.1604358825705619
+Q9 8-30 Hz,results/Q9-E001/MID_8_30/per_subject_metrics.csv,0.4455375514403292,0.17171574481304577
+Q9 mu only,results/Q9-E001/MU_8_13/per_subject_metrics.csv,0.4329989711934156,0.162225207420268
+Q9 beta only,results/Q9-E001/BETA_13_30/per_subject_metrics.csv,0.3153292181069959,0.1004627981374641
+Q9 shared mu/beta,results/Q9-E001/MU_BETA_SHARED/per_subject_metrics.csv,0.421875,0.14095445138249615
+Q10 CSP8 + EEGNet,results/Q10-E001/MU_BETA_CSP8_EEGNET/per_subject_metrics.csv,0.41480195473251025,0.16036274801955833
+Q10 PCA8 + EEGNet,results/Q10-E001/MU_BETA_PCA8_EEGNET/per_subject_metrics.csv,0.42058899176954734,0.1550504197045536
+Q11 capacity-matched broad,results/Q11-E001/BROAD_CAPACITY_MATCHED/per_subject_metrics.csv,0.4219393004115226,0.14051315748383975
+Q11 independent two-band,results/Q11-E001/TWO_BAND_INDEPENDENT/per_subject_metrics.csv,0.4299125514403292,0.1737801656764491
+Q11 early stack,results/Q11-E001/TWO_BAND_EARLY_STACK/per_subject_metrics.csv,0.42656893004115226,0.16230587106158384
+Q11 four-band shared,results/Q11-E001/FOUR_BAND_SHARED/per_subject_metrics.csv,0.3980195473251029,0.11580755369661205
