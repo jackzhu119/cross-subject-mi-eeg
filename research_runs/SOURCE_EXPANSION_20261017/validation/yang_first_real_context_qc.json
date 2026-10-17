@@ -1,0 +1,97 @@
+{
+  "status": "PASS_ONE_REAL_YANG_CONTEXT",
+  "archive": {
+    "archive_url": "https://ndownloader.figshare.com/files/51001884",
+    "archive_bytes": 65630556299,
+    "central_directory_offset": 65630214467,
+    "central_directory_bytes": 341734,
+    "central_directory_sha256": "cecd7ea0895da6ef85f01405960f4844c42d788ad33186b1f3fca91744d6874a",
+    "member_count": 1944,
+    "eocd_offset": 65630556277
+  },
+  "member": {
+    "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-001/ses-01/eeg/data.bdf",
+    "bytes": 432016640,
+    "compressed_bytes": 263156918,
+    "crc32": "e4e207d1",
+    "header_offset": 8721885378,
+    "compression": 8
+  },
+  "partial_member_only": true,
+  "member_crc32_verified": false,
+  "whole_archive_md5_verified": false,
+  "full_native_file_constructor_validation_executed": false,
+  "production_NativeReader_context_method_executed": true,
+  "production_transform_native_context_executed": true,
+  "record_access_adapter": "actual seven original records, translated original indices; no synthetic signal samples",
+  "retained_original_record_span_half_open": [
+    231,
+    238
+  ],
+  "retained_record_bytes_in_memory": 1344000,
+  "retained_raw_record_sha256": "39304e294b33c1d26c404e09ba484e44337dc00aa63899e6c1638da3580168ad",
+  "header_sha256": "8c8ef89c41f625bac2b63eaa730e64f6a5d68e375a582e0c7168b9bba51f818f",
+  "signal_start_date_time": "20.03.1913.53.10",
+  "marker_description": "1",
+  "marker_sample_1000hz": 231965,
+  "native_context_half_open_samples": [
+    231965,
+    237965
+  ],
+  "context_relative_to_marker_seconds": [
+    0,
+    6
+  ],
+  "crop_relative_to_marker_seconds": [
+    2,
+    4
+  ],
+  "marker_anchor_semantics_verified": false,
+  "context_shape": [
+    18,
+    6000
+  ],
+  "processed_shape": [
+    3,
+    18,
+    320
+  ],
+  "context_native_units": "unresolved original ?V header calibrated numeric",
+  "processed_units": "dimensionless after same-trial broad RMS normalization",
+  "independent_int_from_bytes_calibration_max_abs_diff": 0.0,
+  "same_positive_scale_invariance_test_factor": 1e-09,
+  "same_positive_scale_invariance_processed_max_abs_diff": 1.1920928955078125e-07,
+  "context_channel_ptp_native_numeric": [
+    84.5789959775866,
+    139.20665617025224,
+    67.41285725909984,
+    105.18730313703418,
+    113.01041323004756,
+    106.48370423814049,
+    195.8906767303124,
+    139.6089875465259,
+    71.30206056253519,
+    48.32446863199584,
+    58.650973954820074,
+    105.90255891700508,
+    122.5769592867,
+    79.84042643551948,
+    48.41387560451403,
+    64.59653762553353,
+    101.02987891610246,
+    91.6421468044282
+  ],
+  "native_broad_rms": 1.2429916077786802,
+  "processed_broad_rms": 1.0000000014704873,
+  "context_array_sha256": "e4505972ec5ce0ac0157a212ee31453ef21c978d1db43f4484aaf7665d1e6c17",
+  "processed_array_sha256": "2782bbf820541878c9a83260c9a198ff82fe0022ee3d71de877f2904fbfe061f",
+  "output_file": "yang_first_real_context.npz",
+  "output_sha256": "ee6528460ee516c146e7a8c90de11cadcff653148b02b413273fa2826557f9d1",
+  "filter_bank_sha256": "af07f2822e9b5a15a0eb42a5bcd57edc2be49a0e1fc318ac10fb460d41d2f0a1",
+  "data_module_sha256": "d4d166e6cc9d5f674f65a3227dfa02b158b9ce8b5bcdb17b8b5d7a9d4f459ba1",
+  "range_module_sha256": "d21507a7ea3dffda4a48ed94900e2ec85519659a0c5378b15c3052ab24a1f0a3",
+  "network_successful_range_bytes": 32237638,
+  "http_range_requests": 12,
+  "tested_population_scope": "one trial in source 2C subject001/session01 only; no target data or scores",
+  "whole_dataset_or_training_validation": false
+}

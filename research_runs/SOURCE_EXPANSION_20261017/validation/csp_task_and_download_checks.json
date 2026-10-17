@@ -1,0 +1,46 @@
+{
+  "status": "PASS",
+  "tests_run": 8,
+  "errors": 0,
+  "failures": 0,
+  "python_executable": "/tmp/paper1-clean-cpu-env/bin/python",
+  "python_version": "3.12.12",
+  "versions": {
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "sklearn": "1.8.0",
+    "torch": "2.8.0+cpu"
+  },
+  "coverage": [
+    "nine_fixed_source_conditions",
+    "resume_without_refitting_or_rewriting_models",
+    "changed_source_input_rejected_before_fit",
+    "missing_or_changed_model_rejected",
+    "freeze_hash_and_execution_identity_rejected",
+    "unmocked_missing_source_freeze_blocks_prediction",
+    "synthetic_external_complete_paired_grid_and_separate_descriptive_summary",
+    "conventional_model_gate_still_enforced_with_neural_gate_mocked",
+    "BNCI_dynamic_verification_receipt_leaves_manifest_bytes_and_hash_unchanged",
+    "Yang_dynamic_receipt_fields_leave_manifest_bytes_and_hash_unchanged"
+  ],
+  "synthetic_data_only": true,
+  "real_source_fits": 0,
+  "real_target_predictions": 0,
+  "network_requests": 0,
+  "actual_study_training_started": false,
+  "tests_source_counts": [
+    1,
+    2,
+    3
+  ],
+  "tests_target_subjects": 2,
+  "production_dataset_count_validation_claimed": false,
+  "test_neural_freeze_success_path": "mocked only in isolated conventional evaluation; missing-file failure path tested unmocked",
+  "code_fix": "CSP-only report diagnostics explicitly state zero primary/secondary hypothesis tests instead of inherited neural Holm text",
+  "file_sha256": {
+    "p1_csp_task.py": "080f07ed7802a77f4bc0cf08f4c2705b9b154545c572130162bf837d771c5844",
+    "p1_download.py": "661e60203c45dc98b88fb6639e1668baf8743aa00330c207b4b15af53d96b32c",
+    "tests/test_p1_csp_task.py": "0f44af11f85f09a9e9700fc9e36304cab23be5709a800d9c8c83577d5660e8f9",
+    "tests/test_p1_download.py": "5463158089d5b4913bb4e294ad8920545b87350f55245a20c382e1e2b3f90151"
+  }
+}

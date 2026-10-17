@@ -1,0 +1,61 @@
+{
+  "scope": "library-level CPU smoke, synthetic inputs only; expansion runner not tested here",
+  "real_eeg_files_read": 0,
+  "cuda_available": false,
+  "versions": {
+    "torch": "2.8.0+cpu",
+    "torchaudio": "2.8.0+cpu",
+    "mne": "1.13.2",
+    "h5py": "3.16.0",
+    "braindecode": "1.5.1",
+    "skorch": "1.4.0",
+    "einops": "0.8.2",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0"
+  },
+  "official_eegnet_file_sha256": "913d804f17d4501f818031aba7c6dfc4a1ba0d70e27ce6a6961e1cb1b7dc09e5",
+  "checks": [
+    {
+      "name": "BROAD",
+      "parameters": 1714,
+      "input_shape": [
+        8,
+        18,
+        320
+      ],
+      "output_shape": [
+        8,
+        2
+      ],
+      "finite_forward_backward_adam_update": true,
+      "checkpoint_next_update_exactly_matches_uninterrupted": true,
+      "checkpoint_optimizer_moments_exact": true,
+      "eval_state_unchanged": true,
+      "eval_repeat_exact": true,
+      "synthetic_first_loss": 0.7444571256637573,
+      "synthetic_next_loss": 0.6854231357574463
+    },
+    {
+      "name": "MU_BETA_SHARED",
+      "parameters": 1714,
+      "input_shape": [
+        8,
+        2,
+        18,
+        320
+      ],
+      "output_shape": [
+        8,
+        2
+      ],
+      "finite_forward_backward_adam_update": true,
+      "checkpoint_next_update_exactly_matches_uninterrupted": true,
+      "checkpoint_optimizer_moments_exact": true,
+      "eval_state_unchanged": true,
+      "eval_repeat_exact": true,
+      "synthetic_first_loss": 0.7279316782951355,
+      "synthetic_next_loss": 0.6883881688117981
+    }
+  ],
+  "status": "PASS"
+}

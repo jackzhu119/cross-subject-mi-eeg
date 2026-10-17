@@ -1,0 +1,52 @@
+{
+  "status": "PASS_SYNTHETIC_CSP_VALIDATION",
+  "tests_passed": 5,
+  "synthetic_conventional_fits": 2,
+  "real_source_fits": 0,
+  "real_target_predictions": 0,
+  "real_target_scores": 0,
+  "csp_module_sha256": "7fa661b6521b99af512d05d993b59f1d52f50b54b722925a1ab2a765d720814b",
+  "fixed_contract": {
+    "pipeline": "CSP_LDA",
+    "selector": "fixed",
+    "input": "same_fresh18_dimensionless_broad_view_as_neural_pipelines",
+    "channels": 18,
+    "n_times": 320,
+    "fixed_projection": "scipy.linalg.helmert(18,full=False)",
+    "projected_rank": 17,
+    "trial_covariance": "temporally_centered_outer_product_divided_by_its_trace",
+    "class_covariance_weighting": "equal_person_within_cohort_then_equal_cohort",
+    "csp_covariance_shrinkage": 0.1,
+    "csp_shrinkage_target": "trace(class_covariance)/17_times_identity",
+    "generalized_eigenproblem": "C_left_v=lambda_(C_left+C_right)_v",
+    "eigenvector_order": [
+      0,
+      1,
+      15,
+      16
+    ],
+    "feature": "log(component_variance/sum_of_four_selected_component_variances)",
+    "feature_variance_ddof": 0,
+    "lda_solver": "lsqr",
+    "lda_shrinkage": "auto",
+    "lda_priors": [
+      0.5,
+      0.5
+    ],
+    "lda_resample_rows": 8192,
+    "lda_resampling": "exact_equal_cohort_class_then_person_counts_differ_at_most_one_with_replacement",
+    "source_hyperparameter_search": false,
+    "target_fits": 0
+  },
+  "checks": [
+    "known_spatial_variance_signal_and_class_order",
+    "independent_np_cov_equal_person_covariance",
+    "unequal_cohort_size_resampling_balance",
+    "fixed_seed_and_numeric_npz_roundtrip",
+    "source_role_and_external_dataset_rejection"
+  ],
+  "validation_command": "python selftest_csp.py",
+  "numpy_version": "2.3.5",
+  "scipy_version": "1.17.0",
+  "sklearn_version": "1.8.0"
+}

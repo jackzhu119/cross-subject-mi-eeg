@@ -1,0 +1,178 @@
+{
+  "protocol_id": "paper1_source_expansion_18ch_dimensionless_v1_20261017",
+  "study_status": "exploratory_external",
+  "question": "Does adding independent source participants improve external per-person weaker-class recall under a fixed optimization budget?",
+  "source_levels": {
+    "S9": {
+      "bnci": 9,
+      "yang": 0
+    },
+    "S29": {
+      "bnci": 9,
+      "yang": 20
+    },
+    "S60": {
+      "bnci": 9,
+      "yang": 51
+    }
+  },
+  "source_trial_counts_expected": {
+    "S9": 2592,
+    "S29": 14592,
+    "S60": 33192
+  },
+  "source_subject_registry_seed": 20261017,
+  "source_folds": 5,
+  "validation_seeds": [
+    20261021,
+    20261022,
+    20261023
+  ],
+  "final_seeds": [
+    20261013,
+    20261014,
+    20261015
+  ],
+  "pipelines": [
+    "BROAD",
+    "MU_BETA_SHARED"
+  ],
+  "selectors": [
+    "fixed20",
+    "mean_ce",
+    "mean_rank",
+    "mean_ba",
+    "tail_ce",
+    "tail_ba",
+    "mean_min_recall",
+    "tail_min_recall"
+  ],
+  "epochs": 40,
+  "fixed_epoch": 20,
+  "updates_per_epoch": 128,
+  "batch_size": 64,
+  "optimizer": "Adam",
+  "learning_rate": 0.001,
+  "weight_decay": 0.0,
+  "scheduler": null,
+  "amp": false,
+  "sampler": "uniform_dataset_then_subject_then_class_then_trial_with_replacement",
+  "validation_weight": "equal_dataset_then_equal_subject_after_mean_seeds",
+  "tail_probability": 0.3333333333333333,
+  "channels": [
+    "Fz",
+    "FC3",
+    "FC1",
+    "FCz",
+    "FC2",
+    "FC4",
+    "C5",
+    "C3",
+    "C1",
+    "Cz",
+    "C2",
+    "C4",
+    "C6",
+    "CP3",
+    "CP1",
+    "CP2",
+    "CP4",
+    "Pz"
+  ],
+  "sfreq": 160,
+  "n_times": 320,
+  "bands": {
+    "broad": [
+      8,
+      30
+    ],
+    "mu": [
+      8,
+      13
+    ],
+    "beta": [
+      13,
+      30
+    ]
+  },
+  "context_relative_to_mi_onset_s": [
+    -1.5,
+    4.5
+  ],
+  "crop_relative_to_mi_onset_s": [
+    0.5,
+    2.5
+  ],
+  "yang_raw_marker_crop_s": [
+    2.0,
+    4.0
+  ],
+  "yang_raw_marker_context_s": [
+    0.0,
+    6.0
+  ],
+  "yang_trigger_anchor_verified": false,
+  "yang_timing_policy": "MOABB interprets 1/2 as the 1.5-second video cue start, whereas the author's archived preprocessing epochs [0,4] at the markers. The fixed marker-relative [2,4) crop lies within MI under either documented interpretation. The 1.5-second computational anchor is an analysis convention, not a verified physiological MI onset. Exact MI phase is not claimed to match BNCI/Dreyer.",
+  "normalization": "After CAR18, filtering, resampling and cropping: subtract each channel's temporal mean separately in each view; divide all three views by the same trial's broadband RMS over 18 channels and 320 samples. No statistics from other trials or people. Outputs are dimensionless.",
+  "yang_unit_policy": "Raw header declares literal ?V. Accept only the separately verified v5 Neuracle header schema; retain calibrated native physical numerical values without guessing V/uV/nV. The fixed per-trial normalization cancels any shared positive unit multiplier. Absolute physical amplitude is not used or claimed.",
+  "architecture": {
+    "library": "braindecode",
+    "version": "1.5.1",
+    "name": "EEGNet",
+    "F1": 8,
+    "D": 2,
+    "F2": 16,
+    "kernel_length": 64,
+    "drop_prob": 0.25
+  },
+  "target": {
+    "dataset": "dreyer",
+    "version": "NEMAR nm000250 v1.0.5 sourcedata EDF",
+    "subjects": 85,
+    "nominal_subjects": 87,
+    "exclude_provider_global_subjects": [
+      17,
+      41
+    ],
+    "trials_per_subject": 80,
+    "role": "external_evaluation_only",
+    "prior_exposure": "author_reported_uncertain",
+    "independent_confirmation_qualified": false
+  },
+  "target_access": "Raw target download/preprocessing and prediction occur only after all source selectors are frozen and all final source trajectories have completed. Target labels never select epochs, thresholds, normalization, architecture, or hyperparameters.",
+  "primary_comparison": "S60 BROAD tail_min_recall minus S9 BROAD tail_min_recall; external per-person min(recall_left,recall_right), computed separately per seed then averaged across three final seeds",
+  "secondary_holm_family": [
+    "S60 BROAD tail_min_recall minus mean_ba on min_recall",
+    "S60 minus S29 BROAD tail_min_recall on min_recall",
+    "S60 minus S9 BROAD tail_min_recall on balanced_accuracy"
+  ],
+  "bootstrap_replicates": 10000,
+  "bootstrap_seed": 20261016,
+  "nominal_validation_trajectories": 90,
+  "nominal_final_trajectories": 18,
+  "nominal_total_trajectories": 108,
+  "nominal_selected_external_conditions": 144,
+  "nominal_external_prediction_rows": 979200,
+  "limitations": [
+    "A fixed intermediate subset does not estimate all possible subset variability.",
+    "Expansion changes both participant count and available distinct trials, and adds a different acquisition cohort; fixed updates do not identify a pure causal participant-count effect.",
+    "The shared two-band and broadband pipelines share the same backbone family and are not independent architectures.",
+    "Dataset mix is fixed at 50:50 when Yang is present; larger Yang cohorts lower each Yang person's sampling frequency.",
+    "Dreyer has uncertain prior exposure and supports exploratory external validation, not first-use independent confirmation.",
+    "This new 18-channel, dimensionless protocol is not numerically equivalent to historical 19-channel experiments.",
+    "Yang marker timing has conflicting official-code/documentation interpretations. Its fixed marker+[2,4) window lies in both interpreted MI periods, but exact MI-phase matching to BNCI/Dreyer is not established."
+  ],
+  "traditional_baseline": {
+    "enabled": true,
+    "pipeline": "CSP_LDA",
+    "nominal_fits": 9,
+    "csp_components": 4,
+    "covariance_shrinkage": 0.1,
+    "lda_solver": "lsqr",
+    "lda_shrinkage": "auto",
+    "source_balanced_resample_size": 8192,
+    "selector": "fixed",
+    "role": "separate_descriptive_baseline",
+    "nominal_prediction_rows": 61200
+  }
+}

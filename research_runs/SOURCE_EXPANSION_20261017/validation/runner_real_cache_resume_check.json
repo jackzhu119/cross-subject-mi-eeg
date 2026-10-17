@@ -1,0 +1,38 @@
+{
+  "scope": "Real BNCI01 and Dreyer01 cache provenance/reuse and loader verification only; no model training or prediction",
+  "status": "PASS",
+  "checks": [
+    {
+      "dataset": "bnci",
+      "repeated_prepare_same_input_identity": true,
+      "cache_not_rewritten": true,
+      "shape": [
+        288,
+        3,
+        18,
+        320
+      ],
+      "labels": [
+        0,
+        1
+      ],
+      "sha256": "d12f5b70553807781326f78a16ce3666cfdd60b090190c5828bd383e429957b1"
+    },
+    {
+      "dataset": "dreyer",
+      "repeated_prepare_same_input_identity": true,
+      "cache_not_rewritten": true,
+      "shape": [
+        80,
+        3,
+        18,
+        320
+      ],
+      "labels": [
+        0,
+        1
+      ],
+      "sha256": "af2aa31db864c7f88c26bd7e3d31403af3f1cb93de50237a9601e30762a43cc3"
+    }
+  ]
+}

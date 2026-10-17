@@ -1,0 +1,632 @@
+{
+  "schema_version": 1,
+  "profile_id": "P1_EXPANSION_FRESH18_DIMENSIONLESS_V1",
+  "channels": [
+    "Fz",
+    "FC3",
+    "FC1",
+    "FCz",
+    "FC2",
+    "FC4",
+    "C5",
+    "C3",
+    "C1",
+    "Cz",
+    "C2",
+    "C4",
+    "C6",
+    "CP3",
+    "CP1",
+    "CP2",
+    "CP4",
+    "Pz"
+  ],
+  "view_order": [
+    "broad",
+    "mu",
+    "beta"
+  ],
+  "rate_hz": 160,
+  "context_half_open_s": [
+    -1.5,
+    4.5
+  ],
+  "crop_half_open_s": [
+    0.5,
+    2.5
+  ],
+  "padtype": "odd",
+  "padlen": 27,
+  "reference": "common_average_actual18",
+  "prototype_order": 4,
+  "normalization": {
+    "scope": "single_trial_only_no_cross_trial_or_subject_statistics",
+    "center": "subtract_each_view_each_channel_temporal_mean_after_crop",
+    "scale": "same_trial_broad_view_root_mean_square_over_18_channels_and_320_samples",
+    "apply_scale_to": [
+      "broad",
+      "mu",
+      "beta"
+    ],
+    "epsilon": null,
+    "zero_or_nonfinite_rms": "fail",
+    "output_unit": "dimensionless"
+  },
+  "numpy_version": "2.3.5",
+  "scipy_version": "1.17.0",
+  "rates": {
+    "250": {
+      "broad": {
+        "sos_hex": [
+          [
+            "0x1.97e2286b854fdp-9",
+            "0x1.97e2286b854fdp-8",
+            "0x1.97e2286b854fdp-9",
+            "0x1.0000000000000p+0",
+            "-0x1.446d539c2ee0fp+0",
+            "0x1.f9a3df341026ep-2"
+          ],
+          [
+            "0x1.0000000000000p+0",
+            "0x1.0000000000000p+1",
+            "0x1.0000000000000p+0",
+            "0x1.0000000000000p+0",
+            "-0x1.a3150759c3662p+0",
+            "0x1.6767b0317f984p-1"
+          ],
+          [
+            "0x1.0000000000000p+0",
+            "-0x1.0000000000000p+1",
+            "0x1.0000000000000p+0",
+            "0x1.0000000000000p+0",
+            "-0x1.49500267db122p+0",
+            "0x1.76ad58927ba40p-1"
+          ],
+          [
+            "0x1.0000000000000p+0",
+            "-0x1.0000000000000p+1",
+            "0x1.0000000000000p+0",
+            "0x1.0000000000000p+0",
+            "-0x1.de4ad60436d1ep+0",
+            "0x1.d17cf2d1c3fe4p-1"
+          ]
+        ],
+        "zi_hex": [
+          [
+            "0x1.a8b7bbf425616p-5",
+            "-0x1.89a1f54d5134fp-6"
+          ],
+          [
+            "0x1.aa5f0e85a1f62p+1",
+            "-0x1.293347d7269f8p+1"
+          ],
+          [
+            "-0x1.b167e5ff8d6d0p+1",
+            "0x1.b167e5ff8d6d0p+1"
+          ],
+          [
+            "-0x0.0p+0",
+            "0x0.0p+0"
+          ]
+        ],
+        "sos_sha256": "10166c009ce4e4ef400181f4cdd1d72a6857fa022979459b7f24015abfdb58b1",
+        "zi_sha256": "7854438b379d744ebe493103e3bf57e17c513e95b398dbc8ebc8f42dc76a0c15"
+      },
+      "mu": {
+        "sos_hex": [
+          [
+            "0x1.be1043005936cp-17",
+            "0x1.be1043005936cp-16",
+            "0x1.be1043005936cp-17",
+            "0x1.0000000000000p+0",
+            "-0x1.ce58c91a8a7ddp+0",
+            "0x1.c2d21f8ea9ac8p-1"
+          ],
+          [
+            "0x1.0000000000000p+0",
+            "0x1.0000000000000p+1",
+            "0x1.0000000000000p+0",
+            "0x1.0000000000000p+0",
+            "-0x1.d9435a5ad7fddp+0",
+            "0x1.cccb2b521eed4p-1"
+          ],
+          [
+            "0x1.0000000000000p+0",
+            "-0x1.0000000000000p+1",
+            "0x1.0000000000000p+0",
+            "0x1.0000000000000p+0",
+            "-0x1.d808aba469d93p+0",
+            "0x1.e2f2a43b96cf8p-1"
+          ],
+          [
+            "0x1.0000000000000p+0",
+            "-0x1.0000000000000p+1",
+            "0x1.0000000000000p+0",
+            "0x1.0000000000000p+0",
+            "-0x1.ec140f7abf577p+0",
+            "0x1.ed1d456d36162p-1"
+          ]
+        ],
+        "zi_hex": [
+          [
+            "0x1.6f68f19023c86p-11",
+            "-0x1.42acd16030e9ep-11"
+          ],
+          [
+            "0x1.c23beaa535e5cp-5",
+            "-0x1.949eb86a81994p-5"
+          ],
+          [
+            "-0x1.c8156f6fa67a6p-5",
+            "0x1.c8156f6fa67a6p-5"
+          ],
+          [
+            "-0x0.0p+0",
+            "0x0.0p+0"
+          ]
+        ],
+        "sos_sha256": "00a49b443deca46cccde3b1ee0495c4d8ae906646175628ae6c5205758059a0c",
+        "zi_sha256": "6a197eaf27bf51055aadb102c0f42811e759cbbe1c089d1cd59684e0b8ae08a3"
+      },
+      "beta": {
+        "sos_hex": [
+          [
+            "0x1.4a8ee0a717423p-10",
+            "0x1.4a8ee0a717423p-9",
+            "0x1.4a8ee0a717423p-10",
+            "0x1.0000000000000p+0",
+            "-0x1.578a3658b4954p+0",
+            "0x1.3fa31ae7d88d0p-1"
+          ],
+          [
+            "0x1.0000000000000p+0",
+            "0x1.0000000000000p+1",
+            "0x1.0000000000000p+0",
+            "0x1.0000000000000p+0",
+            "-0x1.9168c22f0d867p+0",
+            "0x1.6e076f174d8bap-1"
+          ],
+          [
+            "0x1.0000000000000p+0",
+            "-0x1.0000000000000p+1",
+            "0x1.0000000000000p+0",
+            "0x1.0000000000000p+0",
+            "-0x1.56ce1fd6a19f0p+0",
+            "0x1.9d04d2b420a70p-1"
+          ],
+          [
+            "0x1.0000000000000p+0",
+            "-0x1.0000000000000p+1",
+            "0x1.0000000000000p+0",
+            "0x1.0000000000000p+0",
+            "-0x1.cb60a3e6386c0p+0",
+            "0x1.ccf55141dd19ap-1"
+          ]
+        ],
+        "zi_hex": [
+          [
+            "0x1.10096424b343cp-6",
+            "-0x1.4422d4a160b5dp-7"
+          ],
+          [
+            "0x1.dfd7d46e5aefap-2",
+            "-0x1.51d316d39685bp-2"
+          ],
+          [
+            "-0x1.f222f9914d3b0p-2",
+            "0x1.f222f9914d3b0p-2"
+          ],
+          [
+            "-0x0.0p+0",
+            "0x0.0p+0"
+          ]
+        ],
+        "sos_sha256": "37ca0d4fc05f683a24e1646872f31fbf01c10e623a0fa7d74c425256b3e5bf33",
+        "zi_sha256": "672a5ab2784e1b395aee496b0e7f8e3c68d3bee48ed1befd7e218185b287ef8c"
+      }
+    },
+    "512": {
+      "broad": {
+        "sos_hex": [
+          [
+            "0x1.f4d50b1ca348ap-13",
+            "0x1.f4d50b1ca348ap-12",
+            "0x1.f4d50b1ca348ap-13",
+            "0x1.0000000000000p+0",
+            "-0x1.a78f94be98114p+0",
+            "0x1.6e8bd2c971825p-1"
+          ],
+          [
+            "0x1.0000000000000p+0",
+            "0x1.0000000000000p+1",
+            "0x1.0000000000000p+0",
+            "0x1.0000000000000p+0",
+            "-0x1.d3e172985e278p+0",
+            "0x1.b066397c8cf39p-1"
+          ],
+          [
+            "0x1.0000000000000p+0",
+            "-0x1.0000000000000p+1",
+            "0x1.0000000000000p+0",
+            "0x1.0000000000000p+0",
+            "-0x1.bc61577c85debp+0",
+            "0x1.b4b923dae1de4p-1"
+          ],
+          [
+            "0x1.0000000000000p+0",
+            "-0x1.0000000000000p+1",
+            "0x1.0000000000000p+0",
+            "0x1.0000000000000p+0",
+            "-0x1.f1f979a04cda6p+0",
+            "0x1.e9119e9bb14f1p-1"
+          ]
+        ],
+        "zi_hex": [
+          [
+            "0x1.f62df2a196c46p-7",
+            "-0x1.654adcc0bda79p-7"
+          ],
+          [
+            "0x1.d657fc727005dp+1",
+            "-0x1.8ce8daf783d59p+1"
+          ],
+          [
+            "-0x1.d855fdb93e0e0p+1",
+            "0x1.d855fdb93e0e0p+1"
+          ],
+          [
+            "-0x0.0p+0",
+            "0x0.0p+0"
+          ]
+        ],
+        "sos_sha256": "f4f16f8ce644ff11cbe1010612a31aa2b92d1932155f631c22775f6acae56f9f",
+        "zi_sha256": "f706f8f265020c7c9205bfb2157babd66eb47e52c6b2dbc49b26a584eb333cc0"
+      },
+      "mu": {
+        "sos_hex": [
+          [
+            "0x1.b7885479996c9p-21",
+            "0x1.b7885479996c9p-20",
+            "0x1.b7885479996c9p-21",
+            "0x1.0000000000000p+0",
+            "-0x1.ebdf5bc79790dp+0",
+            "0x1.e128dc359a813p-1"
+          ],
+          [
+            "0x1.0000000000000p+0",
+            "0x1.0000000000000p+1",
+            "0x1.0000000000000p+0",
+            "0x1.0000000000000p+0",
+            "-0x1.eff9acd60efffp+0",
+            "0x1.e665569abf39bp-1"
+          ],
+          [
+            "0x1.0000000000000p+0",
+            "-0x1.0000000000000p+1",
+            "0x1.0000000000000p+0",
+            "0x1.0000000000000p+0",
+            "-0x1.f293865edbeabp+0",
+            "0x1.f18a2574c884fp-1"
+          ],
+          [
+            "0x1.0000000000000p+0",
+            "-0x1.0000000000000p+1",
+            "0x1.0000000000000p+0",
+            "0x1.0000000000000p+0",
+            "-0x1.f8d4c0b236cb9p+0",
+            "0x1.f6b8377d35997p-1"
+          ]
+        ],
+        "zi_hex": [
+          [
+            "0x1.73c5b9406b553p-13",
+            "-0x1.5d467233f374dp-13"
+          ],
+          [
+            "0x1.ce1fb48673495p-5",
+            "-0x1.b6f0e257c9359p-5"
+          ],
+          [
+            "-0x1.cf9531c808314p-5",
+            "0x1.cf9531c808314p-5"
+          ],
+          [
+            "-0x0.0p+0",
+            "0x0.0p+0"
+          ]
+        ],
+        "sos_sha256": "84bba9dc0f0f8154d943a515084aa992d87f7e387ba9be9b92751ec730bd544c",
+        "zi_sha256": "1b3855f2a5eda2a0cedaaf0c2bb923870ed599c440d80ee5aaf8a1d59e8ea421"
+      },
+      "beta": {
+        "sos_hex": [
+          [
+            "0x1.7f68513413cb9p-14",
+            "0x1.7f68513413cb9p-13",
+            "0x1.7f68513413cb9p-14",
+            "0x1.0000000000000p+0",
+            "-0x1.b8ad377a70564p+0",
+            "0x1.97d0433df57eap-1"
+          ],
+          [
+            "0x1.0000000000000p+0",
+            "0x1.0000000000000p+1",
+            "0x1.0000000000000p+0",
+            "0x1.0000000000000p+0",
+            "-0x1.d06c336fb1505p+0",
+            "0x1.b4516a5b2a43bp-1"
+          ],
+          [
+            "0x1.0000000000000p+0",
+            "-0x1.0000000000000p+1",
+            "0x1.0000000000000p+0",
+            "0x1.0000000000000p+0",
+            "-0x1.c6ba5584ad9cfp+0",
+            "0x1.cb5802282dfa0p-1"
+          ],
+          [
+            "0x1.0000000000000p+0",
+            "-0x1.0000000000000p+1",
+            "0x1.0000000000000p+0",
+            "0x1.0000000000000p+0",
+            "-0x1.ecc1c32377c26p+0",
+            "0x1.e6df325d41b64p-1"
+          ]
+        ],
+        "zi_hex": [
+          [
+            "0x1.3903ca500dfadp-8",
+            "-0x1.f03384720a26bp-9"
+          ],
+          [
+            "0x1.039f6c3ff2d26p-1",
+            "-0x1.b9c177bab7368p-2"
+          ],
+          [
+            "-0x1.061d6f171c8f5p-1",
+            "0x1.061d6f171c8f5p-1"
+          ],
+          [
+            "-0x0.0p+0",
+            "0x0.0p+0"
+          ]
+        ],
+        "sos_sha256": "15ea441d0b154d97ced0fa437fdecb827198ea7fdd1e04dd6a2aae27889de28e",
+        "zi_sha256": "8848bccfd990667a54d75b3eb616e804b86d36961e300bcfeb77743698731bc8"
+      }
+    },
+    "1000": {
+      "broad": {
+        "sos_hex": [
+          [
+            "0x1.4190cfd4e3481p-16",
+            "0x1.4190cfd4e3481p-15",
+            "0x1.4190cfd4e3481p-16",
+            "0x1.0000000000000p+0",
+            "-0x1.d394ca00b6043p+0",
+            "0x1.affe0333051b1p-1"
+          ],
+          [
+            "0x1.0000000000000p+0",
+            "0x1.0000000000000p+1",
+            "0x1.0000000000000p+0",
+            "0x1.0000000000000p+0",
+            "-0x1.e9b546744ad7ap+0",
+            "0x1.d5c5e05ecc932p-1"
+          ],
+          [
+            "0x1.0000000000000p+0",
+            "-0x1.0000000000000p+1",
+            "0x1.0000000000000p+0",
+            "0x1.0000000000000p+0",
+            "-0x1.e39963fc62e35p+0",
+            "0x1.d79ba838b6bd5p-1"
+          ],
+          [
+            "0x1.0000000000000p+0",
+            "-0x1.0000000000000p+1",
+            "0x1.0000000000000p+0",
+            "0x1.0000000000000p+0",
+            "-0x1.f9679e8353218p+0",
+            "0x1.f42ae058b4053p-1"
+          ]
+        ],
+        "zi_hex": [
+          [
+            "0x1.2216c852de524p-8",
+            "-0x1.e91fb1be4bd30p-9"
+          ],
+          [
+            "0x1.edeb381b433e7p+1",
+            "-0x1.c522d6af42e82p+1"
+          ],
+          [
+            "-0x1.ee7ce447d49f3p+1",
+            "0x1.ee7ce447d49f2p+1"
+          ],
+          [
+            "-0x0.0p+0",
+            "0x0.0p+0"
+          ]
+        ],
+        "sos_sha256": "02ab2664dba40de59d50def5d81a0a26ffd701415ece6e671490b3c45543b2f1",
+        "zi_sha256": "bab0d49ff5ebc6d9ffabbd0bb6f8de8595ee96d0d1161dd297913800fe7d9b4c"
+      },
+      "mu": {
+        "sos_hex": [
+          [
+            "0x1.f6180a9ad3ec8p-25",
+            "0x1.f6180a9ad3ec8p-24",
+            "0x1.f6180a9ad3ec8p-25",
+            "0x1.0000000000000p+0",
+            "-0x1.f6bb63577d074p+0",
+            "0x1.eff899e5df8ecp-1"
+          ],
+          [
+            "0x1.0000000000000p+0",
+            "0x1.0000000000000p+1",
+            "0x1.0000000000000p+0",
+            "0x1.0000000000000p+0",
+            "-0x1.f8830e7d34d7cp+0",
+            "0x1.f2bc45ee9ebb1p-1"
+          ],
+          [
+            "0x1.0000000000000p+0",
+            "-0x1.0000000000000p+1",
+            "0x1.0000000000000p+0",
+            "0x1.0000000000000p+0",
+            "-0x1.faa19b358642fp+0",
+            "0x1.f8897c75eab05p-1"
+          ],
+          [
+            "0x1.0000000000000p+0",
+            "-0x1.0000000000000p+1",
+            "0x1.0000000000000p+0",
+            "0x1.0000000000000p+0",
+            "-0x1.fcf2fb27cc71fp+0",
+            "0x1.fb3b133127c2ap-1"
+          ]
+        ],
+        "zi_hex": [
+          [
+            "0x1.900ae95ccd8aap-15",
+            "-0x1.8380dc24ad9bcp-15"
+          ],
+          [
+            "0x1.d3a40c0ff1ad7p-5",
+            "-0x1.c783edbaee5e8p-5"
+          ],
+          [
+            "-0x1.d4082e2bc97d8p-5",
+            "0x1.d4082e2bc97d8p-5"
+          ],
+          [
+            "-0x0.0p+0",
+            "0x0.0p+0"
+          ]
+        ],
+        "sos_sha256": "fc7b84189a6f08a3b7118e7ba92d7d6173ecc4a433b62bc984bbac6f7da47d8c",
+        "zi_sha256": "dddecb23b67e09053adce1a35665975cafc895b8cdd09394200c0510d363b805"
+      },
+      "beta": {
+        "sos_hex": [
+          [
+            "0x1.dca20f0467927p-18",
+            "0x1.dca20f0467927p-17",
+            "0x1.dca20f0467927p-18",
+            "0x1.0000000000000p+0",
+            "-0x1.de9afe061a3b2p+0",
+            "0x1.c7d74e3d0c1abp-1"
+          ],
+          [
+            "0x1.0000000000000p+0",
+            "0x1.0000000000000p+1",
+            "0x1.0000000000000p+0",
+            "0x1.0000000000000p+0",
+            "-0x1.e952c9b42f771p+0",
+            "0x1.d7f3259b49cdap-1"
+          ],
+          [
+            "0x1.0000000000000p+0",
+            "-0x1.0000000000000p+1",
+            "0x1.0000000000000p+0",
+            "0x1.0000000000000p+0",
+            "-0x1.e9ae73207b362p+0",
+            "0x1.e41f73f214068p-1"
+          ],
+          [
+            "0x1.0000000000000p+0",
+            "-0x1.0000000000000p+1",
+            "0x1.0000000000000p+0",
+            "0x1.0000000000000p+0",
+            "-0x1.f7bd990d2e2cbp+0",
+            "0x1.f307faebcba94p-1"
+          ]
+        ],
+        "zi_hex": [
+          [
+            "0x1.64d73039fdfb7p-10",
+            "-0x1.3d7f02a3d4d08p-10"
+          ],
+          [
+            "0x1.0ddd4d037e06cp-1",
+            "-0x1.f1666a589059ep-2"
+          ],
+          [
+            "-0x1.0e90a6eca288cp-1",
+            "0x1.0e90a6eca288bp-1"
+          ],
+          [
+            "-0x0.0p+0",
+            "0x0.0p+0"
+          ]
+        ],
+        "sos_sha256": "6c00eaa78acb5dd3e09e683acd38b02893919aee0c5957e968ac1ef056f24cbc",
+        "zi_sha256": "9bd50ab7c58cd6a3b2da942ba2b2dbbb81223d66e37bf690778dc1c4bec98a49"
+      }
+    }
+  },
+  "generation_scope": "Coefficient-only new protocol; no EEG or model results used",
+  "resampling": {
+    "method": "scipy.signal.resample_poly",
+    "window": [
+      "kaiser",
+      5.0
+    ],
+    "padtype": "constant",
+    "cval": 0.0
+  },
+  "time_axis": "relative_to_declared_dataset_analysis_anchor",
+  "dataset_timing": {
+    "bnci": {
+      "event_definition": "official_MAT_one_based_trial_start_converted_to_zero_based",
+      "analysis_anchor_offset_from_event_seconds": 2.0,
+      "analysis_anchor_definition": "verified_operational_MI_cue",
+      "trigger_anchor_uncertain": false,
+      "timing_policy": "verified_trial_start_plus_two_seconds_MI_cue",
+      "event_relative_context_half_open_s": [
+        0.5,
+        6.5
+      ],
+      "event_relative_epoch_half_open_s": [
+        2.5,
+        4.5
+      ]
+    },
+    "yang": {
+      "event_definition": "raw_BDF_annotation_1_or_2",
+      "analysis_anchor_offset_from_event_seconds": 1.5,
+      "analysis_anchor_definition": "analysis_reference_only_not_verified_MI_onset",
+      "trigger_anchor_uncertain": true,
+      "timing_policy": "intersection_of_two_documented_interpretations",
+      "event_relative_context_half_open_s": [
+        0.0,
+        6.0
+      ],
+      "event_relative_epoch_half_open_s": [
+        2.0,
+        4.0
+      ],
+      "documented_interpretations": {
+        "MOABB_adapter": "MI_interval_1.5_to_5.5_seconds_after_marker",
+        "author_archive_preprocessed_m": "epochs_0_to_4_seconds_after_marker_no_explicit_shift"
+      },
+      "limitation": "May represent a later MI phase; common absolute MI phase across datasets is not established"
+    },
+    "dreyer": {
+      "event_definition": "native_EDF_annotation_769_or_770",
+      "analysis_anchor_offset_from_event_seconds": 0.0,
+      "analysis_anchor_definition": "verified_operational_MI_cue",
+      "trigger_anchor_uncertain": false,
+      "timing_policy": "native_left_right_class_cue",
+      "event_relative_context_half_open_s": [
+        -1.5,
+        4.5
+      ],
+      "event_relative_epoch_half_open_s": [
+        0.5,
+        2.5
+      ]
+    }
+  }
+}

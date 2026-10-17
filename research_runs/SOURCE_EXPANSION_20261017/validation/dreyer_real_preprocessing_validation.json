@@ -1,0 +1,44 @@
+{
+  "status": "PASS_FRESH18_SUBJECT_INPUTS",
+  "dataset": "Dreyer2023",
+  "subject": "A01",
+  "n_trials": 80,
+  "class_counts": {
+    "left_hand": 40,
+    "right_hand": 40
+  },
+  "shape": [
+    80,
+    3,
+    18,
+    320
+  ],
+  "units": "dimensionless",
+  "timing": {
+    "event_definition": "native_EDF_annotation_769_or_770",
+    "analysis_anchor_offset_from_event_seconds": 0.0,
+    "analysis_anchor_definition": "verified_operational_MI_cue",
+    "trigger_anchor_uncertain": false,
+    "timing_policy": "native_left_right_class_cue",
+    "event_relative_context_half_open_s": [
+      -1.5,
+      4.5
+    ],
+    "event_relative_epoch_half_open_s": [
+      0.5,
+      2.5
+    ]
+  },
+  "X_sha256": "d73f0675a2cfbcc59cdc430c789822c2627ac30290ab5c4d97dc52c1b1ba2a93",
+  "y_sha256": "17aa621dee56cc5d415610ca93bdb79a1bb72956eb3e04f55c98ae25828e177c",
+  "metadata_sha256": "15e9cf721d9f87c4b0d6f88807391ec368591b50f50a0158732a5704745dc5b1",
+  "filter_bank_sha256": "af07f2822e9b5a15a0eb42a5bcd57edc2be49a0e1fc318ac10fb460d41d2f0a1",
+  "data_module_sha256": "d4d166e6cc9d5f674f65a3227dfa02b158b9ce8b5bcdb17b8b5d7a9d4f459ba1",
+  "npz_sha256": "af2aa31db864c7f88c26bd7e3d31403af3f1cb93de50237a9601e30762a43cc3",
+  "npz_bytes": 5157937,
+  "real_native_files_verified": 2,
+  "processed_cache_verified": true,
+  "model_fits": 0,
+  "target_decoder_scores": 0,
+  "elapsed_seconds": 0.818
+}

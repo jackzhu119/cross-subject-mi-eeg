@@ -1,0 +1,44 @@
+{
+  "status": "PASS_FRESH18_SUBJECT_INPUTS",
+  "dataset": "BNCI2014_001",
+  "subject": "BNCI001",
+  "n_trials": 288,
+  "class_counts": {
+    "left_hand": 144,
+    "right_hand": 144
+  },
+  "shape": [
+    288,
+    3,
+    18,
+    320
+  ],
+  "units": "dimensionless",
+  "timing": {
+    "event_definition": "official_MAT_one_based_trial_start_converted_to_zero_based",
+    "analysis_anchor_offset_from_event_seconds": 2.0,
+    "analysis_anchor_definition": "verified_operational_MI_cue",
+    "trigger_anchor_uncertain": false,
+    "timing_policy": "verified_trial_start_plus_two_seconds_MI_cue",
+    "event_relative_context_half_open_s": [
+      0.5,
+      6.5
+    ],
+    "event_relative_epoch_half_open_s": [
+      2.5,
+      4.5
+    ]
+  },
+  "X_sha256": "4763e9d3f30ce78342e0a6461ad3bb231fcf3ec896a6cfee7a006ea537e39b47",
+  "y_sha256": "4022fa480669ce4653b28cc9f5892a76f0da78112557ccfdde49158266b73ccb",
+  "metadata_sha256": "517995574665ee7eb29c381acd10ab9d06795e263464f5bade8f6e74830c7ecb",
+  "filter_bank_sha256": "af07f2822e9b5a15a0eb42a5bcd57edc2be49a0e1fc318ac10fb460d41d2f0a1",
+  "data_module_sha256": "d4d166e6cc9d5f674f65a3227dfa02b158b9ce8b5bcdb17b8b5d7a9d4f459ba1",
+  "npz_sha256": "d12f5b70553807781326f78a16ce3666cfdd60b090190c5828bd383e429957b1",
+  "npz_bytes": 18528480,
+  "real_native_files_verified": 2,
+  "processed_cache_verified": true,
+  "model_fits": 0,
+  "target_decoder_scores": 0,
+  "elapsed_seconds": 3.055
+}

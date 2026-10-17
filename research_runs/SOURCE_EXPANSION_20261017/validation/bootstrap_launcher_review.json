@@ -1,0 +1,22 @@
+{
+  "status": "PASS_LAUNCHER_FLOCK_RELATIVE_PATH",
+  "bootstrap_sha256": "9497eb0d953b2baebf8736e0cc3406f21310143e94e124e9841a2bf01315eaf9",
+  "executed_scope": "original launcher section with harmless FIFO-wait worker stub",
+  "concurrent_launches": 2,
+  "actual_workers": 1,
+  "absolute_root_propagated": "/tmp/paper1-lock-audit-umuuvdz9/relative task root",
+  "lock_held_until_worker_exit": true,
+  "lock_released_after_exit": true,
+  "second_running_check_reported": "Paper1 is already running. Log: /tmp/paper1-lock-audit-umuuvdz9/relative task root/run.log",
+  "gpu_checks_installation_downloads_training_executed": false,
+  "initial_launcher_messages": [
+    [
+      "Started Paper1 installer/trainer in the background (launcher PID 19).\nFollow progress: tail -f /tmp/paper1-lock-audit-umuuvdz9/relative task root/run.log\nResults: /tmp/paper1-lock-audit-umuuvdz9/relative task root/runs/expansion18_v1/paper1_expansion_results.zip\n",
+      ""
+    ],
+    [
+      "Paper1 is already running. Log: /tmp/paper1-lock-audit-umuuvdz9/relative task root/run.log\n",
+      ""
+    ]
+  ]
+}

@@ -1,0 +1,15 @@
+test_changed_source_hash_blocks_before_any_fit (test_p1_csp_task.CSPTaskTests.test_changed_source_hash_blocks_before_any_fit) ... ok
+test_corrupt_model_blocks_evaluation_even_if_neural_gate_mocked (test_p1_csp_task.CSPTaskTests.test_corrupt_model_blocks_evaluation_even_if_neural_gate_mocked) ... ok
+test_missing_and_changed_model_and_freeze_are_rejected (test_p1_csp_task.CSPTaskTests.test_missing_and_changed_model_and_freeze_are_rejected) ... ok
+test_nine_source_fits_and_resume_without_refitting (test_p1_csp_task.CSPTaskTests.test_nine_source_fits_and_resume_without_refitting) ... ok
+test_synthetic_evaluation_is_complete_paired_and_descriptive (test_p1_csp_task.CSPTaskTests.test_synthetic_evaluation_is_complete_paired_and_descriptive) ... ok
+test_unmocked_missing_source_freeze_blocks_before_prediction (test_p1_csp_task.CSPTaskTests.test_unmocked_missing_source_freeze_blocks_before_prediction) ... /tmp/paper1-clean-cpu-env/lib/python3.12/site-packages/braindecode/models/eegpt.py:497: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
+  montage = mne.channels.make_standard_montage("standard_1020")
+ok
+test_bnci_dynamic_verification_time_does_not_change_manifest (test_p1_download.StableDownloadManifestTests.test_bnci_dynamic_verification_time_does_not_change_manifest) ... ok
+test_yang_dynamic_receipt_does_not_change_stable_manifest (test_p1_download.StableDownloadManifestTests.test_yang_dynamic_receipt_does_not_change_stable_manifest) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 1.181s
+
+OK

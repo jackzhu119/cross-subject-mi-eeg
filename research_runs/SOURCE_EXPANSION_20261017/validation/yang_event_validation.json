@@ -1,0 +1,48 @@
+{
+  "status": "PASS_REAL_YANG_EVENT_ADAPTER_ONLY",
+  "source_sha256": "b12154047ed2587adb6f04ac9282576f42246f681e7e777a5ede01253420d80a",
+  "n_class_cues": 200,
+  "class_counts": {
+    "7": 1,
+    "8": 1,
+    "1": 100,
+    "2": 100,
+    "9": 4
+  },
+  "first_cue": {
+    "onset": 231.965,
+    "duration": 0.0,
+    "description": "1"
+  },
+  "last_cue": {
+    "onset": 2221.858,
+    "duration": 0.0,
+    "description": "1"
+  },
+  "timing_policy": {
+    "event_definition": "raw_BDF_annotation_1_or_2",
+    "analysis_anchor_offset_from_event_seconds": 1.5,
+    "analysis_anchor_definition": "analysis_reference_only_not_verified_MI_onset",
+    "trigger_anchor_uncertain": true,
+    "timing_policy": "intersection_of_two_documented_interpretations",
+    "event_relative_context_half_open_s": [
+      0.0,
+      6.0
+    ],
+    "event_relative_epoch_half_open_s": [
+      2.0,
+      4.0
+    ],
+    "documented_interpretations": {
+      "MOABB_adapter": "MI_interval_1.5_to_5.5_seconds_after_marker",
+      "author_archive_preprocessed_m": "epochs_0_to_4_seconds_after_marker_no_explicit_shift"
+    },
+    "limitation": "May represent a later MI phase; common absolute MI phase across datasets is not established"
+  },
+  "first_analysis_anchor_sample": 233465,
+  "event_records_are_not_signal_duration": true,
+  "EEG_signal_read": false,
+  "model_fits": 0,
+  "target_predictions": 0,
+  "data_module_sha256": "d4d166e6cc9d5f674f65a3227dfa02b158b9ce8b5bcdb17b8b5d7a9d4f459ba1"
+}

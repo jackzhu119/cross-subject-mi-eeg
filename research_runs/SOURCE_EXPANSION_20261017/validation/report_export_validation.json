@@ -1,0 +1,185 @@
+{
+  "status": "PASS",
+  "scope": "synthetic_only",
+  "utc": "2026-10-17T11:48:53.585518+00:00",
+  "raw_eeg_read": false,
+  "real_models_fitted": 0,
+  "real_participants_scored": 0,
+  "python": "3.12.12",
+  "interpreter": "/tmp/paper1-clean-cpu-env/bin/python",
+  "system_site_packages": false,
+  "versions": {
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "matplotlib": "3.10.8",
+    "pillow": "13.0.0"
+  },
+  "test_command": [
+    "/tmp/paper1-clean-cpu-env/bin/python",
+    "tests/test_p1_report.py",
+    "-v"
+  ],
+  "test_count": 3,
+  "test_exit_code": 0,
+  "validation_chain": [
+    "deterministic synthetic logits/probabilities",
+    "prediction_metrics",
+    "paired_statistics:48 neural conditions + 3 separate CSP conditions",
+    "render_report",
+    "export_results",
+    "archive integrity and byte-for-byte contents"
+  ],
+  "code_sha256": {
+    "p1_report.py": "79f8385bac7292846199e3275f1a8846848855483a854b7986744fa11dcf4fb3",
+    "p1_runner.py": "57d3501e43f8c43b6cd611b710b4a22f5c17f200a15f0819d2c15ae9f9adbe12",
+    "p1_select.py": "6535f7d60ba7dd802c648bba1c2b41b389ad5b77ab2a50f6448135a16d62a87e",
+    "tests/test_p1_report.py": "6d2a9b6fc0e5d7385ba5d43a9a93f1773fcf179110c5552c9bc666e81f4271c3",
+    "uv.lock": "b5fa4c4a067956a65b65e056f5f38ab27e2675972e45a91ee6bc5ae6f123a807"
+  },
+  "visual_review": {
+    "png_files_seen": [
+      "source_expansion.png",
+      "paired_subject_changes.png"
+    ],
+    "synthetic_watermarks_visible": true,
+    "labels_legible": true,
+    "no_clipping_observed": true
+  },
+  "preview": {
+    "scope": "synthetic_only",
+    "status": "PASS",
+    "real_model_fits": 0,
+    "real_participants_scored": 0,
+    "neural_conditions": 48,
+    "csp_conditions": 3,
+    "synthetic_people": 8,
+    "seeds": [
+      101,
+      202,
+      303
+    ],
+    "neural_prediction_rows": 23040,
+    "csp_prediction_rows": 1440,
+    "csv_row_counts": {
+      "condition_summaries.csv": 144,
+      "comparisons.csv": 4,
+      "per_subject_metrics.csv": 384,
+      "paired_subject_differences.csv": 32,
+      "csp_condition_summaries.csv": 9,
+      "csp_per_subject_metrics.csv": 24
+    },
+    "archive_sha256": "2daf9d008c344b3b5c10401b04e04623789a0a02a2850385aa0359ed997ee70c",
+    "archive_members": [
+      "provenance/SYNTHETIC_ONLY.json",
+      "provenance/synthetic_config.json",
+      "results/REPORT_zh.md",
+      "results/comparisons.csv",
+      "results/condition_summaries.csv",
+      "results/csp_condition_summaries.csv",
+      "results/csp_external_predictions.csv.gz",
+      "results/csp_per_subject_metrics.csv",
+      "results/csp_report.json",
+      "results/csp_subject_seed_metrics.csv",
+      "results/external_predictions.csv.gz",
+      "results/external_subject_seed_metrics.csv",
+      "results/paired_subject_changes.pdf",
+      "results/paired_subject_changes.png",
+      "results/paired_subject_differences.csv",
+      "results/per_subject_metrics.csv",
+      "results/report.json",
+      "results/source_expansion.pdf",
+      "results/source_expansion.png"
+    ],
+    "artifacts": [
+      {
+        "path": "results/REPORT_zh.md",
+        "bytes": 2909,
+        "sha256": "6d7cd0fcc1307ea2e9789dffd88b70ae1585e7e43a5c63b2b797d01481cc5664"
+      },
+      {
+        "path": "results/comparisons.csv",
+        "bytes": 2477,
+        "sha256": "a0e340961fd53aec0cfa1b536737305d21abab9894c8225fc66c4f0022dbd31d"
+      },
+      {
+        "path": "results/condition_summaries.csv",
+        "bytes": 28545,
+        "sha256": "6c68929b0f3324a1c9f0c964618dd4b886b1d05e42344787b8b4ba13ed36a71e"
+      },
+      {
+        "path": "results/csp_condition_summaries.csv",
+        "bytes": 1849,
+        "sha256": "383793af80440a7620b8742eae2ef7b8d309e23b5093791e34d9445438d6c0d3"
+      },
+      {
+        "path": "results/csp_external_predictions.csv.gz",
+        "bytes": 19492,
+        "sha256": "a4fd35f0c3871a7bbc425567f8d7fc8a7d6e386fef02962c899241af33bbe04e"
+      },
+      {
+        "path": "results/csp_per_subject_metrics.csv",
+        "bytes": 4235,
+        "sha256": "49e4b13e73c968d5b1233335e0d3f1bcc2fd22935abbc258de57134674791cb1"
+      },
+      {
+        "path": "results/csp_report.json",
+        "bytes": 15187,
+        "sha256": "cdc0948534428801b9220a71fa6642a6d0abbb7a85cfd599b1b281ae40d34810"
+      },
+      {
+        "path": "results/csp_subject_seed_metrics.csv",
+        "bytes": 12319,
+        "sha256": "c635b0752764d8bec7ef65c9f9ae86854ad69acf9cd7334e2c2b92da6ef33b09"
+      },
+      {
+        "path": "results/external_predictions.csv.gz",
+        "bytes": 394377,
+        "sha256": "7bdbf07bb0ae813cf0b6a2828d64319878d296183a08f78bc8371a7b97600ba6"
+      },
+      {
+        "path": "results/external_subject_seed_metrics.csv",
+        "bytes": 203776,
+        "sha256": "b176b533f40f0a904a4045877d0d8a2ce1b662f9af58956597e86928cbf3d4d8"
+      },
+      {
+        "path": "results/paired_subject_changes.pdf",
+        "bytes": 21904,
+        "sha256": "9481dc32bb279b29dbd8dfa172aa17fe3ada66a9f1e899e738a0cc2d60ee068f"
+      },
+      {
+        "path": "results/paired_subject_changes.png",
+        "bytes": 187613,
+        "sha256": "9fe251694c404c2832846ed84a55e4513be6672f6c367c9bfac479d2e45266ec"
+      },
+      {
+        "path": "results/paired_subject_differences.csv",
+        "bytes": 3067,
+        "sha256": "6f4dc4d085d92929a48939355a65cae3da8463ddb1ad3900edd15d78f806b24d"
+      },
+      {
+        "path": "results/per_subject_metrics.csv",
+        "bytes": 68924,
+        "sha256": "b9da4122e40d74780bc0d3058aa4b1e4d7249250db521ecf4b3ac5b0a7c1b7e9"
+      },
+      {
+        "path": "results/report.json",
+        "bytes": 235322,
+        "sha256": "0dc724145fdca50592dd56f84a1bb4d3ebbdaf6dbe03cc0a8ce99faeeeafce1c"
+      },
+      {
+        "path": "results/source_expansion.pdf",
+        "bytes": 24967,
+        "sha256": "9edcc15ce51f3efeeb67e2f0420e8ad3221f03dc9d34070608c3b48a51b692e4"
+      },
+      {
+        "path": "results/source_expansion.png",
+        "bytes": 275541,
+        "sha256": "731730172f854efd6807f72f9565bb0691f5e3f4fe4e39afe01c2eec3cec0fe4"
+      }
+    ]
+  },
+  "pdf_info": {
+    "source_expansion": "Creator:         Matplotlib v3.10.8, https://matplotlib.org\nProducer:        Matplotlib pdf backend v3.10.8\nCreationDate:    Sat Oct 17 22:48:52 2026 AEDT\nCustom Metadata: no\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           1\nEncrypted:       no\nPage size:       720 x 288 pts\nPage rot:        0\nFile size:       24967 bytes\nOptimized:       no\nPDF version:     1.4\n",
+    "paired_subject_changes": "Creator:         Matplotlib v3.10.8, https://matplotlib.org\nProducer:        Matplotlib pdf backend v3.10.8\nCreationDate:    Sat Oct 17 22:48:53 2026 AEDT\nCustom Metadata: no\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           1\nEncrypted:       no\nPage size:       576 x 288 pts\nPage rot:        0\nFile size:       21904 bytes\nOptimized:       no\nPDF version:     1.4\n"
+  }
+}
