@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "checked_at_utc": "2026-10-18T06:14:01.362802+00:00",
+  "scope": "Two bounded public web metadata reads; no scientific operation or full bibliography redo",
+  "new_reference_number": 21,
+  "primary_source": "https://arxiv.org/abs/2404.15319",
+  "primary_source_status": "READ_SUCCESS",
+  "verified_metadata": {
+    "title": "The largest EEG-based BCI reproducibility study for open science: the MOABB benchmark",
+    "authors": [
+      "Sylvain Chevallier",
+      "Igor Carrara",
+      "Bruno Aristimunha",
+      "Pierre Guetschel",
+      "Sara Sedlar",
+      "Bruna Lopes",
+      "Sebastien Velut",
+      "Salim Khazem",
+      "Thomas Moreau"
+    ],
+    "submitted": "2024-04-03",
+    "version": "v1",
+    "arxiv_id": "2404.15319",
+    "doi": "10.48550/arXiv.2404.15319",
+    "publication_status_used": "arXiv preprint; no journal publication claim"
+  },
+  "abstract_supported_scope": {
+    "pipelines": 30,
+    "datasets": 36,
+    "paradigms": [
+      "motor imagery",
+      "P300",
+      "SSVEP"
+    ],
+    "supported_context": "Benchmark reports strong Riemannian spatial-covariance results and data-volume requirements for competitive deep learning.",
+    "not_supported": [
+      "universal 20-person sufficiency",
+      "algorithm-independent causal source-size effect",
+      "a new source-count threshold in this manuscript"
+    ]
+  },
+  "publisher_check": {
+    "operation": "one domain-restricted search for formal JNE/DOI metadata",
+    "result": "iopscience.iop.org explicitly blocked by robots; non-retryable, no retry or bypass",
+    "journal_metadata_verified": false
+  },
+  "recommended_citation_sentence": "Large-scale MOABB benchmarking likewise identifies training-data availability and strong conventional approaches as relevant to decoder comparisons [21].",
+  "references_1_to_20_semantically_unchanged": true,
+  "prior20_canonical_sha256": "b5573483b865eccbd41a248ac9f01ea5d57b180289e8312dfcd43554d49c0c2a",
+  "license_metadata": "Not rechecked in this bounded task; parent reports an independent agent completed official Yang v5/Dreyer license checks."
+}

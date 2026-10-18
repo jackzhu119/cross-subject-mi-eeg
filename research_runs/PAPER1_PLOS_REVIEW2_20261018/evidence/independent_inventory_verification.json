@@ -1,0 +1,2426 @@
+{
+  "schema_version": 1,
+  "review_id": "paper1_review2_complete_inventory_independent_verification_20261018",
+  "checked_at_utc": "2026-10-18T06:10:27.270414+00:00",
+  "scope": "Read-only independent mean/difference, identity, selector/update and complete-cell coverage checks of the already declared 68-row descriptive inventory and fixed20 seed tables; no inference or new hypothesis tests.",
+  "status": "PASS",
+  "checks_count": 602,
+  "failures_count": 0,
+  "checks": [
+    {
+      "id": "plan_sha",
+      "passed": true
+    },
+    {
+      "id": "script_sha",
+      "passed": true
+    },
+    {
+      "id": "archive_identity",
+      "passed": true
+    },
+    {
+      "id": "member_results/per_subject_metrics.csv",
+      "passed": true
+    },
+    {
+      "id": "member_results/csp_per_subject_metrics.csv",
+      "passed": true
+    },
+    {
+      "id": "member_results/external_subject_seed_metrics.csv",
+      "passed": true
+    },
+    {
+      "id": "member_results/selection_freeze.json",
+      "passed": true
+    },
+    {
+      "id": "member_provenance/study.json",
+      "passed": true
+    },
+    {
+      "id": "updates_per_epoch128",
+      "passed": true
+    },
+    {
+      "id": "inventory68_rows",
+      "passed": true
+    },
+    {
+      "id": "means36_rows",
+      "passed": true
+    },
+    {
+      "id": "diffs24_rows",
+      "passed": true
+    },
+    {
+      "id": "unique_('S29', 'S9', 'BROAD', 'fixed20', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'BROAD', 'fixed20', 'ba')_S29",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'BROAD', 'fixed20', 'ba')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S29', 'S9', 'BROAD', 'fixed20', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S29', 'S9', 'BROAD', 'fixed20', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S29', 'S9', 'BROAD', 'fixed20', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S29', 'S9', 'BROAD', 'fixed20', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S29', 'S9', 'BROAD', 'fixed20', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'BROAD', 'fixed20', 'min_recall')_S29",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'BROAD', 'fixed20', 'min_recall')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S29', 'S9', 'BROAD', 'fixed20', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S29', 'S9', 'BROAD', 'fixed20', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S29', 'S9', 'BROAD', 'fixed20', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S29', 'S9', 'BROAD', 'fixed20', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S29', 'S9', 'BROAD', 'mean_ce', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'BROAD', 'mean_ce', 'ba')_S29",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'BROAD', 'mean_ce', 'ba')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S29', 'S9', 'BROAD', 'mean_ce', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S29', 'S9', 'BROAD', 'mean_ce', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S29', 'S9', 'BROAD', 'mean_ce', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S29', 'S9', 'BROAD', 'mean_ce', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S29', 'S9', 'BROAD', 'mean_ce', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'BROAD', 'mean_ce', 'min_recall')_S29",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'BROAD', 'mean_ce', 'min_recall')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S29', 'S9', 'BROAD', 'mean_ce', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S29', 'S9', 'BROAD', 'mean_ce', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S29', 'S9', 'BROAD', 'mean_ce', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S29', 'S9', 'BROAD', 'mean_ce', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S29', 'S9', 'BROAD', 'mean_rank', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'BROAD', 'mean_rank', 'ba')_S29",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'BROAD', 'mean_rank', 'ba')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S29', 'S9', 'BROAD', 'mean_rank', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S29', 'S9', 'BROAD', 'mean_rank', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S29', 'S9', 'BROAD', 'mean_rank', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S29', 'S9', 'BROAD', 'mean_rank', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S29', 'S9', 'BROAD', 'mean_rank', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'BROAD', 'mean_rank', 'min_recall')_S29",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'BROAD', 'mean_rank', 'min_recall')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S29', 'S9', 'BROAD', 'mean_rank', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S29', 'S9', 'BROAD', 'mean_rank', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S29', 'S9', 'BROAD', 'mean_rank', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S29', 'S9', 'BROAD', 'mean_rank', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S29', 'S9', 'BROAD', 'mean_ba', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'BROAD', 'mean_ba', 'ba')_S29",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'BROAD', 'mean_ba', 'ba')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S29', 'S9', 'BROAD', 'mean_ba', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S29', 'S9', 'BROAD', 'mean_ba', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S29', 'S9', 'BROAD', 'mean_ba', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S29', 'S9', 'BROAD', 'mean_ba', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S29', 'S9', 'BROAD', 'mean_ba', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'BROAD', 'mean_ba', 'min_recall')_S29",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'BROAD', 'mean_ba', 'min_recall')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S29', 'S9', 'BROAD', 'mean_ba', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S29', 'S9', 'BROAD', 'mean_ba', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S29', 'S9', 'BROAD', 'mean_ba', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S29', 'S9', 'BROAD', 'mean_ba', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S29', 'S9', 'BROAD', 'tail_ce', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'BROAD', 'tail_ce', 'ba')_S29",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'BROAD', 'tail_ce', 'ba')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S29', 'S9', 'BROAD', 'tail_ce', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S29', 'S9', 'BROAD', 'tail_ce', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S29', 'S9', 'BROAD', 'tail_ce', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S29', 'S9', 'BROAD', 'tail_ce', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S29', 'S9', 'BROAD', 'tail_ce', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'BROAD', 'tail_ce', 'min_recall')_S29",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'BROAD', 'tail_ce', 'min_recall')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S29', 'S9', 'BROAD', 'tail_ce', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S29', 'S9', 'BROAD', 'tail_ce', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S29', 'S9', 'BROAD', 'tail_ce', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S29', 'S9', 'BROAD', 'tail_ce', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S29', 'S9', 'BROAD', 'tail_ba', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'BROAD', 'tail_ba', 'ba')_S29",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'BROAD', 'tail_ba', 'ba')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S29', 'S9', 'BROAD', 'tail_ba', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S29', 'S9', 'BROAD', 'tail_ba', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S29', 'S9', 'BROAD', 'tail_ba', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S29', 'S9', 'BROAD', 'tail_ba', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S29', 'S9', 'BROAD', 'tail_ba', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'BROAD', 'tail_ba', 'min_recall')_S29",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'BROAD', 'tail_ba', 'min_recall')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S29', 'S9', 'BROAD', 'tail_ba', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S29', 'S9', 'BROAD', 'tail_ba', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S29', 'S9', 'BROAD', 'tail_ba', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S29', 'S9', 'BROAD', 'tail_ba', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S29', 'S9', 'BROAD', 'mean_min_recall', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'BROAD', 'mean_min_recall', 'ba')_S29",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'BROAD', 'mean_min_recall', 'ba')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S29', 'S9', 'BROAD', 'mean_min_recall', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S29', 'S9', 'BROAD', 'mean_min_recall', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S29', 'S9', 'BROAD', 'mean_min_recall', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S29', 'S9', 'BROAD', 'mean_min_recall', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S29', 'S9', 'BROAD', 'mean_min_recall', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'BROAD', 'mean_min_recall', 'min_recall')_S29",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'BROAD', 'mean_min_recall', 'min_recall')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S29', 'S9', 'BROAD', 'mean_min_recall', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S29', 'S9', 'BROAD', 'mean_min_recall', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S29', 'S9', 'BROAD', 'mean_min_recall', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S29', 'S9', 'BROAD', 'mean_min_recall', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S29', 'S9', 'BROAD', 'tail_min_recall', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'BROAD', 'tail_min_recall', 'ba')_S29",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'BROAD', 'tail_min_recall', 'ba')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S29', 'S9', 'BROAD', 'tail_min_recall', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S29', 'S9', 'BROAD', 'tail_min_recall', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S29', 'S9', 'BROAD', 'tail_min_recall', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S29', 'S9', 'BROAD', 'tail_min_recall', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S29', 'S9', 'BROAD', 'tail_min_recall', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'BROAD', 'tail_min_recall', 'min_recall')_S29",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'BROAD', 'tail_min_recall', 'min_recall')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S29', 'S9', 'BROAD', 'tail_min_recall', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S29', 'S9', 'BROAD', 'tail_min_recall', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S29', 'S9', 'BROAD', 'tail_min_recall', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S29', 'S9', 'BROAD', 'tail_min_recall', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S29', 'S9', 'MU_BETA_SHARED', 'fixed20', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'MU_BETA_SHARED', 'fixed20', 'ba')_S29",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'MU_BETA_SHARED', 'fixed20', 'ba')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S29', 'S9', 'MU_BETA_SHARED', 'fixed20', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S29', 'S9', 'MU_BETA_SHARED', 'fixed20', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S29', 'S9', 'MU_BETA_SHARED', 'fixed20', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S29', 'S9', 'MU_BETA_SHARED', 'fixed20', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S29', 'S9', 'MU_BETA_SHARED', 'fixed20', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'MU_BETA_SHARED', 'fixed20', 'min_recall')_S29",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'MU_BETA_SHARED', 'fixed20', 'min_recall')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S29', 'S9', 'MU_BETA_SHARED', 'fixed20', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S29', 'S9', 'MU_BETA_SHARED', 'fixed20', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S29', 'S9', 'MU_BETA_SHARED', 'fixed20', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S29', 'S9', 'MU_BETA_SHARED', 'fixed20', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S29', 'S9', 'MU_BETA_SHARED', 'mean_ce', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'MU_BETA_SHARED', 'mean_ce', 'ba')_S29",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'MU_BETA_SHARED', 'mean_ce', 'ba')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S29', 'S9', 'MU_BETA_SHARED', 'mean_ce', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S29', 'S9', 'MU_BETA_SHARED', 'mean_ce', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S29', 'S9', 'MU_BETA_SHARED', 'mean_ce', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S29', 'S9', 'MU_BETA_SHARED', 'mean_ce', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S29', 'S9', 'MU_BETA_SHARED', 'mean_ce', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'MU_BETA_SHARED', 'mean_ce', 'min_recall')_S29",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'MU_BETA_SHARED', 'mean_ce', 'min_recall')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S29', 'S9', 'MU_BETA_SHARED', 'mean_ce', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S29', 'S9', 'MU_BETA_SHARED', 'mean_ce', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S29', 'S9', 'MU_BETA_SHARED', 'mean_ce', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S29', 'S9', 'MU_BETA_SHARED', 'mean_ce', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S29', 'S9', 'MU_BETA_SHARED', 'mean_rank', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'MU_BETA_SHARED', 'mean_rank', 'ba')_S29",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'MU_BETA_SHARED', 'mean_rank', 'ba')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S29', 'S9', 'MU_BETA_SHARED', 'mean_rank', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S29', 'S9', 'MU_BETA_SHARED', 'mean_rank', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S29', 'S9', 'MU_BETA_SHARED', 'mean_rank', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S29', 'S9', 'MU_BETA_SHARED', 'mean_rank', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S29', 'S9', 'MU_BETA_SHARED', 'mean_rank', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'MU_BETA_SHARED', 'mean_rank', 'min_recall')_S29",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'MU_BETA_SHARED', 'mean_rank', 'min_recall')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S29', 'S9', 'MU_BETA_SHARED', 'mean_rank', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S29', 'S9', 'MU_BETA_SHARED', 'mean_rank', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S29', 'S9', 'MU_BETA_SHARED', 'mean_rank', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S29', 'S9', 'MU_BETA_SHARED', 'mean_rank', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S29', 'S9', 'MU_BETA_SHARED', 'mean_ba', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'MU_BETA_SHARED', 'mean_ba', 'ba')_S29",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'MU_BETA_SHARED', 'mean_ba', 'ba')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S29', 'S9', 'MU_BETA_SHARED', 'mean_ba', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S29', 'S9', 'MU_BETA_SHARED', 'mean_ba', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S29', 'S9', 'MU_BETA_SHARED', 'mean_ba', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S29', 'S9', 'MU_BETA_SHARED', 'mean_ba', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S29', 'S9', 'MU_BETA_SHARED', 'mean_ba', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'MU_BETA_SHARED', 'mean_ba', 'min_recall')_S29",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'MU_BETA_SHARED', 'mean_ba', 'min_recall')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S29', 'S9', 'MU_BETA_SHARED', 'mean_ba', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S29', 'S9', 'MU_BETA_SHARED', 'mean_ba', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S29', 'S9', 'MU_BETA_SHARED', 'mean_ba', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S29', 'S9', 'MU_BETA_SHARED', 'mean_ba', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S29', 'S9', 'MU_BETA_SHARED', 'tail_ce', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'MU_BETA_SHARED', 'tail_ce', 'ba')_S29",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'MU_BETA_SHARED', 'tail_ce', 'ba')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S29', 'S9', 'MU_BETA_SHARED', 'tail_ce', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S29', 'S9', 'MU_BETA_SHARED', 'tail_ce', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S29', 'S9', 'MU_BETA_SHARED', 'tail_ce', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S29', 'S9', 'MU_BETA_SHARED', 'tail_ce', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S29', 'S9', 'MU_BETA_SHARED', 'tail_ce', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'MU_BETA_SHARED', 'tail_ce', 'min_recall')_S29",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'MU_BETA_SHARED', 'tail_ce', 'min_recall')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S29', 'S9', 'MU_BETA_SHARED', 'tail_ce', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S29', 'S9', 'MU_BETA_SHARED', 'tail_ce', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S29', 'S9', 'MU_BETA_SHARED', 'tail_ce', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S29', 'S9', 'MU_BETA_SHARED', 'tail_ce', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S29', 'S9', 'MU_BETA_SHARED', 'tail_ba', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'MU_BETA_SHARED', 'tail_ba', 'ba')_S29",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'MU_BETA_SHARED', 'tail_ba', 'ba')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S29', 'S9', 'MU_BETA_SHARED', 'tail_ba', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S29', 'S9', 'MU_BETA_SHARED', 'tail_ba', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S29', 'S9', 'MU_BETA_SHARED', 'tail_ba', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S29', 'S9', 'MU_BETA_SHARED', 'tail_ba', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S29', 'S9', 'MU_BETA_SHARED', 'tail_ba', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'MU_BETA_SHARED', 'tail_ba', 'min_recall')_S29",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'MU_BETA_SHARED', 'tail_ba', 'min_recall')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S29', 'S9', 'MU_BETA_SHARED', 'tail_ba', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S29', 'S9', 'MU_BETA_SHARED', 'tail_ba', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S29', 'S9', 'MU_BETA_SHARED', 'tail_ba', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S29', 'S9', 'MU_BETA_SHARED', 'tail_ba', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S29', 'S9', 'MU_BETA_SHARED', 'mean_min_recall', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'MU_BETA_SHARED', 'mean_min_recall', 'ba')_S29",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'MU_BETA_SHARED', 'mean_min_recall', 'ba')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S29', 'S9', 'MU_BETA_SHARED', 'mean_min_recall', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S29', 'S9', 'MU_BETA_SHARED', 'mean_min_recall', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S29', 'S9', 'MU_BETA_SHARED', 'mean_min_recall', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S29', 'S9', 'MU_BETA_SHARED', 'mean_min_recall', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S29', 'S9', 'MU_BETA_SHARED', 'mean_min_recall', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'MU_BETA_SHARED', 'mean_min_recall', 'min_recall')_S29",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'MU_BETA_SHARED', 'mean_min_recall', 'min_recall')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S29', 'S9', 'MU_BETA_SHARED', 'mean_min_recall', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S29', 'S9', 'MU_BETA_SHARED', 'mean_min_recall', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S29', 'S9', 'MU_BETA_SHARED', 'mean_min_recall', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S29', 'S9', 'MU_BETA_SHARED', 'mean_min_recall', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S29', 'S9', 'MU_BETA_SHARED', 'tail_min_recall', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'MU_BETA_SHARED', 'tail_min_recall', 'ba')_S29",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'MU_BETA_SHARED', 'tail_min_recall', 'ba')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S29', 'S9', 'MU_BETA_SHARED', 'tail_min_recall', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S29', 'S9', 'MU_BETA_SHARED', 'tail_min_recall', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S29', 'S9', 'MU_BETA_SHARED', 'tail_min_recall', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S29', 'S9', 'MU_BETA_SHARED', 'tail_min_recall', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S29', 'S9', 'MU_BETA_SHARED', 'tail_min_recall', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'MU_BETA_SHARED', 'tail_min_recall', 'min_recall')_S29",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'MU_BETA_SHARED', 'tail_min_recall', 'min_recall')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S29', 'S9', 'MU_BETA_SHARED', 'tail_min_recall', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S29', 'S9', 'MU_BETA_SHARED', 'tail_min_recall', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S29', 'S9', 'MU_BETA_SHARED', 'tail_min_recall', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S29', 'S9', 'MU_BETA_SHARED', 'tail_min_recall', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S60', 'S9', 'BROAD', 'fixed20', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'BROAD', 'fixed20', 'ba')_S60",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'BROAD', 'fixed20', 'ba')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S60', 'S9', 'BROAD', 'fixed20', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S60', 'S9', 'BROAD', 'fixed20', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S60', 'S9', 'BROAD', 'fixed20', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S60', 'S9', 'BROAD', 'fixed20', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S60', 'S9', 'BROAD', 'fixed20', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'BROAD', 'fixed20', 'min_recall')_S60",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'BROAD', 'fixed20', 'min_recall')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S60', 'S9', 'BROAD', 'fixed20', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S60', 'S9', 'BROAD', 'fixed20', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S60', 'S9', 'BROAD', 'fixed20', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S60', 'S9', 'BROAD', 'fixed20', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S60', 'S9', 'BROAD', 'mean_ce', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'BROAD', 'mean_ce', 'ba')_S60",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'BROAD', 'mean_ce', 'ba')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S60', 'S9', 'BROAD', 'mean_ce', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S60', 'S9', 'BROAD', 'mean_ce', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S60', 'S9', 'BROAD', 'mean_ce', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S60', 'S9', 'BROAD', 'mean_ce', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S60', 'S9', 'BROAD', 'mean_ce', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'BROAD', 'mean_ce', 'min_recall')_S60",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'BROAD', 'mean_ce', 'min_recall')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S60', 'S9', 'BROAD', 'mean_ce', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S60', 'S9', 'BROAD', 'mean_ce', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S60', 'S9', 'BROAD', 'mean_ce', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S60', 'S9', 'BROAD', 'mean_ce', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S60', 'S9', 'BROAD', 'mean_rank', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'BROAD', 'mean_rank', 'ba')_S60",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'BROAD', 'mean_rank', 'ba')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S60', 'S9', 'BROAD', 'mean_rank', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S60', 'S9', 'BROAD', 'mean_rank', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S60', 'S9', 'BROAD', 'mean_rank', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S60', 'S9', 'BROAD', 'mean_rank', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S60', 'S9', 'BROAD', 'mean_rank', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'BROAD', 'mean_rank', 'min_recall')_S60",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'BROAD', 'mean_rank', 'min_recall')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S60', 'S9', 'BROAD', 'mean_rank', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S60', 'S9', 'BROAD', 'mean_rank', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S60', 'S9', 'BROAD', 'mean_rank', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S60', 'S9', 'BROAD', 'mean_rank', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S60', 'S9', 'BROAD', 'mean_ba', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'BROAD', 'mean_ba', 'ba')_S60",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'BROAD', 'mean_ba', 'ba')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S60', 'S9', 'BROAD', 'mean_ba', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S60', 'S9', 'BROAD', 'mean_ba', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S60', 'S9', 'BROAD', 'mean_ba', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S60', 'S9', 'BROAD', 'mean_ba', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S60', 'S9', 'BROAD', 'mean_ba', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'BROAD', 'mean_ba', 'min_recall')_S60",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'BROAD', 'mean_ba', 'min_recall')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S60', 'S9', 'BROAD', 'mean_ba', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S60', 'S9', 'BROAD', 'mean_ba', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S60', 'S9', 'BROAD', 'mean_ba', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S60', 'S9', 'BROAD', 'mean_ba', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S60', 'S9', 'BROAD', 'tail_ce', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'BROAD', 'tail_ce', 'ba')_S60",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'BROAD', 'tail_ce', 'ba')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S60', 'S9', 'BROAD', 'tail_ce', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S60', 'S9', 'BROAD', 'tail_ce', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S60', 'S9', 'BROAD', 'tail_ce', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S60', 'S9', 'BROAD', 'tail_ce', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S60', 'S9', 'BROAD', 'tail_ce', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'BROAD', 'tail_ce', 'min_recall')_S60",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'BROAD', 'tail_ce', 'min_recall')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S60', 'S9', 'BROAD', 'tail_ce', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S60', 'S9', 'BROAD', 'tail_ce', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S60', 'S9', 'BROAD', 'tail_ce', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S60', 'S9', 'BROAD', 'tail_ce', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S60', 'S9', 'BROAD', 'tail_ba', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'BROAD', 'tail_ba', 'ba')_S60",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'BROAD', 'tail_ba', 'ba')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S60', 'S9', 'BROAD', 'tail_ba', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S60', 'S9', 'BROAD', 'tail_ba', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S60', 'S9', 'BROAD', 'tail_ba', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S60', 'S9', 'BROAD', 'tail_ba', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S60', 'S9', 'BROAD', 'tail_ba', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'BROAD', 'tail_ba', 'min_recall')_S60",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'BROAD', 'tail_ba', 'min_recall')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S60', 'S9', 'BROAD', 'tail_ba', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S60', 'S9', 'BROAD', 'tail_ba', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S60', 'S9', 'BROAD', 'tail_ba', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S60', 'S9', 'BROAD', 'tail_ba', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S60', 'S9', 'BROAD', 'mean_min_recall', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'BROAD', 'mean_min_recall', 'ba')_S60",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'BROAD', 'mean_min_recall', 'ba')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S60', 'S9', 'BROAD', 'mean_min_recall', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S60', 'S9', 'BROAD', 'mean_min_recall', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S60', 'S9', 'BROAD', 'mean_min_recall', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S60', 'S9', 'BROAD', 'mean_min_recall', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S60', 'S9', 'BROAD', 'mean_min_recall', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'BROAD', 'mean_min_recall', 'min_recall')_S60",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'BROAD', 'mean_min_recall', 'min_recall')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S60', 'S9', 'BROAD', 'mean_min_recall', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S60', 'S9', 'BROAD', 'mean_min_recall', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S60', 'S9', 'BROAD', 'mean_min_recall', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S60', 'S9', 'BROAD', 'mean_min_recall', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S60', 'S9', 'BROAD', 'tail_min_recall', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'BROAD', 'tail_min_recall', 'ba')_S60",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'BROAD', 'tail_min_recall', 'ba')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S60', 'S9', 'BROAD', 'tail_min_recall', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S60', 'S9', 'BROAD', 'tail_min_recall', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S60', 'S9', 'BROAD', 'tail_min_recall', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S60', 'S9', 'BROAD', 'tail_min_recall', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S60', 'S9', 'BROAD', 'tail_min_recall', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'BROAD', 'tail_min_recall', 'min_recall')_S60",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'BROAD', 'tail_min_recall', 'min_recall')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S60', 'S9', 'BROAD', 'tail_min_recall', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S60', 'S9', 'BROAD', 'tail_min_recall', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S60', 'S9', 'BROAD', 'tail_min_recall', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S60', 'S9', 'BROAD', 'tail_min_recall', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S60', 'S9', 'MU_BETA_SHARED', 'fixed20', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'MU_BETA_SHARED', 'fixed20', 'ba')_S60",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'MU_BETA_SHARED', 'fixed20', 'ba')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S60', 'S9', 'MU_BETA_SHARED', 'fixed20', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S60', 'S9', 'MU_BETA_SHARED', 'fixed20', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S60', 'S9', 'MU_BETA_SHARED', 'fixed20', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S60', 'S9', 'MU_BETA_SHARED', 'fixed20', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S60', 'S9', 'MU_BETA_SHARED', 'fixed20', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'MU_BETA_SHARED', 'fixed20', 'min_recall')_S60",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'MU_BETA_SHARED', 'fixed20', 'min_recall')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S60', 'S9', 'MU_BETA_SHARED', 'fixed20', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S60', 'S9', 'MU_BETA_SHARED', 'fixed20', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S60', 'S9', 'MU_BETA_SHARED', 'fixed20', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S60', 'S9', 'MU_BETA_SHARED', 'fixed20', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S60', 'S9', 'MU_BETA_SHARED', 'mean_ce', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'MU_BETA_SHARED', 'mean_ce', 'ba')_S60",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'MU_BETA_SHARED', 'mean_ce', 'ba')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S60', 'S9', 'MU_BETA_SHARED', 'mean_ce', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S60', 'S9', 'MU_BETA_SHARED', 'mean_ce', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S60', 'S9', 'MU_BETA_SHARED', 'mean_ce', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S60', 'S9', 'MU_BETA_SHARED', 'mean_ce', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S60', 'S9', 'MU_BETA_SHARED', 'mean_ce', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'MU_BETA_SHARED', 'mean_ce', 'min_recall')_S60",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'MU_BETA_SHARED', 'mean_ce', 'min_recall')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S60', 'S9', 'MU_BETA_SHARED', 'mean_ce', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S60', 'S9', 'MU_BETA_SHARED', 'mean_ce', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S60', 'S9', 'MU_BETA_SHARED', 'mean_ce', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S60', 'S9', 'MU_BETA_SHARED', 'mean_ce', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S60', 'S9', 'MU_BETA_SHARED', 'mean_rank', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'MU_BETA_SHARED', 'mean_rank', 'ba')_S60",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'MU_BETA_SHARED', 'mean_rank', 'ba')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S60', 'S9', 'MU_BETA_SHARED', 'mean_rank', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S60', 'S9', 'MU_BETA_SHARED', 'mean_rank', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S60', 'S9', 'MU_BETA_SHARED', 'mean_rank', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S60', 'S9', 'MU_BETA_SHARED', 'mean_rank', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S60', 'S9', 'MU_BETA_SHARED', 'mean_rank', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'MU_BETA_SHARED', 'mean_rank', 'min_recall')_S60",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'MU_BETA_SHARED', 'mean_rank', 'min_recall')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S60', 'S9', 'MU_BETA_SHARED', 'mean_rank', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S60', 'S9', 'MU_BETA_SHARED', 'mean_rank', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S60', 'S9', 'MU_BETA_SHARED', 'mean_rank', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S60', 'S9', 'MU_BETA_SHARED', 'mean_rank', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S60', 'S9', 'MU_BETA_SHARED', 'mean_ba', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'MU_BETA_SHARED', 'mean_ba', 'ba')_S60",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'MU_BETA_SHARED', 'mean_ba', 'ba')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S60', 'S9', 'MU_BETA_SHARED', 'mean_ba', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S60', 'S9', 'MU_BETA_SHARED', 'mean_ba', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S60', 'S9', 'MU_BETA_SHARED', 'mean_ba', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S60', 'S9', 'MU_BETA_SHARED', 'mean_ba', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S60', 'S9', 'MU_BETA_SHARED', 'mean_ba', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'MU_BETA_SHARED', 'mean_ba', 'min_recall')_S60",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'MU_BETA_SHARED', 'mean_ba', 'min_recall')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S60', 'S9', 'MU_BETA_SHARED', 'mean_ba', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S60', 'S9', 'MU_BETA_SHARED', 'mean_ba', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S60', 'S9', 'MU_BETA_SHARED', 'mean_ba', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S60', 'S9', 'MU_BETA_SHARED', 'mean_ba', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S60', 'S9', 'MU_BETA_SHARED', 'tail_ce', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'MU_BETA_SHARED', 'tail_ce', 'ba')_S60",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'MU_BETA_SHARED', 'tail_ce', 'ba')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S60', 'S9', 'MU_BETA_SHARED', 'tail_ce', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S60', 'S9', 'MU_BETA_SHARED', 'tail_ce', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S60', 'S9', 'MU_BETA_SHARED', 'tail_ce', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S60', 'S9', 'MU_BETA_SHARED', 'tail_ce', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S60', 'S9', 'MU_BETA_SHARED', 'tail_ce', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'MU_BETA_SHARED', 'tail_ce', 'min_recall')_S60",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'MU_BETA_SHARED', 'tail_ce', 'min_recall')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S60', 'S9', 'MU_BETA_SHARED', 'tail_ce', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S60', 'S9', 'MU_BETA_SHARED', 'tail_ce', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S60', 'S9', 'MU_BETA_SHARED', 'tail_ce', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S60', 'S9', 'MU_BETA_SHARED', 'tail_ce', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S60', 'S9', 'MU_BETA_SHARED', 'tail_ba', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'MU_BETA_SHARED', 'tail_ba', 'ba')_S60",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'MU_BETA_SHARED', 'tail_ba', 'ba')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S60', 'S9', 'MU_BETA_SHARED', 'tail_ba', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S60', 'S9', 'MU_BETA_SHARED', 'tail_ba', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S60', 'S9', 'MU_BETA_SHARED', 'tail_ba', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S60', 'S9', 'MU_BETA_SHARED', 'tail_ba', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S60', 'S9', 'MU_BETA_SHARED', 'tail_ba', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'MU_BETA_SHARED', 'tail_ba', 'min_recall')_S60",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'MU_BETA_SHARED', 'tail_ba', 'min_recall')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S60', 'S9', 'MU_BETA_SHARED', 'tail_ba', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S60', 'S9', 'MU_BETA_SHARED', 'tail_ba', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S60', 'S9', 'MU_BETA_SHARED', 'tail_ba', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S60', 'S9', 'MU_BETA_SHARED', 'tail_ba', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S60', 'S9', 'MU_BETA_SHARED', 'mean_min_recall', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'MU_BETA_SHARED', 'mean_min_recall', 'ba')_S60",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'MU_BETA_SHARED', 'mean_min_recall', 'ba')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S60', 'S9', 'MU_BETA_SHARED', 'mean_min_recall', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S60', 'S9', 'MU_BETA_SHARED', 'mean_min_recall', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S60', 'S9', 'MU_BETA_SHARED', 'mean_min_recall', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S60', 'S9', 'MU_BETA_SHARED', 'mean_min_recall', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S60', 'S9', 'MU_BETA_SHARED', 'mean_min_recall', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'MU_BETA_SHARED', 'mean_min_recall', 'min_recall')_S60",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'MU_BETA_SHARED', 'mean_min_recall', 'min_recall')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S60', 'S9', 'MU_BETA_SHARED', 'mean_min_recall', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S60', 'S9', 'MU_BETA_SHARED', 'mean_min_recall', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S60', 'S9', 'MU_BETA_SHARED', 'mean_min_recall', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S60', 'S9', 'MU_BETA_SHARED', 'mean_min_recall', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S60', 'S9', 'MU_BETA_SHARED', 'tail_min_recall', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'MU_BETA_SHARED', 'tail_min_recall', 'ba')_S60",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'MU_BETA_SHARED', 'tail_min_recall', 'ba')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S60', 'S9', 'MU_BETA_SHARED', 'tail_min_recall', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S60', 'S9', 'MU_BETA_SHARED', 'tail_min_recall', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S60', 'S9', 'MU_BETA_SHARED', 'tail_min_recall', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S60', 'S9', 'MU_BETA_SHARED', 'tail_min_recall', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S60', 'S9', 'MU_BETA_SHARED', 'tail_min_recall', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'MU_BETA_SHARED', 'tail_min_recall', 'min_recall')_S60",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'MU_BETA_SHARED', 'tail_min_recall', 'min_recall')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S60', 'S9', 'MU_BETA_SHARED', 'tail_min_recall', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S60', 'S9', 'MU_BETA_SHARED', 'tail_min_recall', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S60', 'S9', 'MU_BETA_SHARED', 'tail_min_recall', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "epochs_updates_('S60', 'S9', 'MU_BETA_SHARED', 'tail_min_recall', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S29', 'S9', 'CSP_LDA', 'fixed', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'CSP_LDA', 'fixed', 'ba')_S29",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'CSP_LDA', 'fixed', 'ba')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S29', 'S9', 'CSP_LDA', 'fixed', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S29', 'S9', 'CSP_LDA', 'fixed', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S29', 'S9', 'CSP_LDA', 'fixed', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S29', 'S9', 'CSP_LDA', 'fixed', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'CSP_LDA', 'fixed', 'min_recall')_S29",
+      "passed": true
+    },
+    {
+      "id": "grain_('S29', 'S9', 'CSP_LDA', 'fixed', 'min_recall')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S29', 'S9', 'CSP_LDA', 'fixed', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S29', 'S9', 'CSP_LDA', 'fixed', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S29', 'S9', 'CSP_LDA', 'fixed', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S60', 'S9', 'CSP_LDA', 'fixed', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'CSP_LDA', 'fixed', 'ba')_S60",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'CSP_LDA', 'fixed', 'ba')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S60', 'S9', 'CSP_LDA', 'fixed', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S60', 'S9', 'CSP_LDA', 'fixed', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S60', 'S9', 'CSP_LDA', 'fixed', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "unique_('S60', 'S9', 'CSP_LDA', 'fixed', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'CSP_LDA', 'fixed', 'min_recall')_S60",
+      "passed": true
+    },
+    {
+      "id": "grain_('S60', 'S9', 'CSP_LDA', 'fixed', 'min_recall')_S9",
+      "passed": true
+    },
+    {
+      "id": "numbers_('S60', 'S9', 'CSP_LDA', 'fixed', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "paired_identity_('S60', 'S9', 'CSP_LDA', 'fixed', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "no_tests_('S60', 'S9', 'CSP_LDA', 'fixed', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "all_declared_cells_no_omission",
+      "passed": true
+    },
+    {
+      "id": "seed_grain_('S9', 'BROAD', '20261013', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seed_mean_('S9', 'BROAD', '20261013', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seed_grain_('S9', 'BROAD', '20261013', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "seed_mean_('S9', 'BROAD', '20261013', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "seed_grain_('S9', 'BROAD', '20261014', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seed_mean_('S9', 'BROAD', '20261014', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seed_grain_('S9', 'BROAD', '20261014', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "seed_mean_('S9', 'BROAD', '20261014', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "seed_grain_('S9', 'BROAD', '20261015', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seed_mean_('S9', 'BROAD', '20261015', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seed_grain_('S9', 'BROAD', '20261015', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "seed_mean_('S9', 'BROAD', '20261015', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "seed_grain_('S9', 'MU_BETA_SHARED', '20261013', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seed_mean_('S9', 'MU_BETA_SHARED', '20261013', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seed_grain_('S9', 'MU_BETA_SHARED', '20261013', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "seed_mean_('S9', 'MU_BETA_SHARED', '20261013', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "seed_grain_('S9', 'MU_BETA_SHARED', '20261014', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seed_mean_('S9', 'MU_BETA_SHARED', '20261014', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seed_grain_('S9', 'MU_BETA_SHARED', '20261014', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "seed_mean_('S9', 'MU_BETA_SHARED', '20261014', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "seed_grain_('S9', 'MU_BETA_SHARED', '20261015', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seed_mean_('S9', 'MU_BETA_SHARED', '20261015', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seed_grain_('S9', 'MU_BETA_SHARED', '20261015', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "seed_mean_('S9', 'MU_BETA_SHARED', '20261015', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "seed_grain_('S29', 'BROAD', '20261013', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seed_mean_('S29', 'BROAD', '20261013', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seed_grain_('S29', 'BROAD', '20261013', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "seed_mean_('S29', 'BROAD', '20261013', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "seed_grain_('S29', 'BROAD', '20261014', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seed_mean_('S29', 'BROAD', '20261014', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seed_grain_('S29', 'BROAD', '20261014', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "seed_mean_('S29', 'BROAD', '20261014', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "seed_grain_('S29', 'BROAD', '20261015', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seed_mean_('S29', 'BROAD', '20261015', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seed_grain_('S29', 'BROAD', '20261015', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "seed_mean_('S29', 'BROAD', '20261015', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "seed_grain_('S29', 'MU_BETA_SHARED', '20261013', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seed_mean_('S29', 'MU_BETA_SHARED', '20261013', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seed_grain_('S29', 'MU_BETA_SHARED', '20261013', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "seed_mean_('S29', 'MU_BETA_SHARED', '20261013', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "seed_grain_('S29', 'MU_BETA_SHARED', '20261014', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seed_mean_('S29', 'MU_BETA_SHARED', '20261014', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seed_grain_('S29', 'MU_BETA_SHARED', '20261014', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "seed_mean_('S29', 'MU_BETA_SHARED', '20261014', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "seed_grain_('S29', 'MU_BETA_SHARED', '20261015', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seed_mean_('S29', 'MU_BETA_SHARED', '20261015', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seed_grain_('S29', 'MU_BETA_SHARED', '20261015', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "seed_mean_('S29', 'MU_BETA_SHARED', '20261015', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "seed_grain_('S60', 'BROAD', '20261013', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seed_mean_('S60', 'BROAD', '20261013', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seed_grain_('S60', 'BROAD', '20261013', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "seed_mean_('S60', 'BROAD', '20261013', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "seed_grain_('S60', 'BROAD', '20261014', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seed_mean_('S60', 'BROAD', '20261014', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seed_grain_('S60', 'BROAD', '20261014', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "seed_mean_('S60', 'BROAD', '20261014', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "seed_grain_('S60', 'BROAD', '20261015', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seed_mean_('S60', 'BROAD', '20261015', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seed_grain_('S60', 'BROAD', '20261015', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "seed_mean_('S60', 'BROAD', '20261015', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "seed_grain_('S60', 'MU_BETA_SHARED', '20261013', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seed_mean_('S60', 'MU_BETA_SHARED', '20261013', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seed_grain_('S60', 'MU_BETA_SHARED', '20261013', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "seed_mean_('S60', 'MU_BETA_SHARED', '20261013', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "seed_grain_('S60', 'MU_BETA_SHARED', '20261014', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seed_mean_('S60', 'MU_BETA_SHARED', '20261014', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seed_grain_('S60', 'MU_BETA_SHARED', '20261014', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "seed_mean_('S60', 'MU_BETA_SHARED', '20261014', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "seed_grain_('S60', 'MU_BETA_SHARED', '20261015', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seed_mean_('S60', 'MU_BETA_SHARED', '20261015', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seed_grain_('S60', 'MU_BETA_SHARED', '20261015', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "seed_mean_('S60', 'MU_BETA_SHARED', '20261015', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "seed_diff_('S29', 'BROAD', '20261013', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seed_diff_('S29', 'BROAD', '20261013', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "seed_diff_('S29', 'BROAD', '20261014', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seed_diff_('S29', 'BROAD', '20261014', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "seed_diff_('S29', 'BROAD', '20261015', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seed_diff_('S29', 'BROAD', '20261015', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "seed_diff_('S29', 'MU_BETA_SHARED', '20261013', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seed_diff_('S29', 'MU_BETA_SHARED', '20261013', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "seed_diff_('S29', 'MU_BETA_SHARED', '20261014', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seed_diff_('S29', 'MU_BETA_SHARED', '20261014', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "seed_diff_('S29', 'MU_BETA_SHARED', '20261015', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seed_diff_('S29', 'MU_BETA_SHARED', '20261015', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "seed_diff_('S60', 'BROAD', '20261013', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seed_diff_('S60', 'BROAD', '20261013', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "seed_diff_('S60', 'BROAD', '20261014', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seed_diff_('S60', 'BROAD', '20261014', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "seed_diff_('S60', 'BROAD', '20261015', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seed_diff_('S60', 'BROAD', '20261015', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "seed_diff_('S60', 'MU_BETA_SHARED', '20261013', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seed_diff_('S60', 'MU_BETA_SHARED', '20261013', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "seed_diff_('S60', 'MU_BETA_SHARED', '20261014', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seed_diff_('S60', 'MU_BETA_SHARED', '20261014', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "seed_diff_('S60', 'MU_BETA_SHARED', '20261015', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seed_diff_('S60', 'MU_BETA_SHARED', '20261015', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "all24_seed_differences_positive",
+      "passed": true
+    },
+    {
+      "id": "seven_of_eight_('S29', 'BROAD', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seven_of_eight_('S29', 'BROAD', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "seven_of_eight_('S29', 'MU_BETA_SHARED', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seven_of_eight_('S29', 'MU_BETA_SHARED', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "seven_of_eight_('S60', 'BROAD', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seven_of_eight_('S60', 'BROAD', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "seven_of_eight_('S60', 'MU_BETA_SHARED', 'ba')",
+      "passed": true
+    },
+    {
+      "id": "seven_of_eight_('S60', 'MU_BETA_SHARED', 'min_recall')",
+      "passed": true
+    },
+    {
+      "id": "output_sha_tables/source_expansion_inventory.csv",
+      "passed": true
+    },
+    {
+      "id": "output_sha_tables/source_expansion_fixed20_seed_means.csv",
+      "passed": true
+    },
+    {
+      "id": "output_sha_tables/source_expansion_fixed20_seed_differences.csv",
+      "passed": true
+    },
+    {
+      "id": "no_new_stats",
+      "passed": true
+    },
+    {
+      "id": "main_number_17.0686",
+      "passed": true
+    },
+    {
+      "id": "main_number_21.1275",
+      "passed": true
+    },
+    {
+      "id": "main_number_24.8725",
+      "passed": true
+    },
+    {
+      "id": "main_number_23.3627",
+      "passed": true
+    },
+    {
+      "id": "descriptive_same85_scope",
+      "passed": true
+    },
+    {
+      "id": "adverse_rule_exception_retained",
+      "passed": true
+    },
+    {
+      "id": "all24_not_replication",
+      "passed": true
+    },
+    {
+      "id": "original_posthoc_float_count_note",
+      "passed": true
+    }
+  ],
+  "interpretation": {
+    "fixed20": "All compared fixed20 checkpoints are epoch20/2560updates within pipeline. This controls selected duration, not cohort composition, trial pool, source sampling mass or cross-pipeline view computation.",
+    "seed_profiles": "All24 seed-specific aggregate changes positive; same85-person cohort, not24 independent replications or participant-universal improvement.",
+    "complete_inventory": "All68 declared rows retained, including adverse tail_ce cells; every neural expansion×pipeline×endpoint group has7/8 positive condition means.",
+    "new_statistics": "No added CI,p value,bootstrap or hypothesis test in inventory. Existing primary,secondary and four-posthoc families remain distinct.",
+    "main_numeric_claims": "Four fixed20 weaker-class gains and Table5 BA gains agree with saved metrics; no model refits."
+  }
+}

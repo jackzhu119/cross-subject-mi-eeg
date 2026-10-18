@@ -1,0 +1,10 @@
+source_level,pipeline,selector,n_subjects,mean_ba,mean_min_recall,mean_absolute_recall_gap,mean_absolute_recall_gap_percentage_points,formula,scope
+S9,BROAD,tail_min_recall,85,0.5831862745098039,0.2731372549019608,0.6200980392156862,62.00980392156862,2*(mean_ba-mean_min_recall),posthoc descriptive algebraic decomposition; no CI or test
+S29,BROAD,tail_min_recall,85,0.641078431372549,0.4902941176470587,0.3015686274509807,30.156862745098067,2*(mean_ba-mean_min_recall),posthoc descriptive algebraic decomposition; no CI or test
+S60,BROAD,tail_min_recall,85,0.6417156862745098,0.48480392156862756,0.3138235294117645,31.38235294117645,2*(mean_ba-mean_min_recall),posthoc descriptive algebraic decomposition; no CI or test
+S9,MU_BETA_SHARED,tail_min_recall,85,0.6015196078431373,0.31852941176470595,0.5659803921568627,56.59803921568627,2*(mean_ba-mean_min_recall),posthoc descriptive algebraic decomposition; no CI or test
+S29,MU_BETA_SHARED,tail_min_recall,85,0.6366666666666667,0.45392156862745103,0.36549019607843136,36.549019607843135,2*(mean_ba-mean_min_recall),posthoc descriptive algebraic decomposition; no CI or test
+S60,MU_BETA_SHARED,tail_min_recall,85,0.6387745098039216,0.45568627450980387,0.36617647058823544,36.61764705882354,2*(mean_ba-mean_min_recall),posthoc descriptive algebraic decomposition; no CI or test
+S9,CSP_LDA,fixed,85,0.6013235294117648,0.33990196078431373,0.5228431372549022,52.284313725490215,2*(mean_ba-mean_min_recall),posthoc descriptive algebraic decomposition; no CI or test
+S29,CSP_LDA,fixed,85,0.6401960784313726,0.4521568627450981,0.37607843137254904,37.6078431372549,2*(mean_ba-mean_min_recall),posthoc descriptive algebraic decomposition; no CI or test
+S60,CSP_LDA,fixed,85,0.6537745098039216,0.4781372549019608,0.3512745098039216,35.12745098039216,2*(mean_ba-mean_min_recall),posthoc descriptive algebraic decomposition; no CI or test

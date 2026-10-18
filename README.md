@@ -1,3 +1,16 @@
+# Paper1 second-round manuscript update prepared (18 October 2026)
+
+**Source-cohort expansion improves weaker-class coverage in cross-subject motor-imagery EEG decoding**
+
+Latest prepared candidate: [main DOCX](research_runs/PAPER1_PLOS_REVIEW2_20261018/main_manuscript.docx), [review PDF](research_runs/PAPER1_PLOS_REVIEW2_20261018/review_manuscript.pdf), [change response](research_runs/PAPER1_PLOS_REVIEW2_20261018/Review_Response_zh.docx), [ethics author statement](research_runs/PAPER1_PLOS_REVIEW2_20261018/submission/Ethics_Author_Statement.docx), [complete guide](research_runs/PAPER1_PLOS_REVIEW2_20261018/README_zh.md).
+
+The primary weaker-class recall gain was 21.17 percentage points. Supplementary post hoc comparisons add S29 +21.72 points and CSP +13.82 points; descriptive controls at the same 20-epoch duration show S60−S9 gains of 17.07 points (BROAD) and 24.87 points (shared). Seven figures and all frozen comparisons are supplied. The research-office confirmation dated 17 October 2026 and the correct author name, Ziyuan Zhu, are incorporated. No models were retrained.
+
+Remote publication is pending because this session cannot write to GitHub; the last verified main head remains `7b2932124ca06d8bcd65c9e618cd7ce65d68796f`. This is an author-prepared candidate, not an editor-invited revision or journal acceptance.
+
+<details>
+<summary>Previous published manuscript and preserved history</summary>
+
 # Source-cohort expansion and weaker-class coverage in cross-subject motor-imagery EEG decoding
 
 **Latest Paper 1 manuscript update: 18 October 2026 · PLOS ONE · Published on `main`**
@@ -107,5 +120,7 @@ ChatGPT (GPT-6, author reported) and OpenAI Codex assistance are disclosed accor
 Historical GitHub/cloud research receipts document BNCI2014_001 access during 21 September–6 October 2026, PhysioNet access on 25 September 2026, and Cho2017/Lee2019 raw auditing and external evaluation during 3–5 October 2026. These are retained-record access intervals, not proven first-ever downloads or dates inferred from backups. See the [audited evidence](research_runs/PLOS_ONE_SUBMISSION/evidence/research_access_dates.md) and [completed official human-data checklist](research_runs/PLOS_ONE_SUBMISSION/AuthorForms/PLOS_Human_Participants_Checklist_2026_completed.pdf).
 
 Original author-owned software is licensed under [MIT](LICENSE); original author-owned manuscript and derived outputs use [CC BY 4.0](LICENSE-DATA.md). [Scope and exclusions](LICENSING.md) preserve original third-party terms for raw EEG, incorporated software, fonts, provider materials and official forms. No third-party rights are re-granted.
+
+</details>
 
 </details>

@@ -1,0 +1,65 @@
+{
+  "review": "Independent manuscript scientific/content-scope review",
+  "observed_at_utc": "2026-10-18T05:17:57.009408+00:00",
+  "frozen_result_commit": "040956085499ed788948de0d5a09cddd9eabca56",
+  "reviewed_artifacts": [
+    {
+      "path": "/workspace/paper1-plos-revision-20261018/research_runs/PAPER1_PLOS_REVIEW2_20261018/manuscript_en.md",
+      "bytes": 43541,
+      "sha256": "e149473a3998c5540b6c1d36c31914930b4f1e8cd411ac424718d66633be662c"
+    },
+    {
+      "path": "/workspace/paper1-plos-revision-20261018/research_runs/PAPER1_PLOS_REVIEW2_20261018/supplementary_en.md",
+      "bytes": 19390,
+      "sha256": "e02eb6216ceb4540c1bcead3f598b17feaded3365078f1d51e53d745c64ac8b3"
+    },
+    {
+      "path": "/workspace/paper1-plos-revision-20261018/research_runs/PAPER1_PLOS_REVIEW2_20261018/FIGURE_CAPTIONS.md",
+      "bytes": 6335,
+      "sha256": "2bff78f35478bbbb9343beec5c828d5f0b3f1eac31584225f25274fa515026f8"
+    }
+  ],
+  "result": "NO_SUBSTANTIVE_NUMERICAL_OR_SCIENTIFIC_SCOPE_DEFECT_FOUND",
+  "scope": [
+    "read authored main and supplement and all five captions",
+    "compared frozen Methods/Results revision, study.json, actual p1_data/p1_train/p1_select/p1_csp code and independent evidence ledger",
+    "read full-precision frozen comparison and figure source tables",
+    "visual inspection Figures 1, 2 and 4",
+    "citation first-appearance/coverage/numbering check",
+    "posthoc gap algebra checked across nine descriptive rows"
+  ],
+  "scientific_reruns": {
+    "fits": 0,
+    "raw_eeg_reads": 0,
+    "checkpoint_deserializations": 0,
+    "scientific_audit_reexecution": false,
+    "new_hypothesis_tests": 0
+  },
+  "confirmed": [
+    "Primary W means 27.31372549019608% and 48.480392156862756%; delta21.166666666666664pp, t95CI17.122604109529102..25.21072922380423pp, p8.88406164066793e-17.",
+    "All four frozen contrasts and three-secondary Holm family retained; nulls not recast as equivalence.",
+    "Participant sign split72/10/3 and n85 are descriptive/independent participant units, not seed/trial pseudoreplication.",
+    "Equal complete-trajectory5120 optimizer updates separated explicitly from selected epochs27/5/5.",
+    "108 trajectories,4320 epochs,144 selected condition-seed outputs/99distinct checkpoints,979200neural and61200CSP predictions have correct grain.",
+    "Tail selects exactly weighted worst1/3 mass after averaging seeds withinperson; mixed-source equal dataset then equalperson mass matches code.",
+    "W=min class recall occurs withinseed before three-seed means; algebraic gap2*(B-W) correct after linear averaging.",
+    "Descriptive primary recall-gap reduction30.62745098039217pp correctly rounded30.6275pp; no invented CI/p/test.",
+    "Source counts2592/14590/33183; Yang30591 and15295/15296 labels; channels18/crop320@160Hz match frozen config.",
+    "Exploratory prior-target-exposure, source-composition/trial/duration confounding, Yang clock/voltage boundaries and audit-scope boundaries retained.",
+    "CSP comparator retained even where descriptive BA exceeds primary neural configuration; all48 selector choices and all48neural conditions shown.",
+    "No SOTA/causal physiology/clinical/online/universal-calibration-free claim found.",
+    "All reference numbers1..20 are cited; first appearance order1..20; DOI metadata external verification is handled separately by references reviewer."
+  ],
+  "blocking_findings": [],
+  "minor_clarity_suggestions": [
+    {
+      "location": "Abstract secondary comparison sentence",
+      "suggestion": "Prefer did not establish additional benefit over showed no additional benefit, so non-significance cannot read as proof of no effect. Main Results already explain no equivalence."
+    },
+    {
+      "location": "Methods CSP feature sentence",
+      "suggestion": "Replace ambiguous log component variances divided by their sum with explicit log(var_k / sum_{m=1}^4 var_m), matching p1_csp.py."
+    }
+  ],
+  "remaining_author_level_boundary": "Author must review this new revision and figures; historic approval must not be auto-carried to changed manuscript. Ethics determination without formal institutional document remains author-level declaration, not an invented committee exemption."
+}

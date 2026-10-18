@@ -1,0 +1,1277 @@
+{
+  "schema_version": 1,
+  "review_type": "read-only evidence extraction and editorial claim-scope review; not new scientific experiment or rerun of supplied independent audits",
+  "reviewed_commit": "040956085499ed788948de0d5a09cddd9eabca56",
+  "repo": "jackzhu119/cross-subject-mi-eeg",
+  "run_protocol_id": "paper1_source_expansion_18ch_dimensionless_eligible_v3_20261018",
+  "method": {
+    "read_existing_source_and_statistics": true,
+    "original_zip_member_metadata_and_small_csv_read": true,
+    "new_model_fits": 0,
+    "checkpoint_deserialization": false,
+    "checkpoint_forward": false,
+    "raw_eeg_read": false,
+    "rerun_independent_audit": false,
+    "frozen_files_modified": false,
+    "new_hypothesis_tests": false
+  },
+  "sources": [
+    {
+      "path": "research_runs/ELIGIBLE_V3_RESULTS_20261018/README_zh.md",
+      "bytes": 4727,
+      "sha256": "bbf405c82c4193156839e4a78b43a07bb579ba04b096b255ec59af33a3b5dc27"
+    },
+    {
+      "path": "research_runs/ELIGIBLE_V3_RESULTS_20261018/RESULTS_REVIEW_zh.md",
+      "bytes": 4132,
+      "sha256": "eb366c2c698c78c2d6f8303eedca5e3e661042424110321645cf33d532a68d4e"
+    },
+    {
+      "path": "research_runs/ELIGIBLE_V3_RESULTS_20261018/METHODS_RESULTS_REVISION_en.md",
+      "bytes": 10843,
+      "sha256": "4ed4af92d2cca0104659db58ffc5950cfe1c95f90ace8d811cddf009b8a7a12e"
+    },
+    {
+      "path": "research_runs/ELIGIBLE_V3_RESULTS_20261018/indexed/provenance/study.json",
+      "bytes": 6323,
+      "sha256": "87f2de5eeec6bb94149885678cc8c541b59f5316fe53396cfef16b21120f03fb"
+    },
+    {
+      "path": "research_runs/ELIGIBLE_V3_RESULTS_20261018/indexed/provenance/execution_identity.json",
+      "bytes": 527,
+      "sha256": "2eabe0438aa2e8fe294f0f5633bc59bbe880849f29e4a75601084326ea7ed19c"
+    },
+    {
+      "path": "research_runs/ELIGIBLE_V3_RESULTS_20261018/indexed/provenance/source_registry.json",
+      "bytes": 3633,
+      "sha256": "66f14adf4d913da4df6fd01822ce4dba198f0173553c2a539a1582dfef34dbe0"
+    },
+    {
+      "path": "research_runs/ELIGIBLE_V3_RESULTS_20261018/indexed/results/source_training_complete.json",
+      "bytes": 243,
+      "sha256": "3ab9913ee8b89e0f17fbe0af036256e506efeacb4ad1c1d287f5b29729289c60"
+    },
+    {
+      "path": "research_runs/ELIGIBLE_V3_RESULTS_20261018/indexed/results/selection_freeze.json",
+      "bytes": 116367,
+      "sha256": "7752ccee72bfbf3ffa69f3de220c82dceb7a880994c18267397c7858bab92e28"
+    },
+    {
+      "path": "research_runs/ELIGIBLE_V3_RESULTS_20261018/audits/external/audit_results.json",
+      "bytes": 34896,
+      "sha256": "d85161763c5b8ef6038c67f4073553ea4f8744e53fbf9365b5a9403fe16ddd0b"
+    },
+    {
+      "path": "research_runs/ELIGIBLE_V3_RESULTS_20261018/audits/external/neural_recomputed_comparisons.csv",
+      "bytes": 1673,
+      "sha256": "2d915e09bbc2e1500b1fbd06dd42aeba07d6ee39b2d5962b397ddb85ef8b5af9"
+    },
+    {
+      "path": "research_runs/ELIGIBLE_V3_RESULTS_20261018/audits/external/neural_recomputed_condition_summaries.csv",
+      "bytes": 24424,
+      "sha256": "688f2cec8df47fc3e36d121b20ad9b3aaf082cd688f6373c001f28ba873c25e5"
+    },
+    {
+      "path": "research_runs/ELIGIBLE_V3_RESULTS_20261018/audits/external/csp_recomputed_condition_summaries.csv",
+      "bytes": 1576,
+      "sha256": "c078da45b9660bea19add8b7bfcad1cf2dc1fa391647fe9c6d3f6b3c842b6b6a"
+    },
+    {
+      "path": "research_runs/ELIGIBLE_V3_RESULTS_20261018/audits/paper1-independent-integrity-source-selection-audit-20261018.json",
+      "bytes": 8472,
+      "sha256": "ba92084f0140105ab35c0ee5f3e3fb0b8fb00a2451f715125cea1fee642ef36b"
+    },
+    {
+      "path": "research_runs/ELIGIBLE_V3_RESULTS_20261018/IMPORT_VERIFICATION.json",
+      "bytes": 2040,
+      "sha256": "5c09ede393fde7cf93b1402068cee5a397e0a4c34a143eb567f8cae3daf6f9a3"
+    },
+    {
+      "path": "research_runs/ELIGIBLE_V3_RESULTS_20261018/AUDIT_IMPORT_VERIFICATION.json",
+      "bytes": 3511,
+      "sha256": "95a85445115ba9967bba8ae941c777173906bc8e337128ab66c8fb7cbf881c03"
+    },
+    {
+      "path": "research_runs/ELIGIBLE_V3_RESULTS_20261018/evidence/run/status.json",
+      "bytes": 488,
+      "sha256": "81e151ce9f373d06df5c3d37956e1030c1e94b68f035d6d1cd0bac63e4ea68b2"
+    },
+    {
+      "path": "research_runs/ELIGIBLE_V3_RESULTS_20261018/evidence/paper1_expansion_results.zip",
+      "bytes": 21240637,
+      "sha256": "df8fdc4a43139acb4236ead749b74736a5bedaea6d8606c3bcc69234755fe02f"
+    },
+    {
+      "path": "evidence/paper1_expansion_results.zip!/results/comparisons.csv",
+      "bytes": 2569,
+      "sha256": "40a786ffe52d76877085f80bc35e9d6e2a7614ae6668e2f29fb087037dfd0c8f"
+    },
+    {
+      "path": "evidence/paper1_expansion_results.zip!/results/condition_summaries.csv",
+      "bytes": 29358,
+      "sha256": "5812bf8b51d8d104cb59b70f7a7549159e95b29f4d9f119224c4dfe45600425e"
+    },
+    {
+      "path": "evidence/paper1_expansion_results.zip!/results/csp_condition_summaries.csv",
+      "bytes": 1899,
+      "sha256": "d50cfc509b96deff4f94f05048ef7ab7f29665e54a52447d0a74e4021fdbd871"
+    },
+    {
+      "path": "evidence/paper1_expansion_results.zip!/results/paired_subject_differences.csv",
+      "bytes": 27369,
+      "sha256": "154e431ac7cf8dde02a30eedb660a95688e8cf0568f1a18f3b6a4e96b1e4c37a"
+    }
+  ],
+  "completion": {
+    "status": "COMPLETE",
+    "updated_utc": "2026-10-18T04:26:19.986827+00:00",
+    "neural_trajectories": 108,
+    "conventional_fits": 9,
+    "exit_code": "not observed by archived wait; do not infer exit 0 from COMPLETE",
+    "source": "evidence/run/status.json; README_zh.md"
+  },
+  "design": {
+    "source_levels": {
+      "S9": {
+        "bnci": 9,
+        "yang": 0
+      },
+      "S29": {
+        "bnci": 9,
+        "yang": 20
+      },
+      "S60": {
+        "bnci": 9,
+        "yang": 51
+      }
+    },
+    "source_trial_counts": {
+      "S9": 2592,
+      "S29": 14590,
+      "S60": 33183
+    },
+    "source_trial_counts_source": "indexed/provenance/study.json; integrity/source_selection/source_trials",
+    "external_participants": 85,
+    "nominal_provider_participants": 87,
+    "excluded_provider_identifiers": [
+      17,
+      41
+    ],
+    "trials_per_external_participant": 80,
+    "trials_per_hand_per_participant": 40,
+    "runs_per_external_participant": 2,
+    "trials_per_run": 40,
+    "unique_external_trials": 6800,
+    "external_count_source": "audits/external/AUDIT_SUMMARY_zh.md; verified_external_identity_roster.csv; indexed/provenance/study.json#target",
+    "statistical_unit": "85 participants; seed-wise metrics averaged within participant before inference",
+    "neural_prediction_rows": 979200,
+    "csp_prediction_rows": 61200,
+    "combined_prediction_rows": 1040400,
+    "selected_condition_seed_outputs": 144,
+    "distinct_selected_checkpoints": 99,
+    "distinct_final_trajectories": 18,
+    "deduplicated_prediction_rows_by_epoch_alias": 673200,
+    "prediction_count_source": "audits/external/audit_results.json#neural/#csp; IMPORT_VERIFICATION.json; AUDIT_SUMMARY_zh.md",
+    "pipelines": [
+      "BROAD",
+      "MU_BETA_SHARED"
+    ],
+    "selectors": [
+      "fixed20",
+      "mean_ce",
+      "mean_rank",
+      "mean_ba",
+      "tail_ce",
+      "tail_ba",
+      "mean_min_recall",
+      "tail_min_recall"
+    ],
+    "source_folds": 5,
+    "validation_seeds": [
+      20261021,
+      20261022,
+      20261023
+    ],
+    "final_seeds": [
+      20261013,
+      20261014,
+      20261015
+    ],
+    "validation_trajectories": 90,
+    "final_trajectories": 18,
+    "neural_trajectories_total": 108,
+    "epoch_checkpoints": 4320,
+    "epochs_per_trajectory": 40,
+    "updates_per_epoch": 128,
+    "updates_per_complete_trajectory": 5120,
+    "summed_receipt_updates": 552960,
+    "batch_size": 64,
+    "training_budget_scope": "Fixed per-trajectory optimizer-update contract; selected evaluation checkpoints vary by source level/pipeline/selector. Receipt/contract update assertions audited, optimizer internals not independently inspected. No dollar or live-server budget inference.",
+    "training_count_source": "indexed/provenance/study.json; audits/paper1-independent-integrity-source-selection-audit-20261018.json#integrity",
+    "channels": [
+      "Fz",
+      "FC3",
+      "FC1",
+      "FCz",
+      "FC2",
+      "FC4",
+      "C5",
+      "C3",
+      "C1",
+      "Cz",
+      "C2",
+      "C4",
+      "C6",
+      "CP3",
+      "CP1",
+      "CP2",
+      "CP4",
+      "Pz"
+    ],
+    "n_channels": 18,
+    "sample_rate_hz": 160,
+    "analysis_samples": 320,
+    "bands_hz": {
+      "broad": [
+        8,
+        30
+      ],
+      "mu": [
+        8,
+        13
+      ],
+      "beta": [
+        13,
+        30
+      ]
+    },
+    "normalization": "After CAR18, filtering, resampling and cropping: subtract each channel's temporal mean separately in each view; divide all three views by the same trial's broadband RMS over 18 channels and 320 samples. No statistics from other trials or people. Outputs are dimensionless.",
+    "yang_eligibility": {
+      "approved_utc": "2026-10-18T01:53:31Z",
+      "manifest_sha256": "5291d362185a8db9bf45ddc95d9cb49d40de57893d2fd4da8681a802b5ab36f9",
+      "rule": "explicit native labels 1/2 only; all 51 persons retained; no label/onset inference",
+      "unknown_and_missing_evidence": "per-session raw event audit; native marker-9 segments, not groups of 40 retained events"
+    },
+    "yang_clock_policy": "MOABB interprets 1/2 as the 1.5-second video cue start, whereas the author's archived preprocessing epochs [0,4] at the markers. The fixed marker-relative [2,4) crop lies within MI under either documented interpretation. The 1.5-second computational anchor is an analysis convention, not a verified physiological MI onset. Exact MI phase is not claimed to match BNCI/Dreyer.",
+    "yang_unit_policy": "Raw header declares literal ?V. Accept only the separately verified v5 Neuracle header schema; retain calibrated native physical numerical values without guessing V/uV/nV. The fixed per-trial normalization cancels any shared positive unit multiplier. Absolute physical amplitude is not used or claimed.",
+    "source_selection_weighting": "equal_dataset_then_equal_subject_after_mean_seeds",
+    "tail_probability": 0.3333333333333333,
+    "source_sampling": "uniform_dataset_then_subject_then_class_then_trial_with_replacement",
+    "sampling_note": "With Yang present, source-dataset sampling mass is fixed 50:50; expansion changes participant count, trial availability, cohort composition and person sampling frequencies together."
+  },
+  "all_frozen_statistical_comparisons": [
+    {
+      "name": "primary_source_expansion_min_recall",
+      "family": "prespecified_primary",
+      "metric": "min_recall",
+      "left": [
+        "S60",
+        "BROAD",
+        "tail_min_recall"
+      ],
+      "right": [
+        "S9",
+        "BROAD",
+        "tail_min_recall"
+      ],
+      "n_subjects": 85,
+      "mean": 0.21166666666666664,
+      "sd": 0.18748985863226603,
+      "se": 0.020336130434726298,
+      "t_ci95_low": 0.17122604109529102,
+      "t_ci95_high": 0.2521072922380423,
+      "bootstrap_ci95_low": 0.17146813725490195,
+      "bootstrap_ci95_high": 0.24951225490196077,
+      "t_statistic": 10.408404260882458,
+      "degrees_of_freedom": 84,
+      "p_two_sided": 8.88406164066793e-17,
+      "p_holm": null,
+      "positive": 72,
+      "negative": 10,
+      "equal": 3,
+      "median_difference": 0.2166666666666667,
+      "source": "audits/external/neural_recomputed_comparisons.csv; agrees to rounding with original ZIP results/comparisons.csv",
+      "mean_difference_percentage_points": 21.166666666666664,
+      "t_ci95_percentage_points": [
+        17.122604109529103,
+        25.21072922380423
+      ],
+      "bootstrap_ci95_percentage_points": [
+        17.146813725490194,
+        24.951225490196077
+      ],
+      "inference_scope": "participant-paired, conditional on fixed fitted trajectories and three-seed averages; pointwise unadjusted CIs; not a full training/source-population uncertainty model"
+    },
+    {
+      "name": "secondary_selector_min_recall",
+      "family": "secondary_holm_3",
+      "metric": "min_recall",
+      "left": [
+        "S60",
+        "BROAD",
+        "tail_min_recall"
+      ],
+      "right": [
+        "S60",
+        "BROAD",
+        "mean_ba"
+      ],
+      "n_subjects": 85,
+      "mean": -0.008725490196078432,
+      "sd": 0.12151154686863698,
+      "se": 0.01317977774623326,
+      "t_ci95_low": -0.03493492363082921,
+      "t_ci95_high": 0.01748394323867234,
+      "bootstrap_ci95_low": -0.03421568627450979,
+      "bootstrap_ci95_high": 0.01696078431372549,
+      "t_statistic": -0.6620362167011619,
+      "degrees_of_freedom": 84,
+      "p_two_sided": 0.5097602156545586,
+      "p_holm": 0.9998588961295976,
+      "positive": 36,
+      "negative": 44,
+      "equal": 5,
+      "median_difference": -0.008333333333333304,
+      "source": "audits/external/neural_recomputed_comparisons.csv; agrees to rounding with original ZIP results/comparisons.csv",
+      "mean_difference_percentage_points": -0.8725490196078431,
+      "t_ci95_percentage_points": [
+        -3.493492363082921,
+        1.7483943238672341
+      ],
+      "bootstrap_ci95_percentage_points": [
+        -3.4215686274509793,
+        1.696078431372549
+      ],
+      "inference_scope": "participant-paired, conditional on fixed fitted trajectories and three-seed averages; pointwise unadjusted CIs; not a full training/source-population uncertainty model"
+    },
+    {
+      "name": "secondary_larger_source_min_recall",
+      "family": "secondary_holm_3",
+      "metric": "min_recall",
+      "left": [
+        "S60",
+        "BROAD",
+        "tail_min_recall"
+      ],
+      "right": [
+        "S29",
+        "BROAD",
+        "tail_min_recall"
+      ],
+      "n_subjects": 85,
+      "mean": -0.005490196078431373,
+      "sd": 0.07470790719494068,
+      "se": 0.00810321025523608,
+      "t_ci95_low": -0.021604318325530537,
+      "t_ci95_high": 0.010623926168667794,
+      "bootstrap_ci95_low": -0.020884803921568627,
+      "bootstrap_ci95_high": 0.010294117647058822,
+      "t_statistic": -0.6775334596413507,
+      "degrees_of_freedom": 84,
+      "p_two_sided": 0.4999294480647988,
+      "p_holm": 0.9998588961295976,
+      "positive": 37,
+      "negative": 45,
+      "equal": 3,
+      "median_difference": -0.008333333333333304,
+      "source": "audits/external/neural_recomputed_comparisons.csv; agrees to rounding with original ZIP results/comparisons.csv",
+      "mean_difference_percentage_points": -0.5490196078431373,
+      "t_ci95_percentage_points": [
+        -2.1604318325530536,
+        1.0623926168667794
+      ],
+      "bootstrap_ci95_percentage_points": [
+        -2.0884803921568627,
+        1.0294117647058822
+      ],
+      "inference_scope": "participant-paired, conditional on fixed fitted trajectories and three-seed averages; pointwise unadjusted CIs; not a full training/source-population uncertainty model"
+    },
+    {
+      "name": "secondary_source_expansion_ba",
+      "family": "secondary_holm_3",
+      "metric": "ba",
+      "left": [
+        "S60",
+        "BROAD",
+        "tail_min_recall"
+      ],
+      "right": [
+        "S9",
+        "BROAD",
+        "tail_min_recall"
+      ],
+      "n_subjects": 85,
+      "mean": 0.05852941176470588,
+      "sd": 0.07993286773428425,
+      "se": 0.008669936796178185,
+      "t_ci95_low": 0.041288291639757536,
+      "t_ci95_high": 0.07577053188965421,
+      "bootstrap_ci95_low": 0.04191176470588236,
+      "bootstrap_ci95_high": 0.07578431372549019,
+      "t_statistic": 6.750846417993077,
+      "degrees_of_freedom": 84,
+      "p_two_sided": 1.7804623387501904e-09,
+      "p_holm": 5.341387016250571e-09,
+      "positive": 71,
+      "negative": 14,
+      "equal": 0,
+      "median_difference": 0.054166666666666474,
+      "source": "audits/external/neural_recomputed_comparisons.csv; agrees to rounding with original ZIP results/comparisons.csv",
+      "mean_difference_percentage_points": 5.852941176470588,
+      "t_ci95_percentage_points": [
+        4.1288291639757535,
+        7.577053188965421
+      ],
+      "bootstrap_ci95_percentage_points": [
+        4.1911764705882355,
+        7.578431372549018
+      ],
+      "inference_scope": "participant-paired, conditional on fixed fitted trajectories and three-seed averages; pointwise unadjusted CIs; not a full training/source-population uncertainty model"
+    }
+  ],
+  "tail_selector_and_conventional_descriptive_summaries": [
+    {
+      "source_level": "S29",
+      "pipeline": "BROAD",
+      "selector": "tail_min_recall",
+      "metric": "ba",
+      "n_subjects": 85,
+      "mean": 0.641078431372549,
+      "sd": 0.12648122544095033,
+      "se": 0.01371881507018501,
+      "t_ci95_low": 0.6137970631045271,
+      "t_ci95_high": 0.668359799640571,
+      "bootstrap_ci95_low": 0.6149987745098038,
+      "bootstrap_ci95_high": 0.6683333333333333,
+      "source": "audits/external/audit_results.json#tail_min_recall_summaries",
+      "mean_percent": 64.1078431372549,
+      "t_ci95_percent": [
+        61.37970631045271,
+        66.8359799640571
+      ]
+    },
+    {
+      "source_level": "S29",
+      "pipeline": "BROAD",
+      "selector": "tail_min_recall",
+      "metric": "min_recall",
+      "n_subjects": 85,
+      "mean": 0.4902941176470587,
+      "sd": 0.19809712766417265,
+      "se": 0.021486650298374876,
+      "t_ci95_low": 0.44756555715278395,
+      "t_ci95_high": 0.5330226781413335,
+      "bootstrap_ci95_low": 0.44862745098039214,
+      "bootstrap_ci95_high": 0.5326470588235294,
+      "source": "audits/external/audit_results.json#tail_min_recall_summaries",
+      "mean_percent": 49.02941176470587,
+      "t_ci95_percent": [
+        44.756555715278395,
+        53.30226781413335
+      ]
+    },
+    {
+      "source_level": "S29",
+      "pipeline": "MU_BETA_SHARED",
+      "selector": "tail_min_recall",
+      "metric": "ba",
+      "n_subjects": 85,
+      "mean": 0.6366666666666667,
+      "sd": 0.12561653509346965,
+      "se": 0.013625026233709831,
+      "t_ci95_low": 0.6095718077855137,
+      "t_ci95_high": 0.6637615255478198,
+      "bootstrap_ci95_low": 0.6102941176470589,
+      "bootstrap_ci95_high": 0.6636286764705883,
+      "source": "audits/external/audit_results.json#tail_min_recall_summaries",
+      "mean_percent": 63.66666666666667,
+      "t_ci95_percent": [
+        60.95718077855137,
+        66.37615255478198
+      ]
+    },
+    {
+      "source_level": "S29",
+      "pipeline": "MU_BETA_SHARED",
+      "selector": "tail_min_recall",
+      "metric": "min_recall",
+      "n_subjects": 85,
+      "mean": 0.45392156862745103,
+      "sd": 0.20318067810493712,
+      "se": 0.02203803876060451,
+      "t_ci95_low": 0.41009651170692757,
+      "t_ci95_high": 0.4977466255479745,
+      "bootstrap_ci95_low": 0.4108823529411766,
+      "bootstrap_ci95_high": 0.4973553921568627,
+      "source": "audits/external/audit_results.json#tail_min_recall_summaries",
+      "mean_percent": 45.392156862745104,
+      "t_ci95_percent": [
+        41.009651170692756,
+        49.77466255479745
+      ]
+    },
+    {
+      "source_level": "S60",
+      "pipeline": "BROAD",
+      "selector": "tail_min_recall",
+      "metric": "ba",
+      "n_subjects": 85,
+      "mean": 0.6417156862745098,
+      "sd": 0.12278711581111665,
+      "se": 0.013318132623568946,
+      "t_ci95_low": 0.615231118993216,
+      "t_ci95_high": 0.6682002535558036,
+      "bootstrap_ci95_low": 0.6160772058823528,
+      "bootstrap_ci95_high": 0.6684313725490196,
+      "source": "audits/external/audit_results.json#tail_min_recall_summaries",
+      "mean_percent": 64.17156862745098,
+      "t_ci95_percent": [
+        61.523111899321606,
+        66.82002535558036
+      ]
+    },
+    {
+      "source_level": "S60",
+      "pipeline": "BROAD",
+      "selector": "tail_min_recall",
+      "metric": "min_recall",
+      "n_subjects": 85,
+      "mean": 0.48480392156862756,
+      "sd": 0.17910056214344944,
+      "se": 0.019426183470678583,
+      "t_ci95_low": 0.4461728253263924,
+      "t_ci95_high": 0.5234350178108627,
+      "bootstrap_ci95_low": 0.44696078431372543,
+      "bootstrap_ci95_high": 0.5234313725490195,
+      "source": "audits/external/audit_results.json#tail_min_recall_summaries",
+      "mean_percent": 48.480392156862756,
+      "t_ci95_percent": [
+        44.617282532639244,
+        52.34350178108627
+      ]
+    },
+    {
+      "source_level": "S60",
+      "pipeline": "MU_BETA_SHARED",
+      "selector": "tail_min_recall",
+      "metric": "ba",
+      "n_subjects": 85,
+      "mean": 0.6387745098039216,
+      "sd": 0.11813843413678954,
+      "se": 0.012813912301636457,
+      "t_ci95_low": 0.6132926399291084,
+      "t_ci95_high": 0.6642563796787347,
+      "bootstrap_ci95_low": 0.6141176470588237,
+      "bootstrap_ci95_high": 0.6639240196078431,
+      "source": "audits/external/audit_results.json#tail_min_recall_summaries",
+      "mean_percent": 63.87745098039216,
+      "t_ci95_percent": [
+        61.329263992910846,
+        66.42563796787347
+      ]
+    },
+    {
+      "source_level": "S60",
+      "pipeline": "MU_BETA_SHARED",
+      "selector": "tail_min_recall",
+      "metric": "min_recall",
+      "n_subjects": 85,
+      "mean": 0.45568627450980387,
+      "sd": 0.1934706843312743,
+      "se": 0.02098484206323602,
+      "t_ci95_low": 0.41395561472289427,
+      "t_ci95_high": 0.49741693429671346,
+      "bootstrap_ci95_low": 0.4151936274509804,
+      "bootstrap_ci95_high": 0.49627696078431377,
+      "source": "audits/external/audit_results.json#tail_min_recall_summaries",
+      "mean_percent": 45.56862745098039,
+      "t_ci95_percent": [
+        41.39556147228943,
+        49.74169342967134
+      ]
+    },
+    {
+      "source_level": "S9",
+      "pipeline": "BROAD",
+      "selector": "tail_min_recall",
+      "metric": "ba",
+      "n_subjects": 85,
+      "mean": 0.5831862745098039,
+      "sd": 0.11260732508973627,
+      "se": 0.012213979292725368,
+      "t_ci95_low": 0.5588974372160491,
+      "t_ci95_high": 0.6074751118035586,
+      "bootstrap_ci95_low": 0.5604411764705881,
+      "bootstrap_ci95_high": 0.6079411764705882,
+      "source": "audits/external/audit_results.json#tail_min_recall_summaries",
+      "mean_percent": 58.31862745098039,
+      "t_ci95_percent": [
+        55.889743721604916,
+        60.747511180355865
+      ]
+    },
+    {
+      "source_level": "S9",
+      "pipeline": "BROAD",
+      "selector": "tail_min_recall",
+      "metric": "min_recall",
+      "n_subjects": 85,
+      "mean": 0.2731372549019608,
+      "sd": 0.23726971734190397,
+      "se": 0.025735514204741187,
+      "t_ci95_low": 0.2219593625698218,
+      "t_ci95_high": 0.32431514723409977,
+      "bootstrap_ci95_low": 0.2244117647058824,
+      "bootstrap_ci95_high": 0.3253921568627451,
+      "source": "audits/external/audit_results.json#tail_min_recall_summaries",
+      "mean_percent": 27.313725490196077,
+      "t_ci95_percent": [
+        22.19593625698218,
+        32.431514723409975
+      ]
+    },
+    {
+      "source_level": "S9",
+      "pipeline": "MU_BETA_SHARED",
+      "selector": "tail_min_recall",
+      "metric": "ba",
+      "n_subjects": 85,
+      "mean": 0.6015196078431373,
+      "sd": 0.11500166611331807,
+      "se": 0.012473682039935163,
+      "t_ci95_low": 0.576714323155741,
+      "t_ci95_high": 0.6263248925305336,
+      "bootstrap_ci95_low": 0.5781372549019609,
+      "bootstrap_ci95_high": 0.626813725490196,
+      "source": "audits/external/audit_results.json#tail_min_recall_summaries",
+      "mean_percent": 60.15196078431373,
+      "t_ci95_percent": [
+        57.6714323155741,
+        62.63248925305336
+      ]
+    },
+    {
+      "source_level": "S9",
+      "pipeline": "MU_BETA_SHARED",
+      "selector": "tail_min_recall",
+      "metric": "min_recall",
+      "n_subjects": 85,
+      "mean": 0.31852941176470595,
+      "sd": 0.23042897822453284,
+      "se": 0.02499353187046653,
+      "t_ci95_low": 0.2688270326752307,
+      "t_ci95_high": 0.3682317908541812,
+      "bootstrap_ci95_low": 0.2706838235294118,
+      "bootstrap_ci95_high": 0.36911764705882355,
+      "source": "audits/external/audit_results.json#tail_min_recall_summaries",
+      "mean_percent": 31.852941176470594,
+      "t_ci95_percent": [
+        26.882703267523073,
+        36.82317908541812
+      ]
+    },
+    {
+      "source_level": "S29",
+      "pipeline": "CSP_LDA",
+      "selector": "fixed",
+      "metric": "ba",
+      "n_subjects": 85,
+      "mean": 0.6401960784313726,
+      "sd": 0.1325820629783368,
+      "se": 0.014380543810216254,
+      "t_ci95_low": 0.6115987899940089,
+      "t_ci95_high": 0.6687933668687364,
+      "bootstrap_ci95_low": 0.6128921568627451,
+      "bootstrap_ci95_high": 0.6681862745098038,
+      "source": "audits/external/audit_results.json#csp_summaries",
+      "mean_percent": 64.01960784313727,
+      "t_ci95_percent": [
+        61.15987899940089,
+        66.87933668687364
+      ]
+    },
+    {
+      "source_level": "S29",
+      "pipeline": "CSP_LDA",
+      "selector": "fixed",
+      "metric": "min_recall",
+      "n_subjects": 85,
+      "mean": 0.4521568627450981,
+      "sd": 0.22952228159081683,
+      "se": 0.02489518681253921,
+      "t_ci95_low": 0.40265005358851647,
+      "t_ci95_high": 0.5016636719016797,
+      "bootstrap_ci95_low": 0.40333088235294123,
+      "bootstrap_ci95_high": 0.5006862745098039,
+      "source": "audits/external/audit_results.json#csp_summaries",
+      "mean_percent": 45.21568627450981,
+      "t_ci95_percent": [
+        40.265005358851646,
+        50.16636719016797
+      ]
+    },
+    {
+      "source_level": "S60",
+      "pipeline": "CSP_LDA",
+      "selector": "fixed",
+      "metric": "ba",
+      "n_subjects": 85,
+      "mean": 0.6537745098039216,
+      "sd": 0.12929241115879742,
+      "se": 0.014023730972577928,
+      "t_ci95_low": 0.6258867828247865,
+      "t_ci95_high": 0.6816622367830567,
+      "bootstrap_ci95_low": 0.627155637254902,
+      "bootstrap_ci95_high": 0.6811764705882354,
+      "source": "audits/external/audit_results.json#csp_summaries",
+      "mean_percent": 65.37745098039215,
+      "t_ci95_percent": [
+        62.58867828247865,
+        68.16622367830567
+      ]
+    },
+    {
+      "source_level": "S60",
+      "pipeline": "CSP_LDA",
+      "selector": "fixed",
+      "metric": "min_recall",
+      "n_subjects": 85,
+      "mean": 0.4781372549019608,
+      "sd": 0.22433387753252262,
+      "se": 0.02433242537868224,
+      "t_ci95_low": 0.4297495585729482,
+      "t_ci95_high": 0.5265249512309733,
+      "bootstrap_ci95_low": 0.4307843137254902,
+      "bootstrap_ci95_high": 0.5249019607843136,
+      "source": "audits/external/audit_results.json#csp_summaries",
+      "mean_percent": 47.81372549019608,
+      "t_ci95_percent": [
+        42.97495585729482,
+        52.65249512309733
+      ]
+    },
+    {
+      "source_level": "S9",
+      "pipeline": "CSP_LDA",
+      "selector": "fixed",
+      "metric": "ba",
+      "n_subjects": 85,
+      "mean": 0.6013235294117648,
+      "sd": 0.12245290465221854,
+      "se": 0.01328188233371501,
+      "t_ci95_low": 0.5749110498073052,
+      "t_ci95_high": 0.6277360090162244,
+      "bootstrap_ci95_low": 0.5761764705882352,
+      "bootstrap_ci95_high": 0.6276470588235294,
+      "source": "audits/external/audit_results.json#csp_summaries",
+      "mean_percent": 60.13235294117648,
+      "t_ci95_percent": [
+        57.491104980730526,
+        62.77360090162244
+      ]
+    },
+    {
+      "source_level": "S9",
+      "pipeline": "CSP_LDA",
+      "selector": "fixed",
+      "metric": "min_recall",
+      "n_subjects": 85,
+      "mean": 0.33990196078431373,
+      "sd": 0.25331823693286715,
+      "se": 0.027476220555830846,
+      "t_ci95_low": 0.2852624829750318,
+      "t_ci95_high": 0.39454143859359564,
+      "bootstrap_ci95_low": 0.2861764705882353,
+      "bootstrap_ci95_high": 0.39274754901960784,
+      "source": "audits/external/audit_results.json#csp_summaries",
+      "mean_percent": 33.990196078431374,
+      "t_ci95_percent": [
+        28.52624829750318,
+        39.45414385935956
+      ]
+    }
+  ],
+  "selected_epochs": [
+    {
+      "source_level": "S29",
+      "pipeline": "BROAD",
+      "selector": "fixed20",
+      "min": 20,
+      "max": 20
+    },
+    {
+      "source_level": "S29",
+      "pipeline": "BROAD",
+      "selector": "mean_ba",
+      "min": 26,
+      "max": 26
+    },
+    {
+      "source_level": "S29",
+      "pipeline": "BROAD",
+      "selector": "mean_ce",
+      "min": 5,
+      "max": 5
+    },
+    {
+      "source_level": "S29",
+      "pipeline": "BROAD",
+      "selector": "mean_min_recall",
+      "min": 5,
+      "max": 5
+    },
+    {
+      "source_level": "S29",
+      "pipeline": "BROAD",
+      "selector": "mean_rank",
+      "min": 5,
+      "max": 5
+    },
+    {
+      "source_level": "S29",
+      "pipeline": "BROAD",
+      "selector": "tail_ba",
+      "min": 39,
+      "max": 39
+    },
+    {
+      "source_level": "S29",
+      "pipeline": "BROAD",
+      "selector": "tail_ce",
+      "min": 1,
+      "max": 1
+    },
+    {
+      "source_level": "S29",
+      "pipeline": "BROAD",
+      "selector": "tail_min_recall",
+      "min": 5,
+      "max": 5
+    },
+    {
+      "source_level": "S29",
+      "pipeline": "MU_BETA_SHARED",
+      "selector": "fixed20",
+      "min": 20,
+      "max": 20
+    },
+    {
+      "source_level": "S29",
+      "pipeline": "MU_BETA_SHARED",
+      "selector": "mean_ba",
+      "min": 27,
+      "max": 27
+    },
+    {
+      "source_level": "S29",
+      "pipeline": "MU_BETA_SHARED",
+      "selector": "mean_ce",
+      "min": 7,
+      "max": 7
+    },
+    {
+      "source_level": "S29",
+      "pipeline": "MU_BETA_SHARED",
+      "selector": "mean_min_recall",
+      "min": 17,
+      "max": 17
+    },
+    {
+      "source_level": "S29",
+      "pipeline": "MU_BETA_SHARED",
+      "selector": "mean_rank",
+      "min": 7,
+      "max": 7
+    },
+    {
+      "source_level": "S29",
+      "pipeline": "MU_BETA_SHARED",
+      "selector": "tail_ba",
+      "min": 37,
+      "max": 37
+    },
+    {
+      "source_level": "S29",
+      "pipeline": "MU_BETA_SHARED",
+      "selector": "tail_ce",
+      "min": 1,
+      "max": 1
+    },
+    {
+      "source_level": "S29",
+      "pipeline": "MU_BETA_SHARED",
+      "selector": "tail_min_recall",
+      "min": 9,
+      "max": 9
+    },
+    {
+      "source_level": "S60",
+      "pipeline": "BROAD",
+      "selector": "fixed20",
+      "min": 20,
+      "max": 20
+    },
+    {
+      "source_level": "S60",
+      "pipeline": "BROAD",
+      "selector": "mean_ba",
+      "min": 35,
+      "max": 35
+    },
+    {
+      "source_level": "S60",
+      "pipeline": "BROAD",
+      "selector": "mean_ce",
+      "min": 7,
+      "max": 7
+    },
+    {
+      "source_level": "S60",
+      "pipeline": "BROAD",
+      "selector": "mean_min_recall",
+      "min": 7,
+      "max": 7
+    },
+    {
+      "source_level": "S60",
+      "pipeline": "BROAD",
+      "selector": "mean_rank",
+      "min": 7,
+      "max": 7
+    },
+    {
+      "source_level": "S60",
+      "pipeline": "BROAD",
+      "selector": "tail_ba",
+      "min": 39,
+      "max": 39
+    },
+    {
+      "source_level": "S60",
+      "pipeline": "BROAD",
+      "selector": "tail_ce",
+      "min": 1,
+      "max": 1
+    },
+    {
+      "source_level": "S60",
+      "pipeline": "BROAD",
+      "selector": "tail_min_recall",
+      "min": 5,
+      "max": 5
+    },
+    {
+      "source_level": "S60",
+      "pipeline": "MU_BETA_SHARED",
+      "selector": "fixed20",
+      "min": 20,
+      "max": 20
+    },
+    {
+      "source_level": "S60",
+      "pipeline": "MU_BETA_SHARED",
+      "selector": "mean_ba",
+      "min": 31,
+      "max": 31
+    },
+    {
+      "source_level": "S60",
+      "pipeline": "MU_BETA_SHARED",
+      "selector": "mean_ce",
+      "min": 3,
+      "max": 3
+    },
+    {
+      "source_level": "S60",
+      "pipeline": "MU_BETA_SHARED",
+      "selector": "mean_min_recall",
+      "min": 7,
+      "max": 7
+    },
+    {
+      "source_level": "S60",
+      "pipeline": "MU_BETA_SHARED",
+      "selector": "mean_rank",
+      "min": 9,
+      "max": 9
+    },
+    {
+      "source_level": "S60",
+      "pipeline": "MU_BETA_SHARED",
+      "selector": "tail_ba",
+      "min": 34,
+      "max": 34
+    },
+    {
+      "source_level": "S60",
+      "pipeline": "MU_BETA_SHARED",
+      "selector": "tail_ce",
+      "min": 1,
+      "max": 1
+    },
+    {
+      "source_level": "S60",
+      "pipeline": "MU_BETA_SHARED",
+      "selector": "tail_min_recall",
+      "min": 7,
+      "max": 7
+    },
+    {
+      "source_level": "S9",
+      "pipeline": "BROAD",
+      "selector": "fixed20",
+      "min": 20,
+      "max": 20
+    },
+    {
+      "source_level": "S9",
+      "pipeline": "BROAD",
+      "selector": "mean_ba",
+      "min": 27,
+      "max": 27
+    },
+    {
+      "source_level": "S9",
+      "pipeline": "BROAD",
+      "selector": "mean_ce",
+      "min": 3,
+      "max": 3
+    },
+    {
+      "source_level": "S9",
+      "pipeline": "BROAD",
+      "selector": "mean_min_recall",
+      "min": 27,
+      "max": 27
+    },
+    {
+      "source_level": "S9",
+      "pipeline": "BROAD",
+      "selector": "mean_rank",
+      "min": 8,
+      "max": 8
+    },
+    {
+      "source_level": "S9",
+      "pipeline": "BROAD",
+      "selector": "tail_ba",
+      "min": 27,
+      "max": 27
+    },
+    {
+      "source_level": "S9",
+      "pipeline": "BROAD",
+      "selector": "tail_ce",
+      "min": 3,
+      "max": 3
+    },
+    {
+      "source_level": "S9",
+      "pipeline": "BROAD",
+      "selector": "tail_min_recall",
+      "min": 27,
+      "max": 27
+    },
+    {
+      "source_level": "S9",
+      "pipeline": "MU_BETA_SHARED",
+      "selector": "fixed20",
+      "min": 20,
+      "max": 20
+    },
+    {
+      "source_level": "S9",
+      "pipeline": "MU_BETA_SHARED",
+      "selector": "mean_ba",
+      "min": 20,
+      "max": 20
+    },
+    {
+      "source_level": "S9",
+      "pipeline": "MU_BETA_SHARED",
+      "selector": "mean_ce",
+      "min": 3,
+      "max": 3
+    },
+    {
+      "source_level": "S9",
+      "pipeline": "MU_BETA_SHARED",
+      "selector": "mean_min_recall",
+      "min": 18,
+      "max": 18
+    },
+    {
+      "source_level": "S9",
+      "pipeline": "MU_BETA_SHARED",
+      "selector": "mean_rank",
+      "min": 9,
+      "max": 9
+    },
+    {
+      "source_level": "S9",
+      "pipeline": "MU_BETA_SHARED",
+      "selector": "tail_ba",
+      "min": 9,
+      "max": 9
+    },
+    {
+      "source_level": "S9",
+      "pipeline": "MU_BETA_SHARED",
+      "selector": "tail_ce",
+      "min": 3,
+      "max": 3
+    },
+    {
+      "source_level": "S9",
+      "pipeline": "MU_BETA_SHARED",
+      "selector": "tail_min_recall",
+      "min": 9,
+      "max": 9
+    }
+  ],
+  "primary_claim": {
+    "allowed": "Under the archived BROAD/tail_min_recall protocol, the S60 source configuration improved external participant-averaged weaker-class recall relative to S9 by 21.1667 percentage points (95% t CI 17.1226–25.2107).",
+    "scope": "Exploratory evaluation in the 85-participant Dreyer cohort; internally frozen contrast; not first-use independent confirmation, not universal effect or isolated causal participant-count effect.",
+    "s9_mean_percent": 27.31372549019608,
+    "s60_mean_percent": 48.480392156862756,
+    "improved": 72,
+    "declined": 10,
+    "unchanged": 3,
+    "participant_count_scope": "descriptive counts, not additional prespecified test",
+    "checkpoint_duration_note": "BROAD/tail_min_recall selects S9 epoch 27, S29 epoch 5 and S60 epoch 5; contrast is complete source-configuration/pipeline comparison, despite equal full trajectory budgets."
+  },
+  "mandatory_nonpositive_results": [
+    {
+      "result": "S60 tail_min_recall versus mean_ba on weaker-class recall",
+      "difference_pp": -0.8725490196078431,
+      "holm_p": 0.9998588961295976,
+      "interpretation": "No evidence of the tail-focused selector improving over mean balanced-accuracy selection; non-significance does not establish equivalence. Keep in main Results and the full prespecified secondary table."
+    },
+    {
+      "result": "S60 versus S29 on weaker-class recall",
+      "difference_pp": -0.5490196078431373,
+      "holm_p": 0.9998588961295976,
+      "interpretation": "No evidence of further improvement over the fixed intermediate source condition; cannot claim monotonic scaling, an identified optimum, equivalence or saturation law. Keep in main Results and secondary table."
+    },
+    {
+      "result": "Primary weaker-class-recall individual declines",
+      "declined": 10,
+      "unchanged": 3,
+      "interpretation": "72 improved does not mean universal benefit. Show all 85 changes, including negative and zero values."
+    },
+    {
+      "result": "CSP comparator",
+      "S60_csp_ba_percent": 65.37745098039215,
+      "S60_primary_neural_ba_percent": 64.17156862745098,
+      "interpretation": "Descriptive baseline was not part of the neural inferential family; cannot claim neural or proposed-pipeline superiority, and do not add a favorable post-hoc model-comparison test."
+    }
+  ],
+  "supported_contributions": [
+    {
+      "label": "Participant-centered source-expansion evaluation",
+      "text": "Joint reporting of balanced accuracy and each participant's weaker-class recall makes the effect of source configuration visible beyond aggregate accuracy.",
+      "evidence": "Fixed primary endpoint and all four archived comparisons; 85 paired participants."
+    },
+    {
+      "label": "Controlled optimization-budget benchmark",
+      "text": "Nested S9/S29/S60 source configurations are evaluated with one frozen 18-channel dimensionless processing recipe and the same full-trajectory optimizer-update budget.",
+      "boundary": "Cohort, trial availability, sampling distribution and source-selected checkpoint change together; not a causal participant-count experiment."
+    },
+    {
+      "label": "Source-only checkpoint-selection evidence",
+      "text": "Eight frozen source-selection rules and both broadband/shared pipelines are retained across all source conditions; whole-participant folds, seed averaging, dataset/person weighting and exact ties are traceable.",
+      "boundary": "The proposed tail-focused rule does not outperform the mean-BA comparator in the frozen secondary test; no novel SOTA algorithm claim."
+    },
+    {
+      "label": "Benefit distribution rather than mean-only reporting",
+      "text": "All participant-paired effects and the 72/10/3 improve/decline/tie split accompany mean estimates and uncertainty.",
+      "boundary": "These are descriptive heterogeneity summaries, not independent subgroup confirmation or benefit guarantees."
+    },
+    {
+      "label": "An auditable research artifact chain",
+      "text": "Frozen source identities, exact selector/checkpoint bindings, 108 trajectory contracts and saved prediction/statistic audits provide a reproducibility resource.",
+      "boundary": "Do not relabel checksum/arithmetic checks as raw-signal replication, replayed inference, optimizer-state validation or complete no-leakage proof."
+    }
+  ],
+  "suggested_figures_from_existing_results_only": [
+    {
+      "name": "Complete frozen-contrast forest plot",
+      "source": "audits/external/neural_recomputed_comparisons.csv",
+      "contents": "All four fixed contrasts, point estimates and pointwise t95% CIs; primary/secondary family labels and raw/Holm p labels. Include the two null/negative point estimates."
+    },
+    {
+      "name": "Participant-paired weaker-class recall distribution",
+      "source": "audits/external/neural_recomputed_paired_differences.csv or ZIP results/paired_subject_differences.csv",
+      "contents": "All 85 primary participant differences and zero line; mark 72/10/3. No sign-based filtering or removed outliers."
+    },
+    {
+      "name": "Source-condition descriptive trajectories for both endpoints",
+      "source": "audits/external/neural_recomputed_condition_summaries.csv and csp_recomputed_condition_summaries.csv",
+      "contents": "BROAD and shared tail_min_recall plus fixed CSP across S9/S29/S60; separate BA and weaker-class recall panels, unchanged stored CIs. Avoid invented superiority stars."
+    },
+    {
+      "name": "Source-selected epoch matrix",
+      "source": "audits/external/audit_results.json#selected_epochs",
+      "contents": "All eight rules × three source conditions × two pipelines. Explicitly show S9 primary epoch27 versus expanded epoch5; no favorable selector suppression."
+    },
+    {
+      "name": "Frozen study and evidence flow",
+      "source": "indexed/provenance/study.json; two audit reports",
+      "contents": "Source identities and eligibility -> whole-person validation -> 48 choices -> 18 final trajectories -> frozen external scoring. Distinguish scientific processing from byte/selector/statistics audit scope."
+    }
+  ],
+  "audit_scope": {
+    "external_arithmetic": {
+      "checks": 1179,
+      "failed": 0,
+      "covers": [
+        "saved prediction IDs/labels/counts",
+        "all condition/seed completeness",
+        "85 label-array hashes against saved input audit",
+        "per-seed and per-person metrics",
+        "paired differences/t/pointwise CI/bootstrap/Holm",
+        "same-checkpoint alias equality"
+      ],
+      "does_not_cover": [
+        "raw EEG reprocessing",
+        "signal-level duplicate detection",
+        "checkpoint forward replay",
+        "optimizer internals",
+        "all historical target-access events",
+        "first-use external independence"
+      ]
+    },
+    "source_and_integrity": {
+      "checkpoint_archive_count": 9,
+      "archive_bytes": 212762651,
+      "contracts": 108,
+      "epoch_weights_and_receipts": 4320,
+      "source_curve_rows": 23520,
+      "aggregate_values": 1680,
+      "max_aggregate_abs_difference": 7.105427357601002e-15,
+      "selector_choices": 48,
+      "input_metric_hashes": 6,
+      "covers": [
+        "archive and payload byte integrity",
+        "whole-person contract disjointness",
+        "exact source-only selector arithmetic",
+        "static runner source-freeze-first order"
+      ],
+      "does_not_cover": [
+        "raw EEG reconstruction",
+        "checkpoint optimizer state internals",
+        "all target access history"
+      ]
+    },
+    "this_editorial_review": "Read pinned JSON/CSV/source text and original ZIP members without training or raw EEG. Did not rerun the 1179-check audit or rehash off-Pod 9 large checkpoint archive bytes.",
+    "r2": "Unverified destination and full-GET backup remain an operational item; GitHub/off-Pod import does not establish that acceptance."
+  },
+  "writing_recommendations": [
+    "Lead Introduction contributions with measurable design and outcome; use direct affirmative sentences and remove repeated boilerplate hedges, but retain exact scope where necessary for truth.",
+    "Main abstract must identify exploratory external evaluation and include the non-supporting selector/intermediate-scale findings concisely; detailed limitations can be consolidated in one Discussion subsection.",
+    "Do not remove frozen adverse/null results or call them failed implementation when they answer the registered comparison.",
+    "Avoid SOTA, causal improvement, universal calibration-free, first-use independent confirmation, and new neural architecture claims.",
+    "Separate the 18-channel dimensionless current study from historical 19-channel Q1–Q16; neither pool their counts nor present them as numerically identical.",
+    "Do not claim AI-detector scores can be lowered or fabricate author writing provenance; improve specific prose and retain accurate AI disclosure."
+  ]
+}

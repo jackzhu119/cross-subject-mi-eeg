@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "reviewed_at_utc": "2026-10-18T05:54:34.318430+00:00",
+  "operation": "Read-only editorial triage of user-supplied second review against already-published latest manuscript; no raw EEG, fits, inference, or scientific-audit rerun",
+  "review_source": {
+    "path": "/workspace/attachments/96c68f2e-81d4-4e49-958d-546d343f53e8/已粘贴的文本.txt",
+    "bytes": 31120,
+    "sha256": "44680781ce7bb01a07711230fa9372cc9f3817cce1055dc549afb6e0f2d38195"
+  },
+  "actual_manuscript": {
+    "title": "Source-cohort expansion and weaker-class coverage in cross-subject motor-imagery EEG decoding",
+    "head_observed": "7b2932124ca06d8bcd65c9e618cd7ce65d68796f",
+    "path": "/workspace/paper1-plos-revision-20261018/research_runs/PAPER1_PLOS_REVISION_20261018/manuscript_en.md",
+    "sha256": "80a66cf72152a94239a11444a4a579ec13983d61628d09b2014a6a32db1a8083",
+    "current_orcid": "0009-0005-1153-4926"
+  },
+  "overall_triage": "The report mainly reviews the older 20261010 candidate, not the latest 20261018 main manuscript. Its core recommendation to integrate v3 is already implemented. Its numerical primary/secondary estimates agree, but several proposed interpretations overreach.",
+  "already_fixed": [
+    {
+      "report_issue": "v3 is not integrated into any manuscript",
+      "current": "Latest main, Abstract, Introduction contributions, Methods, Results, Discussion, Conclusion, 5 figures, S1 Appendix and S1 Data all integrate v3."
+    },
+    {
+      "report_issue": "No Yang/Dreyer citations or data-availability entries",
+      "current": "References13–17 cite Yang paper/data v5 and Dreyer paper/Zenodo/NEMAR; Data Availability includes fixed archive and provider routes."
+    },
+    {
+      "report_issue": "CSP results hidden",
+      "current": "Main Table3 and Fig4 show BA and weaker-class recall for all S9/S29/S60 including higher S60 CSP BA; text states comparator ordering."
+    },
+    {
+      "report_issue": "20-person pool and null selector findings hidden",
+      "current": "Main Table2, Abstract, Results and all-four-contrasts Fig2 already retain both null comparisons; S29 W49.0294% is explicit."
+    },
+    {
+      "report_issue": "Yang timing, target exposure and earlier19-channel differences absent",
+      "current": "Methods and Scope preserve marker+[2,4)s, computational anchor uncertainty, feedback overlap, exploratory target status and protocol separation."
+    },
+    {
+      "report_issue": "DOCX10pt and no continuous line numbers",
+      "current": "Actual DOCX Normal12pt, double-spacing480, continuous w:lnNumType;0inline drawings. Font is Liberation Serif, not necessarily Times New Roman; current PLOS guidance does not require that one font exclusively."
+    },
+    {
+      "report_issue": "No submission-format v3 figures",
+      "current": "Five separate RGB TIFFs exist at300dpi;300–600dpi official target; all<0.42MB."
+    },
+    {
+      "report_issue": "SI necessarily exceeds20MB",
+      "current": "S1_Data.zip is399244bytes; full frozen saved-prediction archive remains publicly accessible by immutable GitHub commit. Need not duplicate entire21.2MBarchive withinSI."
+    },
+    {
+      "report_issue": "Strong contribution framing absent",
+      "current": "Current Introduction states4affirmative empirical/methodological contributions and main narrative leads with21.17ppWgain/5.85ppBAgain."
+    }
+  ],
+  "genuinely_actionable": [
+    {
+      "action": "Strengthen the practical positive interpretation using the expanded source cohort and both endpoint profiles, while distinguishing full-trajectory5120updates from chosen epochs27/5/5.",
+      "scope": "Editorial only; preserve all4frozen contrasts."
+    },
+    {
+      "action": "If adding S29−S9 or CSP S60−S9/CSP-versus-neural paired uncertainty, compute only saved person/seed metrics, label as new post-review exploratory analyses, fix contrast family/adjustment before calculating, publish all outcomes.",
+      "scope": "Separate from unchanged original primary and Holm3family; no scientific fitting/inference."
+    },
+    {
+      "action": "Use one central Scope paragraph for general study limitations and precise endpoint/selection uncertainty in Methods; reduce repetitive disclaimers elsewhere.",
+      "scope": "Do not use arbitrary not-count or AI-score thresholds; abstract must remain independently interpretable."
+    },
+    {
+      "action": "Obtain genuine author/ethics-office clarification if available for this Paper1 study and current BNCI/Yang/Dreyer scope; otherwise preserve exact author-assessment statement and portal guidance requirement.",
+      "scope": "Cannot copy asserted Paper2 determination without actual document/coverage; no invented committee/waiver/approvalnumber."
+    },
+    {
+      "action": "Verify current portal manuscript state and submission route; report gives PONE-D-26-50597 but is not a portal receipt or editor revision invitation.",
+      "scope": "Prepare update/cover materials without submitting or inventing invited reviewer response."
+    },
+    {
+      "action": "Fresh author approval of changed manuscript/figures, live ORCID linking/name fields, updated human-participants form with actual newcohorts/line references remain authoractions.",
+      "scope": "Historical approval/checklist is not automatically current."
+    },
+    {
+      "action": "Explicit provider-version/license table and permanent-archive planning can improve usability.",
+      "scope": "Verify original licenses before asserting them; DOI is optional until genuinely issued."
+    }
+  ],
+  "review_inaccuracies_or_overclaims": [
+    {
+      "claim": "statistically indistinguishable CSP and neural atS60",
+      "problem": "No frozen model-comparison/equivalence test; even a nonsignificant new paired test cannot establish equality.",
+      "safe": "Report actual descriptive BA/W means or a clearly posthoc paired difference with CI; avoid equality/equivalence."
+    },
+    {
+      "claim": "20extra participants suffice; dose saturation/plateau established",
+      "problem": "One fixed intermediate subset, changing cohort/trials/sampling and selected duration; S60−S29 CI bounds this conditional contrast only.",
+      "safe": "The fixed20-person addition attained W49.03% versus48.48%withall51, and the original comparison did not support furthergain. Its pointwise upperCI1.0624pp is specific to this contrast, not a universal sufficiency/plateau threshold."
+    },
+    {
+      "claim": "algorithm-independent/source-pool-size effect proven by CSPgain",
+      "problem": "Same direction in one classical and one neural family does not isolate participantcount causal mechanism or algorithm invariance.",
+      "safe": "Expanded-source benefits were also observed descriptively in CSP; estimate its saved-metric contrast posthoc if wanted."
+    },
+    {
+      "claim": "Dreyer becomes first-use independent confirmation after author yes/no",
+      "problem": "An author declaration alone does not retrospectively establish all access/selectionhistory; current frozen status explicitly exploratory.",
+      "safe": "Retain exploratory status unless a separate documented scientific amendment and genuine evidence warrants a different interpretation."
+    },
+    {
+      "claim": "ORCID0000-0005-1153-4926",
+      "problem": "Actual author iD begins0009; latest manuscript/submission fields correct.",
+      "safe": "0009-0005-1153-4926; do not overwrite with report typo."
+    },
+    {
+      "claim": "85persons×160rows percondition/seed",
+      "problem": "Actual80trials/person/condition/seed; total979200=85×80×144.",
+      "safe": "Use current correct denominator and evaluation-output grain."
+    },
+    {
+      "claim": "Currenttitle120characters/6figs8tables36refs and v3notintegrated",
+      "problem": "Those describe historic20261010candidate; latest title/5figures/3maintables20references differ.",
+      "safe": "Audit latest sources and rendered artifacts, not old line numbers/counts."
+    },
+    {
+      "claim": "Ethicsinstitutionexemption is categorically the only mandatoryPLOSblocker",
+      "problem": "Current official PLOS guidance requests detailed reasons if approvalnotobtained; acceptance of a specific explanation is editorial, and noactualinstitutionrecord is suppliedhere.",
+      "safe": "Flag genuine unresolved author/ethicsdocumentation risk, not fictitious formalapproval or guaranteed rejection/acceptance."
+    },
+    {
+      "claim": "Counts of not/ratherthan or no longdash establish lowAIrate",
+      "problem": "Lexicalcounts have no validated authorship/AI-detection interpretation; quoted normative thresholds are unsourced.",
+      "safe": "Use counts only to locate repetitive prose; do not promise detector outcomes."
+    },
+    {
+      "claim": "desk-rejectrisklow/external-reviewlikelymajorrevision",
+      "problem": "No support for numerical/personaleditorialforecast; source is aninformalreviewnotactualjournaldecision.",
+      "safe": "Prepare a technically complete and transparent manuscript without acceptance predictions."
+    }
+  ],
+  "positive_narrative_recommendation": "Lead with a concrete cross-cohort training decision: adding the Yang source cohort to BNCI under fixed full-trajectory optimization improved weaker-command coverage for72/85externalparticipants and improvedBA. Explain the gap-decomposition profile and observed classical-baseline direction. The fixed20-person subset already attained the expanded-profile mean; preserve the full-pool and selector comparisons as design-boundary information, not a universal saturation law. Put participant count/trialcohort/duration uncertainty in one scoped Methods/Discussion treatment, retain independently intelligible Abstract language, and avoid architecture/SOTA/causalmechanism claims.",
+  "new_scientific_actions_performed": 0,
+  "repo_files_modified": []
+}

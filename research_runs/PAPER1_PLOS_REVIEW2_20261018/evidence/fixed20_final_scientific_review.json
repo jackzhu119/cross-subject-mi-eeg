@@ -1,0 +1,46 @@
+{
+  "review": "Localized final scientific wording and fixed20/Fig7 content review",
+  "time_utc": "2026-10-18T06:18:54.602571+00:00",
+  "result": "PASS_NO_FACTUAL_OR_MATERIAL_OVERCLAIM_CORRECTION_NEEDED",
+  "artifacts": [
+    {
+      "path": "/workspace/paper1-plos-review2-20261018/research_runs/PAPER1_PLOS_REVIEW2_20261018/manuscript_en.md",
+      "sha256": "e17e5e654dc8ee684b206afcfd7e3f621dc5c522302cf54a1af3cb2cb776f673"
+    },
+    {
+      "path": "/workspace/paper1-plos-review2-20261018/research_runs/PAPER1_PLOS_REVIEW2_20261018/FIGURE_CAPTIONS.md",
+      "sha256": "57580a87c739decc756904c39e7f007ef933a92c5b81d15fa162f482cf17d46e"
+    },
+    {
+      "path": "/workspace/paper1-plos-review2-20261018/research_runs/PAPER1_PLOS_REVIEW2_20261018/tables/source_expansion_inventory.csv",
+      "sha256": "c63f6a3e3288444a0a9f2a8620bc9a7089c8a1f56eef22ac2e749f994b4b7239"
+    },
+    {
+      "path": "/workspace/paper1-plos-review2-20261018/research_runs/PAPER1_PLOS_REVIEW2_20261018/tables/source_expansion_fixed20_seed_differences.csv",
+      "sha256": "4d304996d61462cb8693ef367fd138e7de7426f0a61422a0386c29ae3a7bf266"
+    },
+    {
+      "path": "/workspace/paper1-plos-review2-20261018/research_runs/PAPER1_PLOS_REVIEW2_20261018/tables/source_expansion_fixed20_seed_means.csv",
+      "sha256": "a4e624b86b3338527bd40ba1779a8bade8e536dedb835c8bbfd5e8963609b481"
+    },
+    {
+      "path": "/workspace/paper1-plos-review2-20261018/research_runs/PAPER1_PLOS_REVIEW2_20261018/tables/review2_posthoc_comparisons.csv",
+      "sha256": "5cd12d4353b5dd415e74ccb301c0907aa181794d47c658bc292147500773f11c"
+    }
+  ],
+  "checks": [
+    "Abstract17.07/24.87pp and Results/Table5 fixed20 differences match the complete inventory.",
+    "All24published seed-level differences positive and2560vs2560updates; every displayed fixed20 condition included.",
+    "Fig7 describes averaged paired cohort metrics, not independent seed replicates; posthoc/descriptive identity explicit.",
+    "Primary original test and Holm3family retained unchanged; addedS29/CSP Holm4posthoc family separated.",
+    "No universal20-person sufficiency/plateau, causal participant-count isolation, independentreplication or decoderfamilyequivalence claim found.",
+    "Durationmatchedcontrol wording is grounded in equalwithinpipeline selected20epoch checkpoints.",
+    "All7figure captions have scientifically appropriate scope."
+  ],
+  "scientific_reruns": 0,
+  "raw_eeg_reads": 0,
+  "checkpoint_loads": 0,
+  "new_hypothesis_tests": 0,
+  "repo_edits": [],
+  "actionable_findings": []
+}

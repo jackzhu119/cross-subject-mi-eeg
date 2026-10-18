@@ -1,0 +1,226 @@
+{
+  "schema_version": 1,
+  "analysis_id": "paper1_complete_saved_metric_source_expansion_inventory_20261018",
+  "frozen_at_utc": "2026-10-18T06:06:22.024890+00:00",
+  "classification": "Post hoc descriptive inventory after external outcomes and earlier analyses were known. Not a prespecified, prospective, confirmatory or independently replicated analysis. Plan frozen before this script computed the complete inventory.",
+  "purpose": "Report the complete two-expansion by pipeline by selector by endpoint descriptive inventory, including every adverse or null-direction cell, and the fixed20 same-selected-update control across all three saved training seeds.",
+  "input_archive": {
+    "path": "research_runs/ELIGIBLE_V3_RESULTS_20261018/evidence/paper1_expansion_results.zip",
+    "bytes": 21240637,
+    "sha256": "df8fdc4a43139acb4236ead749b74736a5bedaea6d8606c3bcc69234755fe02f"
+  },
+  "input_members": {
+    "results/per_subject_metrics.csv": {
+      "bytes": 662212,
+      "sha256": "cfa5d9eb1a02360b94b2df7cec583a1619c7dadcbd9ad2851bfa2eefaa675207"
+    },
+    "results/csp_per_subject_metrics.csv": {
+      "bytes": 39080,
+      "sha256": "5092e82fb513a438ce85618904cde380ae82a48e864dea1b630f70e29066866e"
+    },
+    "results/external_subject_seed_metrics.csv": {
+      "bytes": 2061430,
+      "sha256": "e6d5de2f4d6ca529f2c20a8bed6ee501184ec3d2008c2aea9f0242b37fd07bb3"
+    },
+    "results/selection_freeze.json": {
+      "bytes": 116367,
+      "sha256": "7752ccee72bfbf3ffa69f3de220c82dceb7a880994c18267397c7858bab92e28"
+    },
+    "provenance/study.json": {
+      "bytes": 6323,
+      "sha256": "87f2de5eeec6bb94149885678cc8c541b59f5316fe53396cfef16b21120f03fb"
+    }
+  },
+  "expected_subjects": [
+    "dreyer:001",
+    "dreyer:002",
+    "dreyer:003",
+    "dreyer:004",
+    "dreyer:005",
+    "dreyer:006",
+    "dreyer:007",
+    "dreyer:008",
+    "dreyer:009",
+    "dreyer:010",
+    "dreyer:011",
+    "dreyer:012",
+    "dreyer:013",
+    "dreyer:014",
+    "dreyer:015",
+    "dreyer:016",
+    "dreyer:018",
+    "dreyer:019",
+    "dreyer:020",
+    "dreyer:021",
+    "dreyer:022",
+    "dreyer:023",
+    "dreyer:024",
+    "dreyer:025",
+    "dreyer:026",
+    "dreyer:027",
+    "dreyer:028",
+    "dreyer:029",
+    "dreyer:030",
+    "dreyer:031",
+    "dreyer:032",
+    "dreyer:033",
+    "dreyer:034",
+    "dreyer:035",
+    "dreyer:036",
+    "dreyer:037",
+    "dreyer:038",
+    "dreyer:039",
+    "dreyer:040",
+    "dreyer:042",
+    "dreyer:043",
+    "dreyer:044",
+    "dreyer:045",
+    "dreyer:046",
+    "dreyer:047",
+    "dreyer:048",
+    "dreyer:049",
+    "dreyer:050",
+    "dreyer:051",
+    "dreyer:052",
+    "dreyer:053",
+    "dreyer:054",
+    "dreyer:055",
+    "dreyer:056",
+    "dreyer:057",
+    "dreyer:058",
+    "dreyer:059",
+    "dreyer:060",
+    "dreyer:061",
+    "dreyer:062",
+    "dreyer:063",
+    "dreyer:064",
+    "dreyer:065",
+    "dreyer:066",
+    "dreyer:067",
+    "dreyer:068",
+    "dreyer:069",
+    "dreyer:070",
+    "dreyer:071",
+    "dreyer:072",
+    "dreyer:073",
+    "dreyer:074",
+    "dreyer:075",
+    "dreyer:076",
+    "dreyer:077",
+    "dreyer:078",
+    "dreyer:079",
+    "dreyer:080",
+    "dreyer:081",
+    "dreyer:082",
+    "dreyer:083",
+    "dreyer:084",
+    "dreyer:085",
+    "dreyer:086",
+    "dreyer:087"
+  ],
+  "source_levels": [
+    "S9",
+    "S29",
+    "S60"
+  ],
+  "expansion_comparisons": [
+    [
+      "S29",
+      "S9"
+    ],
+    [
+      "S60",
+      "S9"
+    ]
+  ],
+  "neural_pipelines": [
+    "BROAD",
+    "MU_BETA_SHARED"
+  ],
+  "neural_selectors": [
+    "fixed20",
+    "mean_ce",
+    "mean_rank",
+    "mean_ba",
+    "tail_ce",
+    "tail_ba",
+    "mean_min_recall",
+    "tail_min_recall"
+  ],
+  "metrics": [
+    "ba",
+    "min_recall"
+  ],
+  "csp": {
+    "pipeline": "CSP_LDA",
+    "selector": "fixed",
+    "expansion_comparisons": [
+      [
+        "S29",
+        "S9"
+      ],
+      [
+        "S60",
+        "S9"
+      ]
+    ],
+    "metrics": [
+      "ba",
+      "min_recall"
+    ]
+  },
+  "expected_inventory_rows": 68,
+  "calculation": "Each condition mean uses all85 saved participant values; these were already averaged over3 seed-specific metrics. Difference is100 × mean(higher-source participant value minus S9 participant value), in percentage points. No reselection or participant exclusion.",
+  "fixed20_seed_scope": {
+    "pipelines": [
+      "BROAD",
+      "MU_BETA_SHARED"
+    ],
+    "selector": "fixed20",
+    "source_levels": [
+      "S9",
+      "S29",
+      "S60"
+    ],
+    "seeds": [
+      20261013,
+      20261014,
+      20261015
+    ],
+    "metrics": [
+      "ba",
+      "min_recall"
+    ],
+    "expected_seed_condition_means": 36,
+    "expected_seed_expansion_differences": 24,
+    "definition": "Mean85 saved participants within each seed×source level×pipeline×endpoint; both expansions versusS9 retained. fixed20 must be selected epoch20 in all6 level×pipeline combinations; with128 updates/epoch selected duration is2560 updates per trajectory. Three training seeds share the same external cohort, not independent external replications."
+  },
+  "direction_classification": {
+    "policy": "positive if mean difference_pp>1e-10,negative if<-1e-10,otherwise numerical_zero",
+    "epsilon_pp": 1e-10,
+    "interpretation": "Only labels aggregate floating-point signs; not a statistical tolerance, scientific hash relaxation or equivalence margin. No participant benefit/tie counts computed."
+  },
+  "identity_checks": [
+    "FullZIP and member SHA256",
+    "Exactly85unique expected participants andn_seeds3 in each consumed condition",
+    "Datasetdreyer; finiteendpointvaluesin[0,1]",
+    "Sameparticipanttrial_manifest_sha256 across source levels/pipelines/selectors",
+    "Seedtables exactly3approvedseeds and85participantsperfixed20condition;80trials,40perclass",
+    "Stored min_recall equals min(left,right) withinseed andBAequals theirmean within1e-12 numericalarithmeticcheck",
+    "Frozenfixed20epoch20 andstudyupdates_per_epoch128"
+  ],
+  "outputs": [
+    "tables/source_expansion_inventory.csv",
+    "tables/source_expansion_fixed20_seed_means.csv",
+    "tables/source_expansion_fixed20_seed_differences.csv",
+    "evidence/source_expansion_inventory_receipt.json"
+  ],
+  "not_performed": [
+    "No additional hypothesis tests,p-values,CIs,bootstrap or equivalence tests",
+    "No EEGreading,download,preprocessing,model fit or model forward",
+    "No hyperparameter,epoch,selector,threshold or outcome-driven participant selection",
+    "No changes to existing primary/secondary/posthoc plans,receipts or outputs"
+  ],
+  "reporting_policy": "All68rows retained and published. Direction counts/ranges summarize the complete predefined cells, not separate independent replications or new selector superiority. fixed20 controls selected duration within each pipeline; expansion still jointly changes cohort composition,participant count and available distinct trials. Pipelinecrosscomparisondoesnotisolatebandsharing.",
+  "execution": "One bounded freeCPUrun;existingPythonlibrariesonly;noinstallation."
+}

@@ -1,0 +1,1889 @@
+{
+  "schema_version": 1,
+  "review_id": "paper1_review2_independent_scientific_arithmetic_review_20261018",
+  "reviewed_at_utc": "2026-10-18T06:05:25.901708+00:00",
+  "scope": "Independent read-only arithmetic verification of the four declared saved-metric post hoc comparisons, identity linkage, unchanged original inferential family and manuscript interpretation. This is not an EEG/model or new-hypothesis run.",
+  "input_archive_sha256": "df8fdc4a43139acb4236ead749b74736a5bedaea6d8606c3bcc69234755fe02f",
+  "checks_count": 448,
+  "failures_count": 0,
+  "status": "PASS_WITH_EXACT_FLOAT_COUNT_NOTE",
+  "checks": [
+    {
+      "id": "plan_sha_matches_receipt",
+      "passed": true
+    },
+    {
+      "id": "script_sha_matches_receipt",
+      "passed": true
+    },
+    {
+      "id": "archive_bytes_match",
+      "passed": true
+    },
+    {
+      "id": "archive_sha_matches",
+      "passed": true
+    },
+    {
+      "id": "member_bytes_results/per_subject_metrics.csv",
+      "passed": true
+    },
+    {
+      "id": "member_sha_results/per_subject_metrics.csv",
+      "passed": true
+    },
+    {
+      "id": "member_bytes_results/csp_per_subject_metrics.csv",
+      "passed": true
+    },
+    {
+      "id": "member_sha_results/csp_per_subject_metrics.csv",
+      "passed": true
+    },
+    {
+      "id": "four_summary_rows",
+      "passed": true
+    },
+    {
+      "id": "340_difference_rows",
+      "passed": true
+    },
+    {
+      "id": "four_distinct_contrasts",
+      "passed": true
+    },
+    {
+      "id": "expected_85_participants",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_row_identity",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_S29_85_unique",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_S29_grain",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_S9_85_unique",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_S9_grain",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_85_difference_unique",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:001",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:002",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:003",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:004",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:005",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:006",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:007",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:008",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:009",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:010",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:011",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:012",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:013",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:014",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:015",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:016",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:018",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:019",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:020",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:021",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:022",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:023",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:024",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:025",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:026",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:027",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:028",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:029",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:030",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:031",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:032",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:033",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:034",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:035",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:036",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:037",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:038",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:039",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:040",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:042",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:043",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:044",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:045",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:046",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:047",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:048",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:049",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:050",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:051",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:052",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:053",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:054",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:055",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:056",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:057",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:058",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:059",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:060",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:061",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:062",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:063",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:064",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:065",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:066",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:067",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:068",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:069",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:070",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:071",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:072",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:073",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:074",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:075",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:076",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:077",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:078",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:079",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:080",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:081",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:082",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:083",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:084",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:085",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:086",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_pair_dreyer:087",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_arithmetic_difference_pp",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_arithmetic_sd_difference_pp",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_arithmetic_se_difference_pp",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_arithmetic_ci95_pointwise_low_pp",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_arithmetic_ci95_pointwise_high_pp",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_arithmetic_t_statistic",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_arithmetic_p_raw_two_sided",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_arithmetic_higher_mean_percent",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_arithmetic_lower_mean_percent",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_exact_float_n_improved",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_exact_float_n_unchanged",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_exact_float_n_declined",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_row_identity",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_S29_85_unique",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_S29_grain",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_S9_85_unique",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_S9_grain",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_85_difference_unique",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:001",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:002",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:003",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:004",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:005",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:006",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:007",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:008",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:009",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:010",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:011",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:012",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:013",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:014",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:015",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:016",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:018",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:019",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:020",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:021",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:022",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:023",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:024",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:025",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:026",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:027",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:028",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:029",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:030",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:031",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:032",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:033",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:034",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:035",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:036",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:037",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:038",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:039",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:040",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:042",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:043",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:044",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:045",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:046",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:047",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:048",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:049",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:050",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:051",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:052",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:053",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:054",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:055",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:056",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:057",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:058",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:059",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:060",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:061",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:062",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:063",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:064",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:065",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:066",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:067",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:068",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:069",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:070",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:071",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:072",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:073",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:074",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:075",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:076",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:077",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:078",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:079",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:080",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:081",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:082",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:083",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:084",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:085",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:086",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_pair_dreyer:087",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_arithmetic_difference_pp",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_arithmetic_sd_difference_pp",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_arithmetic_se_difference_pp",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_arithmetic_ci95_pointwise_low_pp",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_arithmetic_ci95_pointwise_high_pp",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_arithmetic_t_statistic",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_arithmetic_p_raw_two_sided",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_arithmetic_higher_mean_percent",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_arithmetic_lower_mean_percent",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_exact_float_n_improved",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_exact_float_n_unchanged",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_exact_float_n_declined",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_row_identity",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_S60_85_unique",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_S60_grain",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_S9_85_unique",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_S9_grain",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_85_difference_unique",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:001",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:002",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:003",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:004",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:005",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:006",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:007",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:008",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:009",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:010",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:011",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:012",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:013",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:014",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:015",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:016",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:018",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:019",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:020",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:021",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:022",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:023",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:024",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:025",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:026",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:027",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:028",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:029",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:030",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:031",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:032",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:033",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:034",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:035",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:036",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:037",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:038",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:039",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:040",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:042",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:043",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:044",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:045",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:046",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:047",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:048",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:049",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:050",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:051",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:052",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:053",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:054",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:055",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:056",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:057",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:058",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:059",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:060",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:061",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:062",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:063",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:064",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:065",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:066",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:067",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:068",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:069",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:070",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:071",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:072",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:073",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:074",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:075",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:076",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:077",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:078",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:079",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:080",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:081",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:082",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:083",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:084",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:085",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:086",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_pair_dreyer:087",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_arithmetic_difference_pp",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_arithmetic_sd_difference_pp",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_arithmetic_se_difference_pp",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_arithmetic_ci95_pointwise_low_pp",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_arithmetic_ci95_pointwise_high_pp",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_arithmetic_t_statistic",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_arithmetic_p_raw_two_sided",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_arithmetic_higher_mean_percent",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_arithmetic_lower_mean_percent",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_exact_float_n_improved",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_exact_float_n_unchanged",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_exact_float_n_declined",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_row_identity",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_S60_85_unique",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_S60_grain",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_S9_85_unique",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_S9_grain",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_85_difference_unique",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:001",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:002",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:003",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:004",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:005",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:006",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:007",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:008",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:009",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:010",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:011",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:012",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:013",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:014",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:015",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:016",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:018",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:019",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:020",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:021",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:022",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:023",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:024",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:025",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:026",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:027",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:028",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:029",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:030",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:031",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:032",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:033",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:034",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:035",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:036",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:037",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:038",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:039",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:040",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:042",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:043",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:044",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:045",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:046",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:047",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:048",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:049",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:050",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:051",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:052",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:053",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:054",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:055",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:056",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:057",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:058",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:059",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:060",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:061",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:062",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:063",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:064",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:065",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:066",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:067",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:068",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:069",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:070",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:071",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:072",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:073",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:074",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:075",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:076",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:077",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:078",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:079",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:080",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:081",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:082",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:083",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:084",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:085",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:086",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_pair_dreyer:087",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_arithmetic_difference_pp",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_arithmetic_sd_difference_pp",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_arithmetic_se_difference_pp",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_arithmetic_ci95_pointwise_low_pp",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_arithmetic_ci95_pointwise_high_pp",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_arithmetic_t_statistic",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_arithmetic_p_raw_two_sided",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_arithmetic_higher_mean_percent",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_arithmetic_lower_mean_percent",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_exact_float_n_improved",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_exact_float_n_unchanged",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_exact_float_n_declined",
+      "passed": true
+    },
+    {
+      "id": "posthoc_1_holm_four",
+      "passed": true
+    },
+    {
+      "id": "posthoc_2_holm_four",
+      "passed": true
+    },
+    {
+      "id": "posthoc_3_holm_four",
+      "passed": true
+    },
+    {
+      "id": "posthoc_4_holm_four",
+      "passed": true
+    },
+    {
+      "id": "receipt_output_tables/review2_posthoc_comparisons.csv",
+      "passed": true
+    },
+    {
+      "id": "receipt_output_review2_posthoc_participant_differences.csv",
+      "passed": true
+    },
+    {
+      "id": "original_fixed_family_bytes_unchanged_tables/Table2_frozen_comparisons.csv",
+      "passed": true
+    },
+    {
+      "id": "original_fixed_family_bytes_unchanged_figure_data/neural_recomputed_comparisons.csv",
+      "passed": true
+    },
+    {
+      "id": "original_fixed_family_bytes_unchanged_figure_data/neural_recomputed_paired_differences.csv",
+      "passed": true
+    },
+    {
+      "id": "main_primary_21_1667",
+      "passed": true
+    },
+    {
+      "id": "main_s29_posthoc_21_7157",
+      "passed": true
+    },
+    {
+      "id": "main_csp_posthoc_13_8235",
+      "passed": true
+    },
+    {
+      "id": "posthoc_status_explicit",
+      "passed": true
+    },
+    {
+      "id": "separate_four_test_family_explicit",
+      "passed": true
+    },
+    {
+      "id": "nulls_retained",
+      "passed": true
+    },
+    {
+      "id": "participant_not_seed_grain_explicit",
+      "passed": true
+    },
+    {
+      "id": "composition_selected_duration_limit_explicit",
+      "passed": true
+    },
+    {
+      "id": "no_universal20_equivalence_claim",
+      "passed": true
+    },
+    {
+      "id": "exposure_exploratory_explicit",
+      "passed": true
+    },
+    {
+      "id": "supp_no_forward_replay_claim",
+      "passed": true
+    },
+    {
+      "id": "ethics_author_confirmed_boundary",
+      "passed": true
+    },
+    {
+      "id": "ethics_written_record_uninspected_boundary",
+      "passed": true
+    },
+    {
+      "id": "six_captions",
+      "passed": true
+    },
+    {
+      "id": "fig6_posthoc_explicit",
+      "passed": true
+    }
+  ],
+  "recomputed_summaries": [
+    {
+      "contrast_id": "posthoc_1",
+      "n": 85,
+      "difference_pp": 21.7156862745098,
+      "sd_difference_pp": 18.51164769051812,
+      "se_difference_pp": 2.0078701042408826,
+      "ci95_pointwise_low_pp": 17.722816375184856,
+      "ci95_pointwise_high_pp": 25.708556173834744,
+      "t_statistic": 10.815284429328097,
+      "p_raw_two_sided": 1.3824975943831545e-17,
+      "higher_mean_percent": 49.02941176470586,
+      "lower_mean_percent": 27.313725490196077
+    },
+    {
+      "contrast_id": "posthoc_2",
+      "n": 85,
+      "difference_pp": 5.789215686274508,
+      "sd_difference_pp": 7.7234738504980855,
+      "se_difference_pp": 0.8377283591694845,
+      "ci95_pointwise_low_pp": 4.123300972930373,
+      "ci95_pointwise_high_pp": 7.455130399618643,
+      "t_statistic": 6.910612041370879,
+      "p_raw_two_sided": 8.703525585864795e-10,
+      "higher_mean_percent": 64.1078431372549,
+      "lower_mean_percent": 58.3186274509804
+    },
+    {
+      "contrast_id": "posthoc_3",
+      "n": 85,
+      "difference_pp": 13.823529411764708,
+      "sd_difference_pp": 21.444717177019736,
+      "se_difference_pp": 2.326006157501246,
+      "ci95_pointwise_low_pp": 9.198011081512709,
+      "ci95_pointwise_high_pp": 18.44904774201671,
+      "t_statistic": 5.943032165750965,
+      "p_raw_two_sided": 6.157357489480429e-08,
+      "higher_mean_percent": 47.81372549019608,
+      "lower_mean_percent": 33.990196078431374
+    },
+    {
+      "contrast_id": "posthoc_4",
+      "n": 85,
+      "difference_pp": 5.245098039215686,
+      "sd_difference_pp": 7.930828529284239,
+      "se_difference_pp": 0.8602191318694448,
+      "ci95_pointwise_low_pp": 3.534457957862657,
+      "ci95_pointwise_high_pp": 6.955738120568716,
+      "t_statistic": 6.097397564056659,
+      "p_raw_two_sided": 3.163811497117033e-08,
+      "higher_mean_percent": 65.37745098039215,
+      "lower_mean_percent": 60.13235294117648
+    }
+  ],
+  "interpretation_review": {
+    "primary_21_17_pp": "Consistent with frozen primary comparison, with its existing raw p and CI preserved.",
+    "s29_21_72_pp": "Consistent with post hoc participant-paired S29−S9 comparison; manuscript labels supplementary post hoc and does not claim a universal 20-person threshold.",
+    "csp_13_82_pp": "Consistent with post hoc within-CSP S60−S9 contrast; not neural-versus-CSP superiority or equivalence.",
+    "null_results": "Both original null secondary contrasts and complete condition tables retained.",
+    "ethics": "Author-confirmed 17 October institution/date/Article32(1)/BNCI,Yang,Dreyer scope is distinguished from uninspected written record/no invented identifier. This review cannot verify the underlying institutional determination.",
+    "frozen_results": "The three checked original comparison/paired-data files are byte-identical to the preceding manuscript package; no frozen scientific file was modified by this reviewer."
+  },
+  "nonblocking_notes": [
+    {
+      "contrast_id": "posthoc_2",
+      "near_zero_differences": [
+        {
+          "subject": "dreyer:043",
+          "difference_pp": 5.551115123125783e-15
+        },
+        {
+          "subject": "dreyer:068",
+          "difference_pp": -1.1102230246251565e-14
+        }
+      ],
+      "note": "Stored exact-floating sign counts treat two rounding residuals as nonzero. No manuscript claim uses these counts. Do not interpret these signs as genuine improvement/decline."
+    }
+  ],
+  "actions_not_performed": [
+    "No model fitting or inference",
+    "No EEG or target recording read",
+    "No bootstrap or additional hypothesis family",
+    "No modifications to manuscript, source results, or plan/receipt",
+    "No external submission or Pod operation"
+  ]
+}
