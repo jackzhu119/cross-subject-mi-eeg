@@ -1,3 +1,11 @@
+# Paper 1 — corrected submission documents (18 October 2026)
+
+**Latest replacements for Editorial Manager:** [Main Manuscript](research_runs/PAPER1_SUBMISSION_CORRECTION_20261018/Main_Manuscript_REVISED.docx), [Cover Letter](research_runs/PAPER1_SUBMISSION_CORRECTION_20261018/Cover_Letter_REVISED.docx), [S1 Appendix](research_runs/PAPER1_SUBMISSION_CORRECTION_20261018/S1_Appendix_REVISED.pdf), [full upload guide](research_runs/PAPER1_SUBMISSION_CORRECTION_20261018/UPLOAD_GUIDE_zh.md).
+
+These files align the national-law ethics explanation across the manuscript and supplement and disclose the separately submitted Paper 2 (PONE-D-26-52050). All numerical results, seven figures, and S1–S4 supporting data remain unchanged. The in-review Paper 2 PDF is **not** published to the public GitHub repository; supply it confidentially to the journal as a Related Manuscript. The required official Human Participants Checklist and formal PFA application remain the author's submission tasks.
+
+---
+
 # Paper 1: contribution-led author manuscript (18 October 2026)
 
 **Source-cohort expansion improves weaker-class coverage in cross-subject motor-imagery EEG decoding**
