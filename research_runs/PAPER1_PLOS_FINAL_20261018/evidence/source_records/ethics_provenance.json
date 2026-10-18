@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-10-18",
+  "scope": "Read-only provenance reconciliation for manuscript and submission preparation; no institutional, journal or ORCID account changes.",
+  "sources": [
+    {
+      "id": "new_reviewer_report",
+      "path": "/workspace/attachments/96c68f2e-81d4-4e49-958d-546d343f53e8/已粘贴的文本.txt",
+      "bytes": 31120,
+      "sha256": "44680781ce7bb01a07711230fa9372cc9f3817cce1055dc549afb6e0f2d38195",
+      "source_type": "author-supplied review report; claims are not a decision letter or institutional document"
+    },
+    {
+      "id": "historical_author_record",
+      "path": "research_runs/PLOS_ONE_SUBMISSION/evidence/author_confirmations_20261009.json",
+      "source_type": "archived author confirmation for earlier version"
+    },
+    {
+      "id": "historical_orcid_verification",
+      "path": "research_runs/PLOS_ONE_SUBMISSION/evidence/orcid_verification.json",
+      "source_type": "archived provider/public-record metadata and author-supplied identifier"
+    },
+    {
+      "id": "submitted_candidate_record",
+      "path": "research_runs/PLOS_ONE_POSTSUBMISSION_REVIEW_20261010/evidence/source_version.json",
+      "source_type": "prior repository record of author-reported submission"
+    },
+    {
+      "id": "current_author_confirmation",
+      "source_type": "direct author confirmation relayed by parent in current task on2026-10-18",
+      "fields": {
+        "paper": "paper1",
+        "institution": "Chongqing Medical University",
+        "unit_original_chinese": "科研处",
+        "determination": "exemption from ethics review confirmed",
+        "date": "2026-10-17",
+        "scope": [
+          "BNCI2014-001",
+          "Yang",
+          "Dreyer"
+        ],
+        "regulatory_basis": "Article32(1) ofthe2023 Measures for Ethical Review of Life Science and Medical Research Involving Human Participants",
+        "author_name": "Ziyuan Zhu",
+        "given_name": "Ziyuan",
+        "family_name": "Zhu"
+      },
+      "written_document_independently_inspected": false,
+      "approval_or_exemption_identifier_supplied": false
+    },
+    {
+      "id": "official_regulation",
+      "url": "https://www.nhc.gov.cn/wjw/c100375/202302/902b4a1dc3af4aba862a6387e6e376dc.shtml",
+      "source_type": "official National Health Commission publication; independently found via public search",
+      "scope": "Provides the regulatory provision, not evidence that a university made this individual determination"
+    }
+  ],
+  "reconciled_ethics": {
+    "current_status": "AUTHOR_REPORTS_INSTITUTIONAL_EXEMPTION_CONFIRMED_FOR_PAPER1",
+    "date": "2026-10-17",
+    "distinguish_from_paper2_report_date": "2026-10-16",
+    "supersedes_prior_author_only_assessment_for_current_candidate": true,
+    "institutional_confirmation_document_reviewed": false,
+    "formal_irb_approval_claimed": false,
+    "identifier": null,
+    "english_unit_name_status": "No official English name verified in the short targeted search; use descriptive lower-case research administration office of Chongqing Medical University (科研处), not an invented official office title.",
+    "recommended_manuscript_statement": "This study used publicly available EEG recordings and recruited no new participants. According to the author, the research administration office of Chongqing Medical University (科研处) confirmed on 17 October 2026 that the secondary analysis of the BNCI2014-001, Yang and Dreyer datasets was exempt from ethics review under Article 32(1) of the 2023 Measures for Ethical Review of Life Science and Medical Research Involving Human Participants. The author had access only to provider participant codes and basic metadata, without direct identifiers or an identity linkage key.",
+    "document_boundary": "This describes the author-confirmed institutional determination. No signed institutional letter has been independently inspected; no committee, formalIRB approval, reference number or retrospective written certification is invented."
+  },
+  "submission": {
+    "manuscript_id": "PONE-D-26-50597",
+    "date_submitted_author_reported": "2026-10-09",
+    "submission_report_preexists_current_review_in_repo": true,
+    "authenticated_portal_inspected": false,
+    "editor_invited_revision_verified": false,
+    "current_package_role": "author-prepared update candidate for existing manuscript; no duplicate new submission or implied invitation"
+  },
+  "author_identity": {
+    "name": "Ziyuan Zhu",
+    "given_name": "Ziyuan",
+    "family_name": "Zhu",
+    "orcid": "0009-0005-1153-4926",
+    "review_report_mistype": "0000-0005-1153-4926",
+    "remote_orcid_record_corrected": false,
+    "instruction": "Correct manuscript and DOCX metadata. Do not claim to have edited the external ORCID profile."
+  },
+  "search_scope": {
+    "local_targeted_search": "Found historical submission and author confirmations; no new primary Paper2 institutional document found in available local workspace.",
+    "public_targeted_search": "Official regulation found; no verified official English translation of the university office in the bounded search.",
+    "pending_remote_metadata": "The single concurrent normal GitHub/thread metadata attempt did not return within the bounded task window and was terminated. No remote document was inspected; no retry or authentication change was made."
+  },
+  "not_performed": [
+    "No institutional document fabricated",
+    "No credential use changes",
+    "No journal or institutional communications",
+    "No public upload of private signed material",
+    "No scientific or frozen-file modification"
+  ]
+}

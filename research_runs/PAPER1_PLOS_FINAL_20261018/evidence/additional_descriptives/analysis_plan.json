@@ -1,0 +1,21 @@
+{
+  "analysis_class": "additional_post_hoc_descriptive_only",
+  "knowledge_state": "Existing paper and outcomes inspected before this specification; this is not preregistration.",
+  "scope": "All 32 neural expansion/selector/pipeline contrasts and 2 CSP contrasts against S9; participant and seed units retained.",
+  "summaries": [
+    "mean and median weaker-class change",
+    "paired joint weaker-class/BA improvement counts",
+    "absolute recall-gap reduction counts",
+    "label-specific and stronger-class recall changes",
+    "all-direction inventory"
+  ],
+  "tie_tolerance_fraction": 1e-12,
+  "new_hypothesis_tests": 0,
+  "no_new_models_or_inference": true,
+  "input_files": {
+    "S2_Neural_Predictions.csv.gz": "31c5de8ab4f0290406e9c0629ed5c3d3da6db6a3482f8ccf0da45eadd9114303",
+    "S3_CSP_Predictions.csv.gz": "3cc4c5e31b9af5ba64d33c88074958f2b416d759b0e81322e641473b8531ce29",
+    "figure_data/Fig7_complete_source_expansion_inventory.csv": "c63f6a3e3288444a0a9f2a8620bc9a7089c8a1f56eef22ac2e749f994b4b7239",
+    "figure_data/neural_recomputed_paired_differences.csv": "9cbea76c53ac5ecbd43ade77b7244f129e5220d06bf99b3e452b46462042177a"
+  }
+}

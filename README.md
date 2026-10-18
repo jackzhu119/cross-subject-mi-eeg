@@ -1,3 +1,16 @@
+# Paper 1: contribution-led author manuscript (18 October 2026)
+
+**Source-cohort expansion improves weaker-class coverage in cross-subject motor-imagery EEG decoding**
+
+Latest author materials: [main DOCX](research_runs/PAPER1_PLOS_FINAL_20261018/main_manuscript.docx), [readable PDF with figures](research_runs/PAPER1_PLOS_FINAL_20261018/review_manuscript.pdf), [complete package](research_runs/PAPER1_PLOS_FINAL_20261018/Paper1_PLOS_Final_20261018.zip), [Chinese revision report](research_runs/PAPER1_PLOS_FINAL_20261018/REVISION_REPORT_zh.md), [submission checklist](research_runs/PAPER1_PLOS_FINAL_20261018/submission/Submission_Checklist_zh.md).
+
+Verified primary effects remain +21.17 percentage points in weaker-class recall and +5.85 points in balanced accuracy. Complete saved-prediction reconstruction additionally shows simultaneous improvement in 66/85 participants and a 49.39% reduction in the mean absolute class-recall gap. All prespecified comparisons, adverse configurations and individual declines remain reported. Original scientific data and previous manuscript packages are unchanged.
+
+Document-format and numerical checks are supplied. The earlier PONE-D-26-50597 manuscript was rejected on 12 October; editorial permission/instructions for submitting a substantive extension have not been established. This package does not constitute a journal submission or invited revision. Author final review and submission-route confirmation remain required.
+
+<details>
+<summary>Previous versions and publication records</summary>
+
 # Paper 1 second-round manuscript update (18 October 2026)
 
 **Source-cohort expansion improves weaker-class coverage in cross-subject motor-imagery EEG decoding**
@@ -122,5 +135,8 @@ Historical GitHub/cloud research receipts document BNCI2014_001 access during 21
 Original author-owned software is licensed under [MIT](LICENSE); original author-owned manuscript and derived outputs use [CC BY 4.0](LICENSE-DATA.md). [Scope and exclusions](LICENSING.md) preserve original third-party terms for raw EEG, incorporated software, fonts, provider materials and official forms. No third-party rights are re-granted.
 
 </details>
+
+</details>
+
 
 </details>
