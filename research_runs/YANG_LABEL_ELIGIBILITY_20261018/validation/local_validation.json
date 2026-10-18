@@ -1,0 +1,28 @@
+{
+  "status": "PASS_LOCAL_VALIDATION",
+  "eligibility_tests": {
+    "passed": 9,
+    "seconds": 2.121
+  },
+  "generated_copy_data_path_tests": {
+    "passed": 5,
+    "seconds": 0.254
+  },
+  "shell_syntax": "PASS",
+  "original_source_clock_and_marker_directories": "unchanged",
+  "actual_server_cache_reuse_performed": false,
+  "actual_affected_people_preprocessing_performed": false,
+  "training_started": false,
+  "actual_results_backup_verified": false,
+  "scope": "Local fixed event evidence, synthetic array/cache roundtrips, generated public code contracts, fail-closed cache preservation. No actual server execution.",
+  "implementation_sha256": {
+    "eligibility_manifest.json": "5291d362185a8db9bf45ddc95d9cb49d40de57893d2fd4da8681a802b5ab36f9",
+    "verify_eligible_people.py": "1341dbd79746df257d8c55b5b23fd79732ed4c7964ca79dbb4c0db90eea218fc",
+    "eligibility_policy.py": "b7ccb5499b56b46191b622ebec67ac8044e8f9801156e563ab53e4edbe2d9e5f",
+    "build_eligibility_copy.py": "d3655b7f7621c28aea4bf7de29ff7e84d8fe124cfd0904f2075671a39fc8ec1d",
+    "test_eligibility.py": "f16f1a339ee9d3bfc289fba56570dd12b741d27fe63abe92dde9f1da8f6b9e7a",
+    "README_zh.md": "0601ea4da4e46f198b4a802d7881a2a7994da9c431f2e65dab45a41916f0e37b",
+    "reuse_verified_caches.py": "0ecb018f397256dd68691f49e250dda65a80e033d65108901c63fbcaa9afc557",
+    "START_APPROVED_RUN.sh": "eb3bdd2521891f34e5b1605af155db7835785a2fa6be12f8bb02f57b7f4b9106"
+  }
+}
