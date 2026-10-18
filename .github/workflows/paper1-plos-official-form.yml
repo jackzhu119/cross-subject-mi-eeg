@@ -1,0 +1,27 @@
+name: Retrieve official PLOS human-participants checklist
+on:
+  push:
+    branches: [research/paper1-plos-checklist-20261018]
+    paths: [.github/workflows/paper1-plos-official-form.yml]
+permissions:
+  contents: read
+jobs:
+  retrieve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Download and check the current original PLOS form
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+          mkdir -p /tmp/plos-form
+          curl --fail --location --retry 3 --max-time 90 'https://journals.plos.org/plosone/s/file?id=ba3b%2FPLOS_Human_Participants_Research_Checklist_2026.pdf' -o /tmp/plos-form/PLOS_Human_Participants_Research_Checklist_2026.pdf
+          head -c 5 /tmp/plos-form/PLOS_Human_Participants_Research_Checklist_2026.pdf | grep -a -q '%PDF-'
+          file /tmp/plos-form/PLOS_Human_Participants_Research_Checklist_2026.pdf
+          sha256sum /tmp/plos-form/PLOS_Human_Participants_Research_Checklist_2026.pdf > /tmp/plos-form/sha256.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: paper1-official-plos-form
+          path: /tmp/plos-form/
+          retention-days: 2
+          if-no-files-found: error
