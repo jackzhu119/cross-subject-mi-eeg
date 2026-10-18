@@ -1,0 +1,69 @@
+name: Paper1 ethical and related manuscript submission correction
+on:
+  push:
+    branches: [paper/p1-submission-ethics-related-20261018]
+    paths: [.github/workflows/paper1-submission-correction.yml]
+permissions:
+  contents: write
+jobs:
+  correct-and-verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: paper/p1-submission-ethics-related-20261018
+          fetch-depth: 1
+          sparse-checkout: |
+            research_runs/PAPER1_PLOS_FINAL_20261018
+            research_runs/PAPER1_SUBMISSION_CORRECTION_20261018
+            README.md
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13.5'
+      - name: Install document-only render and verification tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends libreoffice-writer fonts-liberation fonts-dejavu-core
+          python -m pip install --disable-pip-version-check 'python-docx==1.2.0' 'PyMuPDF==1.26.7'
+      - name: Build all corrected author documents without touching results
+        shell: bash
+        run: |
+          set -euo pipefail
+          export PYTHONDONTWRITEBYTECODE=1
+          I=research_runs/PAPER1_PLOS_FINAL_20261018
+          O=research_runs/PAPER1_SUBMISSION_CORRECTION_20261018
+          python "$O/build_submission.py" --source "$I" --out "$O" --config "$O/github_config.json"
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('README.md')
+          content=p.read_text()
+          lead='''# Paper 1 — corrected submission documents (18 October 2026)
+          
+          **Latest replacements for Editorial Manager:** [Main Manuscript](research_runs/PAPER1_SUBMISSION_CORRECTION_20261018/Main_Manuscript_REVISED.docx), [Cover Letter](research_runs/PAPER1_SUBMISSION_CORRECTION_20261018/Cover_Letter_REVISED.docx), [S1 Appendix](research_runs/PAPER1_SUBMISSION_CORRECTION_20261018/S1_Appendix_REVISED.pdf), [full upload guide](research_runs/PAPER1_SUBMISSION_CORRECTION_20261018/UPLOAD_GUIDE_zh.md).
+          
+          These files align the national-law ethics explanation across the manuscript and supplement and disclose the separately submitted Paper 2 (PONE-D-26-52050). All numerical results, seven figures, and S1–S4 supporting data remain unchanged. The in-review Paper 2 PDF is **not** published to the public GitHub repository; supply it confidentially to the journal as a Related Manuscript. The required official Human Participants Checklist and formal PFA application remain the author's submission tasks.
+          
+          ---
+          
+          '''
+          if 'corrected submission documents (18 October 2026)' not in content:
+              p.write_text(lead+content)
+          PY
+      - name: Commit checked correction to the editorial branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'Paper1 Submission Validation'
+          git config user.email 'paper1-submission@users.noreply.github.com'
+          git add --sparse README.md research_runs/PAPER1_SUBMISSION_CORRECTION_20261018
+          git add -f --sparse research_runs/PAPER1_SUBMISSION_CORRECTION_20261018/Paper1_PLOS_Submission_Fix.zip
+          git diff --cached --quiet || git commit -m 'Publish aligned Paper1 ethics, related-work cover letter and corrected S1 Appendix'
+          git push origin HEAD:refs/heads/paper/p1-submission-ethics-related-20261018
+      - uses: actions/upload-artifact@v4
+        with:
+          name: paper1-submission-ethics-and-related-paper-fix
+          path: research_runs/PAPER1_SUBMISSION_CORRECTION_20261018/Paper1_PLOS_Submission_Fix.zip
+          retention-days: 7
+          if-no-files-found: error
