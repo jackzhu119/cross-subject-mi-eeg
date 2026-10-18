@@ -1,0 +1,25 @@
+name: Paper1 editorial artifacts
+on:
+  push:
+    branches: [paper/p1-positive-final-20261018]
+    paths: [.github/workflows/paper1-editorial-artifacts.yml]
+permissions:
+  contents: read
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Retrieve immutable manuscript package
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p editorial-input
+          curl --fail --location --retry 3 --max-time 180 https://raw.githubusercontent.com/jackzhu119/cross-subject-mi-eeg/cac26b4f818907323863d03e65293efcb5a4b5e2/research_runs/PAPER1_PLOS_REVIEW2_20261018/Paper1_PLOS_ONE_Review2_20261018.zip -o editorial-input/paper1-review2.zip
+          echo '5c0d15ac278a9569623381fdaa49f63ee6117da8cffcaa818ea8b5ffb196d073  editorial-input/paper1-review2.zip' | sha256sum --check -
+      - uses: actions/upload-artifact@v4
+        with:
+          name: paper1-editorial-input
+          path: editorial-input/paper1-review2.zip
+          retention-days: 2
+          if-no-files-found: error
