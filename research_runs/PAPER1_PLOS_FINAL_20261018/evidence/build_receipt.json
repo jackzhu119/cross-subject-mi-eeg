@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "original_build_run": 39107350371,
+  "source_build_commit": "0d09be40ff5e601e41e9a0ec98bc11c1857999b3",
+  "build_scope": "Saved-prediction reconstruction and author-document export; no EEG training or decoder inference",
+  "editorial_dependencies": {
+    "python": "3.13.5",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "pandas": "2.2.3",
+    "matplotlib": "3.10.8",
+    "python-docx": "1.2.0",
+    "PyMuPDF": "1.26.7",
+    "Pillow": "12.3.0"
+  },
+  "format_checks": "validation.json",
+  "document_hashes": "document_checks.json",
+  "visual_review": "visual_review.json",
+  "finalized_at_utc": "2026-10-18T07:35:24.143724+00:00",
+  "document_bytes_preserved_after_visual_review": true,
+  "journal_submission_performed": false
+}
