@@ -1,6 +1,6 @@
 # Source-cohort expansion and weaker-class coverage in cross-subject motor-imagery EEG decoding
 
-**Latest Paper 1 manuscript update: 18 October 2026 · PLOS ONE**
+**Latest Paper 1 manuscript update: 18 October 2026 · PLOS ONE · Published on `main`**
 
 The current update reports the completed 18-channel source-expansion experiment: 9, 29 and 60 source participants, 108 neural trajectories, nine conventional fits and 85 external participants. Under the fixed primary configuration, weaker-class recall increased by **21.17 percentage points** (95% CI 17.12–25.21) from S9 to S60. All four fixed comparisons, including the two null secondary findings, remain in the manuscript.
 
@@ -16,7 +16,7 @@ Editorial branch: [`paper/p1-plos-evidence-update-20261018`](https://github.com/
 
 Raw EEG is not bundled. The data providers are [BNCI/BCI Competition IV](https://www.bbci.de/competition/iv/), [Yang Figshare+ v5](https://doi.org/10.25452/figshare.plus.22671172.v5), and [Dreyer NEMAR v1.0.5](https://doi.org/10.82901/nemar.nm000250). Obtain recordings under provider terms. The present external evaluation is exploratory because prior target exposure is uncertain; source composition and selected checkpoint vary together. The current revision adds presentation and a labelled descriptive metric decomposition, with no EEG training or prediction rerun.
 
-Earlier Q1–Q16 results, scientific contracts, old submissions and tags remain preserved. This branch does not update `main`, claim journal acceptance, supply a new DOI or establish completion of the separate large-model archive. The new manuscript and portal PDF require the author's current approval before submission.
+Earlier Q1–Q16 results, scientific contracts, old submissions and tags remain preserved. The author authorized publication of this update on `main`; the existing commit history is retained. Repository publication does not imply journal acceptance, a new DOI or completion of the separate large-model archive. The new manuscript and portal PDF require the author's current approval before submission.
 
 <details>
 <summary>Historical 9 October 2026 release description — retained for provenance; not the current manuscript</summary>
