@@ -7,15 +7,38 @@
 但作者提供的 Neuracle 单信号文件导入器使用 TAL 的秒数直接计算事件位置，
 不使用事件文件与信号文件的头时间差。不能从头差推出事件应平移一秒。
 
-本补丁只为**完整 SHA256 已核验的这一文件对**采用作者导入约定，并记录审计。
-不设置“允许一秒”的普遍容差，不删除所有时钟校验，不平移 TAL。
-其他不一致文件对继续失败。不能据此声称设备物理同步已独立验证。
+本版替代初版单文件例外，固定**全部153配对、306个文件**的路径、字节数、
+完整SHA256、头SHA256及原始日期时间。生产清单SHA256：
+`aa0c90e91e6a1dd876673db7319a067646d8604536d879b58b09b739d344f89f`。
+91对时钟相同、61对信号头晚1秒、sub-034/ses-02晚2秒；所有配对日期相同。
+
+运行时先由原有VerifiedFiles完整读取每份原始文件、校验下载回执，再把已验证身份
+与固定生产清单比对。等时钟的91对同样需要身份匹配，不能绕过。未知输入、
+不同文件配对、大小/内容SHA/头SHA/日期/时间变化均停止。没有普遍时间容差。
+
+对固定v5文件使用作者单信号文件TAL导入约定，所有事件偏移量均为0秒。
+不设置“允许一秒/两秒”的一般规则。每个session的events.clock_policy保留完整
+配对身份、两头原始时间、差值、规则来源及生产清单SHA。该约定不是独立物理同步证明。
 原 marker+[2,4) 窗口、[0,6)上下文、研究配置、模型和统计方案均不变。
 
-现场主线程提供的六文件完整 SHA 与下载回执一致；本环境额外从公开固定v5
-重新下载整个 ses-02 事件成员，检查 ZIP CRC 与 SHA256，独立得到200个任务事件、
-两类各100，首166.634秒、末2151.278秒。详见 `event_readback.json`。
-本环境没有重新下载/读取整个信号文件；没有开训、访问Pod或完成真实备份。
+真实证据范围明确区分：
+
+- 两次153配对头报告字节完全一致，141210 bytes，SHA256
+  `1e33e10db313df6b256200b9a6aceb3c499e3ad5254bb32a13efd8567d3410cd`。
+- 124个差异文件在现场重新完整读取27,609,173,212 bytes，全部MATCH。
+  回执70241 bytes，SHA256 `86d52a530aa171e8c74455248f1f1e265c4c7ed8c1c1696741a52bd5b3152817`。
+- 其余182个文件的身份来自原下载回执公开字段投影，**不是本轮fresh全读**。
+  投影68346 bytes，SHA256 `1b7b49a7f29911209b3e79665fab1fd5bf86dced24f4a54a5f1f8d37b437a5f7`。
+  父下载回执SHA256 `7cc4e80645519fd3ec62027ef1c165f65d281d90bd0741ca8d7186e08ccf12ad`。
+  所有306个文件均须在实际预处理时由VerifiedFiles重新完整校验。
+- 本环境成功落地两个Library包并核对完整内容SHA及包内成员；124项fresh回执
+  与原下载投影逐条一致。没有在本环境重读27.6GB原始信号。
+- 独立公开v5事件成员回读仍见 `event_readback.json`：200个任务事件、每类100、
+  首166.634秒、末2151.278秒。不声称GPU训练、全量预处理或真实结果备份已完成。
+
+`freeze_yang_clock_registry.py` 可由原头报告、原下载回执公开投影、固定ZIP成员清单
+及124文件fresh回执复现生产清单；输入均有明确内容哈希门禁，拒绝覆盖目标。
+生产清单复制到新副本config/，纳入执行身份及最终provenance导出。
 
 ## 直接来源证据
 
@@ -50,7 +73,7 @@
 ```bash
 python3 "$PUBLIC_CHECKOUT/research_runs/YANG_CLOCK_RECOVERY_20261018/build_reviewed_copy.py" \
   "$PUBLIC_CHECKOUT/research_runs/SOURCE_EXPANSION_20261017" \
-  /workspace/paper1_expansion/code_clockfix_20261018
+  /workspace/paper1_expansion/code_clockfix_v2_20261018
 ```
 
 生成器在写入前验证全部原公开清单文件SHA，拒绝既有目标，不运行训练。
@@ -58,21 +81,31 @@ python3 "$PUBLIC_CHECKOUT/research_runs/YANG_CLOCK_RECOVERY_20261018/build_revie
 `p1_data.py=d4d166e6cc9d5f674f65a3227dfa02b158b9ce8b5bcdb17b8b5d7a9d4f459ba1`；
 `p1_runner.py=57d3501e43f8c43b6cd611b710b4a22f5c17f200a15f0819d2c15ae9f9adbe12`。
 
-先用 `diagnose_yang_clocks.py <data/raw/yang>` 做全153session头检查，把不匹配对
-交给复核；该脚本只读头，不能替代完整文件SHA。未审阅的新差异仍是启动阻塞。
-随后使用现有锁定venv，对新副本运行 `load_yang_subject(1, ...)` 的源数据预处理验证，
-核对600试次、每类300、记录 ses-02 的 `clock_policy`。该检查不训练、不写原缓存。
+全153session头差异筛查已完成，不必重跑来代替进度。
+现场接下来用现有锁定venv，对新副本执行 `load_yang_subject(1, ...)`，
+核对600试次、每类300、三个session的 `clock_policy`。该检查不训练、不写原缓存。
+确认通过后再执行完整原计划，后续所有原始文件会在预处理时逐个全读校验。
+
+```bash
+/workspace/paper1_expansion/venv/bin/python \
+  "$PUBLIC_CHECKOUT/research_runs/YANG_CLOCK_RECOVERY_20261018/verify_yang_person.py" \
+  --code /workspace/paper1_expansion/code_clockfix_v2_20261018 \
+  --raw-yang /workspace/paper1_expansion/data/raw/yang --subject 1
+```
+
+此命令只在内存预处理，不写原缓存；若需要单独验证唯一两秒差配对，可改为 `--subject 34`。
+
 
 科学模块变更会改变执行身份，**不能修改旧execution_identity来绕过恢复门禁**。
-新副本默认使用 `runs/expansion18_clockfix_20261018` 和
-`data/processed18_clockfix_20261018`，原失败运行与9个BNCI旧缓存原样保留。
+新副本默认使用 `runs/expansion18_clockfix_v2_20261018` 和
+`data/processed18_clockfix_v2_20261018`，原失败运行与9个BNCI旧缓存原样保留。
 原版缓存校验绑定整个数据模块SHA，因此本补丁不伪称旧缓存与新模块身份相同；
 新的预处理会重新生成缓存，但不重复任何已完成神经训练（现场未发现检查点）。
 新副本仍从原data/raw读取并完整校验下载回执，已验证原始成员可复用。
 
 只有现场确认无训练worker、上述检查通过后，由同一操作者持有原launch.lock
-运行新副本 `p1_runner.py --root /workspace/paper1_expansion --run-name expansion18_clockfix_20261018`，
-stdout追加到单独 `run_clockfix_20261018.log`。不要运行START_ALL或替换原bootstrap。
+运行新副本 `p1_runner.py --root /workspace/paper1_expansion --run-name expansion18_clockfix_v2_20261018`，
+stdout追加到单独 `run_clockfix_v2_20261018.log`。不要运行START_ALL或替换原bootstrap。
 
 现有归档watcher固定观察旧run路径；本次遵从用户限制**未改动它**。
 新run未来完成不等于已自动归档，需要后续单独核对并明确处理该路径衔接；
@@ -82,7 +115,8 @@ stdout追加到单独 `run_clockfix_20261018.log`。不要运行START_ALL或替�
 
 `python3 -m unittest discover -v -s research_runs/YANG_CLOCK_RECOVERY_20261018 -p test_recovery.py`
 
-6项通过：等时钟保持原行为、精确核验例外不移事件、其他SHA/时钟拒绝、其他一秒差拒绝、
-新副本完整清单哈希/原版保持/窗口配置保持/拒绝覆盖、无归档配置操作。
-尚未运行全量科学测试、实际600试次预处理、GPU训练或GitHub/R2结果回传。
+7项针对性测试通过，覆盖全部真实153配对（91/61/1）、零事件平移、改变身份/头字段拒绝、
+错配和未知身份拒绝、不完整/重复/不同日期清单拒绝、独立副本完整清单与原目录保持。
+另对生成副本运行5项合成数据路径回归（不训练、不下载）。
+尚未运行现场600试次预处理、GPU训练或GitHub/R2结果回传。
 原归档改造草稿已暂停并移出仓库，本提交只含独立科研恢复包。

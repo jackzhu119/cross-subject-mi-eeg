@@ -1,0 +1,42 @@
+{
+  "status": "PASS_LOCAL_ISOLATED_RECOVERY_CHECKS",
+  "production_registry_sha256": "aa0c90e91e6a1dd876673db7319a067646d8604536d879b58b09b739d344f89f",
+  "real_registry_pairs": 153,
+  "header_difference_seconds_counts": {
+    "0": 91,
+    "1": 61,
+    "2": 1
+  },
+  "targeted_tests": {
+    "passed": 7,
+    "failed": 0
+  },
+  "generated_copy_synthetic_data_path_tests": {
+    "passed": 5,
+    "failed": 0
+  },
+  "registry_reproduction": "byte-identical to production registry from received source evidence",
+  "library_packages": [
+    {
+      "bytes": 53331,
+      "sha256": "3d6edd1d61b1f05dfb041b56f8b3edf903a60212608dc77108abf3a40c81f88b"
+    },
+    {
+      "bytes": 15210,
+      "sha256": "cd225d62e022df9dd14bfa05a10135b187480ff6403953139456c313aa8eff18"
+    }
+  ],
+  "fresh_full_file_receipt_scope": {
+    "files": 124,
+    "bytes": 27609173212,
+    "verified_on_pod": true,
+    "raw_bytes_reread_in_this_executor": false
+  },
+  "remaining_original_receipt_files": 182,
+  "runtime_full_file_hashing_required": 306,
+  "server_deployment": false,
+  "real_source_person_preprocessing": false,
+  "training_started": false,
+  "results_backup_completed": false,
+  "original_science_and_archive_directories_changed": false
+}

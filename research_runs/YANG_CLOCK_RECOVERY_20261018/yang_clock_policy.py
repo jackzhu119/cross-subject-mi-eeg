@@ -1,21 +1,28 @@
-"""Evidence-bound Yang single-file TAL policy; no automatic clock corrections."""
+"""Production entry point: all 153 pairs require reviewed full-file identities."""
+from functools import lru_cache
+from pathlib import Path
+import json
+import hashlib
+from yang_clock_registry import ClockRegistry
 
-SIGNAL_SHA256 = '9c0559fc74a16249a15567046572e8de1d49f6a2ac423e45fbbc2c972e1c1361'
-EVENT_SHA256 = 'bde96107208aec97eee0b2f5acb2e3f24114412f0c6fa54bfcc236e280a0184a'
-AUTHOR_READER_SHA256 = 'dd6acba71429ba029dd6d6fe29e9eaf1a9d51233fc484dbca87e63bd624dd18f'
+REGISTRY_SHA256 = 'aa0c90e91e6a1dd876673db7319a067646d8604536d879b58b09b739d344f89f'
+
+@lru_cache(maxsize=1)
+def registry():
+    root = Path(__file__).resolve().parent
+    inventory = root / 'evidence/yang_v5_selected_inventory.json'
+    if not inventory.exists():
+        inventory = root.parent / 'SOURCE_EXPANSION_20261017/evidence/yang_v5_selected_inventory.json'
+    raw = inventory.read_bytes()
+    if hashlib.sha256(raw).hexdigest() != '7d9967fbab680128208c420ec85334ec06ea9f9903c4fb48da20f856b3fc9cba':
+        raise ValueError('frozen ZIP member inventory changed')
+    evidence = root / 'config/yang_clock_registry_v5.json'
+    if not evidence.exists():
+        evidence = root / 'yang_clock_registry_v5.json'
+    return ClockRegistry(evidence, REGISTRY_SHA256, json.loads(raw))
 
 
-def validate_yang_clock(signal_clock, event_clock, signal_sha256, event_sha256):
-    if signal_clock == event_clock:
-        return {'policy': 'equal_header_clocks', 'event_shift_seconds': 0.0}
-    expected = ('22.03.1915.03.13', '22.03.1915.03.12', SIGNAL_SHA256, EVENT_SHA256)
-    if (signal_clock, event_clock, signal_sha256, event_sha256) != expected:
-        raise ValueError('Yang signal/event recording clocks differ: unreviewed file pair; preserved and blocked')
-    return {'policy': 'author_neuracle_single_data_file_TAL_offsets',
-            'signal_clock': signal_clock, 'event_clock': event_clock,
-            'signal_sha256': signal_sha256, 'event_sha256': event_sha256,
-            'author_reader_sha256': AUTHOR_READER_SHA256,
-            'header_clock_difference_seconds_signal_minus_event': 1,
-            'event_shift_seconds': 0.0,
-            'scope': 'exact_v5_sub001_ses02_pair_only',
-            'limitation': 'author_import_convention_not_independent_acquisition_synchronization'}
+def validate_yang_clock(subject, session, signal_clock, event_clock,
+                        signal_record, event_record, signal_header_sha256, event_header_sha256):
+    return registry().validate(subject, session, signal_clock, event_clock,
+                               signal_record, event_record, signal_header_sha256, event_header_sha256)

@@ -17,9 +17,10 @@ SOURCE_RUNNER_SHA = '57d3501e43f8c43b6cd611b710b4a22f5c17f200a15f0819d2c15ae9f9a
 OLD = '            require(reader.header["start_date_time"] == event_audit["start_date_time"], "Yang signal/event recording clocks differ")'
 NEW = '''            from yang_clock_policy import validate_yang_clock
             event_audit["clock_policy"] = validate_yang_clock(
-                reader.header["start_date_time"], event_audit["start_date_time"],
-                verified.used[path.relative_to(verified.root).as_posix()]["sha256"],
-                verified.used[events_path.relative_to(verified.root).as_posix()]["sha256"])'''
+                person, si, reader.header["start_date_time"], event_audit["start_date_time"],
+                verified.used[path.relative_to(verified.root).as_posix()],
+                verified.used[events_path.relative_to(verified.root).as_posix()],
+                reader.header["fixed_header_sha256"], event_audit["header_sha256"])'''
 
 
 def build(source, destination):
@@ -53,10 +54,14 @@ def build(source, destination):
     old = 'args.root.resolve()/"data/processed18"'
     if runner.count(old) != 1:
         raise ValueError('cache isolation context mismatch')
-    runner = runner.replace(old, 'args.root.resolve()/"data/processed18_clockfix_20261018"')
-    runner = runner.replace('default="expansion18_v1"', 'default="expansion18_clockfix_20261018"')
+    runner = runner.replace(old, 'args.root.resolve()/"data/processed18_clockfix_v2_20261018"')
+    runner = runner.replace('default="expansion18_v1"', 'default="expansion18_clockfix_v2_20261018"')
     content['p1_runner.py'] = runner.encode()
-    content['yang_clock_policy.py'] = Path(__file__).with_name('yang_clock_policy.py').read_bytes()
+    from yang_clock_policy import registry
+    registry()  # Require the complete production registry before publishing any code.
+    for name in ('yang_clock_policy.py', 'yang_clock_registry.py'):
+        content[name] = Path(__file__).with_name(name).read_bytes()
+    content['config/yang_clock_registry_v5.json'] = Path(__file__).with_name('yang_clock_registry_v5.json').read_bytes()
     new_manifest = {**manifest, 'recovery_parent_manifest_sha256':
                     hashlib.sha256((source / 'BUNDLE_MANIFEST.json').read_bytes()).hexdigest(),
                     'files': [{'path': k, 'bytes': len(v), 'sha256': hashlib.sha256(v).hexdigest()}
