@@ -41,7 +41,6 @@ jobs:
           shutil.copy2(old/'evidence/prediction_supporting_files.json',p/'evidence/prediction_supporting_files.json')
           receipt={'status':'PASS','original_build_run':39107350371,'source_build_commit':v['source_build_commit'],'build_scope':'Saved-prediction reconstruction and author-document export; no EEG training or decoder inference','editorial_dependencies':{'python':'3.13.5','numpy':'2.3.5','scipy':'1.17.0','pandas':'2.2.3','matplotlib':'3.10.8','python-docx':'1.2.0','PyMuPDF':'1.26.7','Pillow':'12.3.0'},'format_checks':'validation.json','document_hashes':'document_checks.json','visual_review':'visual_review.json','finalized_at_utc':datetime.now(timezone.utc).isoformat(),'document_bytes_preserved_after_visual_review':True,'journal_submission_performed':False}
           (p/'evidence/build_receipt.json').write_text(json.dumps(receipt,indent=2)+'\n')
-          # Keep the names cited in the inherited appendix as compatibility entry points.
           for alias,target in [('build_figures.py','render_figures.py'),('validate_delivery.py','validate_package.py')]:
               body='#!/usr/bin/env python3\n"""Compatibility entry point; use --help for --source/--out arguments."""\nfrom pathlib import Path\nimport runpy\nrunpy.run_path(str(Path(__file__).with_name('+repr(target)+')),run_name="__main__")\n'
               (p/'scripts'/alias).write_text(body)
@@ -53,6 +52,15 @@ jobs:
 
           Remaining author/editorial actions: confirm the permissible route after rejection of PONE-D-26-50597; check exclusive consideration, institutional exemption documentation, author information and the portal-generated PDF. This task did not submit a manuscript, obtain permission, or verify a new complete Cloudflare R2 readback.
           ''')
+          shutil.copy2(old/'S1_Data.zip',p/'S1_Data.zip')
+          assert sha(p/'S1_Data.zip')==sha(old/'S1_Data.zip')
+          datafiles=['S4_Additional_descriptives.csv','primary_joint_participant_changes.csv','analysis_plan.json','additional_descriptive_receipt.json']
+          with zipfile.ZipFile(p/'S4_Data.zip','w',zipfile.ZIP_DEFLATED,compresslevel=6) as z:
+              for n in datafiles:z.write(p/'evidence/additional_descriptives'/n,n)
+              z.write(p/'scripts/analyze_saved_predictions.py','analyze_saved_predictions.py')
+              z.writestr('README.txt','Additional post hoc descriptive reconstruction of all 34 source-expansion configurations; zero new hypothesis tests. Metrics calculated within seed, then averaged within participant. See the full audit receipt and analysis script.\n')
+          for n in ['S1_Appendix.pdf','S1_Data.zip','S2_Neural_Predictions.csv.gz','S3_CSP_Predictions.csv.gz','S4_Data.zip']:
+              assert (p/n).stat().st_size<20000000
           excludes={'MANIFEST.sha256','Paper1_PLOS_Final_20261018.zip','Paper1_PLOS_Final_20261018.zip.sha256'}
           files=[f for f in sorted(p.rglob('*')) if f.is_file() and f.name not in excludes and '__pycache__' not in f.parts]
           (p/'MANIFEST.sha256').write_text(''.join(sha(f)+'  '+f.relative_to(p).as_posix()+'\n' for f in files))
@@ -66,11 +74,24 @@ jobs:
           print(json.dumps({'status':'PASS','checked_payload_files':len(files),'archive_sha256':sha(package),'archive_bytes':package.stat().st_size,'documents_preserved':True}))
           PY
       - name: Commit finalized package to editorial branch
+        shell: bash
         run: |
+          set -euo pipefail
           git config user.name 'Paper1 Editorial Build'
           git config user.email 'paper1-editorial@users.noreply.github.com'
-          git add --sparse research_runs/PAPER1_PLOS_FINAL_20261018
-          git diff --cached --quiet || git commit -m 'Finalize visually checked Paper1 package and checksum manifest'
+          P=research_runs/PAPER1_PLOS_FINAL_20261018
+          git add --sparse "$P"
+          git add -f --sparse "$P/S1_Data.zip" "$P/S4_Data.zip" "$P/Paper1_PLOS_Final_20261018.zip"
+          python3 - <<'PY'
+          from pathlib import Path
+          import subprocess
+          p=Path('research_runs/PAPER1_PLOS_FINAL_20261018')
+          paths=[p/line.split('  ',1)[1] for line in (p/'MANIFEST.sha256').read_text().splitlines()]
+          paths.extend([p/'MANIFEST.sha256',p/'Paper1_PLOS_Final_20261018.zip',p/'Paper1_PLOS_Final_20261018.zip.sha256'])
+          for f in paths:subprocess.run(['git','ls-files','--error-unmatch',str(f)],check=True,stdout=subprocess.DEVNULL)
+          print('Every delivery manifest member and ZIP is tracked:',len(paths))
+          PY
+          git diff --cached --quiet || git commit -m 'Finalize visually checked Paper1 package including all supporting ZIP files'
           git push origin HEAD:refs/heads/paper/p1-positive-final-20261018
       - uses: actions/upload-artifact@v4
         with:
