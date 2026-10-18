@@ -1,0 +1,943 @@
+{
+  "verified_utc": "2026-10-18T04:11:49.007814+00:00",
+  "scope": "Complete original bytes for all 108 neural source trajectories, all 40 epoch binaries and receipts; local off-Pod integrity verification, not scientific acceptance or R2 backup",
+  "run_name": "expansion18_eligible_v3_20261018",
+  "validation_trajectories": 90,
+  "final_source_trajectories": 18,
+  "epochs": 4320,
+  "updates": 552960,
+  "archive_count": 9,
+  "archive_total_bytes": 212762651,
+  "archives": [
+    {
+      "filename": "paper1-eligible-v3-checkpoints-batch01.tar",
+      "bytes": 25057280,
+      "sha256": "c52aac38609683f0fca008f7ce71bed39eed763ef2ec98cf09344ea0c9966131",
+      "trajectories": 4,
+      "payloads": 334
+    },
+    {
+      "filename": "paper1-eligible-v3-checkpoints-batch02.tar.gz",
+      "bytes": 15984823,
+      "sha256": "d48ec2b112ac0a95f898026edf49c5108ac242f9280967acc5ad05990243cc2e",
+      "trajectories": 9,
+      "payloads": 744
+    },
+    {
+      "filename": "paper1-eligible-v3-checkpoints-batch03.tar.gz",
+      "bytes": 19294987,
+      "sha256": "37ae56a8e18084b30708eb9c201e5e8ce78f13f8a9554f9673b1a304d0d11838",
+      "trajectories": 11,
+      "payloads": 908
+    },
+    {
+      "filename": "paper1-eligible-v3-checkpoints-batch04.tar.gz",
+      "bytes": 24734443,
+      "sha256": "d1f4174a7a0887893fb595cb005eae869110d0bc9d116ecbb36afc26f512e77d",
+      "trajectories": 14,
+      "payloads": 1154
+    },
+    {
+      "filename": "paper1-eligible-v3-checkpoints-batch05.tar.gz",
+      "bytes": 25090507,
+      "sha256": "a3d6e9772088caae40f633214400e68fe13de6996cd403eb38cb06c32ab2cd9b",
+      "trajectories": 14,
+      "payloads": 1154
+    },
+    {
+      "filename": "paper1-eligible-v3-checkpoints-batch06.tar.gz",
+      "bytes": 25576610,
+      "sha256": "b12c833a3d9916099b8151e8fb6eaa77bcb30aa6f50e78ae241595e6cac7e82e",
+      "trajectories": 14,
+      "payloads": 1154
+    },
+    {
+      "filename": "paper1-eligible-v3-checkpoints-batch07.tar.gz",
+      "bytes": 26219538,
+      "sha256": "54d26910052b2b8a4ab62efcd7c6481e2cab45224ba7684e9cf0112853cd418b",
+      "trajectories": 14,
+      "payloads": 1154
+    },
+    {
+      "filename": "paper1-eligible-v3-checkpoints-batch08.tar.gz",
+      "bytes": 23972405,
+      "sha256": "96b1056a1127a5a34181e7df3b3854a266eef501d5f4074c642285e42188535b",
+      "trajectories": 13,
+      "payloads": 1072
+    },
+    {
+      "filename": "paper1-eligible-v3-checkpoints-batch09.tar.gz",
+      "bytes": 26832058,
+      "sha256": "0f43777580d061e53c61bf997fa085571fa478bc5f528c6b66cb4fe37905f6d9",
+      "trajectories": 15,
+      "payloads": 1239
+    }
+  ],
+  "completed_trajectories": [
+    {
+      "trajectory": "checkpoints/validation/S9/BROAD/fold_0/seed_20261021",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "07928b9aba9f198f30873064982982c2f7579f3a069c3fd7eb9204004e6d8a06",
+      "final_checkpoint_sha256": "f88e19502954b62626db92b76c877f3be3b3cdd386ace1cb92bdaa13dee45260",
+      "archive": "paper1-eligible-v3-checkpoints-batch01.tar"
+    },
+    {
+      "trajectory": "checkpoints/validation/S9/BROAD/fold_0/seed_20261022",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "f3cd38f90a50c12513db6ca462f187dcf354c29077de5049161024a9745ee645",
+      "final_checkpoint_sha256": "6495983d8147eb68c49652465ad924d82a8991f40bb3a292c4e9f63c74885375",
+      "archive": "paper1-eligible-v3-checkpoints-batch01.tar"
+    },
+    {
+      "trajectory": "checkpoints/validation/S9/BROAD/fold_0/seed_20261023",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "21d48bcaf038b8790c34548566a36782ca2914ceac02de00cce9ea6daf944b04",
+      "final_checkpoint_sha256": "1f68b34302d2bce1df89c6c2726b7d24ca3c93620f526384af90ded4e83a8cc6",
+      "archive": "paper1-eligible-v3-checkpoints-batch01.tar"
+    },
+    {
+      "trajectory": "checkpoints/validation/S9/BROAD/fold_1/seed_20261021",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "09ab1a8446430bbaee18ce01e840236197778f8b609197b1f39c31d246258ac6",
+      "final_checkpoint_sha256": "a823e9eca304ccb7fea4dc81b6ab3e86d35fdf9a60f38716cf6dc0905ba52d07",
+      "archive": "paper1-eligible-v3-checkpoints-batch01.tar"
+    },
+    {
+      "trajectory": "checkpoints/validation/S9/BROAD/fold_1/seed_20261022",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "03383a9c42bef8a98d1a504397c2cdf82ecb69e07cf4ac4dfd570bf837c046b9",
+      "final_checkpoint_sha256": "360f4e4f71cf6a3b8700be55a0a9ceee38bee288df8065c7cd7dacf607d06170",
+      "archive": "paper1-eligible-v3-checkpoints-batch02.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S9/BROAD/fold_1/seed_20261023",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "8404b381aedc631846d1bc0b9f074d2a1e33c9ac28a292f7864a3c95f3b773c7",
+      "final_checkpoint_sha256": "21fbe1d8e88555da505d387c8fc1cf0d0b06a3d8d8636275d353fd702b4f4f12",
+      "archive": "paper1-eligible-v3-checkpoints-batch02.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S9/BROAD/fold_2/seed_20261021",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "9643f7b7840e23c01234c5e3f0cf595a5111c3fa0c3c8da528b8a8bc72dbc9d5",
+      "final_checkpoint_sha256": "f6f1ed0a257ee6aee488ff60d4ea972d1c752df303ae59726964a6af40627c0f",
+      "archive": "paper1-eligible-v3-checkpoints-batch02.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S9/BROAD/fold_2/seed_20261022",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "f57fe91e8905bab93fad05b3d0831c7969ff793d1d1b65f97c7d62ab571e51f0",
+      "final_checkpoint_sha256": "d97dbc04771d58a57c105ad9595fc90d0b2ff2e8ff1ef4ee59f93812123924bb",
+      "archive": "paper1-eligible-v3-checkpoints-batch02.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S9/BROAD/fold_2/seed_20261023",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "95f5dbf706635fe7534d7d8b2f2223a3e6fec699694a686d14ed9decd2702cc3",
+      "final_checkpoint_sha256": "4a9bbb74433daa77503c57fffdc477bef3305c2be89e12b2c44783bcc52935c8",
+      "archive": "paper1-eligible-v3-checkpoints-batch02.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S9/BROAD/fold_3/seed_20261021",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "22354774878cc40a5353e0660876acd625dfc759c72f6706190df50dfa51a923",
+      "final_checkpoint_sha256": "a02990646d9ed98f105440c3d9b5daa4debfa827aade879dc449c4afecea4c3d",
+      "archive": "paper1-eligible-v3-checkpoints-batch02.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S9/BROAD/fold_3/seed_20261022",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "b10451e578204ad23c5d8d55f540a4586aef1c2206382cbae143e38711db3931",
+      "final_checkpoint_sha256": "87147cf7e11cf42539df676bbac2f1b4269f0e7a27fcd3e272baf4aecf91d84c",
+      "archive": "paper1-eligible-v3-checkpoints-batch02.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S9/BROAD/fold_3/seed_20261023",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "3557527e7464c5987c9a10751af23d8c75cac8e822525781aa688f67909a3792",
+      "final_checkpoint_sha256": "f0d6680e3d06636f877b85679382ecf24bc9a44037c1d279b28cdacfe2ad2777",
+      "archive": "paper1-eligible-v3-checkpoints-batch02.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S9/BROAD/fold_4/seed_20261021",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "69e51c0d252763f77fcb1d936f2a10a6c949bcc6f989981cf5227ab0d12f9f0c",
+      "final_checkpoint_sha256": "d4c5d31f0b276689303adbce2dca4f91f968732d6466f1461582b888dab1d9b9",
+      "archive": "paper1-eligible-v3-checkpoints-batch02.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S9/BROAD/fold_4/seed_20261022",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "2fc0381c30f5ce177ca7e645f62e6569d225af15b0854a140b536be7c3a0ff7d",
+      "final_checkpoint_sha256": "75d833c3c4fa6a024196ba02dd5c79e44fdf63fe77077cde17e323774b4572e7",
+      "archive": "paper1-eligible-v3-checkpoints-batch03.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S9/BROAD/fold_4/seed_20261023",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "eeab639f9bafe2f0944eac07ab971ac40c4291890200c3a34ec2ca9956a1a653",
+      "final_checkpoint_sha256": "17b96071019b43c7eb9dd7b6da30ad49a39b4f425ce8336b914fc564f26ec9e3",
+      "archive": "paper1-eligible-v3-checkpoints-batch03.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S9/MU_BETA_SHARED/fold_0/seed_20261021",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "b02cce03082679d93ae5ff2ee2270fe320aa9f433e1ee121e904e500bf1a7a34",
+      "final_checkpoint_sha256": "18b361ee817e8cbf2c876148b8aafe9ee2778f4fc909aa5b131bb33e9474e83c",
+      "archive": "paper1-eligible-v3-checkpoints-batch03.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S9/MU_BETA_SHARED/fold_0/seed_20261022",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "4b2335f6e8738c4b361a90ca0ed3fa8e58d43f6e1f577921be081b0ebab31ba7",
+      "final_checkpoint_sha256": "e413c36e5ba98e2c56a2f9a8934c3e351c268561665ef59b762b03e17ddddb39",
+      "archive": "paper1-eligible-v3-checkpoints-batch03.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S9/MU_BETA_SHARED/fold_0/seed_20261023",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "f87ff2ade5a390f3cba68a4455944ce667d020465bb2a3c446bf983198d6e38a",
+      "final_checkpoint_sha256": "c473d946e679e3023a6b9d85202b852d4be9195ecc174e28f765fe5cfcc43502",
+      "archive": "paper1-eligible-v3-checkpoints-batch03.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S9/MU_BETA_SHARED/fold_1/seed_20261021",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "2e71fd757c3136a33f5696377bd9206eec4795db660c7d9fe451cc0a82539371",
+      "final_checkpoint_sha256": "ff68000f450bf30187ffb6b96870e7fa49211303f8227fbf820e10b4456cbf83",
+      "archive": "paper1-eligible-v3-checkpoints-batch03.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S9/MU_BETA_SHARED/fold_1/seed_20261022",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "243e69bd939549cc42ef239fb837959e0965fcc1e010465c9f90a91f0ee25925",
+      "final_checkpoint_sha256": "ad360f0d5cbb7206cbea8cb4262e3d822587b56731cdf78f2c4cd981536509e8",
+      "archive": "paper1-eligible-v3-checkpoints-batch03.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S9/MU_BETA_SHARED/fold_1/seed_20261023",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "d6a8a4bee17a6f8e698daa9c5fcda2e6bb229e56595d87081383382ecd04f0a8",
+      "final_checkpoint_sha256": "5788e6bfd065afcd5614ee535eea430a5f1ee0475680fb6a0d001e6134c419a2",
+      "archive": "paper1-eligible-v3-checkpoints-batch03.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S9/MU_BETA_SHARED/fold_2/seed_20261021",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "357bf1627034530a0d413f48692a5c78106c7b58dfeb81df1e0bbdeb4ad45955",
+      "final_checkpoint_sha256": "0312d10dff1040f8d5275136e2ab91b8cd3c8f6f6015f20be0d1903ef83cdccd",
+      "archive": "paper1-eligible-v3-checkpoints-batch03.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S9/MU_BETA_SHARED/fold_2/seed_20261022",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "f0db45570c48df9409f589960261bd809d2db75120a61aaff82cc1587ef29b6d",
+      "final_checkpoint_sha256": "926be0f770314bb9643f1279b1af323fa8b55d99aa5183a71aa658e05248d607",
+      "archive": "paper1-eligible-v3-checkpoints-batch03.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S9/MU_BETA_SHARED/fold_2/seed_20261023",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "99cfbaf6b15747a43e536fe8adc34572929a6d5d2943e4196f9a7d81f8431788",
+      "final_checkpoint_sha256": "a91720a9c90fb0860580c36ee7b1aa7d0c8bbf29cd31fc6ec70cb56b8210534e",
+      "archive": "paper1-eligible-v3-checkpoints-batch03.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S29/BROAD/fold_0/seed_20261021",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "e5a6b0fc0d57923b54fc756085ce9ffeb7b78954a5993384720a458d85afe867",
+      "final_checkpoint_sha256": "798f0e734268a8d73e2de34a9bd925dc04873f3ebf3d2424c8b4ab8e66efd7de",
+      "archive": "paper1-eligible-v3-checkpoints-batch04.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S29/BROAD/fold_0/seed_20261022",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "2c6da29658a558a9d7f40fe770528931f6e74895d0b98b795498a4e5e020f2c6",
+      "final_checkpoint_sha256": "dcd5ff102c7896dffabb53e9b356d3c8569e1716a6821acefb4e8baff392338d",
+      "archive": "paper1-eligible-v3-checkpoints-batch04.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S29/BROAD/fold_0/seed_20261023",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "e24c6eab48364ab8f63848c0d498ee55437b3f294208453e92ecda52403a55af",
+      "final_checkpoint_sha256": "e97a3780fff90ccc1f5dc1169aa37c25e706b1c5758a37fbf8f52476459796ea",
+      "archive": "paper1-eligible-v3-checkpoints-batch04.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S29/BROAD/fold_1/seed_20261021",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "5bfc8d26529ca912acae2e24cda0667e7ced5c6677bb21b73f88af91076a7f3a",
+      "final_checkpoint_sha256": "50400c9a27a50ab144279cadef3812dc10c9607d55dc86ba800ef6f4d5530fe4",
+      "archive": "paper1-eligible-v3-checkpoints-batch04.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S29/BROAD/fold_1/seed_20261022",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "db06ba1849973ad64825ca26cbace2408ead4b37c5a18a31d5913d662ce07616",
+      "final_checkpoint_sha256": "74f7b0817b4041e4220f80270dc7826f8419f81b098286d7886e8a84f46cd65a",
+      "archive": "paper1-eligible-v3-checkpoints-batch04.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S29/BROAD/fold_1/seed_20261023",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "711c12bd4dff40f4b4f26f87460f97fd3d2049327fddfe6d4477a347efe31364",
+      "final_checkpoint_sha256": "656a32b1423a7f255c7a1eff0f88b23b4c61fb310192ef38ba832b9de2824dc9",
+      "archive": "paper1-eligible-v3-checkpoints-batch04.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S29/BROAD/fold_2/seed_20261021",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "cdc5e6fa269ca5a1a70f583e72e92fa0a1dc7f0f0945d87d37be3b30b040bc29",
+      "final_checkpoint_sha256": "e0f6632d62057c9d758484ae1333fe798e7312fc8d475f2db0e4b4abfbc47931",
+      "archive": "paper1-eligible-v3-checkpoints-batch04.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S29/BROAD/fold_2/seed_20261022",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "1952530014f433ffad0bdc539b2caa672b477fbfd796e10490ac7cf0ad41a8f8",
+      "final_checkpoint_sha256": "4980265b0aa4180e74adb2a9a5964a5308d0a1711424dc97cb619f80741980a5",
+      "archive": "paper1-eligible-v3-checkpoints-batch04.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S9/MU_BETA_SHARED/fold_3/seed_20261021",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "067dd2d0f700071828a24e3ec0cdfc250ceef6bed6c8f6684237a453c00dcf8a",
+      "final_checkpoint_sha256": "68e5ee77865c5577ed1518f2d867dc56d17a721030b1d3315089d35ed4a5341f",
+      "archive": "paper1-eligible-v3-checkpoints-batch04.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S9/MU_BETA_SHARED/fold_3/seed_20261022",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "7d9100f0710ae703bbdc8d7130ed333ff1fefe9058e139f00dd89be763ea52d6",
+      "final_checkpoint_sha256": "21eb25c890cc94919dcbce30dfd7ca578c8ea04b639f0b2b5fad21565a773ac5",
+      "archive": "paper1-eligible-v3-checkpoints-batch04.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S9/MU_BETA_SHARED/fold_3/seed_20261023",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "5f48d8dff81fa33789fd5f1989ded172d4b330fd9057b2e9a4c2acdfb25861e8",
+      "final_checkpoint_sha256": "7f70f1016af21662743ffd5293da9d2f6ce7740ab5c2172929202bf89e64990a",
+      "archive": "paper1-eligible-v3-checkpoints-batch04.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S9/MU_BETA_SHARED/fold_4/seed_20261021",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "589710eadcf67228865c2ee8fb945da41e557c1f8a47c4efe23432fce667af5f",
+      "final_checkpoint_sha256": "dd5688c260560c0f82417e86bcd7133cef518a94b8d159d0a85160725b0384bb",
+      "archive": "paper1-eligible-v3-checkpoints-batch04.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S9/MU_BETA_SHARED/fold_4/seed_20261022",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "e58fde64d52d2263cf05169a6245c6ef026f6f0d8191ef195bed3d034338f6ff",
+      "final_checkpoint_sha256": "4abd90b4c3c2caccc9ba93977ffd4874a41adf1cc8515bd958bbb6ef751f13ab",
+      "archive": "paper1-eligible-v3-checkpoints-batch04.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S9/MU_BETA_SHARED/fold_4/seed_20261023",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "661f01b11cacf11793ad22be66ddc6f1fd9293a8f9329fdec462a72b08f05a46",
+      "final_checkpoint_sha256": "b9be4b3de8b167bd706723c81885dfc68cc9d06fe08c152f7f0fff814ae4a421",
+      "archive": "paper1-eligible-v3-checkpoints-batch04.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S29/BROAD/fold_2/seed_20261023",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "1d76778ee747d9480a41527b84c113121fcecea03e301eb4368903de6198d9b9",
+      "final_checkpoint_sha256": "6271e8b6ce9412c070262728830225694112454d3c832708d956551c4d97c93d",
+      "archive": "paper1-eligible-v3-checkpoints-batch05.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S29/BROAD/fold_3/seed_20261021",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "6f3191ec392acb87cf8f1e5b0aa76e60da34740c4a7c0e2e63836ab343877881",
+      "final_checkpoint_sha256": "cedcea77809591c37db4503fbc0a0060b4f7fba1f22bbc51b449e25a2b3704ac",
+      "archive": "paper1-eligible-v3-checkpoints-batch05.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S29/BROAD/fold_3/seed_20261022",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "a158501b3e39c9b572c939f2afd002ddaa31d8c94f107986f216321305894886",
+      "final_checkpoint_sha256": "f3dd72c47d773a493e04a882e657444f3f0e9d6fe4a51f338c16a6d1dceb4751",
+      "archive": "paper1-eligible-v3-checkpoints-batch05.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S29/BROAD/fold_3/seed_20261023",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "2874aa47fd87f32fb3e4f43ed3ea4ec27c8c6a80fe6caf4cb84d109f5d95f0fe",
+      "final_checkpoint_sha256": "cea25bc384025131f0c3f2c996be3f17700ff53a00b9b087d86c038fa7e93703",
+      "archive": "paper1-eligible-v3-checkpoints-batch05.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S29/BROAD/fold_4/seed_20261021",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "c30f402886476a54498a4874342d91fd7dafee28f5039b56078801b5e64d3f3e",
+      "final_checkpoint_sha256": "07a4ae8ff36ee5beecc23ed7267fdd7075e7cbe34b20dd8d625408838e2b16e6",
+      "archive": "paper1-eligible-v3-checkpoints-batch05.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S29/BROAD/fold_4/seed_20261022",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "796a966eeb12f813eb960b174350f37204d2c70f45cd2ab88b9051e500465900",
+      "final_checkpoint_sha256": "26959202e0b5ae05caec8e2b60aa0ad831793d24dd750614b46f409c746663e5",
+      "archive": "paper1-eligible-v3-checkpoints-batch05.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S29/BROAD/fold_4/seed_20261023",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "d77dd7586bcde23d167a1436b908e005324b001ea689da507958f4d5e6aeaafd",
+      "final_checkpoint_sha256": "0c8bb701fa54daef61a50f9c36a85bb2122bc3c00a318bde8f96f95a2a11ef27",
+      "archive": "paper1-eligible-v3-checkpoints-batch05.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S29/MU_BETA_SHARED/fold_0/seed_20261021",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "be7dddd80fcab12513a9cd91bb100f81822ff882e94c3d91b9decb1bd4bb35f4",
+      "final_checkpoint_sha256": "14bdf81a9ef3a9f05814d76000446eab7ce28e4c81c8fa538c74bd8ac8fe3dd5",
+      "archive": "paper1-eligible-v3-checkpoints-batch05.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S29/MU_BETA_SHARED/fold_0/seed_20261022",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "0871c38ed2b64da4e05f5ee8033659b9bf6f968b37fd73a7039ffe77bdf4f8a6",
+      "final_checkpoint_sha256": "54c6492c4106420607d8a4024862afbfa3671779d68b27f02fb47362ef13743e",
+      "archive": "paper1-eligible-v3-checkpoints-batch05.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S29/MU_BETA_SHARED/fold_0/seed_20261023",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "f1f91a2fda3fd23287d4d8e8644317c089d78b7c534a8087bca25abcbfb47419",
+      "final_checkpoint_sha256": "0514b2cf5b406365fb893bd29fc3dded9df19b091fb0469c19767fa988227bf3",
+      "archive": "paper1-eligible-v3-checkpoints-batch05.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S29/MU_BETA_SHARED/fold_1/seed_20261021",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "1cdd108488ebf9cc93fa27df888928f04dcb14e39a305c417d4d20ff6e94f97e",
+      "final_checkpoint_sha256": "8a87ab84dd47e006450c76db6c0e04c6a8b66410c16f5a815c78651b2c4deb12",
+      "archive": "paper1-eligible-v3-checkpoints-batch05.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S29/MU_BETA_SHARED/fold_1/seed_20261022",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "683bd273cef9097ec39c9bd766983bb910567cae9808f36b75ef8d719767787d",
+      "final_checkpoint_sha256": "fb1fdd3ff1e5dd1e8ad2cd2191bb51aa8452fbbe9ac1713b1c7e6131db4a4284",
+      "archive": "paper1-eligible-v3-checkpoints-batch05.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S29/MU_BETA_SHARED/fold_1/seed_20261023",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "d6e6c865c3e75304121696a339c43bdbaff67c349647eb940c66408fa5d9ed7f",
+      "final_checkpoint_sha256": "d05b0c956d65a3e1c2e463b1ab282bf3d882e8eae2bf3962f738130397f6a620",
+      "archive": "paper1-eligible-v3-checkpoints-batch05.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S29/MU_BETA_SHARED/fold_2/seed_20261021",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "a0b2397bd309ac5dc32ed16bb103f408eab1ffe3bb6e136ae3691716cf6c3262",
+      "final_checkpoint_sha256": "ec64374f5a0047cb28bce9585626e99c5151e78418a3617637a5a94bd17af2ed",
+      "archive": "paper1-eligible-v3-checkpoints-batch05.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S29/MU_BETA_SHARED/fold_2/seed_20261022",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "64727f489c1da85aab8ade8d208c5dc57ddbd4b3f9482035b4e28427025e129f",
+      "final_checkpoint_sha256": "38df4c4cdcd9760788fc4a06d0db77f99420e91f398d15114d577d434a7a8e7c",
+      "archive": "paper1-eligible-v3-checkpoints-batch06.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S29/MU_BETA_SHARED/fold_2/seed_20261023",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "1cb498df1f1545e860386cac41e0733a06f02971af3c22d01a329cf107ed28f2",
+      "final_checkpoint_sha256": "5196f78014328030429c6b9b1b3975e5798437c144d86402d711fe061927f3fa",
+      "archive": "paper1-eligible-v3-checkpoints-batch06.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S29/MU_BETA_SHARED/fold_3/seed_20261021",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "48bb28b712664ad9fb97600257f2527e8cc288f5038ea7d012ab8ac9c46a6d61",
+      "final_checkpoint_sha256": "68bb40915e5370200517f982bb16825b49c5de23aeec90b4f5cb6dd41b6fe8b3",
+      "archive": "paper1-eligible-v3-checkpoints-batch06.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S29/MU_BETA_SHARED/fold_3/seed_20261022",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "6bdef6b3917931a2039c75061a1cadeece7099564b34e6c6cbbb952b3d3239e7",
+      "final_checkpoint_sha256": "bd3fff7028da7ddd4eae7c3a61fcc21e3995b9b24dfc9eb2d45fef65885b17c5",
+      "archive": "paper1-eligible-v3-checkpoints-batch06.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S29/MU_BETA_SHARED/fold_3/seed_20261023",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "0255f1056c99d72b00004a7d7d1da676efb56190b8136b212d1bcdc5389e135c",
+      "final_checkpoint_sha256": "8e0309f0390edeb421713028ad1e4bd714fb74cb1f8742431896f6ffe822bef5",
+      "archive": "paper1-eligible-v3-checkpoints-batch06.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S29/MU_BETA_SHARED/fold_4/seed_20261021",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "34c2706546825dd6aea3eff99cc92aabe2818fb647a883398ef43d5d732a9011",
+      "final_checkpoint_sha256": "1cae431519c67b34f0bb070eff070a88dd41cd722c9f8d40dfb2c71c9ec37393",
+      "archive": "paper1-eligible-v3-checkpoints-batch06.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S29/MU_BETA_SHARED/fold_4/seed_20261022",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "50068aa1af950243cd6a903f0f10b1c84d2cc749b5ad17b08fab89072cc49685",
+      "final_checkpoint_sha256": "9b752ab8dffab6bbb004872b0f0f49ff208517607a17f883096e2a9df7abfb87",
+      "archive": "paper1-eligible-v3-checkpoints-batch06.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S29/MU_BETA_SHARED/fold_4/seed_20261023",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "78a3eb8266b944e0812758f2ce638a7b93ba09667a7b3f262cceba16ed84499d",
+      "final_checkpoint_sha256": "59ff6b0805c6fd1a7475e56d9ec6d6bc0662d029efb9c89f6166106ff3dd0a8b",
+      "archive": "paper1-eligible-v3-checkpoints-batch06.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S60/BROAD/fold_0/seed_20261021",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "7545fc24930c90a481fbe7bff1ed0e06450abb0629d9da9af78f727fc10976a1",
+      "final_checkpoint_sha256": "2f24a8cf33fa4d08eee6d93083a67022bc365d411205e732bb60a2b67f6a51b3",
+      "archive": "paper1-eligible-v3-checkpoints-batch06.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S60/BROAD/fold_0/seed_20261022",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "037183191db07a47e099c4fd6fae6fb2746597e18dab31e3c39bc247506ed10f",
+      "final_checkpoint_sha256": "832588500d9d348479ef27cdde591ec5ea86a82efb973326c0f3206638705d6c",
+      "archive": "paper1-eligible-v3-checkpoints-batch06.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S60/BROAD/fold_0/seed_20261023",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "1ccc08861156c691439823f16d8db7928b8075634a3aa5935a0064d844f0a549",
+      "final_checkpoint_sha256": "d7c76647f92249d2074991f0ea9c213063916fde2753a4603283f6457a4974a3",
+      "archive": "paper1-eligible-v3-checkpoints-batch06.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S60/BROAD/fold_1/seed_20261021",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "3331746d9288221193e815f7e90718bb3f5af951fb01997d289b8ca1bb193de6",
+      "final_checkpoint_sha256": "ca6b272942d0629155ed2e4b2feda85cee7eb57d5607a980a6c8f8f3614adbcd",
+      "archive": "paper1-eligible-v3-checkpoints-batch06.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S60/BROAD/fold_1/seed_20261022",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "9649642fde08ba170909f3d517f2c0d0051228329431cf68aff6db98499f880b",
+      "final_checkpoint_sha256": "0338aa9c553c0cd641b01d1a01505c8411277831f458ea7b3aaaead8decf9832",
+      "archive": "paper1-eligible-v3-checkpoints-batch06.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S60/BROAD/fold_1/seed_20261023",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "497d007bc829182881e2b62f7cba689098da8fa4540063b66088a79504e423ae",
+      "final_checkpoint_sha256": "140f7f34474bac2a702c91a6a758eec53b6fc72d9be5c9eb6a4dc027ca38511c",
+      "archive": "paper1-eligible-v3-checkpoints-batch06.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S60/BROAD/fold_2/seed_20261021",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "9d686b436596a594b68eb3f7fecc4d6dce9e810a5b22c9ebc945847f18158bbd",
+      "final_checkpoint_sha256": "ba48f44dd7772d3636f4e78ec04639de19d98e1f424452811d4babfbcd8cbb6d",
+      "archive": "paper1-eligible-v3-checkpoints-batch07.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S60/BROAD/fold_2/seed_20261022",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "e53385504dfb1dae4384cb507dfe53c6335d6214cbdca022882d18285aead6aa",
+      "final_checkpoint_sha256": "914c32ddaf9f3173d525b5066c0158c8ffa9db29a0a5e8a18393e21bc5ca0c56",
+      "archive": "paper1-eligible-v3-checkpoints-batch07.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S60/BROAD/fold_2/seed_20261023",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "02bd7762ecf249fa360b6a685dff6c38162aab7ab1220c334be07536b41f3468",
+      "final_checkpoint_sha256": "ab16de5800aa29410130f5c07767d107dee61cbd2c7be28624e03ce1847a6fef",
+      "archive": "paper1-eligible-v3-checkpoints-batch07.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S60/BROAD/fold_3/seed_20261021",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "9e1f75b83ac19cce1813a214e91437db9e7e994997ccdfdcb1f2138e3db34292",
+      "final_checkpoint_sha256": "a60937c14f9d867bac0ab7e08700c53e4403c37613ffefc58d471a5155a9e30a",
+      "archive": "paper1-eligible-v3-checkpoints-batch07.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S60/BROAD/fold_3/seed_20261022",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "050dec77c90285570ae47bc88a6a2a0bc0b8cec6fc53f413773a77bc2f23f145",
+      "final_checkpoint_sha256": "1533aacf7c86cc05cdf51e43aea5a3f803e5813682f1870f6dd0d97860310490",
+      "archive": "paper1-eligible-v3-checkpoints-batch07.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S60/BROAD/fold_3/seed_20261023",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "c126c9d2091566a98d5b7636c412f6279a1e66ae954386b858dcaae4a6db4eb8",
+      "final_checkpoint_sha256": "3cb36cae7a8e60b53c0de543f76101bd091996084c3d0390581dd5bba27936f0",
+      "archive": "paper1-eligible-v3-checkpoints-batch07.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S60/BROAD/fold_4/seed_20261021",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "f8e21950414f6d6601ed458e857e0a350723f253e7c1326692c097570215eb79",
+      "final_checkpoint_sha256": "b13e62530a5610773965a2fc3fa03d5307b90c1ba181920ae0e995c1a800d837",
+      "archive": "paper1-eligible-v3-checkpoints-batch07.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S60/BROAD/fold_4/seed_20261022",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "c21e97e5ee6f5d21d13e78fe80768f115d9eab05d8b041e8dbd1ba7875b874e4",
+      "final_checkpoint_sha256": "6d73647e9f1afcb4d8ab2e5e1bb258b8dcb5a1724a4c345f1666c3417ef0551f",
+      "archive": "paper1-eligible-v3-checkpoints-batch07.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S60/BROAD/fold_4/seed_20261023",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "9993e27e02facad5a4cc16b5ca2d24c3281e0a80036355a93096281791a3b88c",
+      "final_checkpoint_sha256": "90d70f1b929fe14d8d372d9ad87ab55afaa29bbc5b33443fb67bb9d3c0918a16",
+      "archive": "paper1-eligible-v3-checkpoints-batch07.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S60/MU_BETA_SHARED/fold_0/seed_20261021",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "35cc60c9bcd5b62cf2ccd0d5a88b0e333f2b02fda0290d2d2e8a795d0b02e9a2",
+      "final_checkpoint_sha256": "3d5d87f710cf6878a2c3692bb1ee55d592ad8e48071f23071f26a84fcbcde4af",
+      "archive": "paper1-eligible-v3-checkpoints-batch07.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S60/MU_BETA_SHARED/fold_0/seed_20261022",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "aeac4431aa8f8c0c2d9e92623728473ed5d56dd653c7951c5755a967f2fbd046",
+      "final_checkpoint_sha256": "efabef05955b90d8a7939c4b4ea536b07a849f6935a79607180d4e0ca43bc68d",
+      "archive": "paper1-eligible-v3-checkpoints-batch07.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S60/MU_BETA_SHARED/fold_0/seed_20261023",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "8da9e0d5364a68e738d31dfdb5b9f79f3ef6436603e0194171811c395526cb89",
+      "final_checkpoint_sha256": "082597214c5eb4829aeeb3896df550d3d1bcbf7568a96d902594de5160c9f5ff",
+      "archive": "paper1-eligible-v3-checkpoints-batch07.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S60/MU_BETA_SHARED/fold_1/seed_20261021",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "0fe44e0180abf3ce4259947c013f33fab0f7fb51dc86300bc61a71e6d0c7aba4",
+      "final_checkpoint_sha256": "26a95e5d003dec044733559ba1991504e20fc42b8fab92cfea58e728dc11c958",
+      "archive": "paper1-eligible-v3-checkpoints-batch07.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S60/MU_BETA_SHARED/fold_1/seed_20261022",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "7b401fcf4824d1780e5eafcd71575b1d0d11ffaa161a84fb049554fb888cd930",
+      "final_checkpoint_sha256": "a48505d666088a15cfa543f06a5dc1ff10e3c7746713cab884cb6435c0e507d4",
+      "archive": "paper1-eligible-v3-checkpoints-batch07.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/final/S9/BROAD/all_source/seed_20261013",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "a3a95a68c4956cdfb8a2c0fc7af5fe1af88723b00f683755f61c380bd43570ad",
+      "final_checkpoint_sha256": "5a32bdac7d0d1560832e3fcc52f01131d79ae9c6fd479bd6ce0735013ba9b37c",
+      "archive": "paper1-eligible-v3-checkpoints-batch08.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/final/S9/BROAD/all_source/seed_20261014",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "1a3049fda96143a56cc112fd41cf258939ba042aeeab702ef45cd75bbc8ea808",
+      "final_checkpoint_sha256": "66396f96653227fda363fcdc55f554ee1f860f9be5793e076d39ebe2aa4368f4",
+      "archive": "paper1-eligible-v3-checkpoints-batch08.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/final/S9/BROAD/all_source/seed_20261015",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "00d8fb78e01b8038cae810a6f1c3fa13089bc1b28a5e5dcf68fc25f549c4ae4b",
+      "final_checkpoint_sha256": "9f5b8a0d2169ad1e30e729e732378766229b276168244ebbf3cd978411fa88ce",
+      "archive": "paper1-eligible-v3-checkpoints-batch08.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S60/MU_BETA_SHARED/fold_1/seed_20261023",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "0b47eb5b9f3314816d6fa2bd2957f3ad11760dad5566d849b064a965fa9f4cbb",
+      "final_checkpoint_sha256": "10a122dc5481a6e4d1791d765a6d03c21f139ca4a0218b61d601e07ef85762eb",
+      "archive": "paper1-eligible-v3-checkpoints-batch08.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S60/MU_BETA_SHARED/fold_2/seed_20261021",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "55af9c8ab789e15c5f427c4fc2c2050489618927bfd2900eb32fb0527b524d20",
+      "final_checkpoint_sha256": "612f9069343d63c6fac9309ef3d4d9eac71cccfa760118184c7c21c56736b91c",
+      "archive": "paper1-eligible-v3-checkpoints-batch08.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S60/MU_BETA_SHARED/fold_2/seed_20261022",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "beec942e9732d1527142cf8bb0cc6dd55b1ecc3a47503131551444d38bfe3d9a",
+      "final_checkpoint_sha256": "4c9b938b36e2ad97104e66efe8ad451bb3757e94b9dd4a3191d691d99ce607d7",
+      "archive": "paper1-eligible-v3-checkpoints-batch08.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S60/MU_BETA_SHARED/fold_2/seed_20261023",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "ed139094fd22c5c70eff89c80ccf5859aa0740afc4a293c90630523859151b9e",
+      "final_checkpoint_sha256": "52490687fa786160699926ff4bd25da9794a946051a5da73a73da431c7dc138c",
+      "archive": "paper1-eligible-v3-checkpoints-batch08.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S60/MU_BETA_SHARED/fold_3/seed_20261021",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "a7bb76883b95b79416e5abc7fe1f44f4450345f9ffd3a03f176e498a941a7da6",
+      "final_checkpoint_sha256": "671fe8b56160f3b309adb64f222c6b9a2938b908b8fe716ad967b09fec650f16",
+      "archive": "paper1-eligible-v3-checkpoints-batch08.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S60/MU_BETA_SHARED/fold_3/seed_20261022",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "602c8c5d4770c72beeb5ebfc82600c5138d92c6226fc69de0c2058d429f3e3c7",
+      "final_checkpoint_sha256": "f299fcd7556f1967a309d2c36e7a993db7e6d47291ea2ce2fb02f58dc1a920fa",
+      "archive": "paper1-eligible-v3-checkpoints-batch08.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S60/MU_BETA_SHARED/fold_3/seed_20261023",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "bd2b4d4c0fc41dc1f743929da352d40cd1035cf45c2cd5ee531a4e01d18203d9",
+      "final_checkpoint_sha256": "0fea041a45ef142a6335226d003f3811c266ac30690f6993a30a3389db0dfd33",
+      "archive": "paper1-eligible-v3-checkpoints-batch08.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S60/MU_BETA_SHARED/fold_4/seed_20261021",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "18d53d3a9c351e57779caa0cfc99c61d439429c92fd3364c058735e328d57f68",
+      "final_checkpoint_sha256": "ffbeeff17b6e1d8fe09abc3d82831f18aac0b29ec67276ac8f84f24d4bedbd04",
+      "archive": "paper1-eligible-v3-checkpoints-batch08.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S60/MU_BETA_SHARED/fold_4/seed_20261022",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "0866704d0106ca4ec27963946d73b496f9294e3efac7dfe03cf44d197294969d",
+      "final_checkpoint_sha256": "95cad9d42f5cfc821e4261f627d94e56c9546860e558bb277d069ba122e273b9",
+      "archive": "paper1-eligible-v3-checkpoints-batch08.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/validation/S60/MU_BETA_SHARED/fold_4/seed_20261023",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "6c69507f59c3eb25b83e909be35b621d28fe4ff958d11b827069f5f345b5c2f8",
+      "final_checkpoint_sha256": "89305a0315946c644ba6b33e14e725a7e80cfe8951df8b6da8a05de87048124d",
+      "archive": "paper1-eligible-v3-checkpoints-batch08.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/final/S29/BROAD/all_source/seed_20261013",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "c930f267b9bce8057f453243fdcfed001d75af782aaafe4b8f6cebaf6ec5fd0a",
+      "final_checkpoint_sha256": "d81ea31bea650182fd7062755640835254808b363af2ae3aa7f0d8a035a22890",
+      "archive": "paper1-eligible-v3-checkpoints-batch09.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/final/S29/BROAD/all_source/seed_20261014",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "ba6f06cddb0aa38d2070a6d963a4cd19bd8656c4a82bc6110df8d1446b1ad661",
+      "final_checkpoint_sha256": "74145c2d369115102e34ba0577792c706f3fc57fad494ab94c5f276aa8f9bc90",
+      "archive": "paper1-eligible-v3-checkpoints-batch09.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/final/S29/BROAD/all_source/seed_20261015",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "55972b36f9418b4c0be66dfeba66b15fd6e2d34063ef1cd0a7885fc3a3fa8ee0",
+      "final_checkpoint_sha256": "abf839f1cfd5a937f9e45cf333bbb954417e8a99ef595cd8dd08ad27ed84a953",
+      "archive": "paper1-eligible-v3-checkpoints-batch09.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/final/S29/MU_BETA_SHARED/all_source/seed_20261013",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "e62e8226f5190e363739d8ed619fd5ff654bdfb1304f06b95aa9167308c469e9",
+      "final_checkpoint_sha256": "179a5372203f87d9b025e67cd3ffd0e42f6250a2376f7feb9adc49cbed2ef104",
+      "archive": "paper1-eligible-v3-checkpoints-batch09.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/final/S29/MU_BETA_SHARED/all_source/seed_20261014",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "4d6e8b070669b08e6d068bcf9ac40676e6b4a803026352cd13425d85c0d49ad6",
+      "final_checkpoint_sha256": "5a04bddb8af2c99c344c8ac4c7160f38c530b9902b2eb3dd92a2997947752bc0",
+      "archive": "paper1-eligible-v3-checkpoints-batch09.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/final/S29/MU_BETA_SHARED/all_source/seed_20261015",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "24b3503a3076b8118bcbe5d27592ff3df6753da68ff4840c36f1f3b90b5bbf9f",
+      "final_checkpoint_sha256": "25f77e064e8d0473e2b13fffe8432c5dc5ef8461db10b94a795a958408c70f64",
+      "archive": "paper1-eligible-v3-checkpoints-batch09.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/final/S60/BROAD/all_source/seed_20261013",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "5fc1d169176460ec572cfb482de1f394da3a34ca6c65d3bd8b828599bff72533",
+      "final_checkpoint_sha256": "cf9268f58966d0f097cef27cb53664cab381a3fe9f889b8c8350f7f70f3ed832",
+      "archive": "paper1-eligible-v3-checkpoints-batch09.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/final/S60/BROAD/all_source/seed_20261014",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "67367538f5e1db6587797cb81fd02e4256dad95d6564c3ccbfb8d4c3bc331fe4",
+      "final_checkpoint_sha256": "0c211f5c74187e439f6bd4aae09c1ed1f9a373635f1ecb5bfe374044fa7a9baa",
+      "archive": "paper1-eligible-v3-checkpoints-batch09.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/final/S60/BROAD/all_source/seed_20261015",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "4d92cf11cc65d391e44214c7848c1e54cbdefeb5b0378d3e09a2ec774177cb8b",
+      "final_checkpoint_sha256": "937fc126f90f5f3ddc3be2c40ccb69743627aa54f81f4146e9115c052d8de2cd",
+      "archive": "paper1-eligible-v3-checkpoints-batch09.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/final/S60/MU_BETA_SHARED/all_source/seed_20261013",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "0ac8e806f07c4299904725ad2adbeb6c8cfdb0b25f2fe5dc01d61af549156055",
+      "final_checkpoint_sha256": "4ae6fa841fbbd1c08c6bbc38789a61a7ee5c1befa1db41f58e894a90cd15fa0f",
+      "archive": "paper1-eligible-v3-checkpoints-batch09.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/final/S60/MU_BETA_SHARED/all_source/seed_20261014",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "69b08a25bc874c10887242597204c42772921bb980ff72198d03b0134f0794cd",
+      "final_checkpoint_sha256": "24b4e874d0215ea6eca661f510581431a399aeca480ff76403a249512a6bcd1d",
+      "archive": "paper1-eligible-v3-checkpoints-batch09.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/final/S60/MU_BETA_SHARED/all_source/seed_20261015",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "2fcfd183dbe889e452f394a178f739314ebf6a3db60c9cc5ef5f17d729825180",
+      "final_checkpoint_sha256": "35ebe8224a4a9a51d4b8cecbddf13d700d761ffb4317089b1ecac6a97c535655",
+      "archive": "paper1-eligible-v3-checkpoints-batch09.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/final/S9/MU_BETA_SHARED/all_source/seed_20261013",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "338d4578b3dfd4b3d8e41836dbbcf002d235bacea4a07c0b5f2bfc19d5eaa4c8",
+      "final_checkpoint_sha256": "6293f5327fa2ae006fb07c8f567973709bd22eec47c60ea816918f49b504206f",
+      "archive": "paper1-eligible-v3-checkpoints-batch09.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/final/S9/MU_BETA_SHARED/all_source/seed_20261014",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "ef5a24ecd2423de7568d7b319b0065aba656532d60f4e920883b5e37c4f6cca2",
+      "final_checkpoint_sha256": "9498edb5fbbd63f58bc767f4fb7658ce58b2aa4249e35de5a70a6b9de9c54a6a",
+      "archive": "paper1-eligible-v3-checkpoints-batch09.tar.gz"
+    },
+    {
+      "trajectory": "checkpoints/final/S9/MU_BETA_SHARED/all_source/seed_20261015",
+      "epoch": 40,
+      "updates": 5120,
+      "contract_hash": "f34af9b70c448b57e19c94e7dc402f50317fcd3a83fe4c46eaa525baf23ae483",
+      "final_checkpoint_sha256": "686a86b935504b0f2fd3d53a1c6e0a8a0fbc44b581e1ac3d49e211e3a1ffaac8",
+      "archive": "paper1-eligible-v3-checkpoints-batch09.tar.gz"
+    }
+  ],
+  "r2_full_get_verified": false
+}

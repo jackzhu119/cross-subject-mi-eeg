@@ -1,0 +1,201 @@
+{
+  "schema_version": 1,
+  "report_type": "independent_offpod_integrity_and_source_selection_audit",
+  "status": "PASS_WITH_SCOPE_LIMITATIONS",
+  "recorded_utc": "2026-10-18T04:39:44.261720+00:00",
+  "audit_completed_utc": "2026-10-18T04:34:36Z",
+  "run_name": "expansion18_eligible_v3_20261018",
+  "scientific_code_commit": "0539379578818b3d71f995192e5e8a81cf4d5aef",
+  "method": "Read-only local tar/ZIP byte hashing and JSON/CSV analysis; independent Python arithmetic, not execution of archived scientific code; no pickle/checkpoint deserialization, training, Pod or browser access. This report records already-completed checks, not a new audit run.",
+  "evidence": {
+    "checkpoint_summary": {
+      "filename": "paper1-eligible-v3-all108-offpod-verification.json",
+      "bytes": 45116,
+      "sha256": "c2a744989e81d0a6d109a1ff41d3181fcf5596cc11aadaff9e38226def896f57"
+    },
+    "checkpoint_archives": [
+      {
+        "filename": "paper1-eligible-v3-checkpoints-batch01.tar",
+        "bytes": 25057280,
+        "sha256": "c52aac38609683f0fca008f7ce71bed39eed763ef2ec98cf09344ea0c9966131",
+        "trajectories": 4,
+        "payloads": 334
+      },
+      {
+        "filename": "paper1-eligible-v3-checkpoints-batch02.tar.gz",
+        "bytes": 15984823,
+        "sha256": "d48ec2b112ac0a95f898026edf49c5108ac242f9280967acc5ad05990243cc2e",
+        "trajectories": 9,
+        "payloads": 744
+      },
+      {
+        "filename": "paper1-eligible-v3-checkpoints-batch03.tar.gz",
+        "bytes": 19294987,
+        "sha256": "37ae56a8e18084b30708eb9c201e5e8ce78f13f8a9554f9673b1a304d0d11838",
+        "trajectories": 11,
+        "payloads": 908
+      },
+      {
+        "filename": "paper1-eligible-v3-checkpoints-batch04.tar.gz",
+        "bytes": 24734443,
+        "sha256": "d1f4174a7a0887893fb595cb005eae869110d0bc9d116ecbb36afc26f512e77d",
+        "trajectories": 14,
+        "payloads": 1154
+      },
+      {
+        "filename": "paper1-eligible-v3-checkpoints-batch05.tar.gz",
+        "bytes": 25090507,
+        "sha256": "a3d6e9772088caae40f633214400e68fe13de6996cd403eb38cb06c32ab2cd9b",
+        "trajectories": 14,
+        "payloads": 1154
+      },
+      {
+        "filename": "paper1-eligible-v3-checkpoints-batch06.tar.gz",
+        "bytes": 25576610,
+        "sha256": "b12c833a3d9916099b8151e8fb6eaa77bcb30aa6f50e78ae241595e6cac7e82e",
+        "trajectories": 14,
+        "payloads": 1154
+      },
+      {
+        "filename": "paper1-eligible-v3-checkpoints-batch07.tar.gz",
+        "bytes": 26219538,
+        "sha256": "54d26910052b2b8a4ab62efcd7c6481e2cab45224ba7684e9cf0112853cd418b",
+        "trajectories": 14,
+        "payloads": 1154
+      },
+      {
+        "filename": "paper1-eligible-v3-checkpoints-batch08.tar.gz",
+        "bytes": 23972405,
+        "sha256": "96b1056a1127a5a34181e7df3b3854a266eef501d5f4074c642285e42188535b",
+        "trajectories": 13,
+        "payloads": 1072
+      },
+      {
+        "filename": "paper1-eligible-v3-checkpoints-batch09.tar.gz",
+        "bytes": 26832058,
+        "sha256": "0f43777580d061e53c61bf997fa085571fa478bc5f528c6b66cb4fe37905f6d9",
+        "trajectories": 15,
+        "payloads": 1239
+      }
+    ],
+    "archive_total_bytes": 212762651,
+    "final_results_zip": {
+      "filename": "paper1-eligible-v3-final-evidence-20261018/paper1_expansion_results.zip",
+      "bytes": 21240637,
+      "sha256": "df8fdc4a43139acb4236ead749b74736a5bedaea6d8606c3bcc69234755fe02f"
+    }
+  },
+  "integrity": {
+    "all_nine_archive_size_sha256": "PASS_INDEPENDENT_RECOMPUTATION",
+    "payload_occurrences": 8913,
+    "unique_payload_paths": 8865,
+    "every_payload_size_sha256": "PASS_INDEPENDENT_RECOMPUTATION",
+    "safe_unique_regular_tar_members": "PASS",
+    "embedded_external_batch_manifests_equal": "PASS",
+    "repeated_provenance_identical": "PASS",
+    "exact_validation_trajectories": 90,
+    "exact_final_trajectories": 18,
+    "validation_cartesian": {
+      "levels": [
+        "S9",
+        "S29",
+        "S60"
+      ],
+      "pipelines": [
+        "BROAD",
+        "MU_BETA_SHARED"
+      ],
+      "folds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "seeds": [
+        20261021,
+        20261022,
+        20261023
+      ]
+    },
+    "final_cartesian": {
+      "levels": [
+        "S9",
+        "S29",
+        "S60"
+      ],
+      "pipelines": [
+        "BROAD",
+        "MU_BETA_SHARED"
+      ],
+      "fold": "all_source",
+      "seeds": [
+        20261013,
+        20261014,
+        20261015
+      ]
+    },
+    "exact_epoch_pt_files": 4320,
+    "epoch_receipts_checked": 4320,
+    "epochs_per_trajectory": 40,
+    "updates_per_complete_receipt": 5120,
+    "summed_receipt_updates": 552960,
+    "all_epoch_receipts_bind_actual_pt_sha256": "PASS",
+    "latest_equals_epoch040": "PASS",
+    "complete_receipts_match_final_checkpoint": "PASS",
+    "all_108_contract_hashes_independently_reconstructed": "PASS",
+    "contract_training_validation_whole_person_disjoint_union": "PASS",
+    "optimizer_state_internals_examined": false
+  },
+  "source_selection": {
+    "source_people": {
+      "bnci": 9,
+      "yang": 51
+    },
+    "source_trials": {
+      "S9": 2592,
+      "S29": 14590,
+      "S60": 33183
+    },
+    "eligibility": "All 51 Yang persons retained; explicit native labels 1/2 only; no inference of unknown 255 labels. Existing user-approved eligibility revision retained. Raw EEG/labels were not reread in this audit.",
+    "source_validation_csv_rows": 23520,
+    "exact_person_seed_epoch_grid_no_duplicates": "PASS",
+    "fold_assignment_n_class_counts_recall_ba_min_recall_arithmetic": "PASS",
+    "six_normalized_input_metric_hashes": "PASS",
+    "independent_aggregation": "Mean validation seeds within person first; equal dataset mass and equal person mass within dataset; average CE ranks across epochs per person; exact fractional-probability worst one-third tails; original tie tolerance 1e-12 and tie-breaking retained.",
+    "aggregate_values_checked": 1680,
+    "aggregate_max_absolute_difference": 7.105427357601002e-15,
+    "selector_choices_checked": 48,
+    "selector_choices_equal": "PASS",
+    "canonical_freeze_registry_config_code_hash_bindings": "PASS",
+    "source_input_hash_bindings": "PASS",
+    "final_manifest_rows": 99,
+    "final_manifest_selector_alias_assignments": 144,
+    "final_manifest_exact_epoch_checkpoint_sha_bindings": "PASS"
+  },
+  "final_zip_cross_binding": {
+    "zip_size_sha_crc": "PASS",
+    "all_embedded_code_manifest_file_hashes": "PASS",
+    "freeze_final_manifest_completion_source_provenance_equal_to_checkpoint_archives": "PASS",
+    "source_validation_csv_hash_matches_freeze": "PASS",
+    "freeze_semantic_sha256": "5a755348e07db0ba28afc03cfeafaabe303c6b30c507efbf5c5e908a9dd4cb52",
+    "final_fit_manifest_sha256": "7c6ded2db0e4b78f4c858ef8656dc6e205838ddc2c644fe2bd89a5755bd2d5ad"
+  },
+  "static_target_separation": {
+    "runner_sha256": "72c6fb79a6661d2dd99ee5c15b0d2a9a8977de649aea340bf3712d6dcdafd706",
+    "selector_sha256": "6535f7d60ba7dd802c648bba1c2b41b389ad5b77ab2a50f6448135a16d62a87e",
+    "common_sha256": "c6036550fb960f5a88e6380436348103f0ab7a35c3d7a24fabe458600d396a87",
+    "binding": "Pinned GitHub source read; reviewed builder runner substitutions reproduced in memory, yielding actual provenance SHA. Selector/common source SHA match actual provenance.",
+    "observed_order": "source validation freeze -> final source fits -> source baselines -> require_source_freeze -> download/prepare external -> evaluation",
+    "selector_rejects_target_external_dreyer_rows": true
+  },
+  "limitations": [
+    "Integrity and arithmetic consistency are not independent scientific validity or successful replication.",
+    "Updates are receipt/contract assertions; optimizer internals were not inspected because no checkpoint deserialization was performed.",
+    "Source metrics were recomputed from saved CSV, not regenerated from model weights/raw EEG.",
+    "Static runner isolation and source-only contracts do not prove absence of historical target exposure or access by other processes. Dreyer remains exploratory with prior exposure uncertain.",
+    "This audit does not independently validate external prediction/statistical results or conventional model internals; these are separately reviewed.",
+    "No R2 full-GET backup acceptance, upload confirmation, or durable remote backup claim is made.",
+    "No unobserved process exit code is inferred from COMPLETE status."
+  ]
+}
