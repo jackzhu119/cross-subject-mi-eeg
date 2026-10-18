@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "checked_at_utc": "2026-10-18T05:06:31Z",
+  "scope": "Read-only verification of current public official PLOS ONE author requirements; no journal login, submission, author assertion, institutional determination, or scientific experiment.",
+  "submission_state": "NOT_VERIFIED_IN_THIS_REVIEW; distinguish a new submission, author-prepared update to an in-process paper, and editor-invited revision.",
+  "official_sources": [
+    {
+      "id": "getting_started",
+      "url": "https://journals.plos.org/plosone/s/getting-started",
+      "verified_live": true,
+      "requirements": [
+        "Initial submissions are format-free until provisional Editorial Accept. Publication formatting targets below remain useful for preparing a complete package.",
+        "Prepare funding, competing interests, data availability, author information/contributions, corresponding-author ORCID, and applicable reporting materials."
+      ]
+    },
+    {
+      "id": "submission_guidelines",
+      "url": "https://journals.plos.org/plosone/s/submission-guidelines",
+      "verified_live": true,
+      "requirements": [
+        "Publication-format manuscript: DOC/DOCX/RTF; LaTeX submission PDF. English, single column, double spaced, continuous line numbers and page numbers, maximum three heading levels, no footnotes.",
+        "Full title <=250 characters, short title <=100; abstract <=300 words without citations.",
+        "Title page, abstract, introduction, methods/results/discussion, acknowledgments/references/supporting captions; one-page separate cover letter.",
+        "Vancouver references: first-citation numbering, bracketed citations, first six authors then et al.; full DOI and standard journal abbreviations.",
+        "Place captions and editable tables after first citation; separate figure files. Supporting items have S-number labels and captions at manuscript end; each supporting file <20 MB.",
+        "Statistical methods: software/version, design, exclusions, sample size, tests, multiplicity, uncertainty. Results: denominators, effect sizes/CIs and exact p values >=0.001.",
+        "Funding information belongs in the online financial disclosure, not manuscript acknowledgments.",
+        "If ethics approval was not obtained, give detailed reasons; avoid claiming an exemption or committee decision without evidence."
+      ]
+    },
+    {
+      "id": "figures",
+      "url": "https://journals.plos.org/plosone/s/figures",
+      "verified_live": true,
+      "requirements": [
+        "Publication figure specifications: TIFF or EPS, 300-600 dpi; width 6.68-19.05 cm, maximum height 22.23 cm; <=10 MB.",
+        "Arial, Times or Symbol at 8-12 pt; multi-panel figures combined in one file; captions outside image; Fig1.tif/Fig2.eps filenames match citations.",
+        "Preserve quantitative content and avoid image changes that distort interpretation; retain source data."
+      ]
+    },
+    {
+      "id": "tables",
+      "url": "https://journals.plos.org/plosone/s/tables",
+      "verified_live": true,
+      "requirements": [
+        "Main tables must be editable cell-based objects in manuscript, not images or separate uploads.",
+        "Numeric first-citation order; brief label/title above and notes below; black text; no text boxes or graphics inside cells."
+      ]
+    },
+    {
+      "id": "data_availability",
+      "url": "https://journals.plos.org/plosone/s/data-availability",
+      "verified_live": true,
+      "requirements": [
+        "Provide a Data Availability Statement at submission. The minimal dataset comprises the observations, metadata and methods needed to reproduce every reported finding, including plotted values.",
+        "Provide stable public repositories or supporting files; do not rely on data not shown.",
+        "For third-party data, name and cite original datasets, access routes and applicable restrictions/permissions. Author permission does not override provider rights.",
+        "Already-public original EEG can remain at its lawful original repository; analysis-specific reusable derivatives and figure/table data should be available as rights permit.",
+        "An author alone must not be the sole data-access gatekeeper."
+      ]
+    },
+    {
+      "id": "code_sharing",
+      "url": "https://journals.plos.org/plosone/s/materials-and-software-sharing",
+      "verified_live": true,
+      "requirements": [
+        "Author-generated code underpinning findings should be publicly available without restrictions upon publication, reusable and documented.",
+        "Prefer persistent repository identifiers and clear open-source licenses; GitHub is listed as an acceptable archive.",
+        "Link exact code version from manuscript; provide dependencies, installation/run instructions and relevant settings/test data. Do not invent a DOI before archive issuance."
+      ]
+    },
+    {
+      "id": "human_research",
+      "url": "https://journals.plos.org/plosone/s/human-subjects-research",
+      "verified_live": true,
+      "requirements": [
+        "Policy covers human participants, specimens and data unless exempt under applicable regulations; original ethics/consent provenance should be reported.",
+        "Do not fabricate approval numbers, institution determinations or consent waivers. Explain actual secondary-use context and why author states new approval was unnecessary.",
+        "Complete applicable human-participants checklist if requested. Mere availability of public data does not by itself establish a formal institutional exemption."
+      ]
+    },
+    {
+      "id": "ai_policy",
+      "url": "https://journals.plos.org/plosone/s/ethical-publishing-practice#loc-artificial-intelligence-tools-and-technologies",
+      "verified_live": true,
+      "requirements": [
+        "Disclose substantive AI support for submission content or reported research. Identify tools, actual scope/affected materials, and how validity of outputs was evaluated.",
+        "Place disclosure in Methods, Acknowledgments or relevant figure legends; AI-assisted figure preparation also requires figure-legend disclosure.",
+        "Analysis-script/software generation requires disclosure. Language-only spelling/grammar/clarity edits do not require disclosure under current FAQ; translation disclosure recommended. Cover-letter AI use need not be disclosed.",
+        "Tool names are explicitly required; exact historical model versions are not explicitly required on this page. Do not invent them.",
+        "AI cannot be an author. Author remains accountable for accurate content, references, methodology and interpretations. Do not narrow a real code/analysis/figure contribution to only grammar."
+      ]
+    },
+    {
+      "id": "criteria",
+      "url": "https://journals.plos.org/plosone/s/criteria-for-publication",
+      "verified_live": true,
+      "requirements": [
+        "Technical quality, adequate reporting, research ethics and data-supported conclusions determine suitability. Negative/null findings are explicitly eligible.",
+        "Unsupported overstatement is a rejection risk; perceived impact does not justify exaggeration or omission of a finding that changes the conclusion.",
+        "No simultaneous consideration elsewhere. Preprints/GitHub public drafts do not themselves establish peer-reviewed prior publication."
+      ]
+    },
+    {
+      "id": "revision",
+      "url": "https://journals.plos.org/plosone/s/revising-your-manuscript",
+      "verified_live": true,
+      "requirements": [
+        "An editor-invited revision needs point-by-point response to reviewers/editors, marked-up manuscript, and clean manuscript.",
+        "Original figures/supporting files carry forward unless replaced; check the actual existing submission before replacing.",
+        "Do not manufacture reviewer comments, decision letters, manuscript numbers or revision invitations."
+      ]
+    }
+  ],
+  "minimal_package_new_submission": [
+    "Clean English manuscript with title page and editable tables/captions",
+    "Separate one-page cover letter",
+    "Separate figures and numbered supporting files",
+    "Data/code availability statement with real repositories/version identifiers",
+    "Funding, competing interests, CRediT, author/ORCID and ethical-use statements consistent with source evidence",
+    "AI disclosure matching actual substantive assistance",
+    "Applicable reporting/checklist materials"
+  ],
+  "additional_package_only_if_editor_invited_revision": [
+    "Real point-by-point response linked to actual decision comments",
+    "Marked-up manuscript",
+    "Clean revised manuscript",
+    "Updated figure/supporting files as necessary"
+  ],
+  "editorial_application_to_current_request": [
+    "Make contribution statements concrete and positive, with endpoints and comparator conditions attached.",
+    "Keep material adverse/null results and uncertainty where needed to interpret primary claims; consolidate repetitive caveats instead of deleting them.",
+    "No promise to lower an AI detector percentage; improve specificity, natural prose and traceable evidence while preserving required disclosure.",
+    "Document any secondary analysis of frozen outputs as post hoc/exploratory unless a prespecified protocol establishes otherwise.",
+    "No new fit, target inference or scientific-rule change is authorized by this policy review."
+  ],
+  "actions_performed": [
+    "Read official current public pages using web tool",
+    "Wrote this QA summary outside repository"
+  ],
+  "actions_not_performed": [
+    "No manuscript/repository editing",
+    "No journal submission or communications",
+    "No Pod/environment/scientific action"
+  ]
+}

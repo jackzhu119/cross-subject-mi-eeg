@@ -1,0 +1,1177 @@
+{
+  "status": "PASS",
+  "scope": "Editorial and saved-evidence consistency; no model fit, target inference, raw EEG read, or new statistical test",
+  "base_commit": "040956085499ed788948de0d5a09cddd9eabca56",
+  "checks": [
+    {
+      "check": "abstract_at_most_300_words",
+      "passed": true,
+      "detail": 252
+    },
+    {
+      "check": "no_unresolved_insertion_markers",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "all_fixed_point_estimates_in_text",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "exact_frozen_table_copy:Table2_frozen_comparisons.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "exact_frozen_table_copy:S1_all_neural_condition_summaries.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "exact_frozen_table_copy:S2_all_CSP_condition_summaries.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "four_protocol_comparisons_retained",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "text_matches_frozen_effect:primary_source_expansion_min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "text_matches_interval:primary_source_expansion_min_recall:t_ci95_low",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "text_matches_interval:primary_source_expansion_min_recall:t_ci95_high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "text_matches_frozen_effect:secondary_selector_min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "text_matches_interval:secondary_selector_min_recall:t_ci95_low",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "text_matches_interval:secondary_selector_min_recall:t_ci95_high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "text_matches_frozen_effect:secondary_larger_source_min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "text_matches_interval:secondary_larger_source_min_recall:t_ci95_low",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "text_matches_interval:secondary_larger_source_min_recall:t_ci95_high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "text_matches_frozen_effect:secondary_source_expansion_ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "text_matches_interval:secondary_source_expansion_ba:t_ci95_low",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "text_matches_interval:secondary_source_expansion_ba:t_ci95_high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S29/BROAD/fixed20/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S29/BROAD/fixed20/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S29/BROAD/mean_ba/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S29/BROAD/mean_ba/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S29/BROAD/mean_ce/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S29/BROAD/mean_ce/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S29/BROAD/mean_min_recall/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S29/BROAD/mean_min_recall/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S29/BROAD/mean_rank/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S29/BROAD/mean_rank/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S29/BROAD/tail_ba/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S29/BROAD/tail_ba/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S29/BROAD/tail_ce/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S29/BROAD/tail_ce/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "main_descriptive_mean:S29/BROAD/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S29/BROAD/tail_min_recall/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "main_descriptive_mean:S29/BROAD/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S29/BROAD/tail_min_recall/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S29/MU_BETA_SHARED/fixed20/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S29/MU_BETA_SHARED/fixed20/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S29/MU_BETA_SHARED/mean_ba/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S29/MU_BETA_SHARED/mean_ba/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S29/MU_BETA_SHARED/mean_ce/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S29/MU_BETA_SHARED/mean_ce/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S29/MU_BETA_SHARED/mean_min_recall/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S29/MU_BETA_SHARED/mean_min_recall/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S29/MU_BETA_SHARED/mean_rank/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S29/MU_BETA_SHARED/mean_rank/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S29/MU_BETA_SHARED/tail_ba/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S29/MU_BETA_SHARED/tail_ba/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S29/MU_BETA_SHARED/tail_ce/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S29/MU_BETA_SHARED/tail_ce/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "main_descriptive_mean:S29/MU_BETA_SHARED/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S29/MU_BETA_SHARED/tail_min_recall/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "main_descriptive_mean:S29/MU_BETA_SHARED/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S29/MU_BETA_SHARED/tail_min_recall/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S60/BROAD/fixed20/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S60/BROAD/fixed20/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S60/BROAD/mean_ba/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S60/BROAD/mean_ba/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S60/BROAD/mean_ce/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S60/BROAD/mean_ce/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S60/BROAD/mean_min_recall/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S60/BROAD/mean_min_recall/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S60/BROAD/mean_rank/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S60/BROAD/mean_rank/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S60/BROAD/tail_ba/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S60/BROAD/tail_ba/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S60/BROAD/tail_ce/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S60/BROAD/tail_ce/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "main_descriptive_mean:S60/BROAD/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S60/BROAD/tail_min_recall/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "main_descriptive_mean:S60/BROAD/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S60/BROAD/tail_min_recall/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S60/MU_BETA_SHARED/fixed20/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S60/MU_BETA_SHARED/fixed20/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S60/MU_BETA_SHARED/mean_ba/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S60/MU_BETA_SHARED/mean_ba/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S60/MU_BETA_SHARED/mean_ce/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S60/MU_BETA_SHARED/mean_ce/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S60/MU_BETA_SHARED/mean_min_recall/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S60/MU_BETA_SHARED/mean_min_recall/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S60/MU_BETA_SHARED/mean_rank/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S60/MU_BETA_SHARED/mean_rank/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S60/MU_BETA_SHARED/tail_ba/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S60/MU_BETA_SHARED/tail_ba/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S60/MU_BETA_SHARED/tail_ce/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S60/MU_BETA_SHARED/tail_ce/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "main_descriptive_mean:S60/MU_BETA_SHARED/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S60/MU_BETA_SHARED/tail_min_recall/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "main_descriptive_mean:S60/MU_BETA_SHARED/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S60/MU_BETA_SHARED/tail_min_recall/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S9/BROAD/fixed20/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S9/BROAD/fixed20/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S9/BROAD/mean_ba/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S9/BROAD/mean_ba/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S9/BROAD/mean_ce/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S9/BROAD/mean_ce/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S9/BROAD/mean_min_recall/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S9/BROAD/mean_min_recall/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S9/BROAD/mean_rank/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S9/BROAD/mean_rank/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S9/BROAD/tail_ba/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S9/BROAD/tail_ba/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S9/BROAD/tail_ce/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S9/BROAD/tail_ce/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "main_descriptive_mean:S9/BROAD/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S9/BROAD/tail_min_recall/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "main_descriptive_mean:S9/BROAD/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S9/BROAD/tail_min_recall/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S9/MU_BETA_SHARED/fixed20/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S9/MU_BETA_SHARED/fixed20/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S9/MU_BETA_SHARED/mean_ba/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S9/MU_BETA_SHARED/mean_ba/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S9/MU_BETA_SHARED/mean_ce/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S9/MU_BETA_SHARED/mean_ce/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S9/MU_BETA_SHARED/mean_min_recall/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S9/MU_BETA_SHARED/mean_min_recall/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S9/MU_BETA_SHARED/mean_rank/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S9/MU_BETA_SHARED/mean_rank/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S9/MU_BETA_SHARED/tail_ba/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S9/MU_BETA_SHARED/tail_ba/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S9/MU_BETA_SHARED/tail_ce/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S9/MU_BETA_SHARED/tail_ce/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "main_descriptive_mean:S9/MU_BETA_SHARED/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S9/MU_BETA_SHARED/tail_min_recall/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "main_descriptive_mean:S9/MU_BETA_SHARED/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "supplement_all_condition_mean:S9/MU_BETA_SHARED/tail_min_recall/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "main_descriptive_mean:S29/CSP_LDA/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "main_descriptive_mean:S29/CSP_LDA/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "main_descriptive_mean:S60/CSP_LDA/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "main_descriptive_mean:S60/CSP_LDA/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "main_descriptive_mean:S9/CSP_LDA/ba",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "main_descriptive_mean:S9/CSP_LDA/min_recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "complete_48_rule_summaries",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "complete_48_epoch_choices",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "primary_selected_epochs_27_5_5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "posthoc_algebraic_value:S9",
+      "passed": true,
+      "detail": 62.00980392156862
+    },
+    {
+      "check": "posthoc_algebraic_value:S60",
+      "passed": true,
+      "detail": 31.38235294117645
+    },
+    {
+      "check": "posthoc_algebraic_value:reduction",
+      "passed": true,
+      "detail": 30.62745098039217
+    },
+    {
+      "check": "posthoc_scope_explicit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "material_nulls_retained",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "exploratory_and_checkpoint_duration_scope",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "consecutive_reference_numbers",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "all_references_cited_and_no_missing",
+      "passed": true,
+      "detail": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ]
+    },
+    {
+      "check": "first_reference_order",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "manuscript_reference_list_complete",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reference_entry_exact:1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reference_entry_exact:2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reference_entry_exact:3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reference_entry_exact:4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reference_entry_exact:5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reference_entry_exact:6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reference_entry_exact:7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reference_entry_exact:8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reference_entry_exact:9",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reference_entry_exact:10",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reference_entry_exact:11",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reference_entry_exact:12",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reference_entry_exact:13",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reference_entry_exact:14",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reference_entry_exact:15",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reference_entry_exact:16",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reference_entry_exact:17",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reference_entry_exact:18",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reference_entry_exact:19",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reference_entry_exact:20",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "figure_first_mentions_1_to_5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "five_captions_present",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "five_publication_figures",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "tiff_format:Fig1_workflow.tif",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "tiff_format:Fig2_frozen_contrasts.tif",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "tiff_format:Fig3_participant_changes.tif",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "tiff_format:Fig4_source_configurations.tif",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "tiff_format:Fig5_selected_epochs.tif",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "editable_table_count:main_manuscript",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "image_count:main_manuscript",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "continuous_line_numbers:main_manuscript",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "double_spaced_12pt_body:main_manuscript",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "editable_table_count:review_manuscript",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "image_count:review_manuscript",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "continuous_line_numbers:review_manuscript",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "double_spaced_12pt_body:review_manuscript",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "editable_table_count:S1_Appendix",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "image_count:S1_Appendix",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "continuous_line_numbers:S1_Appendix",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "double_spaced_12pt_body:S1_Appendix",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "render_receipt_current_main_source",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "render_receipt_current_supplement_source",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "current_export_hash:main_manuscript.docx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "current_export_hash:main_manuscript.pdf",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "current_export_hash:review_manuscript.docx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "current_export_hash:review_manuscript.pdf",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "current_export_hash:S1_Appendix.docx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "current_export_hash:S1_Appendix.pdf",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "current_export_hash:submission/Cover_Letter.docx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "current_export_hash:submission/Cover_Letter.pdf",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "export_completeness_and_bounds:main",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "export_completeness_and_bounds:review",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "export_completeness_and_bounds:supplement",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "export_completeness_and_bounds:cover",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "no_stale_work_or_old_journal_text",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "S1_data_crc",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "S1_data_identity:results/comparisons.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "S1_data_identity:results/condition_summaries.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "S1_data_identity:results/csp_condition_summaries.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "S1_data_identity:results/paired_subject_differences.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "S1_data_identity:results/per_subject_metrics.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "S1_data_identity:results/csp_per_subject_metrics.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "S1_data_identity:results/external_subject_seed_metrics.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "S1_data_identity:results/csp_subject_seed_metrics.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "S1_data_identity:tables/S1_all_neural_condition_summaries.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "S1_data_identity:tables/S2_all_CSP_condition_summaries.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "S1_data_identity:tables/S3_all_selected_epochs.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "S1_data_identity:tables/Table1_source_configurations.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "S1_data_identity:tables/Table2_frozen_comparisons.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "S1_data_identity:tables/Table3_descriptive_endpoints.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "S1_data_identity:figure_data/Fig1_source_configurations.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "S1_data_identity:figure_data/Fig3_primary_participant_changes.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "S1_data_identity:figure_data/Fig4_descriptive_endpoints.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "S1_data_identity:figure_data/Fig4_posthoc_absolute_recall_gap.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "S1_data_identity:figure_data/Fig5_selected_epochs.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "S1_data_identity:figure_data/SOURCE_PROVENANCE.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "S1_data_identity:figure_data/csp_recomputed_condition_summaries.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "S1_data_identity:figure_data/neural_recomputed_comparisons.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "S1_data_identity:figure_data/neural_recomputed_condition_summaries.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "S1_data_identity:figure_data/neural_recomputed_paired_differences.csv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "S1_data_below_supporting_size_limit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "all_existing_scientific_paths_unchanged",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "frozen_result_archive_unchanged",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "passed": 229,
+  "failed": 0,
+  "author_approval_of_new_version": "REQUIRED",
+  "journal_submission_performed": false
+}

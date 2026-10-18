@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "status": "EDITORIAL_EXPORTS_BUILT_AND_PROGRAMMATICALLY_CHECKED",
+  "built_at_utc": "2026-10-18T05:18:51.266309+00:00",
+  "scope": "Authored text and existing figure rendering only; no EEG or model execution or new tests of scientific hypotheses",
+  "model_fits": 0,
+  "prediction_inference_runs": 0,
+  "generator_sha256": "9af5ccabce65b15c0d1dc20c19637bad6c2e5af90e11bb64337a40954411a78d",
+  "fonts": {
+    "body": "Liberation Serif",
+    "Times_New_Roman_installed_font_substitute": "Liberation Serif"
+  },
+  "render_versions": {
+    "python-docx": "1.2.0",
+    "PyMuPDF": "1.26.6"
+  },
+  "input_sha256": {
+    "manuscript_en.md": "80a66cf72152a94239a11444a4a579ec13983d61628d09b2014a6a32db1a8083",
+    "figures/Fig1_workflow.png": "f7e324d4a3bd6864237e2a2840117d8a9a7b9d0b659a7e636b157b22c2a5b844",
+    "figures/Fig2_frozen_contrasts.png": "252af50807e05485235e396b9358ef7cd8dc9f17382fffc12492b9356ac3ad1c",
+    "figures/Fig3_participant_changes.png": "dfb3e9cb6ca964d9153c73f2b9357a1d81a7003e446ee9de37cdafc158012edd",
+    "figures/Fig4_source_configurations.png": "17ca664c912cd5f96516b0a523ae92768338a82f1cab91492442b9ebb84e2702",
+    "figures/Fig5_selected_epochs.png": "3cd6107c9ca09d5a93471b1b4a36fb321775fd3e3cdb167064421f2e5ca9ef9d",
+    "supplementary_en.md": "46c8bac95b8abf43efb26b71fc6977a11016f4e03b6556005d926c01084f261d",
+    "submission/Cover_Letter.md": "f2aa071eb3165a1a132c1ad878f8d3de99f86a63d80a4478893b3dd1d9ee24b0"
+  },
+  "output_sha256": {
+    "main_manuscript.docx": "d04156239c86670eb20880bcb54b9ce6b997b02dbd2738822620a79d60e7fc75",
+    "main_manuscript.pdf": "d7d1bb4319e5f123d327eb5a633d5441fddbc3f402241ec0eed8e63807e50047",
+    "review_manuscript.docx": "25d1cadbe3f1e9d92a83a264b3e8fd791bd4f945ca99b8d6e6fb9d07ab105a5b",
+    "review_manuscript.pdf": "5691b24d926550f6f50bf86f1e06ad30348f4df28d36d67f03dfe305ea1752cb",
+    "S1_Appendix.docx": "cfe585c5f95a56e9025c3a2ddafda64b85394434f17dffe0e82422c607d32da9",
+    "S1_Appendix.pdf": "5dcc5c6b90528440136609d327d52ce5d940a0b282dcf4a6564be57eaac75d23",
+    "submission/Cover_Letter.docx": "72a882d0ad1af967332651cd318eaa38c7fb44441078ea515c97cefc23a41e62",
+    "submission/Cover_Letter.pdf": "46343408b857b8ec29708335ba71608f4fae262aad85954c821daa3e0dfb846a"
+  },
+  "document_checks": {
+    "main": {
+      "pages": 22,
+      "empty_pages": [],
+      "text_outside_page": [],
+      "authored_lines_missing_from_docx": [],
+      "text_characters_pdf": 45411,
+      "content_tokens_missing_from_pdf": {},
+      "tables": 3,
+      "image_objects": 0,
+      "continuous_line_numbering": true,
+      "main_body_double_spaced": true,
+      "forbidden_stale_export_labels": [],
+      "source_sha256": "80a66cf72152a94239a11444a4a579ec13983d61628d09b2014a6a32db1a8083",
+      "docx_sha256": "d04156239c86670eb20880bcb54b9ce6b997b02dbd2738822620a79d60e7fc75",
+      "pdf_sha256": "d7d1bb4319e5f123d327eb5a633d5441fddbc3f402241ec0eed8e63807e50047"
+    },
+    "review": {
+      "pages": 27,
+      "empty_pages": [],
+      "text_outside_page": [],
+      "authored_lines_missing_from_docx": [],
+      "text_characters_pdf": 51531,
+      "content_tokens_missing_from_pdf": {},
+      "tables": 3,
+      "image_objects": 5,
+      "continuous_line_numbering": true,
+      "main_body_double_spaced": true,
+      "forbidden_stale_export_labels": [],
+      "source_sha256": "80a66cf72152a94239a11444a4a579ec13983d61628d09b2014a6a32db1a8083",
+      "docx_sha256": "25d1cadbe3f1e9d92a83a264b3e8fd791bd4f945ca99b8d6e6fb9d07ab105a5b",
+      "pdf_sha256": "5691b24d926550f6f50bf86f1e06ad30348f4df28d36d67f03dfe305ea1752cb"
+    },
+    "supplement": {
+      "pages": 11,
+      "empty_pages": [],
+      "text_outside_page": [],
+      "authored_lines_missing_from_docx": [],
+      "text_characters_pdf": 19200,
+      "content_tokens_missing_from_pdf": {},
+      "tables": 5,
+      "image_objects": 0,
+      "continuous_line_numbering": true,
+      "main_body_double_spaced": true,
+      "forbidden_stale_export_labels": [],
+      "source_sha256": "46c8bac95b8abf43efb26b71fc6977a11016f4e03b6556005d926c01084f261d",
+      "docx_sha256": "cfe585c5f95a56e9025c3a2ddafda64b85394434f17dffe0e82422c607d32da9",
+      "pdf_sha256": "5dcc5c6b90528440136609d327d52ce5d940a0b282dcf4a6564be57eaac75d23"
+    },
+    "cover": {
+      "pages": 1,
+      "empty_pages": [],
+      "text_outside_page": [],
+      "authored_lines_missing_from_docx": [],
+      "text_characters_pdf": 2944,
+      "content_tokens_missing_from_pdf": {},
+      "tables": 0,
+      "image_objects": 0,
+      "continuous_line_numbering": false,
+      "main_body_double_spaced": false,
+      "forbidden_stale_export_labels": [],
+      "source_sha256": "f2aa071eb3165a1a132c1ad878f8d3de99f86a63d80a4478893b3dd1d9ee24b0",
+      "docx_sha256": "72a882d0ad1af967332651cd318eaa38c7fb44441078ea515c97cefc23a41e62",
+      "pdf_sha256": "46343408b857b8ec29708335ba71608f4fae262aad85954c821daa3e0dfb846a"
+    }
+  },
+  "visual_review": "Separate rendered-page inspection required; automated bounding-box checks do not prove typographic perfection"
+}

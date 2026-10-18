@@ -1,0 +1,13 @@
+# Data and code availability
+
+Original EEG recordings are available from the respective providers: BNCI2014-001 / BCI Competition IV data set 2a (<https://www.bbci.de/competition/iv/> and <https://bnci-horizon-2020.eu/database/data-sets>); the Yang dataset (<https://doi.org/10.25452/figshare.plus.22671172.v5>; associated data paper <https://doi.org/10.1038/s41597-025-04826-y>); and the Dreyer dataset (data paper <https://doi.org/10.1038/s41597-023-02445-z>), accessed through the pinned NEMAR `nm000250` version `v1.0.5` sourcedata EDF mirror (<https://nemar.org/dataexplorer/detail?dataset_id=nm000250>). Provider terms apply. Raw EEG recordings and training input arrays are not redistributed in this manuscript package.
+
+The frozen run configuration, executed code, source registries, saved prediction records, selection records and numerical audit evidence are publicly available at:
+
+<https://github.com/jackzhu119/cross-subject-mi-eeg/tree/040956085499ed788948de0d5a09cddd9eabca56/research_runs/ELIGIBLE_V3_RESULTS_20261018>.
+
+The original `evidence/paper1_expansion_results.zip` has SHA256 `df8fdc4a43139acb4236ead749b74736a5bedaea6d8606c3bcc69234755fe02f`. It contains the saved neural and conventional-model predictions, source-validation curves, participant-level metrics, all prespecified comparisons, configuration and input provenance needed to reproduce the reported saved-result calculations. The executed public code corresponds to commit `0539379578818b3d71f995192e5e8a81cf4d5aef`; byte-identical executed copies and dependency locks are included in the result archive and indexed provenance. The manuscript's S1 Data provides compact table and figure data; the full prediction archive remains publicly available at the immutable source commit. S1 Appendix and the reproduction guide describe the analytical definitions and evidence boundaries.
+
+The nine large neural checkpoint archives have recorded off-Pod integrity verification but are not included in the public GitHub result directory. They are not needed to recompute the saved-prediction statistics; checkpoint-to-prediction replay requires the actual checkpoints and independently restored inputs. Their public archival release and a complete verified R2 retrieval are not claimed here. No DOI is claimed before an archival service issues one.
+
+Author-owned original software is licensed under MIT and author-owned manuscript text, figures, tables and derived research outputs under CC BY 4.0, subject to the repository licensing notices. Third-party EEG, libraries and provider-owned metadata retain their original terms. The author's reuse authorization does not replace provider permissions.

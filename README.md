@@ -1,3 +1,26 @@
+# Source-cohort expansion and weaker-class coverage in cross-subject motor-imagery EEG decoding
+
+**Latest Paper 1 manuscript update: 18 October 2026 · PLOS ONE**
+
+The current update reports the completed 18-channel source-expansion experiment: 9, 29 and 60 source participants, 108 neural trajectories, nine conventional fits and 85 external participants. Under the fixed primary configuration, weaker-class recall increased by **21.17 percentage points** (95% CI 17.12–25.21) from S9 to S60. All four fixed comparisons, including the two null secondary findings, remain in the manuscript.
+
+| Read or use | Current material |
+|---|---|
+| Main manuscript | [Editable DOCX](research_runs/PAPER1_PLOS_REVISION_20261018/main_manuscript.docx) · [Reading PDF with figures](research_runs/PAPER1_PLOS_REVISION_20261018/review_manuscript.pdf) · [Markdown](research_runs/PAPER1_PLOS_REVISION_20261018/manuscript_en.md) |
+| Supporting materials | [S1 Appendix](research_runs/PAPER1_PLOS_REVISION_20261018/S1_Appendix.pdf) · [S1 Data](research_runs/PAPER1_PLOS_REVISION_20261018/S1_Data.zip) |
+| Five publication figures | [TIFF/PNG/SVG/PDF and numerical sources](research_runs/PAPER1_PLOS_REVISION_20261018/figures/) |
+| Submission materials | [Cover letter and portal fields](research_runs/PAPER1_PLOS_REVISION_20261018/submission/) · [Author checklist](research_runs/PAPER1_PLOS_REVISION_20261018/submission/Submission_Checklist_zh.md) |
+| Reproducibility and audit | [Instructions](research_runs/PAPER1_PLOS_REVISION_20261018/REPRODUCIBILITY.md) · [Current frozen results](research_runs/ELIGIBLE_V3_RESULTS_20261018/) · [Delivery validation](research_runs/PAPER1_PLOS_REVISION_20261018/evidence/delivery_validation.json) |
+
+Editorial branch: [`paper/p1-plos-evidence-update-20261018`](https://github.com/jackzhu119/cross-subject-mi-eeg/tree/paper/p1-plos-evidence-update-20261018). Frozen result commit: [`040956085499ed788948de0d5a09cddd9eabca56`](https://github.com/jackzhu119/cross-subject-mi-eeg/tree/040956085499ed788948de0d5a09cddd9eabca56/research_runs/ELIGIBLE_V3_RESULTS_20261018/). Executed source identity: `0539379578818b3d71f995192e5e8a81cf4d5aef`.
+
+Raw EEG is not bundled. The data providers are [BNCI/BCI Competition IV](https://www.bbci.de/competition/iv/), [Yang Figshare+ v5](https://doi.org/10.25452/figshare.plus.22671172.v5), and [Dreyer NEMAR v1.0.5](https://doi.org/10.82901/nemar.nm000250). Obtain recordings under provider terms. The present external evaluation is exploratory because prior target exposure is uncertain; source composition and selected checkpoint vary together. The current revision adds presentation and a labelled descriptive metric decomposition, with no EEG training or prediction rerun.
+
+Earlier Q1–Q16 results, scientific contracts, old submissions and tags remain preserved. This branch does not update `main`, claim journal acceptance, supply a new DOI or establish completion of the separate large-model archive. The new manuscript and portal PDF require the author's current approval before submission.
+
+<details>
+<summary>Historical 9 October 2026 release description — retained for provenance; not the current manuscript</summary>
+
 # Source-only model selection and limits of fixed spectral-sharing pipelines in cross-subject motor-imagery EEG decoding
 
 **Ziyuan Zhu (朱子元)** · College of Artificial Intelligence Medicine, Chongqing Medical University, Chongqing, China · Correspondence: **zzy2630816871@gmail.com**
@@ -84,3 +107,5 @@ ChatGPT (GPT-6, author reported) and OpenAI Codex assistance are disclosed accor
 Historical GitHub/cloud research receipts document BNCI2014_001 access during 21 September–6 October 2026, PhysioNet access on 25 September 2026, and Cho2017/Lee2019 raw auditing and external evaluation during 3–5 October 2026. These are retained-record access intervals, not proven first-ever downloads or dates inferred from backups. See the [audited evidence](research_runs/PLOS_ONE_SUBMISSION/evidence/research_access_dates.md) and [completed official human-data checklist](research_runs/PLOS_ONE_SUBMISSION/AuthorForms/PLOS_Human_Participants_Checklist_2026_completed.pdf).
 
 Original author-owned software is licensed under [MIT](LICENSE); original author-owned manuscript and derived outputs use [CC BY 4.0](LICENSE-DATA.md). [Scope and exclusions](LICENSING.md) preserve original third-party terms for raw EEG, incorporated software, fonts, provider materials and official forms. No third-party rights are re-granted.
+
+</details>
