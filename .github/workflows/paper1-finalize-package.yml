@@ -1,0 +1,80 @@
+name: Paper1 verified final package
+on:
+  push:
+    branches: [paper/p1-positive-final-20261018]
+    paths: [.github/workflows/paper1-finalize-package.yml]
+permissions:
+  contents: write
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: paper/p1-positive-final-20261018
+          fetch-depth: 1
+          sparse-checkout: |
+            research_runs/PAPER1_PLOS_REVIEW2_20261018
+            research_runs/PAPER1_PLOS_FINAL_20261018
+          sparse-checkout-cone-mode: false
+      - name: Bind visual review and rebuild archive only
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib,json,zipfile,shutil
+          from datetime import datetime,timezone
+          p=Path('research_runs/PAPER1_PLOS_FINAL_20261018')
+          old=Path('research_runs/PAPER1_PLOS_REVIEW2_20261018')
+          def sha(f): return hashlib.sha256(f.read_bytes()).hexdigest()
+          v=json.loads((p/'evidence/visual_review.json').read_text())
+          assert v['status']=='PASS' and v['total_page_coverage']==75
+          for d in v['documents']:
+              assert sha(p/d['pdf'])==d['pdf_sha256']
+              assert sha(p/d['docx'])==d['docx_sha256']
+          s=json.loads((p/'evidence/validation.json').read_text())
+          assert s['status']=='PASS' and s['failed']==0 and s['passed']==70
+          s['visual_review']='PASS; all 75 document pages covered, including 23 pixel-identical duplicate review pages; see hash-bound visual_review.json. AI review, not third-party human peer review.'
+          (p/'evidence/validation.json').write_text(json.dumps(s,indent=2,ensure_ascii=False)+'\n')
+          shutil.copy2(old/'evidence/prediction_supporting_files.json',p/'evidence/prediction_supporting_files.json')
+          receipt={'status':'PASS','original_build_run':39107350371,'source_build_commit':v['source_build_commit'],'build_scope':'Saved-prediction reconstruction and author-document export; no EEG training or decoder inference','editorial_dependencies':{'python':'3.13.5','numpy':'2.3.5','scipy':'1.17.0','pandas':'2.2.3','matplotlib':'3.10.8','python-docx':'1.2.0','PyMuPDF':'1.26.7','Pillow':'12.3.0'},'format_checks':'validation.json','document_hashes':'document_checks.json','visual_review':'visual_review.json','finalized_at_utc':datetime.now(timezone.utc).isoformat(),'document_bytes_preserved_after_visual_review':True,'journal_submission_performed':False}
+          (p/'evidence/build_receipt.json').write_text(json.dumps(receipt,indent=2)+'\n')
+          # Keep the names cited in the inherited appendix as compatibility entry points.
+          for alias,target in [('build_figures.py','render_figures.py'),('validate_delivery.py','validate_package.py')]:
+              body='#!/usr/bin/env python3\n"""Compatibility entry point; use --help for --source/--out arguments."""\nfrom pathlib import Path\nimport runpy\nrunpy.run_path(str(Path(__file__).with_name('+repr(target)+')),run_name="__main__")\n'
+              (p/'scripts'/alias).write_text(body)
+          (p/'RELEASE_CHECKLIST.md').write_text('''# Release and submission checks
+
+          The 70 structural/numerical checks and hash-bound visual review passed. All original frozen predictions and hypothesis-test families are unchanged. The final package includes complete positive, negative and tied results. The inherited appendix names `scripts/build_figures.py` and `scripts/validate_delivery.py`; these compatibility entry points now dispatch to the current render/validation scripts. Use their --help, supply the previous Review2 source directory, and write rebuilds to a separate output directory. Rebuilding documents requires a new visual review; existing reviewed bytes are preserved in this release.
+
+          The six author document pairs cover 75 PDF pages. The main DOCX is for journal upload; the review PDF appends seven figures for reading. Seven EPS files are uploaded separately. Each S1/S2/S3/S4 supporting file is below 20 MB; the complete archive is for storage and must not be uploaded as one Supporting Information item.
+
+          Remaining author/editorial actions: confirm the permissible route after rejection of PONE-D-26-50597; check exclusive consideration, institutional exemption documentation, author information and the portal-generated PDF. This task did not submit a manuscript, obtain permission, or verify a new complete Cloudflare R2 readback.
+          ''')
+          excludes={'MANIFEST.sha256','Paper1_PLOS_Final_20261018.zip','Paper1_PLOS_Final_20261018.zip.sha256'}
+          files=[f for f in sorted(p.rglob('*')) if f.is_file() and f.name not in excludes and '__pycache__' not in f.parts]
+          (p/'MANIFEST.sha256').write_text(''.join(sha(f)+'  '+f.relative_to(p).as_posix()+'\n' for f in files))
+          package=p/'Paper1_PLOS_Final_20261018.zip'
+          with zipfile.ZipFile(package,'w',zipfile.ZIP_DEFLATED,compresslevel=6) as z:
+              for f in files+[p/'MANIFEST.sha256']:z.write(f,f.relative_to(p).as_posix())
+          with zipfile.ZipFile(package) as z:
+              assert z.testzip() is None
+              for f in files:assert hashlib.sha256(z.read(f.relative_to(p).as_posix())).hexdigest()==sha(f)
+          (p/'Paper1_PLOS_Final_20261018.zip.sha256').write_text(sha(package)+'  '+package.name+'\n')
+          print(json.dumps({'status':'PASS','checked_payload_files':len(files),'archive_sha256':sha(package),'archive_bytes':package.stat().st_size,'documents_preserved':True}))
+          PY
+      - name: Commit finalized package to editorial branch
+        run: |
+          git config user.name 'Paper1 Editorial Build'
+          git config user.email 'paper1-editorial@users.noreply.github.com'
+          git add --sparse research_runs/PAPER1_PLOS_FINAL_20261018
+          git diff --cached --quiet || git commit -m 'Finalize visually checked Paper1 package and checksum manifest'
+          git push origin HEAD:refs/heads/paper/p1-positive-final-20261018
+      - uses: actions/upload-artifact@v4
+        with:
+          name: paper1-visually-verified-final-package
+          path: research_runs/PAPER1_PLOS_FINAL_20261018/Paper1_PLOS_Final_20261018.zip
+          retention-days: 7
+          if-no-files-found: error
