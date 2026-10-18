@@ -1,12 +1,12 @@
-# Paper1 second-round manuscript update prepared (18 October 2026)
+# Paper 1 second-round manuscript update (18 October 2026)
 
 **Source-cohort expansion improves weaker-class coverage in cross-subject motor-imagery EEG decoding**
 
-Latest prepared candidate: [main DOCX](research_runs/PAPER1_PLOS_REVIEW2_20261018/main_manuscript.docx), [review PDF](research_runs/PAPER1_PLOS_REVIEW2_20261018/review_manuscript.pdf), [change response](research_runs/PAPER1_PLOS_REVIEW2_20261018/Review_Response_zh.docx), [ethics author statement](research_runs/PAPER1_PLOS_REVIEW2_20261018/submission/Ethics_Author_Statement.docx), [complete guide](research_runs/PAPER1_PLOS_REVIEW2_20261018/README_zh.md).
+Latest manuscript, published on `main`: [main DOCX](research_runs/PAPER1_PLOS_REVIEW2_20261018/main_manuscript.docx), [review PDF](research_runs/PAPER1_PLOS_REVIEW2_20261018/review_manuscript.pdf), [change response](research_runs/PAPER1_PLOS_REVIEW2_20261018/Review_Response_zh.docx), [ethics author statement](research_runs/PAPER1_PLOS_REVIEW2_20261018/submission/Ethics_Author_Statement.docx), [complete guide](research_runs/PAPER1_PLOS_REVIEW2_20261018/README_zh.md).
 
 The primary weaker-class recall gain was 21.17 percentage points. Supplementary post hoc comparisons add S29 +21.72 points and CSP +13.82 points; descriptive controls at the same 20-epoch duration show S60−S9 gains of 17.07 points (BROAD) and 24.87 points (shared). Seven figures and all frozen comparisons are supplied. The research-office confirmation dated 17 October 2026 and the correct author name, Ziyuan Zhu, are incorporated. No models were retrained.
 
-Remote publication is pending because this session cannot write to GitHub; the last verified main head remains `7b2932124ca06d8bcd65c9e618cd7ce65d68796f`. This is an author-prepared candidate, not an editor-invited revision or journal acceptance.
+Published by a verified fast-forward update from `7b293212` to manuscript-package commit [`710d4ba0`](https://github.com/jackzhu119/cross-subject-mi-eeg/commit/710d4ba0338c7387115c12f4b8cf945d8d2d25b4). [Publication receipt](research_runs/PAPER1_PLOS_REVIEW2_PUBLICATION_20261018.json). The package retains its original build-time access-failure records; those describe the earlier attempt, before network access was restored. This remains an author-prepared manuscript update; journal submission or replacement was not performed.
 
 <details>
 <summary>Previous published manuscript and preserved history</summary>
