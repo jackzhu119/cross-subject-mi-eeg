@@ -1,0 +1,81 @@
+name: Paper1 final author documents
+on:
+  push:
+    branches: [paper/p1-positive-final-20261018]
+    paths: [.github/workflows/paper1-final-build.yml]
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: paper/p1-positive-final-20261018
+          fetch-depth: 1
+          sparse-checkout: |
+            research_runs/PAPER1_PLOS_REVIEW2_20261018
+            research_runs/PAPER1_EDITORIAL_BUILD_20261018
+            README.md
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13.5'
+      - name: Install bounded document-only dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends libreoffice-writer fonts-liberation fonts-dejavu-core fonts-noto-cjk ghostscript
+          python -m pip install numpy==2.3.5 scipy==1.17.0 pandas==2.2.3 matplotlib==3.10.8 python-docx==1.2.0 PyMuPDF==1.26.7 Pillow==12.3.0
+      - name: Recompute saved predictions and rebuild author package
+        shell: bash
+        run: |
+          set -euo pipefail
+          export MPLBACKEND=Agg
+          export PYTHONDONTWRITEBYTECODE=1
+          B=research_runs/PAPER1_EDITORIAL_BUILD_20261018
+          S=research_runs/PAPER1_PLOS_REVIEW2_20261018
+          O=research_runs/PAPER1_PLOS_FINAL_20261018
+          A="$RUNNER_TEMP/paper1-descriptives"
+          python "$B/analyze_saved_predictions.py" --source "$S" --out "$A"
+          python "$B/apply_revision.py" --source "$S" --out "$O" --analysis "$A" --spec "$B/revision_spec.json"
+          cp "$B"/*.py "$O/scripts/"
+          cp "$S/scripts/build_figures.py" "$O/scripts/legacy_figure_renderer.py"
+          python "$B/render_figures.py" --source "$S" --out "$O"
+          python "$B/build_documents.py" --source "$S" --out "$O"
+          python "$B/validate_package.py" --source "$S" --out "$O"
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('README.md')
+          prior=p.read_text()
+          head='''# Paper 1: contribution-led author manuscript (18 October 2026)
+
+          **Source-cohort expansion improves weaker-class coverage in cross-subject motor-imagery EEG decoding**
+
+          Latest author materials: [main DOCX](research_runs/PAPER1_PLOS_FINAL_20261018/main_manuscript.docx), [readable PDF with figures](research_runs/PAPER1_PLOS_FINAL_20261018/review_manuscript.pdf), [complete package](research_runs/PAPER1_PLOS_FINAL_20261018/Paper1_PLOS_Final_20261018.zip), [Chinese revision report](research_runs/PAPER1_PLOS_FINAL_20261018/REVISION_REPORT_zh.md), [submission checklist](research_runs/PAPER1_PLOS_FINAL_20261018/submission/Submission_Checklist_zh.md).
+
+          Verified primary effects remain +21.17 percentage points in weaker-class recall and +5.85 points in balanced accuracy. Complete saved-prediction reconstruction additionally shows simultaneous improvement in 66/85 participants and a 49.39% reduction in the mean absolute class-recall gap. All prespecified comparisons, adverse configurations and individual declines remain reported. Original scientific data and previous manuscript packages are unchanged.
+
+          Document-format and numerical checks are supplied. The earlier PONE-D-26-50597 manuscript was rejected on 12 October; editorial permission/instructions for submitting a substantive extension have not been established. This package does not constitute a journal submission or invited revision. Author final review and submission-route confirmation remain required.
+
+          <details>
+          <summary>Previous versions and publication records</summary>
+
+          '''
+          p.write_text(head+prior+'\n\n</details>\n')
+          PY
+      - name: Commit checked files to editorial branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'Paper1 Editorial Build'
+          git config user.email 'paper1-editorial@users.noreply.github.com'
+          git add --sparse README.md research_runs/PAPER1_PLOS_FINAL_20261018
+          git diff --cached --quiet || git commit -m 'Build contribution-led Paper1 author package with complete-results verification'
+          git push origin HEAD:refs/heads/paper/p1-positive-final-20261018
+      - uses: actions/upload-artifact@v4
+        with:
+          name: paper1-final-author-package
+          path: research_runs/PAPER1_PLOS_FINAL_20261018/Paper1_PLOS_Final_20261018.zip
+          retention-days: 7
+          if-no-files-found: error
