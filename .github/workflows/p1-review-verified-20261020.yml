@@ -5,6 +5,7 @@ on:
     paths:
       - .github/workflows/p1-review-verified-20261020.yml
       - tools/paper1_review_20261020.py
+      - tools/paper1_figure1_review_20261020.py
 permissions:
   contents: write
 jobs:
@@ -22,6 +23,8 @@ jobs:
             research_runs/PAPER1_SUBMISSION_CORRECTION_20261018
             research_runs/PAPER1_REVIEW_20261020
             tools/paper1_review_20261020.py
+            tools/paper1_figure1_review_20261020.py
+            research_runs/PAPER1_PLOS_FINAL_20261018/scripts/legacy_figure_renderer.py
           sparse-checkout-cone-mode: false
       - uses: actions/setup-python@v5
         with:
@@ -29,10 +32,12 @@ jobs:
       - name: Install bounded document-only dependencies
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y -qq --no-install-recommends libreoffice-writer poppler-utils fonts-liberation fonts-dejavu-core fonts-noto-core
-          python -m pip install python-docx==1.2.0 lxml PyMuPDF==1.26.7
+          sudo apt-get install -y -qq --no-install-recommends libreoffice-writer poppler-utils fonts-liberation fonts-dejavu-core fonts-noto-core ghostscript
+          python -m pip install python-docx==1.2.0 lxml PyMuPDF==1.26.7 numpy==2.3.5 matplotlib==3.10.8 Pillow==12.3.0
       - name: Rebuild only text reviewed by author and verify all scientific tables
         run: python tools/paper1_review_20261020.py
+      - name: Update only Figure 1 audit-label text (no figures 2–7 rebuilt)
+        run: python tools/paper1_figure1_review_20261020.py
       - name: Recreate historical Word Track Changes against updated main manuscript
         shell: bash
         run: |
@@ -54,6 +59,8 @@ jobs:
           r=json.loads((p/'RELEASE_VALIDATION.json').read_text())
           t=json.loads((p/'Track_Changes_PONE-D-26-50597_to_PONE-D-26-52176.validation.json').read_text())
           assert r['status']=='PASS' and r['source_tables_and_media_preserved']
+          fig=json.loads((p/'figures/Fig1_REVIEW_VALIDATION.json').read_text())
+          assert fig['status']=='PASS' and fig['no_new_data'] and fig['other_panels_untouched']
           assert t['accept_changes_reconstructs_current_body_exactly']
           names=['README.md','EDITORIAL_TRIAGE_zh.md','manuscript_en.md',
                  'supplementary_en.md','Cover_Letter.md','Abstract_for_Portal.txt',
@@ -61,7 +68,9 @@ jobs:
                  'S1_Appendix.docx','S1_Appendix.pdf','Cover_Letter.docx','Cover_Letter.pdf',
                  'Track_Changes_PONE-D-26-50597_to_PONE-D-26-52176.docx',
                  'Track_Changes_PONE-D-26-50597_to_PONE-D-26-52176.validation.json',
-                 'RELEASE_VALIDATION.json']
+                 'RELEASE_VALIDATION.json',
+                 'figures/Fig1_workflow.eps','figures/Fig1_workflow.pdf',
+                 'figures/Fig1_workflow.png','figures/Fig1_REVIEW_VALIDATION.json']
           target=p/'Paper1_Reviewed_20261020.zip'
           with zipfile.ZipFile(target,'w',compression=zipfile.ZIP_DEFLATED,compresslevel=6) as z:
               for name in names:
