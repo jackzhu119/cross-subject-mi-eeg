@@ -23,12 +23,12 @@
 | Dreyer window includes visual-feedback interval | Accept. Provider's cue begins at t=3 s and feedback at t=4.25 s, so cue-relative [0.5,2.5) includes the later interval | Clarified possible feedback-related activity |
 | `?V` is necessarily a lost `µV` glyph | **Reject.** The archived Yang native header is literally `?V`; replacing it with `µV` would invent a unit | Explicitly identify this as an ambiguous literal native unit string |
 | Missing S in `S29`, malformed multiplication glyph, `F1=8.,`, missing period and uppercase after semicolon | Mixed: Markdown authoring source already contains `S29`, `2 ×`, `F1=8,`, and `p<0.001).`. A text-extraction artifact is not itself proof of bad PDF rendering. The semicolon-capitalization is an actual source typo | Fixed actual semicolon case, generated a source-matched abstract; automated PDF QA checks. Do not change scientifically valid symbols from unverified OCR alone |
-| Results described as independent scientific confirmation based on 1,179 checks | Accept concern | Only S1 Appendix retains audit method/counts; they are labelled automated verification, not another external cohort |
+| Results described as independent scientific confirmation based on 1,179 checks | Accept concern | Only S1 Appendix retains audit method/counts as automated verification; Figure 1F now identifies the reproducibility resources without reporting unit-test counts |
 
 ## Invariants and boundaries
 
 - No EEG preprocessing, model fit, target prediction, hypothesis-family addition or new statistical estimate was run.
-- Tables 1–5 and S1 tables remain unchanged; external results, seed counts and the seven original standalone figures are preserved.
+- Tables 1–5 and S1 tables remain unchanged; external results and seed counts are preserved. Figure 1 panel F verification wording is re-rendered without altering panels A–E, while Figures 2–7 and their numerical sources remain unchanged.
 - Source files `PLOS_ONE_SUBMISSION`, `PAPER1_PLOS_FINAL_20261018` and `PAPER1_SUBMISSION_CORRECTION_20261018` remain intact.
 - Ethics statement retains the author-confirmed regulatory basis without asserting an unverified institutional exemption document.
 - The portal abstract is copied **verbatim** from the revised main manuscript; the live Editorial Manager metadata cannot be inspected from this repository.
