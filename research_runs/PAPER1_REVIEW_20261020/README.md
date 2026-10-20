@@ -9,6 +9,7 @@ This directory contains a review-limited update based on the exact 18 October cl
 | Purpose | File |
 |---|---|
 | **Clean revised main Word** | `main_manuscript.docx` |
+| **Revised Fig 1 (panel F text only)** | `figures/Fig1_workflow.eps` / `figures/Fig1_workflow.pdf` / `figures/Fig1_workflow.png` |
 | Clean main reading PDF | `main_manuscript.pdf` |
 | S1 Appendix Word / PDF | `S1_Appendix.docx` / `S1_Appendix.pdf` |
 | Revised cover letter Word / PDF | `Cover_Letter.docx` / `Cover_Letter.pdf` |
@@ -19,7 +20,7 @@ This directory contains a review-limited update based on the exact 18 October cl
 | Document checks and text-preservation map | `RELEASE_VALIDATION.json` |
 | Consolidated package | `Paper1_Reviewed_20261020.zip` |
 
-The **seven original figures** and **S1–S4 supporting data** are unchanged in [the 18 October final package](../PAPER1_PLOS_FINAL_20261018/). Do not upload the ZIP as one supporting-data file. Use the clean main DOCX for `Manuscript` and the new Track Changes DOCX in the appropriate journal file category; the editorial check email for PONE-D-26-52176 explicitly requests `Other`.
+**Figure 1** has a targeted panel-F wording correction only; its scientific numbers and panels A–E are unchanged. Original **Figures 2–7** and **S1–S4 supporting data** remain unchanged in [the 18 October final package](../PAPER1_PLOS_FINAL_20261018/). Use the revised Figure 1 file here and the original remaining six figures. Do not upload the ZIP as one supporting-data file. Use the clean main DOCX for `Manuscript` and the new Track Changes DOCX in the appropriate journal file category; the editorial check email for PONE-D-26-52176 explicitly requests `Other`.
 
 **Version boundary:** GitHub snapshots are not a read of the actual files in Editorial Manager. Check the old/new versions against the manuscripts uploaded under PONE-D-26-50597 and PONE-D-26-52176. Author should inspect and approve the rebuilt submission PDF and correct any abstract text already entered in the portal (particularly punctuation after `66/85`).
 
