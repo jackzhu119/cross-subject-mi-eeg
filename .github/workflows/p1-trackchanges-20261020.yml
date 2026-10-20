@@ -1,0 +1,56 @@
+name: Paper 1 PLOS Track Changes
+on:
+  push:
+    branches:
+      - paper/p1-track-changes-20261020
+    paths:
+      - .github/workflows/p1-trackchanges-20261020.yml
+      - tools/paper1_plos_build_trackchanges.py
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout preserved source manuscripts
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install document dependencies
+        run: python -m pip install python-docx lxml
+      - name: Compare 9 October submitted manuscript with 18 October corrected manuscript
+        run: |
+          python tools/paper1_plos_build_trackchanges.py \
+            research_runs/PLOS_ONE_SUBMISSION/PLOS_ONE_Manuscript.docx \
+            research_runs/PAPER1_SUBMISSION_CORRECTION_20261018/Main_Manuscript_REVISED.docx \
+            research_runs/PAPER1_TRACK_CHANGES_20261020/Track_Changes_PONE-D-26-50597_to_PONE-D-26-52176.docx
+          python -m zipfile -t research_runs/PAPER1_TRACK_CHANGES_20261020/Track_Changes_PONE-D-26-50597_to_PONE-D-26-52176.docx
+      - name: Render document and check first-page appearance
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libreoffice-writer poppler-utils
+          mkdir -p /tmp/paper1-redline-preview
+          libreoffice -env:UserInstallation=file:///tmp/lo-paper1-redline --headless \
+            --convert-to pdf --outdir /tmp/paper1-redline-preview \
+            research_runs/PAPER1_TRACK_CHANGES_20261020/Track_Changes_PONE-D-26-50597_to_PONE-D-26-52176.docx
+          test -s /tmp/paper1-redline-preview/Track_Changes_PONE-D-26-50597_to_PONE-D-26-52176.pdf
+          pdfinfo /tmp/paper1-redline-preview/Track_Changes_PONE-D-26-50597_to_PONE-D-26-52176.pdf | grep Pages
+          pdftoppm -f 1 -l 1 -scale-to 900 -png -singlefile \
+            /tmp/paper1-redline-preview/Track_Changes_PONE-D-26-50597_to_PONE-D-26-52176.pdf \
+            /tmp/paper1-redline-preview/first-page
+          test -s /tmp/paper1-redline-preview/first-page.png
+      - name: Upload Word redline and validation receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: Paper1-PLOS-TrackChanges-20261020
+          path: research_runs/PAPER1_TRACK_CHANGES_20261020/
+          if-no-files-found: error
+      - name: Save generated Word document on separate comparison branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research_runs/PAPER1_TRACK_CHANGES_20261020/
+          git commit -m "Generate and validate PLOS ONE Paper1 tracked-changes DOCX"
+          git push
