@@ -1,3 +1,11 @@
+# Paper 1 — reviewed submission materials (20 October 2026)
+
+**Current reviewed version:** [clean Word manuscript](research_runs/PAPER1_REVIEW_20261020/main_manuscript.docx) · [marked-up Track Changes DOCX](research_runs/PAPER1_REVIEW_20261020/Track_Changes_PONE-D-26-50597_to_PONE-D-26-52176.docx) · [complete reviewed package](research_runs/PAPER1_REVIEW_20261020/Paper1_Reviewed_20261020.zip) · [review decisions and verification](research_runs/PAPER1_REVIEW_20261020/README.md).
+
+This 20 October update only addresses evidence-supported observations from the supplied editorial critique. The original submissions, all scientific tables, Figs 2–7, prediction/result data and earlier packages are retained. Fig 1F was reworded without changing its scientific data. Source-based comparison does not establish that the two manuscripts are byte-identical to the files uploaded in Editorial Manager.
+
+---
+
 # Paper 1 — corrected submission documents (18 October 2026)
 
 **Latest replacements for Editorial Manager:** [Main Manuscript](research_runs/PAPER1_SUBMISSION_CORRECTION_20261018/Main_Manuscript_REVISED.docx), [Cover Letter](research_runs/PAPER1_SUBMISSION_CORRECTION_20261018/Cover_Letter_REVISED.docx), [S1 Appendix](research_runs/PAPER1_SUBMISSION_CORRECTION_20261018/S1_Appendix_REVISED.pdf), [full upload guide](research_runs/PAPER1_SUBMISSION_CORRECTION_20261018/UPLOAD_GUIDE_zh.md).
