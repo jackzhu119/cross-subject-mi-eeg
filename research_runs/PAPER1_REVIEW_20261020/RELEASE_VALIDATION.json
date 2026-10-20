@@ -1,0 +1,338 @@
+{
+  "status": "PASS",
+  "source_commit": "e53318846e4a3ce8604de2ffc8f12c7b58ff3953",
+  "scope": "reviewed prose only",
+  "scientific_results_reused_without_training": true,
+  "source_tables_and_media_preserved": true,
+  "abstract_text_matches_main": true,
+  "files": {
+    "main": {
+      "changed_source_blocks": 29,
+      "changed_word_paragraphs": 29,
+      "tables_preserved": 5,
+      "original_sha256": "41d3f13ccf57cad1a5dac4fd7752687dafa426efbfa6c92a95867d38ff3a7b1f",
+      "new_sha256": "ca82759ab9b21e635b78c53f50e01a9ff32fd318e1eef6e13e8a26199481ba13",
+      "change_map": [
+        {
+          "block": 10,
+          "docx_paragraph": 11,
+          "match": 1.0,
+          "from": "Adding a second acquisition cohort improved cross-subject motor-imager",
+          "to": "Cross-subject motor-imagery EEG decoding must recognize both hand comm"
+        },
+        {
+          "block": 11,
+          "docx_paragraph": 12,
+          "match": 1.0,
+          "from": "The study's principal contribution is a controlled evaluation of sourc",
+          "to": "The study's principal contribution is a controlled evaluation of sourc"
+        },
+        {
+          "block": 19,
+          "docx_paragraph": 20,
+          "match": 1.0,
+          "from": "External evaluation used the first two acquisition runs of the Dreyer ",
+          "to": "External evaluation used the first two acquisition runs of the Dreyer "
+        },
+        {
+          "block": 21,
+          "docx_paragraph": 22,
+          "match": 1.0,
+          "from": "Source and external files were bound to recorded provider identities, ",
+          "to": "Source and external files were bound to recorded provider identities, "
+        },
+        {
+          "block": 22,
+          "docx_paragraph": 23,
+          "match": 1.0,
+          "from": "All datasets used a six-second native-rate context and a two-second an",
+          "to": "All datasets used a six-second native-rate context and a two-second an"
+        },
+        {
+          "block": 24,
+          "docx_paragraph": 25,
+          "match": 1.0,
+          "from": "The common montage contained 18 recorded channels: Fz, FC3, FC1, FCz, ",
+          "to": "The common montage contained 18 recorded channels: Fz, FC3, FC1, FCz, "
+        },
+        {
+          "block": 25,
+          "docx_paragraph": 26,
+          "match": 1.0,
+          "from": "Let z(v,c,t) be the cropped, temporally centered value for view v, cha",
+          "to": "Let z(v,c,t) be the cropped, temporally centered value for view v, cha"
+        },
+        {
+          "block": 27,
+          "docx_paragraph": 28,
+          "match": 1.0,
+          "from": "Both neural pipelines used the EEGNet implementation in Braindecode 1.",
+          "to": "Both neural pipelines used the EEGNet implementation in Braindecode 1."
+        },
+        {
+          "block": 30,
+          "docx_paragraph": 31,
+          "match": 1.0,
+          "from": "The conventional comparator used the same dimensionless broadband inpu",
+          "to": "The conventional comparator used the same dimensionless broadband inpu"
+        },
+        {
+          "block": 32,
+          "docx_paragraph": 33,
+          "match": 1.0,
+          "from": "Source-validation metrics were first averaged across validation seeds ",
+          "to": "Source-validation metrics were first averaged across validation seeds "
+        },
+        {
+          "block": 33,
+          "docx_paragraph": 34,
+          "match": 1.0,
+          "from": "The archived execution contract required source choices and final sour",
+          "to": "Source-held-out validation determined checkpoint selection. External r"
+        },
+        {
+          "block": 37,
+          "docx_paragraph": 38,
+          "match": 1.0,
+          "from": "Four supplementary post hoc contrasts evaluated the following: S29−S9 ",
+          "to": "Four supplementary post hoc contrasts evaluated the following: S29−S9 "
+        },
+        {
+          "block": 38,
+          "docx_paragraph": 39,
+          "match": 1.0,
+          "from": "For interpretation, we added a descriptive algebraic decomposition dur",
+          "to": "We also report a descriptive algebraic decomposition. Within each seed"
+        },
+        {
+          "block": 44,
+          "docx_paragraph": 43,
+          "match": 1.0,
+          "from": "The executed configuration, source registry, selection freeze, code id",
+          "to": "The executed configuration, source registry, selected epochs, code ide"
+        },
+        {
+          "block": 47,
+          "docx_paragraph": 46,
+          "match": 1.0,
+          "from": "OpenAI ChatGPT and Codex assisted literature retrieval, manuscript dra",
+          "to": "OpenAI ChatGPT and Codex assisted literature retrieval, manuscript dra"
+        },
+        {
+          "block": 58,
+          "docx_paragraph": 57,
+          "match": 1.0,
+          "from": "The recorded run completed 108 neural trajectories and nine convention",
+          "to": "Across the evaluated source levels, pipelines and source-only selectio"
+        },
+        {
+          "block": 60,
+          "docx_paragraph": 59,
+          "match": 1.0,
+          "from": "Table 3 shows both endpoints for the two neural pipelines and the conv",
+          "to": "Table 3 shows both endpoints for the two neural pipelines and the conv"
+        },
+        {
+          "block": 66,
+          "docx_paragraph": 65,
+          "match": 1.0,
+          "from": "Fig 5. All 48 source-only checkpoint choices. The matrix shows eight s",
+          "to": "Fig 5. All 48 source-only checkpoint choices. The matrix shows eight s"
+        },
+        {
+          "block": 70,
+          "docx_paragraph": 69,
+          "match": 1.0,
+          "from": "CSP plus shrinkage LDA also benefited from expansion: weaker-class rec",
+          "to": "CSP plus shrinkage LDA also benefited from expansion: weaker-class rec"
+        },
+        {
+          "block": 74,
+          "docx_paragraph": 73,
+          "match": 1.0,
+          "from": "Fig 6. Supplementary post hoc source-expansion comparisons. S29−S9 BRO",
+          "to": "Fig 6. Supplementary post hoc source-expansion comparisons. S29−S9 BRO"
+        },
+        {
+          "block": 81,
+          "docx_paragraph": 80,
+          "match": 1.0,
+          "from": "Independent numerical review and result traceability",
+          "to": "Selection-rule sensitivity"
+        },
+        {
+          "block": 82,
+          "docx_paragraph": 81,
+          "match": 1.0,
+          "from": "The external saved-prediction audit passed 1,179 checks with zero fail",
+          "to": "The complete source-only selection results include configurations with"
+        },
+        {
+          "block": 83,
+          "docx_paragraph": 82,
+          "match": 1.0,
+          "from": "The archived checks link input identities, source selections and predi",
+          "to": "Automated numerical reconstruction, archive checks and their precise s"
+        },
+        {
+          "block": 88,
+          "docx_paragraph": 87,
+          "match": 1.0,
+          "from": "Full neural trajectories received 5,120 updates at every source level.",
+          "to": "Full neural trajectories received 5,120 updates at every source level,"
+        },
+        {
+          "block": 91,
+          "docx_paragraph": 90,
+          "match": 1.0,
+          "from": "The conventional CSP–LDA decoder also gained 13.82 points in weaker-cl",
+          "to": "The conventional CSP–LDA decoder gained 13.82 points in weaker-class r"
+        },
+        {
+          "block": 93,
+          "docx_paragraph": 92,
+          "match": 1.0,
+          "from": "The identity B=W+|rL−rR|/2 relates average discrimination to weaker-cl",
+          "to": "The identity B=W+|rL−rR|/2 relates average discrimination to weaker-cl"
+        },
+        {
+          "block": 94,
+          "docx_paragraph": 93,
+          "match": 1.0,
+          "from": "The contribution complements domain-generalization representation lear",
+          "to": "Source-cohort design complements EEG domain-generalization methods [3–"
+        },
+        {
+          "block": 96,
+          "docx_paragraph": 95,
+          "match": 1.0,
+          "from": "The evidence concerns complete source configurations in one explorator",
+          "to": "The evidence concerns three source configurations, one exploratory ext"
+        },
+        {
+          "block": 100,
+          "docx_paragraph": 99,
+          "match": 0.99154,
+          "from": "The immutable results and evidence are available at https://github.com",
+          "to": "The immutable results and evidence are available at https://github.com"
+        }
+      ]
+    },
+    "supplement": {
+      "changed_source_blocks": 11,
+      "changed_word_paragraphs": 11,
+      "tables_preserved": 5,
+      "original_sha256": "d28146d69c50eae349a884114d584fb2fb962db2e437a508c0e5d4f21a3ba385",
+      "new_sha256": "001e96f3362faf10afec8b7e5bd932aaffbd505ed5888609c46df0e0572175ad",
+      "change_map": [
+        {
+          "block": 3,
+          "docx_paragraph": 3,
+          "match": 1.0,
+          "from": "1. Scope of this manuscript revision",
+          "to": "1. Scope of supplementary analyses"
+        },
+        {
+          "block": 4,
+          "docx_paragraph": 4,
+          "match": 0.99367,
+          "from": "The principal experiment is the completed 18-channel, dimensionless so",
+          "to": "The principal experiment is the completed 18-channel, dimensionless so"
+        },
+        {
+          "block": 8,
+          "docx_paragraph": 8,
+          "match": 1.0,
+          "from": "BNCI contributes 2,592 distinct binary hand-imagery trials, 288 per pe",
+          "to": "BNCI contributes 2,592 distinct binary hand-imagery trials, 288 per pe"
+        },
+        {
+          "block": 12,
+          "docx_paragraph": 12,
+          "match": 1.0,
+          "from": "The main text gives native context/crop timing and the complete channe",
+          "to": "The main text gives native context/crop timing and the complete channe"
+        },
+        {
+          "block": 37,
+          "docx_paragraph": 37,
+          "match": 1.0,
+          "from": "8. Independent audit scope and archive identities",
+          "to": "8. Automated verification scope and archive identities"
+        },
+        {
+          "block": 38,
+          "docx_paragraph": 38,
+          "match": 1.0,
+          "from": "The external arithmetic audit passed 1,179 checks with zero failures. ",
+          "to": "Scripted saved-prediction reconstruction passed 1,179 arithmetic and i"
+        },
+        {
+          "block": 39,
+          "docx_paragraph": 39,
+          "match": 1.0,
+          "from": "The result importer independently checked the supplied audit files and",
+          "to": "A separate result importer checked the supplied audit files and their "
+        },
+        {
+          "block": 48,
+          "docx_paragraph": 48,
+          "match": 1.0,
+          "from": "11. Review-triggered supplementary source-expansion comparisons",
+          "to": "11. Supplementary post hoc source-expansion comparisons"
+        },
+        {
+          "block": 49,
+          "docx_paragraph": 49,
+          "match": 1.0,
+          "from": "Following the supplied second-round report, four comparisons were spec",
+          "to": "Four exploratory comparisons were defined after inspection of the orig"
+        },
+        {
+          "block": 58,
+          "docx_paragraph": 58,
+          "match": 1.0,
+          "from": "The review-triggered inventory specifies all S29−S9 and S60−S9 compari",
+          "to": "The exploratory inventory covers S29−S9 and S60−S9, both neural pipeli"
+        },
+        {
+          "block": 63,
+          "docx_paragraph": 63,
+          "match": 1.0,
+          "from": "Additional editorial-stage descriptive reconstruction",
+          "to": "Additional post hoc descriptive reconstruction"
+        }
+      ]
+    },
+    "cover": {
+      "changed_source_blocks": 1,
+      "changed_word_paragraphs": 1,
+      "tables_preserved": 0,
+      "original_sha256": "c384bec68ecd27c834385b5cc5d3790d5edad195e5445d64b78730c46f652544",
+      "new_sha256": "d314bbc11281bb8f01fbfb97661ca1cb943ba6a9de99e3ea76ebeb3e30021578",
+      "change_map": [
+        {
+          "block": 3,
+          "docx_paragraph": 3,
+          "match": 1.0,
+          "from": "This study investigates a reproducible source-data design strategy for",
+          "to": "This study investigates a reproducible source-data design strategy for"
+        }
+      ]
+    },
+    "pdfs": {
+      "main_manuscript": {
+        "pages": 24,
+        "sha256": "3818d88e329b942f66f187081c0fe9dc1f0e111745c8065b7ec66248f0aded99"
+      },
+      "S1_Appendix": {
+        "pages": 14,
+        "sha256": "44d9031e42365efb5721fc2a263843695a53f0c257139c0e2d94aba55935672c"
+      },
+      "Cover_Letter": {
+        "pages": 1,
+        "sha256": "b6b3298e9cd5e311c7b9c58d8255bcc255aedabe93ec5efe2500f06a8f015bb3"
+      }
+    }
+  }
+}
