@@ -1,0 +1,101 @@
+name: Paper1 review-limited validated documents
+on:
+  push:
+    branches: [paper/p1-review-verified-20261020]
+    paths:
+      - .github/workflows/p1-review-verified-20261020.yml
+      - tools/paper1_review_20261020.py
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out only reviewed source materials
+        uses: actions/checkout@v4
+        with:
+          ref: paper/p1-review-verified-20261020
+          fetch-depth: 1
+          sparse-checkout: |
+            research_runs/PLOS_ONE_SUBMISSION/PLOS_ONE_Manuscript.docx
+            research_runs/PAPER1_SUBMISSION_CORRECTION_20261018
+            research_runs/PAPER1_REVIEW_20261020
+            tools/paper1_review_20261020.py
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install bounded document-only dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq --no-install-recommends libreoffice-writer poppler-utils fonts-liberation fonts-dejavu-core fonts-noto-core
+          python -m pip install python-docx==1.2.0 lxml PyMuPDF==1.26.7
+      - name: Rebuild only text reviewed by author and verify all scientific tables
+        run: python tools/paper1_review_20261020.py
+      - name: Recreate historical Word Track Changes against updated main manuscript
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --no-tags --depth=1 origin 0d83b7d301ef9a854cdf907fbc4afe3f9fbc7cb6
+          git show FETCH_HEAD:tools/paper1_plos_build_trackchanges.py > "$RUNNER_TEMP/trackchanges.py"
+          python "$RUNNER_TEMP/trackchanges.py" \
+            research_runs/PLOS_ONE_SUBMISSION/PLOS_ONE_Manuscript.docx \
+            research_runs/PAPER1_REVIEW_20261020/main_manuscript.docx \
+            research_runs/PAPER1_REVIEW_20261020/Track_Changes_PONE-D-26-50597_to_PONE-D-26-52176.docx
+          python -m zipfile -t research_runs/PAPER1_REVIEW_20261020/Track_Changes_PONE-D-26-50597_to_PONE-D-26-52176.docx
+      - name: Make checked author bundle and validate tracked revisions
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json, zipfile, hashlib
+          p=Path('research_runs/PAPER1_REVIEW_20261020')
+          r=json.loads((p/'RELEASE_VALIDATION.json').read_text())
+          t=json.loads((p/'Track_Changes_PONE-D-26-50597_to_PONE-D-26-52176.validation.json').read_text())
+          assert r['status']=='PASS' and r['source_tables_and_media_preserved']
+          assert t['accept_changes_reconstructs_current_body_exactly']
+          names=['README.md','EDITORIAL_TRIAGE_zh.md','manuscript_en.md',
+                 'supplementary_en.md','Cover_Letter.md','Abstract_for_Portal.txt',
+                 'main_manuscript.docx','main_manuscript.pdf',
+                 'S1_Appendix.docx','S1_Appendix.pdf','Cover_Letter.docx','Cover_Letter.pdf',
+                 'Track_Changes_PONE-D-26-50597_to_PONE-D-26-52176.docx',
+                 'Track_Changes_PONE-D-26-50597_to_PONE-D-26-52176.validation.json',
+                 'RELEASE_VALIDATION.json']
+          target=p/'Paper1_Reviewed_20261020.zip'
+          with zipfile.ZipFile(target,'w',compression=zipfile.ZIP_DEFLATED,compresslevel=6) as z:
+              for name in names:
+                  f=p/name
+                  assert f.exists() and f.stat().st_size
+                  z.write(f,name)
+          with zipfile.ZipFile(target) as z:
+              assert z.testzip() is None
+              for name in names: assert z.read(name)==(p/name).read_bytes()
+          (p/'Paper1_Reviewed_20261020.zip.sha256').write_text(hashlib.sha256(target.read_bytes()).hexdigest()+'  '+target.name+'\n')
+          print('VALIDATED',str(target),target.stat().st_size)
+          PY
+      - name: Render first page of clean and marked-up Word versions
+        run: |
+          mkdir -p /tmp/review-render
+          libreoffice -env:UserInstallation=file:///tmp/p1review_redline_lo --headless --convert-to pdf --outdir /tmp/review-render \
+            research_runs/PAPER1_REVIEW_20261020/Track_Changes_PONE-D-26-50597_to_PONE-D-26-52176.docx
+          test -s /tmp/review-render/Track_Changes_PONE-D-26-50597_to_PONE-D-26-52176.pdf
+          pdftoppm -f 1 -l 1 -scale-to 900 -png -singlefile \
+            research_runs/PAPER1_REVIEW_20261020/main_manuscript.pdf /tmp/review-render/clean_first
+          test -s /tmp/review-render/clean_first.png
+          pdftoppm -f 1 -l 1 -scale-to 900 -png -singlefile \
+            /tmp/review-render/Track_Changes_PONE-D-26-50597_to_PONE-D-26-52176.pdf /tmp/review-render/tracked_first
+          test -s /tmp/review-render/tracked_first.png
+      - name: Publish author files on review branch only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add research_runs/PAPER1_REVIEW_20261020/
+          git diff --cached --quiet || git commit -m 'Publish reviewed Paper1 Word PDF track-changes bundle with preservation checks'
+          git push origin HEAD:refs/heads/paper/p1-review-verified-20261020
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Paper1-Reviewed-20261020
+          path: research_runs/PAPER1_REVIEW_20261020/Paper1_Reviewed_20261020.zip
+          if-no-files-found: error
+          retention-days: 7
