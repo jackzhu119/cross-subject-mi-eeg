@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "kind": "q15_account_preflight_fix_validation",
+  "checked_at_utc": "2026-10-05T05:18:24.776101+00:00",
+  "reported_job_id": "20261005T050511Z-migration-from-r2-b82ad79b",
+  "reported_failure": {
+    "stage": "destination_account_preflight",
+    "error_code": "account_api_http_403",
+    "updated_at_utc": "2026-10-05T05:05:11.766623+00:00",
+    "new_source_fits": 0,
+    "target_fits": 0,
+    "automatic_pod_stop_requested_by_migration_supervisor": false,
+    "provider_determined_from_old_error": false,
+    "pod_realtime_access_obtained": false
+  },
+  "verification": {
+    "migration_tests_passed": 294,
+    "unchanged_full_job_tests_passed": 25,
+    "total_tests_passed": 319,
+    "launcher_tests_passed": 39,
+    "supervisor_tests_passed": 46,
+    "ruff_passed": true,
+    "bash_syntax_passed": true,
+    "test_inputs": "synthetic data, fake APIs, fake SDK clients, fake scientific functions; real Bash and PTY with isolated fake tools",
+    "provider_specific_http_and_network_errors_tested": true,
+    "hidden_provider_retry_before_r2_input_and_sdk_install_tested": true,
+    "inherited_nonempty_key_not_treated_as_api_valid_tested": true,
+    "repeatable_named_credential_reset_tested": true,
+    "public_fetch_and_sdk_child_secret_isolation_tested": true,
+    "read_only_account_check_without_job_arguments_or_file_writes_tested": true,
+    "auth_failure_before_cuda_restore_continuation_or_fits_tested": true,
+    "auth_failure_no_stop_request_tested": true
+  },
+  "source_bindings": {
+    "scientific_revision": "271af288a2f3863430ab80e3145c2dee9bd5571d",
+    "immutable_baseline": "782d2d0070a50c37d13c8e9f1cab3b3b81bac4fc",
+    "scientific_runner_unchanged": true,
+    "original_source_fits_to_reuse": 15,
+    "new_source_fits": 0,
+    "target_fits": 0
+  },
+  "scope_limits": {
+    "new_account_live_credentials_validated_here": false,
+    "real_r2_raw_download_performed_here": false,
+    "real_scientific_fits_started_here": 0,
+    "new_pod_started_or_restarted_here": false,
+    "new_pod_stop_requested_here": false,
+    "new_pod_physical_shutdown_observed_here": false,
+    "api_get_success_does_not_prove_stop_write_permission": true,
+    "prior_r2_inventory_and_probe_evidence": "RELEASE_VALIDATION.json",
+    "credentials_printed_or_committed": false
+  }
+}

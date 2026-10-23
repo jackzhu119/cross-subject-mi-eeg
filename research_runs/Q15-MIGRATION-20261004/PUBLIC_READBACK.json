@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "kind": "q15_release_code_public_readback",
+  "checked_at_utc": "2026-10-05T05:36:39.298608+00:00",
+  "pinned_launcher_readback_verified": true,
+  "helper_files_readback_verified": 6,
+  "helper_revision": "c7c06ee57cde2cc9e2d4d75704f1c92ab96a0325",
+  "launcher_revision": "5efbd3e194da839b4b68094b8173b102f4983982",
+  "manual_stop_supported": true,
+  "launcher_executed_on_new_pod": false,
+  "raw_data_downloaded_here": false,
+  "scientific_fits_started_here": 0,
+  "release_integrity_only": true,
+  "records": [
+    {
+      "file": "Q15_MIGRATE_ON_RUNPOD.sh",
+      "revision": "5efbd3e194da839b4b68094b8173b102f4983982",
+      "sha256": "f1beecc7267183da62573ef6278e05e2d76bc1ac539445156277f6b47c527765",
+      "bytes": 8718,
+      "verified": true
+    },
+    {
+      "file": "SHA256SUMS",
+      "revision": "c7c06ee57cde2cc9e2d4d75704f1c92ab96a0325",
+      "sha256": "5739768e9a3df3b5b011e3ec753c8d03f04096cb3054da4181e769e482ca99db",
+      "bytes": 551,
+      "verified": true
+    },
+    {
+      "file": "q15_migration_bundle.py",
+      "revision": "c7c06ee57cde2cc9e2d4d75704f1c92ab96a0325",
+      "sha256": "b61eca87e1ccf1970c1317c94bb8822d8b5ba4175f2bb372e27c2a3af77712fd",
+      "bytes": 44720,
+      "verified": true
+    },
+    {
+      "file": "q15_migration_transport.py",
+      "revision": "c7c06ee57cde2cc9e2d4d75704f1c92ab96a0325",
+      "sha256": "02d9d5a7b028aa9ebd00f7c9829300dfb645b04ef15152ab36447c6a00138924",
+      "bytes": 39654,
+      "verified": true
+    },
+    {
+      "file": "q15_continue_validated.py",
+      "revision": "c7c06ee57cde2cc9e2d4d75704f1c92ab96a0325",
+      "sha256": "a8bdf8fd122cc0faa496edab2fc7e7af07a09c6d68ea8a9692a936e6570b1369",
+      "bytes": 36213,
+      "verified": true
+    },
+    {
+      "file": "q15_migration_supervisor.py",
+      "revision": "c7c06ee57cde2cc9e2d4d75704f1c92ab96a0325",
+      "sha256": "a67f56f667f1ed022bf73c9990751e70a0981328fd0de28270c15307a02e0d16",
+      "bytes": 12420,
+      "verified": true
+    },
+    {
+      "file": "q15_restore_from_r2.py",
+      "revision": "c7c06ee57cde2cc9e2d4d75704f1c92ab96a0325",
+      "sha256": "b2b437bc908d7432a271684b4406397dd021a85ecc81db51fcf63139ceb0f57f",
+      "bytes": 19911,
+      "verified": true
+    },
+    {
+      "file": "requirements-migration.txt",
+      "revision": "c7c06ee57cde2cc9e2d4d75704f1c92ab96a0325",
+      "sha256": "2b5713076db9515160e097a6cd0275fa98ad9c77d0ad5282ad0bd308d7a298ae",
+      "bytes": 33,
+      "verified": true
+    }
+  ]
+}

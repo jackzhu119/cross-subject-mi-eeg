@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "kind": "q15_r2_only_migration_release_validation",
+  "checked_at_utc": "2026-10-05T01:44:12.811520+00:00",
+  "origin_job_id": "20261004T005335Z-9b3bce30277a",
+  "immutable_source_proof": {
+    "verified_source_artifacts": 52,
+    "immutable_baseline": "782d2d0070a50c37d13c8e9f1cab3b3b81bac4fc",
+    "science_revision": "271af288a2f3863430ab80e3145c2dee9bd5571d",
+    "deep_fit_count": 14,
+    "shallow_fit_count": 1,
+    "target_fits": 0,
+    "scientific_model_deserialization_performed": false,
+    "new_fits_started_here": 0
+  },
+  "r2_current_probe": {
+    "list_verified": true,
+    "write_verified": true,
+    "full_readback_verified": true,
+    "delete_verified": true,
+    "probe_payload_bytes": 32768,
+    "random_probe_object_deleted": true
+  },
+  "r2_current_inventory_heads": {
+    "status": "passed",
+    "checked_objects": 178,
+    "expected_objects": 178,
+    "expected_total_bytes": 76331343041,
+    "raw_body_hash_checked_here": false,
+    "fits_started_here": 0,
+    "credentials_printed": false
+  },
+  "verification": {
+    "migration_tests_passed": 257,
+    "unchanged_full_job_tests_passed": 25,
+    "total_tests_passed": 282,
+    "ruff_passed": true,
+    "bash_syntax_passed": true,
+    "test_inputs": "synthetic data, fake APIs, fake SDK clients, fake scientific functions; real Bash with isolated fake tools and PTY",
+    "actual_release_code_model_binding_checked": true,
+    "base_contract_interface_review_passed": true,
+    "public_result_and_failure_evidence_before_stop_tested": true,
+    "scientific_runner_unchanged": true
+  },
+  "scope_limits": {
+    "real_raw_download_performed_in_codex": false,
+    "real_preprocessing_performed_in_codex": false,
+    "real_prediction_performed_in_codex": false,
+    "real_scientific_fits_started_in_codex": 0,
+    "new_pod_deployed_or_started_in_codex": false,
+    "new_pod_gpu_preflight_observed_here": false,
+    "new_pod_physical_shutdown_observed_here": false,
+    "credentials_printed_or_committed": false
+  },
+  "behavior": {
+    "mode": "from-r2",
+    "requires_old_pod_access": false,
+    "requires_archive_locator": false,
+    "original_source_fits_reused": 15,
+    "new_source_fits": 0,
+    "target_fits": 0,
+    "original_file_count": 178,
+    "external_epoch_person_count": 106,
+    "raw_hash_verification_on_destination_required": true,
+    "committed_inference_freeze_before_predictions_required": true,
+    "independent_scientific_validation_required": true,
+    "verified_github_readback_before_stop_required": true,
+    "api_stop_does_not_prove_physical_shutdown": true,
+    "calibration_limitations_preserved": true,
+    "public_results_readback_evidence_required_before_stop": true
+  }
+}
