@@ -20,6 +20,20 @@
 
 ## 从完全没有数据开始
 
+**可以直接在学校服务器下载，不需要经过本地电脑。** 在 `login1` 执行下面这一行：
+
+```bash
+curl -fL --connect-timeout 20 --retry 3 https://raw.githubusercontent.com/jackzhu119/cross-subject-mi-eeg/main/research_runs/PAPER1_HPC_20261023/DOWNLOAD_ON_SCHOOL.sh -o /tmp/paper1-download-school.sh && bash /tmp/paper1-download-school.sh
+```
+
+这个小入口在登录节点下载约53MB固定运行包、核对SHA256并解压，再提交独立Slurm下载作业（单卡配额/24CPU/128G）。约71GB的原始数据恢复和Yang解压在分配的计算节点执行；数据直接保存到 `/public/home/zhuziyuan/projects/paper1-risk-v1/raw`。作业提交成功后，关闭本地终端不会终止Slurm下载。重复同命令会复用包、运行中的下载作业和已验证原始文件。
+
+日志位于 `/public/home/zhuziyuan/projects/paper1-risk-v1/logs/slurm/download-<jobid>.out` 和 `.err`。看到 `ALL_RAW_DATASETS_READY` 后，回到 `login1` 执行本文的LAUNCH命令进入训练，首次隐藏输入GitHub token。下载公开运行包和数据本身不需要GitHub、R2或RunPod密钥。
+
+学校计算节点的外网访问尚未现场观察。若作业报告DNS/连接超时，应根据真实日志确认学校网络；不能把本环境的访问成功当成学校已验证。训练代码和数据校验规则不因此改变。
+
+也可以采用下面的手动下载/解压方式：
+
 下载发布附件 `paper1-hpc-offline.tar.gz` 和同名 `.sha256`。压缩包包含本目录代码、固定数据清单和两份CPU预处理wheel，不含EEG、GitHub token或旧模型。先校验压缩包，再解压到项目父目录。
 
 ```bash

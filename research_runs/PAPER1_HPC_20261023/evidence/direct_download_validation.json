@@ -1,0 +1,19 @@
+{
+  "scope": "New direct school-download bootstrap only",
+  "school_hpc_accessed": false,
+  "real_eeg_downloaded": false,
+  "training_code_changed": false,
+  "fixed_bundle_source_commit": "74faa2e580263da1486be35bf9fd73e6a9754b9f",
+  "fixed_bundle_distribution_commit": "67de0abda18d1d64fa468d3f4907ac23c70d0b45",
+  "archive_bytes": 53189869,
+  "archive_sha256": "72225f30c83be9bbc94d52eac672bee272690f6cf9949933e3d61380401d2675",
+  "new_targeted_tests": 4,
+  "test_cases": [
+    "Direct local-bundle copy/extraction and Slurm submission with absolute logs",
+    "Duplicate invocation reuses active download job without another transfer or submission",
+    "Corrupt archive retained; network failure never extracts or submits",
+    "Completed partial verified and reused without another network transfer"
+  ],
+  "expected_execution": "login1 downloads the small bundle; dedicated Slurm job downloads/extracts EEG; login1 later submits training",
+  "school_compute_outbound_network_verified": false
+}
