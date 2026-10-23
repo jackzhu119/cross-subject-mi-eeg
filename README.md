@@ -1,3 +1,5 @@
+> **学校HPC新实验运行包（2026-10-23）**：三张A100单卡数组并行、原始数据恢复、断点续跑和GitHub进度同步。见 [中文操作说明](research_runs/PAPER1_HPC_20261023/README_zh.md) 与 [新研究协议](research_runs/PAPER1_HPC_20261023/PROJECT_PROTOCOL.md)。这是待执行的算法研究版本；下方已完成论文与冻结结果保持原样。
+
 # Paper 1 — reviewed submission materials (20 October 2026)
 
 **Current reviewed version:** [clean Word manuscript](research_runs/PAPER1_REVIEW_20261020/main_manuscript.docx) · [marked-up Track Changes DOCX](research_runs/PAPER1_REVIEW_20261020/Track_Changes_PONE-D-26-50597_to_PONE-D-26-52176.docx) · [complete reviewed package](research_runs/PAPER1_REVIEW_20261020/Paper1_Reviewed_20261020.zip) · [review decisions and verification](research_runs/PAPER1_REVIEW_20261020/README.md).

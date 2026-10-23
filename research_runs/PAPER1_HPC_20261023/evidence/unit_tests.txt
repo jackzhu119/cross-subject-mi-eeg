@@ -1,0 +1,104 @@
+test_bnci_exact_official_mirror_and_duplicate_lock (test_acquire.AcquireTest.test_bnci_exact_official_mirror_and_duplicate_lock) ... ok
+test_file_range_resume_and_completed_receipt_skips_network_hash (test_acquire.AcquireTest.test_file_range_resume_and_completed_receipt_skips_network_hash) ... ok
+test_nemar_single_exact_redirect_retains_range_and_denial_not_retried (test_acquire.AcquireTest.test_nemar_single_exact_redirect_retains_range_and_denial_not_retried) ... ok
+test_static_frozen_manifest_counts_and_vendor_identity (test_acquire.AcquireTest.test_static_frozen_manifest_counts_and_vendor_identity) ... ok
+test_wrong_hash_and_unknown_redirect_are_preserved_rejected (test_acquire.AcquireTest.test_wrong_hash_and_unknown_redirect_are_preserved_rejected) ... ok
+test_yang_compressed_resume_crc_full_sha_and_receipt (test_acquire.AcquireTest.test_yang_compressed_resume_crc_full_sha_and_receipt) ... ok
+test_background_never_resurrects_failed_cancelled_or_unknown (test_cli.ControllerTests.test_background_never_resurrects_failed_cancelled_or_unknown) ... {"updated_at_utc": "2026-10-23T10:10:32.415944+00:00", "stage": "manual_resume_required", "unfinished": ["dev-a", "dev-b"], "scheduler_states": {"dev-a": "CANCELLED", "dev-b": "CANCELLED"}}
+{"updated_at_utc": "2026-10-23T10:10:32.416307+00:00", "stage": "manual_resume_required", "unfinished": ["dev-a", "dev-b"], "scheduler_states": {"dev-a": "FAILED", "dev-b": "FAILED"}}
+{"updated_at_utc": "2026-10-23T10:10:32.416629+00:00", "stage": "manual_resume_required", "unfinished": ["dev-a", "dev-b"], "scheduler_states": {"dev-a": "UNKNOWN", "dev-b": "UNKNOWN"}}
+{"updated_at_utc": "2026-10-23T10:10:32.417178+00:00", "stage": "manual_resume_required", "unfinished": ["dev-a", "dev-b"], "scheduler_states": {"dev-a": "TIMEOUT", "dev-b": "TIMEOUT"}}
+ok
+test_bad_prepared_or_cpu_only_smoke_receipt_never_allows_training (test_cli.ControllerTests.test_bad_prepared_or_cpu_only_smoke_receipt_never_allows_training) ... ok
+test_complete_development_unlocks_final_phase_once (test_cli.ControllerTests.test_complete_development_unlocks_final_phase_once) ... {"updated_at_utc": "2026-10-23T10:10:32.422898+00:00", "stage": "array_submitted", "job_id": "102", "submitted": 1, "max_parallel": 3}
+ok
+test_complete_final_analyzes_without_submitting (test_cli.ControllerTests.test_complete_final_analyzes_without_submitting) ... {"updated_at_utc": "2026-10-23T10:10:32.425979+00:00", "stage": "complete", "completed_fits": 3, "analysis_status": "complete", "manual_resume_required": false}
+ok
+test_duplicate_controller_process_does_not_tick_or_submit (test_cli.ControllerTests.test_duplicate_controller_process_does_not_tick_or_submit) ... Controller already running; existing process retained.
+ok
+test_existing_active_array_keeps_other_tasks_running (test_cli.ControllerTests.test_existing_active_array_keeps_other_tasks_running) ... {"updated_at_utc": "2026-10-23T10:10:32.429672+00:00", "stage": "training_or_evaluation", "active_scheduler_tasks": 1, "completed_fits": 0, "pending": 2}
+ok
+test_failed_preparation_is_not_automatically_resubmitted (test_cli.ControllerTests.test_failed_preparation_is_not_automatically_resubmitted) ... {"updated_at_utc": "2026-10-23T10:10:32.431211+00:00", "stage": "data_preprocessing", "scheduler": "FAILED", "manual_resume_required": true}
+ok
+test_initial_stage_submits_cpu_preparation_only (test_cli.ControllerTests.test_initial_stage_submits_cpu_preparation_only) ... {"updated_at_utc": "2026-10-23T10:10:32.432789+00:00", "stage": "data_preprocessing", "job_id": "101"}
+ok
+test_launch_validates_github_authorization_before_any_submission (test_cli.ControllerTests.test_launch_validates_github_authorization_before_any_submission) ... Progress: /tmp/tmpys5uqmwo/paper1-test/state/controller_status.json
+Logs: /tmp/tmpys5uqmwo/paper1-test/logs/slurm
+Resume with this same LAUNCH.sh command; completed tasks and saved checkpoints are reused.
+ok
+test_manual_resume_submits_only_missing_task (test_cli.ControllerTests.test_manual_resume_submits_only_missing_task) ... {"updated_at_utc": "2026-10-23T10:10:32.437865+00:00", "stage": "array_submitted", "job_id": "102", "submitted": 1, "max_parallel": 3}
+ok
+test_missing_saved_evaluation_is_not_a_completed_fit (test_cli.ControllerTests.test_missing_saved_evaluation_is_not_a_completed_fit) ... ok
+test_new_independent_task_can_start_without_reviving_cancelled_task (test_cli.ControllerTests.test_new_independent_task_can_start_without_reviving_cancelled_task) ... {"updated_at_utc": "2026-10-23T10:10:32.441894+00:00", "stage": "array_submitted", "job_id": "102", "submitted": 1, "max_parallel": 3}
+ok
+test_partial_analysis_cannot_mark_whole_study_complete (test_cli.ControllerTests.test_partial_analysis_cannot_mark_whole_study_complete) ... {"updated_at_utc": "2026-10-23T10:10:32.444435+00:00", "stage": "analysis_pending", "completed_fits": 2, "analysis_status": "partially_complete", "manual_resume_required": true}
+ok
+test_prepared_data_next_submits_smoke_once (test_cli.ControllerTests.test_prepared_data_next_submits_smoke_once) ... {"updated_at_utc": "2026-10-23T10:10:32.446139+00:00", "stage": "once_per_runtime_gpu_smoke", "job_id": "101"}
+ok
+test_smoke_cpu_identity_does_not_prove_gpu_training_runtime (test_cli.ControllerTests.test_smoke_cpu_identity_does_not_prove_gpu_training_runtime) ... ok
+test_smoke_from_changed_runtime_is_not_silently_reused (test_cli.ControllerTests.test_smoke_from_changed_runtime_is_not_silently_reused) ... ok
+test_wrong_task_completion_is_not_a_completed_fit (test_cli.ControllerTests.test_wrong_task_completion_is_not_a_completed_fit) ... ok
+test_changed_input_or_output_stops_without_overwrite (test_data.DataTests.test_changed_input_or_output_stops_without_overwrite) ... ok
+test_exact_import_memmap_and_external_role (test_data.DataTests.test_exact_import_memmap_and_external_role) ... ok
+test_interrupted_partial_import_resumes_one_person (test_data.DataTests.test_interrupted_partial_import_resumes_one_person) ... ok
+test_invalid_arrays_and_metadata_never_complete (test_data.DataTests.test_invalid_arrays_and_metadata_never_complete) ... ok
+test_resume_uses_receipts_not_full_npz_scan (test_data.DataTests.test_resume_uses_receipts_not_full_npz_scan) ... ok
+test_actual_analysis_schema_keeps_adverse_and_null_statistics (test_github_sync.GitHubSyncTests.test_actual_analysis_schema_keeps_adverse_and_null_statistics) ... ok
+test_api_token_only_header_and_redirects_disabled (test_github_sync.GitHubSyncTests.test_api_token_only_header_and_redirects_disabled) ... ok
+test_contents_write_uses_sha_and_conflict_defers_to_next_cycle (test_github_sync.GitHubSyncTests.test_contents_write_uses_sha_and_conflict_defers_to_next_cycle) ... ok
+test_http_errors_are_sanitized_and_rate_limits_retry (test_github_sync.GitHubSyncTests.test_http_errors_are_sanitized_and_rate_limits_retry) ... ok
+test_initial_hidden_prompt_and_actual_write_then_reuse (test_github_sync.GitHubSyncTests.test_initial_hidden_prompt_and_actual_write_then_reuse) ... ok
+test_initial_network_outage_keeps_token_and_defers_upload (test_github_sync.GitHubSyncTests.test_initial_network_outage_keeps_token_and_defers_upload) ... ok
+test_initial_permission_denial_blocks_submission_and_is_not_approved (test_github_sync.GitHubSyncTests.test_initial_permission_denial_blocks_submission_and_is_not_approved) ... ok
+test_main_or_other_project_destination_rejected (test_github_sync.GitHubSyncTests.test_main_or_other_project_destination_rejected) ... ok
+test_missing_and_symlink_credentials_are_not_accepted (test_github_sync.GitHubSyncTests.test_missing_and_symlink_credentials_are_not_accepted) ... ok
+test_new_project_prompts_even_when_token_is_cached (test_github_sync.GitHubSyncTests.test_new_project_prompts_even_when_token_is_cached) ... ok
+test_summary_contains_steps_and_stats_but_no_private_data (test_github_sync.GitHubSyncTests.test_summary_contains_steps_and_stats_but_no_private_data) ... ok
+test_sync_error_is_local_status_not_training_failure (test_github_sync.GitHubSyncTests.test_sync_error_is_local_status_not_training_failure) ... ok
+test_final_complete_evaluations_retain_both_variants (test_plan_analysis.AnalysisIntegrationTests.test_final_complete_evaluations_retain_both_variants) ... ok
+test_missing_scores_wait_then_source_domain_is_reused (test_plan_analysis.AnalysisIntegrationTests.test_missing_scores_wait_then_source_domain_is_reused) ... ok
+test_corrupt_completion_does_not_become_source_selection (test_plan_analysis.PlanTests.test_corrupt_completion_does_not_become_source_selection) ... ok
+test_final_waits_then_appends_only_once_and_does_not_read_target_scores (test_plan_analysis.PlanTests.test_final_waits_then_appends_only_once_and_does_not_read_target_scores) ... ok
+test_initial_two_file_interruption_retains_identical_tasks (test_plan_analysis.PlanTests.test_initial_two_file_interruption_retains_identical_tasks) ... ok
+test_resume_allows_operational_change_but_preserves_science (test_plan_analysis.PlanTests.test_resume_allows_operational_change_but_preserves_science) ... ok
+test_source_splits_shared_and_leak_free (test_plan_analysis.PlanTests.test_source_splits_shared_and_leak_free) ... ok
+test_equal_cohort_estimand_and_negative_results (test_plan_analysis.StatisticsTests.test_equal_cohort_estimand_and_negative_results) ... ok
+test_exact_sign_flip_and_constant_interval (test_plan_analysis.StatisticsTests.test_exact_sign_flip_and_constant_interval) ... ok
+test_holm_fixed_four_family (test_plan_analysis.StatisticsTests.test_holm_fixed_four_family) ... ok
+test_within_seed_weaker_class_before_seed_averaging (test_plan_analysis.StatisticsTests.test_within_seed_weaker_class_before_seed_averaging) ... ok
+test_failed_install_retains_partial_and_no_success_receipt (test_prep_runtime.PrepRuntimeTests.test_failed_install_retains_partial_and_no_success_receipt) ... ok
+test_no_install_inside_slurm_or_wrong_abi (test_prep_runtime.PrepRuntimeTests.test_no_install_inside_slurm_or_wrong_abi) ... ok
+test_offline_code_archive_excludes_tokens_data_and_runtime (test_prep_runtime.PrepRuntimeTests.test_offline_code_archive_excludes_tokens_data_and_runtime) ... ok
+test_preparation_installs_only_into_isolated_cpu_env_offline (test_prep_runtime.PrepRuntimeTests.test_preparation_installs_only_into_isolated_cpu_env_offline) ... ok
+test_prepared_runtime_reuses_without_install_or_wheel_scan (test_prep_runtime.PrepRuntimeTests.test_prepared_runtime_reuses_without_install_or_wheel_scan) ... ok
+test_wheel_download_exact_hash_and_completed_cache_reused (test_prep_runtime.PrepRuntimeTests.test_wheel_download_exact_hash_and_completed_cache_reused) ... ok
+test_active_array_stops_second_submission (test_slurm.SchedulerTests.test_active_array_stops_second_submission) ... ok
+test_array_mapping_requires_expanded_indices (test_slurm.SchedulerTests.test_array_mapping_requires_expanded_indices) ... ok
+test_auxiliary_cancel_needs_explicit_resume_and_preserves_history (test_slurm.SchedulerTests.test_auxiliary_cancel_needs_explicit_resume_and_preserves_history) ... ok
+test_auxiliary_cpu_preparation_omits_gpu_and_reuses_active_job (test_slurm.SchedulerTests.test_auxiliary_cpu_preparation_omits_gpu_and_reuses_active_job) ... ok
+test_cancelled_and_unavailable_accounting_remain_distinct (test_slurm.SchedulerTests.test_cancelled_and_unavailable_accounting_remain_distinct) ... ok
+test_crash_intent_recovers_from_real_queue_identity (test_slurm.SchedulerTests.test_crash_intent_recovers_from_real_queue_identity) ... ok
+test_manual_partial_resume_retains_previous_submission (test_slurm.SchedulerTests.test_manual_partial_resume_retains_previous_submission) ... ok
+test_parallel_launcher_lock_rejects_without_deleting_inode (test_slurm.SchedulerTests.test_parallel_launcher_lock_rejects_without_deleting_inode) ... ok
+test_sbatch_timeout_retains_intent_and_does_not_double_submit (test_slurm.SchedulerTests.test_sbatch_timeout_retains_intent_and_does_not_double_submit) ... ok
+test_squeue_failure_does_not_assume_idle_or_submit (test_slurm.SchedulerTests.test_squeue_failure_does_not_assume_idle_or_submit) ... ok
+test_submit_logs_precede_sbatch_and_resources_are_portable (test_slurm.SchedulerTests.test_submit_logs_precede_sbatch_and_resources_are_portable) ... ok
+test_cancel_during_usr1_save_overrides_requeue (test_slurm.SignalTests.test_cancel_during_usr1_save_overrides_requeue) ... ok
+test_denied_requeue_preserves_checkpoint_and_resumable_exit (test_slurm.SignalTests.test_denied_requeue_preserves_checkpoint_and_resumable_exit) ... ok
+test_real_worker_failure_keeps_exit_code (test_slurm.SignalTests.test_real_worker_failure_keeps_exit_code) ... ok
+test_term_cancel_checkpoints_without_requeue (test_slurm.SignalTests.test_term_cancel_checkpoints_without_requeue) ... ok
+test_usr1_waits_for_checkpoint_then_requeues_exact_array_item_once (test_slurm.SignalTests.test_usr1_waits_for_checkpoint_then_requeues_exact_array_item_once) ... ok
+test_all_methods_mid_epoch_resume_exact (test_worker_resume.WorkerTests.test_all_methods_mid_epoch_resume_exact) ... ok
+test_convex_tail_scale_and_groupdro_inclusion_correction (test_worker_resume.WorkerTests.test_convex_tail_scale_and_groupdro_inclusion_correction) ... ok
+test_corrupt_latest_falls_back_and_keeps_bad_bytes (test_worker_resume.WorkerTests.test_corrupt_latest_falls_back_and_keeps_bad_bytes) ... ok
+test_external_evaluation_failure_resumes_without_optimizer_update (test_worker_resume.WorkerTests.test_external_evaluation_failure_resumes_without_optimizer_update) ... ok
+test_groupdro_prior_inclusion_and_duplicate_aggregation (test_worker_resume.WorkerTests.test_groupdro_prior_inclusion_and_duplicate_aggregation) ... ok
+test_science_change_and_missing_checkpoint_do_not_reset (test_worker_resume.WorkerTests.test_science_change_and_missing_checkpoint_do_not_reset) ... ok
+test_shared_forward_bn_exposure_and_inference_immutability (test_worker_resume.WorkerTests.test_shared_forward_bn_exposure_and_inference_immutability) ... ok
+test_signal_checkpoint_and_cancellation_dominates_requeue (test_worker_resume.WorkerTests.test_signal_checkpoint_and_cancellation_dominates_requeue) ... ok
+test_target_identity_cannot_train_or_select (test_worker_resume.WorkerTests.test_target_identity_cannot_train_or_select) ... ok
+
+----------------------------------------------------------------------
+Ran 82 tests in 3.684s
+
+OK

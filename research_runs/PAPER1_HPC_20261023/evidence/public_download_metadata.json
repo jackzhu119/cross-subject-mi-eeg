@@ -1,0 +1,40 @@
+{
+  "observed_utc": "2026-10-23T10:03:21.436324+00:00",
+  "scope": "Codex network metadata only; does not verify school HPC connectivity or whole-file downloads",
+  "requests": [
+    {
+      "url": "https://bnci-horizon-2020.eu/database/data-sets/001-2014/A01T.mat",
+      "status": 302,
+      "location_present": true,
+      "body_read": false
+    },
+    {
+      "url": "https://ndownloader.figshare.com/files/51001884",
+      "status": 302,
+      "location_present": true,
+      "body_read": false
+    },
+    {
+      "url": "https://data.nemar.org/nm000250/v1.0.5/sourcedata/sub-01/eeg/sub-01_task-R1acquisition_eeg.edf",
+      "status": 200,
+      "content_length": "14805604",
+      "location_present": false,
+      "body_read": false
+    }
+  ],
+  "bnci_redirect": {
+    "source_url": "https://bnci-horizon-2020.eu/database/data-sets/001-2014/A01T.mat",
+    "source_head_status": 302,
+    "official_location": "https://lampx.tugraz.at/~bci/database/001-2014/A01T.mat",
+    "query_present": false,
+    "fragment_present": false,
+    "follow_up_head": {
+      "url": "https://lampx.tugraz.at/~bci/database/001-2014/A01T.mat",
+      "body_read": false,
+      "status": 200,
+      "content_length": "42806453",
+      "location_present": false
+    },
+    "observed_utc": "2026-10-23T10:05:21.796237+00:00"
+  }
+}

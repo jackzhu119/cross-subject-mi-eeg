@@ -1,0 +1,14 @@
+test_new_profile_preserves_all_old_filter_coefficients_and_contract (test_raw_prepare.RawPreparationTests.test_new_profile_preserves_all_old_filter_coefficients_and_contract) ... ok
+test_person_receipts_skip_completed_preprocessing (test_raw_prepare.RawPreparationTests.test_person_receipts_skip_completed_preprocessing) ... {"stage": "offline_raw_preprocessing", "person": "bnci/001", "completed_people": 1, "model_fits": 0, "updated_at_utc": "2026-10-23T10:10:33.226173+00:00"}
+{"stage": "offline_raw_preprocessing", "person": "yang/001", "completed_people": 2, "model_fits": 0, "updated_at_utc": "2026-10-23T10:10:33.226685+00:00"}
+{"stage": "offline_raw_preprocessing", "person": "dreyer/001", "completed_people": 3, "model_fits": 0, "updated_at_utc": "2026-10-23T10:10:33.227009+00:00"}
+{"stage": "offline_raw_preprocessing", "person": "bnci/001", "completed_people": 1, "model_fits": 0, "updated_at_utc": "2026-10-23T10:10:33.229440+00:00"}
+{"stage": "offline_raw_preprocessing", "person": "yang/001", "completed_people": 2, "model_fits": 0, "updated_at_utc": "2026-10-23T10:10:33.229608+00:00"}
+{"stage": "offline_raw_preprocessing", "person": "dreyer/001", "completed_people": 3, "model_fits": 0, "updated_at_utc": "2026-10-23T10:10:33.229740+00:00"}
+ok
+test_synthetic_native_three_rates_forward_shape_scale_and_center (test_raw_prepare.RawPreparationTests.test_synthetic_native_three_rates_forward_shape_scale_and_center) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.057s
+
+OK

@@ -1,0 +1,7296 @@
+{
+  "schema_version": 1,
+  "amendment": "known_labels_only_20261018",
+  "authorized_utc": "2026-10-18T01:53:31Z",
+  "source_marker_report_sha256": "47d922989b9dfc5322c26e6e336ad784f73208ed21f867a4b9dbe193ea4e9a34",
+  "policy": "retain all 51 persons; use only explicit original 1/2; never infer missing labels or onsets",
+  "source_trial_counts_expected": {
+    "S9": 2592,
+    "S29": 14590,
+    "S60": 33183
+  },
+  "sessions": [
+    {
+      "subject": 1,
+      "session": 1,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-001/ses-01/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "b12154047ed2587adb6f04ac9282576f42246f681e7e777a5ede01253420d80a",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 1,
+      "session": 2,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-001/ses-02/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "bde96107208aec97eee0b2f5acb2e3f24114412f0c6fa54bfcc236e280a0184a",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 1,
+      "session": 3,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-001/ses-03/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "6235439fe7ed8e2484cb1b393b4ba562c023717352480eab896c9ab710d03a41",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 2,
+      "session": 1,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-002/ses-01/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "efba179f90b19b399a63f88360ec884bd9ac20596fc725384c71b8b1e14508d3",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 2,
+      "session": 2,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-002/ses-02/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "452be2645a02393b21e77f00574e27041de871e3864fad152edd60c127cb5e7a",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 2,
+      "session": 3,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-002/ses-03/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "2caa1de8e08b2a0f5c8e530023d3e18cd9f3fc92e2e9bbb3128431abb309d7c5",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 3,
+      "session": 1,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-003/ses-01/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "49ef9604b8d51602583ecb654596ed3c37c9c97a4db9ac85a4205dcc48243a87",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 3,
+      "session": 2,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-003/ses-02/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "f1b8c34adffe3bd0787cbf99ca0f54bd1d73ba4750f7699320333d2336192752",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 3,
+      "session": 3,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-003/ses-03/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "8d97e12766e3e7f5250ded9dca87e733b6f3a532b12dbcce46489ea9f14bcc5d",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 4,
+      "session": 1,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-004/ses-01/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "3b9de7bba64586f030803309508086a4031fecf77dce6ae3cb495ebd1fd69e4f",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 4,
+      "session": 2,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-004/ses-02/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "8a008270ad8d192c6b9f45e762914212bd243a97a5d7052c70805bac4d096935",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 4,
+      "session": 3,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-004/ses-03/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "5ac6437546be6679937c64e86cf99051450e18856287d5a6f7e72cd2ff0757a4",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 5,
+      "session": 1,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-005/ses-01/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "8474d11afcca9c52542c5034497aaf0b8c18b2450f4ad1228a48821171139124",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 5,
+      "session": 2,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-005/ses-02/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "2d8d8eb33aca5205918ab5160f58bf0d8163bb596208031e16dcc3da3bf1b1a8",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 5,
+      "session": 3,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-005/ses-03/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "5993ff91d134f494e90402a2d280fda9565555563a45ed460fcd341e45bfee1b",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 6,
+      "session": 1,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-006/ses-01/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "87943f613373179cf3629116618cdfff6c1d584e4451bf1cbedb573f98f0f516",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 6,
+      "session": 2,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-006/ses-02/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "86d988ad14072f451121cfad3abe998e8545a80ded5edbdbfeec6cc214991985",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 6,
+      "session": 3,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-006/ses-03/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "f8c2b767b2024c287e3f1289a1131ec0acdd11ea0600f3c911445f9bddd08d97",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 7,
+      "session": 1,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-007/ses-01/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "d47b017bf66d9bdc5a16826934d4be26b65ca2ed2ce7566446e7dfb9e4280f5c",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 7,
+      "session": 2,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-007/ses-02/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "0dac8c8ed380b3239d8cad965ad63b3c70f8e1e52adc93c15e7164deeb824e8f",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 7,
+      "session": 3,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-007/ses-03/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "5163831024acc623f2102381b27929c1813d3011302cefb9d2424572651f83f9",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 8,
+      "session": 1,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-008/ses-01/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "ce042caf5e7447fd73c70644299ea9502ffc56705ac7f96a1d58ef41c26df776",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 8,
+      "session": 2,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-008/ses-02/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "876198c8bdf4f1848d59b7de24010ba7b9658649b6744249f9b310ac09e55a1a",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 8,
+      "session": 3,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-008/ses-03/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "e2ec8be11c427df02cbec55aeb0d06554de79afa0d3c6f61c967e1c4d8aed6a5",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 9,
+      "session": 1,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-009/ses-01/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "2636102b98dcc41f2e70a0e7e13af59db8b562226772fe8b1f77c64ffa5bcf43",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 9,
+      "session": 2,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-009/ses-02/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "f7226cdb4d46c7e69ebc2325f113aad0574f39482765bb4f2dc7680d0f52b2fa",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 9,
+      "session": 3,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-009/ses-03/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "ddd7bbe3b4c3c414e3321805c38ff02b753707c4232e4db8c944c38ae88bbb98",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 10,
+      "session": 1,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-010/ses-01/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "2063e94b883ef5fbae484430006c8afd3751f8819fa8ee983acc311380e132cb",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 10,
+      "session": 2,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-010/ses-02/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "787396b284619256f34e8a0605d72fb9fb36dd153f39181cd23a5697be072737",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 10,
+      "session": 3,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-010/ses-03/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "e2df26be88158b60fd2d9f77cff467ca68d00c191a98fd17c06f4fb706970f58",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 11,
+      "session": 1,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-011/ses-01/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "0f7d3e00723ac239f49fde76dd73810291817b40312acd5332fd2975a6fe0304",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 11,
+      "session": 2,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-011/ses-02/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "d9aa6528fad07f1489e9ff729f89555dd3bb9b277ad83b7fe3f99192092828e8",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 11,
+      "session": 3,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-011/ses-03/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "d86c44fed69380a9b7d09f637aa0261675cdb1944ad27825b06807797f48f4b2",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 12,
+      "session": 1,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-012/ses-01/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "9d9aee41b231018619a6675be2cfc3aec6e1130ffa817eef2f0639ce6b303bda",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 12,
+      "session": 2,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-012/ses-02/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "6fda75408e7a7553abab4e16453e9e59743e989164503cb7d1947b0120b02a79",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 12,
+      "session": 3,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-012/ses-03/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "815c478b337f1884c68a5e344b09e87fed2586c01f04fc0fc2af7ba20d135d14",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 13,
+      "session": 1,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-013/ses-01/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "dc941de0c7bb7516976657327e8e0f05ababda5ad50e3167dde392bca9220ef4",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 13,
+      "session": 2,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-013/ses-02/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "ccbda22da439bb2c62cbcd65ca7da1a2488b7e71ea62077cc7ac7c165dffa858",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 13,
+      "session": 3,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-013/ses-03/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "bed6ffd70a6ad7aa880abfd5099743c977a49edeb6f2fbea62f205cd3f706311",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 14,
+      "session": 1,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-014/ses-01/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "018b2245d2720ea51a6a2f549eaa3f27a4d8bf98bb665f9e8803ee48db0ff933",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 14,
+      "session": 2,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-014/ses-02/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "ccf6e2c8947fd6d5a77631717ac93c5f3ac4093e1729eddc4c3ad7774f3cdf7f",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 14,
+      "session": 3,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-014/ses-03/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "94bb1deb124fcb5f0a96c41303cab9eb9a520958def1fc0fbc73f41cdcda4ffa",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 15,
+      "session": 1,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-015/ses-01/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "3a43abce926d5503291f6e1fcf53251e5d567bc3311afe32b80cd0c0419c22f0",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 15,
+      "session": 2,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-015/ses-02/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "258e591f8a1a253f0cbcf1442ee3502b2115ffe86cb4943255f040d9cf8f4387",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 15,
+      "session": 3,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-015/ses-03/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "c07ca53d8fc8c4225d7a036176a3b78b8262b697a13f04a6e09c1954d558878d",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 16,
+      "session": 1,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-016/ses-01/eeg/evt.bdf",
+      "bytes": 63489,
+      "sha256": "1ac6f3eb055a794b33ac1c98b0b880b718cc5f8848e24310234eeecdb661e62c",
+      "all_marker_counts": {
+        "7": 2,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 16,
+      "session": 2,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-016/ses-02/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "49a4e1c8fd0187aba51795a975dc90c8f77d86bc2b45fab7c4ee4bad439ad62e",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 16,
+      "session": 3,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-016/ses-03/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "5bb546d33117d359799690fef8ecea5045d826ef69c593cccecf47a5d0a56bcf",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 17,
+      "session": 1,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-017/ses-01/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "be0e88958d819dbef1f4b66a37827aac25d9b5c74d501b503014c83eca2ff64f",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 17,
+      "session": 2,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-017/ses-02/eeg/evt.bdf",
+      "bytes": 63489,
+      "sha256": "9716b4c0fe8a1a3c9d0ce103150dae1de8840ecd83e87f035df425b13161ced8",
+      "all_marker_counts": {
+        "7": 1,
+        "255": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 17,
+      "session": 3,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-017/ses-03/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "50fc02475b8fe79112fe3f4b239725360db8c438d9f109d62c3d833c86cddd51",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 18,
+      "session": 1,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-018/ses-01/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "093b2f3a238fc151fcfd0bb131178fd3c0b529a6c80b3fdfa70bdd83fa7176c5",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 18,
+      "session": 2,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-018/ses-02/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "b41bb094b66e02a1e390af3042cdef50ec3f480f679a4167a0b6b89ba2cd9d81",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 18,
+      "session": 3,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-018/ses-03/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "94cfae4b0875840d633f5732d45e19510c5173ce70e25d4061797ad10ba7c044",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 19,
+      "session": 1,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-019/ses-01/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "3b933bed18acf52502264740bc93a86e7111eefa47e6bf92f0a25971aa18afd5",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 19,
+      "session": 2,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-019/ses-02/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "039cc6cdbef7cbd998a10806ef668da9fc3a34509977d154c8ad98c05e15a2d6",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 19,
+      "session": 3,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-019/ses-03/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "320d0aebcd699682db1d4d5cb71b9aa1575a4e24efbef2e5cc1bbe924a79143a",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 20,
+      "session": 1,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-020/ses-01/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "e807398e8155575d93648515fb66c43a7294cd61b2f83fbac9d62f1bb4e6b03a",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 20,
+      "session": 2,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-020/ses-02/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "ced8fbd1073193fba2ef5866c298f42bf5d971db5894b4782c9a0c0bba0823c2",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 20,
+      "session": 3,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-020/ses-03/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "d92d59b2299370bc01499040b474b1dfb07999e42542250c9782698f24453fcb",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 21,
+      "session": 1,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-021/ses-01/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "2d487d62d3293e5048462b9971942e95c1c36e70ed4be03cf42eb41304a6613c",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 21,
+      "session": 2,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-021/ses-02/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "27d75adfc95abb698f381167f3cbd4ea92ed6ede21830f67c2f5391b02e19942",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 21,
+      "session": 3,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-021/ses-03/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "e18a4f901ac6225a70bcc969cdbabaec05cfa1dd81f9487821d26a3830927f41",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 22,
+      "session": 1,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-022/ses-01/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "868aeb6e0759b397d70ef30e13a8a9cb359e42d47abacf73b90ce2721c0b9c0a",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 22,
+      "session": 2,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-022/ses-02/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "2d813c6a9823102676e190e4d231ed7799cf8a6f82917f0be18e8947078b4a4e",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 22,
+      "session": 3,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-022/ses-03/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "226a83c7b0f8b336db9fcbe18d07e68cdeace33f45f384c72657a025658b7efa",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 23,
+      "session": 1,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-023/ses-01/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "6b14c599b5d457ed9b39e00f919fd41dd3953630ff21f26b7fc86c2dcbbd7078",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 99,
+        "2": 100,
+        "255": 1,
+        "9": 4
+      },
+      "all_events": [
+        {
+          "onset": 70.546,
+          "duration": 0.0,
+          "description": "7"
+        },
+        {
+          "onset": 135.642,
+          "duration": 0.0,
+          "description": "8"
+        },
+        {
+          "onset": 201.538,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 209.538,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 217.538,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 225.537,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 233.537,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 241.537,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 249.537,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 257.535,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 265.535,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 273.535,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 281.534,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 289.534,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 297.534,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 305.533,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 313.533,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 321.532,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 329.532,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 337.532,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 345.531,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 353.531,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 361.53,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 369.53,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 377.53,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 385.529,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 393.529,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 401.529,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 409.528,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 417.528,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 425.526,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 433.526,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 441.527,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 449.526,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 457.526,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 465.525,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 473.524,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 481.524,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 489.525,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 497.524,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 504.491,
+          "duration": 0.0,
+          "description": "255"
+        },
+        {
+          "onset": 513.523,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 521.522,
+          "duration": 0.0,
+          "description": "9"
+        },
+        {
+          "onset": 613.651,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 621.651,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 629.65,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 637.649,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 645.649,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 653.649,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 661.649,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 669.648,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 677.648,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 685.648,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 693.646,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 701.646,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 709.647,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 717.646,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 725.645,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 733.644,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 741.644,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 749.644,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 757.643,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 765.643,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 773.643,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 781.642,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 789.642,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 797.641,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 805.641,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 813.641,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 821.64,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 829.64,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 837.64,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 845.639,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 853.638,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 861.639,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 869.638,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 877.638,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 885.637,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 893.636,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 901.637,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 909.636,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 917.636,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 925.636,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 933.634,
+          "duration": 0.0,
+          "description": "9"
+        },
+        {
+          "onset": 1028.063,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1036.063,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1044.062,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1052.062,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1060.062,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1068.06,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1076.06,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1084.06,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1092.059,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1100.059,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1108.059,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1116.058,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1124.059,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1132.058,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1140.057,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1148.057,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1156.056,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1164.056,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1172.056,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1180.055,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1188.055,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1196.055,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1204.054,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1212.053,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1220.053,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1228.053,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1236.052,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1244.051,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1252.051,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1260.051,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1268.05,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1276.05,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1284.05,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1292.049,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1300.049,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1308.049,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1316.048,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1324.047,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1332.048,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1340.047,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1348.047,
+          "duration": 0.0,
+          "description": "9"
+        },
+        {
+          "onset": 1447.541,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1455.541,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1463.541,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1471.54,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1479.539,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1487.538,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1495.538,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1503.539,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1511.538,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1519.537,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1527.537,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1535.536,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1543.536,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1551.537,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1559.536,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1567.535,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1575.535,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1583.534,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1591.534,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1599.533,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1607.533,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1615.533,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1623.532,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1631.532,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1639.532,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1647.53,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1655.531,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1663.53,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1671.529,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1679.529,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1687.528,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1695.528,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1703.529,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1711.528,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1719.527,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1727.527,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1735.526,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1743.526,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1751.526,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1759.525,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1767.525,
+          "duration": 0.0,
+          "description": "9"
+        },
+        {
+          "onset": 1861.771,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1869.77,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1877.769,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1885.768,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1893.768,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1901.769,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1909.767,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1917.767,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1925.767,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1933.766,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1941.766,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1949.766,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1957.765,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1965.765,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1973.765,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1981.764,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1989.763,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1997.762,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2005.762,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2013.762,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2021.761,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2029.761,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2037.761,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2045.76,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2053.76,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2061.76,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2069.759,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2077.759,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2085.758,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2093.758,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2101.758,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2109.757,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2117.757,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2125.757,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2133.756,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2141.756,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2149.756,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2157.755,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2165.754,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2173.753,
+          "duration": 0.0,
+          "description": "2"
+        }
+      ]
+    },
+    {
+      "subject": 23,
+      "session": 2,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-023/ses-02/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "84304a6f7396f964652265ab214f97752add584089b86307d7d526919459d744",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 23,
+      "session": 3,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-023/ses-03/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "ed1fda3b553e9fb7c0d7346d34cff4a5ef07fd890b18321afc9f4ecc039f2cd9",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 24,
+      "session": 1,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-024/ses-01/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "29d0c3299efb9a50e97ef65d785a51d842c0eb225a477f3cb00b71b3fc138f64",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 24,
+      "session": 2,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-024/ses-02/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "8584ad3788ab0f630e904b9c03f6964a0c099892b74efa37b8e4d50e610908d3",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 99,
+        "255": 1,
+        "9": 4
+      },
+      "all_events": [
+        {
+          "onset": 128.961,
+          "duration": 0.0,
+          "description": "7"
+        },
+        {
+          "onset": 193.041,
+          "duration": 0.0,
+          "description": "8"
+        },
+        {
+          "onset": 259.255,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 267.254,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 275.254,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 283.253,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 291.253,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 299.253,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 307.252,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 315.251,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 323.251,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 331.251,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 339.251,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 347.25,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 355.25,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 363.249,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 371.248,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 379.248,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 387.248,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 395.247,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 403.247,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 411.246,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 419.246,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 427.246,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 435.245,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 443.244,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 451.245,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 459.244,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 467.244,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 475.243,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 483.243,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 491.243,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 499.241,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 507.241,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 513.518,
+          "duration": 0.0,
+          "description": "255"
+        },
+        {
+          "onset": 523.24,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 531.24,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 539.24,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 547.239,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 555.239,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 563.237,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 571.237,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 579.237,
+          "duration": 0.0,
+          "description": "9"
+        },
+        {
+          "onset": 676.999,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 684.998,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 692.998,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 700.998,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 708.996,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 716.997,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 724.996,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 732.996,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 740.996,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 748.994,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 756.995,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 764.995,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 772.993,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 780.993,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 788.993,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 796.992,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 804.992,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 812.991,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 820.991,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 828.99,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 836.99,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 844.99,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 852.99,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 860.989,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 868.988,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 876.988,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 884.987,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 892.987,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 900.987,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 908.986,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 916.986,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 924.985,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 932.985,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 940.983,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 948.983,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 956.983,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 964.983,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 972.983,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 980.983,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 988.981,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 996.981,
+          "duration": 0.0,
+          "description": "9"
+        },
+        {
+          "onset": 1090.043,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1098.043,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1106.043,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1114.041,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1122.041,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1130.04,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1138.04,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1146.04,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1154.04,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1162.039,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1170.038,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1178.038,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1186.038,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1194.036,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1202.037,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1210.037,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1218.036,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1226.036,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1234.036,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1242.035,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1250.035,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1258.033,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1266.033,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1274.034,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1282.033,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1290.033,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1298.032,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1306.031,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1314.031,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1322.03,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1330.03,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1338.03,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1346.029,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1354.029,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1362.029,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1370.028,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1378.027,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1386.027,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1394.026,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1402.026,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1410.025,
+          "duration": 0.0,
+          "description": "9"
+        },
+        {
+          "onset": 1501.171,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1509.17,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1517.17,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1525.17,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1533.17,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1541.168,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1549.168,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1557.168,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1565.167,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1573.167,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1581.166,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1589.166,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1597.165,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1605.164,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1613.165,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1621.164,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1629.164,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1637.164,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1645.163,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1653.162,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1661.162,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1669.162,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1677.161,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1685.161,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1693.16,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1701.16,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1709.159,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1717.158,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1725.159,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1733.159,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1741.157,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1749.157,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1757.157,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1765.156,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1773.156,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1781.156,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1789.156,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1797.155,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1805.154,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1813.154,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1821.154,
+          "duration": 0.0,
+          "description": "9"
+        },
+        {
+          "onset": 1913.298,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1921.298,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1929.298,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1937.297,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1945.296,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1953.295,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1961.295,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1969.295,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1977.295,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1985.294,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1993.294,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2001.293,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2009.293,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2017.293,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2025.292,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2033.292,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2041.292,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2049.291,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2057.29,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2065.289,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2073.289,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2081.29,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2089.288,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2097.288,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2105.288,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2113.287,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2121.287,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2129.285,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2137.286,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2145.286,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2153.285,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2161.285,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2169.284,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2177.284,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2185.283,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2193.283,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2201.282,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2209.282,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2217.281,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2225.281,
+          "duration": 0.0,
+          "description": "1"
+        }
+      ]
+    },
+    {
+      "subject": 24,
+      "session": 3,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-024/ses-03/eeg/evt.bdf",
+      "bytes": 61671,
+      "sha256": "d4fb48fd0583d75307ff34aa7b722a5cdccadf274fb95a9fc98f84849ee90888",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 99,
+        "2": 96,
+        "9": 4
+      },
+      "all_events": [
+        {
+          "onset": 105.161,
+          "duration": 0.0,
+          "description": "7"
+        },
+        {
+          "onset": 173.874,
+          "duration": 0.0,
+          "description": "8"
+        },
+        {
+          "onset": 240.021,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 248.02,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 256.021,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 264.019,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 272.019,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 280.018,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 288.018,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 296.018,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 304.017,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 312.017,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 320.017,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 328.016,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 336.016,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 344.014,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 352.014,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 360.014,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 368.013,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 376.014,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 384.013,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 392.012,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 400.012,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 408.011,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 416.011,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 424.01,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 432.009,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 440.009,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 448.01,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 456.009,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 464.008,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 472.007,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 480.007,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 488.007,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 496.006,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 504.007,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 512.006,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 520.005,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 528.005,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 536.004,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 544.004,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 552.004,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 560.002,
+          "duration": 0.0,
+          "description": "9"
+        },
+        {
+          "onset": 656.564,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 664.564,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 672.563,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 680.563,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 688.562,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 696.563,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 704.562,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 712.562,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 720.561,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 728.56,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 736.56,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 744.559,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 752.559,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 760.559,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 768.558,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 776.558,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 784.557,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 792.557,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 800.557,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 808.555,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 816.555,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 824.555,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 832.555,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 840.555,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 848.553,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 856.553,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 864.553,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 872.552,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 880.552,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 888.552,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 896.551,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 904.551,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 912.55,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 920.549,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 928.549,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 936.548,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 944.548,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 952.548,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 960.547,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 968.547,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 976.546,
+          "duration": 0.0,
+          "description": "9"
+        },
+        {
+          "onset": 1068.158,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1076.157,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1084.157,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1092.157,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1100.156,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1108.156,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1116.156,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1124.155,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1132.155,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1140.154,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1148.154,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1156.153,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1164.152,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1172.152,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1180.151,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1188.151,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1196.151,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1204.15,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1212.15,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1220.15,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1228.149,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1236.149,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1244.149,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1252.148,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1260.148,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1268.147,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1276.146,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1284.147,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1292.146,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1300.146,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1308.144,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1316.144,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1324.144,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1332.143,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1340.143,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1348.143,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1356.142,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1364.142,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1372.141,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1380.141,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1388.141,
+          "duration": 0.0,
+          "description": "9"
+        },
+        {
+          "onset": 1505.966,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1513.966,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1521.966,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1529.965,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1537.965,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1545.965,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1553.964,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1561.964,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1569.962,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1577.963,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1585.963,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1593.961,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1601.961,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1609.961,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1617.96,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1625.96,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1633.959,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1641.959,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1649.959,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1657.958,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1665.958,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1673.958,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1681.957,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1689.957,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1697.956,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1721.954,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1729.954,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1737.954,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1745.953,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1753.953,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1761.952,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1769.952,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1777.952,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1785.951,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1793.95,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1801.95,
+          "duration": 0.0,
+          "description": "9"
+        },
+        {
+          "onset": 1893.894,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1901.894,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1909.894,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1917.894,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1925.894,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1933.893,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1941.893,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1949.893,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1957.892,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1965.892,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1973.89,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1981.89,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1989.89,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1997.889,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2005.888,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2013.888,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2021.887,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2029.887,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2037.887,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2045.887,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2053.887,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2061.885,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2069.885,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2077.885,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2085.884,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2093.884,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2101.884,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2109.883,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2117.883,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2125.881,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2133.881,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2141.881,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2149.88,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2157.88,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2165.879,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2173.879,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2181.878,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2189.877,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2197.878,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2205.878,
+          "duration": 0.0,
+          "description": "1"
+        }
+      ]
+    },
+    {
+      "subject": 25,
+      "session": 1,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-025/ses-01/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "ab5c03318fe989498411182230daf04aa2021dba65e68ee78ff51f6a24d17c09",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 25,
+      "session": 2,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-025/ses-02/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "8f7ec03a7016732b87719b049374f382bc780ea17b833e29b5352479a853fc7a",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 25,
+      "session": 3,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-025/ses-03/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "28fd12f2db2c83ddbdfeb0ff853b15bb731094ea94955028708401fcd0b02250",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 26,
+      "session": 1,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-026/ses-01/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "887004db8416f9ae7c6ccca61b3ffa1d784411bf5b2a82da5c3506f65b2e8a1f",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 99,
+        "2": 100,
+        "255": 1,
+        "9": 4
+      },
+      "all_events": [
+        {
+          "onset": 70.907,
+          "duration": 0.0,
+          "description": "7"
+        },
+        {
+          "onset": 138.489,
+          "duration": 0.0,
+          "description": "8"
+        },
+        {
+          "onset": 205.301,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 213.3,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 221.3,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 229.299,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 237.299,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 245.3,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 253.299,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 261.299,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 269.297,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 277.297,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 285.298,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 293.296,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 300.795,
+          "duration": 0.0,
+          "description": "255"
+        },
+        {
+          "onset": 309.297,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 317.295,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 325.295,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 333.295,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 341.294,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 349.294,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 357.293,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 365.293,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 373.293,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 381.292,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 389.292,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 397.292,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 405.29,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 413.29,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 421.291,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 429.289,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 437.29,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 445.29,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 453.289,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 461.288,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 469.288,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 477.287,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 485.287,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 493.286,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 501.286,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 509.286,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 517.285,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 525.285,
+          "duration": 0.0,
+          "description": "9"
+        },
+        {
+          "onset": 619.93,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 627.93,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 635.929,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 643.929,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 651.928,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 659.928,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 667.928,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 675.927,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 683.926,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 691.927,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 699.926,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 707.926,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 715.926,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 723.924,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 731.924,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 739.924,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 747.923,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 755.923,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 763.922,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 771.922,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 779.922,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 787.921,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 795.921,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 803.921,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 811.92,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 819.92,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 827.92,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 835.919,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 843.918,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 851.919,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 859.918,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 867.918,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 875.916,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 883.917,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 891.916,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 899.915,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 907.915,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 915.915,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 923.914,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 931.914,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 939.914,
+          "duration": 0.0,
+          "description": "9"
+        },
+        {
+          "onset": 1033.692,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1041.691,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1049.691,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1057.691,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1065.69,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1073.69,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1081.69,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1089.689,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1097.688,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1105.688,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1113.688,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1121.687,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1129.686,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1137.687,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1145.686,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1153.685,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1161.685,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1169.685,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1177.684,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1185.684,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1193.684,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1201.683,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1209.683,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1217.682,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1225.682,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1233.682,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1241.681,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1249.68,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1257.68,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1265.679,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1273.68,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1281.679,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1289.678,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1297.678,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1305.678,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1313.677,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1321.676,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1329.677,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1337.675,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1345.675,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1353.675,
+          "duration": 0.0,
+          "description": "9"
+        },
+        {
+          "onset": 1452.203,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1460.203,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1468.203,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1476.202,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1484.201,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1492.202,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1500.201,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1508.201,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1516.201,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1524.199,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1532.199,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1540.198,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1548.198,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1556.198,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1564.197,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1572.197,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1580.197,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1588.196,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1596.196,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1604.195,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1612.194,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1620.194,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1628.194,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1636.193,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1644.193,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1652.193,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1660.193,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1668.192,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1676.191,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1684.192,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1692.191,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1700.19,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1708.19,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1716.19,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1724.189,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1732.189,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1740.188,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1748.188,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1756.187,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1764.187,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1772.187,
+          "duration": 0.0,
+          "description": "9"
+        },
+        {
+          "onset": 1867.932,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1875.931,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1883.931,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1891.931,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1899.929,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1907.93,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1915.929,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1923.928,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1931.929,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1939.928,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1947.927,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1955.927,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1963.926,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1971.926,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1979.925,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1987.925,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1995.925,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2003.925,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2011.924,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2019.923,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2027.922,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2035.922,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2043.923,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2051.921,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2059.921,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2067.921,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2075.92,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2083.92,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2091.92,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2099.919,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2107.919,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2115.919,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2123.918,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2131.917,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2139.917,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2147.917,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2155.917,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2163.915,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2171.916,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2179.915,
+          "duration": 0.0,
+          "description": "2"
+        }
+      ]
+    },
+    {
+      "subject": 26,
+      "session": 2,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-026/ses-02/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "2bd52a899aba63ff640918f6a407c8308fac29660d2067c42b4a708e9dbabeef",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 26,
+      "session": 3,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-026/ses-03/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "f0b6da633e6b7efe71440b22617e3b633610256b4d474f344de3ec6b43895422",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 27,
+      "session": 1,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-027/ses-01/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "a04557b2160e3fdf4684a633dfb602b159a7b2fbdecae106f6ccddd9db75c862",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 27,
+      "session": 2,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-027/ses-02/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "184699e9855840092134e38955230cec564413356e632b81ee65af29b06ed8d7",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 27,
+      "session": 3,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-027/ses-03/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "afd07b79e6c5d34926ce917ec7ea76137356df868a9a68944c5d64973dd6d325",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 28,
+      "session": 1,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-028/ses-01/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "b7ccdf119d931e2fe7774e56b7d3469e2cb3e6e2944936c5949703008d7616cd",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 28,
+      "session": 2,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-028/ses-02/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "b00ce9a6e8b6b8ca2a1cf236803be7882abbbb65b3491f5bfeebb9883bf58f00",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 28,
+      "session": 3,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-028/ses-03/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "704743fec9f798c34f7a2b9f4f9794098ad8b43552784c2bba6a928fcf8cc81f",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 29,
+      "session": 1,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-029/ses-01/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "07c29a80091065fbe37c76066875bafb535a9cc055b776660d960d3c109d5538",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 29,
+      "session": 2,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-029/ses-02/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "a9d04a57fba93372e3d1143a5b5dd0bb3696e00909c94a13b1fd5a2cf37e4c28",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 29,
+      "session": 3,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-029/ses-03/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "5e9a08c968f38e3474cdd88ebfcbc886d5db6da5c3f15a38581e33854b06c499",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 30,
+      "session": 1,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-030/ses-01/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "d178a698164ee355aeed3044bbde525c218104acdc28f45a5d70892c93f53d33",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 30,
+      "session": 2,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-030/ses-02/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "c33884fec943e1c1b2f78aefe8ac16565460d4aad047bb5240dd39b621d9306f",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 30,
+      "session": 3,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-030/ses-03/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "93580ee06690aa02029634280766851d943f85f32cc35043604e359d9e014b25",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 31,
+      "session": 1,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-031/ses-01/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "e0ea71d04f3f498464b3edf300e2178b93619a0554d3105bdff188c942ceed18",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 31,
+      "session": 2,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-031/ses-02/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "b9a417681eb80e5443c50134af4524c8589400e027a00b9bb5c35aa66da97e60",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 31,
+      "session": 3,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-031/ses-03/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "62b0ab3a324ca983ae267b801e4a3a2c78ec9cadaa2de8d8c0c42e1c6c934ae8",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 32,
+      "session": 1,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-032/ses-01/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "a3f8e19341a2b401b41ebf40f105feef208491a3681a711ad33ee20c0f79dd34",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 32,
+      "session": 2,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-032/ses-02/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "140b1760185df25cd4e1edda06b201d7c12719ffc6872275720040e2706167ac",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 99,
+        "9": 4,
+        "255": 1
+      },
+      "all_events": [
+        {
+          "onset": 104.209,
+          "duration": 0.0,
+          "description": "7"
+        },
+        {
+          "onset": 171.338,
+          "duration": 0.0,
+          "description": "8"
+        },
+        {
+          "onset": 236.486,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 244.485,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 252.485,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 260.484,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 268.484,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 276.484,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 284.483,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 292.483,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 300.482,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 308.482,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 316.482,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 324.481,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 332.481,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 340.481,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 348.48,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 356.48,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 364.48,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 372.479,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 380.478,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 388.478,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 396.477,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 404.478,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 412.478,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 420.477,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 428.476,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 436.476,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 444.475,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 452.476,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 460.475,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 468.475,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 476.474,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 484.473,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 492.474,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 500.474,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 508.472,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 516.473,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 524.471,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 532.471,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 540.471,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 548.469,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 556.47,
+          "duration": 0.0,
+          "description": "9"
+        },
+        {
+          "onset": 658.348,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 666.347,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 674.348,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 682.348,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 690.347,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 698.346,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 706.346,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 714.345,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 722.345,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 730.345,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 738.344,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 746.344,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 754.344,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 762.343,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 770.343,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 778.341,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 786.342,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 794.342,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 802.34,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 810.34,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 818.34,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 826.34,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 834.34,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 842.339,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 850.338,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 858.338,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 866.338,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 874.337,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 882.337,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 890.336,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 898.336,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 906.336,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 914.335,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 922.334,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 930.335,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 938.334,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 946.334,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 954.334,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 962.333,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 970.333,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 978.333,
+          "duration": 0.0,
+          "description": "9"
+        },
+        {
+          "onset": 1073.694,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1081.694,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1089.046,
+          "duration": 0.0,
+          "description": "255"
+        },
+        {
+          "onset": 1097.693,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1105.691,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1113.691,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1121.691,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1129.69,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1137.69,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1145.691,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1153.69,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1161.69,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1169.69,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1177.688,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1185.688,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1193.688,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1201.687,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1209.687,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1217.686,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1225.686,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1233.685,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1241.684,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1249.685,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1257.685,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1265.683,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1273.684,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1281.684,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1289.682,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1297.682,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1305.683,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1313.681,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1321.681,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1329.68,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1337.68,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1345.68,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1353.679,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1361.679,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1369.679,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1377.678,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1385.677,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1393.677,
+          "duration": 0.0,
+          "description": "9"
+        },
+        {
+          "onset": 1489.389,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1497.389,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1505.388,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1513.388,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1521.388,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1529.387,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1537.387,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1545.386,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1553.386,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1561.386,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1569.385,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1577.384,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1585.384,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1593.384,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1601.383,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1609.383,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1617.382,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1625.382,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1633.382,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1641.381,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1649.38,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1657.379,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1665.38,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1673.379,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1681.379,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1689.378,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1697.378,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1705.378,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1713.377,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1721.377,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1729.377,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1737.377,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1745.376,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1753.375,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1761.375,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1769.374,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1777.374,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1785.373,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1793.373,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1801.373,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1809.373,
+          "duration": 0.0,
+          "description": "9"
+        },
+        {
+          "onset": 1913.35,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1921.35,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1929.35,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1937.349,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1945.348,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1953.349,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1961.348,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1969.347,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 1977.347,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1985.347,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 1993.346,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2001.346,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2009.345,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2017.345,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2025.344,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2033.344,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2041.344,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2049.343,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2057.343,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2065.342,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2073.341,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2081.341,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2089.342,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2097.341,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2105.34,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2113.34,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2121.339,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2129.339,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2137.339,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2145.337,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2153.337,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2161.337,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2169.336,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2177.336,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2185.335,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2193.335,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2201.335,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2209.334,
+          "duration": 0.0,
+          "description": "1"
+        },
+        {
+          "onset": 2217.335,
+          "duration": 0.0,
+          "description": "2"
+        },
+        {
+          "onset": 2225.335,
+          "duration": 0.0,
+          "description": "1"
+        }
+      ]
+    },
+    {
+      "subject": 32,
+      "session": 3,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-032/ses-03/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "50bbf83aa51f62e02114d7ab286ab4b5f1894dead885fc27ad7375f3ef4bc410",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 33,
+      "session": 1,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-033/ses-01/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "80bf90f0f5b3eecbb3d56a000dd62ab0eec4a47f84bf05439e773f54be4f0d3e",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 33,
+      "session": 2,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-033/ses-02/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "c1c9baba7a6f514bc0fe1dce11ea62b7151ee150030c7cbb6cba46a5e4889df0",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 33,
+      "session": 3,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-033/ses-03/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "8105e35300f556c0c68e4bf373c843eff1edfd81aedb32926dcd51dcc6b5c79c",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 34,
+      "session": 1,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-034/ses-01/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "0833f7a409db0c04b63461a74627b6c13eed55e0e7f81336c1f960beb33a0aa9",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 34,
+      "session": 2,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-034/ses-02/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "cbcd0becced2a275a3fd8c30d7bd7bb4c034b1b4e11b0a097e01fad9b1b6c2fa",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 34,
+      "session": 3,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-034/ses-03/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "c4fd5c4d80b4a8d58374cba05810f241d780e4ca096549525467c133517db172",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 35,
+      "session": 1,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-035/ses-01/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "afec1fd813fa2791841c1a2cd1221483221887650eb3b319a15893c99e41b99f",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 35,
+      "session": 2,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-035/ses-02/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "6388ef30b1f940411a9d39d6cf0955b4db4511f1accaea8b33b6cfe72734bc82",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 35,
+      "session": 3,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-035/ses-03/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "24ca70eb71e49c54f7579ae47b32555227b67c42c1e0ab33d6e430049ed2f00e",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 36,
+      "session": 1,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-036/ses-01/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "90c79570472fab4915820dc64c3a9f1de8dc93bee75d2e3790c9ddeb25fe9106",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 36,
+      "session": 2,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-036/ses-02/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "9be66d7070fee2793e2b3e3651ca4512099c6a739b86127ff8e0d624a3a44e5c",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 36,
+      "session": 3,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-036/ses-03/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "446814ae232aff004cf5b900c2deaea327c71d576a7b9c81bafd2aa490df753c",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 37,
+      "session": 1,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-037/ses-01/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "8d1b362e2af877dfac3f2db579a3868030b293e26c06c991ef4e6146568023ca",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 37,
+      "session": 2,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-037/ses-02/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "deaa3710d02819f798d86c7d9df33baa2e1ec521ee14cc34a841a7ad945b3d9b",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 37,
+      "session": 3,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-037/ses-03/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "c01b43e5027f3a849615631c94e96317fabacbbd52f4545b337e4f9209ffaeee",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 38,
+      "session": 1,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-038/ses-01/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "3ae48f7b8306eede829969f69f737019baa440315a9695f61e79ab97fcdb795c",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 38,
+      "session": 2,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-038/ses-02/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "5afb3e90edb2b8cdc5135f98b694b649672eb54792f2415c7160e1b33dacc84e",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 38,
+      "session": 3,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-038/ses-03/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "20aa570c54be0fe21ec2914bc03d5ac6c3ebed8165d14c66324bf9bd9482d95b",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 39,
+      "session": 1,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-039/ses-01/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "2b69803af21d52e0efa93e7af155afbd6e3ae88f460ce147c30e75c6d8dfd66f",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 39,
+      "session": 2,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-039/ses-02/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "40c30a4fd92b6aafeb2286f1f308b7240c4b6f5bf37078b9ce5304cce1639fb4",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 39,
+      "session": 3,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-039/ses-03/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "e0128aa34c563f783e5757e4986b858b876039d0629533ae3bcb196fd76412de",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 40,
+      "session": 1,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-040/ses-01/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "63053eac9525af803d7bb65fbcf58619b1a226564eeb2caaf3737b9aced394bd",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 40,
+      "session": 2,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-040/ses-02/eeg/evt.bdf",
+      "bytes": 63489,
+      "sha256": "43dfee2f46201921493d5db84ec9e2724f1bdc7d11e3586e2756cd408fed3e29",
+      "all_marker_counts": {
+        "7": 2,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 40,
+      "session": 3,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-040/ses-03/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "87c23cc210e8fa4660879d2ebb7bdb74de18de7d41bb5886d9983dc258452870",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 41,
+      "session": 1,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-041/ses-01/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "961dda6ddbd0e09208c86aa9e36e3665fbe46d95b6c85eec58d4a40f25d88c4f",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 41,
+      "session": 2,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-041/ses-02/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "4aca111f8c4a36fec71a5396c9207af795b05fffc6b1d74ed8ff32508db95ff9",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 41,
+      "session": 3,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-041/ses-03/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "12db1e8548bbcea03133c133e145d4755bc1578851819c26f6956c6443547b41",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 42,
+      "session": 1,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-042/ses-01/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "cd3c5840a539b80c663d01dbc6cb0bfc61920a6757d52977c7816f5b8c334543",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 42,
+      "session": 2,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-042/ses-02/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "3380447e8b1592457d1c3808158aab61863a29102acffafb327761f3044861e2",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 42,
+      "session": 3,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-042/ses-03/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "db55efb2ce45eeec055c8e9687b6d033721d4aa7d59c37877329c79fdf4330eb",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 43,
+      "session": 1,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-043/ses-01/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "9940ac8053ae68de8f1b8dd12b989a67fcd94d25bc08625dd42ffc6a4eaa6bec",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 43,
+      "session": 2,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-043/ses-02/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "2bed3d31315986d8f7a35e937d1cea888eba7258ea7c8ea1e4a0184dcb3c66bd",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 43,
+      "session": 3,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-043/ses-03/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "d28862caf1a3824a4fa812cc27b3ff6579bab8ebd61efa712f4a8713044df0a1",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 44,
+      "session": 1,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-044/ses-01/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "71fe0fcdcb8d1ab0d9099c43d84882396ef51c6d0c994ec3c0d55957b3f040f3",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 44,
+      "session": 2,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-044/ses-02/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "5e61db1f93e93447862aab3946d5ead84046c2c19569427e46d4c9589366b6df",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 44,
+      "session": 3,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-044/ses-03/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "096ea8b75aff73abf7e46fbbef19b02860fea977ccd30f82c05f5de0b6a711d5",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 45,
+      "session": 1,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-045/ses-01/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "af4f383ae64a5eca1c515fa615456b63bf7e8d8cc6ca835b95cdc855b10089b2",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 45,
+      "session": 2,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-045/ses-02/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "ce2e4ef7d0eda64d27e3388f2615ea98c4bda493005f18c991d2b5b1296300f3",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 45,
+      "session": 3,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-045/ses-03/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "7c4fff0a6ba25b2441ea59f91f077306152fa12d1e3932e2410db7fe9a9835d9",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 46,
+      "session": 1,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-046/ses-01/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "d787fc65627bde845cc8f17a4d5c7051b1a104a1b58f4715ac3f83b2ab6a5a65",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 46,
+      "session": 2,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-046/ses-02/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "3abe92dd165189c5f7f46070934108f90acce9c826d15a281963ad072c50ff4e",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 46,
+      "session": 3,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-046/ses-03/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "f4bd4564cf1b48a8f0a060ec879a54c3489d7bd84ff66a55fba4a76d63b90e61",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 47,
+      "session": 1,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-047/ses-01/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "cd768b557ef3dea9e8f3d7a6654b2cfa5988b51550cbd963ce465795b4ded4af",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 47,
+      "session": 2,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-047/ses-02/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "bf5a1d1c77bf11b7e37cfaf1af24f065560493af928a128aef6ddc74a00dca67",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 47,
+      "session": 3,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-047/ses-03/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "cfbfc51713b123ee1b1afee9038db91c10f6fc33dcec69da46dcd4e2fcb37f4f",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 48,
+      "session": 1,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-048/ses-01/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "a9f5ca55225f95f85e20bc3f31d90e0c808823019fbb844c28f9830638b32d2e",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 48,
+      "session": 2,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-048/ses-02/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "b762f49b813bb2d420e9eccc07965ab1e3b44adc7ab68549f787b8eb93ca327f",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 48,
+      "session": 3,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-048/ses-03/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "6a5cff5484656b5ea05dc074e30ab093a7579de276c3f748c2dbd88ecfc1efa9",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 49,
+      "session": 1,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-049/ses-01/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "91db83bc3592a9ebe34f4ef168071987613314ebfa3730f5ccfc64f8d30e4033",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 49,
+      "session": 2,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-049/ses-02/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "91c938117ee60029d569b4cefc3011c1f33863080a745a45bcbae3a2e77fb94c",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 49,
+      "session": 3,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-049/ses-03/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "16a4e2c9fe14a2dc0ccf0ebf6b13ee53f55a87a969e6bf54b12f2c5b363fef44",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 50,
+      "session": 1,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-050/ses-01/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "1980a4352c6b40b74deabdf5361441e75dce15595e12c7b136ab97bf0591df23",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 50,
+      "session": 2,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-050/ses-02/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "7c646b340e38a59aa1dda6ae7c2273468adcd7cad1d428fa5c64523fe04ff2fd",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 50,
+      "session": 3,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-050/ses-03/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "f7ae8ee807fcedfeacbbacf9054cd35da2b8a661cef7a385a4a723be2630b2f4",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 51,
+      "session": 1,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-051/ses-01/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "597bb334a52aa27e5425867e615acc596639e94c66771dcc632b1f4a2136183c",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "1": 100,
+        "2": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 51,
+      "session": 2,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-051/ses-02/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "cf77421bdc7352a1bf483717f0d283babe8a37e2e3ca5d1e6615bf4c1ecc1ef1",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    },
+    {
+      "subject": 51,
+      "session": 3,
+      "path": "WBCIC_SHU Motor Imagery dataset/sourcedata/2C dataset/sub-051/ses-03/eeg/evt.bdf",
+      "bytes": 63186,
+      "sha256": "b2f9c7ee7ec06962c1589609218b13aebd7cc0a02886573a4c3d1099b561ed18",
+      "all_marker_counts": {
+        "7": 1,
+        "8": 1,
+        "2": 100,
+        "1": 100,
+        "9": 4
+      }
+    }
+  ]
+}

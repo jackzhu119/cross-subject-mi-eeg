@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "preprocessing_id": "paper1-eligible-v3-18ch-dimensionless-20261018",
+  "datasets": [
+    {
+      "dataset": "bnci",
+      "role": "source",
+      "directory": "/REPLACE_WITH_EXISTING_ELIGIBLE_V3_CACHE/bnci",
+      "pattern": "sub-*.npz",
+      "expected_subjects": 9,
+      "expected_trials": 2592
+    },
+    {
+      "dataset": "yang",
+      "role": "source",
+      "directory": "/REPLACE_WITH_EXISTING_ELIGIBLE_V3_CACHE/yang",
+      "pattern": "sub-*.npz",
+      "expected_subjects": 51,
+      "expected_trials": 30591
+    },
+    {
+      "dataset": "dreyer",
+      "role": "external",
+      "directory": "/REPLACE_WITH_EXISTING_ELIGIBLE_V3_CACHE/dreyer",
+      "pattern": "sub-*.npz",
+      "expected_subjects": 85,
+      "expected_trials": 6800
+    }
+  ]
+}

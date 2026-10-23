@@ -1,0 +1,265 @@
+{
+  "schema_version": 1,
+  "scope": "Six selected primary references: four 2025–2026 MI-EEG DG papers and two foundations. This is a targeted novelty check, not a systematic review.",
+  "checked_at_utc_date": "2026-10-23",
+  "no_experimental_results_created": true,
+  "references": [
+    {
+      "id": "zhi2025scldgn",
+      "title": "Supervised Contrastive Learning-Based Domain Generalization Network for Cross-Subject Motor Decoding",
+      "authors": [
+        {
+          "given": "Hongyi",
+          "family": "Zhi"
+        },
+        {
+          "given": "Tianyou",
+          "family": "Yu"
+        },
+        {
+          "given": "Zhenghui",
+          "family": "Gu"
+        },
+        {
+          "given": "Zhuobin",
+          "family": "Lin"
+        },
+        {
+          "given": "Le",
+          "family": "Che"
+        },
+        {
+          "given": "Yuanqing",
+          "family": "Li"
+        },
+        {
+          "given": "Zhuliang",
+          "family": "Yu"
+        }
+      ],
+      "year": 2025,
+      "venue": "IEEE Transactions on Biomedical Engineering",
+      "volume": "72",
+      "issue": "1",
+      "pages_or_article": "401-412",
+      "doi": "10.1109/tbme.2024.3432934",
+      "doi_type": "journal_article",
+      "official_url": "https://ieeexplore.ieee.org/document/10608403/",
+      "additional_primary_or_index_urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/39046861/"
+      ],
+      "metadata_url": "https://api.crossref.org/works/10.1109/tbme.2024.3432934",
+      "verified_on": "2026-10-23",
+      "date_note": "2025 issue; DOI includes 2024 because of advance publication.",
+      "relevance": "Source-only generalization through supervised contrastive class regularization and correlation alignment. It establishes that source-only/class-invariant MI learning is prior art.",
+      "verification_scope": "Crossref publisher-deposited bibliographic fields verified. Primary abstract/proceedings search inspected; publisher full text not inspected."
+    },
+    {
+      "id": "zhong2025eegdg",
+      "title": "EEG-DG: A Multi-Source Domain Generalization Framework for Motor Imagery EEG Classification",
+      "authors": [
+        {
+          "given": "Xiao-Cong",
+          "family": "Zhong"
+        },
+        {
+          "given": "Qisong",
+          "family": "Wang"
+        },
+        {
+          "given": "Dan",
+          "family": "Liu"
+        },
+        {
+          "given": "Zhihuang",
+          "family": "Chen"
+        },
+        {
+          "given": "Jing-Xiao",
+          "family": "Liao"
+        },
+        {
+          "given": "Jinwei",
+          "family": "Sun"
+        },
+        {
+          "given": "Yudong",
+          "family": "Zhang"
+        },
+        {
+          "given": "Feng-Lei",
+          "family": "Fan"
+        }
+      ],
+      "year": 2025,
+      "venue": "IEEE Journal of Biomedical and Health Informatics",
+      "volume": "29",
+      "issue": "4",
+      "pages_or_article": "2484-2495",
+      "doi": "10.1109/jbhi.2024.3431230",
+      "doi_type": "journal_article",
+      "official_url": "https://doi.org/10.1109/JBHI.2024.3431230",
+      "additional_primary_or_index_urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/39052465/",
+        "https://arxiv.org/abs/2311.05415"
+      ],
+      "metadata_url": "https://api.crossref.org/works/10.1109/jbhi.2024.3431230",
+      "verified_on": "2026-10-23",
+      "date_note": "2025 issue; DOI includes 2024 because of advance publication.",
+      "relevance": "Multi-source MI EEG domain generalization with source marginal and conditional distribution alignment; motivates comparison against existing DG ideas rather than a first-ever claim.",
+      "verification_scope": "Crossref metadata and PubMed abstract/author list inspected; author preprint link supplied, not a reproduced implementation."
+    },
+    {
+      "id": "chen2026midghcl",
+      "title": "MI-DGHCL: Motor imagery EEG domain generalization via hyperbolic contrastive learning",
+      "authors": [
+        {
+          "given": "Junfu",
+          "family": "Chen"
+        },
+        {
+          "given": "Dechang",
+          "family": "Pi"
+        },
+        {
+          "given": "Feng",
+          "family": "Gao"
+        },
+        {
+          "given": "Cheng",
+          "family": "Ma"
+        },
+        {
+          "given": "Yang",
+          "family": "Chen"
+        }
+      ],
+      "year": 2026,
+      "venue": "Expert Systems with Applications",
+      "volume": "312",
+      "issue": null,
+      "pages_or_article": "131477",
+      "doi": "10.1016/j.eswa.2026.131477",
+      "doi_type": "journal_article",
+      "official_url": "https://www.sciencedirect.com/science/article/pii/S0957417426003908",
+      "additional_primary_or_index_urls": [],
+      "metadata_url": "https://api.crossref.org/works/10.1016/j.eswa.2026.131477",
+      "verified_on": "2026-10-23",
+      "date_note": "2026 volume 312, article 131477.",
+      "relevance": "MI EEG domain generalization combining feature consistency and hyperbolic contrastive learning. Consistency and invariance alone do not establish novelty for this project.",
+      "verification_scope": "Crossref metadata and primary publisher indexed abstract inspected. Publisher page returned HTTP 403 in direct access; full text and code not inspected."
+    },
+    {
+      "id": "zheng2025dg",
+      "title": "Cross-Subject Motor Imagery Electroencephalogram Decoding with Domain Generalization",
+      "authors": [
+        {
+          "given": "Yanyan",
+          "family": "Zheng"
+        },
+        {
+          "given": "Senxiang",
+          "family": "Wu"
+        },
+        {
+          "given": "Jie",
+          "family": "Chen"
+        },
+        {
+          "given": "Qiong",
+          "family": "Yao"
+        },
+        {
+          "given": "Siyu",
+          "family": "Zheng"
+        }
+      ],
+      "year": 2025,
+      "venue": "Bioengineering",
+      "volume": "12",
+      "issue": "5",
+      "pages_or_article": "495",
+      "doi": "10.3390/bioengineering12050495",
+      "doi_type": "journal_article",
+      "official_url": "https://www.mdpi.com/2306-5354/12/5/495",
+      "additional_primary_or_index_urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/40428114/"
+      ],
+      "metadata_url": "https://api.crossref.org/works/10.3390/bioengineering12050495",
+      "verified_on": "2026-10-23",
+      "date_note": "2025 volume 12, issue 5, article 495.",
+      "relevance": "MI EEG DG using spectral knowledge distillation, correlation alignment and distance regularization; directly relevant prior art for any spectral-consistency claim.",
+      "verification_scope": "Crossref metadata and primary publisher indexed abstract inspected. Direct MDPI page rate limited and PMC presented an access challenge; no full-text access claim."
+    },
+    {
+      "id": "sagawa2020groupdro",
+      "title": "Distributionally Robust Neural Networks for Group Shifts: On the Importance of Regularization for Worst-Case Generalization",
+      "authors": [
+        {
+          "given": "Shiori",
+          "family": "Sagawa"
+        },
+        {
+          "given": "Pang Wei",
+          "family": "Koh"
+        },
+        {
+          "given": "Tatsunori B.",
+          "family": "Hashimoto"
+        },
+        {
+          "given": "Percy",
+          "family": "Liang"
+        }
+      ],
+      "year": 2020,
+      "venue": "International Conference on Learning Representations",
+      "volume": null,
+      "issue": null,
+      "pages_or_article": null,
+      "doi": "10.48550/arXiv.1911.08731",
+      "doi_type": "author_preprint_not_conference_doi",
+      "official_url": "https://iclr.cc/virtual_2020/poster_ryxGuJrFvS.html",
+      "additional_primary_or_index_urls": [
+        "https://arxiv.org/abs/1911.08731",
+        "https://openreview.net/forum?id=ryxGuJrFvS",
+        "https://github.com/kohpangwei/group_DRO"
+      ],
+      "metadata_url": "https://arxiv.org/abs/1911.08731",
+      "verified_on": "2026-10-23",
+      "date_note": "ICLR 2020 publication; arXiv first submission 2019. The ICLR page uses the shortened title Distributionally Robust Neural Networks; the full paper title is taken from the author preprint.",
+      "relevance": "Group-DRO is established prior art. It is the direct robust-risk baseline; early stopping and regularization matter for worst-group generalization.",
+      "verification_scope": "Official ICLR abstract/author list and author arXiv title/author/version metadata inspected. No conference DOI identified; the given DOI explicitly identifies the preprint."
+    },
+    {
+      "id": "rockafellar2000cvar",
+      "title": "Optimization of conditional value-at-risk",
+      "authors": [
+        {
+          "given": "R. Tyrrell",
+          "family": "Rockafellar"
+        },
+        {
+          "given": "Stanislav",
+          "family": "Uryasev"
+        }
+      ],
+      "year": 2000,
+      "venue": "The Journal of Risk",
+      "volume": "2",
+      "issue": "3",
+      "pages_or_article": "21-41",
+      "doi": "10.21314/jor.2000.038",
+      "doi_type": "journal_article",
+      "official_url": "https://doi.org/10.21314/jor.2000.038",
+      "additional_primary_or_index_urls": [
+        "https://uryasev.github.io/publications/"
+      ],
+      "metadata_url": "https://api.crossref.org/works/10.21314/jor.2000.038",
+      "verified_on": "2026-10-23",
+      "date_note": "Foundational method reference, outside the 2024–2026 MI literature window.",
+      "relevance": "Upper-tail loss objectives are established. The discrete minibatch group top-half mean in this proposal is not a new CVaR theory or a population-risk guarantee.",
+      "verification_scope": "Publisher-deposited Crossref title/authors/year/volume/issue/pages/DOI verified. Author publication list inspected; no full-text verification claimed."
+    }
+  ]
+}
