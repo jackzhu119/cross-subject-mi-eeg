@@ -3,8 +3,8 @@
 set -euo pipefail
 PROJECTS_ROOT="${1:-/public/home/zhuziyuan/projects}"
 PYTHON_BIN="${PAPER1_PYTHON:-/public/home/zhuziyuan/.venvs/paper3-hpc-cu121-offline/bin/python}"
-SOURCE_REV="15013008b7e5907c983ab85c72145c0affa6f2e0"
-PATCH_SHA="c0351e573004aa60ab25ef92d5f099ad379c3dcdb5935cdadcff722477500519"
+SOURCE_REV="d74946a25df114af69b91624905e6cac2af5fab1"
+PATCH_SHA="450a549c3d493b687dbb966a9dcf3e5e631c00545695353149365681c6e8eae9"
 SETUP_SHA="18015aedfa0980531ca24e65421630660ea36972511b9028741cd11590b0017c"
 BASE_URL="https://api.github.com/repos/jackzhu119/cross-subject-mi-eeg/contents/research_runs/PAPER1_HPC_20261023"
 mkdir -p "$PROJECTS_ROOT/paper1-risk-v1/state"
