@@ -394,7 +394,8 @@ _NUMBERS = {"epoch", "step", "global_step", "updates", "optimizer_updates", "sam
             "bootstrap_replicates", "permutation_replicates", "secondary_family_size",
             "source_equal_cohort_mean_min_recall", "completed_fits", "pending_fits",
             "max_concurrent_fits", "stop_requested_exit_code", "completed_objects", "total_objects",
-            "requested_gpus"}
+            "requested_gpus", "retry_after_seconds", "network_retry_count", "http_status",
+            "transfer_exit_code"}
 _STRINGS = {"status", "stage", "phase", "method", "endpoint", "metric", "variant", "task_id",
             "updated_at_utc", "started_at_utc", "completed_at_utc", "finished_at_utc",
             "domain", "contrast", "family", "aggregation", "bootstrap", "permutation", "evaluation_variant",
@@ -411,7 +412,18 @@ def _safe_stats(value, depth=0):
         return {}
     clean = {}
     for key, item in value.items():
-        if key in _NUMBERS and isinstance(item, (int, float)) and not isinstance(item, bool) and (isinstance(item, int) or math.isfinite(item)):
+        limits = {"bnci": 18, "yang": 312, "dreyer": 174}
+        if key == "dataset" and isinstance(item, str) and item in limits:
+            clean[key] = item
+        elif key == "completed_by_dataset" and isinstance(item, dict):
+            clean[key] = {name: count for name, count in item.items()
+                          if name in limits and type(count) is int and 0 <= count <= limits[name]}
+        elif key == "unavailable_datasets" and isinstance(item, list):
+            clean[key] = [name for name in item if isinstance(name, str) and name in limits][:3]
+        elif key in {"network_error_category", "error_category"} and isinstance(item, str) and item in {
+                "dns", "connection", "timeout", "http", "tls", "tls_certificate", "incomplete_read", "os_error", "unknown"}:
+            clean[key] = item
+        elif key in _NUMBERS and isinstance(item, (int, float)) and not isinstance(item, bool) and (isinstance(item, int) or math.isfinite(item)):
             clean[key] = item
         elif key in _STRINGS and isinstance(item, str) and len(item) <= 80 and re.fullmatch(r"[A-Za-z0-9_.:+ /-]+", item):
             clean[key] = item

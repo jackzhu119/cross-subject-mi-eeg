@@ -10,7 +10,8 @@ import tarfile
 ROOT = Path(__file__).resolve().parent
 MEMBERS = [
     "LAUNCH.sh", "hpcmi/acquire.py", "hpcmi/cli.py", "hpcmi/github_sync.py",
-    "hpcmi/single_job.py", "hpcmi/submit_single.py", "hpcmi/login_pipeline.py", "slurm/single_job.sh", "SINGLE_JOB.md",
+    "hpcmi/single_job.py", "hpcmi/submit_single.py", "hpcmi/login_pipeline.py",
+    "hpcmi/yang_transport.py", "slurm/single_job.sh", "SINGLE_JOB.md",
 ]
 
 

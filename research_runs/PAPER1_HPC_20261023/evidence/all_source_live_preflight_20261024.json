@@ -1,0 +1,36 @@
+{
+  "started_at_utc": "2026-10-24T13:13:52.071764+00:00",
+  "completed_at_utc": "2026-10-24T13:13:56.825834+00:00",
+  "environment": "Codex managed environment, not school HPC",
+  "all_source_preflight_actual": true,
+  "full_datasets_downloaded": false,
+  "model_fits": 0,
+  "result": {
+    "status": "DOWNLOAD_SOURCES_PREFLIGHT_VERIFIED",
+    "checked_sources": [
+      {
+        "dataset": "bnci",
+        "status": "OFFICIAL_HEAD_VERIFIED"
+      },
+      {
+        "dataset": "yang",
+        "status": "YANG_GET_RANGE_DIRECTORY_VERIFIED",
+        "archive_bytes": 65630556299,
+        "central_directory_sha256": "cecd7ea0895da6ef85f01405960f4844c42d788ad33186b1f3fca91744d6874a",
+        "selected_members": 312,
+        "eeg_payload_read": false
+      },
+      {
+        "dataset": "dreyer",
+        "status": "DREYER_GET_RANGE_VERIFIED",
+        "range_probe_bytes": 1,
+        "expected_file_bytes": 14805604,
+        "full_file_sha256_verified": false
+      }
+    ],
+    "unavailable_sources": [],
+    "full_all_dataset_sha256_verified": false,
+    "model_fits": 0,
+    "updated_at_utc": "2026-10-24T13:13:56.821088+00:00"
+  }
+}

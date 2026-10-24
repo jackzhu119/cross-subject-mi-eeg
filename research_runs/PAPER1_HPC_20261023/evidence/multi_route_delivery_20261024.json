@@ -1,0 +1,60 @@
+{
+  "recorded_at_utc": "2026-10-24T13:22:20.152260+00:00",
+  "school_observed_failure": {
+    "bnci_completed": 18,
+    "failure_stage": "Yang HTTPRangeReader HEAD resolution",
+    "http_status": 403,
+    "new_neural_fits_observed": 0
+  },
+  "method_root_cause_reproduced": "Identical official signed URL and headers: HEAD403 versus GET206",
+  "verified_public_routes": [
+    "https://ndownloader.figshare.com/files/51001884",
+    "https://api.figshare.com/v2/file/download/51001884"
+  ],
+  "routes_share_storage_backend": true,
+  "source_reader": "hpcmi/yang_transport.py",
+  "vendor_source_unchanged": true,
+  "native_hash_and_crc_rules_unchanged": true,
+  "fixed_logical_archive_url_preserved": true,
+  "metadata_total_bytes_and_central_sha_checked": true,
+  "whole_zip_md5_verified": false,
+  "live_evidence_files": [
+    "yang_official_route_probe_20261024.json",
+    "yang_member_live_resume_20261024.json",
+    "dreyer_official_route_probe_20261024.json",
+    "all_source_live_preflight_20261024.json"
+  ],
+  "targeted_tests_passed": 140,
+  "new_scientific_gpu_fits_in_validation": 0,
+  "preprocessing_gate_checked_without_EEG": {
+    "vendor_files": 12,
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "pass": true
+  },
+  "new_resource_request": {
+    "partition": "hpc_gpu",
+    "nodes": 1,
+    "slurm_jobs": 1,
+    "gpus": 2,
+    "total_cpus": 24,
+    "total_memory": "128G"
+  },
+  "school_updated_download_executed_by_agent": false,
+  "full_school_data_download_complete": false,
+  "source_hashes": {
+    "hpcmi/yang_transport.py": "00265a3620cb9c52f74eeb5eb9de9ec6834e77a1a0b69f103ebca3b24085e6e6",
+    "hpcmi/acquire.py": "f26f43fc61a2583c1d800da4155b9c25f8eab8d2738679684c7bac1113b69304",
+    "hpcmi/login_pipeline.py": "8ac9158273606a3374e9e4982a9707229fb9751905d46633342d946482f1c809",
+    "hpcmi/github_sync.py": "bb73a5913cc51050d6c9f77585d0cdba585abd3dfa92551cb193ec42c5a59257",
+    "hpcmi/submit_single.py": "4cc3a3bc7cb081981e1c97bded53d757ac41a228fda33ca3ce90a0b36450cd69"
+  },
+  "transient_preflight_timeout_deferred_to_background": true,
+  "storage_http_status_preserved_for_retry_classification": true,
+  "operations_archive": {
+    "bytes": 52779,
+    "sha256": "bf36a4bb3f6cc7f7f63d533072841df6a02c7f37c8412ab86695804671ccc0c9",
+    "payloads": 10
+  },
+  "distribution_tests_passed": 12
+}

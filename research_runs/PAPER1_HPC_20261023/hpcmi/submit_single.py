@@ -79,7 +79,7 @@ def _configure_resources(project, memory, gpus):
     path = project / "config/cluster.json"
     old = read_json(path)
     new = {**old, "account": OWNER, "squeue_user": OWNER, "partition": "hpc_gpu",
-           "gres": "gpu:1", "cpus_per_task": 13, "mem": "128G", "max_parallel": gpus,
+           "gres": "gpu:1", "cpus_per_task": 12, "mem": "128G", "max_parallel": gpus,
            "exclude": [], "single_job_memory": memory, "single_job_gpus": gpus}
     if old != new:
         stamp = utc_now().replace(":", "").replace("+", "_")
@@ -320,7 +320,7 @@ def submit(project, python=cli.DEFAULT_PYTHON, raw_dir=None, wheelhouse=None,
         job_name = name + "-r" + replace_job if held else name
         item = {"submission_id": uuid.uuid4().hex[:12], "created_at_utc": utc_now(),
                 "job_name": job_name, "job_id": None, "status": "SUBMITTING", "project": str(project),
-                "shape": {"gpus": gpus, "cpus": 13 * gpus, "memory": memory, "max_worker_processes": gpus}}
+                "shape": {"gpus": gpus, "cpus": 12 * gpus, "memory": memory, "max_worker_processes": gpus}}
         if replace_job:
             item.update(replaces_job_id=replace_job, old_job_observed=held, hold_requested=held)
         ledger["submissions"].append(item)
@@ -328,7 +328,7 @@ def submit(project, python=cli.DEFAULT_PYTHON, raw_dir=None, wheelhouse=None,
         output = str(log_dir / "single-%j.out")
         command = ["sbatch", "--parsable", "--nodes=1", "--ntasks=1", "--account=" + OWNER,
                    "--partition=" + cluster["partition"], "--gres=gpu:" + str(gpus),
-                   "--cpus-per-task=" + str(13 * gpus), "--mem=" + memory,
+                   "--cpus-per-task=" + str(12 * gpus), "--mem=" + memory,
                    "--export=ALL,PAPER1_WORKERS=" + str(gpus),
                    "--time=" + str(cluster.get("time_limit", "1-00:00:00")),
                    "--signal=B:USR1@180", "--requeue", "--open-mode=append", "--job-name=" + job_name,
@@ -356,7 +356,7 @@ def submit(project, python=cli.DEFAULT_PYTHON, raw_dir=None, wheelhouse=None,
         if held:
             return _finish_replacement(project, runner, ledger_path, ledger, item, known_names)
         response = {"status": "SINGLE_JOB_SUBMITTED", "job_id": answer, "partition": cluster["partition"],
-                    "gpu_request": "gpu:" + str(gpus), "cpus": 13 * gpus, "memory": memory,
+                    "gpu_request": "gpu:" + str(gpus), "cpus": 12 * gpus, "memory": memory,
                     "log": output, "subjobs_or_array": False}
         if replace_job:
             response.update(replaced_job_id=replace_job, old_job_observed=False,

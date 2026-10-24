@@ -274,9 +274,9 @@ selection rule.
 The default project directory is under
 `/public/home/zhuziyuan/projects/paper1-risk-v1`. The account is `zhuziyuan`
 and the current partition is `hpc_gpu` following the 24 October operational
-revision. The current enclosing job requests one node, two GPUs, 26 CPUs
+revision. The current enclosing job requests one node, two GPUs, 24 CPUs
 and 128 GiB of shared job memory, and runs at most two independent single-GPU
-fits concurrently. Each worker corresponds to 13 requested CPUs; memory is
+fits concurrently. Each worker corresponds to 12 requested CPUs; memory is
 shared within the allocation rather than independently guaranteed per GPU.
 No training array or child sbatch is submitted. The user-authorized login-side
 process downloads native BNCI/Dreyer files and compressed Yang members only.

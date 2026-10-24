@@ -1,0 +1,17 @@
+test_blocked_api_does_not_submit_or_publish_code (test_single_job_installer.SingleInstallerTests.test_blocked_api_does_not_submit_or_publish_code) ... ok
+test_bundle_partials_are_preserved_and_verified_archive_is_reused (test_single_job_installer.SingleInstallerTests.test_bundle_partials_are_preserved_and_verified_archive_is_reused) ... ok
+test_cached_resume_works_when_network_is_unavailable (test_single_job_installer.SingleInstallerTests.test_cached_resume_works_when_network_is_unavailable) ... ok
+test_corrupt_operations_stop_before_code_or_job_changes (test_single_job_installer.SingleInstallerTests.test_corrupt_operations_stop_before_code_or_job_changes) ... ok
+test_overlay_and_resume_preserve_science_data_failures_and_original_manifest (test_single_job_installer.SingleInstallerTests.test_overlay_and_resume_preserve_science_data_failures_and_original_manifest) ... ok
+test_bad_archive_is_retained_and_never_submitted (test_school_download.SchoolDownloadTests.test_bad_archive_is_retained_and_never_submitted) ... ok
+test_complete_partial_is_verified_without_redownloading (test_school_download.SchoolDownloadTests.test_complete_partial_is_verified_without_redownloading) ... ok
+test_direct_download_extract_submit_and_duplicate_reuse (test_school_download.SchoolDownloadTests.test_direct_download_extract_submit_and_duplicate_reuse) ... ok
+test_network_failure_never_extracts_or_submits (test_school_download.SchoolDownloadTests.test_network_failure_never_extracts_or_submits) ... ok
+test_pending_download_migrates_and_existing_project_config_is_updated (test_school_download.SchoolDownloadTests.test_pending_download_migrates_and_existing_project_config_is_updated) ... ok
+test_pending_to_running_race_does_not_submit_duplicate (test_school_download.SchoolDownloadTests.test_pending_to_running_race_does_not_submit_duplicate) ... ok
+test_running_download_and_identity_mismatch_are_never_cancelled (test_school_download.SchoolDownloadTests.test_running_download_and_identity_mismatch_are_never_cancelled) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 5.485s
+
+OK

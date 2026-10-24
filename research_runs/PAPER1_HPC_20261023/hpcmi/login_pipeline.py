@@ -89,9 +89,19 @@ def _arguments(args):
 
 
 def _check_download_route(paths):
-    subprocess.run([paths['training_python'], '-u', '-m', 'hpcmi.acquire',
-                    '--raw-dir', paths['raw_dir'], '--check-download-route'],
-                   cwd=cli.ROOT, stdin=subprocess.DEVNULL, check=True, timeout=25)
+    try:
+        subprocess.run([paths['training_python'], '-u', '-m', 'hpcmi.acquire',
+                        '--raw-dir', paths['raw_dir'], '--check-download-route'],
+                       cwd=cli.ROOT, stdin=subprocess.DEVNULL, check=True, timeout=90)
+    except subprocess.TimeoutExpired:
+        # subprocess.run has killed/reaped this metadata-only child. A slow
+        # route is left to the existing transfer/retry path, never marked ready.
+        report = {'status': 'DOWNLOAD_SOURCES_RETRY_PENDING',
+                  'reason': 'bounded_metadata_preflight_timeout', 'timeout_seconds': 90,
+                  'full_all_dataset_sha256_verified': False, 'model_fits': 0,
+                  'updated_at_utc': utc_now()}
+        atomic_json(Path(paths['raw_dir']) / 'download_route_status.json', report)
+        print(json.dumps(report), flush=True)
 
 
 def _restart_transfer_driver(project, observed):
@@ -137,8 +147,8 @@ def start(args):
     token = github_sync.confirm_credentials(paths['repository'], project.name,
                                            force=args.reauthorize, require_verified=True)
     if getattr(args, 'restart_transfer', False):
-        # One targeted repair check using the actual school interpreter. A HEAD
-        # success establishes TLS/path only, not completed download or training.
+        # One bounded route check with the actual school interpreter. Metadata
+        # success establishes a route only, not completed download or training.
         _check_download_route(paths)
     atomic_json(project / 'config/sync.json', {'repository': paths['repository'],
                 'project_id': project.name, 'token_file': str(token)})
@@ -261,14 +271,23 @@ def run(args):
                         failure = read_json(failure_path)
                     except (OSError, ValueError):
                         failure = None
+                    visible_error = {}
+                    if isinstance(failure, dict):
+                        category = failure.get('category')
+                        if category in {'dns', 'connection', 'timeout', 'http', 'tls', 'tls_certificate',
+                                        'incomplete_read', 'os_error', 'unknown'}:
+                            visible_error['network_error_category'] = category
+                        if type(failure.get('http_status')) is int and 100 <= failure['http_status'] <= 599:
+                            visible_error['http_status'] = failure['http_status']
                     if not _network_retryable(failure, attempt_id):
-                        emit(project, 'transfer_failed_no_gpu_job_submitted', transfer_exit_code=code)
+                        emit(project, 'transfer_failed_no_gpu_job_submitted', transfer_exit_code=code,
+                             **visible_error)
                         return code
                     delay = min(900, 60 * 2 ** min(retries, 4))
                     retries += 1
                     emit(project, 'network_retry_wait', transfer_attempt=attempt_id,
                          transfer_exit_code=code, retry_after_seconds=delay,
-                         network_retry_count=retries, error_category=failure.get('category'))
+                         network_retry_count=retries, **visible_error)
                     if not _wait_network_backoff(delay, lambda: stopped):
                         emit(project, 'cancelled_no_gpu_job_submitted')
                         return 143

@@ -132,7 +132,7 @@ class SingleSubmitTests(unittest.TestCase):
             result = self.submit()
         self.assertEqual(result["status"], "SINGLE_JOB_SUBMITTED")
         command = self.commands("sbatch")[0]
-        for argument in ("--gres=gpu:2", "--cpus-per-task=26", "--mem=128G", "--partition=hpc_gpu",
+        for argument in ("--gres=gpu:2", "--cpus-per-task=24", "--mem=128G", "--partition=hpc_gpu",
                          "--account=zhuziyuan", "--signal=B:USR1@180", "--requeue", "--open-mode=append"):
             self.assertIn(argument, command)
         self.assertFalse(any(a.startswith("--array") for a in command))
@@ -141,7 +141,7 @@ class SingleSubmitTests(unittest.TestCase):
         self.assertEqual(output, error)
         self.assertTrue(Path(output).is_absolute())
         self.assertNotIn(str(self.folder / "private/token"), command)
-        self.assertEqual(read_json(self.project / "config/cluster.json")["cpus_per_task"], 13)
+        self.assertEqual(read_json(self.project / "config/cluster.json")["cpus_per_task"], 12)
         self.assertEqual(read_json(self.project / "config/cluster.json")["max_parallel"], 2)
         self.assertEqual(read_json(self.project / "config/cluster.json")["single_job_memory"], "128G")
         self.assertEqual(result["memory"], "128G")
@@ -259,11 +259,11 @@ class SingleSubmitTests(unittest.TestCase):
         config = read_json(self.project / "config/cluster.json")
         self.assertEqual(config["single_job_memory"], "110G")
         self.assertEqual(config["mem"], "128G")
-        self.assertEqual(config["cpus_per_task"], 13)
+        self.assertEqual(config["cpus_per_task"], 12)
         self.assertTrue(list((self.project / "state").glob("cluster-before-single-*.json")))
         records = read_json(ledger_path)["submissions"]
         self.assertEqual(records[0], original_failure)
-        self.assertEqual(records[1]["shape"], {"gpus": 2, "cpus": 26, "memory": "110G", "max_worker_processes": 2})
+        self.assertEqual(records[1]["shape"], {"gpus": 2, "cpus": 24, "memory": "110G", "max_worker_processes": 2})
         resumed = self.submit()
         self.assertEqual(resumed["memory"], "110G")
         self.assertIn("--mem=110G", self.commands("sbatch")[-1])
@@ -292,22 +292,22 @@ class SingleSubmitTests(unittest.TestCase):
     def test_two_gpu_override_remains_supported(self):
         result = self.submit(gpus=2)
         self.assertEqual(result["gpu_request"], "gpu:2")
-        self.assertEqual(result["cpus"], 26)
+        self.assertEqual(result["cpus"], 24)
         command = self.commands("sbatch")[0]
         self.assertIn("--gres=gpu:2", command)
-        self.assertIn("--cpus-per-task=26", command)
+        self.assertIn("--cpus-per-task=24", command)
         self.assertIn("--export=ALL,PAPER1_WORKERS=2", command)
         config = read_json(self.project / "config/cluster.json")
         self.assertEqual(config["single_job_gpus"], 2)
         self.assertEqual(config["max_parallel"], 2)
 
-    def test_explicit_three_gpu_compatibility_uses_thirteen_cpus_per_gpu(self):
+    def test_explicit_three_gpu_compatibility_uses_twelve_cpus_per_gpu(self):
         result = self.submit(gpus=3, memory="128G")
         self.assertEqual(result["gpu_request"], "gpu:3")
-        self.assertEqual(result["cpus"], 39)
+        self.assertEqual(result["cpus"], 36)
         command = self.commands("sbatch")[0]
         self.assertIn("--gres=gpu:3", command)
-        self.assertIn("--cpus-per-task=39", command)
+        self.assertIn("--cpus-per-task=36", command)
         self.assertIn("--mem=128G", command)
         self.assertIn("--export=ALL,PAPER1_WORKERS=3", command)
         self.assertEqual(read_json(self.project / "config/cluster.json")["max_parallel"], 3)

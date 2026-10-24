@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "recorded_at_utc": "2026-10-24T12:43:20.335196+00:00",
+  "environment": "Codex managed environment; not school HPC",
+  "school_route_download_verified": false,
+  "credentials_used": false,
+  "tls_verification_enabled": true,
+  "metadata_source": "https://api.figshare.com/v2/articles/22671172/versions/5",
+  "publisher_landing": "https://plus.figshare.com/articles/dataset/Brain_Computer_Interface_Motor_Imagery-EEG_Dataset/22671172/5",
+  "frozen_file_binding": {
+    "article_id": 22671172,
+    "version": 5,
+    "doi": "10.25452/figshare.plus.22671172.v5",
+    "license": "CC BY 4.0",
+    "file_id": 51001884,
+    "name": "WBCIC_SHU Motor Imagery dataset.zip",
+    "bytes": 65630556299,
+    "supplied_md5": "e5384a58ac51b0d0c78a28a500185479",
+    "computed_md5": "e5384a58ac51b0d0c78a28a500185479"
+  },
+  "method_comparison": {
+    "route": "https://ndownloader.figshare.com/files/51001884",
+    "head_status_chain": [
+      302,
+      403
+    ],
+    "get_range_status_chain": [
+      302,
+      206
+    ],
+    "get_content_range": "bytes 0-0/65630556299",
+    "get_body_bytes_read": 1,
+    "same_storage_path_sha256": "de5362ca5858e5b838da54b5f3a85a708663429b34812286c38b2385ed0d936d",
+    "individual_method_probe_timestamps_not_captured": true,
+    "conclusion": "Official signed download accepts GET Range but rejects HEAD in this observed delivery; GET success is independent of HEAD403."
+  },
+  "verified_get_routes": [
+    {
+      "route": "https://ndownloader.figshare.com/files/51001884",
+      "started_at_utc": "2026-10-24T12:43:18.073746+00:00",
+      "completed_at_utc": "2026-10-24T12:43:19.792716+00:00",
+      "resolve_method": "GET",
+      "request_range": "bytes=0-0",
+      "route_hops": [
+        {
+          "hostname": "ndownloader.figshare.com",
+          "status": 302
+        },
+        {
+          "hostname": "s3-eu-west-1.amazonaws.com",
+          "status": 206
+        }
+      ],
+      "resolved_storage_hostname": "s3-eu-west-1.amazonaws.com",
+      "resolved_public_path": "/ptemp-plus-8475456492/51001884/WBCIC_SHUMotorImagerydataset.zip",
+      "signed_query_kept_in_memory_only": true,
+      "resolved_probe_bytes_read": 1,
+      "full_archive_size": 65630556299,
+      "central_directory_offset": 65630214467,
+      "central_directory_bytes": 341734,
+      "central_directory_sha256": "cecd7ea0895da6ef85f01405960f4844c42d788ad33186b1f3fca91744d6874a",
+      "frozen_central_directory_matches": true,
+      "metadata_only": true,
+      "eeg_payload_read": false
+    },
+    {
+      "route": "https://api.figshare.com/v2/file/download/51001884",
+      "started_at_utc": "2026-10-24T12:43:18.073308+00:00",
+      "completed_at_utc": "2026-10-24T12:43:20.334832+00:00",
+      "resolve_method": "GET",
+      "request_range": "bytes=0-0",
+      "route_hops": [
+        {
+          "hostname": "api.figshare.com",
+          "status": 302
+        },
+        {
+          "hostname": "ndownloader.figshare.com",
+          "status": 302
+        },
+        {
+          "hostname": "s3-eu-west-1.amazonaws.com",
+          "status": 206
+        }
+      ],
+      "resolved_storage_hostname": "s3-eu-west-1.amazonaws.com",
+      "resolved_public_path": "/ptemp-plus-8475456492/51001884/WBCIC_SHUMotorImagerydataset.zip",
+      "signed_query_kept_in_memory_only": true,
+      "resolved_probe_bytes_read": 1,
+      "full_archive_size": 65630556299,
+      "central_directory_offset": 65630214467,
+      "central_directory_bytes": 341734,
+      "central_directory_sha256": "cecd7ea0895da6ef85f01405960f4844c42d788ad33186b1f3fca91744d6874a",
+      "frozen_central_directory_matches": true,
+      "metadata_only": true,
+      "eeg_payload_read": false
+    }
+  ],
+  "rejected_official_hostname_variants": [
+    {
+      "public_url": "https://plus.figshare.com/ndownloader/files/51001884",
+      "get_http_status": 403,
+      "recommended": false
+    },
+    {
+      "public_url": "https://figshare.com/ndownloader/files/51001884",
+      "get_http_status": 403,
+      "recommended": false
+    }
+  ],
+  "limitations": [
+    "Two verified public entries resolve to the same official S3 object, not independent mirrors.",
+    "No complete archive MD5 was computed; published MD5 was confirmed from official metadata.",
+    "Central directory SHA was independently read and matched through each accepted route.",
+    "No EDF/BDF EEG payload or complete archive was downloaded.",
+    "Existing signed URLs were used only in memory and were never included in this evidence."
+  ],
+  "identical_signed_url_method_comparison": {
+    "observed_at_utc": "2026-10-24T12:44:38.191530+00:00",
+    "identical_signed_url_used_in_memory_for_both_methods": true,
+    "identical_headers_including_range": true,
+    "head_status": 403,
+    "get_status": 206,
+    "get_content_range": "bytes 0-0/65630556299",
+    "get_body_bytes_read": 1,
+    "signed_query_logged": false
+  }
+}

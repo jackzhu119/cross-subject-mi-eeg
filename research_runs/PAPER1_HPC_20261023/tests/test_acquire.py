@@ -76,6 +76,23 @@ class AcquireTest(unittest.TestCase):
                 a.transfer_object(self.root, other, nemar=True)
             self.assertEqual(opener.call_count, 1)
 
+    def test_storage_503_is_retryable_but_storage_403_is_not(self):
+        from hpcmi import login_pipeline
+        row = self.pin()
+        location = 'https://' + a.STORAGE_HOST + '/nm000250/objects/SHA256E-s10--' + row['sha256'] + '.edf?signature=PRIVATE'
+        for status, retryable in ((503, True), (403, False)):
+            redirect = a.urllib.error.HTTPError(row['url'], 302, 'Found', {'Location': location}, None)
+            failure = a.urllib.error.HTTPError(location, status, 'PRIVATE', {}, None)
+            with self.subTest(status=status), mock.patch.object(a, '_open_no_redirect', side_effect=[redirect, failure]):
+                with self.assertRaises(ValueError) as caught:
+                    with a.open_object(row, nemar=True):
+                        self.fail('HTTP failure yielded an object')
+            detail = a.safe_error_details(caught.exception)
+            self.assertEqual(detail['http_status'], status)
+            self.assertTrue(a._independent_network_failure(caught.exception, detail))
+            self.assertEqual(login_pipeline._network_retryable({'attempt_id': 'unit', **detail}, 'unit'), retryable)
+            self.assertNotIn('PRIVATE', json.dumps(detail))
+
     def test_yang_compressed_resume_crc_full_sha_and_receipt(self):
         data = bytes(range(255)) * 500
         archive = io.BytesIO()

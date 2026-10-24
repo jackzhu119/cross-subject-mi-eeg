@@ -14,6 +14,7 @@ from hpcmi.common import atomic_json, read_json
 from hpcmi import login_pipeline as p
 
 REAL_LIVE_DRIVER = p._live_driver
+REAL_CHECK_DOWNLOAD_ROUTE = p._check_download_route
 
 
 class Child:
@@ -84,6 +85,26 @@ class LoginPipelineTests(unittest.TestCase):
 
     def state(self):
         return read_json(self.project / 'state/login_pipeline_status.json')
+
+    def test_bounded_metadata_timeout_defers_to_background_without_claiming_inputs_ready(self):
+        failure = p.subprocess.TimeoutExpired(['metadata-only'], 90)
+        with mock.patch.object(p.subprocess, 'run', side_effect=failure) as check:
+            REAL_CHECK_DOWNLOAD_ROUTE(self.paths)
+        self.assertEqual(check.call_args.kwargs['timeout'], 90)
+        result = read_json(Path(self.paths['raw_dir']) / 'download_route_status.json')
+        self.assertEqual(result['status'], 'DOWNLOAD_SOURCES_RETRY_PENDING')
+        self.assertEqual(result['reason'], 'bounded_metadata_preflight_timeout')
+        self.assertFalse(result['full_all_dataset_sha256_verified'])
+        self.assertEqual(result['model_fits'], 0)
+        self.assertEqual(self.ledger.read_bytes(), self.old_ledger)
+        self.submit.assert_not_called()
+
+    def test_metadata_integrity_exit_still_stops_before_background(self):
+        with mock.patch.object(p.subprocess, 'run', side_effect=p.subprocess.CalledProcessError(1, ['metadata-only'])):
+            with self.assertRaises(p.subprocess.CalledProcessError):
+                REAL_CHECK_DOWNLOAD_ROUTE(self.paths)
+        self.assertFalse((Path(self.paths['raw_dir']) / 'download_route_status.json').exists())
+        self.daemon.assert_not_called()
 
     def test_failed_targeted_tls_check_never_stops_old_transfer_or_starts_new(self):
         self.args.restart_transfer = True

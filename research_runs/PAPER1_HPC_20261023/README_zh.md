@@ -1,6 +1,8 @@
 # 论文1：学校 HPC 新算法实验运行包
 
-> **2026-10-24联网与资源修订**：当前使用 [SINGLE_JOB.md](SINGLE_JOB.md)。login1后台只下载及同步，计算节点离线解压、预处理与训练。唯一Slurm作业申请一个节点、2GPU、总26CPU、总128G；每卡对应13CPU。入口可强制重新输入token并实际写入、回读验证。下文旧独立下载/数组说明保留为历史，当前资源和命令以SINGLE_JOB.md为准。
+> **2026-10-24 Yang下载修订**：已改为官方GET Range机制，支持两个同文件官方入口、过期链接刷新和独立数据集续传；保留原18个BNCI文件。直接执行SINGLE_JOB.md中的最新固定入口，不修改vendor或科学输入。
+
+> **2026-10-24联网与资源修订**：当前使用 [SINGLE_JOB.md](SINGLE_JOB.md)。login1后台只下载及同步，计算节点离线解压、预处理与训练。唯一Slurm作业申请一个节点、2GPU、总24CPU、总128G；每卡对应12CPU。入口可强制重新输入token并实际写入、回读验证。下文旧独立下载/数组说明保留为历史，当前资源和命令以SINGLE_JOB.md为准。
 
 本版本在已有 eligible-v3 数据定义上，研究**源被试×类别的尾部风险控制与频带一致性**。它是一套待执行的新实验，不把旧论文结果当作新算法的验证结果。原论文、Q1–Q16、历史失败和投稿材料保持原样。
 
@@ -14,7 +16,7 @@
 | 开发 | 5个人员外层折×5方法×3种子＝75个任务；每折另有源内验证人员 |
 | 最终训练 | 5方法×3独立种子＝15个任务；合计90个新训练任务 |
 | 公平比较 | 相同18通道、三视图计算/BN暴露、模型容量、40轮×128更新；固定40轮外评与源内选轮外评分开 |
-| 资源 | `hpc_gpu` 分区，Slurm数组 `%2`；每项1张实际分配的GPU、16 CPU、128G；最多2张并行 |
+| 资源 | `hpc_gpu` 分区；1个Slurm作业、1个节点、2GPU、总24CPU、总128G；最多2个单卡worker并行 |
 | 主终点 | 源外层人员的较弱类别召回率；先在人员内平均种子，再按队列等权汇总 |
 | 次分析 | 四项次比较Holm校正、人员配对置信区间、两种完整外评；输出全部方向的结果 |
 
@@ -28,9 +30,11 @@
 curl -4 -f --connect-timeout 8 --max-time 60 --retry 1 -H 'Accept: application/vnd.github.raw+json' 'https://api.github.com/repos/jackzhu119/cross-subject-mi-eeg/contents/research_runs/PAPER1_HPC_20261023/RUN_SINGLE_JOB_ON_SCHOOL.sh?ref=main' -o /tmp/paper1-single-job.sh && bash /tmp/paper1-single-job.sh
 ```
 
-这个入口在登录节点复用或下载约53MB固定运行包、核对SHA256并解压，隐藏输入GitHub token后只提交一个Slurm作业（`hpc_gpu`分区，总2GPU/26CPU/128G）。约71GB原始数据恢复、预处理、两卡训练、评价及推送在该作业内完成；数据直接保存到 `/public/home/zhuziyuan/projects/paper1-risk-v1/raw`。重复同命令会复用包、正在运行的同项目作业、原始文件和训练断点。后续独立下载/数组流程是初版记录，当前采用 [SINGLE_JOB.md](SINGLE_JOB.md)。
+这个入口在登录节点复用或下载约53MB固定运行包、核对SHA256并解压，隐藏输入GitHub token并验证远端写入及回读。随后由login1后台恢复原始网络载荷，全部就绪后自动提交一个Slurm作业（`hpc_gpu`分区，1节点、总2GPU/24CPU/128G），在计算节点离线解压、预处理、两卡训练及评价。GitHub进度同步独立在登录端运行。数据直接保存到 `/public/home/zhuziyuan/projects/paper1-risk-v1/raw`。重复同命令会复用包、正在运行的同项目作业、原始文件和训练断点。后续独立下载/数组流程是初版记录，当前采用 [SINGLE_JOB.md](SINGLE_JOB.md)。
 
-2026-10-24资源修订：入口会将已解压包和已存在项目的两份 `config/cluster.json` 同步改为 `partition=hpc_gpu`、`gres=gpu:1`、`exclude=[]`、`cpus_per_task=16`、`max_parallel=2`，保留旧配置。这样下一阶段训练也使用新分区。旧离线包及其原始manifest仍保留原source身份，此处属于资源操作覆盖。截图没有显示新分区GPU型号，不能保证分配A100。
+2026-10-24资源修订：入口会将已解压包和已存在项目的两份 `config/cluster.json` 同步改为 `partition=hpc_gpu`、`gres=gpu:1`、`exclude=[]`、`cpus_per_task=12`、`max_parallel=2`，保留旧配置。12CPU是单worker对应值，最终唯一作业申请总24CPU、2GPU、128G。旧离线包及其原始manifest仍保留原source身份，此处属于资源操作覆盖；Slurm分配GPU，不硬编码物理编号或旧UUID。
+
+## 历史手动下载与数组流程（当前入口不执行）
 
 若同一项目的旧下载作业仍在 `hpc_gpu1` 排队，入口核对作业名、用户、工作目录及状态后，先保存旧记录和脚本，再以 `scancel --state=PENDING` 取消排队项并在新分区重提。若作业已变为运行状态，则保留它，不启动第二个下载。示例截图中的770682属于待现场核对的作业，不表示本助手已操作它。
 

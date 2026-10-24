@@ -1,0 +1,50 @@
+{
+  "recorded_at_utc": "2026-10-24T12:40:28.400269+00:00",
+  "started_at_utc": "2026-10-24T12:40:26.127514+00:00",
+  "environment": "Codex managed environment, not school HPC",
+  "source": "Frozen Dreyer nm000250 v1.0.5 exact official EDF",
+  "relative_path": "sourcedata/sub-01/eeg/sub-01_task-R1acquisition_eeg.edf",
+  "expected_size": 14805604,
+  "full_file_bytes": 14805604,
+  "sha256": "a678fe6d37e0496eb381dcac6b877b047d02dfffc659ae4cfc38226f4850e185",
+  "frozen_sha256_matches": true,
+  "tls_verification_enabled": true,
+  "official_redirect_exact_frozen_object_validated": true,
+  "seeded_partial_bytes": 65536,
+  "actual_resume_range_verified": true,
+  "requests": [
+    {
+      "hostname": "data.nemar.org",
+      "method": "GET",
+      "requested_offset": 0,
+      "status": 302,
+      "location_present": true
+    },
+    {
+      "hostname": "nemar.s3.us-east-2.amazonaws.com",
+      "method": "GET",
+      "requested_offset": 0,
+      "status": 200,
+      "content_length": "14805604",
+      "content_range": null
+    },
+    {
+      "hostname": "data.nemar.org",
+      "method": "GET",
+      "requested_offset": 65536,
+      "status": 302,
+      "location_present": true
+    },
+    {
+      "hostname": "nemar.s3.us-east-2.amazonaws.com",
+      "method": "GET",
+      "requested_offset": 65536,
+      "status": 206,
+      "content_length": "14740068",
+      "content_range": "bytes 65536-14805603/14805604"
+    }
+  ],
+  "source_alternative_created": false,
+  "eeg_values_loaded": false,
+  "fits": 0
+}

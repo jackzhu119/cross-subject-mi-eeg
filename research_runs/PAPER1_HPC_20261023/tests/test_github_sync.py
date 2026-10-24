@@ -257,6 +257,23 @@ class GitHubSyncTests(unittest.TestCase):
         for forbidden in (self.token, "private", "traceback", "checkpoint_path", "subject_ids", '"eeg"'):
             self.assertNotIn(forbidden, serialized)
 
+    def test_transport_source_breakdown_is_truthful_and_drops_private_fields(self):
+        self.write_json('config/paths.json', {'raw_dir': str(self.project / 'raw')})
+        self.write_json('state/login_pipeline_status.json', {'stage': 'network_retry_wait',
+            'network_error_category': 'http', 'http_status': 503, 'retry_after_seconds': 60})
+        self.write_json('raw/transport_status.json', {'stage': 'network_transport', 'dataset': 'dreyer',
+            'completed_objects': 192, 'total_objects': 504,
+            'completed_by_dataset': {'bnci': 18, 'yang': 0, 'dreyer': 174, 'private': self.token},
+            'unavailable_datasets': ['yang', self.token], 'signed_url': 'https://private/?token=' + self.token})
+        report = sync.collect_progress(self.project)
+        self.assertEqual(report['transport']['completed_by_dataset'], {'bnci': 18, 'yang': 0, 'dreyer': 174})
+        self.assertEqual(report['transport']['unavailable_datasets'], ['yang'])
+        self.assertEqual(report['transport']['dataset'], 'dreyer')
+        self.assertEqual(report['preparation']['http_status'], 503)
+        self.assertEqual(report['preparation']['network_error_category'], 'http')
+        self.assertNotIn(self.token, json.dumps(report))
+        self.assertNotIn('signed_url', json.dumps(report))
+
     def test_sync_error_is_local_status_not_training_failure(self):
         sync._write_token(self.token_path, self.token)
         with mock.patch.object(sync, "_ensure_branch", side_effect=sync.GitHubError("github_network_unavailable")):

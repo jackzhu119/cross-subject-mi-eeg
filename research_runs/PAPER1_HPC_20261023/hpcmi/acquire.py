@@ -26,7 +26,8 @@ import zlib
 VENDOR = Path(__file__).resolve().parents[1] / 'vendor' / 'eligible_v3'
 sys.path.insert(0, str(VENDOR))
 from p1_common import atomic_json, log, safe_child, sha256_file, utc_now
-from p1_rangezip import open_yang_archive, member_record, selected_yang_members
+from p1_rangezip import member_record, selected_yang_members
+from .yang_transport import open_yang_archive
 
 STORAGE_HOST = 'nemar.s3.us-east-2.amazonaws.com'
 CHUNK = 8 * 1024 * 1024
@@ -90,8 +91,26 @@ def configure_download_trust():
     return report
 
 
+class DatasetTransportFailure(RuntimeError):
+    """Independent transfers remain incomplete; only bounded safe metadata."""
+    def __init__(self, failures):
+        def retryable(detail):
+            status = detail.get('http_status')
+            if status is not None:
+                return status in {408, 429, 500, 502, 503, 504}
+            return detail.get('category') in {'dns', 'connection', 'timeout', 'incomplete_read'}
+        # A real denial or TLS failure must not become an infinite network retry
+        # merely because another source happened to time out in the same pass.
+        selected = next((row for row in failures if not retryable(row['details'])), failures[0])
+        self.details = {**selected['details'], 'error_class': type(self).__name__,
+                        'failed_datasets': [row['dataset'] for row in failures]}
+        super().__init__('Independent dataset transfers incomplete: ' + ','.join(self.details['failed_datasets']))
+
+
 def safe_error_details(error):
     """Describe bounded exception metadata without rendering messages or URLs."""
+    if isinstance(error, DatasetTransportFailure):
+        return dict(error.details)
     queue, seen, causes = [error], set(), []
     detail = {'error_class': type(error).__name__, 'category': 'unknown'}
     specific = []
@@ -287,7 +306,7 @@ def validate_bnci_location(row, location):
     return expected
 
 
-def check_download_route():
+def _check_bnci_download_head():
     """Verify the repaired CA/path using HEAD only; do not read EEG bytes."""
     row = json.loads((VENDOR / 'config/bnci_manifest.json').read_text())['files'][0]
     basename = Path(urlsplit(row['url']).path).name
@@ -299,6 +318,70 @@ def check_download_route():
     print(json.dumps({'status': 'DOWNLOAD_ROUTE_TLS_HEAD_VERIFIED', 'http_status': 200,
                       'hostname': 'lampx.tugraz.at', 'expected_bytes': row['size'],
                       'eeg_body_read': False, 'full_file_sha256_verified': False}), flush=True)
+
+
+def check_download_route(raw_dir=None):
+    """Check remaining source routes, not full downloads or model inputs.
+
+    Temporary network failures are reported for the background per-source
+    retry path; scientific pin mismatches remain immediate errors.
+    """
+    if raw_dir is None:
+        return _check_bnci_download_head()
+    raw_dir = Path(raw_dir)
+    checked, unavailable = [], []
+    for dataset in ('bnci', 'yang', 'dreyer'):
+        try:
+            if dataset in {'bnci', 'dreyer'} and _pinned_native_ready(raw_dir, dataset):
+                result = {'dataset': dataset, 'status': 'CACHED_NATIVE_INPUTS_VERIFIED'}
+            elif dataset == 'bnci':
+                _check_bnci_download_head()
+                result = {'dataset': dataset, 'status': 'OFFICIAL_HEAD_VERIFIED'}
+            elif dataset == 'yang':
+                inventory, rows = yang_pins()
+                reader, archive, attestation, _ = open_yang_archive(max_total_bytes=1024 * 1024)
+                try:
+                    if _archive_identity(attestation) != _archive_identity(inventory):
+                        raise ValueError('Yang route metadata differs from the frozen ZIP identity')
+                    members = selected_yang_members(archive)
+                    pins = {row['path']: row for row in rows}
+                    if len(members) != len(rows):
+                        raise ValueError('Yang selected member inventory differs')
+                    for member in members:
+                        record = member_record(member)
+                        if record != {key: pins[member.filename][key] for key in record}:
+                            raise ValueError('Yang selected member differs from its frozen pin')
+                    result = {'dataset': dataset, 'status': 'YANG_GET_RANGE_DIRECTORY_VERIFIED',
+                              'archive_bytes': attestation['archive_bytes'],
+                              'central_directory_sha256': attestation['central_directory_sha256'],
+                              'selected_members': len(members), 'eeg_payload_read': False}
+                finally:
+                    archive.close()
+                    reader.close()
+            else:
+                row = json.loads((VENDOR / 'config/dreyer_manifest.json').read_text())['files'][0]
+                with open_object(row, row['size'] - 1, nemar=True) as response:
+                    if len(response.read(2)) != 1:
+                        raise ValueError('Dreyer bounded range probe length differs')
+                result = {'dataset': dataset, 'status': 'DREYER_GET_RANGE_VERIFIED',
+                          'range_probe_bytes': 1, 'expected_file_bytes': row['size'],
+                          'full_file_sha256_verified': False}
+            checked.append(result)
+            print(json.dumps(result, sort_keys=True), flush=True)
+        except Exception as error:
+            details = safe_error_details(error)
+            if not _independent_network_failure(error, details):
+                raise
+            unavailable.append({'dataset': dataset, **details})
+            print(json.dumps({'event': 'source_route_temporarily_unavailable',
+                              'dataset': dataset, **details}, sort_keys=True), flush=True)
+    report = {'status': 'DOWNLOAD_SOURCES_PREFLIGHT_VERIFIED' if not unavailable else 'DOWNLOAD_SOURCES_RETRY_PENDING',
+              'checked_sources': checked, 'unavailable_sources': unavailable,
+              'full_all_dataset_sha256_verified': False, 'model_fits': 0,
+              'updated_at_utc': utc_now()}
+    atomic_json(raw_dir / 'download_route_status.json', report)
+    print(json.dumps(report, sort_keys=True), flush=True)
+    return report
 
 
 @contextmanager
@@ -357,6 +440,7 @@ def open_object(row, offset=0, *, nemar=False):
             exc.close()
             failure = ValueError('Exact official storage object HTTP %s' % status)
             failure.request_phase = 'official_mirror_open'
+            failure.http_status = status
             raise failure from None
         except urllib.error.URLError:
             failure = OSError('Exact official storage connection failed')
@@ -837,6 +921,78 @@ def acquisition_lock(raw_dir):
     # Keep the inode. Deleting a lock file can allow concurrent lock owners.
 
 
+def _independent_network_failure(error, details):
+    """Continue independent sources, never hide integrity or local I/O errors."""
+    if (isinstance(error, (ValueError, TypeError, AssertionError))
+            and not isinstance(error, ssl.SSLError)
+            and not (type(getattr(error, 'http_status', None)) is int and 400 <= error.http_status <= 599)):
+        return False
+    rows = [details] + [row for row in details.get('causes', []) if isinstance(row, dict)]
+    if any(row.get('errno') in {1, 2, 5, 13, 28, 30, 122}
+           and row.get('error_class') not in {'SSLError', 'SSLCertVerificationError'} for row in rows):
+        return False
+    category = details.get('category')
+    if category == 'http':
+        return type(details.get('http_status')) is int and 400 <= details['http_status'] <= 599
+    return category in {'dns', 'connection', 'timeout', 'incomplete_read', 'tls', 'tls_certificate'}
+
+
+def _transport_independent_datasets(raw_dir, datasets):
+    """One pass per source, keeping completed inputs when another is unavailable."""
+    counts = {'bnci': 18, 'yang': 312, 'dreyer': 174}
+    completed = {name: 0 for name in datasets}
+    # Full native manifests/receipts can seed an exact cached count without
+    # repeating SHA scans. Incomplete sources are advanced by real callbacks.
+    for name in datasets:
+        if name in {'bnci', 'dreyer'} and _pinned_native_ready(raw_dir, name):
+            completed[name] = counts[name]
+    attempt = os.environ.get('PAPER1_TRANSFER_ATTEMPT', '')
+    if not re.fullmatch(r'[0-9a-f]{32}', attempt):
+        attempt = os.urandom(16).hex()
+    failures = []
+    for dataset in datasets:
+        log('begin download/continue ' + dataset)
+        def progress(done, total, dataset=dataset):
+            if type(done) is not int or done < 0 or done > counts[dataset]:
+                raise ValueError('Invalid completed transport object count')
+            completed[dataset] = max(completed[dataset], done)
+            atomic_json(Path(raw_dir) / 'transport_status.json', {
+                'stage': 'network_transport', 'dataset': dataset,
+                'completed_objects': sum(completed.values()), 'total_objects': sum(counts[d] for d in datasets),
+                'dataset_completed_objects': completed[dataset], 'dataset_total_objects': counts[dataset],
+                'completed_by_dataset': dict(completed), 'unavailable_datasets': [row['dataset'] for row in failures],
+                'updated_at_utc': utc_now(), 'model_fits': 0, 'native_yang_validation_pending': True})
+        progress(completed[dataset], counts[dataset])
+        try:
+            if dataset == 'yang':
+                acquire_yang_transport(Path(raw_dir) / dataset, progress=progress)
+            else:
+                acquire_pinned(dataset, Path(raw_dir) / dataset, progress=progress)
+        except Exception as error:
+            details = safe_error_details(error)
+            if not _independent_network_failure(error, details):
+                raise
+            path = Path(raw_dir) / '.dataset-transfer-failures' / (attempt + '-' + dataset + '.json')
+            if not path.exists():
+                atomic_json(path, {'schema_version': 1, 'attempt_id': attempt, 'dataset': dataset,
+                                   'updated_at_utc': utc_now(), **details})
+            failures.append({'dataset': dataset, 'details': details})
+            print(json.dumps({'event': 'dataset_transfer_unavailable', 'dataset': dataset,
+                              'other_sources_continue': True, **details}, sort_keys=True), flush=True)
+            progress(completed[dataset], counts[dataset])
+        else:
+            # A successful source method has completed its frozen inventory.
+            # A failed method never receives this full-source increment.
+            progress(counts[dataset], counts[dataset])
+    if failures:
+        atomic_json(Path(raw_dir) / 'acquisition_status.json', {
+            'status': 'NETWORK_PARTIAL_SOURCES_UNAVAILABLE', 'mode': 'transport-only',
+            'unavailable_datasets': [row['dataset'] for row in failures],
+            'completed_objects': sum(completed.values()), 'total_objects': sum(counts[d] for d in datasets),
+            'network_payloads_ready': False, 'model_fits': 0, 'updated_at_utc': utc_now()})
+        raise DatasetTransportFailure(failures)
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--raw-dir', required=True, type=Path)
@@ -844,40 +1000,28 @@ def main(argv=None):
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument('--transport-only', action='store_true', help='Download native/ZIP-compressed payloads without decoding Yang')
     mode.add_argument('--offline-publish', action='store_true', help='Verify/publish cached payloads without network access')
-    mode.add_argument('--check-download-route', action='store_true', help='Verify repaired TLS and the official HEAD without downloading EEG')
+    mode.add_argument('--check-download-route', action='store_true', help='Check official source routes with bounded HEAD/GET metadata requests')
     args = parser.parse_args(argv)
     if not args.offline_publish:
         configure_download_trust()
     if args.check_download_route:
-        check_download_route()
+        check_download_route(args.raw_dir)
         return 0
     args.raw_dir.mkdir(parents=True, exist_ok=True)
     with acquisition_lock(args.raw_dir):
         datasets = ['bnci', 'yang', 'dreyer'] if args.dataset == 'all' else [args.dataset]
         if args.offline_publish:
             ready = publish_offline(args.raw_dir, datasets)
+        elif args.transport_only:
+            _transport_independent_datasets(args.raw_dir, datasets)
+            ready = quick_raw_ready(args.raw_dir)
         else:
-            counts = {'bnci': 18, 'yang': 312, 'dreyer': 174}
-            completed_before = 0
             for dataset in datasets:
                 log('begin download/continue ' + dataset)
-                def progress(completed, total, dataset=dataset, before=completed_before):
-                    atomic_json(args.raw_dir / 'transport_status.json', {
-                        'stage': 'network_transport', 'dataset': dataset,
-                        'completed_objects': before + completed,
-                        'total_objects': sum(counts[d] for d in datasets),
-                        'dataset_completed_objects': completed, 'dataset_total_objects': total,
-                        'updated_at_utc': utc_now(), 'model_fits': 0,
-                        'native_yang_validation_pending': True})
-                report = progress if args.transport_only else None
                 if dataset == 'yang':
-                    if args.transport_only:
-                        acquire_yang_transport(args.raw_dir / dataset, progress=report)
-                    else:
-                        acquire_yang(args.raw_dir / dataset)
+                    acquire_yang(args.raw_dir / dataset)
                 else:
-                    acquire_pinned(dataset, args.raw_dir / dataset, progress=report)
-                completed_before += counts[dataset]
+                    acquire_pinned(dataset, args.raw_dir / dataset)
             ready = quick_raw_ready(args.raw_dir)
         network_ready = network_payloads_ready(args.raw_dir)
         if network_ready:
