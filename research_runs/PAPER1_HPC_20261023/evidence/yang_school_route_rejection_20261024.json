@@ -1,0 +1,54 @@
+{
+  "evidence_source": "User-provided school terminal output; agent did not operate school HPC",
+  "date": "2026-10-24",
+  "diagnostic_code_commit": "380587fcf0e5bb73b56b623cb141f0b9dc10ad71",
+  "host": "login1",
+  "python_routes": [
+    {
+      "route": "figshare_download",
+      "started_at_utc_as_reported_by_school_clock": "2026-10-24T13:52:35.443047+00:00",
+      "completed_at_utc_as_reported_by_school_clock": "2026-10-24T13:52:36.304408+00:00",
+      "stage": "entry",
+      "hostname": "ndownloader.figshare.com",
+      "http_status": 403,
+      "content_type": "html",
+      "location_present": false,
+      "query_present": false,
+      "signature_expired": null,
+      "body_bytes_read": 0
+    },
+    {
+      "route": "figshare_api_download",
+      "started_at_utc_as_reported_by_school_clock": "2026-10-24T13:52:36.304445+00:00",
+      "completed_at_utc_as_reported_by_school_clock": "2026-10-24T13:52:37.652626+00:00",
+      "stage": "entry",
+      "hostname": "api.figshare.com",
+      "http_status": 403,
+      "content_type": "html",
+      "location_present": false,
+      "query_present": false,
+      "signature_expired": null,
+      "body_bytes_read": 0
+    }
+  ],
+  "system_curl_comparison": {
+    "public_url": "https://ndownloader.figshare.com/files/51001884",
+    "range": "bytes=0-0",
+    "follow_redirects": false,
+    "output": "HTTP=403",
+    "precise_execution_timestamp_not_provided": true
+  },
+  "eeg_payload_read": false,
+  "model_fits_started_by_diagnostic": 0,
+  "school_cache_or_tasks_modified_by_diagnostic": false,
+  "signed_query_logged": false,
+  "only_python_client_incompatibility_explains_failure": false,
+  "school_vs_service_rejection_origin_identified": false,
+  "r2_readonly_metadata_attempt": {
+    "http_status": 401,
+    "service_code": "Unauthorized",
+    "retried": false,
+    "backup_absence_established": false
+  },
+  "scientific_inputs_or_hash_rules_changed": false
+}
