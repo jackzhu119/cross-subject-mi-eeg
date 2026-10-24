@@ -1,5 +1,7 @@
 # 论文1：学校 HPC 新算法实验运行包
 
+> **2026-10-24下载修订**：入口已改用GitHub官方API，避免依赖无法连接的raw域名；完整53MB固定包已在开发环境通过API下载并核验原SHA。学校实际网络需以执行结果为准。
+
 > **2026-10-24单作业修订**：当前请使用 [SINGLE_JOB.md](SINGLE_JOB.md) 的完整流程入口。下载、预处理、两卡训练、评价和推送全部由一个Slurm作业完成，总分配2GPU/32CPU/256G。下面的独立下载/数组说明属于初版操作说明，仅供追溯；原数据和科学设计保持。
 
 本版本在已有 eligible-v3 数据定义上，研究**源被试×类别的尾部风险控制与频带一致性**。它是一套待执行的新实验，不把旧论文结果当作新算法的验证结果。原论文、Q1–Q16、历史失败和投稿材料保持原样。
@@ -25,10 +27,10 @@
 **可以直接在学校服务器下载，不需要经过本地电脑。** 在 `login1` 执行下面这一行：
 
 ```bash
-curl -fL --connect-timeout 20 --retry 3 https://raw.githubusercontent.com/jackzhu119/cross-subject-mi-eeg/main/research_runs/PAPER1_HPC_20261023/DOWNLOAD_ON_SCHOOL.sh -o /tmp/paper1-download-school.sh && bash /tmp/paper1-download-school.sh
+curl -4 -f --connect-timeout 8 --max-time 60 --retry 1 -H 'Accept: application/vnd.github.raw+json' 'https://api.github.com/repos/jackzhu119/cross-subject-mi-eeg/contents/research_runs/PAPER1_HPC_20261023/RUN_SINGLE_JOB_ON_SCHOOL.sh?ref=main' -o /tmp/paper1-single-job.sh && bash /tmp/paper1-single-job.sh
 ```
 
-这个小入口在登录节点下载约53MB固定运行包、核对SHA256并解压，再提交独立Slurm下载作业（`hpc_gpu`分区，`gpu:1`/16CPU/128G）。约71GB的原始数据恢复和Yang解压在分配的计算节点执行；数据直接保存到 `/public/home/zhuziyuan/projects/paper1-risk-v1/raw`。作业提交成功后，关闭本地终端不会终止Slurm下载。重复同命令会复用包、运行中的下载作业和已验证原始文件。
+这个入口在登录节点复用或下载约53MB固定运行包、核对SHA256并解压，隐藏输入GitHub token后只提交一个Slurm作业（`hpc_gpu`分区，总2GPU/32CPU/256G）。约71GB原始数据恢复、预处理、两卡训练、评价及推送在该作业内完成；数据直接保存到 `/public/home/zhuziyuan/projects/paper1-risk-v1/raw`。重复同命令会复用包、正在运行的同项目作业、原始文件和训练断点。后续独立下载/数组流程是初版记录，当前采用 [SINGLE_JOB.md](SINGLE_JOB.md)。
 
 2026-10-24资源修订：入口会将已解压包和已存在项目的两份 `config/cluster.json` 同步改为 `partition=hpc_gpu`、`gres=gpu:1`、`exclude=[]`、`cpus_per_task=16`、`max_parallel=2`，保留旧配置。这样下一阶段训练也使用新分区。旧离线包及其原始manifest仍保留原source身份，此处属于资源操作覆盖。截图没有显示新分区GPU型号，不能保证分配A100。
 

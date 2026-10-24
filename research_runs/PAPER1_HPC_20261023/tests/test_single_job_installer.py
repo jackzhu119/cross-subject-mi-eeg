@@ -25,10 +25,29 @@ class SingleInstallerTests(unittest.TestCase):
         fetch.write_text("#!" + sys.executable + '''
 import json,os,shutil,sys
 from pathlib import Path
-url=next(x for x in sys.argv[1:] if x.startswith('https://'))
-name=url.rsplit('/',1)[1]
+from urllib.parse import parse_qs,urlsplit
+args=sys.argv[1:]
+url=next(x for x in args if x.startswith('https://'))
+parts=urlsplit(url)
+assert parts.scheme=='https' and parts.hostname=='api.github.com', 'Unexpected transport host'
+assert not any(x in ('--location','--location-trusted','--insecure') or (x.startswith('-') and not x.startswith('--') and any(c in x[1:] for c in ('L','k'))) for x in args), 'Redirect or TLS bypass'
+assert '-4' in args and args[args.index('--connect-timeout')+1]=='8'
+assert args[args.index('--speed-time')+1]=='30' and args[args.index('--speed-limit')+1]=='128'
+assert args[args.index('--retry')+1]=='1'
+assert any(args[i+1]=='Accept: application/vnd.github.raw+json' for i,x in enumerate(args[:-1]) if x in ('-H','--header'))
+if '/git/blobs/' in parts.path:
+    assert parts.path.endswith('/6e4661c5fc6f1ac5530bcebddd746608cf6310e8')
+    name='paper1-hpc-offline.tar.gz'
+    assert args[args.index('--max-time')+1]=='900'
+else:
+    assert '/contents/' in parts.path and len(parse_qs(parts.query).get('ref',[''])[0])==40
+    name=parts.path.rsplit('/',1)[1]
+    assert args[args.index('--max-time')+1]=='90'
 root=Path(os.environ['TEST_CODE_ROOT'])
-with open(os.environ['TEST_CURL_TRACE'],'a') as f:f.write(json.dumps({'name':name})+'\\n')
+with open(os.environ['TEST_CURL_TRACE'],'a') as f:f.write(json.dumps({'name':name,'url':url,'arguments':args})+'\\n')
+if os.environ.get('TEST_BLOCK_API'):
+    print('Simulated official API connect timeout',file=sys.stderr)
+    sys.exit(28)
 if name=='DOWNLOAD_ON_SCHOOL.sh': source=root/name
 else: source=root/'dist'/name
 if name=='paper1-single-job-operations.tar.gz' and os.environ.get('TEST_BAD_PATCH'):
@@ -85,6 +104,56 @@ else: os.execv(sys.executable,[sys.executable]+sys.argv[1:])
         self.assertEqual(self.trace.read_text(), first_requests)
         self.assertEqual(len(self.submitted.read_text().splitlines()), 2)
         self.assertEqual(partial.read_bytes(), b"existing partial bytes")
+
+    def test_blocked_api_does_not_submit_or_publish_code(self):
+        self.env["TEST_BLOCK_API"] = "1"
+        result = self.run_installer()
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("Simulated official API connect timeout", result.stderr)
+        self.assertFalse(self.submitted.exists())
+        self.assertFalse((self.projects / "PAPER1_HPC_20261023").exists())
+        calls = [json.loads(line) for line in self.trace.read_text().splitlines()]
+        self.assertEqual(len(calls), 1)
+        self.assertEqual(calls[0]["name"], "DOWNLOAD_ON_SCHOOL.sh")
+
+    def test_cached_resume_works_when_network_is_unavailable(self):
+        first = self.run_installer()
+        self.assertEqual(first.returncode, 0, first.stderr)
+        requests = self.trace.read_bytes()
+        self.env["TEST_BLOCK_API"] = "1"
+        resumed = self.run_installer()
+        self.assertEqual(resumed.returncode, 0, resumed.stderr)
+        self.assertEqual(self.trace.read_bytes(), requests)
+        self.assertEqual(len(self.submitted.read_text().splitlines()), 2)
+
+    def test_bundle_partials_are_preserved_and_verified_archive_is_reused(self):
+        self.projects.mkdir(parents=True)
+        old_partial = self.projects / "paper1-hpc-offline.tar.gz.part"
+        api_partial = self.projects / "paper1-hpc-offline.tar.gz.api-download.part"
+        old_partial.write_bytes(b"old raw-host partial retained")
+        api_partial.write_bytes(b"interrupted API full-blob candidate retained")
+        result = self.run_installer()
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(old_partial.read_bytes(), b"old raw-host partial retained")
+        interrupted = list(self.projects.glob("paper1-hpc-offline.tar.gz.api-interrupted.*"))
+        self.assertEqual(len(interrupted), 1)
+        self.assertEqual(interrupted[0].read_bytes(), b"interrupted API full-blob candidate retained")
+        archive = self.projects / "paper1-hpc-offline.tar.gz"
+        self.assertEqual(hashlib.sha256(archive.read_bytes()).hexdigest(),
+                         "72225f30c83be9bbc94d52eac672bee272690f6cf9949933e3d61380401d2675")
+        calls = [json.loads(line) for line in self.trace.read_text().splitlines()]
+        bundle_calls = [row for row in calls if row["name"] == "paper1-hpc-offline.tar.gz"]
+        self.assertEqual(len(bundle_calls), 1)
+        self.assertNotIn("-C", bundle_calls[0]["arguments"])
+        self.assertNotIn("--continue-at", bundle_calls[0]["arguments"])
+        self.assertNotIn("--range", bundle_calls[0]["arguments"])
+        requests = self.trace.read_bytes()
+        self.env["TEST_BLOCK_API"] = "1"
+        resumed = self.run_installer()
+        self.assertEqual(resumed.returncode, 0, resumed.stderr)
+        self.assertEqual(self.trace.read_bytes(), requests)
+        self.assertEqual(old_partial.read_bytes(), b"old raw-host partial retained")
+        self.assertEqual(interrupted[0].read_bytes(), b"interrupted API full-blob candidate retained")
 
     def test_corrupt_operations_stop_before_code_or_job_changes(self):
         self.env["TEST_BAD_PATCH"] = "1"

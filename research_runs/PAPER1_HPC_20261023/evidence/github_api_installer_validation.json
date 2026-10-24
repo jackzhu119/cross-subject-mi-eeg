@@ -1,0 +1,20 @@
+{
+  "recorded_at_utc": "2026-10-24T07:34:26.641362+00:00",
+  "change": "Official GitHub API delivery for initial and nested HPC bootstrap files",
+  "scope": "Transport only; one enclosing Slurm job and all scientific code unchanged",
+  "installer_integration_tests": {
+    "passed": 5,
+    "network_and_final_submission_mocked": true,
+    "raw_host_disallowed_in_mock": true,
+    "fixed_archive_and_operations_sha_verified": true,
+    "partial_files_retained": true,
+    "cached_repeat_uses_no_network": true,
+    "unreachable_api_submits_no_job": true,
+    "bad_operations_sha_submits_no_job": true
+  },
+  "actual_network_evidence": "github_api_delivery_check.json",
+  "school_api_connectivity_observed": false,
+  "scientific_fits_started": 0,
+  "old_scientific_bundle_sha256": "72225f30c83be9bbc94d52eac672bee272690f6cf9949933e3d61380401d2675",
+  "updated_setup_sha256": "18015aedfa0980531ca24e65421630660ea36972511b9028741cd11590b0017c"
+}

@@ -6,7 +6,9 @@ PYTHON_BIN="${PAPER1_PYTHON:-/public/home/zhuziyuan/.venvs/paper3-hpc-cu121-offl
 PARTITION="${PAPER1_PARTITION:-hpc_gpu}"
 GPU_REQUEST="${PAPER1_GRES:-gpu:1}"
 BUNDLE_SHA="72225f30c83be9bbc94d52eac672bee272690f6cf9949933e3d61380401d2675"
-BUNDLE_URL="https://raw.githubusercontent.com/jackzhu119/cross-subject-mi-eeg/67de0abda18d1d64fa468d3f4907ac23c70d0b45/research_runs/PAPER1_HPC_20261023/dist/paper1-hpc-offline.tar.gz"
+# Exact original Git blob, served directly by the official API. This does not
+# redirect through raw.githubusercontent.com (which timed out on the observed school link).
+BUNDLE_URL="https://api.github.com/repos/jackzhu119/cross-subject-mi-eeg/git/blobs/6e4661c5fc6f1ac5530bcebddd746608cf6310e8"
 mkdir -p "$PROJECTS_ROOT"
 PROJECTS_ROOT="$(cd "$PROJECTS_ROOT" && pwd)"
 PROJECT="$PROJECTS_ROOT/paper1-risk-v1"
@@ -32,15 +34,30 @@ else
   printf 'Downloading the fixed 53MB code/dependency bundle directly to school storage.\n'
   PART_SHA=""
   if [ -f "$ARCHIVE.part" ]; then PART_SHA="$(sha256sum "$ARCHIVE.part")"; fi
-  if [ "${PART_SHA%% *}" != "$BUNDLE_SHA" ]; then
-    curl -fL --connect-timeout 20 --max-time 900 --retry 3 --retry-delay 5 -C - "$BUNDLE_URL" -o "$ARCHIVE.part"
+  if [ "${PART_SHA%% *}" = "$BUNDLE_SHA" ]; then
+    mv "$ARCHIVE.part" "$ARCHIVE"
+  else
+    # The API returns the complete blob rather than HTTP byte ranges. Never
+    # append that response to an old raw-host partial or silently truncate it.
+    API_PART="$ARCHIVE.api-download.part"
+    API_SHA=""
+    if [ -f "$API_PART" ]; then API_SHA="$(sha256sum "$API_PART")"; fi
+    if [ -f "$API_PART" ] && [ "${API_SHA%% *}" != "$BUNDLE_SHA" ]; then
+      SAVED_API_PART="$(mktemp "$ARCHIVE.api-interrupted.XXXXXX")"
+      mv "$API_PART" "$SAVED_API_PART"
+      printf 'Preserved interrupted API transfer: %s\n' "$SAVED_API_PART"
+    fi
+    if [ "${API_SHA%% *}" != "$BUNDLE_SHA" ]; then
+      curl -4 -f --connect-timeout 8 --max-time 900 --speed-time 30 --speed-limit 128 --retry 1 --retry-delay 2 \
+        -H 'Accept: application/vnd.github.raw+json' "$BUNDLE_URL" -o "$API_PART"
+    fi
+    OBSERVED_SHA="$(sha256sum "$API_PART")"
+    if [ "${OBSERVED_SHA%% *}" != "$BUNDLE_SHA" ]; then
+      printf 'Downloaded archive checksum differs; partial retained: %s\n' "$API_PART" >&2
+      exit 2
+    fi
+    mv "$API_PART" "$ARCHIVE"
   fi
-  OBSERVED_SHA="$(sha256sum "$ARCHIVE.part")"
-  if [ "${OBSERVED_SHA%% *}" != "$BUNDLE_SHA" ]; then
-    printf 'Downloaded archive checksum differs; partial retained: %s.part\n' "$ARCHIVE" >&2
-    exit 2
-  fi
-  mv "$ARCHIVE.part" "$ARCHIVE"
 fi
 if [ -d "$CODE_ROOT" ]; then
   if [ ! -f "$CODE_ROOT/OFFLINE_MANIFEST.json" ]; then

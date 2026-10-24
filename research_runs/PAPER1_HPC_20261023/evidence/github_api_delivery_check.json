@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "recorded_at_utc": "2026-10-24T07:32:25.558385+00:00",
+  "execution_environment": "Codex managed execution environment; not the school HPC",
+  "school_route_connectivity_verified": false,
+  "credentials_used": false,
+  "tls_verification_enabled": true,
+  "accept_header": "application/vnd.github.raw+json",
+  "small_installer": {
+    "observed_at_utc": "2026-10-24T07:32:25.558296+00:00",
+    "route": "contents raw",
+    "status": 200,
+    "final_host": "api.github.com",
+    "content_type": "application/vnd.github.raw+json; charset=utf-8",
+    "bytes": 5267,
+    "sha256": "cef6d8d1b2f9b5913ab0ff28fc11359e459dc03463be6c2c3595ba8dc010abf5",
+    "expected_sha256": "cef6d8d1b2f9b5913ab0ff28fc11359e459dc03463be6c2c3595ba8dc010abf5",
+    "matches_frozen": true,
+    "commit": "1ea335ad81128522e98584ab79da0034c142155f",
+    "path": "research_runs/PAPER1_HPC_20261023/RUN_SINGLE_JOB_ON_SCHOOL.sh"
+  },
+  "full_bundle": {
+    "route": "git blob raw",
+    "repository": "jackzhu119/cross-subject-mi-eeg",
+    "blob_sha1": "6e4661c5fc6f1ac5530bcebddd746608cf6310e8",
+    "commit": "67de0abda18d1d64fa468d3f4907ac23c70d0b45",
+    "path": "research_runs/PAPER1_HPC_20261023/dist/paper1-hpc-offline.tar.gz",
+    "status": 200,
+    "final_host": "api.github.com",
+    "content_type": "application/octet-stream",
+    "bytes": 53189869,
+    "sha256": "72225f30c83be9bbc94d52eac672bee272690f6cf9949933e3d61380401d2675",
+    "matches_frozen": true,
+    "elapsed_seconds": 4.452,
+    "full_response_hashed_in_memory_not_saved": true,
+    "individual_probe_timestamp_not_captured": true
+  },
+  "large_contents_metadata": {
+    "status": 200,
+    "size": 53189869,
+    "blob_sha1": "6e4661c5fc6f1ac5530bcebddd746608cf6310e8",
+    "encoding": "none",
+    "content_field_bytes": 0,
+    "requires_raw_media_type": true
+  },
+  "large_contents_raw_prefix_check": {
+    "status": 200,
+    "final_host": "api.github.com",
+    "content_type": "application/vnd.github.raw+json; charset=utf-8",
+    "content_length": 53189869,
+    "gzip_prefix_verified": true,
+    "bytes_read": 64
+  },
+  "range_probe": {
+    "observed_at_utc": "2026-10-24T07:31:47.813460+00:00",
+    "route": "git blob raw",
+    "request_range": "bytes=1024-2047",
+    "status": 200,
+    "content_range": null,
+    "accept_ranges": null,
+    "content_length": 53189869,
+    "bytes_read_bounded": 1025,
+    "gzip_prefix_verified": true,
+    "range_respected": false,
+    "final_host": "api.github.com",
+    "elapsed_seconds": 2.643
+  },
+  "implications": [
+    "Official API raw delivery avoids raw.githubusercontent.com and was byte-verified here.",
+    "Standard JSON contents response does not include the 53MB archive bytes.",
+    "Do not append API200 full responses to an existing partial: requested Range was ignored in the observed response.",
+    "Preserve an existing partial and use a separate full API candidate verified by the frozen SHA before publication.",
+    "Managed-environment success does not establish school HPC DNS, routing, firewall, proxy, or API accessibility."
+  ]
+}

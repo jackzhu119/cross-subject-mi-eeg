@@ -5,10 +5,12 @@
 在 `login1` 执行下面这一整行：
 
 ```bash
-curl -fL --connect-timeout 20 --retry 3 https://raw.githubusercontent.com/jackzhu119/cross-subject-mi-eeg/main/research_runs/PAPER1_HPC_20261023/RUN_SINGLE_JOB_ON_SCHOOL.sh -o /tmp/paper1-single-job.sh && bash /tmp/paper1-single-job.sh
+curl -4 -f --connect-timeout 8 --max-time 60 --retry 1 -H 'Accept: application/vnd.github.raw+json' 'https://api.github.com/repos/jackzhu119/cross-subject-mi-eeg/contents/research_runs/PAPER1_HPC_20261023/RUN_SINGLE_JOB_ON_SCHOOL.sh?ref=main' -o /tmp/paper1-single-job.sh && bash /tmp/paper1-single-job.sh
 ```
 
-入口为 `RUN_SINGLE_JOB_ON_SCHOOL.sh`。它先复用现有53MB离线包，安装一个很小且固定SHA的运行层补丁，再一次性准备/复用项目CPU预处理环境。旧共享Torch环境保持原样。首次会隐藏提示输入新的GitHub Contents读写token，私有保存后不必每次输入；不要把token粘贴到聊天或写入公开脚本。
+2026-10-24下载修订：启动脚本、嵌套安装器及运行层补丁均直接通过 GitHub 官方 `api.github.com` 提供，不再依赖 `raw.githubusercontent.com`。IPv4、8秒连接超时、总超时和低速超时有界；TLS及固定SHA校验保持。若前一条curl还在等待，先按 `Ctrl+C` 再执行上面的新命令。
+
+入口为 `RUN_SINGLE_JOB_ON_SCHOOL.sh`。它先复用现有53MB离线包，安装一个很小且固定SHA的运行层补丁，再一次性准备/复用项目CPU预处理环境。旧共享Torch环境保持原样。若固定53MB包尚不存在，则从其原Git blob的官方API下载。API不支持所测Range请求，因此旧离线包partial原位保留，另存完整API候选文件并核对同一固定SHA后发布；原EEG续传机制不受影响。首次会隐藏提示输入新的GitHub Contents读写token，私有保存后不必每次输入；不要把token粘贴到聊天或写入公开脚本。
 
 已在运行或排队的同项目单作业会复用。身份核对通过的旧PENDING下载作业会保留原记录后取消，再提交新单作业；运行中的旧下载或旧训练会保留，并明确告知当前没有创建第二个作业。其它论文和作业不受这些操作影响。
 
@@ -38,3 +40,5 @@ curl -fL --connect-timeout 20 --retry 3 https://raw.githubusercontent.com/jackzh
 同一 `RUN_SINGLE_JOB_ON_SCHOOL.sh` 命令可用于恢复；完成任务跳过，未完成任务从原断点继续，评价从会话分片继续。USR1由外壳转发给监督进程，再转发实际worker；等待保存退出75后仅重排当前一个job。用户取消不会自动重新提交。单项失败不取消其它独立fit，同次运行不无限重试；最终保留未完成列表，供同命令手动恢复。
 
 把全过程合在一个作业内意味着下载和CPU预处理期间也会保留两张GPU分配；这满足本次减少作业数量的要求。
+
+直接访问官方API的完整53MB下载及固定SHA已在本开发环境核验；这不等于学校服务器网络已经通过。若新命令仍在8秒连接界限内超时，请保留该次输出以确定学校到 `api.github.com` 的实际连通性。
