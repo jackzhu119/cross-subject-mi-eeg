@@ -66,12 +66,21 @@ def _legacy_training(project, rows):
     return observed
 
 
-def _configure_resources(project):
+def _job_memory(value, explicit=False):
+    if not isinstance(value, str):
+        raise ValueError("Job memory must be a Slurm integer with an optional K/M/G/T/P suffix")
+    value = value.strip().upper()
+    if not re.fullmatch(r"(?:[1-9]\d*[KMGTP]?|0)", value) or (value == "0" and not explicit):
+        raise ValueError("Invalid job memory; use a positive Slurm integer with an optional K/M/G/T/P suffix, or explicitly request 0")
+    return value
+
+
+def _configure_resources(project, memory):
     path = project / "config/cluster.json"
     old = read_json(path)
     new = {**old, "account": OWNER, "squeue_user": OWNER, "partition": "hpc_gpu",
            "gres": "gpu:1", "cpus_per_task": 16, "mem": "128G", "max_parallel": 2,
-           "exclude": []}
+           "exclude": [], "single_job_memory": memory}
     if old != new:
         stamp = utc_now().replace(":", "").replace("+", "_")
         atomic_json(project / "state" / ("cluster-before-single-" + stamp + ".json"), old)
@@ -116,7 +125,7 @@ def _migrate_download(project, rows, name, runner):
 
 
 def submit(project, python=cli.DEFAULT_PYTHON, raw_dir=None, wheelhouse=None,
-           repository=cli.REPOSITORY, runner=None):
+           repository=cli.REPOSITORY, runner=None, memory=None):
     """Prepare private configuration on login1, then perform one short submission.
 
     Network synchronization failures are handled independently by the existing
@@ -127,6 +136,12 @@ def submit(project, python=cli.DEFAULT_PYTHON, raw_dir=None, wheelhouse=None,
         raise RuntimeError("Run this submission command on login1, outside a compute allocation")
     runner = runner or subprocess.run
     project = Path(project).expanduser().resolve()
+    if memory is None:
+        cluster_path = project / "config/cluster.json"
+        saved_memory = read_json(cluster_path).get("single_job_memory") if cluster_path.exists() else None
+        memory = _job_memory(saved_memory, explicit=True) if saved_memory is not None else "240G"
+    else:
+        memory = _job_memory(memory, explicit=True)
     paths = cli.setup(project, python, raw_dir=raw_dir, repository=repository)
     metadata = cli.runtime_metadata(paths["training_python"])
     atomic_json(project / "state/training_metadata.json", metadata)
@@ -175,19 +190,19 @@ def submit(project, python=cli.DEFAULT_PYTHON, raw_dir=None, wheelhouse=None,
         stopped = cli.stop_legacy_controller(project)
         atomic_json(project / "config/execution_mode.json", {"mode": "single_job",
                     "updated_at_utc": utc_now(), "stopped_legacy_controller_pids": stopped})
-        cluster = _configure_resources(project)
+        cluster = _configure_resources(project, memory)
         blocked = _migrate_download(project, rows, "p1-download-" + key, runner)
         if blocked:
             return blocked
         item = {"submission_id": uuid.uuid4().hex[:12], "created_at_utc": utc_now(),
                 "job_name": name, "job_id": None, "status": "SUBMITTING", "project": str(project),
-                "shape": {"gpus": 2, "cpus": 32, "memory": "256G", "max_worker_processes": 2}}
+                "shape": {"gpus": 2, "cpus": 32, "memory": memory, "max_worker_processes": 2}}
         ledger["submissions"].append(item)
         atomic_json(ledger_path, ledger)
         output = str(log_dir / "single-%j.out")
         command = ["sbatch", "--parsable", "--nodes=1", "--ntasks=1", "--account=" + OWNER,
                    "--partition=" + cluster["partition"], "--gres=gpu:2", "--cpus-per-task=32",
-                   "--mem=256G", "--time=" + str(cluster.get("time_limit", "1-00:00:00")),
+                   "--mem=" + memory, "--time=" + str(cluster.get("time_limit", "1-00:00:00")),
                    "--signal=B:USR1@180", "--requeue", "--open-mode=append", "--job-name=" + name,
                    "--chdir=" + str(project), "--output=" + output, "--error=" + output,
                    str(script), str(project), paths["training_python"], str(ROOT)]
@@ -202,11 +217,14 @@ def submit(project, python=cli.DEFAULT_PYTHON, raw_dir=None, wheelhouse=None,
             item.update(status="SUBMISSION_FAILED" if result.returncode else "SUBMISSION_UNCERTAIN",
                         returncode=result.returncode, stdout=result.stdout[:1000], stderr=result.stderr[:1000])
             atomic_json(ledger_path, ledger)
-            raise RuntimeError("Single-job submission failed; scheduler response retained in " + str(ledger_path))
+            summary = "Single-job submission failed" if result.returncode else "Single-job submission outcome uncertain"
+            raise RuntimeError(summary + " (exit=" + str(result.returncode) + "); stderr=" +
+                               repr(item["stderr"]) + "; stdout=" + repr(item["stdout"]) +
+                               "; scheduler response retained in " + str(ledger_path))
         item.update(job_id=answer, status="SUBMITTED", submitted_at_utc=utc_now())
         atomic_json(ledger_path, ledger)
         return {"status": "SINGLE_JOB_SUBMITTED", "job_id": answer, "partition": cluster["partition"],
-                "gpu_request": "gpu:2", "cpus": 32, "memory": "256G", "log": output,
+                "gpu_request": "gpu:2", "cpus": 32, "memory": memory, "log": output,
                 "subjobs_or_array": False}
 
 
@@ -217,10 +235,12 @@ def main(argv=None):
     parser.add_argument("--raw-dir")
     parser.add_argument("--wheelhouse", type=Path)
     parser.add_argument("--repository", default=cli.REPOSITORY)
+    parser.add_argument("--memory", default=os.environ.get("PAPER1_JOB_MEMORY"),
+                        help="Total memory for the one enclosing job; saved for subsequent resumes")
     arguments = parser.parse_args(argv)
     try:
         result = submit(arguments.project, arguments.python, arguments.raw_dir,
-                        arguments.wheelhouse, arguments.repository)
+                        arguments.wheelhouse, arguments.repository, memory=arguments.memory)
         print(json.dumps(result, sort_keys=True), flush=True)
         return 0
     except Exception:

@@ -1,0 +1,39 @@
+{
+  "recorded_at_utc": "2026-10-24T07:52:07.433318+00:00",
+  "evidence_source": "User-supplied actual school Slurm ledger and sinfo output; not a query by this environment",
+  "failed_submission_created_at_utc": "2026-10-24T07:39:18.375359+00:00",
+  "failed_submission_id": "a8ff24b81f45",
+  "old_status": "SUBMISSION_FAILED",
+  "old_job_id": null,
+  "returncode": 1,
+  "stderr": "sbatch: error: Memory specification can not be satisfied\nsbatch: error: Batch job submission failed: Requested node configuration is not available\n",
+  "nodes": [
+    {
+      "name": "gpu1",
+      "slurm_memory_mib": 257437,
+      "cpus": 56,
+      "gres": "gpu:NVIDIAA100-PCIE-40GB:5"
+    },
+    {
+      "name": "gpu2",
+      "slurm_memory_mib": 257437,
+      "cpus": 56,
+      "gres": "gpu:NVIDIAA100-PCIE-40GB:5"
+    }
+  ],
+  "old_request_mib": 262144,
+  "new_request_mib": 245760,
+  "new_request": "240G",
+  "configured_node_margin_mib": 11677,
+  "total_gpus": 2,
+  "total_cpus": 32,
+  "new_scientific_fits_in_this_revision": 0,
+  "old_ledger_preserved": true,
+  "environment_reinstallation_required": false,
+  "school_updated_submission_observed": false,
+  "submission_layer_targeted_tests_passed": 15,
+  "complete_bundle_installer_targeted_tests_passed": 5,
+  "submission_only_repair_installer_tests_passed": 2,
+  "all_new_checks_are_targeted_no_gpu_no_fit": true,
+  "new_submitter_sha256": "1061f9a6ee1cfb9f9808c71989456d62f323f5b2978ee23195ad453ecc235115"
+}
