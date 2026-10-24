@@ -1,8 +1,13 @@
 import hashlib
+import contextlib
+import errno
+import http.client
 import io
 import json
 from pathlib import Path
 import tempfile
+import socket
+import ssl
 import unittest
 from unittest import mock
 import zipfile
@@ -119,6 +124,126 @@ class AcquireTest(unittest.TestCase):
             manifest = json.loads((a.VENDOR / 'config' / (dataset + '_manifest.json')).read_text())
             self.assertEqual(len(manifest['files']), count)
         self.assertFalse(a.quick_raw_ready(self.root))
+
+    def error_rows(self, text):
+        return [json.loads(line) for line in text.splitlines() if line.startswith('{')]
+
+    def test_dns_and_certificate_diagnostics_recover_context_without_messages(self):
+        secret = 'https://proxy-user:PRIVATE_PASSWORD@proxy.invalid/?signature=PRIVATE_SIGNATURE'
+        dns = a.urllib.error.URLError(socket.gaierror(socket.EAI_NONAME, secret))
+        certificate = ssl.SSLCertVerificationError(1, secret)
+        certificate.verify_code = 20
+        certificate.verify_message = secret
+        for cause, category in ((dns, 'dns'), (a.urllib.error.URLError(certificate), 'tls_certificate')):
+            output = io.StringIO()
+            with mock.patch.object(a, '_open_no_redirect', side_effect=cause), contextlib.redirect_stdout(output):
+                with self.assertRaises(RuntimeError):
+                    a.transfer_object(self.root, self.pin(), attempts=1)
+            rows = self.error_rows(output.getvalue())
+            self.assertEqual(len(rows), 1)
+            self.assertEqual(rows[0]['stage'], 'canonical_open')
+            self.assertEqual(rows[0]['category'], category)
+            self.assertFalse(rows[0]['will_retry'])
+            self.assertNotIn('PRIVATE', output.getvalue())
+            self.assertNotIn('proxy.invalid', output.getvalue())
+            if category == 'tls_certificate':
+                self.assertEqual(rows[0]['ssl_verify_code'], 20)
+            else:
+                self.assertIn(socket.EAI_NONAME, [r.get('errno') for r in rows[0]['causes']])
+
+    def test_local_disk_error_identifies_fsync_and_retains_partial(self):
+        row = self.pin()
+        output = io.StringIO()
+        with mock.patch.object(a, '_open_no_redirect', return_value=Response(b'abcdefghij', row['url'])), \
+             mock.patch.object(a.os, 'fsync', side_effect=OSError(errno.ENOSPC, 'PRIVATE disk path')), \
+             contextlib.redirect_stdout(output):
+            with self.assertRaises(RuntimeError):
+                a.transfer_object(self.root, row, attempts=1)
+        report = self.error_rows(output.getvalue())[0]
+        self.assertEqual(report['stage'], 'fsync_partial')
+        self.assertEqual(report['category'], 'os_error')
+        self.assertEqual(report['causes'][0]['errno'], errno.ENOSPC)
+        self.assertNotIn('PRIVATE', output.getvalue())
+        self.assertEqual((self.root / (row['path'] + '.part')).read_bytes(), b'abcdefghij')
+        self.assertFalse((self.root / row['path']).exists())
+
+    def test_mirror_http_status_and_incomplete_body_never_emit_url_or_payload(self):
+        row = self.pin()
+        location = 'https://' + a.STORAGE_HOST + '/nm000250/objects/SHA256E-s10--' + row['sha256'] + '.edf?signature=PRIVATE_SIGNATURE'
+        redirect = a.urllib.error.HTTPError(row['url'], 302, 'Found', {'Location': location}, None)
+        denial = a.urllib.error.HTTPError(location, 403, 'PRIVATE_MESSAGE', {'Location': location}, None)
+        output = io.StringIO()
+        with mock.patch.object(a, '_open_no_redirect', side_effect=[redirect, denial]) as opener, contextlib.redirect_stdout(output):
+            with self.assertRaises(ValueError):
+                a.transfer_object(self.root, row, nemar=True)
+        self.assertEqual(opener.call_count, 2)
+        report = self.error_rows(output.getvalue())[0]
+        self.assertEqual((report['stage'], report['http_status']), ('official_mirror_open', 403))
+        self.assertNotIn('PRIVATE', output.getvalue())
+        self.assertNotIn('https://', output.getvalue())
+        response = Response(b'abcdefghij', row['url'])
+        output = io.StringIO()
+        with mock.patch.object(a, '_open_no_redirect', return_value=response), \
+             mock.patch.object(response, 'read', side_effect=http.client.IncompleteRead(b'PRIVATE_BODY', 9)), \
+             contextlib.redirect_stdout(output):
+            with self.assertRaises(RuntimeError):
+                a.transfer_object(self.root, row, attempts=1)
+        report = self.error_rows(output.getvalue())[0]
+        self.assertEqual((report['stage'], report['category']), ('read_body', 'incomplete_read'))
+        self.assertEqual(report['causes'][0]['partial_bytes'], len(b'PRIVATE_BODY'))
+        self.assertNotIn('PRIVATE', output.getvalue())
+
+    def test_safe_diagnostics_bound_exception_cycles_and_preserve_retry_count(self):
+        secret = 'https://user:PRIVATE@host/?signature=PRIVATE'
+        failure = a.urllib.error.URLError(secret)
+        failure.__context__ = failure
+        self.assertEqual(len(a.safe_error_details(failure)['causes']), 1)
+        output = io.StringIO()
+        with mock.patch.object(a, '_open_no_redirect', side_effect=failure) as opener, \
+             mock.patch.object(a.time, 'sleep') as wait, contextlib.redirect_stdout(output):
+            with self.assertRaises(RuntimeError):
+                a.transfer_object(self.root, self.pin(), attempts=2)
+        self.assertEqual(opener.call_count, 2)
+        self.assertEqual(wait.call_count, 1)
+        self.assertEqual([r['will_retry'] for r in self.error_rows(output.getvalue())], [True, False])
+        self.assertNotIn('PRIVATE', output.getvalue())
+
+    def test_bnci_typed_canonical_connection_failure_uses_exact_official_alias(self):
+        data = b'abcdefghij'
+        for number, reason in enumerate((socket.gaierror(socket.EAI_NONAME, 'PRIVATE DNS message'),
+                                         TimeoutError('PRIVATE timeout'),
+                                         ConnectionRefusedError(errno.ECONNREFUSED, 'PRIVATE refused'),
+                                         ssl.SSLCertVerificationError(1, 'PRIVATE certificate')), 1):
+            basename = 'A0%dE.mat' % number
+            canonical = 'https://bnci-horizon-2020.eu/database/data-sets/001-2014/' + basename
+            alias = 'https://lampx.tugraz.at/~bci/database/001-2014/' + basename
+            row = {**self.pin(data), 'path': basename, 'url': canonical}
+            output = io.StringIO()
+            with mock.patch.object(a, '_open_no_redirect', side_effect=[a.urllib.error.URLError(reason),
+                    Response(data, alias)]) as opener, contextlib.redirect_stdout(output):
+                self.assertEqual(a.transfer_object(self.root, row), row['sha256'])
+            self.assertEqual(opener.call_args_list, [mock.call(canonical, 0), mock.call(alias, 0)])
+            report = self.error_rows(output.getvalue())[0]
+            self.assertEqual(report['event'], 'official_alias_attempt')
+            self.assertFalse(report['school_failure_cause_established'])
+            self.assertNotIn('PRIVATE', output.getvalue())
+            self.assertEqual((self.root / basename).read_bytes(), data)
+
+    def test_bnci_http_and_string_reason_denials_never_try_alias(self):
+        canonical = 'https://bnci-horizon-2020.eu/database/data-sets/001-2014/A01E.mat'
+        row = {**self.pin(), 'path': 'A01E.mat', 'url': canonical}
+        failure = a.urllib.error.HTTPError(canonical, 403, 'PRIVATE denial', {}, None)
+        for cause, expected in ((failure, ValueError),
+                (a.urllib.error.URLError('Tunnel denied HTTP403 PRIVATE'), RuntimeError),
+                (a.urllib.error.URLError(failure), RuntimeError),
+                (a.urllib.error.URLError(OSError(errno.EACCES, 'PRIVATE local denial')), RuntimeError)):
+            output = io.StringIO()
+            with mock.patch.object(a, '_open_no_redirect', side_effect=cause) as opener, contextlib.redirect_stdout(output):
+                with self.assertRaises(expected):
+                    a.transfer_object(self.root, row, attempts=1)
+            opener.assert_called_once_with(canonical, 0)
+            self.assertNotIn('official_alias_attempt', output.getvalue())
+            self.assertNotIn('PRIVATE', output.getvalue())
 
 
 if __name__ == '__main__':

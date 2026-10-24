@@ -90,6 +90,10 @@ if changes:
         'scientific_configuration_changed':False,'changes':changes},indent=2)+'\n')
 print(json.dumps({'partition':partition,'gres':gres,'updated_cluster_configs':len(changes)}),flush=True)
 SCHOOL_CLUSTER_OVERRIDE
+if [ "${PAPER1_SETUP_ONLY:-0}" = 1 ]; then
+  printf 'Fixed bundle prepared; no Slurm job submitted by setup-only mode.\n'
+  exit 0
+fi
 if "$PYTHON_BIN" -c 'import sys; from hpcmi.acquire import quick_raw_ready; sys.exit(0 if quick_raw_ready(sys.argv[1]) else 10)' "$PROJECT/raw"; then
   printf 'All raw inputs are already present. Start/resume training with:\n'
   printf 'bash %q --project %q --raw-dir %q\n' "$CODE_ROOT/LAUNCH.sh" "$PROJECT" "$PROJECT/raw"

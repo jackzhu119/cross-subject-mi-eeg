@@ -86,10 +86,54 @@ def _emit(project, state):
     return value
 
 
+def stop_legacy_controller(project, proc_root=Path("/proc")):
+    """Stop only this user's exact project monitor commands, never a worker."""
+    project = Path(project).expanduser().resolve()
+    stopped = []
+    for entry in Path(proc_root).iterdir():
+        if not entry.name.isdigit() or int(entry.name) == os.getpid():
+            continue
+        try:
+            if entry.stat().st_uid != os.getuid():
+                continue
+            argv = (entry / "cmdline").read_bytes().decode().rstrip("\0").split("\0")
+            module_pos = argv.index("-m") + 1
+            module = argv[module_pos]
+            if module == "hpcmi.cli":
+                if argv[module_pos + 1] != "controller":
+                    continue
+            elif module != "hpcmi.github_sync":
+                continue
+            target = argv[argv.index("--project") + 1]
+            if Path(target).expanduser().resolve() != project:
+                continue
+            os.kill(int(entry.name), signal.SIGTERM)
+            stopped.append(int(entry.name))
+        except (FileNotFoundError, ProcessLookupError, ValueError, IndexError, UnicodeError):
+            continue
+    # An old progress writer may be finishing its bounded 15-second HTTP call.
+    deadline = time.monotonic() + 20
+    waiting = set(stopped)
+    while waiting and time.monotonic() < deadline:
+        for pid in list(waiting):
+            try:
+                os.kill(pid, 0)
+            except ProcessLookupError:
+                waiting.discard(pid)
+        if waiting:
+            time.sleep(.1)
+    if waiting:
+        raise RuntimeError("Existing project monitor has not exited; no new controller started")
+    return stopped
+
+
 def controller_tick(project, explicit_resume=False):
     from .slurm import (submit_auxiliary, auxiliary_state, active_task_ids,
                         task_scheduler_states, submit_task_array)
     project = Path(project).expanduser().resolve()
+    mode = project / "config/execution_mode.json"
+    if mode.exists() and read_json(mode).get("mode") == "single_job":
+        return _emit(project, {"stage": "single_job_managed", "legacy_array_submission": False})
     paths = read_json(project / "config/paths.json")
     cluster = read_json(project / "config/cluster.json")
     # Small receipts are re-read; raw EEG and full library scans are not.
@@ -212,7 +256,7 @@ def controller(project):
                 try:
                     with exclusive_lock(project / "state/controller_tick.lock", blocking=True):
                         result = controller_tick(project, explicit_resume=False)
-                    if result["stage"] in {"complete", "manual_resume_required"} or result.get("manual_resume_required"):
+                    if result["stage"] in {"complete", "manual_resume_required", "single_job_managed"} or result.get("manual_resume_required"):
                         return 0
                 except Exception:
                     traceback.print_exc()

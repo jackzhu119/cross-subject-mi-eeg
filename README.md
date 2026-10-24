@@ -1,4 +1,4 @@
-> **学校HPC新实验运行包（2026-10-23）**：`hpc_gpu`分区、每项16CPU/128G、最多2卡并行、原始数据恢复、断点续跑和GitHub进度同步。见 [中文操作说明](research_runs/PAPER1_HPC_20261023/README_zh.md) 与 [新研究协议](research_runs/PAPER1_HPC_20261023/PROJECT_PROTOCOL.md)。这是待执行的算法研究版本；下方已完成论文与冻结结果保持原样。
+> **学校HPC新实验运行包（2026-10-23）**：`hpc_gpu`分区、单一Slurm作业（2GPU/32CPU/256G），内部两卡并行、原始数据恢复、断点续跑和GitHub进度同步。见 [中文操作说明](research_runs/PAPER1_HPC_20261023/README_zh.md) 与 [新研究协议](research_runs/PAPER1_HPC_20261023/PROJECT_PROTOCOL.md)。这是待执行的算法研究版本；下方已完成论文与冻结结果保持原样。
 
 # Paper 1 — reviewed submission materials (20 October 2026)
 

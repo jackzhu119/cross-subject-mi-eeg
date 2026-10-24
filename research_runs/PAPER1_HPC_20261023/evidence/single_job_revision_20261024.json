@@ -1,0 +1,33 @@
+{
+  "source": "User requested one combined Slurm job after the download failure on 24 October 2026",
+  "failed_school_job": {
+    "id": "770688",
+    "partition": "hpc_gpu",
+    "node_from_screenshot": "gpu2",
+    "requested_cpus": 16,
+    "last_visible_phase": "begin download/continue bnci",
+    "outer_error": "RuntimeError: Transfer interrupted; same command resumes A01E.mat",
+    "underlying_cause": "not established from legacy traceback"
+  },
+  "new_execution": {
+    "slurm_jobs": 1,
+    "gpu_request": "gpu:2",
+    "cpus": 32,
+    "memory": "256G",
+    "internal_concurrent_fits": 2,
+    "cpus_per_gpu": 16,
+    "memory_per_gpu": "128G",
+    "training_arrays": false,
+    "child_sbatch_calls": false,
+    "download_preprocessing_training_and_evaluation_in_same_job": true
+  },
+  "scientific_plan_changed": false,
+  "old_failures_downloads_checkpoints_retained": true,
+  "school_hpc_accessed_by_assistant": false,
+  "underlying_school_network_or_disk_failure_claimed_fixed": false,
+  "failure_reporting_fixed": true,
+  "credentials_in_source": false,
+  "targeted_tests_passed": 53,
+  "test_log": "single_job_targeted_tests.txt",
+  "bnci_fallback": "Exact verified official TU Graz MAT alias only for typed connection/DNS/TLS errors; no fallback on explicit HTTP/proxy denial"
+}

@@ -1,0 +1,61 @@
+test_bnci_exact_official_mirror_and_duplicate_lock (test_acquire.AcquireTest.test_bnci_exact_official_mirror_and_duplicate_lock) ... ok
+test_bnci_http_and_string_reason_denials_never_try_alias (test_acquire.AcquireTest.test_bnci_http_and_string_reason_denials_never_try_alias) ... ok
+test_bnci_typed_canonical_connection_failure_uses_exact_official_alias (test_acquire.AcquireTest.test_bnci_typed_canonical_connection_failure_uses_exact_official_alias) ... ok
+test_dns_and_certificate_diagnostics_recover_context_without_messages (test_acquire.AcquireTest.test_dns_and_certificate_diagnostics_recover_context_without_messages) ... ok
+test_file_range_resume_and_completed_receipt_skips_network_hash (test_acquire.AcquireTest.test_file_range_resume_and_completed_receipt_skips_network_hash) ... ok
+test_local_disk_error_identifies_fsync_and_retains_partial (test_acquire.AcquireTest.test_local_disk_error_identifies_fsync_and_retains_partial) ... ok
+test_mirror_http_status_and_incomplete_body_never_emit_url_or_payload (test_acquire.AcquireTest.test_mirror_http_status_and_incomplete_body_never_emit_url_or_payload) ... ok
+test_nemar_single_exact_redirect_retains_range_and_denial_not_retried (test_acquire.AcquireTest.test_nemar_single_exact_redirect_retains_range_and_denial_not_retried) ... {"attempt": 1, "attempt_limit": 4, "category": "http", "causes": [{"error_class": "ValueError", "http_status": 403, "location_present": false}], "error_class": "ValueError", "event": "download_error", "file": "other/file.edf", "http_status": 403, "offset_bytes": 0, "stage": "canonical_open", "will_retry": false}
+ok
+test_safe_diagnostics_bound_exception_cycles_and_preserve_retry_count (test_acquire.AcquireTest.test_safe_diagnostics_bound_exception_cycles_and_preserve_retry_count) ... ok
+test_static_frozen_manifest_counts_and_vendor_identity (test_acquire.AcquireTest.test_static_frozen_manifest_counts_and_vendor_identity) ... ok
+test_wrong_hash_and_unknown_redirect_are_preserved_rejected (test_acquire.AcquireTest.test_wrong_hash_and_unknown_redirect_are_preserved_rejected) ... {"attempt": 1, "attempt_limit": 4, "category": "unknown", "causes": [{"error_class": "ValueError"}], "error_class": "ValueError", "event": "download_error", "file": "sub/file.edf", "offset_bytes": 0, "stage": "hash_partial", "will_retry": false}
+ok
+test_yang_compressed_resume_crc_full_sha_and_receipt (test_acquire.AcquireTest.test_yang_compressed_resume_crc_full_sha_and_receipt) ... ok
+test_cancellation_during_cleanup_controls_final_exit (test_single_job.SingleJobTests.test_cancellation_during_cleanup_controls_final_exit) ... ok
+test_corrupt_completion_does_not_cancel_other_independent_work (test_single_job.SingleJobTests.test_corrupt_completion_does_not_cancel_other_independent_work) ... ok
+test_execute_source_selection_then_final_and_complete_analysis (test_single_job.SingleJobTests.test_execute_source_selection_then_final_and_complete_analysis) ... ok
+test_exit_zero_without_completion_is_not_success (test_single_job.SingleJobTests.test_exit_zero_without_completion_is_not_success) ... ok
+test_failed_stage_preserves_real_return_code (test_single_job.SingleJobTests.test_failed_stage_preserves_real_return_code) ... ok
+test_preparation_is_direct_child_and_only_success_publishes_receipt (test_single_job.SingleJobTests.test_preparation_is_direct_child_and_only_success_publishes_receipt) ... ok
+test_prepared_receipt_reuses_metadata_without_raw_scan_or_preprocessing (test_single_job.SingleJobTests.test_prepared_receipt_reuses_metadata_without_raw_scan_or_preprocessing) ... ok
+test_reporting_exit_race_and_failure_never_change_scientific_result (test_single_job.SingleJobTests.test_reporting_exit_race_and_failure_never_change_scientific_result) ... ok
+test_slots_use_only_actual_allocation_values (test_single_job.SingleJobTests.test_slots_use_only_actual_allocation_values) ... ok
+test_two_slots_skip_completed_and_keep_independent_tasks_after_failure (test_single_job.SingleJobTests.test_two_slots_skip_completed_and_keep_independent_tasks_after_failure) ... ok
+test_usr1_forwards_to_both_workers_and_term_has_precedence (test_single_job.SingleJobTests.test_usr1_forwards_to_both_workers_and_term_has_precedence) ... ok
+test_actual_supervisor_error_is_preserved (test_single_job_shell.SingleJobShellTests.test_actual_supervisor_error_is_preserved) ... ok
+test_cancel_during_save_overrides_usr1_requeue (test_single_job_shell.SingleJobShellTests.test_cancel_during_save_overrides_usr1_requeue) ... ok
+test_denied_requeue_keeps_checkpoint_and_returns_75 (test_single_job_shell.SingleJobShellTests.test_denied_requeue_keeps_checkpoint_and_returns_75) ... ok
+test_term_checkpoints_without_requeue (test_single_job_shell.SingleJobShellTests.test_term_checkpoints_without_requeue) ... ok
+test_usr1_waits_for_save_then_requeues_only_current_job_once (test_single_job_shell.SingleJobShellTests.test_usr1_waits_for_save_then_requeues_only_current_job_once) ... ok
+test_active_old_training_array_prevents_single_job_submission (test_submit_single.SingleSubmitTests.test_active_old_training_array_prevents_single_job_submission) ... ok
+test_active_same_project_job_is_reused_without_another_submission (test_submit_single.SingleSubmitTests.test_active_same_project_job_is_reused_without_another_submission) ... ok
+test_exactly_one_job_shape_private_setup_and_log_before_submit (test_submit_single.SingleSubmitTests.test_exactly_one_job_shape_private_setup_and_log_before_submit) ... ok
+test_explicit_scheduler_rejection_is_preserved_and_manual_retry_appends (test_submit_single.SingleSubmitTests.test_explicit_scheduler_rejection_is_preserved_and_manual_retry_appends) ... ok
+test_initial_credential_rejection_stops_before_install_or_sbatch (test_submit_single.SingleSubmitTests.test_initial_credential_rejection_stops_before_install_or_sbatch) ... ok
+test_old_pending_download_cancel_is_state_filtered_and_evidence_retained (test_submit_single.SingleSubmitTests.test_old_pending_download_cancel_is_state_filtered_and_evidence_retained) ... ok
+test_old_running_download_and_pending_to_running_race_do_not_duplicate (test_submit_single.SingleSubmitTests.test_old_running_download_and_pending_to_running_race_do_not_duplicate) ... ok
+test_scientific_files_and_original_failed_download_log_are_retained (test_submit_single.SingleSubmitTests.test_scientific_files_and_original_failed_download_log_are_retained) ... ok
+test_uncertain_sbatch_retains_intent_then_recovers_from_actual_queue (test_submit_single.SingleSubmitTests.test_uncertain_sbatch_retains_intent_then_recovers_from_actual_queue) ... ok
+test_wrong_user_or_project_identity_never_submits (test_submit_single.SingleSubmitTests.test_wrong_user_or_project_identity_never_submits) ... ok
+test_only_exact_project_monitor_commands_are_stopped (test_execution_mode.ExecutionModeTests.test_only_exact_project_monitor_commands_are_stopped) ... ok
+test_single_job_marker_prevents_legacy_array_submission (test_execution_mode.ExecutionModeTests.test_single_job_marker_prevents_legacy_array_submission) ... {"updated_at_utc": "2026-10-24T02:09:24.857169+00:00", "stage": "single_job_managed", "legacy_array_submission": false}
+ok
+test_single_job_phase_and_updates_are_reported_without_process_details (test_execution_mode.ExecutionModeTests.test_single_job_phase_and_updates_are_reported_without_process_details) ... ok
+test_actual_analysis_schema_keeps_adverse_and_null_statistics (test_github_sync.GitHubSyncTests.test_actual_analysis_schema_keeps_adverse_and_null_statistics) ... ok
+test_api_token_only_header_and_redirects_disabled (test_github_sync.GitHubSyncTests.test_api_token_only_header_and_redirects_disabled) ... ok
+test_contents_write_uses_sha_and_conflict_defers_to_next_cycle (test_github_sync.GitHubSyncTests.test_contents_write_uses_sha_and_conflict_defers_to_next_cycle) ... ok
+test_http_errors_are_sanitized_and_rate_limits_retry (test_github_sync.GitHubSyncTests.test_http_errors_are_sanitized_and_rate_limits_retry) ... ok
+test_initial_hidden_prompt_and_actual_write_then_reuse (test_github_sync.GitHubSyncTests.test_initial_hidden_prompt_and_actual_write_then_reuse) ... ok
+test_initial_network_outage_keeps_token_and_defers_upload (test_github_sync.GitHubSyncTests.test_initial_network_outage_keeps_token_and_defers_upload) ... ok
+test_initial_permission_denial_blocks_submission_and_is_not_approved (test_github_sync.GitHubSyncTests.test_initial_permission_denial_blocks_submission_and_is_not_approved) ... ok
+test_main_or_other_project_destination_rejected (test_github_sync.GitHubSyncTests.test_main_or_other_project_destination_rejected) ... ok
+test_missing_and_symlink_credentials_are_not_accepted (test_github_sync.GitHubSyncTests.test_missing_and_symlink_credentials_are_not_accepted) ... ok
+test_new_project_prompts_even_when_token_is_cached (test_github_sync.GitHubSyncTests.test_new_project_prompts_even_when_token_is_cached) ... ok
+test_summary_contains_steps_and_stats_but_no_private_data (test_github_sync.GitHubSyncTests.test_summary_contains_steps_and_stats_but_no_private_data) ... ok
+test_sync_error_is_local_status_not_training_failure (test_github_sync.GitHubSyncTests.test_sync_error_is_local_status_not_training_failure) ... ok
+
+----------------------------------------------------------------------
+Ran 53 tests in 0.979s
+
+OK

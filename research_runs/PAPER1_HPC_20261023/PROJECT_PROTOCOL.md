@@ -275,8 +275,10 @@ The default project directory is under
 `/public/home/zhuziyuan/projects/paper1-risk-v1`. The account is `zhuziyuan`
 and the current partition is `hpc_gpu` following the 24 October operational
 revision. Independent method/seed/fold tasks request `gpu:1`, 16 CPUs and 128 GB memory each,
-with at most two simultaneous array tasks. Two tasks therefore request
-two GPUs, 32 CPUs and 256 GB memory; they are independent single-GPU fits.
+inside one enclosing Slurm allocation. It requests two GPUs, 32 CPUs and
+256 GB memory and runs at most two independent single-GPU fits concurrently;
+no training array or child sbatch is submitted. Download, CPU preparation,
+GPU checks, all fits and analysis are stages of that same job.
 Availability, GPU type and node resources come from the actual Slurm allocation.
 The initial plan targeted A100 devices in `hpc_gpu1`; the new screenshot does
 not identify the GPU type. The prior `gpu3` anomaly remains in historical

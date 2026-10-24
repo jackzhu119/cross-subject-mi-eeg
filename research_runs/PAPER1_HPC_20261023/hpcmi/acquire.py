@@ -11,6 +11,8 @@ import json
 import os
 from pathlib import Path
 import shutil
+import socket
+import ssl
 import struct
 import sys
 import time
@@ -26,6 +28,84 @@ from p1_rangezip import open_yang_archive, member_record, selected_yang_members
 
 STORAGE_HOST = 'nemar.s3.us-east-2.amazonaws.com'
 CHUNK = 8 * 1024 * 1024
+
+
+def safe_error_details(error):
+    """Describe bounded exception metadata without rendering messages or URLs."""
+    queue, seen, causes = [error], set(), []
+    detail = {'error_class': type(error).__name__, 'category': 'unknown'}
+    specific = []
+    phases = {'canonical_open', 'official_mirror_open', 'official_redirect_validation'}
+    while queue and len(seen) < 6:
+        current = queue.pop(0)
+        if id(current) in seen or not isinstance(current, BaseException):
+            continue
+        seen.add(id(current))
+        row = {'error_class': type(current).__name__}
+        number = getattr(current, 'errno', None)
+        if type(number) is int:
+            row['errno'] = number
+            detail.setdefault('errno', number)
+        phase = getattr(current, 'request_phase', None)
+        if isinstance(phase, str) and phase in phases:
+            detail['request_phase'] = phase
+        status = getattr(current, 'http_status', None)
+        if isinstance(current, urllib.error.HTTPError):
+            status = current.code
+            row['location_present'] = bool(current.headers and current.headers.get('Location'))
+        elif type(getattr(current, 'location_present', None)) is bool:
+            row['location_present'] = current.location_present
+        if type(status) is int and 100 <= status <= 599:
+            row['http_status'] = status
+            detail['http_status'] = status
+            specific.append('http')
+        if isinstance(current, socket.gaierror):
+            specific.append('dns')
+        elif isinstance(current, ssl.SSLCertVerificationError):
+            specific.append('tls_certificate')
+            code = getattr(current, 'verify_code', None)
+            if type(code) is int:
+                row['ssl_verify_code'] = code
+                detail['ssl_verify_code'] = code
+        elif isinstance(current, ssl.SSLError):
+            specific.append('tls')
+        elif isinstance(current, TimeoutError):
+            specific.append('timeout')
+        elif isinstance(current, http.client.IncompleteRead):
+            specific.append('incomplete_read')
+            partial = current.partial
+            if isinstance(partial, (bytes, bytearray)):
+                row['partial_bytes'] = len(partial)
+            if type(current.expected) is int:
+                row['expected_additional_bytes'] = current.expected
+        elif isinstance(current, ConnectionError):
+            specific.append('connection')
+        elif isinstance(current, OSError) and detail['category'] == 'unknown':
+            detail['category'] = 'os_error'
+        causes.append(row)
+        # from None suppresses display, but its original context is retained.
+        # In particular URLError.reason may hold DNS/TLS details; never str it.
+        for child in (getattr(current, 'reason', None), current.__cause__, current.__context__):
+            if isinstance(child, BaseException) and id(child) not in seen:
+                queue.append(child)
+    if specific:
+        detail['category'] = specific[-1]
+    detail['causes'] = causes
+    return detail
+
+
+def report_transfer_error(row, error, stage, attempt, attempts, offset, retry):
+    name = row.get('path')
+    if (not isinstance(name, str) or len(name) > 1024
+            or not re.fullmatch(r'[A-Za-z0-9_. /()-]+', name)
+            or Path(name).is_absolute() or '..' in Path(name).parts):
+        name = '<unavailable>'
+    details = safe_error_details(error)
+    print(json.dumps({'event': 'download_error', 'file': name,
+                      'stage': details.pop('request_phase', stage),
+                      'attempt': attempt + 1, 'attempt_limit': attempts,
+                      'offset_bytes': offset, 'will_retry': retry, **details},
+                     sort_keys=True), flush=True)
 
 
 def stat_identity(path):
@@ -122,28 +202,61 @@ def open_object(row, offset=0, *, nemar=False):
     transient = None
     response = None
     status = None
+    location_present = False
     try:
         response = _open_no_redirect(row['url'], offset)
     except urllib.error.HTTPError as exc:
         status = exc.code
+        location_present = bool(exc.headers and exc.headers.get('Location'))
         if status == 302 and (nemar or urlsplit(row['url']).netloc == 'bnci-horizon-2020.eu'):
-            transient = exc.headers.get('Location')
+            transient = exc.headers.get('Location') if exc.headers else None
         exc.close()
-    except urllib.error.URLError:
-        raise OSError('Canonical public object connection failed') from None
+    except urllib.error.URLError as error:
+        # Only a typed connection/TLS failure may use the independently verified
+        # official alias. A text reason, proxy denial or HTTP error is not such
+        # evidence and must not cause an alternate-host attempt.
+        reason = error.reason
+        if (not nemar and urlsplit(row['url']).netloc == 'bnci-horizon-2020.eu'
+                and isinstance(reason, (socket.gaierror, TimeoutError, ConnectionError, ssl.SSLError))
+                and not isinstance(reason, urllib.error.HTTPError)):
+            basename = Path(urlsplit(row['url']).path).name
+            transient = validate_bnci_location(row, 'https://lampx.tugraz.at/~bci/database/001-2014/' + basename)
+            print(json.dumps({'event': 'official_alias_attempt', 'file': basename,
+                              'stage': 'canonical_open', 'offset_bytes': offset,
+                              'alias_hostname': 'lampx.tugraz.at',
+                              'school_failure_cause_established': False,
+                              **safe_error_details(error)}, sort_keys=True), flush=True)
+        else:
+            failure = OSError('Canonical public object connection failed')
+            failure.request_phase = 'canonical_open'
+            raise failure from None
     if status is not None and transient is None:
         # Never retry or bypass an explicit denial, and never print signed URLs.
-        raise ValueError('Canonical public object HTTP %s' % status)
+        failure = ValueError('Canonical public object HTTP %s' % status)
+        failure.request_phase = 'canonical_open'
+        failure.http_status = status
+        failure.location_present = location_present
+        raise failure
     if transient is not None:
-        transient = validate_nemar_location(row, transient) if nemar else validate_bnci_location(row, transient)
+        try:
+            transient = validate_nemar_location(row, transient) if nemar else validate_bnci_location(row, transient)
+        except ValueError as failure:
+            failure.request_phase = 'official_redirect_validation'
+            failure.http_status = status
+            failure.location_present = True
+            raise
         try:
             response = _open_no_redirect(transient, offset)
         except urllib.error.HTTPError as exc:
             status = exc.code
             exc.close()
-            raise ValueError('Exact official storage object HTTP %s' % status) from None
+            failure = ValueError('Exact official storage object HTTP %s' % status)
+            failure.request_phase = 'official_mirror_open'
+            raise failure from None
         except urllib.error.URLError:
-            raise OSError('Exact official storage connection failed') from None
+            failure = OSError('Exact official storage connection failed')
+            failure.request_phase = 'official_mirror_open'
+            raise failure from None
     try:
         if response is None:
             raise ValueError('No public object response')
@@ -167,9 +280,11 @@ def transfer_object(root, row, *, nemar=False, attempts=4):
         offset = partial.stat().st_size if partial.exists() else 0
         if offset > row['size']:
             raise ValueError('Oversized partial retained: ' + row['path'])
+        stage = 'open_object'
         try:
             if offset < row['size']:
                 with open_object(row, offset, nemar=nemar) as response:
+                    stage = 'response_headers'
                     if response.status == 206:
                         if response.headers.get('Content-Range') != 'bytes %d-%d/%d' % (offset, row['size'] - 1, row['size']):
                             raise ValueError('Raw Content-Range changed')
@@ -185,31 +300,44 @@ def transfer_object(root, row, *, nemar=False, attempts=4):
                     if response.headers.get('Content-Encoding', 'identity') != 'identity':
                         raise ValueError('Raw Content-Encoding changed')
                     last = time.monotonic()
+                    stage = 'open_partial'
                     with partial.open(mode) as out:
                         while True:
+                            stage = 'read_body'
                             block = response.read(min(CHUNK, row['size'] - out.tell() + 1))
                             if not block:
                                 break
+                            stage = 'write_partial'
                             out.write(block)
                             if out.tell() > row['size']:
                                 raise ValueError('Oversized raw response retained')
                             if time.monotonic() - last > 30:
                                 log('download %s %d/%d bytes' % (row['path'], out.tell(), row['size']))
                                 last = time.monotonic()
+                        stage = 'flush_partial'
                         out.flush()
+                        stage = 'fsync_partial'
                         os.fsync(out.fileno())
+            stage = 'verify_size'
             if partial.stat().st_size != row['size']:
                 raise OSError('Incomplete object')
+            stage = 'hash_partial'
             digest = sha256_file(partial)
             if digest != row['sha256']:
                 raise ValueError('Raw SHA256 mismatch; partial retained: ' + row['path'])
+            stage = 'publish_file'
             os.replace(partial, target)
+            stage = 'write_receipt'
             _record(root, row, digest)
             return digest
         except (OSError, TimeoutError, http.client.HTTPException) as exc:
+            report_transfer_error(row, exc, stage, attempt, attempts, offset, attempt + 1 < attempts)
             if attempt + 1 == attempts:
                 raise RuntimeError('Transfer interrupted; same command resumes ' + row['path']) from exc
             time.sleep(min(2 ** attempt, 8))
+        except ValueError as exc:
+            report_transfer_error(row, exc, stage, attempt, attempts, offset, False)
+            raise
     raise AssertionError('unreachable')
 
 

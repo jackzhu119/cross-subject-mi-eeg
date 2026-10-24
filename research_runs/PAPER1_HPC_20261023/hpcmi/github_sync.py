@@ -264,15 +264,16 @@ _NUMBERS = {"epoch", "step", "global_step", "updates", "optimizer_updates", "sam
             "epochs_completed", "n_seeds", "effect", "effect_pp", "ci95_low_pp", "ci95_high_pp",
             "p_raw", "improved", "declined", "numerically_unchanged", "mean_percent",
             "bootstrap_replicates", "permutation_replicates", "secondary_family_size",
-            "source_equal_cohort_mean_min_recall"}
-_STRINGS = {"status", "stage", "phase", "method", "endpoint", "metric", "variant",
+            "source_equal_cohort_mean_min_recall", "completed_fits", "pending_fits",
+            "max_concurrent_fits", "stop_requested_exit_code"}
+_STRINGS = {"status", "stage", "phase", "method", "endpoint", "metric", "variant", "task_id",
             "updated_at_utc", "started_at_utc", "completed_at_utc", "finished_at_utc",
             "domain", "contrast", "family", "aggregation", "bootstrap", "permutation", "evaluation_variant"}
 _BOOLS = {"all_comparison_directions_retained", "independent_external_confirmation"}
 _CONTAINERS = {"metrics", "validation", "test_metrics", "statistics", "summary", "results",
                "conditions", "comparisons", "by_method", "primary", "secondary", "evaluation",
                "fixed40", "selected", "source_selected", "outer", "development", "final",
-               "domains", "nested_outer", "external_fixed40", "external_source_selected", "method_means"}
+               "domains", "nested_outer", "external_fixed40", "external_source_selected", "method_means", "active_children"}
 
 
 def _safe_stats(value, depth=0):
@@ -330,6 +331,9 @@ def collect_progress(project):
     result = {"schema_version": 1, "project_id": project.name, "updated_at_utc": _now(),
               "counts": counts, "tasks": tasks,
               "observation_scope": "Saved task steps and summaries; not independent proof of current GPU activity"}
+    execution = _read_json_optional(project / "state/single_job_status.json")
+    if execution:
+        result["execution"] = _safe_stats(execution)
     analysis = _read_json_optional(project / "outputs/analysis/summary.json")
     if analysis:
         result["completed_statistics"] = _safe_stats(analysis)

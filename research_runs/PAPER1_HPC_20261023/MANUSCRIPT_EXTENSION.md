@@ -194,10 +194,11 @@ confirmation and will be addressed in the study limitations.
 
 ### Execution, checkpointing and reproducibility
 
-Independent method/seed/fold tasks will be submitted as one-GPU Slurm array
-elements on the school `hpc_gpu` partition, with at most two concurrent
-elements. Each element requests one GPU (`gpu:1`), 16 CPUs and 128 GB
-memory. The implementation uses the allocated visible device, four PyTorch
+Independent method/seed/fold tasks will run as two single-GPU worker processes
+inside one Slurm allocation on the school `hpc_gpu` partition. The enclosing
+job requests two GPUs (`gpu:2`), 32 CPUs and 256 GB memory, corresponding to
+16 CPUs and 128 GB per GPU. Download, preprocessing, training and evaluation
+share this allocation; no training array is submitted. The implementation uses the allocated visible device, four PyTorch
 intra-op threads, one inter-op thread, and no DataLoader subprocesses. Requested
 resources will be distinguished from measured use in the completed report.
 The actual GPU type and software/device history will be reported from allocation
