@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 # Fixed operations overlay; one enclosing Slurm job after login preparation.
 set -euo pipefail
-PROJECTS_ROOT="${1:-/public/home/zhuziyuan/projects}"
+PROJECTS_ROOT="${PAPER1_PROJECTS_ROOT:-/public/home/zhuziyuan/projects}"
+if [ "$#" -gt 0 ] && [[ "$1" != --* ]]; then PROJECTS_ROOT="$1"; shift; fi
 PYTHON_BIN="${PAPER1_PYTHON:-/public/home/zhuziyuan/.venvs/paper3-hpc-cu121-offline/bin/python}"
-SOURCE_REV="d74946a25df114af69b91624905e6cac2af5fab1"
-PATCH_SHA="450a549c3d493b687dbb966a9dcf3e5e631c00545695353149365681c6e8eae9"
-SETUP_SHA="18015aedfa0980531ca24e65421630660ea36972511b9028741cd11590b0017c"
+SOURCE_REV="e99272c89dbed2280da0d7ce1f17bf97239a6ead"
+PATCH_SHA="37f2d913391ceb12b5b9bc635e85de37916f7c86ba13835719b6c9e0b4db69f5"
+SETUP_SHA="ea3e396ce9c7fcee36ecac1752c9a479f4bd92965877145018b3cb9db39f80b8"
 BASE_URL="https://api.github.com/repos/jackzhu119/cross-subject-mi-eeg/contents/research_runs/PAPER1_HPC_20261023"
 mkdir -p "$PROJECTS_ROOT/paper1-risk-v1/state"
 PROJECTS_ROOT="$(cd "$PROJECTS_ROOT" && pwd)"
@@ -13,7 +14,7 @@ PROJECT="$PROJECTS_ROOT/paper1-risk-v1"
 CODE_ROOT="$PROJECTS_ROOT/PAPER1_HPC_20261023"
 CACHE="$PROJECT/state/single-job-install-cache"
 mkdir -p "$CACHE"
-exec 9>"$PROJECT/state/single-job-install.lock"
+exec 9>"$PROJECT/state/single-job-code-update.lock"
 if ! flock -n 9; then
   printf 'Another single-job setup is active; no duplicate setup/submission started.\n'
   exit 0
@@ -53,7 +54,7 @@ from pathlib import Path
 archive,code,project=map(Path,sys.argv[1:4]); expected=sys.argv[4]
 assert hashlib.sha256(archive.read_bytes()).hexdigest()==expected,'Operations archive SHA mismatch'
 allowed={'LAUNCH.sh','hpcmi/acquire.py','hpcmi/cli.py','hpcmi/github_sync.py',
-         'hpcmi/single_job.py','hpcmi/submit_single.py','slurm/single_job.sh','SINGLE_JOB.md'}
+         'hpcmi/single_job.py','hpcmi/submit_single.py','hpcmi/login_pipeline.py','slurm/single_job.sh','SINGLE_JOB.md'}
 with tarfile.open(archive,'r:gz') as source:
     members=source.getmembers()
     assert all(m.isfile() for m in members),'Unexpected non-file operations member'
@@ -94,6 +95,8 @@ if not receipt.exists():
         'operations_archive_sha256':expected,'changes':changes,'scientific_model_or_input_files_changed':False},indent=2)+'\n')
 print(json.dumps({'single_job_operations_ready':True,'updated_files':len(changes)}),flush=True)
 INSTALL_OPERATIONS
-# Token input and the small isolated CPU environment are prepared on login1;
-# download, preprocessing, model checks, fits and scoring share one Slurm job.
-exec bash "$CODE_ROOT/LAUNCH.sh" --project "$PROJECT" --raw-dir "$PROJECT/raw" --wheelhouse "$CODE_ROOT/wheelhouse"
+# Keep this short code update separate from interactive token input.
+flock -u 9
+exec 9>&-
+# Login transfers/reporting precede one offline compute allocation.
+exec bash "$CODE_ROOT/LAUNCH.sh" --project "$PROJECT" --raw-dir "$PROJECT/raw" --wheelhouse "$CODE_ROOT/wheelhouse" "$@"
