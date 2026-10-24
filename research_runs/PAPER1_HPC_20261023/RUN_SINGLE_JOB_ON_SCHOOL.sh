@@ -4,8 +4,8 @@ set -euo pipefail
 PROJECTS_ROOT="${PAPER1_PROJECTS_ROOT:-/public/home/zhuziyuan/projects}"
 if [ "$#" -gt 0 ] && [[ "$1" != --* ]]; then PROJECTS_ROOT="$1"; shift; fi
 PYTHON_BIN="${PAPER1_PYTHON:-/public/home/zhuziyuan/.venvs/paper3-hpc-cu121-offline/bin/python}"
-SOURCE_REV="e99272c89dbed2280da0d7ce1f17bf97239a6ead"
-PATCH_SHA="37f2d913391ceb12b5b9bc635e85de37916f7c86ba13835719b6c9e0b4db69f5"
+SOURCE_REV="0d29309d9faa9054a499a7d73bfa7c3001effe14"
+PATCH_SHA="071d7463d2a60c6a2bbde85fa7ce2e70532846f9b90edd7c89a53942d77246c9"
 SETUP_SHA="ea3e396ce9c7fcee36ecac1752c9a479f4bd92965877145018b3cb9db39f80b8"
 BASE_URL="https://api.github.com/repos/jackzhu119/cross-subject-mi-eeg/contents/research_runs/PAPER1_HPC_20261023"
 mkdir -p "$PROJECTS_ROOT/paper1-risk-v1/state"
