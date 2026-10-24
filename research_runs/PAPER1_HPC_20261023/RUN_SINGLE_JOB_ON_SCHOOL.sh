@@ -4,9 +4,9 @@ set -euo pipefail
 PROJECTS_ROOT="${PAPER1_PROJECTS_ROOT:-/public/home/zhuziyuan/projects}"
 if [ "$#" -gt 0 ] && [[ "$1" != --* ]]; then PROJECTS_ROOT="$1"; shift; fi
 PYTHON_BIN="${PAPER1_PYTHON:-/public/home/zhuziyuan/.venvs/paper3-hpc-cu121-offline/bin/python}"
-SOURCE_REV="0d29309d9faa9054a499a7d73bfa7c3001effe14"
-PATCH_SHA="071d7463d2a60c6a2bbde85fa7ce2e70532846f9b90edd7c89a53942d77246c9"
-SETUP_SHA="ea3e396ce9c7fcee36ecac1752c9a479f4bd92965877145018b3cb9db39f80b8"
+SOURCE_REV="ba0a567e799a1e36932cc04c89b0e4ed637dd71a"
+PATCH_SHA="bf36a4bb3f6cc7f7f63d533072841df6a02c7f37c8412ab86695804671ccc0c9"
+SETUP_SHA="a4f4b79e6784a7f02464f98f4764025021ddf61741f2cbc92772f4233e871c55"
 BASE_URL="https://api.github.com/repos/jackzhu119/cross-subject-mi-eeg/contents/research_runs/PAPER1_HPC_20261023"
 mkdir -p "$PROJECTS_ROOT/paper1-risk-v1/state"
 PROJECTS_ROOT="$(cd "$PROJECTS_ROOT" && pwd)"
@@ -54,7 +54,8 @@ from pathlib import Path
 archive,code,project=map(Path,sys.argv[1:4]); expected=sys.argv[4]
 assert hashlib.sha256(archive.read_bytes()).hexdigest()==expected,'Operations archive SHA mismatch'
 allowed={'LAUNCH.sh','hpcmi/acquire.py','hpcmi/cli.py','hpcmi/github_sync.py',
-         'hpcmi/single_job.py','hpcmi/submit_single.py','hpcmi/login_pipeline.py','slurm/single_job.sh','SINGLE_JOB.md'}
+         'hpcmi/single_job.py','hpcmi/submit_single.py','hpcmi/login_pipeline.py',
+         'hpcmi/yang_transport.py','slurm/single_job.sh','SINGLE_JOB.md'}
 with tarfile.open(archive,'r:gz') as source:
     members=source.getmembers()
     assert all(m.isfile() for m in members),'Unexpected non-file operations member'
