@@ -3,10 +3,10 @@
 set -euo pipefail
 PROJECTS_ROOT="${1:-/public/home/zhuziyuan/projects}"
 PYTHON_BIN="${PAPER1_PYTHON:-/public/home/zhuziyuan/.venvs/paper3-hpc-cu121-offline/bin/python}"
-SOURCE_REV="1b1aa792f866add27a01d52e55cd593621880888"
-PATCH_SHA="35943ff0f30426ac98a1d7fe1968fab2f9c0cf0609490c473510fc39cdacfa7b"
-SETUP_SHA="12c8d38e29185283648c08f3450ae8f31e6c94e14aa931d37ac442e4df875f82"
-BASE_URL="https://raw.githubusercontent.com/jackzhu119/cross-subject-mi-eeg/$SOURCE_REV/research_runs/PAPER1_HPC_20261023"
+SOURCE_REV="15013008b7e5907c983ab85c72145c0affa6f2e0"
+PATCH_SHA="c0351e573004aa60ab25ef92d5f099ad379c3dcdb5935cdadcff722477500519"
+SETUP_SHA="18015aedfa0980531ca24e65421630660ea36972511b9028741cd11590b0017c"
+BASE_URL="https://api.github.com/repos/jackzhu119/cross-subject-mi-eeg/contents/research_runs/PAPER1_HPC_20261023"
 mkdir -p "$PROJECTS_ROOT/paper1-risk-v1/state"
 PROJECTS_ROOT="$(cd "$PROJECTS_ROOT" && pwd)"
 PROJECT="$PROJECTS_ROOT/paper1-risk-v1"
@@ -31,7 +31,9 @@ fetch_verified() {
     printf 'Cached operations file checksum differs; retained: %s\n' "$target" >&2
     exit 2
   fi
-  curl -fL --connect-timeout 20 --max-time 600 --retry 3 --retry-delay 5 "$url" -o "$target.part"
+  printf 'Fetching fixed operations file through api.github.com: %s\n' "${target##*/}"
+  curl -4 -f --connect-timeout 8 --max-time 90 --speed-time 30 --speed-limit 128 --retry 1 --retry-delay 2 \
+    -H 'Accept: application/vnd.github.raw+json' "$url" -o "$target.part"
   observed="$(sha256sum "$target.part")"
   if [ "${observed%% *}" != "$expected" ]; then
     printf 'Operations download checksum differs; partial retained: %s.part\n' "$target" >&2
@@ -41,8 +43,8 @@ fetch_verified() {
 }
 SETUP="$CACHE/setup-$SOURCE_REV.sh"
 PATCH="$CACHE/operations-$PATCH_SHA.tar.gz"
-fetch_verified "$BASE_URL/DOWNLOAD_ON_SCHOOL.sh" "$SETUP" "$SETUP_SHA"
-fetch_verified "$BASE_URL/dist/paper1-single-job-operations.tar.gz" "$PATCH" "$PATCH_SHA"
+fetch_verified "$BASE_URL/DOWNLOAD_ON_SCHOOL.sh?ref=$SOURCE_REV" "$SETUP" "$SETUP_SHA"
+fetch_verified "$BASE_URL/dist/paper1-single-job-operations.tar.gz?ref=$SOURCE_REV" "$PATCH" "$PATCH_SHA"
 # The bootstrap's setup-only branch never submits the historical download job.
 PAPER1_SETUP_ONLY=1 bash "$SETUP" "$PROJECTS_ROOT"
 "$PYTHON_BIN" - "$PATCH" "$CODE_ROOT" "$PROJECT" "$PATCH_SHA" <<'INSTALL_OPERATIONS'
