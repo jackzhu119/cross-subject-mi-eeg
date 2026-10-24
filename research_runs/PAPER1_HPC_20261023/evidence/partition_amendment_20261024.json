@@ -1,0 +1,32 @@
+{
+  "source": "User's 24 October screenshot/request for hpc_gpu, followed by 16 CPUs per task and two-GPU concurrency",
+  "observed_in_user_screenshot": {
+    "requested_partition": "hpc_gpu",
+    "old_download_job": "770682",
+    "old_partition": "hpc_gpu1",
+    "old_job_state": "PENDING",
+    "work_directory": "/public/home/zhuziyuan/projects/paper1-risk-v1"
+  },
+  "new_request": {
+    "partition": "hpc_gpu",
+    "gres": "gpu:1",
+    "cpus_per_task": 16,
+    "mem": "128G",
+    "max_parallel": 2,
+    "exclude": []
+  },
+  "specific_node_and_gpu_type": "not established by screenshot",
+  "hpc_accessed_by_assistant": false,
+  "scientific_rules_or_checkpoint_identity_changed": false,
+  "archive_rebuilt_or_misrepresented": false,
+  "old_configuration_backup": "state/cluster-overrides/",
+  "pending_job_migration": "verify user/name/workdir/state; preserve original script/record; scancel --state=PENDING; requery before submitting",
+  "running_job_migration": "preserve running job; do not submit duplicate",
+  "credentials": "no token embedded in source or this evidence; existing private-file authorization remains",
+  "targeted_validation": {
+    "school_download_tests_passed": 7,
+    "slurm_tests_passed": 16,
+    "bash_syntax": "passed",
+    "real_hpc_mutation_performed": false
+  }
+}

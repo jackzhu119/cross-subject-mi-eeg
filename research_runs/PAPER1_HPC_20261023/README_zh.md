@@ -12,7 +12,7 @@
 | 开发 | 5个人员外层折×5方法×3种子＝75个任务；每折另有源内验证人员 |
 | 最终训练 | 5方法×3独立种子＝15个任务；合计90个新训练任务 |
 | 公平比较 | 相同18通道、三视图计算/BN暴露、模型容量、40轮×128更新；固定40轮外评与源内选轮外评分开 |
-| 资源 | Slurm数组 `%3`；每项1张A100、24 CPU、128G；最多3张并行 |
+| 资源 | `hpc_gpu` 分区，Slurm数组 `%2`；每项1张实际分配的GPU、16 CPU、128G；最多2张并行 |
 | 主终点 | 源外层人员的较弱类别召回率；先在人员内平均种子，再按队列等权汇总 |
 | 次分析 | 四项次比较Holm校正、人员配对置信区间、两种完整外评；输出全部方向的结果 |
 
@@ -26,7 +26,11 @@
 curl -fL --connect-timeout 20 --retry 3 https://raw.githubusercontent.com/jackzhu119/cross-subject-mi-eeg/main/research_runs/PAPER1_HPC_20261023/DOWNLOAD_ON_SCHOOL.sh -o /tmp/paper1-download-school.sh && bash /tmp/paper1-download-school.sh
 ```
 
-这个小入口在登录节点下载约53MB固定运行包、核对SHA256并解压，再提交独立Slurm下载作业（单卡配额/24CPU/128G）。约71GB的原始数据恢复和Yang解压在分配的计算节点执行；数据直接保存到 `/public/home/zhuziyuan/projects/paper1-risk-v1/raw`。作业提交成功后，关闭本地终端不会终止Slurm下载。重复同命令会复用包、运行中的下载作业和已验证原始文件。
+这个小入口在登录节点下载约53MB固定运行包、核对SHA256并解压，再提交独立Slurm下载作业（`hpc_gpu`分区，`gpu:1`/16CPU/128G）。约71GB的原始数据恢复和Yang解压在分配的计算节点执行；数据直接保存到 `/public/home/zhuziyuan/projects/paper1-risk-v1/raw`。作业提交成功后，关闭本地终端不会终止Slurm下载。重复同命令会复用包、运行中的下载作业和已验证原始文件。
+
+2026-10-24资源修订：入口会将已解压包和已存在项目的两份 `config/cluster.json` 同步改为 `partition=hpc_gpu`、`gres=gpu:1`、`exclude=[]`、`cpus_per_task=16`、`max_parallel=2`，保留旧配置。这样下一阶段训练也使用新分区。旧离线包及其原始manifest仍保留原source身份，此处属于资源操作覆盖。截图没有显示新分区GPU型号，不能保证分配A100。
+
+若同一项目的旧下载作业仍在 `hpc_gpu1` 排队，入口核对作业名、用户、工作目录及状态后，先保存旧记录和脚本，再以 `scancel --state=PENDING` 取消排队项并在新分区重提。若作业已变为运行状态，则保留它，不启动第二个下载。示例截图中的770682属于待现场核对的作业，不表示本助手已操作它。
 
 日志位于 `/public/home/zhuziyuan/projects/paper1-risk-v1/logs/slurm/download-<jobid>.out` 和 `.err`。看到 `ALL_RAW_DATASETS_READY` 后，回到 `login1` 执行本文的LAUNCH命令进入训练，首次隐藏输入GitHub token。下载公开运行包和数据本身不需要GitHub、R2或RunPod密钥。
 
@@ -66,7 +70,7 @@ bash /public/home/zhuziyuan/projects/PAPER1_HPC_20261023/FETCH_DATA.sh --raw-dir
 bash /public/home/zhuziyuan/projects/PAPER1_HPC_20261023/LAUNCH.sh
 ```
 
-首次启动会隐藏提示输入 **GitHub token**，必须对 `jackzhu119/cross-subject-mi-eeg` 具有 Contents读写权限。token仅保存在本人的 `~/.config/mi-eeg/` 私有目录，不写入项目、日志或Git。首次会尝试写入独立状态分支验证权限；明确401/403需修正授权，临时网络故障则保留待同步状态。已授权项目续跑不重复输入。
+首次启动会隐藏提示输入 **GitHub token**，必须对 `jackzhu119/cross-subject-mi-eeg` 具有 Contents读写权限。token仅保存在本人的 `~/.config/mi-eeg/` 私有目录，文件权限600，不写入项目、日志或Git。首次会尝试写入独立状态分支验证权限；明确401/403需修正授权，临时网络故障则保留待同步状态。已授权项目续跑不重复输入，后台每约180秒自动推送。已贴到聊天或公开页面的token应撤销，替换后的值只在学校终端隐藏输入。
 
 默认训练解释器是已存在的：
 `/public/home/zhuziyuan/.venvs/paper3-hpc-cu121-offline/bin/python`。
@@ -76,11 +80,11 @@ bash /public/home/zhuziyuan/projects/PAPER1_HPC_20261023/LAUNCH.sh
 
 1. 一个单卡配额的预处理作业（实际只用CPU），逐人保存并复用输出。
 2. 一个GPU合成小检查：前向、反向、保存、恢复；同配置成功后复用。
-3. 75项开发数组，每项单卡、最多三项同时运行。
+3. 75项开发数组，每项单卡、最多两项同时运行。
 4. 开发完成后，仅依据源内验证选轮，自动追加15项最终训练和外评。
 5. 从已保存评价计算统计摘要并推送GitHub。
 
-预处理也按已知 `hpc_gpu1` 的单卡、24CPU、128G配额提交，实际仅执行CPU预处理，完成后释放配额。这样不依赖尚未核实的CPU分区或CPU-only队列规则。随后训练数组最多三项同时运行。
+预处理也按 `hpc_gpu` 的单卡、16CPU、128G配额提交，实际仅执行CPU预处理，完成后释放配额。随后训练数组最多两项同时运行。
 
 其它路径示例：
 
@@ -88,7 +92,7 @@ bash /public/home/zhuziyuan/projects/PAPER1_HPC_20261023/LAUNCH.sh
 bash /public/home/zhuziyuan/projects/PAPER1_HPC_20261023/LAUNCH.sh --project /public/home/zhuziyuan/projects/paper1-risk-v1 --raw-dir /实际/raw目录
 ```
 
-项目首次创建后，科学配置和输入身份固定。后续同命令直接复用，不再全量pytest、试训或扫描原始数据SHA。操作参数在项目 `config/cluster.json`；默认暂时排除 `gpu3`，不是对其硬件故障的判断。单项Slurm time默认1天，可按学校实际上限调整；没有人为累计12小时限制。
+项目首次创建后，科学配置和输入身份固定。后续同命令直接复用，不再全量pytest、试训或扫描原始数据SHA。操作参数在项目 `config/cluster.json`；当前新分区不指定节点名或GPU型号，旧分区的gpu3异常记录保留。单项Slurm time默认1天，可按学校实际上限调整；没有人为累计12小时限制。
 
 ## 中断、取消与失败
 

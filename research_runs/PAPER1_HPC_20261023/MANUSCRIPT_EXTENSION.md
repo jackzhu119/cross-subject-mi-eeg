@@ -195,11 +195,13 @@ confirmation and will be addressed in the study limitations.
 ### Execution, checkpointing and reproducibility
 
 Independent method/seed/fold tasks will be submitted as one-GPU Slurm array
-elements on the school `hpc_gpu1` partition, with at most three concurrent
-elements. Each element requests one A100-SXM4-80GB GPU, 24 CPUs and 128 GB
+elements on the school `hpc_gpu` partition, with at most two concurrent
+elements. Each element requests one GPU (`gpu:1`), 16 CPUs and 128 GB
 memory. The implementation uses the allocated visible device, four PyTorch
 intra-op threads, one inter-op thread, and no DataLoader subprocesses. Requested
 resources will be distinguished from measured use in the completed report.
+The actual GPU type and software/device history will be reported from allocation
+records rather than inferred from the partition name.
 
 Checkpoint files will preserve model and optimizer states, epoch and update
 position, objective state, sampler and random-number states, best/selected

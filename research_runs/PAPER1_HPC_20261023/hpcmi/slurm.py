@@ -20,9 +20,9 @@ import uuid
 
 
 DEFAULT_CLUSTER = {
-    "account": "zhuziyuan", "partition": "hpc_gpu1",
-    "gres": "gpu:NVIDIAA100-SXM4-80GB:1", "cpus_per_task": 24,
-    "mem": "128G", "max_parallel": 3, "exclude": ["gpu3"],
+    "account": "zhuziyuan", "partition": "hpc_gpu",
+    "gres": "gpu:1", "cpus_per_task": 16,
+    "mem": "128G", "max_parallel": 2, "exclude": [],
     "time_limit": "1-00:00:00", "signal_seconds": 180,
     "squeue_user": "zhuziyuan",
 }

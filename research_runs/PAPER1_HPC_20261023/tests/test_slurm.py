@@ -66,9 +66,9 @@ class SchedulerTests(unittest.TestCase):
         def inspect(argv):
             self.assertTrue((self.project / "logs/slurm").is_dir())
             self.assertEqual(self.ledger()["submissions"][-1]["status"], "SUBMITTING")
-            for arg in ("--nodes=1", "--ntasks=1", "--account=zhuziyuan", "--partition=hpc_gpu1",
-                        "--gres=gpu:NVIDIAA100-SXM4-80GB:1", "--cpus-per-task=24", "--mem=128G",
-                        "--signal=B:USR1@180", "--requeue", "--exclude=gpu3", "--array=0-1%3"):
+            for arg in ("--nodes=1", "--ntasks=1", "--account=zhuziyuan", "--partition=hpc_gpu",
+                        "--gres=gpu:1", "--cpus-per-task=16", "--mem=128G",
+                        "--signal=B:USR1@180", "--requeue", "--array=0-1%2"):
                 self.assertIn(arg, argv)
             output = next(x.split("=", 1)[1] for x in argv if x.startswith("--output="))
             self.assertTrue(Path(output).is_absolute())
@@ -152,7 +152,7 @@ class SchedulerTests(unittest.TestCase):
         with patch("hpcmi.slurm.subprocess.run", self.scheduler):
             job = submit_auxiliary(self.project, "prep", sys.executable, code_root=code)
             command = next(x for x in self.scheduler.calls if x[0] == "sbatch")
-            self.assertIn("--gres=gpu:NVIDIAA100-SXM4-80GB:1", command)
+            self.assertIn("--gres=gpu:1", command)
             ledger = json.loads((self.project / "state/aux_prep.json").read_text())
             self.scheduler.queue = job + "|" + ledger["submissions"][-1]["job_name"] + "|RUNNING\n"
             self.assertEqual(submit_auxiliary(self.project, "prep", sys.executable, code_root=code), job)

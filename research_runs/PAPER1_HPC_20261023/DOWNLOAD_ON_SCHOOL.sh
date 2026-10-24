@@ -3,6 +3,8 @@
 set -euo pipefail
 PROJECTS_ROOT="${1:-/public/home/zhuziyuan/projects}"
 PYTHON_BIN="${PAPER1_PYTHON:-/public/home/zhuziyuan/.venvs/paper3-hpc-cu121-offline/bin/python}"
+PARTITION="${PAPER1_PARTITION:-hpc_gpu}"
+GPU_REQUEST="${PAPER1_GRES:-gpu:1}"
 BUNDLE_SHA="72225f30c83be9bbc94d52eac672bee272690f6cf9949933e3d61380401d2675"
 BUNDLE_URL="https://raw.githubusercontent.com/jackzhu119/cross-subject-mi-eeg/67de0abda18d1d64fa468d3f4907ac23c70d0b45/research_runs/PAPER1_HPC_20261023/dist/paper1-hpc-offline.tar.gz"
 mkdir -p "$PROJECTS_ROOT"
@@ -57,6 +59,37 @@ else
   rmdir "$STAGING"
 fi
 cd "$CODE_ROOT"
+# The immutable archive retains its original source identity. These are
+# resource-only overrides, applied to both fresh defaults and an existing run.
+"$PYTHON_BIN" - "$CODE_ROOT" "$PROJECT" "$PARTITION" "$GPU_REQUEST" <<'SCHOOL_CLUSTER_OVERRIDE'
+import datetime,json,os,sys,tempfile
+from pathlib import Path
+code,project=map(Path,sys.argv[1:3]); partition,gres=sys.argv[3:]
+changes=[]
+for path in (code/'config/cluster.json',project/'config/cluster.json'):
+    if not path.exists():
+        continue
+    old=json.loads(path.read_text())
+    new={**old,'partition':partition,'gres':gres,'exclude':[],
+         'cpus_per_task':16,'max_parallel':2}
+    if old==new:
+        continue
+    journal=project/'state/cluster-overrides'
+    journal.mkdir(parents=True,exist_ok=True)
+    stamp=datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')
+    tag='code' if path.parent.parent==code else 'project'
+    (journal/(stamp+'-'+tag+'-before.json')).write_bytes(path.read_bytes())
+    fd,tmp=tempfile.mkstemp(prefix=path.name+'.',suffix='.tmp',dir=path.parent)
+    with os.fdopen(fd,'w') as f:
+        json.dump(new,f,indent=2);f.write('\n');f.flush();os.fsync(f.fileno())
+    os.replace(tmp,path)
+    changes.append({'path':str(path),'before':old,'after':new})
+if changes:
+    (journal/(stamp+'-amendment.json')).write_text(json.dumps({
+        'reason':'User requested hpc_gpu, then 16 CPUs per task and two concurrent GPUs on 24 October',
+        'scientific_configuration_changed':False,'changes':changes},indent=2)+'\n')
+print(json.dumps({'partition':partition,'gres':gres,'updated_cluster_configs':len(changes)}),flush=True)
+SCHOOL_CLUSTER_OVERRIDE
 if "$PYTHON_BIN" -c 'import sys; from hpcmi.acquire import quick_raw_ready; sys.exit(0 if quick_raw_ready(sys.argv[1]) else 10)' "$PROJECT/raw"; then
   printf 'All raw inputs are already present. Start/resume training with:\n'
   printf 'bash %q --project %q --raw-dir %q\n' "$CODE_ROOT/LAUNCH.sh" "$PROJECT" "$PROJECT/raw"
@@ -67,10 +100,39 @@ else
 fi
 PROJECT_KEY="$(printf '%s' "$PROJECT" | sha256sum)"
 JOB_NAME="p1-download-${PROJECT_KEY:0:10}"
-ACTIVE="$(squeue -h -u zhuziyuan -n "$JOB_NAME" -o '%i')"
+ACTIVE="$(squeue -h -u zhuziyuan -n "$JOB_NAME" -o '%i|%j|%u|%T|%P|%Z')"
 if [ -n "$ACTIVE" ]; then
-  printf 'Existing data-download job: %s\n' "$ACTIVE"
-  exit 0
+  if [[ "$ACTIVE" == *$'\n'* ]]; then
+    printf 'Multiple matching download jobs observed; records retained: %s\n' "$ACTIVE" >&2
+    exit 2
+  fi
+  IFS='|' read -r OLD_ID OLD_NAME OLD_OWNER OLD_STATE OLD_PARTITION OLD_DIRECTORY <<< "$ACTIVE"
+  if [[ ! "$OLD_ID" =~ ^[0-9]+$ ]] || [ "$OLD_NAME" != "$JOB_NAME" ] || [ "$OLD_OWNER" != zhuziyuan ] || [ "$OLD_DIRECTORY" != "$PROJECT" ]; then
+    printf 'Existing scheduler identity does not match this download; no job cancelled: %s\n' "$ACTIVE" >&2
+    exit 2
+  fi
+  if [ "$OLD_PARTITION" = "$PARTITION" ]; then
+    printf 'Existing data-download job already uses %s: %s\n' "$PARTITION" "$OLD_ID"
+    exit 0
+  fi
+  if [ "$OLD_STATE" != PENDING ]; then
+    printf 'Existing download is %s on %s, job %s; it was preserved and no duplicate was submitted.\n' "$OLD_STATE" "$OLD_PARTITION" "$OLD_ID"
+    exit 0
+  fi
+  MIGRATION="$PROJECT/state/download-migration-$OLD_ID"
+  printf '%s\n' "$ACTIVE" > "$MIGRATION-before.txt"
+  if [ -f "$PROJECT/state/download-data.sbatch" ] && [ ! -f "$MIGRATION-original.sbatch" ]; then
+    cp -p "$PROJECT/state/download-data.sbatch" "$MIGRATION-original.sbatch"
+  fi
+  # Filter again inside scancel: if it started since squeue, preserve it.
+  scancel --state=PENDING "$OLD_ID"
+  AFTER="$(squeue -h -u zhuziyuan -n "$JOB_NAME" -o '%i|%j|%u|%T|%P|%Z')"
+  printf '%s\n' "$AFTER" > "$MIGRATION-after.txt"
+  if [ -n "$AFTER" ]; then
+    printf 'Old download is still observed; retained, no replacement submitted: %s\n' "$AFTER"
+    exit 0
+  fi
+  printf 'Replaced pending download %s from %s; existing raw files retained.\n' "$OLD_ID" "$OLD_PARTITION"
 fi
 JOB_SCRIPT="$PROJECT/state/download-data.sbatch"
 JOB_TEMP="$(mktemp "$PROJECT/state/download-data.XXXXXX")"
@@ -91,7 +153,7 @@ printf 'DATA_READY start/resume training on login1 with:\n'
 printf 'bash %q --project %q --raw-dir %q\n' "$CODE_ROOT/LAUNCH.sh" "$PROJECT" "$PROJECT/raw"
 SCHOOL_DOWNLOAD_JOB
 mv "$JOB_TEMP" "$JOB_SCRIPT"
-JOB_ID="$(sbatch --parsable --account=zhuziyuan --partition=hpc_gpu1 --nodes=1 --ntasks=1 --gres=gpu:NVIDIAA100-SXM4-80GB:1 --cpus-per-task=24 --mem=128G --time=1-00:00:00 --exclude=gpu3 --job-name="$JOB_NAME" --chdir="$PROJECT" --output="$PROJECT/logs/slurm/download-%j.out" --error="$PROJECT/logs/slurm/download-%j.err" "$JOB_SCRIPT" "$CODE_ROOT" "$PROJECT" "$PYTHON_BIN")"
+JOB_ID="$(sbatch --parsable --account=zhuziyuan --partition="$PARTITION" --nodes=1 --ntasks=1 --gres="$GPU_REQUEST" --cpus-per-task=16 --mem=128G --time=1-00:00:00 --job-name="$JOB_NAME" --chdir="$PROJECT" --output="$PROJECT/logs/slurm/download-%j.out" --error="$PROJECT/logs/slurm/download-%j.err" "$JOB_SCRIPT" "$CODE_ROOT" "$PROJECT" "$PYTHON_BIN")"
 printf '%s\n' "$JOB_ID" > "$PROJECT/state/latest_download_job.txt"
 printf 'Data download submitted: %s\n' "$JOB_ID"
 printf 'Raw destination: %s/raw\n' "$PROJECT"

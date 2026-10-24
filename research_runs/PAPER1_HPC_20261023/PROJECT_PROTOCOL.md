@@ -272,14 +272,16 @@ selection rule.
 ## 6. School HPC execution and recovery
 
 The default project directory is under
-`/public/home/zhuziyuan/projects/paper1-hpc-methods`. The account is `zhuziyuan`
-and partition `hpc_gpu1`. Independent method/seed/fold tasks use one
-`NVIDIAA100-SXM4-80GB` GPU, 24 requested CPUs and 128 GB requested memory each,
-with at most three simultaneous array tasks. Three tasks therefore request
-three GPUs, 72 CPUs and 384 GB memory; they are not a three-GPU DDP job.
-Availability and node resources come from the actual Slurm allocation. The
-temporary exclusion of `gpu3`, if configured, is an operational choice rather
-than a hardware diagnosis.
+`/public/home/zhuziyuan/projects/paper1-risk-v1`. The account is `zhuziyuan`
+and the current partition is `hpc_gpu` following the 24 October operational
+revision. Independent method/seed/fold tasks request `gpu:1`, 16 CPUs and 128 GB memory each,
+with at most two simultaneous array tasks. Two tasks therefore request
+two GPUs, 32 CPUs and 256 GB memory; they are independent single-GPU fits.
+Availability, GPU type and node resources come from the actual Slurm allocation.
+The initial plan targeted A100 devices in `hpc_gpu1`; the new screenshot does
+not identify the GPU type. The prior `gpu3` anomaly remains in historical
+records; the new partition request does not guess node names. This resource
+revision does not change scientific inputs, task definitions or checkpoints.
 
 Training uses the Slurm-provided visible device as `cuda:0`. PyTorch has four
 intra-op threads, one inter-op thread, and no DataLoader subprocesses in the
