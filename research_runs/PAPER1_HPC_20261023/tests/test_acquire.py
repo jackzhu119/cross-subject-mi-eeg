@@ -236,7 +236,8 @@ class AcquireTest(unittest.TestCase):
         for cause, expected in ((failure, ValueError),
                 (a.urllib.error.URLError('Tunnel denied HTTP403 PRIVATE'), RuntimeError),
                 (a.urllib.error.URLError(failure), RuntimeError),
-                (a.urllib.error.URLError(OSError(errno.EACCES, 'PRIVATE local denial')), RuntimeError)):
+                (a.urllib.error.URLError(OSError(errno.EACCES, 'PRIVATE local denial')), RuntimeError),
+                (a.urllib.error.URLError(OSError(errno.ENOSPC, 'PRIVATE disk failure')), RuntimeError)):
             output = io.StringIO()
             with mock.patch.object(a, '_open_no_redirect', side_effect=cause) as opener, contextlib.redirect_stdout(output):
                 with self.assertRaises(expected):
@@ -244,6 +245,73 @@ class AcquireTest(unittest.TestCase):
             opener.assert_called_once_with(canonical, 0)
             self.assertNotIn('official_alias_attempt', output.getvalue())
             self.assertNotIn('PRIVATE', output.getvalue())
+
+    def test_bnci_exact_route_errors_use_official_alias_and_remain_network_failures(self):
+        data = b'abcdefghij'
+        for index, code in enumerate((errno.ENETUNREACH, errno.EHOSTUNREACH, errno.ENETDOWN), 1):
+            with self.subTest(errno=code):
+                basename = 'A0%dE.mat' % index
+                canonical = 'https://bnci-horizon-2020.eu/database/data-sets/001-2014/' + basename
+                alias = 'https://lampx.tugraz.at/~bci/database/001-2014/' + basename
+                row = {**self.pin(data), 'path': basename, 'url': canonical}
+                failure = a.urllib.error.URLError(OSError(code, 'PRIVATE network route'))
+                output = io.StringIO()
+                with mock.patch.object(a, '_open_no_redirect', side_effect=[failure, Response(data, alias)]) as opener, \
+                     contextlib.redirect_stdout(output):
+                    self.assertEqual(a.transfer_object(self.root, row), row['sha256'])
+                self.assertEqual(opener.call_args_list, [mock.call(canonical, 0), mock.call(alias, 0)])
+                report = self.error_rows(output.getvalue())[0]
+                self.assertEqual(report['event'], 'official_alias_attempt')
+                self.assertEqual((report['category'], report['errno']), ('connection', code))
+                self.assertNotIn('PRIVATE', output.getvalue())
+                self.assertEqual((self.root / basename).read_bytes(), data)
+                self.assertEqual(a.safe_error_details(failure)['category'], 'connection')
+
+    def test_errno101_canonical_and_alias_failure_preserves_bound_and_retry_evidence(self):
+        canonical = 'https://bnci-horizon-2020.eu/database/data-sets/001-2014/A01E.mat'
+        alias = 'https://lampx.tugraz.at/~bci/database/001-2014/A01E.mat'
+        row = {**self.pin(), 'path': 'A01E.mat', 'url': canonical}
+        failure = a.urllib.error.URLError(OSError(errno.ENETUNREACH, 'PRIVATE network route'))
+        output = io.StringIO()
+        with mock.patch.object(a, '_open_no_redirect', side_effect=failure) as opener, \
+             contextlib.redirect_stdout(output):
+            with self.assertRaises(RuntimeError) as raised:
+                a.transfer_object(self.root, row, attempts=1)
+        self.assertEqual(opener.call_args_list, [mock.call(canonical, 0), mock.call(alias, 0)])
+        report = self.error_rows(output.getvalue())[-1]
+        self.assertEqual((report['stage'], report['category'], report['errno']),
+                         ('official_mirror_open', 'connection', errno.ENETUNREACH))
+        self.assertFalse(report['will_retry'])
+        self.assertEqual(a.safe_error_details(raised.exception)['category'], 'connection')
+        self.assertNotIn('PRIVATE', output.getvalue())
+        self.assertFalse((self.root / 'A01E.mat').exists())
+
+
+class RouteHeadTests(unittest.TestCase):
+    def test_head_checks_frozen_length_without_body_read(self):
+        row = json.loads((a.VENDOR / 'config/bnci_manifest.json').read_text())['files'][0]
+        response = mock.MagicMock()
+        response.__enter__.return_value = response
+        response.status = 200
+        response.headers = {'Content-Length': str(row['size'])}
+        with mock.patch.object(a.urllib.request, 'build_opener') as factory:
+            factory.return_value.open.return_value = response
+            a.check_download_route()
+        request = factory.return_value.open.call_args.args[0]
+        self.assertEqual(request.get_method(), 'HEAD')
+        self.assertTrue(request.full_url.startswith('https://lampx.tugraz.at/~bci/database/001-2014/'))
+        response.read.assert_not_called()
+
+    def test_changed_head_length_stops_without_body_read(self):
+        response = mock.MagicMock()
+        response.__enter__.return_value = response
+        response.status = 200
+        response.headers = {'Content-Length': '1'}
+        with mock.patch.object(a.urllib.request, 'build_opener') as factory:
+            factory.return_value.open.return_value = response
+            with self.assertRaises(ValueError):
+                a.check_download_route()
+        response.read.assert_not_called()
 
 
 if __name__ == '__main__':

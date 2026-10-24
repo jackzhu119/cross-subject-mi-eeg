@@ -1,0 +1,65 @@
+{
+  "recorded_at_utc": "2026-10-24T12:03:49.752214+00:00",
+  "actual_school_failures": {
+    "canonical_bnci": {
+      "errno": 101,
+      "stage": "canonical_open",
+      "offset_bytes": 0,
+      "attempts_observed": 3
+    },
+    "official_alias_python_head": "SSLCertVerificationError: unable to get local issuer certificate",
+    "official_alias_curl_head_status": 200,
+    "github_sync_still_working": true,
+    "school_failures_from": "User-provided actual terminal output"
+  },
+  "fixes": {
+    "exact_route_errno_alias_allowance": [
+      100,
+      101,
+      113
+    ],
+    "canonical_open_timeout_seconds": 8,
+    "official_alias_read_timeout_seconds": 60,
+    "ca_store_source": "Existing explicit or system trust store bound only to the downloader process",
+    "tls_verification_required": true,
+    "no_global_package_or_os_modifications": true,
+    "transfer_only_restart_flag": "--restart-transfer",
+    "new_token_flag": "--reauthorize",
+    "gpus": 2,
+    "total_cpus": 26,
+    "total_memory": "128G",
+    "nodes": 1,
+    "slurm_jobs": 1
+  },
+  "actual_managed_environment_alias_get": {
+    "started_at_utc": "2026-10-24T11:50:50.415837+00:00",
+    "completed_at_utc": "2026-10-24T11:50:53.538920+00:00",
+    "environment": "Codex managed environment; not school HPC",
+    "canonical_errno101_injected": true,
+    "official_alias_actual_https_get": true,
+    "bytes": 43772146,
+    "sha256": "53d415f39c3d7b0c88b894d7b08d99bcdfe855ede63831d3691af1a45607fb62",
+    "frozen_pin_matches": true,
+    "canonical_attempts": 1,
+    "alias_attempts": 1,
+    "eeg_values_loaded": false,
+    "new_fits": 0
+  },
+  "school_fixed_entry_executed_by_agent": false,
+  "new_scientific_fits": 0,
+  "source_hashes": {
+    "hpcmi/acquire.py": "a5ead6df55b82ccbf716af5aad2b869cc064cca92cd6b3e45d52638a39098e08",
+    "hpcmi/login_pipeline.py": "80f8c557100e4bdba91c44867619f247c4569bb8fcd6824cff417c41e2c07035"
+  },
+  "targeted_route_trust_restart_tests_passed": 59,
+  "targeted_head_on_repair_entry": true,
+  "managed_live_head_after_trust_binding": {
+    "status": 200,
+    "expected_bytes": 43772146,
+    "certificate_verification_required": true,
+    "hostname_verification_required": true,
+    "eeg_body_read": false,
+    "probe_timestamp_not_captured": true,
+    "recorded_at_utc": "2026-10-24T12:10:34.564502+00:00"
+  }
+}

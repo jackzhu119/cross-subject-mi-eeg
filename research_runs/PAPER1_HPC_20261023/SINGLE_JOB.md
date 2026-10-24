@@ -55,3 +55,11 @@ GPU作业的主日志为`logs/slurm/single-<jobid>.out`；训练任务日志为`
 checkpoint保留模型、优化器、调度器、随机状态、采样位置、最佳模型及验证历史，按耗时保存两代；USR1转发实际worker，等待保存后只重排当前作业。用户主动取消不自动复活。独立fit失败不取消其它fit；已有错误、checkpoint及负/零结果保持。
 
 本次只修复运输、授权、资源分配和恢复机制。冻结方法、种子、人员分组、trial范围、损失、滤波、输入身份和统计计划不变。尚未在学校替用户执行新入口，也未把合成测试当作新科研fit或正式GPU验收。
+
+## 2026-10-24：连接错误与下载证书修正
+
+实际登录端日志显示BNCI入口返回`ENETUNREACH(101)`；原代码没有将基础`OSError(101)`归入现有官方备用路径条件。修订后仅对`ENETUNREACH/EHOSTUNREACH/ENETDOWN`这三类明确网络错误尝试原冻结同名TU Graz地址，权限/磁盘/HTTP拒绝不触发该路径。BNCI不可达入口的等待缩为8秒，备用文件读取仍保留原60秒超时。官方地址、大小、SHA和TLS身份验证没有变化。
+
+用户随后在学校的实际Python对TU Graz做HEAD，明确得到`CERTIFICATE_VERIFY_FAILED: unable to get local issuer certificate`，而系统curl对同址返回200。下载子进程现读取已存在的系统CA（优先EL7的`/etc/pki/tls/certs/ca-bundle.crt`等），或尊重显式配置的CA文件/目录。证书和hostname验证始终开启；不修改系统CA、共享Python或其它论文环境。离线发布不加载或检查网络CA。
+
+升级时在上述启动命令中追加`--restart-transfer`，会先用学校实际Python执行一次只读HEAD，验证系统CA、hostname和冻结文件长度，显示`DOWNLOAD_ROUTE_TLS_HEAD_VERIFIED`后才继续；不会将HEAD当作完整文件SHA验证。随后只会重启同用户、同项目、仍处于下载/网络等待阶段的旧登录进程，等待退出后复用原文件和partial；不会终止Slurm模型作业或其它论文。`--reauthorize`可同时要求输入新token。正常下载证据为`bnci ... raw objects verified`和`transport_status.json`完成数增长，而不是只有后台heartbeat。

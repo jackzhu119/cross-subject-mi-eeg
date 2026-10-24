@@ -2,6 +2,7 @@
 from __future__ import annotations
 import argparse
 import base64
+import errno
 import fcntl
 import re
 import traceback
@@ -29,6 +30,64 @@ from p1_rangezip import open_yang_archive, member_record, selected_yang_members
 
 STORAGE_HOST = 'nemar.s3.us-east-2.amazonaws.com'
 CHUNK = 8 * 1024 * 1024
+_ROUTE_CONNECTION_ERRNOS = frozenset((errno.ENETUNREACH, errno.EHOSTUNREACH, errno.ENETDOWN))
+_SYSTEM_CA_BUNDLES = (
+    '/etc/pki/tls/certs/ca-bundle.crt',
+    '/etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem',
+    '/etc/ssl/certs/ca-certificates.crt',
+)
+
+
+def configure_download_trust():
+    """Bind only this downloader to a verified existing CA store.
+
+    OpenSSL may load capath roots lazily, so an existing hashed CA directory
+    is accepted when its context still requires certificates and hostnames.
+    Actual HTTPS requests must subsequently verify the peer as usual.
+    """
+    explicit = {}
+    for key, directory in (('PAPER1_CA_BUNDLE', False), ('SSL_CERT_FILE', False), ('SSL_CERT_DIR', True)):
+        if key in os.environ:
+            path = Path(os.environ[key]).expanduser()
+            valid = path.is_dir() if directory else path.is_file()
+            if not os.environ[key] or not valid:
+                raise ValueError('Invalid explicit download CA path: ' + key)
+            explicit[key] = str(path)
+    source, selected = 'python_default', None
+    cafile = explicit.get('PAPER1_CA_BUNDLE') or explicit.get('SSL_CERT_FILE')
+    capath = explicit.get('SSL_CERT_DIR')
+    if cafile or capath:
+        source = 'PAPER1_CA_BUNDLE' if explicit.get('PAPER1_CA_BUNDLE') else (
+            'SSL_CERT_FILE' if cafile else 'SSL_CERT_DIR')
+    else:
+        selected = next((value for value in _SYSTEM_CA_BUNDLES if Path(value).is_file()), None)
+        cafile = selected
+        if selected:
+            source = 'system_ca_bundle'
+    try:
+        context = ssl.create_default_context(cafile=cafile, capath=capath)
+    except (OSError, ssl.SSLError):
+        raise ValueError('Configured download CA store could not be loaded: ' + source) from None
+    if context.verify_mode != ssl.CERT_REQUIRED or context.check_hostname is not True:
+        raise ValueError('Download CA context must verify certificates and hostnames')
+    count = context.cert_store_stats().get('x509_ca', 0)
+    if not capath and not cafile:
+        capath = ssl.get_default_verify_paths().capath
+    hashed_capath = bool(capath and Path(capath).is_dir() and any(
+        re.fullmatch(r'[0-9a-fA-F]{8}\.[0-9]+', path.name) and path.is_file()
+        for path in Path(capath).iterdir()))
+    if not count and not hashed_capath:
+        raise ValueError('No trusted roots in the configured download CA store')
+    if cafile:
+        os.environ['SSL_CERT_FILE'] = cafile
+    if explicit.get('SSL_CERT_DIR'):
+        os.environ['SSL_CERT_DIR'] = explicit['SSL_CERT_DIR']
+    report = {'event': 'download_tls_trust', 'source': source,
+              'system_bundle': selected, 'trusted_ca_certificates': count,
+              'hashed_ca_directory_available': hashed_capath,
+              'certificate_verification_required': True, 'hostname_verification_required': True}
+    print(json.dumps(report, sort_keys=True), flush=True)
+    return report
 
 
 def safe_error_details(error):
@@ -79,7 +138,8 @@ def safe_error_details(error):
                 row['partial_bytes'] = len(partial)
             if type(current.expected) is int:
                 row['expected_additional_bytes'] = current.expected
-        elif isinstance(current, ConnectionError):
+        elif (isinstance(current, ConnectionError)
+              or isinstance(current, OSError) and number in _ROUTE_CONNECTION_ERRNOS):
             specific.append('connection')
         elif isinstance(current, OSError) and detail['category'] == 'unknown':
             detail['category'] = 'os_error'
@@ -191,8 +251,9 @@ def _open_no_redirect(url, offset=0):
     headers = {'Accept-Encoding': 'identity', 'User-Agent': 'Paper1-HPC-data/1.0'}
     if offset:
         headers['Range'] = 'bytes=%d-' % offset
+    timeout = 8 if urlsplit(url).netloc == 'bnci-horizon-2020.eu' else 60
     return urllib.request.build_opener(NoRedirect()).open(
-        urllib.request.Request(url, headers=headers), timeout=60)
+        urllib.request.Request(url, headers=headers), timeout=timeout)
 
 
 def validate_nemar_location(row, location):
@@ -226,6 +287,20 @@ def validate_bnci_location(row, location):
     return expected
 
 
+def check_download_route():
+    """Verify the repaired CA/path using HEAD only; do not read EEG bytes."""
+    row = json.loads((VENDOR / 'config/bnci_manifest.json').read_text())['files'][0]
+    basename = Path(urlsplit(row['url']).path).name
+    alias = validate_bnci_location(row, 'https://lampx.tugraz.at/~bci/database/001-2014/' + basename)
+    request = urllib.request.Request(alias, method='HEAD', headers={'Accept-Encoding': 'identity'})
+    with urllib.request.build_opener(NoRedirect()).open(request, timeout=10) as response:
+        if response.status != 200 or int(response.headers.get('Content-Length', '-1')) != row['size']:
+            raise ValueError('Official HEAD did not match the frozen object length')
+    print(json.dumps({'status': 'DOWNLOAD_ROUTE_TLS_HEAD_VERIFIED', 'http_status': 200,
+                      'hostname': 'lampx.tugraz.at', 'expected_bytes': row['size'],
+                      'eeg_body_read': False, 'full_file_sha256_verified': False}), flush=True)
+
+
 @contextmanager
 def open_object(row, offset=0, *, nemar=False):
     transient = None
@@ -246,7 +321,8 @@ def open_object(row, offset=0, *, nemar=False):
         # evidence and must not cause an alternate-host attempt.
         reason = error.reason
         if (not nemar and urlsplit(row['url']).netloc == 'bnci-horizon-2020.eu'
-                and isinstance(reason, (socket.gaierror, TimeoutError, ConnectionError, ssl.SSLError))
+                and (isinstance(reason, (socket.gaierror, TimeoutError, ConnectionError, ssl.SSLError))
+                     or isinstance(reason, OSError) and reason.errno in _ROUTE_CONNECTION_ERRNOS)
                 and not isinstance(reason, urllib.error.HTTPError)):
             basename = Path(urlsplit(row['url']).path).name
             transient = validate_bnci_location(row, 'https://lampx.tugraz.at/~bci/database/001-2014/' + basename)
@@ -768,7 +844,13 @@ def main(argv=None):
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument('--transport-only', action='store_true', help='Download native/ZIP-compressed payloads without decoding Yang')
     mode.add_argument('--offline-publish', action='store_true', help='Verify/publish cached payloads without network access')
+    mode.add_argument('--check-download-route', action='store_true', help='Verify repaired TLS and the official HEAD without downloading EEG')
     args = parser.parse_args(argv)
+    if not args.offline_publish:
+        configure_download_trust()
+    if args.check_download_route:
+        check_download_route()
+        return 0
     args.raw_dir.mkdir(parents=True, exist_ok=True)
     with acquisition_lock(args.raw_dir):
         datasets = ['bnci', 'yang', 'dreyer'] if args.dataset == 'all' else [args.dataset]

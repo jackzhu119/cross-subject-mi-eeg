@@ -13,6 +13,8 @@ from unittest import mock
 from hpcmi.common import atomic_json, read_json
 from hpcmi import login_pipeline as p
 
+REAL_LIVE_DRIVER = p._live_driver
+
 
 class Child:
     def __init__(self, code=0, ticks=1, on_poll=None):
@@ -52,7 +54,8 @@ class LoginPipelineTests(unittest.TestCase):
         self.old_ledger = self.ledger.read_bytes()
         self.args = SimpleNamespace(project=str(self.project), python=sys.executable, raw_dir=None,
                       repository='owner/research', wheelhouse=self.project / 'wheels',
-                      gpus=2, memory='128G', replace_job='771084', reauthorize=True)
+                      gpus=2, memory='128G', replace_job='771084', reauthorize=True,
+                      restart_transfer=False)
         self.stack = ExitStack()
         self.addCleanup(self.stack.close)
         self.output = io.StringIO()
@@ -75,11 +78,22 @@ class LoginPipelineTests(unittest.TestCase):
         self.auth = self.stack.enter_context(mock.patch.object(p.github_sync, 'confirm_credentials',
                                                  return_value=self.project / 'private-token'))
         self.setup = self.stack.enter_context(mock.patch.object(p.cli, 'setup', return_value=self.paths))
+        self.route_check = self.stack.enter_context(mock.patch.object(p, '_check_download_route'))
         self.daemon = self.stack.enter_context(mock.patch.object(p.cli, '_daemon', return_value=4321))
         self.live = self.stack.enter_context(mock.patch.object(p, '_live_driver', return_value=None))
 
     def state(self):
         return read_json(self.project / 'state/login_pipeline_status.json')
+
+    def test_failed_targeted_tls_check_never_stops_old_transfer_or_starts_new(self):
+        self.args.restart_transfer = True
+        self.route_check.side_effect = RuntimeError('Targeted TLS HEAD failed')
+        with mock.patch.object(p, '_restart_transfer_driver') as restart, self.assertRaises(RuntimeError):
+            p.start(self.args)
+        self.route_check.assert_called_once_with(self.paths)
+        restart.assert_not_called()
+        self.daemon.assert_not_called()
+        self.assertEqual(self.ledger.read_bytes(), self.old_ledger)
 
     def test_ready_inputs_skip_transfer_and_submit_one_offline_two_gpu_job(self):
         self.assertEqual(p.run(self.args), 0)
@@ -276,6 +290,83 @@ class LoginPipelineTests(unittest.TestCase):
         self.sync.assert_not_called()
         self.submit.assert_not_called()
         self.assertIn('EXISTING_LOGIN_PIPELINE_REUSED', self.output.getvalue())
+
+    def test_restart_transfer_waits_for_owned_old_driver_and_preserves_files(self):
+        self.args.restart_transfer = True
+        old = {'pid': 4310, 'stage': 'login_transport_only', 'completed_objects': 2}
+        new = {'pid': 4321, 'stage': 'login_transport_only'}
+        self.live.side_effect = [old, dict(old), None, new, new]
+        partial = self.project / 'raw/bnci/A01E.mat.part'
+        partial.parent.mkdir(parents=True)
+        partial.write_bytes(b'Already downloaded native bytes retained')
+        log = self.project / 'logs/login-pipeline.log'
+        log.parent.mkdir()
+        log.write_bytes(b'Original transfer failure log\n')
+        with mock.patch.object(p.os, 'kill') as kill:
+            self.assertEqual(p.start(self.args), 0)
+        kill.assert_called_once_with(4310, signal.SIGTERM)
+        self.auth.assert_called_once_with('owner/research', self.project.name,
+                                         force=True, require_verified=True)
+        self.daemon.assert_called_once()
+        self.assertNotIn('--restart-transfer', self.daemon.call_args.args[2])
+        snapshots = list((self.project / 'state/login-transfer-restarts').glob('*.json'))
+        self.assertEqual(len(snapshots), 1)
+        self.assertEqual(read_json(snapshots[0])['previous_status'], old)
+        self.assertEqual(partial.read_bytes(), b'Already downloaded native bytes retained')
+        self.assertEqual(log.read_bytes(), b'Original transfer failure log\n')
+        self.assertEqual(self.ledger.read_bytes(), self.old_ledger)
+        self.submit.assert_not_called()
+
+    def test_restart_transfer_never_signals_a_changed_pid(self):
+        self.args.restart_transfer = True
+        old = {'pid': 4310, 'stage': 'login_transport_only'}
+        current = {'pid': 4400, 'stage': 'network_retry_wait'}
+        self.live.side_effect = [old, current]
+        with mock.patch.object(p.os, 'kill') as kill:
+            self.assertEqual(p.start(self.args), 0)
+        kill.assert_not_called()
+        self.daemon.assert_not_called()
+        self.sync.assert_not_called()
+        self.assertEqual(self.ledger.read_bytes(), self.old_ledger)
+
+    def test_restart_transfer_checks_actual_uid_and_never_signals_foreign_owner(self):
+        state = {'pid': p.os.getpid(), 'stage': 'login_transport_only'}
+        atomic_json(self.project / 'state/login_pipeline_status.json', state)
+        current_uid = p.os.getuid()
+        with mock.patch.object(p, '_live_driver', REAL_LIVE_DRIVER), \
+             mock.patch.object(p.os, 'getuid', return_value=current_uid + 1), \
+             mock.patch.object(p.os, 'kill') as kill:
+            self.assertIsNone(p._restart_transfer_driver(self.project, state))
+        kill.assert_not_called()
+        self.assertFalse((self.project / 'state/login-transfer-restarts').exists())
+        self.assertEqual(self.ledger.read_bytes(), self.old_ledger)
+
+    def test_restart_transfer_preserves_submission_and_gpu_stages(self):
+        self.args.restart_transfer = True
+        for stage in ('network_payloads_ready_submitting_offline_gpu_job',
+                      'offline_gpu_job_submitted', 'replacement_held_old_job_active'):
+            with self.subTest(stage=stage):
+                self.live.return_value = {'pid': 4310, 'stage': stage}
+                with mock.patch.object(p.os, 'kill') as kill:
+                    self.assertEqual(p.start(self.args), 0)
+                kill.assert_not_called()
+        self.daemon.assert_not_called()
+        self.sync.assert_not_called()
+        self.submit.assert_not_called()
+        self.assertEqual(self.ledger.read_bytes(), self.old_ledger)
+
+    def test_restart_transfer_timeout_never_starts_another_driver(self):
+        self.args.restart_transfer = True
+        self.live.return_value = {'pid': 4310, 'stage': 'network_retry_wait'}
+        with mock.patch.object(p.os, 'kill') as kill, \
+             mock.patch.object(p.time, 'monotonic', side_effect=[0, 16]):
+            with self.assertRaisesRegex(RuntimeError, 'Previous login transfer has not exited'):
+                p.start(self.args)
+        kill.assert_called_once_with(4310, signal.SIGTERM)
+        self.daemon.assert_not_called()
+        self.sync.assert_not_called()
+        self.submit.assert_not_called()
+        self.assertEqual(self.ledger.read_bytes(), self.old_ledger)
 
     def test_live_new_driver_startup_receives_exact_request(self):
         self.live.side_effect = [None, {'pid': 4321, 'stage': 'login_transport_only'},

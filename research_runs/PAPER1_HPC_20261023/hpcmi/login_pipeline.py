@@ -88,6 +88,43 @@ def _arguments(args):
     return result
 
 
+def _check_download_route(paths):
+    subprocess.run([paths['training_python'], '-u', '-m', 'hpcmi.acquire',
+                    '--raw-dir', paths['raw_dir'], '--check-download-route'],
+                   cwd=cli.ROOT, stdin=subprocess.DEVNULL, check=True, timeout=25)
+
+
+def _restart_transfer_driver(project, observed):
+    """Stop only this project's verified login transfer, preserving its cache."""
+    transfer_stages = {'login_transport_only', 'network_retry_wait'}
+    if observed.get('stage') not in transfer_stages:
+        return observed
+    # The saved PID alone is insufficient: recheck UID, exact module/project,
+    # current PID and stage immediately before signalling the owned process.
+    current = _live_driver(project)
+    if current is None:
+        return None
+    if current.get('pid') != observed.get('pid') or current.get('stage') not in transfer_stages:
+        return current
+    requested_at = utc_now()
+    snapshot = project / 'state/login-transfer-restarts' / (
+        str(current['pid']) + '-' + uuid.uuid4().hex + '.json')
+    atomic_json(snapshot, {'requested_at_utc': requested_at, 'previous_status': current,
+                           'signal': 'SIGTERM', 'raw_files_and_original_logs_retained': True})
+    try:
+        os.kill(current['pid'], signal.SIGTERM)
+    except ProcessLookupError:
+        return _live_driver(project)
+    deadline = time.monotonic() + 15
+    while time.monotonic() < deadline:
+        remaining = _live_driver(project)
+        if remaining is None or remaining.get('pid') != current['pid']:
+            return remaining
+        time.sleep(min(.25, max(0, deadline - time.monotonic())))
+    raise RuntimeError('Previous login transfer has not exited; no new transfer started; '
+                       'existing data and jobs retained')
+
+
 def start(args):
     if os.environ.get('SLURM_JOB_ID'):
         raise RuntimeError('Start the login transfer pipeline outside a Slurm allocation')
@@ -99,10 +136,16 @@ def start(args):
     # Fresh credentials are interactive here, before the detached child starts.
     token = github_sync.confirm_credentials(paths['repository'], project.name,
                                            force=args.reauthorize, require_verified=True)
+    if getattr(args, 'restart_transfer', False):
+        # One targeted repair check using the actual school interpreter. A HEAD
+        # success establishes TLS/path only, not completed download or training.
+        _check_download_route(paths)
     atomic_json(project / 'config/sync.json', {'repository': paths['repository'],
                 'project_id': project.name, 'token_file': str(token)})
     with exclusive_lock(project / 'state/login-pipeline-start.lock'):
         observed = _live_driver(project)
+        if observed and getattr(args, 'restart_transfer', False):
+            observed = _restart_transfer_driver(project, observed)
         if observed:
             print(json.dumps({'status': 'EXISTING_LOGIN_PIPELINE_REUSED',
                               'stage': observed['stage'], 'pid': observed['pid']}), flush=True)
@@ -284,6 +327,8 @@ def main(argv=None):
     parser.add_argument('--memory', default='128G')
     parser.add_argument('--replace-job')
     parser.add_argument('--reauthorize', action='store_true')
+    parser.add_argument('--restart-transfer', action='store_true',
+                        help='Gracefully restart only an active login download, reusing cached files')
     args = parser.parse_args(argv)
     return start(args) if args.mode == 'start' else run(args)
 
