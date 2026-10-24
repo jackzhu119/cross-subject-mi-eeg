@@ -1,6 +1,7 @@
 """No real credentials or network calls; exercise the independent uploader."""
 import base64
 import contextlib
+import hashlib
 import io
 import json
 import os
@@ -78,6 +79,117 @@ class GitHubSyncTests(unittest.TestCase):
         record = json.loads((self.token_path.parent / "project_authorizations.json").read_text())
         self.assertEqual(record["projects"][self.repo + ":" + self.project_id]["status"], "INITIAL_WRITE_PENDING")
         self.assertEqual(sync._read_token(self.token_path), self.token)
+
+    def seed_authorization(self, status="CONTENTS_WRITE_VERIFIED"):
+        sync._write_token(self.token_path, self.token)
+        record = {"schema_version": 1, "projects": {self.repo + ":" + self.project_id: {
+            "status": status, "token_sha256": hashlib.sha256(self.token.encode()).hexdigest()}}}
+        authorization = self.token_path.parent / "project_authorizations.json"
+        sync._atomic_json(authorization, record, private=True)
+        return authorization
+
+    def readback_response(self, value):
+        content = (json.dumps(value, indent=2, sort_keys=True, allow_nan=False) + "\n").encode()
+        return {"type": "file", "encoding": "base64", "content": base64.b64encode(content).decode(),
+                "size": len(content), "sha": hashlib.sha1(b"blob " + str(len(content)).encode() + b"\0" + content).hexdigest()}
+
+    def test_force_prompts_and_only_replaces_after_exact_live_readback(self):
+        authorization = self.seed_authorization()
+        fresh = "unit-test-fresh-not-real"
+        written = {}
+        def put(repository, branch, remote_path, token, value):
+            self.assertEqual(sync._read_token(self.token_path), self.token)
+            self.assertEqual(token, fresh)
+            self.assertRegex(value["authorization_nonce"], r"^[0-9a-f]{32}$")
+            written.update(value)
+            return self.sha
+        def get(method, endpoint, token):
+            self.assertEqual(sync._read_token(self.token_path), self.token)
+            self.assertEqual(method, "GET")
+            self.assertTrue(endpoint.endswith("connection.json?ref=" + self.sha))
+            self.assertEqual(token, fresh)
+            return self.readback_response(written)
+        with mock.patch.object(sync.getpass, "getpass", return_value=fresh) as prompt, \
+             mock.patch.object(sync, "_ensure_branch"), \
+             mock.patch.object(sync, "_put_json", side_effect=put), \
+             mock.patch.object(sync, "_api", side_effect=get) as api, \
+             contextlib.redirect_stdout(io.StringIO()) as output:
+            self.assertEqual(sync.confirm_credentials(self.repo, self.project_id, self.token_path, force=True), self.token_path)
+        prompt.assert_called_once()
+        api.assert_called_once()
+        self.assertEqual(sync._read_token(self.token_path), fresh)
+        state = json.loads(authorization.read_text())["projects"][self.repo + ":" + self.project_id]
+        self.assertEqual(state["status"], "CONTENTS_WRITE_READBACK_VERIFIED")
+        self.assertTrue(state["readback_verified"])
+        public = json.loads(output.getvalue())
+        self.assertEqual(public["commit"], self.sha)
+        self.assertTrue(public["readback_verified"])
+        for forbidden in (self.token, fresh, "token_sha256"):
+            self.assertNotIn(forbidden, output.getvalue())
+
+    def test_force_blank_input_preserves_token_and_authorization(self):
+        authorization = self.seed_authorization()
+        before_token, before_auth = self.token_path.read_bytes(), authorization.read_bytes()
+        with mock.patch.object(sync.getpass, "getpass", return_value="") as prompt, \
+             mock.patch.object(sync, "_ensure_branch") as ensure, \
+             self.assertRaises(sync.CredentialError):
+            sync.confirm_credentials(self.repo, self.project_id, self.token_path, force=True)
+        prompt.assert_called_once()
+        ensure.assert_not_called()
+        self.assertEqual(self.token_path.read_bytes(), before_token)
+        self.assertEqual(authorization.read_bytes(), before_auth)
+
+    def test_strict_network_and_permission_failure_preserve_working_token(self):
+        authorization = self.seed_authorization("INITIAL_WRITE_PENDING")
+        before_token, before_auth = self.token_path.read_bytes(), authorization.read_bytes()
+        fresh = "unit-test-new-failed-not-real"
+        for error in (sync.GitHubError("github_network_unavailable"),
+                      sync.GitHubError("github_http_401", 401, permanent=True)):
+            with self.subTest(code=error.code), \
+                 mock.patch.object(sync.getpass, "getpass", return_value=fresh), \
+                 mock.patch.object(sync, "_ensure_branch", side_effect=error), \
+                 mock.patch.object(sync, "_put_json") as put, \
+                 contextlib.redirect_stdout(io.StringIO()) as output, \
+                 self.assertRaises(sync.CredentialError) as caught:
+                sync.confirm_credentials(self.repo, self.project_id, self.token_path, force=True)
+            put.assert_not_called()
+            self.assertEqual(self.token_path.read_bytes(), before_token)
+            self.assertEqual(authorization.read_bytes(), before_auth)
+            self.assertNotIn(fresh, str(caught.exception) + output.getvalue())
+            self.assertNotIn(self.token, str(caught.exception) + output.getvalue())
+
+    def test_require_verified_rechecks_pending_cache_without_accepting_it(self):
+        authorization = self.seed_authorization("INITIAL_WRITE_PENDING")
+        before = authorization.read_bytes()
+        with mock.patch.object(sync.getpass, "getpass") as prompt, \
+             mock.patch.object(sync, "_ensure_branch", side_effect=sync.GitHubError("github_network_unavailable")), \
+             self.assertRaises(sync.CredentialError):
+            sync.confirm_credentials(self.repo, self.project_id, self.token_path, require_verified=True)
+        prompt.assert_not_called()
+        self.assertEqual(authorization.read_bytes(), before)
+        self.assertEqual(sync._read_token(self.token_path), self.token)
+
+    def test_bad_readback_content_or_blob_hash_keeps_cached_token(self):
+        authorization = self.seed_authorization()
+        before_token, before_auth = self.token_path.read_bytes(), authorization.read_bytes()
+        written = {}
+        def put(repository, branch, remote_path, token, value):
+            written.clear();written.update(value)
+            return self.sha
+        for field in ("content", "sha"):
+            def readback(method, endpoint, token):
+                result = self.readback_response(written)
+                result[field] = base64.b64encode(b"wrong bytes").decode() if field == "content" else "0" * 40
+                return result
+            with self.subTest(field=field), \
+                 mock.patch.object(sync.getpass, "getpass", return_value="unit-test-new-not-real"), \
+                 mock.patch.object(sync, "_ensure_branch"), \
+                 mock.patch.object(sync, "_put_json", side_effect=put), \
+                 mock.patch.object(sync, "_api", side_effect=readback), \
+                 self.assertRaisesRegex(sync.CredentialError, "readback_mismatch"):
+                sync.confirm_credentials(self.repo, self.project_id, self.token_path, force=True)
+            self.assertEqual(self.token_path.read_bytes(), before_token)
+            self.assertEqual(authorization.read_bytes(), before_auth)
 
     def test_missing_and_symlink_credentials_are_not_accepted(self):
         with mock.patch.object(sync.getpass, "getpass", return_value=""):

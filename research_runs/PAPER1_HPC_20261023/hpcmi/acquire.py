@@ -1,6 +1,7 @@
 """Download the archived eligible-v3 inputs before Slurm compute jobs (stdlib only)."""
 from __future__ import annotations
 import argparse
+import base64
 import fcntl
 import re
 import traceback
@@ -92,6 +93,34 @@ def safe_error_details(error):
         detail['category'] = specific[-1]
     detail['causes'] = causes
     return detail
+
+
+def record_transport_failure(error, argv=None, environ=None):
+    """Bind one child failure to its driver attempt without rendering secrets."""
+    env = os.environ if environ is None else environ
+    attempt = env.get('PAPER1_TRANSFER_ATTEMPT', '')
+    if not isinstance(attempt, str) or not re.fullmatch(r'[0-9a-f]{32}', attempt):
+        return None
+    arguments = list(sys.argv[1:] if argv is None else argv)
+    values = []
+    for index, value in enumerate(arguments):
+        if value == '--raw-dir' and index + 1 < len(arguments):
+            values.append(arguments[index + 1])
+        elif isinstance(value, str) and value.startswith('--raw-dir='):
+            values.append(value.split('=', 1)[1])
+    if len(values) != 1 or not values[0]:
+        return None
+    try:
+        root = Path(values[0]).expanduser().resolve()
+        path = root / '.transport-failures' / (attempt + '.json')
+        if path.exists():
+            return path  # An attempt's first failure is retained unchanged.
+        atomic_json(path, {'schema_version': 1, 'attempt_id': attempt,
+                           'updated_at_utc': utc_now(), **safe_error_details(error)})
+        return path
+    except Exception:
+        # Failure evidence is best effort; never replace the real child error.
+        return None
 
 
 def report_transfer_error(row, error, stage, attempt, attempts, offset, retry):
@@ -341,7 +370,7 @@ def transfer_object(root, row, *, nemar=False, attempts=4):
     raise AssertionError('unreachable')
 
 
-def acquire_pinned(dataset, root):
+def acquire_pinned(dataset, root, progress=None):
     manifest = json.loads((VENDOR / 'config' / (dataset + '_manifest.json')).read_text())
     count = 18 if dataset == 'bnci' else 174
     if len(manifest['files']) != count:
@@ -349,6 +378,8 @@ def acquire_pinned(dataset, root):
     for index, row in enumerate(manifest['files'], 1):
         transfer_object(root, row, nemar=dataset == 'dreyer')
         log('%s %d/%d raw objects verified' % (dataset, index, count))
+        if progress is not None:
+            progress(index, count)
     atomic_json(Path(root) / '_download_manifest.json', manifest)
     return manifest
 
@@ -370,22 +401,91 @@ def yang_pins():
     return inventory, rows
 
 
-def _yang_member(reader, info, row, root):
-    """Resume compressed bytes; then decode/CRC/SHA one member before publishing."""
-    existing = verified_existing(root, row)
-    if existing:
-        return existing
+def _archive_identity(inventory):
+    keys = ('archive_url', 'archive_bytes', 'central_directory_offset',
+            'central_directory_bytes', 'central_directory_sha256', 'member_count', 'eocd_offset')
+    return {key: inventory[key] for key in keys}
+
+
+def _transport_receipt(root, row):
+    return Path(root) / '.transport' / (hashlib.sha256(row['path'].encode()).hexdigest() + '.json')
+
+
+def _yang_pin(row):
+    keys = ('path', 'size', 'compressed_bytes', 'crc32', 'header_offset', 'compression')
+    value = {key: row[key] for key in keys}
+    if row.get('sha256'):
+        value['sha256'] = row['sha256']
+    return value
+
+
+def _yang_local_header(reader, info, row):
+    if member_record(info) != {key: row[key] for key in member_record(info)}:
+        raise ValueError('Live Yang member differs from frozen directory inventory')
     reader.seek(info.header_offset)
     header = reader.read(30)
+    if len(header) != 30:
+        raise ValueError('Truncated Yang local ZIP header')
     values = struct.unpack('<4s5H3L2H', header)
-    if values[0] != b'PK\x03\x04' or values[2] & 1 or values[3] != info.compress_type:
+    if (values[0] != b'PK\x03\x04' or values[2] & 1
+            or values[3] != info.compress_type or info.compress_type not in (0, 8)):
         raise ValueError('Unexpected Yang local ZIP header')
     filename_len, extra_len = values[-2:]
-    name = reader.read(filename_len)
+    name, extra = reader.read(filename_len), reader.read(extra_len)
     encoding = 'utf-8' if values[2] & 0x800 else 'cp437'
-    if name.decode(encoding) != info.filename:
-        raise ValueError('Yang ZIP local member name changed')
-    data_offset = info.header_offset + 30 + filename_len + extra_len
+    if (len(name) != filename_len or len(extra) != extra_len
+            or name.decode(encoding) != info.filename):
+        raise ValueError('Yang ZIP local member name or extra-field length changed')
+    raw = header + name + extra
+    data_offset = info.header_offset + len(raw)
+    return data_offset, {'bytes_b64': base64.b64encode(raw).decode('ascii'),
+                         'sha256': hashlib.sha256(raw).hexdigest(), 'data_offset': data_offset}
+
+
+def _compressed_ready(root, row, inventory):
+    """Read bounded saved metadata only; native CRC/SHA remain pending."""
+    path = _transport_receipt(root, row)
+    if not path.is_file():
+        return False
+    if path.stat().st_size > 200000:
+        raise ValueError('Oversized Yang transport receipt retained')
+    receipt = json.loads(path.read_text())
+    if (receipt.get('schema_version') != 1
+            or receipt.get('status') != 'COMPRESSED_TRANSPORT_COMPLETE_NATIVE_VALIDATION_PENDING'
+            or receipt.get('archive') != _archive_identity(inventory)
+            or receipt.get('pin') != _yang_pin(row)):
+        raise ValueError('Yang transport identity differs from frozen inventory')
+    local = receipt.get('local_header', {})
+    try:
+        raw = base64.b64decode(local['bytes_b64'], validate=True)
+        if not 30 <= len(raw) <= 30 + 65535 + 65535:
+            raise ValueError('Invalid local-header bound')
+        values = struct.unpack('<4s5H3L2H', raw[:30])
+        filename_len, extra_len = values[-2:]
+        name = raw[30:30 + filename_len]
+        encoding = 'utf-8' if values[2] & 0x800 else 'cp437'
+        if (len(raw) != 30 + filename_len + extra_len or values[0] != b'PK\x03\x04'
+                or values[2] & 1 or values[3] != row['compression']
+                or name.decode(encoding) != row['path']
+                or hashlib.sha256(raw).hexdigest() != local['sha256']
+                or local['data_offset'] != row['header_offset'] + len(raw)
+                or local['data_offset'] + row['compressed_bytes'] > inventory['central_directory_offset']):
+            raise ValueError('Yang saved local-header attestation differs')
+    except (KeyError, TypeError, UnicodeError, struct.error) as exc:
+        raise ValueError('Invalid Yang saved local-header attestation') from exc
+    target = safe_child(root, row['path'])
+    compressed = target.with_name(target.name + '.compressed.part')
+    if not compressed.is_file():
+        return False
+    if compressed.stat().st_size != row['compressed_bytes']:
+        raise ValueError('Yang completed compressed cache length changed; retained')
+    if stat_identity(compressed) != receipt.get('compressed_stat'):
+        raise ValueError('Yang completed compressed cache identity changed; retained')
+    return True
+
+
+def _download_yang_compressed(reader, info, row, root, *, inventory=None):
+    data_offset, local_header = _yang_local_header(reader, info, row)
     target = safe_child(root, row['path'])
     target.parent.mkdir(parents=True, exist_ok=True)
     compressed = target.with_name(target.name + '.compressed.part')
@@ -407,9 +507,25 @@ def _yang_member(reader, info, row, root):
                 last = time.monotonic()
         out.flush()
         os.fsync(out.fileno())
-    if info.compress_type not in (0, 8):
+    if inventory is not None:
+        atomic_json(_transport_receipt(root, row), {
+            'schema_version': 1, 'status': 'COMPRESSED_TRANSPORT_COMPLETE_NATIVE_VALIDATION_PENDING',
+            'archive': _archive_identity(inventory), 'pin': _yang_pin(row),
+            'local_header': local_header, 'compressed_stat': stat_identity(compressed),
+            'completed_at_utc': utc_now(), 'native_sha256_verified': False,
+            'integrity_scope': 'Pinned live ZIP directory/local header and complete compressed byte length; native CRC/SHA checked offline'})
+    return compressed
+
+
+def _publish_yang_compressed(row, root):
+    """Decode one cached member offline; frozen size/CRC/SHA precede publish."""
+    target = safe_child(root, row['path'])
+    compressed = target.with_name(target.name + '.compressed.part')
+    if not compressed.is_file() or compressed.stat().st_size != row['compressed_bytes']:
+        raise ValueError('Missing or incomplete Yang compressed cache; retained')
+    if row['compression'] not in (0, 8):
         raise ValueError('Frozen Yang compression method unsupported')
-    decoder = zlib.decompressobj(-15) if info.compress_type == 8 else None
+    decoder = zlib.decompressobj(-15) if row['compression'] == 8 else None
     partial = target.with_name(target.name + '.part')
     crc, size, digest = 0, 0, hashlib.sha256()
     with compressed.open('rb') as source, partial.open('wb') as out:
@@ -431,8 +547,80 @@ def _yang_member(reader, info, row, root):
         raise ValueError('Yang size/CRC/SHA mismatch; partial retained: ' + row['path'])
     os.replace(partial, target)
     _record(root, row, sha)
-    compressed.unlink()  # Reconstructible compressed cache; verified native file is durable.
+    compressed.unlink()
     return sha
+
+
+def _yang_member(reader, info, row, root):
+    """Original combined transport/publication route, retained for compatibility."""
+    existing = verified_existing(root, row)
+    if existing:
+        return existing
+    _download_yang_compressed(reader, info, row, root)
+    return _publish_yang_compressed(row, root)
+
+
+def acquire_yang_transport(root, progress=None):
+    """Network I/O only: keep compressed bytes; never decode a Yang member."""
+    inventory, rows = yang_pins()
+    root = Path(root)
+    root.mkdir(parents=True, exist_ok=True)
+    pending = [row for row in rows if verified_existing(root, row) is None
+               and not _compressed_ready(root, row, inventory)]
+    completed = len(rows) - len(pending)
+    if progress is not None:
+        progress(completed, len(rows))
+    if not pending:
+        return
+    remaining = 0
+    for row in pending:
+        target = safe_child(root, row['path'])
+        compressed = target.with_name(target.name + '.compressed.part')
+        existing = compressed.stat().st_size if compressed.is_file() else 0
+        if existing > row['compressed_bytes']:
+            raise ValueError('Oversized compressed Yang partial retained')
+        remaining += row['compressed_bytes'] - existing
+    if shutil.disk_usage(root).free < remaining + 4 * 1024 ** 3:
+        raise ValueError('Yang transport needs remaining compressed bytes plus 4 GiB')
+    reader, archive, attestation, _ = open_yang_archive()
+    try:
+        if _archive_identity(attestation) != _archive_identity(inventory):
+            raise ValueError('Live Yang archive differs from frozen attestation')
+        by_name = {info.filename: info for info in selected_yang_members(archive)}
+        for index, row in enumerate(pending, 1):
+            _download_yang_compressed(reader, by_name[row['path']], row, root, inventory=inventory)
+            log('yang compressed transport %d/%d complete; native validation pending' % (index, len(pending)))
+            if progress is not None:
+                progress(completed + index, len(rows))
+    finally:
+        archive.close()
+        reader.close()
+
+
+def _yang_manifest(root, inventory, rows, completed):
+    stable = {'dataset': 'Yang2025-2C', 'data_doi': '10.25452/figshare.plus.22671172.v5',
+              'license': 'CC BY 4.0', 'archive_url': inventory['archive_url'],
+              'central_directory_sha256': inventory['central_directory_sha256'],
+              'whole_archive_md5_verified': False,
+              'integrity_scope': 'pinned ZIP directory; all 306 EEG/event SHA256; six metadata CRC32 plus recorded SHA256',
+              'files': [{'path': r['path'], 'size': r['size'], 'sha256': completed[r['path']],
+                         'crc32': r['crc32']} for r in rows]}
+    atomic_json(Path(root) / '_download_manifest.json', stable)
+    return stable
+
+
+def publish_yang_offline(root):
+    inventory, rows = yang_pins()
+    root = Path(root)
+    completed = {}
+    for index, row in enumerate(rows, 1):
+        completed[row['path']] = verified_existing(root, row)
+        if completed[row['path']] is None:
+            if not _compressed_ready(root, row, inventory):
+                raise ValueError('Yang transport is incomplete; finish network transport first')
+            completed[row['path']] = _publish_yang_compressed(row, root)
+        log('yang offline %d/%d members native CRC/SHA verified' % (index, len(rows)))
+    return _yang_manifest(root, inventory, rows, completed)
 
 
 def acquire_yang(root):
@@ -459,15 +647,7 @@ def acquire_yang(root):
         finally:
             archive.close()
             reader.close()
-    stable = {'dataset': 'Yang2025-2C', 'data_doi': '10.25452/figshare.plus.22671172.v5',
-              'license': 'CC BY 4.0', 'archive_url': inventory['archive_url'],
-              'central_directory_sha256': inventory['central_directory_sha256'],
-              'whole_archive_md5_verified': False,
-              'integrity_scope': 'pinned ZIP directory; all 306 EEG/event SHA256; six metadata CRC32 plus recorded SHA256',
-              'files': [{'path': r['path'], 'size': r['size'], 'sha256': completed[r['path']],
-                         'crc32': r['crc32']} for r in rows]}
-    atomic_json(root / '_download_manifest.json', stable)
-    return stable
+    return _yang_manifest(root, inventory, rows, completed)
 
 
 def quick_raw_ready(raw_dir):
@@ -498,6 +678,70 @@ def quick_raw_ready(raw_dir):
     return True
 
 
+def _pinned_native_ready(raw_dir, dataset, *, verify_unreceipted=False):
+    root = Path(raw_dir) / dataset
+    pin = json.loads((VENDOR / 'config' / (dataset + '_manifest.json')).read_text())
+    manifest_path = root / '_download_manifest.json'
+    if not manifest_path.is_file():
+        return False
+    saved = json.loads(manifest_path.read_text())
+    if saved != pin:
+        raise ValueError('Native transport manifest differs from frozen inventory: ' + dataset)
+    for row in pin['files']:
+        target = safe_child(root, row['path'])
+        if not target.is_file():
+            return False
+        if verify_unreceipted:
+            if verified_existing(root, row) != row['sha256']:
+                return False
+        else:
+            receipt_path = _receipt_path(root, row['path'])
+            if not receipt_path.is_file():
+                return False
+            receipt = json.loads(receipt_path.read_text())
+            if (target.stat().st_size != row['size'] or receipt.get('stat') != stat_identity(target)
+                    or receipt.get('expected_sha256') != row['sha256']
+                    or receipt.get('expected_bytes') != row['size']
+                    or receipt.get('sha256') != row['sha256'] or receipt.get('path') != row['path']):
+                raise ValueError('Native transport file/receipt changed: ' + row['path'])
+    return True
+
+
+def network_payloads_ready(raw_dir):
+    """Metadata/stat readiness; no network, decompression, EEG import or rehash."""
+    raw_dir = Path(raw_dir)
+    if not all(_pinned_native_ready(raw_dir, dataset) for dataset in ('bnci', 'dreyer')):
+        return False
+    inventory, rows = yang_pins()
+    root = raw_dir / 'yang'
+    for row in rows:
+        target = safe_child(root, row['path'])
+        receipt_path = _receipt_path(root, row['path'])
+        if target.is_file() and receipt_path.is_file():
+            receipt = json.loads(receipt_path.read_text())
+            if (target.stat().st_size != row['size'] or receipt.get('stat') != stat_identity(target)
+                    or receipt.get('expected_sha256') != row.get('sha256')
+                    or receipt.get('expected_bytes') != row['size']
+                    or receipt.get('path') != row['path']
+                    or not re.fullmatch(r'[0-9a-f]{64}', str(receipt.get('sha256', '')))
+                    or (row.get('sha256') and receipt.get('sha256') != row['sha256'])):
+                raise ValueError('Yang native transport file/receipt changed: ' + row['path'])
+        elif not _compressed_ready(root, row, inventory):
+            return False
+    return True
+
+
+def publish_offline(raw_dir, datasets=('bnci', 'yang', 'dreyer')):
+    """Publish cached inputs without calling any HTTP or ZIP archive reader."""
+    raw_dir = Path(raw_dir)
+    for dataset in datasets:
+        if dataset == 'yang':
+            publish_yang_offline(raw_dir / dataset)
+        elif not _pinned_native_ready(raw_dir, dataset, verify_unreceipted=True):
+            raise ValueError('Native dataset transport incomplete: ' + dataset)
+    return quick_raw_ready(raw_dir)
+
+
 @contextmanager
 def acquisition_lock(raw_dir):
     path = Path(raw_dir) / '.acquisition.lock'
@@ -521,15 +765,53 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--raw-dir', required=True, type=Path)
     parser.add_argument('--dataset', choices=['all', 'bnci', 'yang', 'dreyer'], default='all')
+    mode = parser.add_mutually_exclusive_group()
+    mode.add_argument('--transport-only', action='store_true', help='Download native/ZIP-compressed payloads without decoding Yang')
+    mode.add_argument('--offline-publish', action='store_true', help='Verify/publish cached payloads without network access')
     args = parser.parse_args(argv)
     args.raw_dir.mkdir(parents=True, exist_ok=True)
     with acquisition_lock(args.raw_dir):
-        for dataset in (['bnci', 'yang', 'dreyer'] if args.dataset == 'all' else [args.dataset]):
-            log('begin download/continue ' + dataset)
-            (acquire_yang(args.raw_dir / dataset) if dataset == 'yang'
-             else acquire_pinned(dataset, args.raw_dir / dataset))
-        atomic_json(args.raw_dir / 'acquisition_status.json', {'status': 'ALL_RAW_DATASETS_READY' if quick_raw_ready(args.raw_dir) else 'REQUESTED_DOWNLOADS_COMPLETE',
-                    'datasets': args.dataset, 'updated_at_utc': utc_now(), 'model_fits': 0})
+        datasets = ['bnci', 'yang', 'dreyer'] if args.dataset == 'all' else [args.dataset]
+        if args.offline_publish:
+            ready = publish_offline(args.raw_dir, datasets)
+        else:
+            counts = {'bnci': 18, 'yang': 312, 'dreyer': 174}
+            completed_before = 0
+            for dataset in datasets:
+                log('begin download/continue ' + dataset)
+                def progress(completed, total, dataset=dataset, before=completed_before):
+                    atomic_json(args.raw_dir / 'transport_status.json', {
+                        'stage': 'network_transport', 'dataset': dataset,
+                        'completed_objects': before + completed,
+                        'total_objects': sum(counts[d] for d in datasets),
+                        'dataset_completed_objects': completed, 'dataset_total_objects': total,
+                        'updated_at_utc': utc_now(), 'model_fits': 0,
+                        'native_yang_validation_pending': True})
+                report = progress if args.transport_only else None
+                if dataset == 'yang':
+                    if args.transport_only:
+                        acquire_yang_transport(args.raw_dir / dataset, progress=report)
+                    else:
+                        acquire_yang(args.raw_dir / dataset)
+                else:
+                    acquire_pinned(dataset, args.raw_dir / dataset, progress=report)
+                completed_before += counts[dataset]
+            ready = quick_raw_ready(args.raw_dir)
+        network_ready = network_payloads_ready(args.raw_dir)
+        if network_ready:
+            summary = {
+                'status': 'NETWORK_PAYLOADS_COMPLETE_NATIVE_YANG_VALIDATION_PENDING' if not ready else 'ALL_NATIVE_INPUTS_VERIFIED',
+                'updated_at_utc': utc_now(), 'model_fits': 0,
+                'native_yang_validation_pending': not ready,
+                'native_integrity_validation_required_before_training': True}
+            if args.transport_only:
+                summary['yang_decompressed_in_this_transport'] = False
+            atomic_json(args.raw_dir / 'network_payloads_ready.json', summary)
+        atomic_json(args.raw_dir / 'acquisition_status.json', {
+            'status': 'ALL_RAW_DATASETS_READY' if ready else (
+                'NETWORK_PAYLOADS_READY' if network_ready else 'REQUESTED_DOWNLOADS_COMPLETE'),
+            'mode': 'offline-publish' if args.offline_publish else ('transport-only' if args.transport_only else 'combined'),
+            'datasets': args.dataset, 'updated_at_utc': utc_now(), 'model_fits': 0})
     return 0
 
 
@@ -537,6 +819,7 @@ if __name__ == '__main__':
     try:
         raise SystemExit(main())
     except Exception as exc:
+        record_transport_failure(exc)
         # RangeZIP may retain a public signed redirect in an inner exception.
         # Report the actual failing outer stack without private URL cause chains.
         traceback.print_exception(type(exc), exc, exc.__traceback__, chain=False)

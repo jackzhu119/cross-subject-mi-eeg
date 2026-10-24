@@ -196,9 +196,11 @@ confirmation and will be addressed in the study limitations.
 
 Independent method/seed/fold tasks will run as two single-GPU worker processes
 inside one Slurm allocation on the school `hpc_gpu` partition. The enclosing
-job requests two GPUs (`gpu:2`), 32 CPUs and 256 GB memory, corresponding to
-16 CPUs and 128 GB per GPU. Download, preprocessing, training and evaluation
-share this allocation; no training array is submitted. The implementation uses the allocated visible device, four PyTorch
+job requests one node, two GPUs (`gpu:2`), 26 CPUs and 128 GiB of shared
+job memory. Independent workers correspond to 13 requested CPUs each. Raw
+transport is staged on the authorized login host, while decompression,
+preprocessing, training and evaluation share the offline compute allocation;
+no training array is submitted. The implementation uses the allocated visible device, four PyTorch
 intra-op threads, one inter-op thread, and no DataLoader subprocesses. Requested
 resources will be distinguished from measured use in the completed report.
 The actual GPU type and software/device history will be reported from allocation

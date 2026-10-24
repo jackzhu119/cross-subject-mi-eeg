@@ -39,6 +39,52 @@ class Scheduler:
         raise AssertionError(arguments)
 
 
+class ReplacementScheduler(Scheduler):
+    """Simulate only the scheduler state transitions used by held replacement."""
+    def __init__(self):
+        super().__init__()
+        self.cancel_race = False
+        self.release_fail = False
+        self.hide_new = False
+
+    def __call__(self, arguments, **kwargs):
+        if arguments[0] == "squeue":
+            self.calls.append(arguments)
+            rows = [row for row in self.rows if not (self.hide_new and row["id"] == self.next_id)]
+            text = "\n".join("|".join(str(row.get(k, "")) for k in
+                                     ("id", "name", "owner", "state", "partition", "directory", "reason")) for row in rows)
+            return subprocess.CompletedProcess(arguments, 0, text, "")
+        if arguments[0] == "sbatch":
+            result = super().__call__(arguments, **kwargs)
+            if result.returncode == 0 and self.next_id.isdigit():
+                def option(name):
+                    return next(arg.split("=", 1)[1] for arg in arguments if arg.startswith(name + "="))
+                self.rows.append({"id": self.next_id, "name": option("--job-name"), "owner": "zhuziyuan",
+                                  "state": "PENDING", "partition": "hpc_gpu", "directory": option("--chdir"),
+                                  "reason": "JobHeldUser" if "--hold" in arguments else "Resources"})
+            return result
+        if arguments[0] == "scancel":
+            self.calls.append(arguments)
+            old_id = arguments[-1]
+            if self.cancel_race:
+                for row in self.rows:
+                    if row["id"] == old_id:
+                        row["state"] = "RUNNING"
+            else:
+                self.rows = [row for row in self.rows if row["id"] != old_id]
+            return subprocess.CompletedProcess(arguments, 0, "", "")
+        if arguments[0] == "scontrol":
+            self.calls.append(arguments)
+            assert arguments[1] == "release"
+            if self.release_fail:
+                return subprocess.CompletedProcess(arguments, 1, "", "release refused")
+            for row in self.rows:
+                if row["id"] == arguments[-1]:
+                    row["reason"] = "Resources"
+            return subprocess.CompletedProcess(arguments, 0, "", "")
+        raise AssertionError(arguments)
+
+
 class SingleSubmitTests(unittest.TestCase):
     def setUp(self):
         self.temporary = tempfile.TemporaryDirectory()
@@ -86,7 +132,7 @@ class SingleSubmitTests(unittest.TestCase):
             result = self.submit()
         self.assertEqual(result["status"], "SINGLE_JOB_SUBMITTED")
         command = self.commands("sbatch")[0]
-        for argument in ("--gres=gpu:2", "--cpus-per-task=32", "--mem=240G", "--partition=hpc_gpu",
+        for argument in ("--gres=gpu:2", "--cpus-per-task=26", "--mem=128G", "--partition=hpc_gpu",
                          "--account=zhuziyuan", "--signal=B:USR1@180", "--requeue", "--open-mode=append"):
             self.assertIn(argument, command)
         self.assertFalse(any(a.startswith("--array") for a in command))
@@ -95,10 +141,10 @@ class SingleSubmitTests(unittest.TestCase):
         self.assertEqual(output, error)
         self.assertTrue(Path(output).is_absolute())
         self.assertNotIn(str(self.folder / "private/token"), command)
-        self.assertEqual(read_json(self.project / "config/cluster.json")["cpus_per_task"], 16)
+        self.assertEqual(read_json(self.project / "config/cluster.json")["cpus_per_task"], 13)
         self.assertEqual(read_json(self.project / "config/cluster.json")["max_parallel"], 2)
-        self.assertEqual(read_json(self.project / "config/cluster.json")["single_job_memory"], "240G")
-        self.assertEqual(result["memory"], "240G")
+        self.assertEqual(read_json(self.project / "config/cluster.json")["single_job_memory"], "128G")
+        self.assertEqual(result["memory"], "128G")
         self.assertEqual(read_json(self.project / "state/single_job_submissions.json")["submissions"][-1]["job_id"], "880001")
 
     def test_active_same_project_job_is_reused_without_another_submission(self):
@@ -213,11 +259,11 @@ class SingleSubmitTests(unittest.TestCase):
         config = read_json(self.project / "config/cluster.json")
         self.assertEqual(config["single_job_memory"], "110G")
         self.assertEqual(config["mem"], "128G")
-        self.assertEqual(config["cpus_per_task"], 16)
+        self.assertEqual(config["cpus_per_task"], 13)
         self.assertTrue(list((self.project / "state").glob("cluster-before-single-*.json")))
         records = read_json(ledger_path)["submissions"]
         self.assertEqual(records[0], original_failure)
-        self.assertEqual(records[1]["shape"], {"gpus": 2, "cpus": 32, "memory": "110G", "max_worker_processes": 2})
+        self.assertEqual(records[1]["shape"], {"gpus": 2, "cpus": 26, "memory": "110G", "max_worker_processes": 2})
         resumed = self.submit()
         self.assertEqual(resumed["memory"], "110G")
         self.assertIn("--mem=110G", self.commands("sbatch")[-1])
@@ -242,6 +288,157 @@ class SingleSubmitTests(unittest.TestCase):
         with patch.dict(s.os.environ, {"PAPER1_JOB_MEMORY": "110G"}), patch.object(s, "submit", return_value={"status": "mocked"}) as submit:
             self.assertEqual(s.main([]), 0)
         self.assertEqual(submit.call_args.kwargs["memory"], "110G")
+
+    def test_two_gpu_override_remains_supported(self):
+        result = self.submit(gpus=2)
+        self.assertEqual(result["gpu_request"], "gpu:2")
+        self.assertEqual(result["cpus"], 26)
+        command = self.commands("sbatch")[0]
+        self.assertIn("--gres=gpu:2", command)
+        self.assertIn("--cpus-per-task=26", command)
+        self.assertIn("--export=ALL,PAPER1_WORKERS=2", command)
+        config = read_json(self.project / "config/cluster.json")
+        self.assertEqual(config["single_job_gpus"], 2)
+        self.assertEqual(config["max_parallel"], 2)
+
+    def test_explicit_three_gpu_compatibility_uses_thirteen_cpus_per_gpu(self):
+        result = self.submit(gpus=3, memory="128G")
+        self.assertEqual(result["gpu_request"], "gpu:3")
+        self.assertEqual(result["cpus"], 39)
+        command = self.commands("sbatch")[0]
+        self.assertIn("--gres=gpu:3", command)
+        self.assertIn("--cpus-per-task=39", command)
+        self.assertIn("--mem=128G", command)
+        self.assertIn("--export=ALL,PAPER1_WORKERS=3", command)
+        self.assertEqual(read_json(self.project / "config/cluster.json")["max_parallel"], 3)
+
+    def test_offline_login_modes_and_strict_auth_flags_are_persisted(self):
+        self.submit(reauthorize=True, require_github=True, offline_inputs=True, login_sync=True)
+        self.credentials.assert_called_once_with(s.cli.REPOSITORY, self.project.name,
+                                                 force=True, require_verified=True)
+        paths = read_json(self.project / "config/paths.json")
+        self.assertEqual(paths["network_mode"], "offline")
+        self.assertEqual(paths["sync_mode"], "login")
+        self.assertEqual(paths["single_job_gpus"], 2)
+        self.stop_controller.assert_called_once_with(self.project.resolve(), include_sync=False)
+        mode = read_json(self.project / "config/execution_mode.json")
+        self.assertEqual(mode["network_mode"], "offline")
+        self.assertEqual(mode["sync_mode"], "login")
+
+    def test_strict_auth_failure_cannot_submit_cancel_or_release(self):
+        self.scheduler = ReplacementScheduler()
+        self.scheduler.rows = [self.row(state="PENDING", job="771084")]
+        self.credentials.side_effect = RuntimeError("live write/readback unavailable")
+        with self.assertRaisesRegex(RuntimeError, "write/readback"):
+            self.submit(require_github=True, replace_job="771084")
+        self.prepare.assert_not_called()
+        self.assertEqual(self.scheduler.calls, [])
+
+    def test_held_successor_is_verified_before_old_pending_cancel_and_release(self):
+        self.scheduler = ReplacementScheduler()
+        old = self.row(state="PENDING", job="771084")
+        self.scheduler.rows = [old]
+        result = self.submit(replace_job="771084")
+        self.assertEqual(result["status"], "SINGLE_JOB_SUBMITTED")
+        self.assertTrue(result["old_removed_from_queue"])
+        self.assertFalse(result["gpu_execution_verified"])
+        sbatch = self.commands("sbatch")[0]
+        self.assertIn("--hold", sbatch)
+        self.assertTrue(next(arg for arg in sbatch if arg.startswith("--job-name=")).endswith("-r771084"))
+        names = [command[0] for command in self.scheduler.calls]
+        self.assertEqual(names, ["squeue", "sbatch", "squeue", "scancel", "squeue", "scontrol"])
+        self.assertEqual(self.commands("scancel"), [["scancel", "--state=PENDING", "771084"]])
+        record = read_json(self.project / "state/single_job_submissions.json")["submissions"][-1]
+        self.assertEqual(record["new_scheduler"]["id"], self.scheduler.next_id)
+        self.assertEqual(record["status"], "SUBMITTED")
+        self.assertEqual(record["replaces_job_id"], "771084")
+        # Normal resume must recognize the recorded replacement name too.
+        reused = self.submit()
+        self.assertEqual(reused["status"], "EXISTING_SINGLE_JOB_REUSED")
+        self.assertEqual(len(self.commands("sbatch")), 1)
+
+    def test_running_old_and_pending_cancel_race_keep_successor_held(self):
+        for initial, race in (("RUNNING", False), ("COMPLETING", False), ("PENDING", True)):
+            with self.subTest(initial=initial, race=race):
+                self.project = self.folder / (initial + "-" + str(race))
+                self.scheduler = ReplacementScheduler()
+                self.scheduler.rows = [self.row(state=initial, job="771084")]
+                self.scheduler.cancel_race = race
+                result = self.submit(replace_job="771084")
+                self.assertFalse(result["released"])
+                self.assertFalse(self.commands("scontrol"))
+                self.assertEqual(len(self.commands("scancel")), 1 if race else 0)
+                self.assertTrue(any(row["id"] == "771084" for row in self.scheduler.rows))
+                self.assertIn("--hold", self.commands("sbatch")[0])
+
+    def test_missing_old_job_is_observation_not_invented_failure(self):
+        self.scheduler = ReplacementScheduler()
+        result = self.submit(replace_job="771084")
+        self.assertFalse(result["old_job_observed"])
+        self.assertEqual(result["old_job_status"], "NOT_OBSERVED_IN_QUEUE")
+        self.assertNotIn("--hold", self.commands("sbatch")[0])
+        self.assertFalse(self.commands("scancel"))
+        self.assertFalse(self.commands("scontrol"))
+        record = read_json(self.project / "state/single_job_submissions.json")["submissions"][-1]
+        self.assertFalse(record["old_job_observed"])
+        self.assertNotIn("old_failure", record)
+
+    def test_failed_successor_submission_retains_old_without_cancel(self):
+        self.scheduler = ReplacementScheduler()
+        self.scheduler.rows = [self.row(state="PENDING", job="771084")]
+        self.scheduler.fail = True
+        with self.assertRaisesRegex(RuntimeError, "submission failed"):
+            self.submit(replace_job="771084")
+        self.assertFalse(self.commands("scancel"))
+        self.assertFalse(self.commands("scontrol"))
+        self.assertEqual(self.scheduler.rows[0]["id"], "771084")
+
+    def test_wrong_old_job_identity_never_submits_or_cancels(self):
+        for changes in ({"owner": "other"}, {"directory": str(self.folder / "paper2")}, {"name": "another-paper"}):
+            with self.subTest(changes=changes):
+                self.scheduler = ReplacementScheduler()
+                self.scheduler.rows = [self.row(state="PENDING", job="771084", **changes)]
+                with self.assertRaises(RuntimeError):
+                    self.submit(replace_job="771084")
+                self.assertFalse(self.commands("sbatch"))
+                self.assertFalse(self.commands("scancel"))
+
+    def test_unobserved_successor_never_cancels_old_or_releases(self):
+        self.scheduler = ReplacementScheduler()
+        self.scheduler.rows = [self.row(state="PENDING", job="771084")]
+        self.scheduler.hide_new = True
+        with self.assertRaisesRegex(RuntimeError, "not observed"):
+            self.submit(replace_job="771084")
+        self.assertFalse(self.commands("scancel"))
+        self.assertFalse(self.commands("scontrol"))
+        self.assertEqual(len(self.commands("sbatch")), 1)
+        self.scheduler.hide_new = False
+        result = self.submit(replace_job="771084")
+        self.assertEqual(result["status"], "SINGLE_JOB_SUBMITTED")
+        self.assertEqual(len(self.commands("sbatch")), 1)
+
+    def test_held_replacement_resume_uses_same_submission(self):
+        self.scheduler = ReplacementScheduler()
+        self.scheduler.rows = [self.row(state="RUNNING", job="771084")]
+        first = self.submit(replace_job="771084")
+        self.assertFalse(first["released"])
+        self.scheduler.rows = [row for row in self.scheduler.rows if row["id"] != "771084"]
+        result = self.submit(replace_job="771084")
+        self.assertEqual(result["job_id"], first["job_id"])
+        self.assertEqual(len(self.commands("sbatch")), 1)
+        self.assertEqual(len(self.commands("scontrol")), 1)
+
+    def test_release_failure_is_retained_and_resumed_without_new_sbatch(self):
+        self.scheduler = ReplacementScheduler()
+        self.scheduler.rows = [self.row(state="PENDING", job="771084")]
+        self.scheduler.release_fail = True
+        with self.assertRaisesRegex(RuntimeError, "release was not verified"):
+            self.submit(replace_job="771084")
+        self.assertEqual(len(self.commands("sbatch")), 1)
+        self.scheduler.release_fail = False
+        result = self.submit(replace_job="771084")
+        self.assertEqual(result["status"], "SINGLE_JOB_SUBMITTED")
+        self.assertEqual(len(self.commands("sbatch")), 1)
 
     def test_initial_credential_rejection_stops_before_install_or_sbatch(self):
         self.credentials.side_effect = RuntimeError("initial credential rejected")

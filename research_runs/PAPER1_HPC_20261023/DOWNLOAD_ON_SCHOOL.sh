@@ -88,7 +88,7 @@ for path in (code/'config/cluster.json',project/'config/cluster.json'):
         continue
     old=json.loads(path.read_text())
     new={**old,'partition':partition,'gres':gres,'exclude':[],
-         'cpus_per_task':16,'max_parallel':2}
+         'cpus_per_task':13,'max_parallel':2}
     if old==new:
         continue
     journal=project/'state/cluster-overrides'
@@ -103,7 +103,7 @@ for path in (code/'config/cluster.json',project/'config/cluster.json'):
     changes.append({'path':str(path),'before':old,'after':new})
 if changes:
     (journal/(stamp+'-amendment.json')).write_text(json.dumps({
-        'reason':'User requested hpc_gpu, then 16 CPUs per task and two concurrent GPUs on 24 October',
+        'reason':'User requested one node, two GPUs, total 26 CPUs and 128G on 24 October; this covers legacy per-worker CPU metadata',
         'scientific_configuration_changed':False,'changes':changes},indent=2)+'\n')
 print(json.dumps({'partition':partition,'gres':gres,'updated_cluster_configs':len(changes)}),flush=True)
 SCHOOL_CLUSTER_OVERRIDE

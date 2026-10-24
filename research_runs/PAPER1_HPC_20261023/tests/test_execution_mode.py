@@ -48,6 +48,31 @@ class ExecutionModeTests(unittest.TestCase):
             self.assertEqual(set(result), {101, 102})
             self.assertEqual(set(stopped), {101, 102})
 
+    def test_login_reporter_is_preserved_while_old_controller_stops(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            project, proc = root / "project", root / "proc"
+            commands = {
+                201: ["python", "-m", "hpcmi.cli", "controller", "--project", str(project)],
+                202: ["python", "-m", "hpcmi.github_sync", "--project", str(project)],
+                203: ["python", "-m", "hpcmi.worker", "--project", str(project)],
+            }
+            for pid, command in commands.items():
+                (proc / str(pid)).mkdir(parents=True)
+                (proc / str(pid) / "cmdline").write_bytes("\0".join(command).encode() + b"\0")
+            stopped = []
+            def send(pid, sig):
+                self.assertEqual(pid, 201, "A current login reporter or worker was signalled")
+                if sig == signal.SIGTERM:
+                    stopped.append(pid)
+                elif sig == 0:
+                    raise ProcessLookupError()
+                else:
+                    raise AssertionError((pid, sig))
+            with mock.patch.object(cli.os, "kill", side_effect=send):
+                self.assertEqual(cli.stop_legacy_controller(project, proc, include_sync=False), [201])
+            self.assertEqual(stopped, [201])
+
     def test_single_job_phase_and_updates_are_reported_without_process_details(self):
         with tempfile.TemporaryDirectory() as temporary:
             project = Path(temporary)

@@ -274,16 +274,22 @@ selection rule.
 The default project directory is under
 `/public/home/zhuziyuan/projects/paper1-risk-v1`. The account is `zhuziyuan`
 and the current partition is `hpc_gpu` following the 24 October operational
-revision. Independent method/seed/fold tasks request `gpu:1`, 16 CPUs and 128 GB memory each,
-inside one enclosing Slurm allocation. It requests two GPUs, 32 CPUs and
-256 GB memory and runs at most two independent single-GPU fits concurrently;
-no training array or child sbatch is submitted. Download, CPU preparation,
-GPU checks, all fits and analysis are stages of that same job.
-Availability, GPU type and node resources come from the actual Slurm allocation.
-The initial plan targeted A100 devices in `hpc_gpu1`; the new screenshot does
-not identify the GPU type. The prior `gpu3` anomaly remains in historical
-records; the new partition request does not guess node names. This resource
-revision does not change scientific inputs, task definitions or checkpoints.
+revision. The current enclosing job requests one node, two GPUs, 26 CPUs
+and 128 GiB of shared job memory, and runs at most two independent single-GPU
+fits concurrently. Each worker corresponds to 13 requested CPUs; memory is
+shared within the allocation rather than independently guaranteed per GPU.
+No training array or child sbatch is submitted. The user-authorized login-side
+process downloads native BNCI/Dreyer files and compressed Yang members only.
+Yang decompression, strict native verification, preprocessing, GPU checks,
+all fits and analysis run offline inside the compute allocation. GitHub
+reporting runs independently on the login node. These operational stages are
+separated because the observed gpu2 download path failed name resolution,
+whereas the official source returned HTTP 200 from login1.
+The user-provided Slurm snapshot lists A100 PCIe 40 GB devices on gpu1/gpu2;
+actual allocated device, driver and software history must still be recorded.
+The initial A100/hpc_gpu1 plan and gpu3 anomaly remain historical records.
+This resource/transport amendment does not change scientific inputs, task
+definitions, completed fits or checkpoints.
 
 Training uses the Slurm-provided visible device as `cuda:0`. PyTorch has four
 intra-op threads, one inter-op thread, and no DataLoader subprocesses in the

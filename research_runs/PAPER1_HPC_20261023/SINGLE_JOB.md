@@ -1,52 +1,57 @@
-# 学校HPC：完整流程只占一个Slurm作业
+# 学校HPC：登录端下载与同步，一个节点内两卡并行
 
-当前入口把下载、原始预处理、GPU小检查、全部训练、评价、统计及GitHub同步放进同一个Slurm作业。作业申请 `hpc_gpu` 分区的 **2张GPU、32核CPU、240G内存**，每卡16核，内存由两进程共用240G，折合每卡约120G；内部最多两个独立单卡训练进程。不会继续创建数组、单独预处理作业或其它训练子作业。
+当前正式入口为 `RUN_SINGLE_JOB_ON_SCHOOL.sh`，采用 **一个Slurm作业、一个节点、2GPU、总26CPU、总128G内存**。两个独立训练进程各对应13CPU；节点内存由作业共享，不是每卡再申请128G。Slurm负责GPU分配，worker使用自己的`cuda:0`。这是独立方法/种子/折数并行，不是同一个模型的DDP。
 
-在 `login1` 执行下面这一整行：
+## 已观察的问题及修复
+
+2026-10-24学校日志证明：771084曾在gpu2启动，第一份BNCI下载遇`gaierror -2`，四次尝试后退出1；该次作业没有进入训练。随后用户在login1对同一TU Graz官方文件的HEAD获得200及冻结大小43772146。名称解析错误可能涉及目标或代理路径，不能据此声称所有计算节点都没有外网。用户已明确允许login1用一个后台进程进行数据下载，解压、EEG预处理及训练仍留在计算节点。
+
+当前流程：
+
+1. 在login1隐藏输入GitHub Contents读写token，真正写入`connection.json`，按写入commit回读并核对字节、大小及Git blob SHA。终端必须显示`CONTENTS_WRITE_READBACK_VERIFIED`；本地缓存或`INITIAL_WRITE_PENDING`不能替代这项确认。token通过stdin交给IPv4 curl，只在验证成功后替换私有缓存，不写入Git、参数或日志。
+2. 独立后台下载器在login1恢复18个BNCI、174个Dreyer原始对象及312个Yang压缩成员。登录端不解压Yang、不导入EEG、不训练。原始文件、固定大小/SHA、TLS和窄跳转规则不变；已有文件和partial复用。网络临时错误按有界退避恢复同一下载；哈希、磁盘或数据规则错误保留现场并明确报告。
+3. 登录端GitHub同步器每约180秒上传下载阶段、已完成对象数、真实训练step和统计摘要。它与下载及模型训练分离；网络/限流失败不会终止模型训练。
+4. 所有网络载荷完整后，自动提交唯一的离线GPU作业，申请`hpc_gpu`的`gpu:2`、26CPU、128G。共享目录保存原始文件、压缩缓存和断点；计算节点只从这些文件恢复，不再通过HTTP下载。
+5. 计算节点逐成员解压Yang，核验原CRC及SHA后才发布原始文件，然后逐人预处理。只在原始及输入校验通过后进行GPU小检查、75项开发训练、15项最终训练及外部评价。已完成的人员、任务、epoch/step和评价分片继续复用。
+
+## 一行启动与恢复
+
+在login1完整执行：
 
 ```bash
-curl -4 -f --connect-timeout 8 --max-time 60 --retry 1 -H 'Accept: application/vnd.github.raw+json' 'https://api.github.com/repos/jackzhu119/cross-subject-mi-eeg/contents/research_runs/PAPER1_HPC_20261023/RUN_SINGLE_JOB_ON_SCHOOL.sh?ref=main' -o /tmp/paper1-single-job.sh && bash /tmp/paper1-single-job.sh
+curl -4 -f --connect-timeout 8 --max-time 60 --retry 1 -H 'Accept: application/vnd.github.raw+json' 'https://api.github.com/repos/jackzhu119/cross-subject-mi-eeg/contents/research_runs/PAPER1_HPC_20261023/RUN_SINGLE_JOB_ON_SCHOOL.sh?ref=main' -o /tmp/paper1-start.sh && bash /tmp/paper1-start.sh --reauthorize --gpus 2 --memory 128G --replace-job 771084
 ```
 
-2026-10-24下载修订：启动脚本、嵌套安装器及运行层补丁均直接通过 GitHub 官方 `api.github.com` 提供，不再依赖 `raw.githubusercontent.com`。IPv4、8秒连接超时、总超时和低速超时有界；TLS及固定SHA校验保持。若前一条curl还在等待，先按 `Ctrl+C` 再执行上面的新命令。
+代码包和固定wheel通过GitHub官方API在login1准备/复用。计算作业不下载代码或依赖，不修改共享Paper3环境。原安装锁文件和旧失败记录保留；新的代码更新锁在出现授权提示前释放，关闭输入窗口不会继续占用代码更新锁。
 
-入口为 `RUN_SINGLE_JOB_ON_SCHOOL.sh`。它先复用现有53MB离线包，安装一个很小且固定SHA的运行层补丁，再一次性准备/复用项目CPU预处理环境。旧共享Torch环境保持原样。若固定53MB包尚不存在，则从其原Git blob的官方API下载。API不支持所测Range请求，因此旧离线包partial原位保留，另存完整API候选文件并核对同一固定SHA后发布；原EEG续传机制不受影响。首次会隐藏提示输入新的GitHub Contents读写token，私有保存后不必每次输入；不要把token粘贴到聊天或写入公开脚本。
+若仅需继续已经配置好的流程：
 
-已在运行或排队的同项目单作业会复用。身份核对通过的旧PENDING下载作业会保留原记录后取消，再提交新单作业；运行中的旧下载或旧训练会保留，并明确告知当前没有创建第二个作业。其它论文和作业不受这些操作影响。
-
-旧失败日志 `download-770688.err` 等保留。2026-10-24这次失败的根因尚未从旧日志识别；旧程序隐藏了网络及磁盘底层异常。修订后下载错误会在主作业日志打印受控JSON，包括阶段、文件、重试次数、偏移、异常类别、errno、HTTP状态、SSL验证代码。签名URL、代理、响应body和密钥不会打印。重试次数仍有界，文件大小及SHA规则保持。仅当BNCI入口发生可识别的DNS、超时、连接或SSL异常时，可尝试已核实的同名TU Graz官方MAT地址；HTTP拒绝、代理拒绝字符串及未知主机不会触发这个备用连接。此传输修订不改变原始文件字节身份。
-
-我方环境已完整下载首个源文件A01E.mat并核验固定SHA；这是我方网络的测试，不能替代学校网络验证。若学校没有计算节点外网，新日志会显示实际DNS/连接/SSL错误；本代码不会绕过网络策略或关闭TLS。
-
-主日志统一为：
-
-```text
-/public/home/zhuziyuan/projects/paper1-risk-v1/logs/slurm/single-<作业ID>.out
+```bash
+bash ~/projects/PAPER1_HPC_20261023/LAUNCH.sh --gpus 2 --memory 128G
 ```
 
-标准错误也写入这一个文件，重排队采用append保存历史。各训练任务的完整日志另存 `logs/workers/<task_id>.log`。轻量状态为 `state/single_job_status.json`，GitHub每约180秒同步阶段和实际step/统计摘要。
+需要重新输入token时追加`--reauthorize`。同项目正在运行的下载器、同步器及Slurm作业会被识别并复用，不重复启动fit。后台下载器已被真实PID/状态观察后可关闭终端；进程脱离终端，stdin关闭，日志写共享目录。普通续跑不会重跑整套测试、全量原始SHA或额外科研pilot。
 
-一个作业内部的顺序为：
+## 旧作业替换
 
-1. 复用已验证原始文件，续传未完成文件。
-2. 逐人复用预处理缓存与数据导入记录。
-3. 在分配的两个GPU槽分别进行合成前向/反向/保存/恢复小检查，匹配的成功记录会复用。
-4. 执行同一研究计划的75项开发训练，最多两项同时运行。
-5. 根据源内验证固定选轮，执行15项最终训练及探索性外评。
-6. 从已保存评价生成完整统计并同步GitHub。
+`--replace-job 771084`不会直接盲目取消作业。先验证GitHub和网络载荷，再核对真实队列。若旧ID已离开队列，保留其历史记录，提交新作业，不虚构其终态。若旧作业仍PENDING，先创建held后继并核实新ID、用户、项目和队列身份，再仅以`scancel --state=PENDING`取消确切旧ID，确认其离开队列后释放后继。新提交失败时旧作业保留。若旧作业已RUNNING/COMPLETING，保留旧作业和held后继，避免两个进程修改同一研究输出；不会声称新训练已经正常。其它论文及作业不参与此替换。短暂held后继可能计入学校作业数量上限；若调度器拒绝，旧作业仍保留。
 
-这只是执行方式变化；方法、种子、人员分组、trial范围、损失、输入哈希及统计计划没有改变。不会把诊断或QA更新计入科研fit。
+## 查看实际状态
 
-同一 `RUN_SINGLE_JOB_ON_SCHOOL.sh` 命令可用于恢复；完成任务跳过，未完成任务从原断点继续，评价从会话分片继续。USR1由外壳转发给监督进程，再转发实际worker；等待保存退出75后仅重排当前一个job。用户取消不会自动重新提交。单项失败不取消其它独立fit，同次运行不无限重试；最终保留未完成列表，供同命令手动恢复。
+```bash
+cat ~/projects/paper1-risk-v1/state/login_pipeline_status.json
+```
 
-把全过程合在一个作业内意味着下载和CPU预处理期间也会保留两张GPU分配；这满足本次减少作业数量的要求。
+```bash
+tail -n 30 ~/projects/paper1-risk-v1/logs/login-pipeline.log
+```
 
-直接访问官方API的完整53MB下载及固定SHA已在本开发环境核验；这不等于学校服务器网络已经通过。若新命令仍在8秒连接界限内超时，请保留该次输出以确定学校到 `api.github.com` 的实际连通性。
+GPU作业的主日志为`logs/slurm/single-<jobid>.out`；训练任务日志为`logs/workers/<task_id>.log`。同步状态为`state/github_sync_status.json`，同步日志为`logs/github-sync-login.log`。GitHub进度分支为`hpc/paper1-risk-v1`，文件为`hpc_status/paper1-risk-v1/status.json`。
 
-## 2026-10-24：修正总内存申请
+`LOGIN_TRANSFER_PIPELINE_STARTED`只证明登录后台启动，`SINGLE_JOB_SUBMITTED`只证明调度器接受，排队时界面显示0核并不代表节点没有CPU。只有实际stage、optimizer_updates及checkpoint增长才能证明训练推进。一次HEAD成功也不等于全部数据下载完成。
 
-用户提供的学校`sinfo`输出确认：`hpc_gpu`两节点均为56CPU、257437MiB内存、5张NVIDIA A100 PCIe 40GB。原`--mem=256G`等于262144MiB，超出节点公布容量，Slurm明确拒绝，未创建计算作业。当前默认改为总240G（245760MiB），保留2GPU/32CPU、单作业及相同科学方案。共享内存并非每个worker独立硬配额；旧每worker`config/cluster.json`的`mem`属于历史数组配置，当前申请使用`single_job_memory`。
+## 中断和科学边界
 
-已安装包的用户可运行`REPAIR_SUBMISSION_ON_SCHOOL.sh`仅更新提交文件，并进入原启动器；不重新安装环境或下载数据包，不删除旧安装锁、失败账本及断点。该小更新不依赖被旧终端占用的外层安装锁，更新自身锁会在授权提示前释放。提交阶段仍由原提交锁、队列身份和账本共同避免重复作业。CPU环境已准备成功时只复用原环境。
+checkpoint保留模型、优化器、调度器、随机状态、采样位置、最佳模型及验证历史，按耗时保存两代；USR1转发实际worker，等待保存后只重排当前作业。用户主动取消不自动复活。独立fit失败不取消其它fit；已有错误、checkpoint及负/零结果保持。
 
-需要以后调整总内存时，使用`bash ~/projects/PAPER1_HPC_20261023/LAUNCH.sh --memory 240G`。显式值保存在项目配置，续跑沿用；不会原地改变正在运行的作业。调度器拒绝时直接输出实际退出码及原始错误，并保留原记录。此修正未在学校代为提交或验证GPU运行。
+本次只修复运输、授权、资源分配和恢复机制。冻结方法、种子、人员分组、trial范围、损失、滤波、输入身份和统计计划不变。尚未在学校替用户执行新入口，也未把合成测试当作新科研fit或正式GPU验收。

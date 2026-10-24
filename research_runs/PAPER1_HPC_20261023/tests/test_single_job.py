@@ -117,6 +117,51 @@ class SingleJobTests(unittest.TestCase):
         self.assertEqual(runner.environment(1)["CUDA_VISIBLE_DEVICES"], "GPU-assigned-B")
         self.assertNotIn("torch", s.__dict__)
 
+    def test_three_slots_and_explicit_worker_count_use_current_allocation(self):
+        env = {"CUDA_VISIBLE_DEVICES": "GPU-assigned-A,GPU-assigned-B,GPU-assigned-C"}
+        self.assertEqual(s.allocated_slots(env), ["GPU-assigned-A", "GPU-assigned-B", "GPU-assigned-C"])
+        self.assertEqual(s.allocated_slots({**env, "PAPER1_WORKERS": "2"}),
+                         ["GPU-assigned-A", "GPU-assigned-B"])
+        self.assertEqual(s.allocated_slots({"CUDA_VISIBLE_DEVICES": "7,3,6,2"}), ["7", "3", "6"])
+        for count in ("", "1", "4", "three"):
+            with self.subTest(count=count), self.assertRaises(RuntimeError):
+                s.allocated_slots({**env, "PAPER1_WORKERS": count})
+        with self.assertRaisesRegex(RuntimeError, "fewer devices"):
+            s.allocated_slots({"CUDA_VISIBLE_DEVICES": "7,3", "PAPER1_WORKERS": "3"})
+
+    def test_three_gpu_pool_runs_three_independent_workers_and_resumes_saved_work(self):
+        self.env["CUDA_VISIBLE_DEVICES"] = "GPU-assigned-A,GPU-assigned-B,GPU-assigned-C"
+        tasks = [task("three-" + str(index)) for index in range(7)]
+        finish(self.project, tasks[0])
+        runner, factory = self.runner(tasks)
+        self.assertEqual(runner.fit_pool(tasks, "development"), 0)
+        self.assertEqual(factory.maximum, 3)
+        self.assertEqual(len(factory.worker_processes), 6)
+        devices = {kwargs["env"]["CUDA_VISIBLE_DEVICES"] for command, kwargs in factory.calls}
+        self.assertEqual(devices, {"GPU-assigned-A", "GPU-assigned-B", "GPU-assigned-C"})
+        for command, kwargs in factory.calls:
+            self.assertEqual(command[command.index("--device")+1], "cuda")
+            self.assertNotIn(",", kwargs["env"]["CUDA_VISIBLE_DEVICES"])
+            self.assertFalse(any(name in command for name in ("sbatch", "srun", "torchrun")))
+        self.assertTrue(all(s.is_complete(self.project, item) for item in tasks))
+        self.assertEqual(read_json(self.project / "state/single_job_status.json")["max_concurrent_fits"], 3)
+        before = len(factory.worker_processes)
+        self.assertEqual(runner.fit_pool(tasks, "development_resume"), 0)
+        self.assertEqual(len(factory.worker_processes), before)
+
+    def test_three_slots_each_receive_their_own_gpu_smoke_receipt(self):
+        self.env["CUDA_VISIBLE_DEVICES"] = "GPU-assigned-A,GPU-assigned-B,GPU-assigned-C"
+        runner, unused = self.runner([])
+        def smoke(stage, command, *, slot):
+            destination = Path(command[command.index("--project")+1])
+            self.assertEqual(destination.name, "slot-" + str(slot))
+            atomic_json(destination / "state/gpu_smoke.json", {"status": "passed", "gpu_verified": True,
+                        "forward_backward_save_restore": True})
+            return 0
+        with mock.patch.object(runner, "run_stage", side_effect=smoke) as run_stage:
+            self.assertEqual(runner.smoke_slots(), 0)
+        self.assertEqual([call.kwargs["slot"] for call in run_stage.call_args_list], [0, 1, 2])
+
     def test_two_slots_skip_completed_and_keep_independent_tasks_after_failure(self):
         tasks = [task("done"), task("fails"), task("good1"), task("good2")]
         finish(self.project, tasks[0])
@@ -249,6 +294,47 @@ class SingleJobTests(unittest.TestCase):
         self.assertEqual(read_json(receipt)["fingerprint"], "prepared-synthetic")
         self.assertEqual(read_json(receipt)["source_people"], 1)
         self.assertEqual(read_json(receipt)["external_people"], 2)
+
+    def test_offline_compute_publishes_transferred_inputs_without_download_stage(self):
+        paths = read_json(self.project / "config/paths.json")
+        atomic_json(self.project / "config/paths.json", {**paths, "network_mode": "offline"})
+        runner, unused = self.runner([])
+        registry = mock.Mock(fingerprint="offline-synthetic", source_ids=["source-a"], external_ids=["external-a"])
+        with mock.patch("hpcmi.acquire.quick_raw_ready", side_effect=[False, True]), \
+                mock.patch("hpcmi.acquire.network_payloads_ready", create=True, return_value=True) as payloads, \
+                mock.patch("hpcmi.data.Registry", return_value=registry), \
+                mock.patch.object(runner, "run_stage", return_value=0) as stage:
+            self.assertEqual(runner.ensure_inputs(), 0)
+        payloads.assert_called_once_with(paths["raw_dir"])
+        self.assertEqual(stage.call_args_list[0].args, ("offline_raw_publication", [sys.executable, "-u", "-m",
+                         "hpcmi.acquire", "--raw-dir", paths["raw_dir"], "--offline-publish"]))
+        self.assertEqual(stage.call_args_list[1].args[0], "offline_preprocessing")
+        self.assertNotIn("raw_download", [call.args[0] for call in stage.call_args_list])
+        self.assertEqual(read_json(self.project / "state/data_prepared.json")["fingerprint"], "offline-synthetic")
+
+    def test_offline_compute_missing_transport_never_attempts_network_or_preprocessing(self):
+        atomic_json(self.project / "config/execution_mode.json", {"network_mode": "offline"})
+        runner, unused = self.runner([])
+        with mock.patch("hpcmi.acquire.quick_raw_ready", return_value=False), \
+                mock.patch("hpcmi.acquire.network_payloads_ready", create=True, return_value=False), \
+                mock.patch.object(runner, "run_stage", side_effect=AssertionError("No offline download")) as stage:
+            with self.assertRaisesRegex(ValueError, "finish the login-side network transfer"):
+                runner.ensure_inputs()
+        stage.assert_not_called()
+        self.assertFalse((self.project / "state/data_prepared.json").exists())
+
+    def test_login_sync_ownership_never_starts_or_stops_network_writer_on_compute(self):
+        paths = read_json(self.project / "config/paths.json")
+        atomic_json(self.project / "config/paths.json", {**paths, "sync_mode": "login"})
+        runner, factory = self.runner([])
+        with mock.patch.object(s.subprocess, "run", side_effect=AssertionError("No compute-side sync")) as request:
+            runner.start_sync()
+            runner.stop_sync()
+        request.assert_not_called()
+        self.assertIsNone(runner.sync_process)
+        self.assertEqual(factory.calls, [])
+        event = json.loads((self.project / "state/single_job_history.jsonl").read_text().splitlines()[-1])
+        self.assertEqual(event["event"], "github_sync_owned_by_login")
 
 
 if __name__ == "__main__":

@@ -1,4 +1,4 @@
-"""Run the frozen study inside one Slurm allocation, using two independent GPUs.
+"""Run the frozen study inside one Slurm allocation, using independent GPUs.
 
 This supervisor never imports torch, installs dependencies, or submits another
 Slurm job. Download, CPU preparation and fitted workers remain separate child
@@ -25,10 +25,22 @@ def allocated_slots(environ=None):
     env = os.environ if environ is None else environ
     values = [value.strip() for value in env.get("CUDA_VISIBLE_DEVICES", "").split(",")]
     if len(values) < 2 or any(not value or value in {"-1", "NoDevFiles"} for value in values):
-        raise RuntimeError("The two-GPU allocation must provide CUDA_VISIBLE_DEVICES with two assigned devices")
+        raise RuntimeError("The combined allocation must provide CUDA_VISIBLE_DEVICES with at least two assigned devices")
     if len(set(values)) != len(values):
         raise RuntimeError("Slurm supplied duplicate visible GPU assignments")
-    return values[:2]
+    # Both two- and three-worker allocations remain supported. The current
+    # submitter explicitly requests two; no identifier is carried from an old
+    # node. An explicit count must be satisfied by this actual allocation.
+    requested = env.get("PAPER1_WORKERS")
+    if requested is None:
+        workers = min(3, len(values))
+    elif requested in {"2", "3"}:
+        workers = int(requested)
+    else:
+        raise RuntimeError("PAPER1_WORKERS must be 2 or 3")
+    if workers > len(values):
+        raise RuntimeError("The actual Slurm allocation provides fewer devices than PAPER1_WORKERS")
+    return values[:workers]
 
 
 def is_complete(project, task):
@@ -50,6 +62,10 @@ class SingleJob:
         self.paths = read_json(self.project / "config/paths.json")
         self.python = self.paths["training_python"]
         self.prep_python = self.paths.get("preprocessing_python")
+        mode_path = self.project / "config/execution_mode.json"
+        mode = read_json(mode_path) if mode_path.exists() else {}
+        self.network_mode = self.paths.get("network_mode", mode.get("network_mode"))
+        self.sync_mode = self.paths.get("sync_mode", mode.get("sync_mode"))
         self.env = dict(os.environ if environ is None else environ)
         self.slots = allocated_slots(self.env)
         if not self.env.get("SLURM_JOB_ID"):
@@ -84,7 +100,7 @@ class SingleJob:
             active.append(row)
         value = {"updated_at_utc": utc_now(), "stage": self.stage,
                  "slurm_job_id": self.env["SLURM_JOB_ID"], "active_children": active,
-                 "max_concurrent_fits": 2, "stop_requested_exit_code": self.stop_code, **extra}
+                 "max_concurrent_fits": len(self.slots), "stop_requested_exit_code": self.stop_code, **extra}
         atomic_json(self.project / "state/single_job_status.json", value)
         atomic_json(self.project / "state/controller_status.json", value)
         print(json.dumps(value, allow_nan=False), flush=True)
@@ -171,8 +187,16 @@ class SingleJob:
                 raise ValueError("Prepared-data fingerprint changed; existing files retained")
             return 0
         if not quick_raw_ready(self.paths["raw_dir"]):
-            code = self.run_stage("raw_download", [self.python, "-u", "-m", "hpcmi.acquire",
-                                                   "--raw-dir", self.paths["raw_dir"]])
+            command = [self.python, "-u", "-m", "hpcmi.acquire", "--raw-dir", self.paths["raw_dir"]]
+            if self.network_mode == "offline":
+                from .acquire import network_payloads_ready
+                if not network_payloads_ready(self.paths["raw_dir"]):
+                    raise ValueError("Offline compute inputs are incomplete: finish the login-side network transfer first; no download attempted")
+                stage = "offline_raw_publication"
+                command.append("--offline-publish")
+            else:
+                stage = "raw_download"
+            code = self.run_stage(stage, command)
             if code:
                 return code
         if not quick_raw_ready(self.paths["raw_dir"]):
@@ -193,7 +217,7 @@ class SingleJob:
 
     def smoke_slots(self):
         study = read_json(self.project / "config/study.json")
-        for slot in range(2):
+        for slot in range(len(self.slots)):
             destination = self.project / "state/gpu-slots" / ("slot-%d" % slot)
             (destination / "state").mkdir(parents=True, exist_ok=True)
             atomic_json(destination / "config/study.json", study)
@@ -222,7 +246,7 @@ class SingleJob:
         try:
             while pending or active:
                 if self.stop_code is None:
-                    for slot in range(2):
+                    for slot in range(len(self.slots)):
                         if slot in active or not pending:
                             continue
                         task = pending.pop(0)
@@ -274,6 +298,9 @@ class SingleJob:
         return 1 if failures else 0
 
     def start_sync(self):
+        if self.sync_mode == "login":
+            self.history({"event": "github_sync_owned_by_login", "training_blocked": False})
+            return
         config = self.project / "config/sync.json"
         if not config.exists():
             raise ValueError("Configure GitHub authorization once on login1 before submitting the combined job")
@@ -294,6 +321,10 @@ class SingleJob:
             self.history({"event": "github_sync_start_failed", "training_blocked": False})
 
     def stop_sync(self):
+        if self.sync_mode == "login":
+            # The compute process owns no login-side writer and must neither
+            # terminate it nor attempt a final network request from this node.
+            return
         if self.sync_process is not None and self.sync_process.poll() is None:
             try:
                 self.sync_process.terminate()

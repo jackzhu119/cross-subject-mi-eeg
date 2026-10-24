@@ -1,0 +1,82 @@
+{
+  "recorded_at_utc": "2026-10-24T11:04:00.153335+00:00",
+  "observed_school_evidence": {
+    "old_job_id": "771084",
+    "allocated_host": "gpu2",
+    "job_started_at_utc": "2026-10-24T10:09:22Z",
+    "old_job_runner_exit_code": 1,
+    "old_stage": "raw_download",
+    "source_file": "A01E.mat",
+    "failure": "Name resolution error gaierror -2 on canonical and official alias paths",
+    "old_job_neural_fits_started": 0,
+    "login1_official_head": {
+      "status": 200,
+      "observed_date_utc": "2026-10-24T10:22:06Z",
+      "host": "lampx.tugraz.at",
+      "content_length": 43772146
+    },
+    "evidence_scope": "User-provided actual school output, not direct access by this agent",
+    "all_compute_network_unavailable_proven": false
+  },
+  "latest_user_authorization": {
+    "login_background_network_download_allowed": true,
+    "login_decompression_allowed": false,
+    "login_training_allowed": false,
+    "new_gpus": 2,
+    "new_total_cpus": 26,
+    "new_total_memory": "128G",
+    "nodes": 1,
+    "slurm_jobs": 1
+  },
+  "implementation": {
+    "login_compressed_transport_only": true,
+    "compute_offline_publication": true,
+    "native_sizes_crc_sha_unchanged": true,
+    "separate_login_github_reporter_interval_seconds": 180,
+    "fresh_hidden_token_input_and_live_commit_readback": true,
+    "credentials_not_on_command_line_or_in_repository": true,
+    "known_transient_network_backoff_seconds": [
+      60,
+      120,
+      240,
+      480,
+      900
+    ],
+    "data_validation_errors_do_not_become_success": true,
+    "old_running_job_never_cancelled_by_pending_replacement": true,
+    "held_successor_queue_identity_verified_before_pending_predecessor_cancellation": true,
+    "existing_environment_and_checkpoints_reused": true,
+    "old_failures_retained": true
+  },
+  "validation": {
+    "targeted_tests_passed": 129,
+    "scientific_gpu_fits_run": 0,
+    "school_new_entry_executed_by_agent": false,
+    "actual_school_all_data_download_complete": false,
+    "actual_school_gpu_training_verified": false
+  },
+  "scientific_files_unchanged_in_this_revision": [
+    "config/study.json",
+    "hpcmi/worker.py",
+    "hpcmi/models.py",
+    "hpcmi/objectives.py",
+    "hpcmi/data.py",
+    "hpcmi/raw_prepare.py",
+    "hpcmi/plan.py",
+    "hpcmi/analysis.py",
+    "vendor/eligible_v3/config/filter_bank18.json"
+  ],
+  "source_hashes": {
+    "hpcmi/acquire.py": "fdcc21f150e07a841c1c58f488c08d90ff787a70cef5ed4aba772576a6da4c3e",
+    "hpcmi/github_sync.py": "25fe5efbd8af51d704e7fd850f700923d7486a24136fbdb7d0654ec4f1629d58",
+    "hpcmi/single_job.py": "0c37e13f571b50a7b2cd964b8e0f87009460d33f9e9ed14fd54ecd4a564a6dbb",
+    "hpcmi/submit_single.py": "1fc5dcc42d63a5042b23024582d0a04301ff922504111dc8c831db7874bce36b",
+    "hpcmi/login_pipeline.py": "85b48538bceda5e54e11e67359785f24ac1139b5d613d031d7d004246cf84c5b",
+    "hpcmi/cli.py": "b8808d2cc6cbdfe4b658f290e5f9d53ac8d8647f573a6eb20ed07b5f1b12a0db"
+  },
+  "operations_archive": {
+    "bytes": 42049,
+    "sha256": "37f2d913391ceb12b5b9bc635e85de37916f7c86ba13835719b6c9e0b4db69f5",
+    "payloads": 9
+  }
+}

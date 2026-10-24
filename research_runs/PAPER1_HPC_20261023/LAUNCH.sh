@@ -9,4 +9,4 @@ fi
 export PYTHONUNBUFFERED=1 PYTHONNOUSERSITE=1
 export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1
 cd "$CODE_ROOT"
-exec "$PYTHON_BIN" -u -m hpcmi.submit_single "$@"
+exec "$PYTHON_BIN" -u -m hpcmi.login_pipeline start "$@"

@@ -86,8 +86,8 @@ def _emit(project, state):
     return value
 
 
-def stop_legacy_controller(project, proc_root=Path("/proc")):
-    """Stop only this user's exact project monitor commands, never a worker."""
+def stop_legacy_controller(project, proc_root=Path("/proc"), *, include_sync=True):
+    """Stop exact legacy monitors; optionally preserve the live login reporter."""
     project = Path(project).expanduser().resolve()
     stopped = []
     for entry in Path(proc_root).iterdir():
@@ -102,7 +102,10 @@ def stop_legacy_controller(project, proc_root=Path("/proc")):
             if module == "hpcmi.cli":
                 if argv[module_pos + 1] != "controller":
                     continue
-            elif module != "hpcmi.github_sync":
+            elif module == "hpcmi.github_sync":
+                if not include_sync:
+                    continue
+            else:
                 continue
             target = argv[argv.index("--project") + 1]
             if Path(target).expanduser().resolve() != project:

@@ -1,0 +1,12 @@
+test_bad_archive_is_retained_and_never_submitted (test_school_download.SchoolDownloadTests.test_bad_archive_is_retained_and_never_submitted) ... ok
+test_complete_partial_is_verified_without_redownloading (test_school_download.SchoolDownloadTests.test_complete_partial_is_verified_without_redownloading) ... ok
+test_direct_download_extract_submit_and_duplicate_reuse (test_school_download.SchoolDownloadTests.test_direct_download_extract_submit_and_duplicate_reuse) ... ok
+test_network_failure_never_extracts_or_submits (test_school_download.SchoolDownloadTests.test_network_failure_never_extracts_or_submits) ... ok
+test_pending_download_migrates_and_existing_project_config_is_updated (test_school_download.SchoolDownloadTests.test_pending_download_migrates_and_existing_project_config_is_updated) ... ok
+test_pending_to_running_race_does_not_submit_duplicate (test_school_download.SchoolDownloadTests.test_pending_to_running_race_does_not_submit_duplicate) ... ok
+test_running_download_and_identity_mismatch_are_never_cancelled (test_school_download.SchoolDownloadTests.test_running_download_and_identity_mismatch_are_never_cancelled) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 2.816s
+
+OK

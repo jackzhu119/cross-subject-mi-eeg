@@ -21,11 +21,13 @@ from pathlib import Path
 import re
 import signal
 import stat
+import subprocess
 import tempfile
 import time
 import urllib.error
 import urllib.parse
 import urllib.request
+import uuid
 
 
 DEFAULT_REPOSITORY = "jackzhu119/cross-subject-mi-eeg"
@@ -90,10 +92,85 @@ def _retry_seconds(headers):
     return max(1.0, min(900.0, seconds)) if seconds > 0 else None
 
 
+def _api_curl(method, endpoint, token, payload=None):
+    """One IPv4 HTTPS attempt, with credentials only in curl's stdin config.
+
+    The optional login-side transport follows the same error semantics as urllib.
+    It never falls back after a write or retries a possibly committed request.
+    """
+    if not endpoint.startswith("/repos/") or "://" in endpoint:
+        raise ValueError("Only repository API paths are supported")
+    config = ["header = " + json.dumps("Authorization: Bearer " + token),
+              'header = "Accept: application/vnd.github+json"',
+              'header = "Content-Type: application/json"',
+              'header = "X-GitHub-Api-Version: 2022-11-28"',
+              'user-agent = "paper1-hpc-progress/1"']
+    if payload is not None:
+        config.append("data = " + json.dumps(json.dumps(payload, allow_nan=False)))
+    descriptor, header_path = tempfile.mkstemp(prefix="paper1-github-headers-", suffix=".tmp")
+    os.close(descriptor)  # mkstemp creates mode 0600; it never contains the token.
+    try:
+        # -q must be first: local .curlrc must not enable redirects or disable TLS.
+        arguments = ["curl", "-q", "-4", "--silent", "--show-error", "--config", "-",
+                     "--connect-timeout", "8", "--max-time", "20", "--max-filesize", "2000000",
+                     "--request", method, "--dump-header", header_path,
+                     "--write-out", "\n%{http_code}", API_ROOT + endpoint]
+        try:
+            response = subprocess.run(arguments, input=("\n".join(config) + "\n").encode(),
+                                      stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                                      timeout=25, check=False)
+        except (OSError, subprocess.TimeoutExpired):
+            raise GitHubError("github_network_unavailable") from None
+        if response.returncode:
+            if response.returncode == 63:
+                raise GitHubError("github_response_too_large", permanent=True)
+            # Curl stderr can contain proxies or response text; never render it.
+            raise GitHubError("github_network_unavailable")
+        body, separator, code = response.stdout.rpartition(b"\n")
+        if not separator or not re.fullmatch(rb"[1-5][0-9][0-9]", code):
+            raise GitHubError("github_invalid_http_response")
+        status = int(code)
+        if len(body) > 2_000_000:
+            raise GitHubError("github_response_too_large", permanent=True)
+        headers = {}
+        selected = {"retry-after": "Retry-After", "x-ratelimit-remaining": "X-RateLimit-Remaining",
+                    "x-ratelimit-reset": "X-RateLimit-Reset"}
+        with open(header_path, "rb") as stream:
+            raw_headers = stream.read(65537)
+        if len(raw_headers) > 65536:
+            raise GitHubError("github_invalid_http_response")
+        for line in raw_headers.decode("iso-8859-1").splitlines():
+            if line.startswith("HTTP/"):
+                headers = {}  # Ignore any preceding proxy CONNECT header block.
+            elif ":" in line:
+                key, value = line.split(":", 1)
+                if key.lower() in selected:
+                    headers[selected[key.lower()]] = value.strip()
+        if not 200 <= status < 300:
+            limited = status == 429 or (status == 403 and
+                      (headers.get("X-RateLimit-Remaining") == "0" or "Retry-After" in headers))
+            if limited:
+                raise GitHubError("github_rate_limited", status, _retry_seconds(headers), False)
+            permanent = status in (400, 401, 403, 404) or 300 <= status < 400
+            error = "github_conflict_retry_next_cycle" if status in (409, 422) else "github_http_" + str(status)
+            raise GitHubError(error, status, _retry_seconds(headers), permanent)
+        try:
+            return json.loads(body) if body else {}
+        except (ValueError, UnicodeError):
+            raise GitHubError("github_invalid_json_response") from None
+    finally:
+        try:
+            os.unlink(header_path)
+        except FileNotFoundError:
+            pass
+
+
 def _api(method, endpoint, token, payload=None):
     """One HTTPS attempt; no redirects, secret-bearing URLs or response dumps."""
     if not endpoint.startswith("/repos/") or "://" in endpoint:
         raise ValueError("Only repository API paths are supported")
+    if os.environ.get("PAPER1_GITHUB_TRANSPORT", "urllib") == "curl":
+        return _api_curl(method, endpoint, token, payload)
     request = urllib.request.Request(
         API_ROOT + endpoint,
         data=None if payload is None else json.dumps(payload, allow_nan=False).encode(),
@@ -207,13 +284,34 @@ def _write_token(path, token):
             os.unlink(temporary)
 
 
-def confirm_credentials(repository, project_id, credential_path=None):
-    """Prompt once per project before submission; return the private token path.
+def _verify_written_json(repository, remote_path, token, commit, value):
+    """Read the exact written commit; compare bytes and the Git blob identity."""
+    endpoint = "/repos/" + repository + "/contents/" + urllib.parse.quote(remote_path, safe="/")
+    result = _api("GET", endpoint + "?" + urllib.parse.urlencode({"ref": commit}), token)
+    expected = (json.dumps(value, indent=2, sort_keys=True, allow_nan=False) + "\n").encode()
+    encoded = result.get("content")
+    if (result.get("type") != "file" or result.get("encoding") != "base64"
+            or not isinstance(encoded, str) or len(encoded) > 65536):
+        raise GitHubError("github_write_readback_invalid", permanent=True)
+    try:
+        content = base64.b64decode("".join(encoded.split()), validate=True)
+    except (ValueError, TypeError):
+        raise GitHubError("github_write_readback_invalid", permanent=True) from None
+    expected_blob = hashlib.sha1(b"blob " + str(len(expected)).encode() + b"\0" + expected).hexdigest()
+    if (content != expected or result.get("size") != len(expected)
+            or result.get("sha") != expected_blob):
+        raise GitHubError("github_write_readback_mismatch", permanent=True)
+    return hashlib.sha256(expected).hexdigest()
 
-    A successful actual connection.json write establishes Contents permission.
-    Temporary network/rate errors record an initial upload pending state, so
-    outages cannot turn into a dependency of model training. Explicit initial
-    authentication/permission failures raise CredentialError for correction.
+
+def confirm_credentials(repository, project_id, credential_path=None, *, force=False,
+                        require_verified=False):
+    """Acquire a private token, optionally requiring fresh write/readback proof.
+
+    Normal training keeps reporting outages independent. Explicit reauthorization
+    always prompts and only replaces an existing token after a successful live
+    write and exact commit readback. Strict verification never accepts a pending
+    or cached authorization as proof of current GitHub connectivity.
     """
     branch, _ = _validate_destination(repository, project_id)
     path = Path(credential_path or DEFAULT_TOKEN).expanduser().absolute()
@@ -225,32 +323,62 @@ def confirm_credentials(repository, project_id, credential_path=None):
     key = repository + ":" + project_id
     existing = _read_token(path) if path.exists() or path.is_symlink() else None
     fingerprint = hashlib.sha256(existing.encode()).hexdigest() if existing else None
-    if fingerprint and records.get("projects", {}).get(key, {}).get("token_sha256") == fingerprint:
+    saved = records.get("projects", {}).get(key, {})
+    strict = force or require_verified
+    if not strict and fingerprint and saved.get("token_sha256") == fingerprint:
+        if saved.get("status") == "INITIAL_WRITE_PENDING":
+            print(json.dumps({"github_authorization": "INITIAL_WRITE_PENDING", "project_id": project_id,
+                              "remote_write_verified": False,
+                              "training_dependency": "Cached token reused; remote upload retries independently"}), flush=True)
         return path
-    prompt = "GitHub Contents-write token (hidden"
-    prompt += "; Enter reuses the existing private token): " if existing else "): "
-    entered = getpass.getpass(prompt).strip()
-    token = entered or existing
+    if force:
+        token = getpass.getpass("GitHub Contents-write token (hidden; fresh input required): ").strip()
+    elif strict and existing:
+        token = existing
+    else:
+        prompt = "GitHub Contents-write token (hidden"
+        prompt += "; Enter reuses the existing private token): " if existing else "): "
+        entered = getpass.getpass(prompt).strip()
+        token = entered or existing
     if not token or any(c.isspace() for c in token):
-        raise CredentialError("A GitHub token is required before training submission")
-    _write_token(path, token)
+        raise CredentialError("A nonempty GitHub token is required; forced reauthorization cannot reuse blank input")
+    # Normal offline-tolerant startup retains its previous token acquisition
+    # semantics. A forced/strict attempt leaves the working token untouched.
+    if not strict:
+        _write_token(path, token)
     state = {"repository": repository, "project_id": project_id,
              "authorized_at_utc": _now(), "token_sha256": hashlib.sha256(token.encode()).hexdigest()}
+    remote_path = "hpc_status/" + project_id + "/connection.json"
+    connection = {"schema_version": 1, "project_id": project_id,
+                  "status": "CONTENTS_WRITE_VERIFIED", "observed_at_utc": _now()}
+    if strict:
+        connection["authorization_nonce"] = uuid.uuid4().hex
     try:
         _ensure_branch(repository, branch, token)
-        commit = _put_json(repository, branch, "hpc_status/" + project_id + "/connection.json", token,
-                           {"schema_version": 1, "project_id": project_id,
-                            "status": "CONTENTS_WRITE_VERIFIED", "observed_at_utc": _now()})
+        commit = _put_json(repository, branch, remote_path, token, connection)
         state.update(status="CONTENTS_WRITE_VERIFIED", commit=commit)
+        if strict:
+            content_sha = _verify_written_json(repository, remote_path, token, commit, connection)
+            state.update(status="CONTENTS_WRITE_READBACK_VERIFIED", readback_verified=True,
+                         connection_sha256=content_sha)
     except GitHubError as error:
-        if error.permanent:
-            raise CredentialError("GitHub authorization failed (" + error.code +
-                                  "). Check this repository's Contents read/write permission and token expiry.") from None
+        if strict or error.permanent:
+            detail = "). Existing private credentials were retained; " if strict else "). "
+            raise CredentialError("GitHub authorization failed (" + error.code + detail +
+                                  "Check repository Contents permission and connectivity.") from None
         state.update(status="INITIAL_WRITE_PENDING", error_code=error.code)
+    if strict:
+        _write_token(path, token)
     records.setdefault("projects", {})[key] = state
     _atomic_json(authorization_path, records, private=True)
-    print(json.dumps({"github_authorization": state["status"], "project_id": project_id,
-                      "training_dependency": "Token acquired; remote upload retries independently"}), flush=True)
+    public = {"github_authorization": state["status"], "project_id": project_id,
+              "remote_write_verified": state["status"] != "INITIAL_WRITE_PENDING",
+              "training_dependency": "Live GitHub write/readback verified" if strict else
+                                     "Token acquired; remote upload retries independently"}
+    if strict:
+        public.update(commit=state["commit"], readback_verified=True,
+                      connection_sha256=state["connection_sha256"])
+    print(json.dumps(public), flush=True)
     return path
 
 
@@ -265,10 +393,12 @@ _NUMBERS = {"epoch", "step", "global_step", "updates", "optimizer_updates", "sam
             "p_raw", "improved", "declined", "numerically_unchanged", "mean_percent",
             "bootstrap_replicates", "permutation_replicates", "secondary_family_size",
             "source_equal_cohort_mean_min_recall", "completed_fits", "pending_fits",
-            "max_concurrent_fits", "stop_requested_exit_code"}
+            "max_concurrent_fits", "stop_requested_exit_code", "completed_objects", "total_objects",
+            "requested_gpus"}
 _STRINGS = {"status", "stage", "phase", "method", "endpoint", "metric", "variant", "task_id",
             "updated_at_utc", "started_at_utc", "completed_at_utc", "finished_at_utc",
-            "domain", "contrast", "family", "aggregation", "bootstrap", "permutation", "evaluation_variant"}
+            "domain", "contrast", "family", "aggregation", "bootstrap", "permutation", "evaluation_variant",
+            "requested_memory", "slurm_job_id", "submission_status"}
 _BOOLS = {"all_comparison_directions_retained", "independent_external_confirmation"}
 _CONTAINERS = {"metrics", "validation", "test_metrics", "statistics", "summary", "results",
                "conditions", "comparisons", "by_method", "primary", "secondary", "evaluation",
@@ -334,6 +464,14 @@ def collect_progress(project):
     execution = _read_json_optional(project / "state/single_job_status.json")
     if execution:
         result["execution"] = _safe_stats(execution)
+    preparation = _read_json_optional(project / "state/login_pipeline_status.json")
+    if preparation:
+        result["preparation"] = _safe_stats(preparation)
+        paths = _read_json_optional(project / "config/paths.json") or {}
+        raw_dir = Path(paths.get("raw_dir", project / "raw"))
+        transport = _read_json_optional(raw_dir / "transport_status.json")
+        if transport:
+            result["transport"] = _safe_stats(transport)
     analysis = _read_json_optional(project / "outputs/analysis/summary.json")
     if analysis:
         result["completed_statistics"] = _safe_stats(analysis)

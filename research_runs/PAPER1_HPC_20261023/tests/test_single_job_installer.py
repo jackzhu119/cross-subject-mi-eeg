@@ -58,7 +58,7 @@ else: shutil.copyfile(source,sys.argv[-1])
         interpreter = self.bin / "school-python"
         interpreter.write_text("#!" + sys.executable + '''
 import json,os,sys
-if '-m' in sys.argv and sys.argv[sys.argv.index('-m')+1]=='hpcmi.submit_single':
+if '-m' in sys.argv and sys.argv[sys.argv.index('-m')+1] in ('hpcmi.submit_single','hpcmi.login_pipeline'):
     with open(os.environ['TEST_SUBMIT_TRACE'],'a') as f:f.write(json.dumps(sys.argv[1:])+'\\n')
     print('SINGLE_JOB_SUBMISSION_MOCKED')
 else: os.execv(sys.executable,[sys.executable]+sys.argv[1:])

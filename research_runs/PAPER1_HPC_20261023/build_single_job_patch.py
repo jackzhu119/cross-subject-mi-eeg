@@ -10,14 +10,14 @@ import tarfile
 ROOT = Path(__file__).resolve().parent
 MEMBERS = [
     "LAUNCH.sh", "hpcmi/acquire.py", "hpcmi/cli.py", "hpcmi/github_sync.py",
-    "hpcmi/single_job.py", "hpcmi/submit_single.py", "slurm/single_job.sh", "SINGLE_JOB.md",
+    "hpcmi/single_job.py", "hpcmi/submit_single.py", "hpcmi/login_pipeline.py", "slurm/single_job.sh", "SINGLE_JOB.md",
 ]
 
 
 def build(destination):
     destination = Path(destination)
     payloads = {name: (ROOT / name).read_bytes() for name in MEMBERS}
-    manifest = {"schema_version": 1, "operation": "single-slurm-job-20261024",
+    manifest = {"schema_version": 1, "operation": "login-transfer-offline-single-job-20261024",
                 "source_base_commit": "27094e7e89ecdc9a1477ede5f399e03f4469d70a",
                 "science_model_or_input_files_included": False,
                 "files": [{"path": name, "bytes": len(data), "sha256": hashlib.sha256(data).hexdigest()}

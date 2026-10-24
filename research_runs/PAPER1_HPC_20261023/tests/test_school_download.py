@@ -114,7 +114,7 @@ print("12345")
             updated = json.loads(file.read_text())
             self.assertEqual((updated["partition"], updated["gres"], updated["exclude"]), ("hpc_gpu", "gpu:1", []))
             self.assertEqual(updated["max_parallel"], 2)
-            self.assertEqual(updated["cpus_per_task"], 16)
+            self.assertEqual(updated["cpus_per_task"], 13)
         self.assertEqual((project / "state/download-migration-770682-original.sbatch").read_text(), "original queued script\n")
         self.assertEqual((raw / "keep.part").read_bytes(), b"retained-download-bytes")
 
