@@ -1,160 +1,89 @@
-> **学校HPC新实验运行包（2026-10-23）**：`hpc_gpu`分区、单一Slurm作业（2GPU/32CPU/256G），内部两卡并行、原始数据恢复、断点续跑和GitHub进度同步。见 [中文操作说明](research_runs/PAPER1_HPC_20261023/README_zh.md) 与 [新研究协议](research_runs/PAPER1_HPC_20261023/PROJECT_PROTOCOL.md)。这是待执行的算法研究版本；下方已完成论文与冻结结果保持原样。
+# Cross-subject motor-imagery EEG · Paper 1
 
-# Paper 1 — reviewed submission materials (20 October 2026)
+跨被试运动想象脑电解码：论文、冻结实验结果与学校HPC研究代码。
 
-**Current reviewed version:** [clean Word manuscript](research_runs/PAPER1_REVIEW_20261020/main_manuscript.docx) · [marked-up Track Changes DOCX](research_runs/PAPER1_REVIEW_20261020/Track_Changes_PONE-D-26-50597_to_PONE-D-26-52176.docx) · [complete reviewed package](research_runs/PAPER1_REVIEW_20261020/Paper1_Reviewed_20261020.zip) · [review decisions and verification](research_runs/PAPER1_REVIEW_20261020/README.md).
+**Ziyuan Zhu（朱子元）** · College of Artificial Intelligence Medicine, Chongqing Medical University
 
-This 20 October update only addresses evidence-supported observations from the supplied editorial critique. The original submissions, all scientific tables, Figs 2–7, prediction/result data and earlier packages are retained. Fig 1F was reworded without changing its scientific data. Source-based comparison does not establish that the two manuscripts are byte-identical to the files uploaded in Editorial Manager.
+[ORCID: 0009-0005-1153-4926](https://orcid.org/0009-0005-1153-4926) · zzy2630816871@gmail.com
 
----
+本仓库分别保存已完成的论文研究和后续算法实验。阅读论文从下表的当前修订稿开始；学校运行使用专用HPC入口。**导航更新：2026-10-25。**
 
-# Paper 1 — corrected submission documents (18 October 2026)
+## 快速导航
 
-**Latest replacements for Editorial Manager:** [Main Manuscript](research_runs/PAPER1_SUBMISSION_CORRECTION_20261018/Main_Manuscript_REVISED.docx), [Cover Letter](research_runs/PAPER1_SUBMISSION_CORRECTION_20261018/Cover_Letter_REVISED.docx), [S1 Appendix](research_runs/PAPER1_SUBMISSION_CORRECTION_20261018/S1_Appendix_REVISED.pdf), [full upload guide](research_runs/PAPER1_SUBMISSION_CORRECTION_20261018/UPLOAD_GUIDE_zh.md).
+| 目的 | 入口 |
+|---|---|
+| 阅读当前论文修订稿 | [主文DOCX](research_runs/PAPER1_REVIEW_20261020/main_manuscript.docx) · [PDF](research_runs/PAPER1_REVIEW_20261020/main_manuscript.pdf) · [Markdown](research_runs/PAPER1_REVIEW_20261020/manuscript_en.md) |
+| 下载当前修订材料 | [2026-10-20材料包](research_runs/PAPER1_REVIEW_20261020/Paper1_Reviewed_20261020.zip) · [版本说明](research_runs/PAPER1_REVIEW_20261020/README.md) |
+| 查找配套图表、补充数据与投稿材料 | [2026-10-18完整材料目录](research_runs/PAPER1_PLOS_FINAL_20261018/README_zh.md) |
+| 核对已完成研究的数值与审计 | [eligible-v3结果与独立核验](research_runs/ELIGIBLE_V3_RESULTS_20261018/README_zh.md) |
+| 在学校下载数据、训练或续跑 | [HPC使用说明](research_runs/PAPER1_HPC_20261023/README_zh.md) · [单作业运行流程](research_runs/PAPER1_HPC_20261023/SINGLE_JOB.md) |
+| 查看学校任务的已上传进度 | [运行分支](https://github.com/jackzhu119/cross-subject-mi-eeg/tree/hpc/paper1-risk-v1) · [状态JSON](https://github.com/jackzhu119/cross-subject-mi-eeg/blob/hpc/paper1-risk-v1/hpc_status/paper1-risk-v1/status.json) |
+| 查找其它版本与历史实验 | [研究目录索引](research_runs/README.md) · [仓库文件指南](docs/REPOSITORY_GUIDE.md) |
 
-These files align the national-law ethics explanation across the manuscript and supplement and disclose the separately submitted Paper 2 (PONE-D-26-52050). All numerical results, seven figures, and S1–S4 supporting data remain unchanged. The in-review Paper 2 PDF is **not** published to the public GitHub repository; supply it confidentially to the journal as a Related Manuscript. The required official Human Participants Checklist and formal PFA application remain the author's submission tasks.
-
----
-
-# Paper 1: contribution-led author manuscript (18 October 2026)
+## 论文与已完成结果
 
 **Source-cohort expansion improves weaker-class coverage in cross-subject motor-imagery EEG decoding**
 
-Latest author materials: [main DOCX](research_runs/PAPER1_PLOS_FINAL_20261018/main_manuscript.docx), [readable PDF with figures](research_runs/PAPER1_PLOS_FINAL_20261018/review_manuscript.pdf), [complete package](research_runs/PAPER1_PLOS_FINAL_20261018/Paper1_PLOS_Final_20261018.zip), [Chinese revision report](research_runs/PAPER1_PLOS_FINAL_20261018/REVISION_REPORT_zh.md), [submission checklist](research_runs/PAPER1_PLOS_FINAL_20261018/submission/Submission_Checklist_zh.md).
+该研究比较9、29和60名源参与者配置，包含108条神经网络训练轨迹、9次传统模型拟合，以及85名Dreyer参与者的探索性外部评价。冻结主比较中，S60相对S9的较弱类别召回率提高21.17个百分点，平衡准确率提高5.85个百分点。完整比较、个体差异及统计边界见论文和[冻结结果](research_runs/ELIGIBLE_V3_RESULTS_20261018/RESULTS_REVIEW_zh.md)。
 
-Verified primary effects remain +21.17 percentage points in weaker-class recall and +5.85 points in balanced accuracy. Complete saved-prediction reconstruction additionally shows simultaneous improvement in 66/85 participants and a 49.39% reduction in the mean absolute class-recall gap. All prespecified comparisons, adverse configurations and individual declines remain reported. Original scientific data and previous manuscript packages are unchanged.
+当前论文文件采用 **2026-10-20修订稿**，配套材料按以下组合使用：
 
-Document-format and numerical checks are supplied. The earlier PONE-D-26-50597 manuscript was rejected on 12 October; editorial permission/instructions for submitting a substantive extension have not been established. This package does not constitute a journal submission or invited revision. Author final review and submission-route confirmation remain required.
-
-<details>
-<summary>Previous versions and publication records</summary>
-
-# Paper 1 second-round manuscript update (18 October 2026)
-
-**Source-cohort expansion improves weaker-class coverage in cross-subject motor-imagery EEG decoding**
-
-Latest manuscript, published on `main`: [main DOCX](research_runs/PAPER1_PLOS_REVIEW2_20261018/main_manuscript.docx), [review PDF](research_runs/PAPER1_PLOS_REVIEW2_20261018/review_manuscript.pdf), [change response](research_runs/PAPER1_PLOS_REVIEW2_20261018/Review_Response_zh.docx), [ethics author statement](research_runs/PAPER1_PLOS_REVIEW2_20261018/submission/Ethics_Author_Statement.docx), [complete guide](research_runs/PAPER1_PLOS_REVIEW2_20261018/README_zh.md).
-
-The primary weaker-class recall gain was 21.17 percentage points. Supplementary post hoc comparisons add S29 +21.72 points and CSP +13.82 points; descriptive controls at the same 20-epoch duration show S60−S9 gains of 17.07 points (BROAD) and 24.87 points (shared). Seven figures and all frozen comparisons are supplied. The research-office confirmation dated 17 October 2026 and the correct author name, Ziyuan Zhu, are incorporated. No models were retrained.
-
-Published by a verified fast-forward update from `7b293212` to manuscript-package commit [`710d4ba0`](https://github.com/jackzhu119/cross-subject-mi-eeg/commit/710d4ba0338c7387115c12f4b8cf945d8d2d25b4). [Publication receipt](research_runs/PAPER1_PLOS_REVIEW2_PUBLICATION_20261018.json). The package retains its original build-time access-failure records; those describe the earlier attempt, before network access was restored. This remains an author-prepared manuscript update; journal submission or replacement was not performed.
-
-<details>
-<summary>Previous published manuscript and preserved history</summary>
-
-# Source-cohort expansion and weaker-class coverage in cross-subject motor-imagery EEG decoding
-
-**Latest Paper 1 manuscript update: 18 October 2026 · PLOS ONE · Published on `main`**
-
-The current update reports the completed 18-channel source-expansion experiment: 9, 29 and 60 source participants, 108 neural trajectories, nine conventional fits and 85 external participants. Under the fixed primary configuration, weaker-class recall increased by **21.17 percentage points** (95% CI 17.12–25.21) from S9 to S60. All four fixed comparisons, including the two null secondary findings, remain in the manuscript.
-
-| Read or use | Current material |
+| 材料 | 对应文件 |
 |---|---|
-| Main manuscript | [Editable DOCX](research_runs/PAPER1_PLOS_REVISION_20261018/main_manuscript.docx) · [Reading PDF with figures](research_runs/PAPER1_PLOS_REVISION_20261018/review_manuscript.pdf) · [Markdown](research_runs/PAPER1_PLOS_REVISION_20261018/manuscript_en.md) |
-| Supporting materials | [S1 Appendix](research_runs/PAPER1_PLOS_REVISION_20261018/S1_Appendix.pdf) · [S1 Data](research_runs/PAPER1_PLOS_REVISION_20261018/S1_Data.zip) |
-| Five publication figures | [TIFF/PNG/SVG/PDF and numerical sources](research_runs/PAPER1_PLOS_REVISION_20261018/figures/) |
-| Submission materials | [Cover letter and portal fields](research_runs/PAPER1_PLOS_REVISION_20261018/submission/) · [Author checklist](research_runs/PAPER1_PLOS_REVISION_20261018/submission/Submission_Checklist_zh.md) |
-| Reproducibility and audit | [Instructions](research_runs/PAPER1_PLOS_REVISION_20261018/REPRODUCIBILITY.md) · [Current frozen results](research_runs/ELIGIBLE_V3_RESULTS_20261018/) · [Delivery validation](research_runs/PAPER1_PLOS_REVISION_20261018/evidence/delivery_validation.json) |
+| 主文、补充方法与投稿信 | [20日修订目录](research_runs/PAPER1_REVIEW_20261020/README.md) |
+| 修订Figure 1 | [20日Figure 1文件](research_runs/PAPER1_REVIEW_20261020/figures/) |
+| Figures 2–7与表格 | [18日图件](research_runs/PAPER1_PLOS_FINAL_20261018/figures/) · [表格CSV](research_runs/PAPER1_PLOS_FINAL_20261018/tables/) |
+| S1–S4补充数据与预测 | [18日完整材料及文件用途](research_runs/PAPER1_PLOS_FINAL_20261018/README_zh.md) |
+| 审阅修改与文档核验 | [修改取舍](research_runs/PAPER1_REVIEW_20261020/EDITORIAL_TRIAGE_zh.md) · [核验记录](research_runs/PAPER1_REVIEW_20261020/RELEASE_VALIDATION.json) |
+| 结果复现与来源 | [复现说明](research_runs/PAPER1_PLOS_FINAL_20261018/REPRODUCIBILITY.md) · [独立审计](research_runs/ELIGIBLE_V3_RESULTS_20261018/audits/) |
 
-Editorial branch: [`paper/p1-plos-evidence-update-20261018`](https://github.com/jackzhu119/cross-subject-mi-eeg/tree/paper/p1-plos-evidence-update-20261018). Frozen result commit: [`040956085499ed788948de0d5a09cddd9eabca56`](https://github.com/jackzhu119/cross-subject-mi-eeg/tree/040956085499ed788948de0d5a09cddd9eabca56/research_runs/ELIGIBLE_V3_RESULTS_20261018/). Executed source identity: `0539379578818b3d71f995192e5e8a81cf4d5aef`.
+GitHub公开的是材料版本；期刊系统实际上传文件及投稿状态需另行核对。当前HPC算法研究的结果也不自动并入上述论文。
 
-Raw EEG is not bundled. The data providers are [BNCI/BCI Competition IV](https://www.bbci.de/competition/iv/), [Yang Figshare+ v5](https://doi.org/10.25452/figshare.plus.22671172.v5), and [Dreyer NEMAR v1.0.5](https://doi.org/10.82901/nemar.nm000250). Obtain recordings under provider terms. The present external evaluation is exploratory because prior target exposure is uncertain; source composition and selected checkpoint vary together. The current revision adds presentation and a labelled descriptive metric decomposition, with no EEG training or prediction rerun.
+## 学校HPC：直接下载与断点继续
 
-Earlier Q1–Q16 results, scientific contracts, old submissions and tags remain preserved. The author authorized publication of this update on `main`; the existing commit history is retained. Repository publication does not imply journal acceptance, a new DOI or completion of the separate large-model archive. The new manuscript and portal PDF require the author's current approval before submission.
+当前配置为 **`hpc_gpu`分区、一个Slurm作业、一个节点、2张GPU、总24核CPU、总128G内存**。两个单卡worker并行处理独立训练任务；数据下载与GitHub同步在login1后台运行，预处理和训练在计算节点执行。
 
-<details>
-<summary>Historical 9 October 2026 release description — retained for provenance; not the current manuscript</summary>
-
-# Source-only model selection and limits of fixed spectral-sharing pipelines in cross-subject motor-imagery EEG decoding
-
-**Ziyuan Zhu (朱子元)** · College of Artificial Intelligence Medicine, Chongqing Medical University, Chongqing, China · Correspondence: **zzy2630816871@gmail.com**
-
-The current manuscript and submission materials are prepared for **PLOS ONE**. The completed Q1–Q16 results remain frozen. This editorial release changes the journal presentation and submission materials; it adds no model fitting, prediction inference or physiological experiment. Publication in a journal, acceptance and an archive DOI are not claimed.
-
-## Current manuscript and submission files
-
-- Current editorial branch: [`paper/plos-one-author-finalization-20261009`](https://github.com/jackzhu119/cross-subject-mi-eeg/tree/paper/plos-one-author-finalization-20261009).
-- Publication tag: [`plos-one-submission-v1.1`](https://github.com/jackzhu119/cross-subject-mi-eeg/releases/tag/plos-one-submission-v1.1).
-- Manuscript directory: [`research_runs/PLOS_ONE_SUBMISSION/`](research_runs/PLOS_ONE_SUBMISSION/).
-- Delivery and preservation evidence: [`research_runs/PLOS_ONE_AUTHOR_FINAL_PUBLICATION_20261009/`](research_runs/PLOS_ONE_AUTHOR_FINAL_PUBLICATION_20261009/).
-
-| Purpose | File |
-|---|---|
-| Complete PLOS ONE submission-material archive | [ZIP](research_runs/PLOS_ONE_SUBMISSION/PLOS_ONE_Submission_Package.zip) · [SHA-256](research_runs/PLOS_ONE_SUBMISSION/PLOS_ONE_Submission_Package.zip.sha256) |
-| Main manuscript for upload | [DOCX](research_runs/PLOS_ONE_SUBMISSION/PLOS_ONE_Manuscript.docx) · [PDF for reading](research_runs/PLOS_ONE_SUBMISSION/PLOS_ONE_Manuscript_Review.pdf) · [Markdown source](research_runs/PLOS_ONE_SUBMISSION/PLOS_ONE_Manuscript.md) |
-| Cover letter | [DOCX](research_runs/PLOS_ONE_SUBMISSION/PLOS_ONE_Cover_Letter.docx) · [PDF](research_runs/PLOS_ONE_SUBMISSION/PLOS_ONE_Cover_Letter.pdf) |
-| Six standalone figures | [TIFF files](research_runs/PLOS_ONE_SUBMISSION/Figures/) · [Figure quality report](research_runs/PLOS_ONE_SUBMISSION/Figure_Quality_Report.md) |
-| Supporting information | [S1 Appendix PDF](research_runs/PLOS_ONE_SUBMISSION/SupportingInformation/S1_Appendix.pdf) · [S1 Appendix DOCX](research_runs/PLOS_ONE_SUBMISSION/SupportingInformation/S1_Appendix.docx) · [S1 Data ZIP](research_runs/PLOS_ONE_SUBMISSION/SupportingInformation/S1_Data.zip) |
-| Submission metadata | [Title and keywords](research_runs/PLOS_ONE_SUBMISSION/PLOS_ONE_Title_and_Keywords.md) · [Abstract](research_runs/PLOS_ONE_SUBMISSION/PLOS_ONE_Abstract.txt) · [Submission fields](research_runs/PLOS_ONE_SUBMISSION/PLOS_ONE_Submission_Fields.md) · [Data availability](research_runs/PLOS_ONE_SUBMISSION/PLOS_ONE_Data_Availability.md) |
-| Author checklist and fees | [中文投稿检查表](research_runs/PLOS_ONE_SUBMISSION/PLOS_ONE_Submission_Checklist_zh.md) · [费用与资助说明](research_runs/PLOS_ONE_SUBMISSION/PLOS_ONE_APC_Assistance_Guide_zh.md) |
-| Evidence and integrity | [Numerical validation](research_runs/PLOS_ONE_SUBMISSION/Numerical_Validation_Report.md) · [Checksums](research_runs/PLOS_ONE_SUBMISSION/MANIFEST.sha256) · [Package guide](research_runs/PLOS_ONE_SUBMISSION/README.md) |
-
-The package guide identifies which files to upload separately. The main review PDF is a reading copy; PLOS ONE accepts the Word manuscript. Funding and competing-interest statements are supplied through the submission fields. The author has approved the current materials, supplied ORCID 0009-0005-1153-4926, confirmed sole authorship and authorized the stated original-output licenses. The public ORCID given/family-name fields require correction to Ziyuan/Zhu; the author must link the iD and check the portal-generated PDF and final declarations before submitting. No submission is performed by this repository.
-
-## Frozen scientific identities
-
-- Q15 scientific code: [`271af288a2f3863430ab80e3145c2dee9bd5571d`](https://github.com/jackzhu119/cross-subject-mi-eeg/commit/271af288a2f3863430ab80e3145c2dee9bd5571d).
-- Q15 independently validated result publication: [`bc48b257eb44f412ad069f50d0f1a72a33c3c520`](https://github.com/jackzhu119/cross-subject-mi-eeg/commit/bc48b257eb44f412ad069f50d0f1a72a33c3c520).
-- Q16 pre-power parameter freeze: [`050e01b028aaab8e3d745934b13b2d17e9bb0a7a`](https://github.com/jackzhu119/cross-subject-mi-eeg/commit/050e01b028aaab8e3d745934b13b2d17e9bb0a7a).
-- Q16 completed outputs and independent checks: [`research_runs/Q16-P001-BNCI-20261006/`](research_runs/Q16-P001-BNCI-20261006/).
-- Frozen manuscript number authority: [`paper_numbers.json`](research_runs/PAPER_FINAL_20261006/paper_numbers.json).
-- Preserved scientific tables and audit inputs: [`research_runs/PAPER_FINAL_20261006/`](research_runs/PAPER_FINAL_20261006/). This is a scientific-source collection, not a second submission package.
-
-Q15 used 15 original source fits: 14 neural fits and one shallow fit. Migration added zero source fits, and target fitting remained zero. The source-duration validation groups contain 2/2/2/3 participants with equal fold weighting; prospective grouping sensitivity was not evaluated. Historical Git commits and immutable tags retain earlier editorial versions without presenting them as the current submission.
-
-## Results and interpretation
-
-Balanced accuracy (BA) averages class recalls within each person. Cohort means weight participants equally; confidence intervals resample participants. The broad/shared comparisons are complete frozen-pipeline contrasts with unequal source-selected durations, rather than isolated causal tests of spectral sharing.
-
-| Cohort | Participants / trials | Broad BA | Shared BA | Shared − broad (pp), 95% interval |
-|---|---:|---:|---:|---|
-| PhysioNet | 109 / 4,918 | 61.81% | 62.39% | +0.573 [−0.097, +1.242] |
-| Cho2017 | 52 / 10,520 | 59.82% | 58.31% | −1.513 [−2.249, −0.804] |
-| Lee2019 offline-training runs | 54 / 10,800 | 65.51% | 65.72% | +0.204 [−0.515, +0.969] |
-
-Cho2017 retains the adverse shared-input result. Lee2019 remains uncertain, without an equivalence conclusion; PhysioNet superiority is not established. No pooled cross-provider score or independently verified participant-identity nonoverlap is asserted.
-
-The nine-person internal mean-rank development gain remains exploratory: 33.72% → 42.67% BA, with S3/S8 supplying 87.57% of the aggregate gain. The matched-runtime fixed-duration mean gain did not represent typical-person improvement: four participants improved and five worsened. Corrected robustness gains were not established.
-
-The BNCI-only physiological characterization retained 18 source files, nine participants, two sessions and all 5,184 four-class trials; 2,592 hand trials supplied the hand summaries. Signed mean laterality was −0.250 dB in mu and −0.168 dB in beta. These post-decoder-outcome, baseline-relative sensor descriptions and six n=9 correlations have no physiological p-values, causal decoder attribution or external physiological replication. Negative signed laterality does not alone establish absolute contralateral ERD.
-
-Zero calibration means no target-dependent parameter fitting or target-based model selection. Event/class metadata support documented eligibility and mapping; ground-truth labels supply scoring. The separate physiological analysis uses class metadata without decoder feedback. This work establishes no universal label-free operation, online/real-time control, clinical utility, mechanistic biomarker or superiority over existing domain-generalization methods.
-
-## Reproduction and original data
-
-Raw EEG is **not included** in the repository or submission package. Obtain it from the original providers and comply with their terms:
-
-- [BCI Competition IV dataset 2a / BNCI](https://bnci-horizon-2020.eu/database/data-sets) and [original task description](https://www.bbci.de/competition/iv/desc_2a.pdf).
-- [PhysioNet EEG Motor Movement/Imagery v1.0.0](https://physionet.org/content/eegmmidb/1.0.0/).
-- [Cho2017 original dataset](https://doi.org/10.5524/100295).
-- [Lee2019 / OpenBMI original dataset](https://doi.org/10.5524/100542).
-
-[Release reproducibility guide](research_runs/PLOS_ONE_SUBMISSION/REPRODUCIBILITY.md) and [S1 Appendix](research_runs/PLOS_ONE_SUBMISSION/SupportingInformation/S1_Appendix.pdf) describe the frozen preprocessing and model identities. [S1 Data](research_runs/PLOS_ONE_SUBMISSION/SupportingInformation/S1_Data.zip) contains saved derived tables, predictions and audit inputs, with byte-level provenance. Reading and checking the manuscript numbers requires no GPU, cloud credentials or model training.
-
-The following command checks the existing editorial artifacts against their frozen inputs. It does not fit models, recompute predictions or run physiological experiments:
+在学校 **login1** 使用已固定的入口：
 
 ```bash
-python research_runs/PLOS_ONE_SUBMISSION/validate_plos_package.py
+curl -4 -f --connect-timeout 8 --max-time 60 --retry 1 -H 'Accept: application/vnd.github.raw+json' 'https://api.github.com/repos/jackzhu119/cross-subject-mi-eeg/contents/research_runs/PAPER1_HPC_20261023/RUN_SINGLE_JOB_ON_SCHOOL.sh?ref=35de24466aec5ccee809b4e00e67b3949f60297b' -o /tmp/paper1-direct.sh && bash /tmp/paper1-direct.sh --yang-source nemar-privacy-v1 --restart-transfer --gpus 2 --memory 128G --replace-job 771084
 ```
 
-Install the editorial dependencies listed in [`requirements-editorial.txt`](research_runs/PLOS_ONE_SUBMISSION/requirements-editorial.txt) if necessary. The package checksums and publication receipts bind exact delivered bytes; re-exporting a document requires a new layout review and checksum record.
+这一命令对应现有学校项目的下载恢复。它复用已验证文件和partial，在数据齐备后自动提交唯一计算作业；训练与评价按保存的断点继续。GitHub授权在终端隐藏输入或复用已验证的私有配置，每约180秒独立同步进度。R2和个人电脑中转均非前提。
 
-## Author and disclosure information
+- [运行和恢复细节](research_runs/PAPER1_HPC_20261023/SINGLE_JOB.md)
+- [官方隐私修正版Yang来源、独立清单及已完成核验](research_runs/PAPER1_HPC_20261023/NEMAR_PRIVACY_SOURCE.md)
+- [后续算法研究协议](research_runs/PAPER1_HPC_20261023/PROJECT_PROTOCOL.md) · [统计分析计划](research_runs/PAPER1_HPC_20261023/ANALYSIS_PLAN.md)
 
-The author reports no research funding, no competing interests and no additional acknowledgments. The statement that neither approval nor exemption was required for this secondary analysis is the author's confirmation; no institutional determination or committee identifier is invented. Original collection approvals are distinct from the requirements for this secondary analysis.
+学校项目保存于 `/public/home/zhuziyuan/projects/paper1-risk-v1`。下载完成、调度器接受和实际模型更新是不同阶段；请结合状态文件时间、实际step及checkpoint判断进度。上述新算法研究与已完成eligible-v3实验分别记录。
 
-ChatGPT (GPT-6, author reported) and OpenAI Codex assistance are disclosed according to their actual recorded scope. The author reports personal checking and revision of the scientific content. The current author checklist records approval, sole-author contribution roles, original-output licensing, self-payment of the publication charge if accepted and no opposed reviewers. No formal secondary-analysis ethics document exists. The official human-data form has been prepared against Methods lines 470–487; portal checks and any journal-requested explanation remain personal author actions.
+## 数据与复现边界
 
+原始EEG不包含在本Git仓库中。按原提供方条款取得数据，并使用对应研究版本的输入清单：
 
-## Recorded research access and permissions
+| 数据 | 官方来源 | 主要使用版本 |
+|---|---|---|
+| BNCI2014_001 | [BCI Competition IV 2a](https://www.bbci.de/competition/iv/) | 历史Q系列、eligible-v3与HPC研究 |
+| Yang | [Figshare+ v5](https://doi.org/10.25452/figshare.plus.22671172.v5) · [NEMAR nm000348](https://doi.org/10.82901/nemar.nm000348) | eligible-v3；HPC显式采用独立隐私修正版清单 |
+| Dreyer | [NEMAR nm000250](https://doi.org/10.82901/nemar.nm000250) | eligible-v3及探索性外部评价 |
+| PhysioNet、Cho2017、Lee2019 | [早期研究复现说明](research_runs/PLOS_ONE_SUBMISSION/REPRODUCIBILITY.md) | 历史Q14–Q15外部评价 |
 
-Historical GitHub/cloud research receipts document BNCI2014_001 access during 21 September–6 October 2026, PhysioNet access on 25 September 2026, and Cho2017/Lee2019 raw auditing and external evaluation during 3–5 October 2026. These are retained-record access intervals, not proven first-ever downloads or dates inferred from backups. See the [audited evidence](research_runs/PLOS_ONE_SUBMISSION/evidence/research_access_dates.md) and [completed official human-data checklist](research_runs/PLOS_ONE_SUBMISSION/AuthorForms/PLOS_Human_Participants_Checklist_2026_completed.pdf).
+隐私修正版使用自己的真实新SHA，原冻结清单和旧结果仍保留。下载回执、科学结果、模型checkpoint与GitHub进度摘要用途不同；进度同步不等于完整模型备份。
 
-Original author-owned software is licensed under [MIT](LICENSE); original author-owned manuscript and derived outputs use [CC BY 4.0](LICENSE-DATA.md). [Scope and exclusions](LICENSING.md) preserve original third-party terms for raw EEG, incorporated software, fonts, provider materials and official forms. No third-party rights are re-granted.
+## 文件组织
 
-</details>
+| 目录 | 内容 |
+|---|---|
+| [research_runs/](research_runs/README.md) | 分版本论文、冻结协议、结果、审计和HPC运行包 |
+| [docs/](docs/README.md) | 仓库指南、研究笔记和早期方法记录 |
+| [src/mi_eeg/](src/mi_eeg/) · [configs/](configs/) · [tests/](tests/README.md) | 原研究通用代码、配置与测试；HPC代码及依赖在其独立目录 |
+| [experiments/](experiments/) · [results/](results/) · [outputs/](outputs/README.md) | 历史实验入口及按实验身份保存的输出 |
+| [paper/](paper/README.md) · [references/](references/README.md) | 早期写作提纲与文献资料；当前主文见顶部导航 |
 
-</details>
+历史目录保留原路径，以维持manifest、hash、审计引用及断点的可追溯性。旧版首页可从[整理前快照](https://github.com/jackzhu119/cross-subject-mi-eeg/blob/35de24466aec5ccee809b4e00e67b3949f60297b/README.md)查看。
 
+## 引用与许可
 
-</details>
+引用时请注明实际使用的论文版本和科学结果commit；已完成eligible-v3结果的固定交接为 [`040956085499ed788948de0d5a09cddd9eabca56`](https://github.com/jackzhu119/cross-subject-mi-eeg/tree/040956085499ed788948de0d5a09cddd9eabca56/research_runs/ELIGIBLE_V3_RESULTS_20261018/)。
+
+作者自有代码采用 [MIT](LICENSE)；作者自有论文文字、图表及派生研究输出采用 [CC BY 4.0](LICENSE-DATA.md)。原始数据、第三方代码和其它材料遵循其原有条款，详见[许可范围](LICENSING.md)。
