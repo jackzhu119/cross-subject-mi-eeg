@@ -1,0 +1,88 @@
+{
+  "auxiliary": {
+    "verified_bytes": 0,
+    "verified_files": 0
+  },
+  "completion_gate": "All 504 native files and all auxiliary materials must have full R2 GET SHA/size receipts.",
+  "data": {
+    "datasets": {
+      "bnci": {
+        "expected_bytes": 779873919,
+        "expected_files": 18,
+        "verified_bytes": 0,
+        "verified_files": 0
+      },
+      "dreyer": {
+        "expected_bytes": 2515343396,
+        "expected_files": 174,
+        "verified_bytes": 0,
+        "verified_files": 0
+      },
+      "yang": {
+        "expected_bytes": 68044344823,
+        "expected_files": 312,
+        "verified_bytes": 0,
+        "verified_files": 0
+      }
+    },
+    "expected_bytes": 71339562138,
+    "expected_files": 504,
+    "states": {
+      "pending": 504
+    },
+    "verified_bytes": 0,
+    "verified_files": 0
+  },
+  "failures": [
+    {
+      "details": {
+        "bytes": 55,
+        "checked_at_utc": "2026-10-25T04:27:51.124307+00:00",
+        "credentials_logged": false,
+        "delete_test": "not_run",
+        "error": {
+          "error_class": "AccessDenied",
+          "http_status": 403,
+          "s3_error_code": "AccessDenied"
+        },
+        "failure_stage": "put_object",
+        "key": "paper1-hpc-20261023/frozen-inputs-v1/metadata/probes/.preflight/e9b5526ead9e414db8b97d2b2483eb1d.txt",
+        "probe_attempts": 1,
+        "read_back_test": "not_run",
+        "schema_version": 1,
+        "sha256": "6282020a2f7fa7e09336e17900a9c3282223948ec85a5daa671f4171af02a162",
+        "status": "failed",
+        "verify_deletion_test": "not_run",
+        "write_test": "failed"
+      },
+      "stage": "r2_probe"
+    }
+  ],
+  "fits_started": 0,
+  "fixed_commit": "23aec28407468b5d3d4b9b15450e84dc616bfd54",
+  "prefix": "paper1-hpc-20261023/frozen-inputs-v1/",
+  "r2_probe": {
+    "bytes": 55,
+    "checked_at_utc": "2026-10-25T04:27:51.124307+00:00",
+    "credentials_logged": false,
+    "delete_test": "not_run",
+    "error": {
+      "error_class": "AccessDenied",
+      "http_status": 403,
+      "s3_error_code": "AccessDenied"
+    },
+    "failure_stage": "put_object",
+    "key": "paper1-hpc-20261023/frozen-inputs-v1/metadata/probes/.preflight/e9b5526ead9e414db8b97d2b2483eb1d.txt",
+    "probe_attempts": 1,
+    "read_back_test": "not_run",
+    "schema_version": 1,
+    "sha256": "6282020a2f7fa7e09336e17900a9c3282223948ec85a5daa671f4171af02a162",
+    "status": "failed",
+    "verify_deletion_test": "not_run",
+    "write_test": "failed"
+  },
+  "report_upload_failures": [],
+  "schema_version": 1,
+  "status": "blocked_r2_probe",
+  "updated_at_utc": "2026-10-25T04:27:51.367100+00:00"
+}
