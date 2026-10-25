@@ -1,0 +1,54 @@
+{
+  "scope": "runtime/input-version integration tests; no scientific model fitting",
+  "updated_at_utc": "2026-10-25T05:24:50.901820+00:00",
+  "base_commit": "a37f3ae82c4df3590764ec18e56dc1c970b86302",
+  "approval": {
+    "source": "explicit user reply in this task",
+    "date": "2026-10-25",
+    "text": "同意新增隐私修正版清单并继续（推荐）"
+  },
+  "selected_profile": "yang_nemar_privacy_v1",
+  "original_frozen_files_unchanged": true,
+  "original_vendor_members_full_sha_matched": 12,
+  "original_science_study_model_numeric_profile_unchanged": true,
+  "overlay": {
+    "bytes": 157800,
+    "sha256": "5d19f9732d607d1a78e2c64d9a4796f537278d8ad639009247acce3db146a75f",
+    "payloads": 18
+  },
+  "passing_test_groups": [
+    {
+      "suite": "privacy-final-runtime-regressions.log",
+      "tests": 178,
+      "passed": true,
+      "log_sha256": "5a5879d9cb8a21d88e5a2a55c2fe239f44d89b7a3f9067830786fe7970e99b73"
+    },
+    {
+      "suite": "privacy-final-prep-regressions.log",
+      "tests": 9,
+      "passed": true,
+      "log_sha256": "9493ef0f44759b1c6a38c33ee389603101c4b6f4726acf9fb102f965b9c1f047"
+    },
+    {
+      "suite": "privacy-final-installer-overlay.log",
+      "tests": 5,
+      "passed": true,
+      "log_sha256": "a994d0c686f7e31a69bd4c562a71119430f7c7af15a48887268bdc1cc3e119fa"
+    }
+  ],
+  "school_slurm_or_training_execution_performed_by_this_task": false,
+  "new_model_fits": 0,
+  "r2_required": false,
+  "actual_school_first_download_still_to_observe": true,
+  "independent_data_validation": {
+    "all_corrected_record_headers": 306,
+    "all_headers_original_clock_exact_match": true,
+    "corrected_event_whole_files_verified": 153,
+    "people_event_policy_verified": 51,
+    "qualified_source_cues": 30591,
+    "original_vs_corrected_complete_signal_event_pairs_compared": 1,
+    "all306_whole_payloads_independently_compared": false,
+    "dreyer_head_size_sha_declarations_matched": 174,
+    "dreyer_head_is_whole_body_validation": false
+  }
+}

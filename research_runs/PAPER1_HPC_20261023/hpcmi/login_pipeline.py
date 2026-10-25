@@ -142,11 +142,15 @@ def start(args):
     # The official API's IPv4 curl route has been observed on this school login
     # host. Credentials remain on stdin inside that transport, never in argv.
     os.environ.setdefault('PAPER1_GITHUB_TRANSPORT', 'curl')
-    paths = cli.setup(project, args.python, raw_dir=args.raw_dir, repository=args.repository)
+    from .yang_privacy_activation import effective_raw_dir, is_selected, activate
+    source = getattr(args, 'yang_source', None)
+    raw_dir = effective_raw_dir(project, args.raw_dir, source)
+    paths = cli.setup(project, args.python, raw_dir=raw_dir, repository=args.repository)
+    adopting = source == 'nemar-privacy-v1' and not is_selected(paths)
     # Fresh credentials are interactive here, before the detached child starts.
     token = github_sync.confirm_credentials(paths['repository'], project.name,
                                            force=args.reauthorize, require_verified=True)
-    if getattr(args, 'restart_transfer', False):
+    if getattr(args, 'restart_transfer', False) and not adopting:
         # One bounded route check with the actual school interpreter. Metadata
         # success establishes a route only, not completed download or training.
         _check_download_route(paths)
@@ -154,8 +158,17 @@ def start(args):
                 'project_id': project.name, 'token_file': str(token)})
     with exclusive_lock(project / 'state/login-pipeline-start.lock'):
         observed = _live_driver(project)
-        if observed and getattr(args, 'restart_transfer', False):
+        if adopting and observed and observed.get('stage') not in {'login_transport_only', 'network_retry_wait'}:
+            raise RuntimeError('Existing login stage retained; source identity was not changed')
+        if observed and (getattr(args, 'restart_transfer', False) or adopting):
             observed = _restart_transfer_driver(project, observed)
+        if adopting:
+            if observed:
+                raise RuntimeError('Existing transfer retained; no source migration started')
+            paths = activate(project, paths)
+            _check_download_route(paths)
+        elif is_selected(paths):
+            paths = activate(project, paths)
         if observed:
             print(json.dumps({'status': 'EXISTING_LOGIN_PIPELINE_REUSED',
                               'stage': observed['stage'], 'pid': observed['pid']}), flush=True)
@@ -345,6 +358,8 @@ def main(argv=None):
     parser.add_argument('--gpus', type=int, choices=[2, 3], default=2)
     parser.add_argument('--memory', default='128G')
     parser.add_argument('--replace-job')
+    parser.add_argument('--yang-source', choices=['original', 'nemar-privacy-v1'],
+                        help='Explicitly select the independently versioned official privacy-corrected inputs')
     parser.add_argument('--reauthorize', action='store_true')
     parser.add_argument('--restart-transfer', action='store_true',
                         help='Gracefully restart only an active login download, reusing cached files')

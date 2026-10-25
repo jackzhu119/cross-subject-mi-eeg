@@ -2,6 +2,8 @@
 
 **R2不是数据下载、科学校验或训练的必要条件。** 用户可在允许联网下载的学校节点直接把数据保存到`/public/home/zhuziyuan/projects/paper1-risk-v1/raw`。现有代码已支持续传、完整文件复用、校验后自动接续；无需先下载到个人电脑或本云环境。
 
+**2026-10-25更新：用户已批准Yang官方隐私修正版的独立输入身份。** 当前可执行入口增加 `--yang-source nemar-privacy-v1`，从NEMAR逐文件直接下载；修正版312项真实URL、大小及新SHA见 [新清单](config/yang_nemar_privacy_v1.json)，[版本切换与核验说明](NEMAR_PRIVACY_SOURCE.md)。下载到独立的 `raw-nemar-privacy-v1/yang/`，BNCI/Dreyer复用原目录。以下TSV、SHA文件及Figshare说明作为**原始冻结身份**保留，不能用其旧BDF哈希核验修正版。
+
 ## 数据入口
 
 | 数据 | 固定对象数／原生大小 | 官方入口 | 已取得的学校证据 |

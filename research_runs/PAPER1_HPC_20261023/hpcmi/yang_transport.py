@@ -8,7 +8,9 @@ from __future__ import annotations
 
 import hashlib
 import http.client
+import io
 import json
+import os
 from pathlib import Path
 import re
 import socket
@@ -287,9 +289,61 @@ class YangRangeReader(frozen.HTTPRangeReader):
         raise _controlled_error(error, 'yang_range_retries_exhausted') from None
 
 
-def open_yang_archive(*, verify_pin=True, max_total_bytes=None, routes=None, opener=None):
-    """Original scientific ZIP parser with the HPC GET-only transport adapter."""
-    reader = YangRangeReader(max_total_bytes=max_total_bytes, routes=routes, opener=opener)
+class LocalReadonlyReader(io.RawIOBase):
+    """Read the original official ZIP locally, preserving its frozen identity.
+
+    Only the transport changes. Network counters remain zero, and byte-level
+    publication continues to require the original member CRC/SHA checks.
+    """
+    source_kind = 'local_official_zip'
+
+    def __init__(self, path, *, max_total_bytes=None):
+        super().__init__()
+        self.url = frozen.YANG_URL
+        self.bytes_received = 0
+        self.request_count = 0
+        self.local_bytes_read = 0
+        self.max_total_bytes = max_total_bytes
+        self._file = Path(path).open('rb')
+        self.size = os.fstat(self._file.fileno()).st_size
+        if self.size != frozen.YANG_BYTES:
+            self._file.close()
+            super().close()
+            raise ValueError('Local Yang ZIP length differs from the frozen archive; file retained')
+
+    def readable(self):
+        return True
+
+    def seekable(self):
+        return True
+
+    def tell(self):
+        return self._file.tell()
+
+    def seek(self, offset, whence=os.SEEK_SET):
+        return self._file.seek(offset, whence)
+
+    def read(self, count=-1):
+        available = max(0, self.size - self.tell())
+        count = available if count is None or count < 0 else min(int(count), available)
+        if self.max_total_bytes is not None and self.local_bytes_read + count > self.max_total_bytes:
+            raise ValueError('Local Yang metadata read limit exceeded')
+        data = self._file.read(count)
+        self.local_bytes_read += len(data)
+        return data
+
+    def close(self):
+        if hasattr(self, '_file'):
+            self._file.close()
+        super().close()
+
+
+def open_yang_archive(*, verify_pin=True, max_total_bytes=None, routes=None, opener=None,
+                      local_archive=None):
+    """Original scientific ZIP parser with strict remote or read-only local I/O."""
+    reader = (LocalReadonlyReader(local_archive, max_total_bytes=max_total_bytes)
+              if local_archive is not None else
+              YangRangeReader(max_total_bytes=max_total_bytes, routes=routes, opener=opener))
     try:
         attestation, directory = frozen.zip_directory_attestation(reader)
         if verify_pin and attestation['central_directory_sha256'] != frozen.YANG_CENTRAL_SHA256:

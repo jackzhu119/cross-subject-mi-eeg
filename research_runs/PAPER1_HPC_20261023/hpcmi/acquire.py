@@ -28,8 +28,10 @@ sys.path.insert(0, str(VENDOR))
 from p1_common import atomic_json, log, safe_child, sha256_file, utc_now
 from p1_rangezip import member_record, selected_yang_members
 from .yang_transport import open_yang_archive
+from . import yang_privacy
 
 STORAGE_HOST = 'nemar.s3.us-east-2.amazonaws.com'
+YANG_LOCAL_ARCHIVE_NAME = 'WBCIC_SHU_Motor_Imagery_dataset.zip'
 CHUNK = 8 * 1024 * 1024
 _ROUTE_CONNECTION_ERRNOS = frozenset((errno.ENETUNREACH, errno.EHOSTUNREACH, errno.ENETDOWN))
 _SYSTEM_CA_BUNDLES = (
@@ -338,8 +340,28 @@ def check_download_route(raw_dir=None):
                 _check_bnci_download_head()
                 result = {'dataset': dataset, 'status': 'OFFICIAL_HEAD_VERIFIED'}
             elif dataset == 'yang':
-                inventory, rows = yang_pins()
-                reader, archive, attestation, _ = open_yang_archive(max_total_bytes=1024 * 1024)
+                inventory, rows = _yang_pins_for_root(raw_dir / 'yang')
+                if _yang_payloads_cached(raw_dir / 'yang', inventory, rows):
+                    result = {'dataset': dataset, 'status': 'CACHED_YANG_PAYLOADS_VERIFIED',
+                              'selected_members': len(rows),
+                              'native_validation_may_be_pending': not yang_privacy.is_active(raw_dir / 'yang')}
+                    checked.append(result)
+                    print(json.dumps(result, sort_keys=True), flush=True)
+                    continue
+                if yang_privacy.is_active(raw_dir / 'yang'):
+                    from .yang_nemar_download import official_object
+                    row = next(r for r in rows if r['path'].endswith('/evt.bdf'))
+                    with official_object(row, row['size'] - 1) as response:
+                        if (response.status != 206 or response.headers.get('Content-Range') !=
+                                'bytes %d-%d/%d' % (row['size'] - 1, row['size'] - 1, row['size'])
+                                or len(response.read(2)) != 1):
+                            raise ValueError('Privacy source one-byte range differs')
+                    checked.append({'dataset': dataset, 'status': 'NEMAR_PRIVACY_NATIVE_ROUTE_VERIFIED',
+                                    'source_profile': yang_privacy.PROFILE, 'range_probe_bytes': 1,
+                                    'full_file_sha256_verified': False})
+                    print(json.dumps(checked[-1], sort_keys=True), flush=True)
+                    continue
+                reader, archive, attestation, _ = _open_yang_source(raw_dir / 'yang', max_total_bytes=1024 * 1024)
                 try:
                     if _archive_identity(attestation) != _archive_identity(inventory):
                         raise ValueError('Yang route metadata differs from the frozen ZIP identity')
@@ -351,7 +373,9 @@ def check_download_route(raw_dir=None):
                         record = member_record(member)
                         if record != {key: pins[member.filename][key] for key in record}:
                             raise ValueError('Yang selected member differs from its frozen pin')
-                    result = {'dataset': dataset, 'status': 'YANG_GET_RANGE_DIRECTORY_VERIFIED',
+                    result = {'dataset': dataset, 'status': ('YANG_LOCAL_ZIP_DIRECTORY_VERIFIED'
+                              if getattr(reader, 'source_kind', None) == 'local_official_zip'
+                              else 'YANG_GET_RANGE_DIRECTORY_VERIFIED'),
                               'archive_bytes': attestation['archive_bytes'],
                               'central_directory_sha256': attestation['central_directory_sha256'],
                               'selected_members': len(members), 'eeg_payload_read': False}
@@ -458,7 +482,7 @@ def open_object(row, offset=0, *, nemar=False):
             response.close()
 
 
-def transfer_object(root, row, *, nemar=False, attempts=4):
+def transfer_object(root, row, *, nemar=False, attempts=4, object_opener=None):
     digest = verified_existing(root, row)
     if digest:
         return digest
@@ -472,7 +496,7 @@ def transfer_object(root, row, *, nemar=False, attempts=4):
         stage = 'open_object'
         try:
             if offset < row['size']:
-                with open_object(row, offset, nemar=nemar) as response:
+                with (object_opener or open_object)(row, offset, nemar=nemar) as response:
                     stage = 'response_headers'
                     if response.status == 206:
                         if response.headers.get('Content-Range') != 'bytes %d-%d/%d' % (offset, row['size'] - 1, row['size']):
@@ -561,6 +585,49 @@ def yang_pins():
     return inventory, rows
 
 
+def _yang_pins_for_root(root):
+    if yang_privacy.is_active(root):
+        return None, yang_privacy.pins(root)
+    return yang_pins()
+
+
+def _privacy_yang_manifest(root, rows, completed):
+    """Report actual corrected identities, retaining original pins as ancestry."""
+    contract = yang_privacy.load_contract()
+    files = []
+    for row in rows:
+        entry = {'path': row['path'], 'size': row['size'], 'sha256': completed[row['path']],
+                 'original_sha256': row.get('original_sha256'),
+                 'original_zip_crc32': row['original_zip_crc32']}
+        if 'crc32' in row:
+            entry['crc32'] = row['crc32']
+        files.append(entry)
+    stable = {'dataset': 'Yang2025-2C', 'source_profile': yang_privacy.PROFILE,
+              'data_doi': '10.25452/figshare.plus.22671172.v5',
+              'provider_data_doi': '10.82901/nemar.nm000348', 'license': 'CC BY 4.0',
+              'provider_dataset': contract['provider_dataset'], 'provider_version': contract['provider_version'],
+              'profile_identity': {key: value for key, value in yang_privacy.current_identity().items()
+                                   if key != 'adapter_sha256'},
+              'integrity_scope': 'official privacy-corrected native full SHA256; six unchanged metadata CRC32; original SHA/ZIP CRC retained only as ancestry',
+              'original_zip_crc_for_corrected_bdf_verified': False,
+              'whole_archive_md5_verified': False, 'files': files}
+    atomic_json(Path(root) / '_download_manifest.json', stable)
+    return stable
+
+
+def _publish_privacy_yang_offline(root):
+    from .yang_nemar_download import _metadata_crc
+    rows = yang_privacy.pins(root)
+    completed = {}
+    for row in rows:
+        digest = verified_existing(root, row)
+        if digest != row['sha256']:
+            raise ValueError('Privacy native input incomplete; finish native transfer first')
+        _metadata_crc(root, row)
+        completed[row['path']] = digest
+    return _privacy_yang_manifest(root, rows, completed)
+
+
 def _archive_identity(inventory):
     keys = ('archive_url', 'archive_bytes', 'central_directory_offset',
             'central_directory_bytes', 'central_directory_sha256', 'member_count', 'eocd_offset')
@@ -577,6 +644,14 @@ def _yang_pin(row):
     if row.get('sha256'):
         value['sha256'] = row['sha256']
     return value
+
+
+def _open_yang_source(root, **kwargs):
+    """An uploaded original ZIP is optional; an invalid one is never bypassed."""
+    source = Path(root) / YANG_LOCAL_ARCHIVE_NAME
+    if source.exists() or source.is_symlink():
+        return open_yang_archive(local_archive=source, **kwargs)
+    return open_yang_archive(**kwargs)
 
 
 def _yang_local_header(reader, info, row):
@@ -722,6 +797,10 @@ def _yang_member(reader, info, row, root):
 
 def acquire_yang_transport(root, progress=None):
     """Network I/O only: keep compressed bytes; never decode a Yang member."""
+    if yang_privacy.is_active(root):
+        from .yang_nemar_download import download
+        rows = yang_privacy.pins(root)
+        return _privacy_yang_manifest(root, rows, download(root, progress=progress))
     inventory, rows = yang_pins()
     root = Path(root)
     root.mkdir(parents=True, exist_ok=True)
@@ -742,7 +821,7 @@ def acquire_yang_transport(root, progress=None):
         remaining += row['compressed_bytes'] - existing
     if shutil.disk_usage(root).free < remaining + 4 * 1024 ** 3:
         raise ValueError('Yang transport needs remaining compressed bytes plus 4 GiB')
-    reader, archive, attestation, _ = open_yang_archive()
+    reader, archive, attestation, _ = _open_yang_source(root)
     try:
         if _archive_identity(attestation) != _archive_identity(inventory):
             raise ValueError('Live Yang archive differs from frozen attestation')
@@ -770,6 +849,8 @@ def _yang_manifest(root, inventory, rows, completed):
 
 
 def publish_yang_offline(root):
+    if yang_privacy.is_active(root):
+        return _publish_privacy_yang_offline(root)
     inventory, rows = yang_pins()
     root = Path(root)
     completed = {}
@@ -784,6 +865,8 @@ def publish_yang_offline(root):
 
 
 def acquire_yang(root):
+    if yang_privacy.is_active(root):
+        return acquire_yang_transport(root)
     inventory, rows = yang_pins()
     root = Path(root)
     root.mkdir(parents=True, exist_ok=True)
@@ -793,7 +876,7 @@ def acquire_yang(root):
         remaining = sum(row['size'] for row in pending)
         if shutil.disk_usage(root).free < remaining + 4 * 1024 ** 3:
             raise ValueError('Yang needs remaining raw bytes plus 4 GiB for transfer/cache; free storage first')
-        reader, archive, attestation, _ = open_yang_archive()
+        reader, archive, attestation, _ = _open_yang_source(root)
         try:
             selected = selected_yang_members(archive)
             by_name = {info.filename: info for info in selected}
@@ -821,7 +904,9 @@ def quick_raw_ready(raw_dir):
         observed = json.loads(manifest_path.read_text())
         records = {r['path']: r for r in observed['files']}
         if dataset == 'yang':
-            _, expected = yang_pins()
+            _, expected = _yang_pins_for_root(root)
+            if yang_privacy.is_active(root) and observed.get('source_profile') != yang_privacy.PROFILE:
+                raise ValueError('Yang manifest does not identify the selected privacy source')
         else:
             expected = json.loads((VENDOR / 'config' / (dataset + '_manifest.json')).read_text())['files']
         if set(records) != {r['path'] for r in expected}:
@@ -867,13 +952,10 @@ def _pinned_native_ready(raw_dir, dataset, *, verify_unreceipted=False):
     return True
 
 
-def network_payloads_ready(raw_dir):
-    """Metadata/stat readiness; no network, decompression, EEG import or rehash."""
-    raw_dir = Path(raw_dir)
-    if not all(_pinned_native_ready(raw_dir, dataset) for dataset in ('bnci', 'dreyer')):
-        return False
-    inventory, rows = yang_pins()
-    root = raw_dir / 'yang'
+def _yang_payloads_cached(root, inventory, rows):
+    """Bounded saved receipts/stat only; never scan native payload hashes."""
+    root = Path(root)
+    native_only = yang_privacy.is_active(root)
     for row in rows:
         target = safe_child(root, row['path'])
         receipt_path = _receipt_path(root, row['path'])
@@ -886,9 +968,18 @@ def network_payloads_ready(raw_dir):
                     or not re.fullmatch(r'[0-9a-f]{64}', str(receipt.get('sha256', '')))
                     or (row.get('sha256') and receipt.get('sha256') != row['sha256'])):
                 raise ValueError('Yang native transport file/receipt changed: ' + row['path'])
-        elif not _compressed_ready(root, row, inventory):
+        elif native_only or not _compressed_ready(root, row, inventory):
             return False
     return True
+
+
+def network_payloads_ready(raw_dir):
+    """Metadata/stat readiness; no network, decompression, EEG import or rehash."""
+    raw_dir = Path(raw_dir)
+    if not all(_pinned_native_ready(raw_dir, dataset) for dataset in ('bnci', 'dreyer')):
+        return False
+    inventory, rows = _yang_pins_for_root(raw_dir / 'yang')
+    return _yang_payloads_cached(raw_dir / 'yang', inventory, rows)
 
 
 def publish_offline(raw_dir, datasets=('bnci', 'yang', 'dreyer')):
@@ -940,6 +1031,7 @@ def _independent_network_failure(error, details):
 def _transport_independent_datasets(raw_dir, datasets):
     """One pass per source, keeping completed inputs when another is unavailable."""
     counts = {'bnci': 18, 'yang': 312, 'dreyer': 174}
+    privacy_native = yang_privacy.is_active(Path(raw_dir) / 'yang')
     completed = {name: 0 for name in datasets}
     # Full native manifests/receipts can seed an exact cached count without
     # repeating SHA scans. Incomplete sources are advanced by real callbacks.
@@ -961,7 +1053,9 @@ def _transport_independent_datasets(raw_dir, datasets):
                 'completed_objects': sum(completed.values()), 'total_objects': sum(counts[d] for d in datasets),
                 'dataset_completed_objects': completed[dataset], 'dataset_total_objects': counts[dataset],
                 'completed_by_dataset': dict(completed), 'unavailable_datasets': [row['dataset'] for row in failures],
-                'updated_at_utc': utc_now(), 'model_fits': 0, 'native_yang_validation_pending': True})
+                'updated_at_utc': utc_now(), 'model_fits': 0,
+                'yang_source_profile': yang_privacy.PROFILE if privacy_native else 'figshare_v5_original',
+                'native_yang_validation_pending': not (privacy_native and completed.get('yang') == 312)})
         progress(completed[dataset], counts[dataset])
         try:
             if dataset == 'yang':

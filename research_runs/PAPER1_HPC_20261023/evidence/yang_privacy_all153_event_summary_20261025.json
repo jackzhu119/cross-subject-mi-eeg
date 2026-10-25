@@ -1,0 +1,77 @@
+{
+  "stage": "ALL_153_CURRENT_EVT_SHA_AND_FROZEN_EVENT_POLICY_PASS",
+  "started_at_utc": "2026-10-25T05:15:21.865684+00:00",
+  "completed_at_utc": "2026-10-25T05:15:28.461113+00:00",
+  "runtime_python": "/workspace/paper1-hpc-artifacts/prep-runtime-smoke/.venvs/preprocessing-cp312/bin/python",
+  "runtime_versions": {
+    "python": "3.12.14",
+    "numpy": "2.2.6",
+    "scipy": "1.15.3"
+  },
+  "profile": "yang_nemar_privacy_v1",
+  "contract_sha256": "8cdf62ce36a0541b1e043e3b6c7bc973bb44669846a7f62c94c49fb4854e6a04",
+  "current_evt_full_sha_verified": 153,
+  "current_evt_complete_bytes_verified": 9666852,
+  "sessions_policy_passed": 153,
+  "included_cues": 30591,
+  "people_validated": 51,
+  "population_all_51_match": true,
+  "source_files_unchanged_during_run": true,
+  "model_fits": 0,
+  "optimizer_updates": 0,
+  "target_eeg_read": false,
+  "signal_bdf_full_body_downloaded_by_this_run": false,
+  "signal_payload_independent_pair_count_in_parent_evidence": 1,
+  "all_306_signal_and_evt_full_raw_sha_verified_by_this_run": false,
+  "all_yang_source_inputs_ready": false,
+  "torch_imported": false,
+  "http_files_opened_in_retry": 39,
+  "only_prior_39_failures_used_http": true,
+  "old_114_files_redownloaded": false,
+  "prior_39_failure_category": "canonical_open HTTP500; original protocol later succeeded",
+  "cause_no_range_proven": false,
+  "download_failures": 0,
+  "validation_failures": 0,
+  "artifacts": [
+    {
+      "path": "event_compatibility_report.json",
+      "bytes": 164035,
+      "sha256": "405105b0293bad2d8413d82f4108d38766b2ac5e39b1b83a0dca69d30d1a55dc"
+    },
+    {
+      "path": "event_compatibility_retry500_report.json",
+      "bytes": 188325,
+      "sha256": "405f96c7e82ca2ea3c4a2b6d4f20a4e254b0fb3e349d13caa3ba90c668a2a4ae"
+    },
+    {
+      "path": "worker.log",
+      "bytes": 19624,
+      "sha256": "b232f7511122129663e23d5ac6df8bfc70188e01b5cc6a394a1ecbdafded273c"
+    },
+    {
+      "path": "worker-retry500.log",
+      "bytes": 7032,
+      "sha256": "fe6f7688f8bef0b800761ef0b693983b1aa196d497e29e3ff7cad09d548e2cde"
+    },
+    {
+      "path": "exit-code.txt",
+      "bytes": 2,
+      "sha256": "1121cfccd5913f0a63fec40a6ffd44ea64f9dc135c66634ba001d10bcf4302a2"
+    },
+    {
+      "path": "exit-code-retry500.txt",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "validate_events.py",
+      "bytes": 10149,
+      "sha256": "8a3e1f742458ee333539995d5ea09a2c3414ffb9781f0d8748d5f15e880b6a65"
+    },
+    {
+      "path": "resume_failed_500_once.py",
+      "bytes": 11184,
+      "sha256": "9b94b3749a030fe982823d44ffc278b6966f2e9babefec4d96f45edacf05e17f"
+    }
+  ]
+}

@@ -2,6 +2,8 @@
 
 当前正式入口为 `RUN_SINGLE_JOB_ON_SCHOOL.sh`，采用 **一个Slurm作业、一个节点、2GPU、总24CPU、总128G内存**。两个独立训练进程各对应12CPU；节点内存由作业共享，不是每卡再申请128G。Slurm负责GPU分配，worker使用自己的`cuda:0`。这是独立方法/种子/折数并行，不是同一个模型的DDP。
 
+**2026-10-25已获用户明确批准的直接下载修订：** 使用 `--yang-source nemar-privacy-v1` 从NEMAR官方取得隐私修正版Yang原生文件，避开学校已实测403的Figshare入口；不依赖R2。新文件按独立固定SHA和时钟/事件清单核验，原清单、旧结果及失败不变。现有BNCI/Dreyer下载和partial直接复用。详见 [来源、独立核验与版本边界](NEMAR_PRIVACY_SOURCE.md)。以下历史Figshare压缩运输说明仍适用于未选择该新版本的原流程；新版本在登录端直接取得完整原生文件，计算节点无需解压Yang。
+
 ## 已观察的问题及修复
 
 2026-10-24学校日志证明：771084曾在gpu2启动，第一份BNCI下载遇`gaierror -2`，四次尝试后退出1；该次作业没有进入训练。随后用户在login1对同一TU Graz官方文件的HEAD获得200及冻结大小43772146。名称解析错误可能涉及目标或代理路径，不能据此声称所有计算节点都没有外网。用户已明确允许login1用一个后台进程进行数据下载，解压、EEG预处理及训练仍留在计算节点。
@@ -19,7 +21,7 @@
 在login1完整执行：
 
 ```bash
-curl -4 -f --connect-timeout 8 --max-time 60 --retry 1 -H 'Accept: application/vnd.github.raw+json' 'https://api.github.com/repos/jackzhu119/cross-subject-mi-eeg/contents/research_runs/PAPER1_HPC_20261023/RUN_SINGLE_JOB_ON_SCHOOL.sh?ref=main' -o /tmp/paper1-start.sh && bash /tmp/paper1-start.sh --reauthorize --restart-transfer --gpus 2 --memory 128G --replace-job 771084
+curl -4 -f --connect-timeout 8 --max-time 60 --retry 1 -H 'Accept: application/vnd.github.raw+json' 'https://api.github.com/repos/jackzhu119/cross-subject-mi-eeg/contents/research_runs/PAPER1_HPC_20261023/RUN_SINGLE_JOB_ON_SCHOOL.sh?ref=main' -o /tmp/paper1-start.sh && bash /tmp/paper1-start.sh --yang-source nemar-privacy-v1 --restart-transfer --gpus 2 --memory 128G --replace-job 771084
 ```
 
 代码包和固定wheel通过GitHub官方API在login1准备/复用。计算作业不下载代码或依赖，不修改共享Paper3环境。原安装锁文件和旧失败记录保留；新的代码更新锁在出现授权提示前释放，关闭输入窗口不会继续占用代码更新锁。

@@ -400,7 +400,8 @@ _STRINGS = {"status", "stage", "phase", "method", "endpoint", "metric", "variant
             "updated_at_utc", "started_at_utc", "completed_at_utc", "finished_at_utc",
             "domain", "contrast", "family", "aggregation", "bootstrap", "permutation", "evaluation_variant",
             "requested_memory", "slurm_job_id", "submission_status"}
-_BOOLS = {"all_comparison_directions_retained", "independent_external_confirmation"}
+_BOOLS = {"all_comparison_directions_retained", "independent_external_confirmation",
+          "native_yang_validation_pending"}
 _CONTAINERS = {"metrics", "validation", "test_metrics", "statistics", "summary", "results",
                "conditions", "comparisons", "by_method", "primary", "secondary", "evaluation",
                "fixed40", "selected", "source_selected", "outer", "development", "final",
@@ -414,6 +415,8 @@ def _safe_stats(value, depth=0):
     for key, item in value.items():
         limits = {"bnci": 18, "yang": 312, "dreyer": 174}
         if key == "dataset" and isinstance(item, str) and item in limits:
+            clean[key] = item
+        elif key == "yang_source_profile" and isinstance(item, str) and item in {"figshare_v5_original", "yang_nemar_privacy_v1"}:
             clean[key] = item
         elif key == "completed_by_dataset" and isinstance(item, dict):
             clean[key] = {name: count for name, count in item.items()

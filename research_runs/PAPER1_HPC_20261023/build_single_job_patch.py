@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Small operations-only overlay; never bundle EEG or scientific model files."""
+"""Small runtime/input-contract overlay; never bundle EEG or model weights."""
 import gzip
 import hashlib
 import io
@@ -11,16 +11,22 @@ ROOT = Path(__file__).resolve().parent
 MEMBERS = [
     "LAUNCH.sh", "hpcmi/acquire.py", "hpcmi/cli.py", "hpcmi/github_sync.py",
     "hpcmi/single_job.py", "hpcmi/submit_single.py", "hpcmi/login_pipeline.py",
-    "hpcmi/yang_transport.py", "slurm/single_job.sh", "SINGLE_JOB.md",
+    "hpcmi/yang_transport.py", "hpcmi/yang_privacy.py", "hpcmi/yang_nemar_download.py",
+    "hpcmi/yang_privacy_activation.py", "hpcmi/raw_prepare.py",
+    "config/yang_nemar_privacy_v1.json", "config/yang_clock_registry_nemar_privacy_v1.json",
+    "config/eligibility_manifest_nemar_privacy_v1.json",
+    "slurm/single_job.sh", "SINGLE_JOB.md", "NEMAR_PRIVACY_SOURCE.md",
 ]
 
 
 def build(destination):
     destination = Path(destination)
     payloads = {name: (ROOT / name).read_bytes() for name in MEMBERS}
-    manifest = {"schema_version": 1, "operation": "login-transfer-offline-single-job-20261024",
+    manifest = {"schema_version": 1, "operation": "explicit-privacy-source-login-transfer-single-job-20261025",
                 "source_base_commit": "27094e7e89ecdc9a1477ede5f399e03f4469d70a",
-                "science_model_or_input_files_included": False,
+                "eeg_or_model_weights_included": False,
+                "original_frozen_contracts_or_model_code_changed": False,
+                "new_versioned_input_identity_contracts_included": True,
                 "files": [{"path": name, "bytes": len(data), "sha256": hashlib.sha256(data).hexdigest()}
                           for name, data in sorted(payloads.items())]}
     payloads["OPERATIONS_MANIFEST.json"] = (json.dumps(manifest, indent=2) + "\n").encode()
