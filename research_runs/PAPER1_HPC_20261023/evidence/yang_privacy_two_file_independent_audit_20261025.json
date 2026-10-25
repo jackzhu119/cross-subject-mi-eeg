@@ -1,0 +1,35 @@
+{
+  "scope": "two_full_native_files_byte_comparison_only",
+  "model_fits": 0,
+  "eeg_samples_decoded": false,
+  "identifier_values_output": false,
+  "bytes_patched": false,
+  "original_frozen_hashes_changed": false,
+  "whole_306_files_independently_compared": false,
+  "files": [
+    {
+      "path": "sourcedata/2C dataset/sub-001/ses-01/eeg/evt.bdf",
+      "bytes": 63186,
+      "original_sha256": "b12154047ed2587adb6f04ac9282576f42246f681e7e777a5ede01253420d80a",
+      "provider_corrected_sha256": "66d795abaca0a62610168ebfafc4ab86d75dadfbce62eab443facc1bf39e4b31",
+      "original_frozen_sha_matches": true,
+      "corrected_provider_sha_matches": true,
+      "only_identification_field_bytes_may_differ": true,
+      "all_bytes_after_fixed_256_header_identical": true,
+      "format_and_nonidentifying_fixed_header_identical": true
+    },
+    {
+      "path": "sourcedata/2C dataset/sub-001/ses-01/eeg/data.bdf",
+      "bytes": 432016640,
+      "original_sha256": "a7902b8e500695a009564728a71a331bab65f2feb22fc448411793cb67be676a",
+      "provider_corrected_sha256": "51da6499a82c11c81461072409bfae2fc3b10809ceb825ad0babab2d137152ef",
+      "original_frozen_sha_matches": true,
+      "corrected_provider_sha_matches": true,
+      "only_identification_field_bytes_may_differ": true,
+      "all_bytes_after_fixed_256_header_identical": true,
+      "format_and_nonidentifying_fixed_header_identical": true
+    }
+  ],
+  "stage": "TWO_FILE_PAYLOAD_EQUIVALENCE_VERIFIED_ROUTE_REVIEW_PENDING",
+  "updated_at_utc": "2026-10-25T04:47:13.869249+00:00"
+}

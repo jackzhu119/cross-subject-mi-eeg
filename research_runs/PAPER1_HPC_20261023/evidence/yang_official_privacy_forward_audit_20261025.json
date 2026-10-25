@@ -1,0 +1,254 @@
+{
+  "scope": "Read-only official metadata and code audit for prospective forward de-identification; no EEG or byte changes",
+  "dataset": {
+    "id": "nm000348",
+    "version": "v1.0.5",
+    "annotated_tag_object": "401378d04152ee4961e2c38a8c4038c03515c056",
+    "commit": "ff0a1f44675fc7d8083d764f6611607309aa2a1d",
+    "original_provenance_sha_matches_frozen": 306,
+    "current_native_whole_file_sha_matches_frozen": 0,
+    "all_six_metadata_frozen_size_crc_match": true
+  },
+  "official_policy_sources": [
+    "https://docs.nemar.org/policies/privacy-corrections/",
+    "https://docs.nemar.org/platform/identifier-screening/"
+  ],
+  "forward_rule": {
+    "code_revision": "5e36757e9884d0ad6623847e714f44cc08630a9f",
+    "zero_indexed_half_open_rewritable_ranges": [
+      [
+        8,
+        88
+      ],
+      [
+        88,
+        168
+      ]
+    ],
+    "patient_placeholder": "X X X X",
+    "field_padding": "ASCII spaces to width 80",
+    "recording_placeholder_rule": "Startdate plus preserved valid dd-MMM-yyyy token (uppercase) or X, then X X X",
+    "fields_changed_only_if_scanner_flags_identifying_content": true,
+    "header_verification_preserves_ranges": [
+      [
+        0,
+        8
+      ],
+      [
+        168,
+        256
+      ]
+    ],
+    "data_after_offset_256_preserved_by_patching_construction": true,
+    "start_date_time_record_count_and_signal_headers_outside_allowed_ranges": true,
+    "reverse_recovery_proposed": false
+  },
+  "official_verification_chain": {
+    "header_verdict": "verifyScrub checks unchanged non-identification header bytes and clean scanner findings",
+    "s3_verification": "verifyOne checks exact header patch and sampled byte windows; not by itself a full-object comparison",
+    "full_object_proof": "hash_stage.py compute streams old object and computes original SHA and forward-patched SHA simultaneously; checks original against old annex key. verify-new then streams actual new version and compares size/SHA to new key.",
+    "dataset_ledger_claim": "scanner-clean+payload-identical+rehash-ok",
+    "ledger_scope_headers": 525,
+    "independent_all_306_payload_validation_by_this_agent": false
+  },
+  "limitations": [
+    "Dataset-specific README/provenance declaration alone does not state byte offsets; official policy and fixed implementation supply them.",
+    "The ledger is an operator record, not an independent certificate.",
+    "A new operational input contract would need separate approval; do not overwrite or silently relax frozen original SHA pins.",
+    "Six metadata size/CRC matches were independently verified; no BDF recording bytes were downloaded by this agent.",
+    "No identifying values, original headers or participant names were printed or reconstructed."
+  ],
+  "code_sources": [
+    {
+      "repository": "nemarOrg/nemar-cli",
+      "commit": "5e36757e9884d0ad6623847e714f44cc08630a9f",
+      "path": "shared/identifier-scan.ts",
+      "bytes": 38024,
+      "sha256": "450733bc6077dcf80bdec7a4c9129ebca5786523d88088cf5b42b8c1225a5458",
+      "git_blob_matches_fixed_tree": true,
+      "public_source": "https://github.com/nemarOrg/nemar-cli/blob/5e36757e9884d0ad6623847e714f44cc08630a9f/shared/identifier-scan.ts"
+    },
+    {
+      "repository": "nemarOrg/nemar-cli",
+      "commit": "5e36757e9884d0ad6623847e714f44cc08630a9f",
+      "path": "shared/identifier-scrub.ts",
+      "bytes": 6477,
+      "sha256": "e68f256cf05e51a10c19e02fed3c59315a4bd44cc2384c93b482ee570d6090e0",
+      "git_blob_matches_fixed_tree": true,
+      "public_source": "https://github.com/nemarOrg/nemar-cli/blob/5e36757e9884d0ad6623847e714f44cc08630a9f/shared/identifier-scrub.ts"
+    },
+    {
+      "repository": "nemarOrg/nemar-cli",
+      "commit": "5e36757e9884d0ad6623847e714f44cc08630a9f",
+      "path": "scripts/scrub/s3/s3-stages.ts",
+      "bytes": 76002,
+      "sha256": "9b92c2b38a69491b5ac76c285a929ca0d81d94014524437c94d62fd66fbd2ba4",
+      "git_blob_matches_fixed_tree": true,
+      "public_source": "https://github.com/nemarOrg/nemar-cli/blob/5e36757e9884d0ad6623847e714f44cc08630a9f/scripts/scrub/s3/s3-stages.ts"
+    },
+    {
+      "repository": "nemarOrg/nemar-cli",
+      "commit": "5e36757e9884d0ad6623847e714f44cc08630a9f",
+      "path": "scripts/scrub/hash/hash_stage.py",
+      "bytes": 37359,
+      "sha256": "fcfdfe4c3998c1392cdc4c3617f2ad1652f7fe12ba4133ca5e96f93521c5a496",
+      "git_blob_matches_fixed_tree": true,
+      "public_source": "https://github.com/nemarOrg/nemar-cli/blob/5e36757e9884d0ad6623847e714f44cc08630a9f/scripts/scrub/hash/hash_stage.py"
+    }
+  ],
+  "safe_dataset_ledger": [
+    {
+      "version": 1,
+      "at": "2026-10-07T03:48:00.820Z",
+      "dataset": "nm000348",
+      "action": "plan",
+      "versions": [
+        "v1.0.1",
+        "v1.0.2",
+        "v1.0.3",
+        "v1.0.4",
+        "v1.0.5"
+      ],
+      "counts": {
+        "keys": 525,
+        "need_scrub": 525
+      },
+      "scanner": "identifier-scan@5e36757e",
+      "verification": "plan-only"
+    },
+    {
+      "version": 1,
+      "at": "2026-10-07T03:48:01.011Z",
+      "dataset": "nm000348",
+      "action": "headers-scrubbed",
+      "versions": [
+        "v1.0.1",
+        "v1.0.2",
+        "v1.0.3",
+        "v1.0.4",
+        "v1.0.5"
+      ],
+      "counts": {
+        "objects": 525,
+        "headers": 525
+      },
+      "scanner": "identifier-scan@5e36757e",
+      "verification": "scanner-clean+payload-identical+rehash-ok"
+    },
+    {
+      "version": 1,
+      "at": "2026-10-07T03:48:01.083Z",
+      "dataset": "nm000348",
+      "action": "files-removed",
+      "versions": [
+        "v1.0.1",
+        "v1.0.2",
+        "v1.0.3",
+        "v1.0.4",
+        "v1.0.5"
+      ],
+      "counts": {
+        "drop_paths": 7,
+        "json_files_blanked": 33,
+        "provenance_entries_dropped": 7
+      },
+      "scanner": "identifier-scan@5e36757e",
+      "verification": "scanner-clean"
+    },
+    {
+      "version": 1,
+      "at": "2026-10-07T03:48:01.193Z",
+      "dataset": "nm000348",
+      "action": "history-rewritten",
+      "versions": [
+        "v1.0.1",
+        "v1.0.2",
+        "v1.0.3",
+        "v1.0.4",
+        "v1.0.5"
+      ],
+      "counts": {
+        "refs": 7,
+        "commits": 25
+      },
+      "scanner": "identifier-scan@5e36757e",
+      "verification": "scanner-clean"
+    },
+    {
+      "version": 1,
+      "at": "2026-10-07T03:48:01.243Z",
+      "dataset": "nm000348",
+      "action": "locks-applied",
+      "versions": [
+        "v1.0.1",
+        "v1.0.2",
+        "v1.0.3",
+        "v1.0.4",
+        "v1.0.5"
+      ],
+      "counts": {
+        "objects": 525
+      },
+      "scanner": "identifier-scan@5e36757e",
+      "verification": "none"
+    },
+    {
+      "version": 1,
+      "at": "2026-10-07T03:48:01.305Z",
+      "dataset": "nm000348",
+      "action": "manifests-regenerated",
+      "versions": [
+        "v1.0.1",
+        "v1.0.2",
+        "v1.0.3",
+        "v1.0.4",
+        "v1.0.5"
+      ],
+      "counts": {
+        "manifests": 5
+      },
+      "scanner": "identifier-scan@5e36757e",
+      "verification": "none"
+    },
+    {
+      "version": 1,
+      "at": "2026-10-07T19:44:12.344Z",
+      "dataset": "nm000348",
+      "action": "old-versions-deleted",
+      "versions": [
+        "v1.0.1",
+        "v1.0.2",
+        "v1.0.3",
+        "v1.0.4",
+        "v1.0.5"
+      ],
+      "counts": {
+        "keys": 525,
+        "versions": 525,
+        "markers": 0,
+        "pruned_versions": 1388911,
+        "pruned_markers": 892682
+      },
+      "scanner": "identifier-scan@5e36757e",
+      "verification": "authoritative-listing-empty+proof-09d9b32d99f310a5"
+    },
+    {
+      "version": 1,
+      "at": "2026-10-07T19:44:12.374Z",
+      "dataset": "nm000348",
+      "action": "published-again",
+      "versions": [
+        "v1.0.1",
+        "v1.0.2",
+        "v1.0.3",
+        "v1.0.4",
+        "v1.0.5"
+      ],
+      "counts": {
+        "manifests": 5
+      },
+      "scanner": "identifier-scan@5e36757e",
+      "verification": "public-surface-clean"
+    }
+  ]
+}
