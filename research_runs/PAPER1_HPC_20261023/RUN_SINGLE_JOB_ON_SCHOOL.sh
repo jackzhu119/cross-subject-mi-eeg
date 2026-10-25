@@ -4,8 +4,8 @@ set -euo pipefail
 PROJECTS_ROOT="${PAPER1_PROJECTS_ROOT:-/public/home/zhuziyuan/projects}"
 if [ "$#" -gt 0 ] && [[ "$1" != --* ]]; then PROJECTS_ROOT="$1"; shift; fi
 PYTHON_BIN="${PAPER1_PYTHON:-/public/home/zhuziyuan/.venvs/paper3-hpc-cu121-offline/bin/python}"
-SOURCE_REV="ba0a567e799a1e36932cc04c89b0e4ed637dd71a"
-PATCH_SHA="bf36a4bb3f6cc7f7f63d533072841df6a02c7f37c8412ab86695804671ccc0c9"
+SOURCE_REV="041fe5238932c5cd8e636374ab5bb22a0e0a38ae"
+PATCH_SHA="5d19f9732d607d1a78e2c64d9a4796f537278d8ad639009247acce3db146a75f"
 SETUP_SHA="a4f4b79e6784a7f02464f98f4764025021ddf61741f2cbc92772f4233e871c55"
 BASE_URL="https://api.github.com/repos/jackzhu119/cross-subject-mi-eeg/contents/research_runs/PAPER1_HPC_20261023"
 mkdir -p "$PROJECTS_ROOT/paper1-risk-v1/state"
@@ -55,7 +55,11 @@ archive,code,project=map(Path,sys.argv[1:4]); expected=sys.argv[4]
 assert hashlib.sha256(archive.read_bytes()).hexdigest()==expected,'Operations archive SHA mismatch'
 allowed={'LAUNCH.sh','hpcmi/acquire.py','hpcmi/cli.py','hpcmi/github_sync.py',
          'hpcmi/single_job.py','hpcmi/submit_single.py','hpcmi/login_pipeline.py',
-         'hpcmi/yang_transport.py','slurm/single_job.sh','SINGLE_JOB.md'}
+         'hpcmi/yang_transport.py','hpcmi/yang_privacy.py','hpcmi/yang_nemar_download.py',
+         'hpcmi/yang_privacy_activation.py','hpcmi/raw_prepare.py',
+         'config/yang_nemar_privacy_v1.json','config/yang_clock_registry_nemar_privacy_v1.json',
+         'config/eligibility_manifest_nemar_privacy_v1.json',
+         'slurm/single_job.sh','SINGLE_JOB.md','NEMAR_PRIVACY_SOURCE.md'}
 with tarfile.open(archive,'r:gz') as source:
     members=source.getmembers()
     assert all(m.isfile() for m in members),'Unexpected non-file operations member'
@@ -93,7 +97,9 @@ for relative,data in payloads.items():
 receipt=backup/'installation.json'
 if not receipt.exists():
     receipt.write_text(json.dumps({'installed_at_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),
-        'operations_archive_sha256':expected,'changes':changes,'scientific_model_or_input_files_changed':False},indent=2)+'\n')
+        'operations_archive_sha256':expected,'changes':changes,
+        'original_frozen_contracts_or_model_code_changed':False,
+        'new_versioned_input_identity_contracts_included':True},indent=2)+'\n')
 print(json.dumps({'single_job_operations_ready':True,'updated_files':len(changes)}),flush=True)
 INSTALL_OPERATIONS
 # Keep this short code update separate from interactive token input.

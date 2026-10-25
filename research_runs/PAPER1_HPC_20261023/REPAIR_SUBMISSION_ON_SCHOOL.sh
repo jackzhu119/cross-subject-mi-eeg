@@ -2,8 +2,8 @@
 # Compatibility entry: install a coherent current operations overlay, not one
 # old submitter that could be incompatible with the login-side pipeline.
 set -euo pipefail
-BOOTSTRAP_BLOB="f60bc51c7de2acb65555b36736e0ab6f84cb81e0"
-BOOTSTRAP_SHA="b44d67db6b783dc5cb20ae3131e4cd625773c057a7c6ff73b32517c9a5a5d2be"
+BOOTSTRAP_BLOB="9446bceec839ad3b6e3158e160c0eab5e9887c84"
+BOOTSTRAP_SHA="1aa47bd990be8a3e2a5e081d2894da6f7287196b22fedcd33d00f8572313267e"
 BOOTSTRAP="$(mktemp /tmp/paper1-current-launch.XXXXXX)"
 trap 'rm -f "$BOOTSTRAP"' EXIT
 curl -4 -f --connect-timeout 8 --max-time 60 --retry 1 \

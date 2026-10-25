@@ -1,0 +1,45 @@
+{
+  "scope": "fixed installer and recovery delivery; no school execution",
+  "updated_at_utc": "2026-10-25T05:25:40.479265+00:00",
+  "runtime_input_contract_source_commit": "041fe5238932c5cd8e636374ab5bb22a0e0a38ae",
+  "files": [
+    {
+      "path": "RUN_SINGLE_JOB_ON_SCHOOL.sh",
+      "bytes": 6029,
+      "sha256": "1aa47bd990be8a3e2a5e081d2894da6f7287196b22fedcd33d00f8572313267e"
+    },
+    {
+      "path": "REPAIR_SUBMISSION_ON_SCHOOL.sh",
+      "bytes": 837,
+      "sha256": "ac19beed84cd2168d46646f3008d16bcf733a7e9a7f91be140ba2337f7f9948e"
+    },
+    {
+      "path": "dist/paper1-single-job-operations.tar.gz",
+      "bytes": 157800,
+      "sha256": "5d19f9732d607d1a78e2c64d9a4796f537278d8ad639009247acce3db146a75f"
+    }
+  ],
+  "final_pinned_installer_and_compatibility_tests": 7,
+  "passed": true,
+  "log_sha256": "106885c94818b3020ecf239b72930e6a8a3d9b9e9926d367bc94d95757670360",
+  "scientific_experiments_or_heldout_predictions_run": false,
+  "school_first_route_probe_pending": true,
+  "command_arguments": [
+    "--yang-source",
+    "nemar-privacy-v1",
+    "--restart-transfer",
+    "--gpus",
+    "2",
+    "--memory",
+    "128G",
+    "--replace-job",
+    "771084"
+  ],
+  "slurm": {
+    "partition": "hpc_gpu",
+    "nodes": 1,
+    "gpus": 2,
+    "total_cpus": 24,
+    "total_memory": "128G"
+  }
+}
