@@ -1,0 +1,20 @@
+{
+  "bucket_variable_name": "E2_BUCKET",
+  "bytes": 70,
+  "cleanup_verified": false,
+  "completed_at_utc": "2026-10-25T04:15:44Z",
+  "operations": [
+    {
+      "error_class": "AccessDenied",
+      "http_status": 403,
+      "operation": "PutObject",
+      "service_code": "AccessDenied",
+      "status": "failed"
+    }
+  ],
+  "probe_key": "paper1-hpc-20261023/frozen-inputs-v1/_connectivity-probes/5db5a512f19e1120c50ddc973380f592.txt",
+  "sha256": "cbbd9157d76ed216ffc6e966ca143717eef09362aa174daee0a8e12e7ac8a141",
+  "started_at_utc": "2026-10-25T04:15:44Z",
+  "status": "probe_failed",
+  "stream_readback_verified": false
+}

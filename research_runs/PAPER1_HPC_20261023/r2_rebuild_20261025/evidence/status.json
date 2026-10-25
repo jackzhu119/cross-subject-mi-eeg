@@ -1,0 +1,36 @@
+{
+  "status": "blocked_r2_access_denied",
+  "updated_at_utc": "2026-10-25T04:18:44.958663+00:00",
+  "commit": "23aec28407468b5d3d4b9b15450e84dc616bfd54",
+  "r2_prefix": "paper1-hpc-20261023/frozen-inputs-v1",
+  "total_inputs": 504,
+  "total_native_bytes": 71339562138,
+  "completed_count": 0,
+  "completed_native_bytes": 0,
+  "downloaded_dataset_bytes": 0,
+  "source_probe_bytes": 1,
+  "small_object_write_http_status": 403,
+  "small_object_write_service_code": "AccessDenied",
+  "r2_probe": {
+    "bucket_variable_name": "E2_BUCKET",
+    "bytes": 70,
+    "cleanup_verified": false,
+    "completed_at_utc": "2026-10-25T04:15:44Z",
+    "operations": [
+      {
+        "error_class": "AccessDenied",
+        "http_status": 403,
+        "operation": "PutObject",
+        "service_code": "AccessDenied",
+        "status": "failed"
+      }
+    ],
+    "probe_key": "paper1-hpc-20261023/frozen-inputs-v1/_connectivity-probes/5db5a512f19e1120c50ddc973380f592.txt",
+    "sha256": "cbbd9157d76ed216ffc6e966ca143717eef09362aa174daee0a8e12e7ac8a141",
+    "started_at_utc": "2026-10-25T04:15:44Z",
+    "status": "probe_failed",
+    "stream_readback_verified": false
+  },
+  "background_transfer_started": false,
+  "next_action": "Correct the existing R2 connection write authorization or destination policy; retry a new probe only after a meaningful configuration change."
+}
