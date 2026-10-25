@@ -1,0 +1,72 @@
+{
+  "scope": "User-authorized rebuild of deleted R2 data from frozen official sources",
+  "user_reports_old_data_deleted": true,
+  "runtime_bindings_observed_ready": [
+    "R2_BUCKET",
+    "R2_ENDPOINT",
+    "R2_ACCESS_KEY_ID",
+    "R2_SECRET_ACCESS_KEY"
+  ],
+  "source_probe": {
+    "status": "OFFICIAL_YANG_ONE_BYTE_PROBE_VERIFIED",
+    "archive_bytes": 65630556299,
+    "probe_bytes_read": 1,
+    "eeg_payload_read": false,
+    "r2_uploaded": false
+  },
+  "write_probes": [
+    {
+      "started_at_utc": "2026-10-25T01:24:11.016102+00:00",
+      "scope": "newly_authorized_small_write_read_probe_only",
+      "eeg_downloaded": false,
+      "bucket_listing_retried": false,
+      "operations": [
+        {
+          "operation": "PutObject",
+          "error_class": "ClientError",
+          "http_status": 401,
+          "service_code": "Unauthorized",
+          "server_category": "envoy",
+          "content_type_category": "application/xml",
+          "www_authenticate_present": false,
+          "auth_scheme_category": "other_or_absent",
+          "via_present": false,
+          "cf_ray_present": true,
+          "x_amz_request_id_present": false,
+          "x_amz_id_2_present": false
+        }
+      ],
+      "status": "OPERATION_FAILED_NO_AUTOMATIC_RETRY",
+      "completed_at_utc": "2026-10-25T01:24:11.250459+00:00"
+    },
+    {
+      "started_at_utc": "2026-10-25T01:26:20.843703+00:00",
+      "scope": "newly_authorized_small_write_read_probe_only",
+      "eeg_downloaded": false,
+      "bucket_listing_retried": false,
+      "operations": [
+        {
+          "operation": "PutObject",
+          "error_class": "ClientError",
+          "http_status": 401,
+          "service_code": "Unauthorized",
+          "server_category": "envoy",
+          "content_type_category": "application/xml",
+          "www_authenticate_present": false,
+          "auth_scheme_category": "other_or_absent",
+          "via_present": false,
+          "cf_ray_present": true,
+          "x_amz_request_id_present": false,
+          "x_amz_id_2_present": false
+        }
+      ],
+      "transport_variant": "fixed_length_compatible_sigv4",
+      "status": "OPERATION_FAILED_NO_AUTOMATIC_RETRY",
+      "completed_at_utc": "2026-10-25T01:26:21.017986+00:00"
+    }
+  ],
+  "successful_dataset_uploads": 0,
+  "school_hpc_operated_by_agent": false,
+  "scientific_inputs_changed": false,
+  "new_model_fits": 0
+}
