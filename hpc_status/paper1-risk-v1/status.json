@@ -8,17 +8,17 @@
   "execution": {
     "active_children": [
       {
-        "epoch": 30,
-        "global_step": 3899,
-        "optimizer_updates": 3899,
+        "epoch": 31,
+        "global_step": 3980,
+        "optimizer_updates": 3980,
         "processed_evaluation_samples": 0,
         "stage": "final",
         "task_id": "final-tail-s20261103"
       },
       {
-        "epoch": 27,
-        "global_step": 3534,
-        "optimizer_updates": 3534,
+        "epoch": 28,
+        "global_step": 3614,
+        "optimizer_updates": 3614,
         "processed_evaluation_samples": 0,
         "stage": "final",
         "task_id": "final-consistency-s20261103"
@@ -28,7 +28,7 @@
     "pending_fits": 1,
     "slurm_job_id": "774964",
     "stage": "final",
-    "updated_at_utc": "2026-10-26T16:58:09.360076+00:00"
+    "updated_at_utc": "2026-10-26T17:00:39.987633+00:00"
   },
   "observation_scope": "Saved task steps and summaries; not independent proof of current GPU activity",
   "preparation": {
@@ -1891,16 +1891,16 @@
       "updated_at_utc": "2026-10-26T16:25:27.336444+00:00"
     },
     {
-      "epoch": 27,
-      "global_step": 3534,
-      "loss": 0.6100915670394897,
-      "optimizer_updates": 3534,
+      "epoch": 28,
+      "global_step": 3635,
+      "loss": 0.52078777551651,
+      "optimizer_updates": 3635,
       "processed_evaluation_samples": 0,
       "stage": "training",
-      "step_in_epoch": 78,
+      "step_in_epoch": 51,
       "task_id": "final-consistency-s20261103",
-      "training_samples": 452352,
-      "updated_at_utc": "2026-10-26T16:57:54.324322+00:00"
+      "training_samples": 465280,
+      "updated_at_utc": "2026-10-26T17:00:51.989411+00:00"
     },
     {
       "complete": true,
@@ -2095,16 +2095,16 @@
       "updated_at_utc": "2026-10-26T16:19:54.798739+00:00"
     },
     {
-      "epoch": 30,
-      "global_step": 3915,
-      "loss": 0.670987069606781,
-      "optimizer_updates": 3915,
+      "epoch": 31,
+      "global_step": 3996,
+      "loss": 0.6499069929122925,
+      "optimizer_updates": 3996,
       "processed_evaluation_samples": 0,
       "stage": "training",
-      "step_in_epoch": 75,
+      "step_in_epoch": 28,
       "task_id": "final-tail-s20261103",
-      "training_samples": 501120,
-      "updated_at_utc": "2026-10-26T16:58:09.645993+00:00"
+      "training_samples": 511488,
+      "updated_at_utc": "2026-10-26T17:00:40.865011+00:00"
     },
     {
       "complete": true,
@@ -2161,5 +2161,5 @@
     "total_objects": 504,
     "updated_at_utc": "2026-10-25T21:42:08.203659+00:00"
   },
-  "updated_at_utc": "2026-10-26T16:58:17.325423+00:00"
+  "updated_at_utc": "2026-10-26T17:01:05.932282+00:00"
 }
