@@ -8,23 +8,27 @@
   "execution": {
     "active_children": [
       {
-        "epoch": 40,
-        "global_step": 5120,
-        "optimizer_updates": 5120,
-        "processed_evaluation_samples": 13600,
-        "stage": "final",
-        "task_id": "final-consistency-s20261101"
-      },
-      {
+        "epoch": 5,
+        "global_step": 640,
+        "optimizer_updates": 640,
+        "processed_evaluation_samples": 0,
         "stage": "final",
         "task_id": "final-tail_consistency-s20261101"
+      },
+      {
+        "epoch": 6,
+        "global_step": 768,
+        "optimizer_updates": 768,
+        "processed_evaluation_samples": 0,
+        "stage": "final",
+        "task_id": "final-erm-s20261102"
       }
     ],
     "max_concurrent_fits": 2,
-    "pending_fits": 10,
+    "pending_fits": 9,
     "slurm_job_id": "774964",
     "stage": "final",
-    "updated_at_utc": "2026-10-26T16:03:53.757369+00:00"
+    "updated_at_utc": "2026-10-26T16:06:54.676848+00:00"
   },
   "observation_scope": "Saved task steps and summaries; not independent proof of current GPU activity",
   "preparation": {
@@ -1887,14 +1891,13 @@
       "updated_at_utc": "2026-10-26T15:53:40.593645+00:00"
     },
     {
-      "epoch": 0,
-      "global_step": 0,
-      "optimizer_updates": 0,
+      "epoch": 9,
+      "global_step": 1152,
+      "optimizer_updates": 1152,
       "processed_evaluation_samples": 0,
-      "resume_from_step": 0,
-      "stage": "training",
+      "stage": "epoch_completed",
       "task_id": "final-erm-s20261102",
-      "updated_at_utc": "2026-10-26T16:04:18.726718+00:00"
+      "updated_at_utc": "2026-10-26T16:07:07.235428+00:00"
     },
     {
       "complete": true,
@@ -1945,14 +1948,13 @@
       "updated_at_utc": "2026-10-26T16:03:39.592114+00:00"
     },
     {
-      "epoch": 0,
-      "global_step": 0,
-      "optimizer_updates": 0,
+      "epoch": 8,
+      "global_step": 1024,
+      "optimizer_updates": 1024,
       "processed_evaluation_samples": 0,
-      "resume_from_step": 0,
-      "stage": "training",
+      "stage": "epoch_completed",
       "task_id": "final-tail_consistency-s20261101",
-      "updated_at_utc": "2026-10-26T16:04:18.727393+00:00"
+      "updated_at_utc": "2026-10-26T16:07:06.269990+00:00"
     }
   ],
   "transport": {
@@ -1961,5 +1963,5 @@
     "total_objects": 504,
     "updated_at_utc": "2026-10-25T21:42:08.203659+00:00"
   },
-  "updated_at_utc": "2026-10-26T16:04:25.411511+00:00"
+  "updated_at_utc": "2026-10-26T16:07:13.767835+00:00"
 }
