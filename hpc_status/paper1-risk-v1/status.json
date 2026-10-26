@@ -1,34 +1,26 @@
 {
   "counts": {
-    "completed": 8,
+    "completed": 10,
     "failed": 0,
-    "observed": 10,
+    "observed": 12,
     "planned": 75
   },
   "execution": {
     "active_children": [
       {
-        "epoch": 38,
-        "global_step": 4864,
-        "optimizer_updates": 4864,
-        "processed_evaluation_samples": 204288,
         "stage": "development",
-        "task_id": "dev-f00-consistency-s20261032"
+        "task_id": "dev-f00-erm-s20261033"
       },
       {
-        "epoch": 38,
-        "global_step": 4864,
-        "optimizer_updates": 4864,
-        "processed_evaluation_samples": 204288,
         "stage": "development",
-        "task_id": "dev-f00-tail_consistency-s20261032"
+        "task_id": "dev-f00-groupdro-s20261033"
       }
     ],
     "max_concurrent_fits": 2,
-    "pending_fits": 65,
+    "pending_fits": 63,
     "slurm_job_id": "774964",
     "stage": "development",
-    "updated_at_utc": "2026-10-26T11:08:05.436496+00:00"
+    "updated_at_utc": "2026-10-26T11:11:05.961927+00:00"
   },
   "observation_scope": "Saved task steps and summaries; not independent proof of current GPU activity",
   "preparation": {
@@ -67,14 +59,28 @@
       "updated_at_utc": "2026-10-26T09:21:32.316566+00:00"
     },
     {
-      "best_epoch": 8,
+      "complete": true,
+      "completed_statistics": {
+        "best_epoch": 8,
+        "completed_at_utc": "2026-10-26T11:08:29.829198+00:00",
+        "epochs_completed": 40,
+        "fold": 0,
+        "global_step": 5120,
+        "method": "consistency",
+        "optimizer_updates": 5120,
+        "phase": "development",
+        "seed": 20261032,
+        "status": "complete",
+        "task_id": "dev-f00-consistency-s20261032"
+      },
+      "completion_record_present": true,
       "epoch": 40,
       "global_step": 5120,
       "optimizer_updates": 5120,
-      "processed_evaluation_samples": 215040,
-      "stage": "epoch_completed",
+      "processed_evaluation_samples": 222215,
+      "stage": "complete",
       "task_id": "dev-f00-consistency-s20261032",
-      "updated_at_utc": "2026-10-26T11:08:15.578936+00:00"
+      "updated_at_utc": "2026-10-26T11:08:29.838820+00:00"
     },
     {
       "complete": true,
@@ -125,6 +131,9 @@
       "updated_at_utc": "2026-10-26T09:35:45.573336+00:00"
     },
     {
+      "task_id": "dev-f00-erm-s20261033"
+    },
+    {
       "complete": true,
       "completed_statistics": {
         "best_epoch": 23,
@@ -171,6 +180,9 @@
       "stage": "complete",
       "task_id": "dev-f00-groupdro-s20261032",
       "updated_at_utc": "2026-10-26T09:52:33.669702+00:00"
+    },
+    {
+      "task_id": "dev-f00-groupdro-s20261033"
     },
     {
       "complete": true,
@@ -245,14 +257,28 @@
       "updated_at_utc": "2026-10-26T09:35:45.572674+00:00"
     },
     {
-      "best_epoch": 32,
-      "epoch": 39,
-      "global_step": 4992,
-      "optimizer_updates": 4992,
-      "processed_evaluation_samples": 209664,
-      "stage": "epoch_completed",
+      "complete": true,
+      "completed_statistics": {
+        "best_epoch": 32,
+        "completed_at_utc": "2026-10-26T11:08:29.830444+00:00",
+        "epochs_completed": 40,
+        "fold": 0,
+        "global_step": 5120,
+        "method": "tail_consistency",
+        "optimizer_updates": 5120,
+        "phase": "development",
+        "seed": 20261032,
+        "status": "complete",
+        "task_id": "dev-f00-tail_consistency-s20261032"
+      },
+      "completion_record_present": true,
+      "epoch": 40,
+      "global_step": 5120,
+      "optimizer_updates": 5120,
+      "processed_evaluation_samples": 222215,
+      "stage": "complete",
       "task_id": "dev-f00-tail_consistency-s20261032",
-      "updated_at_utc": "2026-10-26T11:08:11.057373+00:00"
+      "updated_at_utc": "2026-10-26T11:08:29.839297+00:00"
     }
   ],
   "transport": {
@@ -261,5 +287,5 @@
     "total_objects": 504,
     "updated_at_utc": "2026-10-25T21:42:08.203659+00:00"
   },
-  "updated_at_utc": "2026-10-26T11:08:18.216279+00:00"
+  "updated_at_utc": "2026-10-26T11:11:12.797436+00:00"
 }
