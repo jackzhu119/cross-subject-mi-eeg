@@ -8,18 +8,18 @@
   "execution": {
     "active_children": [
       {
-        "epoch": 7,
-        "global_step": 1013,
-        "optimizer_updates": 1013,
-        "processed_evaluation_samples": 37632,
+        "epoch": 8,
+        "global_step": 1037,
+        "optimizer_updates": 1037,
+        "processed_evaluation_samples": 43008,
         "stage": "development",
         "task_id": "dev-f00-tail-s20261031"
       },
       {
-        "epoch": 7,
-        "global_step": 1013,
-        "optimizer_updates": 1013,
-        "processed_evaluation_samples": 37632,
+        "epoch": 8,
+        "global_step": 1037,
+        "optimizer_updates": 1037,
+        "processed_evaluation_samples": 43008,
         "stage": "development",
         "task_id": "dev-f00-consistency-s20261031"
       }
@@ -28,7 +28,7 @@
     "pending_fits": 71,
     "slurm_job_id": "774964",
     "stage": "development",
-    "updated_at_utc": "2026-10-26T07:47:47.291060+00:00"
+    "updated_at_utc": "2026-10-26T07:50:49.344107+00:00"
   },
   "observation_scope": "Saved task steps and summaries; not independent proof of current GPU activity",
   "preparation": {
@@ -43,16 +43,16 @@
   "schema_version": 1,
   "tasks": [
     {
-      "epoch": 7,
-      "global_step": 1013,
-      "loss": 0.4136093854904175,
-      "optimizer_updates": 1013,
-      "processed_evaluation_samples": 37632,
+      "epoch": 8,
+      "global_step": 1044,
+      "loss": 0.5254650712013245,
+      "optimizer_updates": 1044,
+      "processed_evaluation_samples": 43008,
       "stage": "training",
-      "step_in_epoch": 117,
+      "step_in_epoch": 20,
       "task_id": "dev-f00-consistency-s20261031",
-      "training_samples": 129664,
-      "updated_at_utc": "2026-10-26T07:47:44.567703+00:00"
+      "training_samples": 133632,
+      "updated_at_utc": "2026-10-26T07:50:55.605779+00:00"
     },
     {
       "complete": true,
@@ -103,16 +103,16 @@
       "updated_at_utc": "2026-10-26T06:25:21.387255+00:00"
     },
     {
-      "epoch": 7,
-      "global_step": 1013,
-      "loss": 0.5474519729614258,
-      "optimizer_updates": 1013,
-      "processed_evaluation_samples": 37632,
+      "epoch": 8,
+      "global_step": 1044,
+      "loss": 0.6241610050201416,
+      "optimizer_updates": 1044,
+      "processed_evaluation_samples": 43008,
       "stage": "training",
-      "step_in_epoch": 117,
+      "step_in_epoch": 20,
       "task_id": "dev-f00-tail-s20261031",
-      "training_samples": 129664,
-      "updated_at_utc": "2026-10-26T07:47:44.567815+00:00"
+      "training_samples": 133632,
+      "updated_at_utc": "2026-10-26T07:50:55.605651+00:00"
     }
   ],
   "transport": {
@@ -121,5 +121,5 @@
     "total_objects": 504,
     "updated_at_utc": "2026-10-25T21:42:08.203659+00:00"
   },
-  "updated_at_utc": "2026-10-26T07:48:09.180429+00:00"
+  "updated_at_utc": "2026-10-26T07:50:59.451726+00:00"
 }
