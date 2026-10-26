@@ -2,7 +2,7 @@
   "counts": {
     "completed": 2,
     "failed": 0,
-    "observed": 2,
+    "observed": 4,
     "planned": 75
   },
   "execution": {
@@ -20,7 +20,7 @@
     "pending_fits": 71,
     "slurm_job_id": "774964",
     "stage": "development",
-    "updated_at_utc": "2026-10-26T06:26:13.292445+00:00"
+    "updated_at_utc": "2026-10-26T06:29:13.572090+00:00"
   },
   "observation_scope": "Saved task steps and summaries; not independent proof of current GPU activity",
   "preparation": {
@@ -34,6 +34,9 @@
   "project_id": "paper1-risk-v1",
   "schema_version": 1,
   "tasks": [
+    {
+      "task_id": "dev-f00-consistency-s20261031"
+    },
     {
       "complete": true,
       "completed_statistics": {
@@ -81,6 +84,9 @@
       "stage": "complete",
       "task_id": "dev-f00-groupdro-s20261031",
       "updated_at_utc": "2026-10-26T06:25:21.387255+00:00"
+    },
+    {
+      "task_id": "dev-f00-tail-s20261031"
     }
   ],
   "transport": {
@@ -89,5 +95,5 @@
     "total_objects": 504,
     "updated_at_utc": "2026-10-25T21:42:08.203659+00:00"
   },
-  "updated_at_utc": "2026-10-26T06:26:30.376261+00:00"
+  "updated_at_utc": "2026-10-26T06:29:17.681076+00:00"
 }
