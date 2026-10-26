@@ -8,18 +8,18 @@
   "execution": {
     "active_children": [
       {
-        "epoch": 0,
-        "global_step": 5,
-        "optimizer_updates": 5,
-        "processed_evaluation_samples": 0,
+        "epoch": 14,
+        "global_step": 1792,
+        "optimizer_updates": 1792,
+        "processed_evaluation_samples": 83650,
         "stage": "development",
         "task_id": "dev-f01-groupdro-s20261031"
       },
       {
-        "epoch": 0,
-        "global_step": 5,
-        "optimizer_updates": 5,
-        "processed_evaluation_samples": 0,
+        "epoch": 14,
+        "global_step": 1792,
+        "optimizer_updates": 1792,
+        "processed_evaluation_samples": 83650,
         "stage": "development",
         "task_id": "dev-f01-tail-s20261031"
       }
@@ -28,7 +28,7 @@
     "pending_fits": 57,
     "slurm_job_id": "774964",
     "stage": "development",
-    "updated_at_utc": "2026-10-26T11:42:08.196093+00:00"
+    "updated_at_utc": "2026-10-26T11:45:08.423562+00:00"
   },
   "observation_scope": "Saved task steps and summaries; not independent proof of current GPU activity",
   "preparation": {
@@ -427,28 +427,24 @@
       "updated_at_utc": "2026-10-26T11:37:26.577234+00:00"
     },
     {
-      "epoch": 0,
-      "global_step": 20,
-      "loss": 0.6763676404953003,
-      "optimizer_updates": 20,
-      "processed_evaluation_samples": 0,
-      "stage": "training",
-      "step_in_epoch": 20,
+      "best_epoch": 11,
+      "epoch": 15,
+      "global_step": 1920,
+      "optimizer_updates": 1920,
+      "processed_evaluation_samples": 89625,
+      "stage": "epoch_completed",
       "task_id": "dev-f01-groupdro-s20261031",
-      "training_samples": 2560,
-      "updated_at_utc": "2026-10-26T11:42:16.393023+00:00"
+      "updated_at_utc": "2026-10-26T11:45:11.313623+00:00"
     },
     {
-      "epoch": 0,
-      "global_step": 20,
-      "loss": 0.6851693987846375,
-      "optimizer_updates": 20,
-      "processed_evaluation_samples": 0,
-      "stage": "training",
-      "step_in_epoch": 20,
+      "best_epoch": 4,
+      "epoch": 15,
+      "global_step": 1920,
+      "optimizer_updates": 1920,
+      "processed_evaluation_samples": 89625,
+      "stage": "epoch_completed",
       "task_id": "dev-f01-tail-s20261031",
-      "training_samples": 2560,
-      "updated_at_utc": "2026-10-26T11:42:16.393769+00:00"
+      "updated_at_utc": "2026-10-26T11:45:11.623231+00:00"
     }
   ],
   "transport": {
@@ -457,5 +453,5 @@
     "total_objects": 504,
     "updated_at_utc": "2026-10-25T21:42:08.203659+00:00"
   },
-  "updated_at_utc": "2026-10-26T11:42:26.442647+00:00"
+  "updated_at_utc": "2026-10-26T11:45:16.992361+00:00"
 }
