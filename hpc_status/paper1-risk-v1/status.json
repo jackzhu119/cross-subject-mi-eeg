@@ -9,16 +9,16 @@
     "active_children": [
       {
         "epoch": 10,
-        "global_step": 1280,
-        "optimizer_updates": 1280,
+        "global_step": 1369,
+        "optimizer_updates": 1369,
         "processed_evaluation_samples": 53760,
         "stage": "development",
         "task_id": "dev-f00-erm-s20261031"
       },
       {
         "epoch": 10,
-        "global_step": 1280,
-        "optimizer_updates": 1280,
+        "global_step": 1369,
+        "optimizer_updates": 1369,
         "processed_evaluation_samples": 53760,
         "stage": "development",
         "task_id": "dev-f00-groupdro-s20261031"
@@ -28,7 +28,7 @@
     "pending_fits": 73,
     "slurm_job_id": "774964",
     "stage": "development",
-    "updated_at_utc": "2026-10-26T05:33:03.257803+00:00"
+    "updated_at_utc": "2026-10-26T05:35:33.501353+00:00"
   },
   "observation_scope": "Saved task steps and summaries; not independent proof of current GPU activity",
   "preparation": {
@@ -43,24 +43,28 @@
   "schema_version": 1,
   "tasks": [
     {
-      "best_epoch": 9,
       "epoch": 10,
-      "global_step": 1280,
-      "optimizer_updates": 1280,
+      "global_step": 1397,
+      "loss": 0.45412176847457886,
+      "optimizer_updates": 1397,
       "processed_evaluation_samples": 53760,
-      "stage": "epoch_completed",
+      "stage": "training",
+      "step_in_epoch": 117,
       "task_id": "dev-f00-erm-s20261031",
-      "updated_at_utc": "2026-10-26T05:32:42.868519+00:00"
+      "training_samples": 178816,
+      "updated_at_utc": "2026-10-26T05:35:46.390798+00:00"
     },
     {
-      "best_epoch": 2,
       "epoch": 10,
-      "global_step": 1280,
-      "optimizer_updates": 1280,
+      "global_step": 1397,
+      "loss": 0.6045820116996765,
+      "optimizer_updates": 1397,
       "processed_evaluation_samples": 53760,
-      "stage": "epoch_completed",
+      "stage": "training",
+      "step_in_epoch": 117,
       "task_id": "dev-f00-groupdro-s20261031",
-      "updated_at_utc": "2026-10-26T05:32:42.872037+00:00"
+      "training_samples": 178816,
+      "updated_at_utc": "2026-10-26T05:35:46.391529+00:00"
     }
   ],
   "transport": {
@@ -69,5 +73,5 @@
     "total_objects": 504,
     "updated_at_utc": "2026-10-25T21:42:08.203659+00:00"
   },
-  "updated_at_utc": "2026-10-26T05:33:12.780832+00:00"
+  "updated_at_utc": "2026-10-26T05:35:59.576353+00:00"
 }
