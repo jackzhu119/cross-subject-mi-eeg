@@ -2,33 +2,33 @@
   "counts": {
     "completed": 44,
     "failed": 0,
-    "observed": 45,
+    "observed": 46,
     "planned": 75
   },
   "execution": {
     "active_children": [
       {
-        "epoch": 40,
-        "global_step": 5120,
-        "optimizer_updates": 5120,
-        "processed_evaluation_samples": 239040,
-        "stage": "development",
-        "task_id": "dev-f02-consistency-s20261033"
-      },
-      {
-        "epoch": 0,
-        "global_step": 2,
-        "optimizer_updates": 2,
-        "processed_evaluation_samples": 0,
+        "epoch": 1,
+        "global_step": 161,
+        "optimizer_updates": 161,
+        "processed_evaluation_samples": 5976,
         "stage": "development",
         "task_id": "dev-f02-tail_consistency-s20261033"
+      },
+      {
+        "epoch": 1,
+        "global_step": 166,
+        "optimizer_updates": 166,
+        "processed_evaluation_samples": 5974,
+        "stage": "development",
+        "task_id": "dev-f03-erm-s20261031"
       }
     ],
     "max_concurrent_fits": 2,
-    "pending_fits": 30,
+    "pending_fits": 29,
     "slurm_job_id": "774964",
     "stage": "development",
-    "updated_at_utc": "2026-10-26T13:46:22.874920+00:00"
+    "updated_at_utc": "2026-10-26T13:49:23.247278+00:00"
   },
   "observation_scope": "Saved task steps and summaries; not independent proof of current GPU activity",
   "preparation": {
@@ -1099,16 +1099,24 @@
       "updated_at_utc": "2026-10-26T13:30:25.820660+00:00"
     },
     {
-      "epoch": 0,
-      "global_step": 2,
-      "loss": 0.7237887978553772,
-      "optimizer_updates": 2,
-      "processed_evaluation_samples": 0,
-      "stage": "training",
-      "step_in_epoch": 2,
+      "best_epoch": 2,
+      "epoch": 2,
+      "global_step": 256,
+      "optimizer_updates": 256,
+      "processed_evaluation_samples": 11952,
+      "stage": "epoch_completed",
       "task_id": "dev-f02-tail_consistency-s20261033",
-      "training_samples": 256,
-      "updated_at_utc": "2026-10-26T13:46:16.955473+00:00"
+      "updated_at_utc": "2026-10-26T13:49:28.251003+00:00"
+    },
+    {
+      "best_epoch": 2,
+      "epoch": 2,
+      "global_step": 256,
+      "optimizer_updates": 256,
+      "processed_evaluation_samples": 11948,
+      "stage": "epoch_completed",
+      "task_id": "dev-f03-erm-s20261031",
+      "updated_at_utc": "2026-10-26T13:49:28.679187+00:00"
     }
   ],
   "transport": {
@@ -1117,5 +1125,5 @@
     "total_objects": 504,
     "updated_at_utc": "2026-10-25T21:42:08.203659+00:00"
   },
-  "updated_at_utc": "2026-10-26T13:46:44.241687+00:00"
+  "updated_at_utc": "2026-10-26T13:49:37.919442+00:00"
 }
