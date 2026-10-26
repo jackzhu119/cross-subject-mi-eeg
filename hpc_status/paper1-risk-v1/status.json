@@ -1,34 +1,34 @@
 {
   "counts": {
-    "completed": 67,
+    "completed": 68,
     "failed": 0,
-    "observed": 69,
+    "observed": 70,
     "planned": 75
   },
   "execution": {
     "active_children": [
       {
-        "epoch": 39,
-        "global_step": 5029,
-        "optimizer_updates": 5029,
-        "processed_evaluation_samples": 233025,
-        "stage": "development",
-        "task_id": "dev-f04-tail-s20261032"
-      },
-      {
-        "epoch": 0,
-        "global_step": 3,
-        "optimizer_updates": 3,
-        "processed_evaluation_samples": 0,
+        "epoch": 2,
+        "global_step": 256,
+        "optimizer_updates": 256,
+        "processed_evaluation_samples": 11950,
         "stage": "development",
         "task_id": "dev-f04-consistency-s20261032"
+      },
+      {
+        "epoch": 1,
+        "global_step": 128,
+        "optimizer_updates": 128,
+        "processed_evaluation_samples": 5975,
+        "stage": "development",
+        "task_id": "dev-f04-tail_consistency-s20261032"
       }
     ],
     "max_concurrent_fits": 2,
-    "pending_fits": 6,
+    "pending_fits": 5,
     "slurm_job_id": "774964",
     "stage": "development",
-    "updated_at_utc": "2026-10-26T15:19:36.779170+00:00"
+    "updated_at_utc": "2026-10-26T15:22:07.076739+00:00"
   },
   "observation_scope": "Saved task steps and summaries; not independent proof of current GPU activity",
   "preparation": {
@@ -1507,16 +1507,14 @@
       "updated_at_utc": "2026-10-26T15:03:52.393656+00:00"
     },
     {
-      "epoch": 0,
-      "global_step": 3,
-      "loss": 0.7033407092094421,
-      "optimizer_updates": 3,
-      "processed_evaluation_samples": 0,
-      "stage": "training",
-      "step_in_epoch": 3,
+      "best_epoch": 1,
+      "epoch": 4,
+      "global_step": 512,
+      "optimizer_updates": 512,
+      "processed_evaluation_samples": 23900,
+      "stage": "epoch_completed",
       "task_id": "dev-f04-consistency-s20261032",
-      "training_samples": 384,
-      "updated_at_utc": "2026-10-26T15:19:34.438914+00:00"
+      "updated_at_utc": "2026-10-26T15:22:28.898289+00:00"
     },
     {
       "complete": true,
@@ -1639,16 +1637,28 @@
       "updated_at_utc": "2026-10-26T15:02:51.816765+00:00"
     },
     {
-      "epoch": 39,
-      "global_step": 5029,
-      "loss": 0.6372998952865601,
-      "optimizer_updates": 5029,
-      "processed_evaluation_samples": 233025,
-      "stage": "training",
-      "step_in_epoch": 37,
+      "complete": true,
+      "completed_statistics": {
+        "best_epoch": 25,
+        "completed_at_utc": "2026-10-26T15:20:31.717137+00:00",
+        "epochs_completed": 40,
+        "fold": 4,
+        "global_step": 5120,
+        "method": "tail",
+        "optimizer_updates": 5120,
+        "phase": "development",
+        "seed": 20261032,
+        "status": "complete",
+        "task_id": "dev-f04-tail-s20261032"
+      },
+      "completion_record_present": true,
+      "epoch": 40,
+      "global_step": 5120,
+      "optimizer_updates": 5120,
+      "processed_evaluation_samples": 245287,
+      "stage": "complete",
       "task_id": "dev-f04-tail-s20261032",
-      "training_samples": 643712,
-      "updated_at_utc": "2026-10-26T15:19:19.676768+00:00"
+      "updated_at_utc": "2026-10-26T15:20:31.724479+00:00"
     },
     {
       "complete": true,
@@ -1673,6 +1683,16 @@
       "stage": "complete",
       "task_id": "dev-f04-tail_consistency-s20261031",
       "updated_at_utc": "2026-10-26T15:11:29.409917+00:00"
+    },
+    {
+      "best_epoch": 2,
+      "epoch": 4,
+      "global_step": 512,
+      "optimizer_updates": 512,
+      "processed_evaluation_samples": 23900,
+      "stage": "epoch_completed",
+      "task_id": "dev-f04-tail_consistency-s20261032",
+      "updated_at_utc": "2026-10-26T15:22:33.851125+00:00"
     }
   ],
   "transport": {
@@ -1681,5 +1701,5 @@
     "total_objects": 504,
     "updated_at_utc": "2026-10-25T21:42:08.203659+00:00"
   },
-  "updated_at_utc": "2026-10-26T15:19:40.463037+00:00"
+  "updated_at_utc": "2026-10-26T15:22:41.158466+00:00"
 }
