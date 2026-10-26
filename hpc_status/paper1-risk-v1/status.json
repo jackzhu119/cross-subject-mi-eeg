@@ -8,9 +8,9 @@
   "execution": {
     "active_children": [
       {
-        "epoch": 11,
-        "global_step": 1408,
-        "optimizer_updates": 1408,
+        "epoch": 20,
+        "global_step": 2560,
+        "optimizer_updates": 2560,
         "processed_evaluation_samples": 0,
         "stage": "final",
         "task_id": "final-tail_consistency-s20261103"
@@ -20,7 +20,7 @@
     "pending_fits": 0,
     "slurm_job_id": "774964",
     "stage": "final",
-    "updated_at_utc": "2026-10-26T18:17:48.835618+00:00"
+    "updated_at_utc": "2026-10-26T18:20:49.749831+00:00"
   },
   "observation_scope": "Saved task steps and summaries; not independent proof of current GPU activity",
   "preparation": {
@@ -2171,13 +2171,14 @@
       "updated_at_utc": "2026-10-26T16:27:31.487050+00:00"
     },
     {
-      "epoch": 12,
-      "global_step": 1536,
-      "optimizer_updates": 1536,
+      "best_epoch": 18,
+      "epoch": 21,
+      "global_step": 2688,
+      "optimizer_updates": 2688,
       "processed_evaluation_samples": 0,
       "stage": "epoch_completed",
       "task_id": "final-tail_consistency-s20261103",
-      "updated_at_utc": "2026-10-26T18:17:55.376454+00:00"
+      "updated_at_utc": "2026-10-26T18:20:56.078322+00:00"
     }
   ],
   "transport": {
@@ -2186,5 +2187,5 @@
     "total_objects": 504,
     "updated_at_utc": "2026-10-25T21:42:08.203659+00:00"
   },
-  "updated_at_utc": "2026-10-26T18:18:05.224661+00:00"
+  "updated_at_utc": "2026-10-26T18:20:59.846826+00:00"
 }
