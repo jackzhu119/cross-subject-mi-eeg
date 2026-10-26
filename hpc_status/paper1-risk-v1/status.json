@@ -8,18 +8,18 @@
   "execution": {
     "active_children": [
       {
-        "epoch": 5,
-        "global_step": 640,
-        "optimizer_updates": 640,
-        "processed_evaluation_samples": 26880,
+        "epoch": 32,
+        "global_step": 4096,
+        "optimizer_updates": 4096,
+        "processed_evaluation_samples": 172032,
         "stage": "development",
         "task_id": "dev-f00-tail_consistency-s20261033"
       },
       {
-        "epoch": 5,
-        "global_step": 640,
-        "optimizer_updates": 640,
-        "processed_evaluation_samples": 29875,
+        "epoch": 33,
+        "global_step": 4224,
+        "optimizer_updates": 4224,
+        "processed_evaluation_samples": 197175,
         "stage": "development",
         "task_id": "dev-f01-erm-s20261031"
       }
@@ -28,7 +28,7 @@
     "pending_fits": 59,
     "slurm_job_id": "774964",
     "stage": "development",
-    "updated_at_utc": "2026-10-26T11:33:37.559779+00:00"
+    "updated_at_utc": "2026-10-26T11:36:37.754144+00:00"
   },
   "observation_scope": "Saved task steps and summaries; not independent proof of current GPU activity",
   "preparation": {
@@ -379,24 +379,24 @@
       "updated_at_utc": "2026-10-26T11:08:29.839297+00:00"
     },
     {
-      "best_epoch": 6,
-      "epoch": 7,
-      "global_step": 896,
-      "optimizer_updates": 896,
-      "processed_evaluation_samples": 37632,
+      "best_epoch": 32,
+      "epoch": 32,
+      "global_step": 4096,
+      "optimizer_updates": 4096,
+      "processed_evaluation_samples": 172032,
       "stage": "epoch_completed",
       "task_id": "dev-f00-tail_consistency-s20261033",
-      "updated_at_utc": "2026-10-26T11:33:48.714881+00:00"
+      "updated_at_utc": "2026-10-26T11:36:37.203525+00:00"
     },
     {
-      "best_epoch": 7,
-      "epoch": 7,
-      "global_step": 896,
-      "optimizer_updates": 896,
-      "processed_evaluation_samples": 41825,
+      "best_epoch": 21,
+      "epoch": 33,
+      "global_step": 4224,
+      "optimizer_updates": 4224,
+      "processed_evaluation_samples": 197175,
       "stage": "epoch_completed",
       "task_id": "dev-f01-erm-s20261031",
-      "updated_at_utc": "2026-10-26T11:33:46.035945+00:00"
+      "updated_at_utc": "2026-10-26T11:36:36.578163+00:00"
     }
   ],
   "transport": {
@@ -405,5 +405,5 @@
     "total_objects": 504,
     "updated_at_utc": "2026-10-25T21:42:08.203659+00:00"
   },
-  "updated_at_utc": "2026-10-26T11:33:51.408721+00:00"
+  "updated_at_utc": "2026-10-26T11:36:46.903749+00:00"
 }
