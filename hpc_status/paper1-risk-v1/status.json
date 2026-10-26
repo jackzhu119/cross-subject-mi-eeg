@@ -9,16 +9,16 @@
     "active_children": [
       {
         "epoch": 8,
-        "global_step": 1039,
-        "optimizer_updates": 1039,
+        "global_step": 1138,
+        "optimizer_updates": 1138,
         "processed_evaluation_samples": 43008,
         "stage": "development",
         "task_id": "dev-f00-consistency-s20261032"
       },
       {
         "epoch": 8,
-        "global_step": 1039,
-        "optimizer_updates": 1039,
+        "global_step": 1138,
+        "optimizer_updates": 1138,
         "processed_evaluation_samples": 43008,
         "stage": "development",
         "task_id": "dev-f00-tail_consistency-s20261032"
@@ -28,7 +28,7 @@
     "pending_fits": 65,
     "slurm_job_id": "774964",
     "stage": "development",
-    "updated_at_utc": "2026-10-26T10:17:21.622217+00:00"
+    "updated_at_utc": "2026-10-26T10:20:22.362809+00:00"
   },
   "observation_scope": "Saved task steps and summaries; not independent proof of current GPU activity",
   "preparation": {
@@ -68,15 +68,13 @@
     },
     {
       "epoch": 8,
-      "global_step": 1039,
-      "loss": 0.517196774482727,
-      "optimizer_updates": 1039,
-      "processed_evaluation_samples": 43008,
-      "stage": "training",
-      "step_in_epoch": 15,
+      "evaluation_variant": "inner_epoch_009",
+      "global_step": 1152,
+      "optimizer_updates": 1152,
+      "processed_evaluation_samples": 43392,
+      "stage": "evaluating",
       "task_id": "dev-f00-consistency-s20261032",
-      "training_samples": 132992,
-      "updated_at_utc": "2026-10-26T10:17:17.694455+00:00"
+      "updated_at_utc": "2026-10-26T10:20:23.525332+00:00"
     },
     {
       "complete": true,
@@ -248,15 +246,13 @@
     },
     {
       "epoch": 8,
-      "global_step": 1039,
-      "loss": 0.6034030318260193,
-      "optimizer_updates": 1039,
-      "processed_evaluation_samples": 43008,
-      "stage": "training",
-      "step_in_epoch": 15,
+      "evaluation_variant": "inner_epoch_009",
+      "global_step": 1152,
+      "optimizer_updates": 1152,
+      "processed_evaluation_samples": 43392,
+      "stage": "evaluating",
       "task_id": "dev-f00-tail_consistency-s20261032",
-      "training_samples": 132992,
-      "updated_at_utc": "2026-10-26T10:17:17.694597+00:00"
+      "updated_at_utc": "2026-10-26T10:20:23.524857+00:00"
     }
   ],
   "transport": {
@@ -265,5 +261,5 @@
     "total_objects": 504,
     "updated_at_utc": "2026-10-25T21:42:08.203659+00:00"
   },
-  "updated_at_utc": "2026-10-26T10:17:38.320903+00:00"
+  "updated_at_utc": "2026-10-26T10:20:32.062180+00:00"
 }
