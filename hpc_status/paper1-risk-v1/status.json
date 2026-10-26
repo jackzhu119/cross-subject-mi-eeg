@@ -8,17 +8,17 @@
   "execution": {
     "active_children": [
       {
-        "epoch": 26,
-        "global_step": 3328,
-        "optimizer_updates": 3328,
+        "epoch": 27,
+        "global_step": 3550,
+        "optimizer_updates": 3550,
         "processed_evaluation_samples": 0,
         "stage": "final",
         "task_id": "final-tail-s20261103"
       },
       {
-        "epoch": 23,
-        "global_step": 2944,
-        "optimizer_updates": 2944,
+        "epoch": 25,
+        "global_step": 3200,
+        "optimizer_updates": 3200,
         "processed_evaluation_samples": 0,
         "stage": "final",
         "task_id": "final-consistency-s20261103"
@@ -28,7 +28,7 @@
     "pending_fits": 1,
     "slurm_job_id": "774964",
     "stage": "final",
-    "updated_at_utc": "2026-10-26T16:49:35.861796+00:00"
+    "updated_at_utc": "2026-10-26T16:52:06.866478+00:00"
   },
   "observation_scope": "Saved task steps and summaries; not independent proof of current GPU activity",
   "preparation": {
@@ -1891,14 +1891,16 @@
       "updated_at_utc": "2026-10-26T16:25:27.336444+00:00"
     },
     {
-      "best_epoch": 11,
-      "epoch": 23,
-      "global_step": 2944,
-      "optimizer_updates": 2944,
+      "epoch": 25,
+      "global_step": 3236,
+      "loss": 0.6224209666252136,
+      "optimizer_updates": 3236,
       "processed_evaluation_samples": 0,
-      "stage": "epoch_completed",
+      "stage": "training",
+      "step_in_epoch": 36,
       "task_id": "final-consistency-s20261103",
-      "updated_at_utc": "2026-10-26T16:49:28.967051+00:00"
+      "training_samples": 414208,
+      "updated_at_utc": "2026-10-26T16:52:29.227957+00:00"
     },
     {
       "complete": true,
@@ -2094,13 +2096,13 @@
     },
     {
       "best_epoch": 18,
-      "epoch": 26,
-      "global_step": 3328,
-      "optimizer_updates": 3328,
+      "epoch": 28,
+      "global_step": 3584,
+      "optimizer_updates": 3584,
       "processed_evaluation_samples": 0,
       "stage": "epoch_completed",
       "task_id": "final-tail-s20261103",
-      "updated_at_utc": "2026-10-26T16:49:26.559103+00:00"
+      "updated_at_utc": "2026-10-26T16:52:08.315678+00:00"
     },
     {
       "complete": true,
@@ -2157,5 +2159,5 @@
     "total_objects": 504,
     "updated_at_utc": "2026-10-25T21:42:08.203659+00:00"
   },
-  "updated_at_utc": "2026-10-26T16:49:46.825648+00:00"
+  "updated_at_utc": "2026-10-26T16:52:34.522244+00:00"
 }
