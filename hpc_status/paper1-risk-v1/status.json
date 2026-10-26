@@ -1,34 +1,26 @@
 {
   "counts": {
-    "completed": 6,
+    "completed": 8,
     "failed": 0,
-    "observed": 8,
+    "observed": 10,
     "planned": 75
   },
   "execution": {
     "active_children": [
       {
-        "epoch": 36,
-        "global_step": 4608,
-        "optimizer_updates": 4608,
-        "processed_evaluation_samples": 193536,
         "stage": "development",
-        "task_id": "dev-f00-groupdro-s20261032"
+        "task_id": "dev-f00-consistency-s20261032"
       },
       {
-        "epoch": 36,
-        "global_step": 4608,
-        "optimizer_updates": 4608,
-        "processed_evaluation_samples": 193536,
         "stage": "development",
-        "task_id": "dev-f00-tail-s20261032"
+        "task_id": "dev-f00-tail_consistency-s20261032"
       }
     ],
     "max_concurrent_fits": 2,
-    "pending_fits": 67,
+    "pending_fits": 65,
     "slurm_job_id": "774964",
     "stage": "development",
-    "updated_at_utc": "2026-10-26T09:51:46.586979+00:00"
+    "updated_at_utc": "2026-10-26T09:54:47.034972+00:00"
   },
   "observation_scope": "Saved task steps and summaries; not independent proof of current GPU activity",
   "preparation": {
@@ -65,6 +57,9 @@
       "stage": "complete",
       "task_id": "dev-f00-consistency-s20261031",
       "updated_at_utc": "2026-10-26T09:21:32.316566+00:00"
+    },
+    {
+      "task_id": "dev-f00-consistency-s20261032"
     },
     {
       "complete": true,
@@ -139,14 +134,28 @@
       "updated_at_utc": "2026-10-26T06:25:21.387255+00:00"
     },
     {
-      "best_epoch": 31,
-      "epoch": 38,
-      "global_step": 4864,
-      "optimizer_updates": 4864,
-      "processed_evaluation_samples": 204288,
-      "stage": "epoch_completed",
+      "complete": true,
+      "completed_statistics": {
+        "best_epoch": 31,
+        "completed_at_utc": "2026-10-26T09:52:33.660562+00:00",
+        "epochs_completed": 40,
+        "fold": 0,
+        "global_step": 5120,
+        "method": "groupdro",
+        "optimizer_updates": 5120,
+        "phase": "development",
+        "seed": 20261032,
+        "status": "complete",
+        "task_id": "dev-f00-groupdro-s20261032"
+      },
+      "completion_record_present": true,
+      "epoch": 40,
+      "global_step": 5120,
+      "optimizer_updates": 5120,
+      "processed_evaluation_samples": 222215,
+      "stage": "complete",
       "task_id": "dev-f00-groupdro-s20261032",
-      "updated_at_utc": "2026-10-26T09:52:00.014375+00:00"
+      "updated_at_utc": "2026-10-26T09:52:33.669702+00:00"
     },
     {
       "complete": true,
@@ -173,14 +182,28 @@
       "updated_at_utc": "2026-10-26T09:21:32.310445+00:00"
     },
     {
-      "best_epoch": 18,
-      "epoch": 38,
-      "global_step": 4864,
-      "optimizer_updates": 4864,
-      "processed_evaluation_samples": 204288,
-      "stage": "epoch_completed",
+      "complete": true,
+      "completed_statistics": {
+        "best_epoch": 18,
+        "completed_at_utc": "2026-10-26T09:52:33.662268+00:00",
+        "epochs_completed": 40,
+        "fold": 0,
+        "global_step": 5120,
+        "method": "tail",
+        "optimizer_updates": 5120,
+        "phase": "development",
+        "seed": 20261032,
+        "status": "complete",
+        "task_id": "dev-f00-tail-s20261032"
+      },
+      "completion_record_present": true,
+      "epoch": 40,
+      "global_step": 5120,
+      "optimizer_updates": 5120,
+      "processed_evaluation_samples": 222215,
+      "stage": "complete",
       "task_id": "dev-f00-tail-s20261032",
-      "updated_at_utc": "2026-10-26T09:52:00.016338+00:00"
+      "updated_at_utc": "2026-10-26T09:52:33.671772+00:00"
     },
     {
       "complete": true,
@@ -205,6 +228,9 @@
       "stage": "complete",
       "task_id": "dev-f00-tail_consistency-s20261031",
       "updated_at_utc": "2026-10-26T09:35:45.572674+00:00"
+    },
+    {
+      "task_id": "dev-f00-tail_consistency-s20261032"
     }
   ],
   "transport": {
@@ -213,5 +239,5 @@
     "total_objects": 504,
     "updated_at_utc": "2026-10-25T21:42:08.203659+00:00"
   },
-  "updated_at_utc": "2026-10-26T09:52:08.818035+00:00"
+  "updated_at_utc": "2026-10-26T09:54:59.967151+00:00"
 }
