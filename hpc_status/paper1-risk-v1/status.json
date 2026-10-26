@@ -9,16 +9,16 @@
     "active_children": [
       {
         "epoch": 7,
-        "global_step": 965,
-        "optimizer_updates": 965,
+        "global_step": 1013,
+        "optimizer_updates": 1013,
         "processed_evaluation_samples": 37632,
         "stage": "development",
         "task_id": "dev-f00-tail-s20261031"
       },
       {
         "epoch": 7,
-        "global_step": 965,
-        "optimizer_updates": 965,
+        "global_step": 1013,
+        "optimizer_updates": 1013,
         "processed_evaluation_samples": 37632,
         "stage": "development",
         "task_id": "dev-f00-consistency-s20261031"
@@ -28,7 +28,7 @@
     "pending_fits": 71,
     "slurm_job_id": "774964",
     "stage": "development",
-    "updated_at_utc": "2026-10-26T07:45:16.116853+00:00"
+    "updated_at_utc": "2026-10-26T07:47:47.291060+00:00"
   },
   "observation_scope": "Saved task steps and summaries; not independent proof of current GPU activity",
   "preparation": {
@@ -44,15 +44,15 @@
   "tasks": [
     {
       "epoch": 7,
-      "global_step": 965,
-      "loss": 0.4285888969898224,
-      "optimizer_updates": 965,
+      "global_step": 1013,
+      "loss": 0.4136093854904175,
+      "optimizer_updates": 1013,
       "processed_evaluation_samples": 37632,
       "stage": "training",
-      "step_in_epoch": 69,
+      "step_in_epoch": 117,
       "task_id": "dev-f00-consistency-s20261031",
-      "training_samples": 123520,
-      "updated_at_utc": "2026-10-26T07:45:02.305505+00:00"
+      "training_samples": 129664,
+      "updated_at_utc": "2026-10-26T07:47:44.567703+00:00"
     },
     {
       "complete": true,
@@ -104,15 +104,15 @@
     },
     {
       "epoch": 7,
-      "global_step": 965,
-      "loss": 0.5388648509979248,
-      "optimizer_updates": 965,
+      "global_step": 1013,
+      "loss": 0.5474519729614258,
+      "optimizer_updates": 1013,
       "processed_evaluation_samples": 37632,
       "stage": "training",
-      "step_in_epoch": 69,
+      "step_in_epoch": 117,
       "task_id": "dev-f00-tail-s20261031",
-      "training_samples": 123520,
-      "updated_at_utc": "2026-10-26T07:45:02.305535+00:00"
+      "training_samples": 129664,
+      "updated_at_utc": "2026-10-26T07:47:44.567815+00:00"
     }
   ],
   "transport": {
@@ -121,5 +121,5 @@
     "total_objects": 504,
     "updated_at_utc": "2026-10-25T21:42:08.203659+00:00"
   },
-  "updated_at_utc": "2026-10-26T07:45:22.474836+00:00"
+  "updated_at_utc": "2026-10-26T07:48:09.180429+00:00"
 }
