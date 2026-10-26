@@ -1,6 +1,6 @@
 {
   "counts": {
-    "completed": 88,
+    "completed": 89,
     "failed": 0,
     "observed": 90,
     "planned": 90
@@ -8,17 +8,9 @@
   "execution": {
     "active_children": [
       {
-        "epoch": 38,
-        "global_step": 4918,
-        "optimizer_updates": 4918,
-        "processed_evaluation_samples": 0,
-        "stage": "final",
-        "task_id": "final-consistency-s20261103"
-      },
-      {
-        "epoch": 0,
-        "global_step": 77,
-        "optimizer_updates": 77,
+        "epoch": 11,
+        "global_step": 1408,
+        "optimizer_updates": 1408,
         "processed_evaluation_samples": 0,
         "stage": "final",
         "task_id": "final-tail_consistency-s20261103"
@@ -28,7 +20,7 @@
     "pending_fits": 0,
     "slurm_job_id": "774964",
     "stage": "final",
-    "updated_at_utc": "2026-10-26T18:14:47.561205+00:00"
+    "updated_at_utc": "2026-10-26T18:17:48.835618+00:00"
   },
   "observation_scope": "Saved task steps and summaries; not independent proof of current GPU activity",
   "preparation": {
@@ -1891,14 +1883,28 @@
       "updated_at_utc": "2026-10-26T16:25:27.336444+00:00"
     },
     {
-      "best_epoch": 11,
-      "epoch": 39,
-      "global_step": 4992,
-      "optimizer_updates": 4992,
-      "processed_evaluation_samples": 0,
-      "stage": "epoch_completed",
+      "complete": true,
+      "completed_statistics": {
+        "best_epoch": 11,
+        "completed_at_utc": "2026-10-26T18:16:13.590953+00:00",
+        "epochs_completed": 40,
+        "global_step": 5120,
+        "method": "consistency",
+        "optimizer_updates": 5120,
+        "phase": "final",
+        "seed": 20261103,
+        "selected_epoch": 11,
+        "status": "complete",
+        "task_id": "final-consistency-s20261103"
+      },
+      "completion_record_present": true,
+      "epoch": 40,
+      "global_step": 5120,
+      "optimizer_updates": 5120,
+      "processed_evaluation_samples": 13600,
+      "stage": "complete",
       "task_id": "final-consistency-s20261103",
-      "updated_at_utc": "2026-10-26T18:14:57.284644+00:00"
+      "updated_at_utc": "2026-10-26T18:16:13.598807+00:00"
     },
     {
       "complete": true,
@@ -2165,13 +2171,13 @@
       "updated_at_utc": "2026-10-26T16:27:31.487050+00:00"
     },
     {
-      "epoch": 1,
-      "global_step": 128,
-      "optimizer_updates": 128,
+      "epoch": 12,
+      "global_step": 1536,
+      "optimizer_updates": 1536,
       "processed_evaluation_samples": 0,
       "stage": "epoch_completed",
       "task_id": "final-tail_consistency-s20261103",
-      "updated_at_utc": "2026-10-26T18:14:56.021695+00:00"
+      "updated_at_utc": "2026-10-26T18:17:55.376454+00:00"
     }
   ],
   "transport": {
@@ -2180,5 +2186,5 @@
     "total_objects": 504,
     "updated_at_utc": "2026-10-25T21:42:08.203659+00:00"
   },
-  "updated_at_utc": "2026-10-26T18:15:08.799423+00:00"
+  "updated_at_utc": "2026-10-26T18:18:05.224661+00:00"
 }
