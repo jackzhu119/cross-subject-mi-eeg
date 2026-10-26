@@ -8,17 +8,17 @@
   "execution": {
     "active_children": [
       {
-        "epoch": 5,
-        "global_step": 640,
-        "optimizer_updates": 640,
+        "epoch": 31,
+        "global_step": 3968,
+        "optimizer_updates": 3968,
         "processed_evaluation_samples": 0,
         "stage": "final",
         "task_id": "final-consistency-s20261102"
       },
       {
-        "epoch": 1,
-        "global_step": 128,
-        "optimizer_updates": 128,
+        "epoch": 27,
+        "global_step": 3456,
+        "optimizer_updates": 3456,
         "processed_evaluation_samples": 0,
         "stage": "final",
         "task_id": "final-tail_consistency-s20261102"
@@ -28,7 +28,7 @@
     "pending_fits": 5,
     "slurm_job_id": "774964",
     "stage": "final",
-    "updated_at_utc": "2026-10-26T16:20:57.101881+00:00"
+    "updated_at_utc": "2026-10-26T16:23:57.465846+00:00"
   },
   "observation_scope": "Saved task steps and summaries; not independent proof of current GPU activity",
   "preparation": {
@@ -1867,13 +1867,14 @@
       "updated_at_utc": "2026-10-26T16:03:47.215703+00:00"
     },
     {
-      "epoch": 6,
-      "global_step": 768,
-      "optimizer_updates": 768,
+      "best_epoch": 11,
+      "epoch": 32,
+      "global_step": 4096,
+      "optimizer_updates": 4096,
       "processed_evaluation_samples": 0,
       "stage": "epoch_completed",
       "task_id": "final-consistency-s20261102",
-      "updated_at_utc": "2026-10-26T16:21:02.795140+00:00"
+      "updated_at_utc": "2026-10-26T16:24:03.790655+00:00"
     },
     {
       "complete": true,
@@ -2044,13 +2045,14 @@
       "updated_at_utc": "2026-10-26T16:12:23.757395+00:00"
     },
     {
-      "epoch": 2,
-      "global_step": 256,
-      "optimizer_updates": 256,
+      "best_epoch": 18,
+      "epoch": 27,
+      "global_step": 3456,
+      "optimizer_updates": 3456,
       "processed_evaluation_samples": 0,
       "stage": "epoch_completed",
       "task_id": "final-tail_consistency-s20261102",
-      "updated_at_utc": "2026-10-26T16:21:03.579599+00:00"
+      "updated_at_utc": "2026-10-26T16:23:52.848447+00:00"
     }
   ],
   "transport": {
@@ -2059,5 +2061,5 @@
     "total_objects": 504,
     "updated_at_utc": "2026-10-25T21:42:08.203659+00:00"
   },
-  "updated_at_utc": "2026-10-26T16:21:21.257305+00:00"
+  "updated_at_utc": "2026-10-26T16:24:10.496921+00:00"
 }
