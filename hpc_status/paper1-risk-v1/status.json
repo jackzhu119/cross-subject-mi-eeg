@@ -9,16 +9,16 @@
     "active_children": [
       {
         "epoch": 33,
-        "global_step": 4224,
-        "optimizer_updates": 4224,
+        "global_step": 4307,
+        "optimizer_updates": 4307,
         "processed_evaluation_samples": 0,
         "stage": "final",
         "task_id": "final-tail-s20261103"
       },
       {
         "epoch": 30,
-        "global_step": 3861,
-        "optimizer_updates": 3861,
+        "global_step": 3941,
+        "optimizer_updates": 3941,
         "processed_evaluation_samples": 0,
         "stage": "final",
         "task_id": "final-consistency-s20261103"
@@ -28,7 +28,7 @@
     "pending_fits": 1,
     "slurm_job_id": "774964",
     "stage": "final",
-    "updated_at_utc": "2026-10-26T17:09:12.978857+00:00"
+    "updated_at_utc": "2026-10-26T17:12:14.596606+00:00"
   },
   "observation_scope": "Saved task steps and summaries; not independent proof of current GPU activity",
   "preparation": {
@@ -1892,15 +1892,15 @@
     },
     {
       "epoch": 30,
-      "global_step": 3875,
-      "loss": 0.615010678768158,
-      "optimizer_updates": 3875,
+      "global_step": 3941,
+      "loss": 0.4721331000328064,
+      "optimizer_updates": 3941,
       "processed_evaluation_samples": 0,
       "stage": "training",
-      "step_in_epoch": 35,
+      "step_in_epoch": 101,
       "task_id": "final-consistency-s20261103",
-      "training_samples": 496000,
-      "updated_at_utc": "2026-10-26T17:09:30.515625+00:00"
+      "training_samples": 504448,
+      "updated_at_utc": "2026-10-26T17:12:05.435130+00:00"
     },
     {
       "complete": true,
@@ -2096,15 +2096,15 @@
     },
     {
       "epoch": 33,
-      "global_step": 4238,
-      "loss": 0.6701396107673645,
-      "optimizer_updates": 4238,
+      "global_step": 4307,
+      "loss": 0.6067355871200562,
+      "optimizer_updates": 4307,
       "processed_evaluation_samples": 0,
       "stage": "training",
-      "step_in_epoch": 14,
+      "step_in_epoch": 83,
       "task_id": "final-tail-s20261103",
-      "training_samples": 542464,
-      "updated_at_utc": "2026-10-26T17:09:33.536352+00:00"
+      "training_samples": 551296,
+      "updated_at_utc": "2026-10-26T17:12:07.130376+00:00"
     },
     {
       "complete": true,
@@ -2161,5 +2161,5 @@
     "total_objects": 504,
     "updated_at_utc": "2026-10-25T21:42:08.203659+00:00"
   },
-  "updated_at_utc": "2026-10-26T17:09:44.814692+00:00"
+  "updated_at_utc": "2026-10-26T17:12:39.453233+00:00"
 }
