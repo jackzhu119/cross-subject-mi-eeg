@@ -8,18 +8,18 @@
   "execution": {
     "active_children": [
       {
-        "epoch": 18,
-        "global_step": 2379,
-        "optimizer_updates": 2379,
-        "processed_evaluation_samples": 96768,
+        "epoch": 19,
+        "global_step": 2519,
+        "optimizer_updates": 2519,
+        "processed_evaluation_samples": 102144,
         "stage": "development",
         "task_id": "dev-f00-erm-s20261031"
       },
       {
-        "epoch": 18,
-        "global_step": 2379,
-        "optimizer_updates": 2379,
-        "processed_evaluation_samples": 96768,
+        "epoch": 19,
+        "global_step": 2519,
+        "optimizer_updates": 2519,
+        "processed_evaluation_samples": 102144,
         "stage": "development",
         "task_id": "dev-f00-groupdro-s20261031"
       }
@@ -28,7 +28,7 @@
     "pending_fits": 73,
     "slurm_job_id": "774964",
     "stage": "development",
-    "updated_at_utc": "2026-10-26T05:58:06.154054+00:00"
+    "updated_at_utc": "2026-10-26T06:01:06.823434+00:00"
   },
   "observation_scope": "Saved task steps and summaries; not independent proof of current GPU activity",
   "preparation": {
@@ -43,28 +43,28 @@
   "schema_version": 1,
   "tasks": [
     {
-      "epoch": 18,
-      "global_step": 2379,
-      "loss": 0.4865197539329529,
-      "optimizer_updates": 2379,
-      "processed_evaluation_samples": 96768,
+      "epoch": 19,
+      "global_step": 2519,
+      "loss": 0.49785178899765015,
+      "optimizer_updates": 2519,
+      "processed_evaluation_samples": 102144,
       "stage": "training",
-      "step_in_epoch": 75,
+      "step_in_epoch": 87,
       "task_id": "dev-f00-erm-s20261031",
-      "training_samples": 304512,
-      "updated_at_utc": "2026-10-26T05:57:57.549777+00:00"
+      "training_samples": 322432,
+      "updated_at_utc": "2026-10-26T06:00:51.590222+00:00"
     },
     {
-      "epoch": 18,
-      "global_step": 2379,
-      "loss": 0.35856878757476807,
-      "optimizer_updates": 2379,
-      "processed_evaluation_samples": 96768,
+      "epoch": 19,
+      "global_step": 2519,
+      "loss": 0.42072799801826477,
+      "optimizer_updates": 2519,
+      "processed_evaluation_samples": 102144,
       "stage": "training",
-      "step_in_epoch": 75,
+      "step_in_epoch": 87,
       "task_id": "dev-f00-groupdro-s20261031",
-      "training_samples": 304512,
-      "updated_at_utc": "2026-10-26T05:57:57.549890+00:00"
+      "training_samples": 322432,
+      "updated_at_utc": "2026-10-26T06:00:51.590859+00:00"
     }
   ],
   "transport": {
@@ -73,5 +73,5 @@
     "total_objects": 504,
     "updated_at_utc": "2026-10-25T21:42:08.203659+00:00"
   },
-  "updated_at_utc": "2026-10-26T05:58:29.565244+00:00"
+  "updated_at_utc": "2026-10-26T06:01:16.355133+00:00"
 }
