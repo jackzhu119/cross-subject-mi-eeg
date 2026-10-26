@@ -8,18 +8,18 @@
   "execution": {
     "active_children": [
       {
-        "epoch": 2,
-        "global_step": 256,
-        "optimizer_updates": 256,
-        "processed_evaluation_samples": 11950,
+        "epoch": 28,
+        "global_step": 3584,
+        "optimizer_updates": 3584,
+        "processed_evaluation_samples": 167300,
         "stage": "development",
         "task_id": "dev-f04-consistency-s20261032"
       },
       {
-        "epoch": 1,
-        "global_step": 128,
-        "optimizer_updates": 128,
-        "processed_evaluation_samples": 5975,
+        "epoch": 27,
+        "global_step": 3456,
+        "optimizer_updates": 3456,
+        "processed_evaluation_samples": 161325,
         "stage": "development",
         "task_id": "dev-f04-tail_consistency-s20261032"
       }
@@ -28,7 +28,7 @@
     "pending_fits": 5,
     "slurm_job_id": "774964",
     "stage": "development",
-    "updated_at_utc": "2026-10-26T15:22:07.076739+00:00"
+    "updated_at_utc": "2026-10-26T15:25:07.297787+00:00"
   },
   "observation_scope": "Saved task steps and summaries; not independent proof of current GPU activity",
   "preparation": {
@@ -1507,14 +1507,14 @@
       "updated_at_utc": "2026-10-26T15:03:52.393656+00:00"
     },
     {
-      "best_epoch": 1,
-      "epoch": 4,
-      "global_step": 512,
-      "optimizer_updates": 512,
-      "processed_evaluation_samples": 23900,
+      "best_epoch": 24,
+      "epoch": 31,
+      "global_step": 3968,
+      "optimizer_updates": 3968,
+      "processed_evaluation_samples": 185225,
       "stage": "epoch_completed",
       "task_id": "dev-f04-consistency-s20261032",
-      "updated_at_utc": "2026-10-26T15:22:28.898289+00:00"
+      "updated_at_utc": "2026-10-26T15:25:25.628456+00:00"
     },
     {
       "complete": true,
@@ -1686,13 +1686,13 @@
     },
     {
       "best_epoch": 2,
-      "epoch": 4,
-      "global_step": 512,
-      "optimizer_updates": 512,
-      "processed_evaluation_samples": 23900,
+      "epoch": 31,
+      "global_step": 3968,
+      "optimizer_updates": 3968,
+      "processed_evaluation_samples": 185225,
       "stage": "epoch_completed",
       "task_id": "dev-f04-tail_consistency-s20261032",
-      "updated_at_utc": "2026-10-26T15:22:33.851125+00:00"
+      "updated_at_utc": "2026-10-26T15:25:27.730240+00:00"
     }
   ],
   "transport": {
@@ -1701,5 +1701,5 @@
     "total_objects": 504,
     "updated_at_utc": "2026-10-25T21:42:08.203659+00:00"
   },
-  "updated_at_utc": "2026-10-26T15:22:41.158466+00:00"
+  "updated_at_utc": "2026-10-26T15:25:37.595292+00:00"
 }
