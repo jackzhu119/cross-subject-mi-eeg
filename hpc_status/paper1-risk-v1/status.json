@@ -9,16 +9,16 @@
     "active_children": [
       {
         "epoch": 36,
-        "global_step": 4687,
-        "optimizer_updates": 4687,
+        "global_step": 4728,
+        "optimizer_updates": 4728,
         "processed_evaluation_samples": 0,
         "stage": "final",
         "task_id": "final-tail-s20261103"
       },
       {
-        "epoch": 33,
-        "global_step": 4323,
-        "optimizer_updates": 4323,
+        "epoch": 34,
+        "global_step": 4358,
+        "optimizer_updates": 4358,
         "processed_evaluation_samples": 0,
         "stage": "final",
         "task_id": "final-consistency-s20261103"
@@ -28,7 +28,7 @@
     "pending_fits": 1,
     "slurm_job_id": "774964",
     "stage": "final",
-    "updated_at_utc": "2026-10-26T17:29:23.531049+00:00"
+    "updated_at_utc": "2026-10-26T17:32:25.591695+00:00"
   },
   "observation_scope": "Saved task steps and summaries; not independent proof of current GPU activity",
   "preparation": {
@@ -1891,16 +1891,16 @@
       "updated_at_utc": "2026-10-26T16:25:27.336444+00:00"
     },
     {
-      "epoch": 33,
-      "global_step": 4323,
-      "loss": 0.6110420823097229,
-      "optimizer_updates": 4323,
+      "epoch": 34,
+      "global_step": 4358,
+      "loss": 0.5099550485610962,
+      "optimizer_updates": 4358,
       "processed_evaluation_samples": 0,
       "stage": "training",
-      "step_in_epoch": 99,
+      "step_in_epoch": 6,
       "task_id": "final-consistency-s20261103",
-      "training_samples": 553344,
-      "updated_at_utc": "2026-10-26T17:29:21.647119+00:00"
+      "training_samples": 557824,
+      "updated_at_utc": "2026-10-26T17:32:19.299686+00:00"
     },
     {
       "complete": true,
@@ -2096,15 +2096,15 @@
     },
     {
       "epoch": 36,
-      "global_step": 4694,
-      "loss": 0.5598662495613098,
-      "optimizer_updates": 4694,
+      "global_step": 4728,
+      "loss": 0.5917226672172546,
+      "optimizer_updates": 4728,
       "processed_evaluation_samples": 0,
       "stage": "training",
-      "step_in_epoch": 86,
+      "step_in_epoch": 120,
       "task_id": "final-tail-s20261103",
-      "training_samples": 600832,
-      "updated_at_utc": "2026-10-26T17:29:34.469558+00:00"
+      "training_samples": 605184,
+      "updated_at_utc": "2026-10-26T17:32:24.113163+00:00"
     },
     {
       "complete": true,
@@ -2161,5 +2161,5 @@
     "total_objects": 504,
     "updated_at_utc": "2026-10-25T21:42:08.203659+00:00"
   },
-  "updated_at_utc": "2026-10-26T17:29:44.267959+00:00"
+  "updated_at_utc": "2026-10-26T17:32:36.008510+00:00"
 }
