@@ -8,10 +8,18 @@
   "execution": {
     "active_children": [
       {
+        "epoch": 6,
+        "global_step": 768,
+        "optimizer_updates": 768,
+        "processed_evaluation_samples": 35856,
         "stage": "development",
         "task_id": "dev-f02-consistency-s20261032"
       },
       {
+        "epoch": 5,
+        "global_step": 640,
+        "optimizer_updates": 640,
+        "processed_evaluation_samples": 29880,
         "stage": "development",
         "task_id": "dev-f02-tail_consistency-s20261032"
       }
@@ -20,7 +28,7 @@
     "pending_fits": 35,
     "slurm_job_id": "774964",
     "stage": "development",
-    "updated_at_utc": "2026-10-26T13:23:20.721311+00:00"
+    "updated_at_utc": "2026-10-26T13:25:50.937846+00:00"
   },
   "observation_scope": "Saved task steps and summaries; not independent proof of current GPU activity",
   "preparation": {
@@ -779,7 +787,14 @@
       "updated_at_utc": "2026-10-26T13:04:20.426829+00:00"
     },
     {
-      "task_id": "dev-f02-consistency-s20261032"
+      "best_epoch": 5,
+      "epoch": 9,
+      "global_step": 1152,
+      "optimizer_updates": 1152,
+      "processed_evaluation_samples": 53784,
+      "stage": "epoch_completed",
+      "task_id": "dev-f02-consistency-s20261032",
+      "updated_at_utc": "2026-10-26T13:26:12.655691+00:00"
     },
     {
       "complete": true,
@@ -950,7 +965,14 @@
       "updated_at_utc": "2026-10-26T13:14:45.167167+00:00"
     },
     {
-      "task_id": "dev-f02-tail_consistency-s20261032"
+      "best_epoch": 6,
+      "epoch": 9,
+      "global_step": 1152,
+      "optimizer_updates": 1152,
+      "processed_evaluation_samples": 53784,
+      "stage": "epoch_completed",
+      "task_id": "dev-f02-tail_consistency-s20261032",
+      "updated_at_utc": "2026-10-26T13:26:12.607898+00:00"
     }
   ],
   "transport": {
@@ -959,5 +981,5 @@
     "total_objects": 504,
     "updated_at_utc": "2026-10-25T21:42:08.203659+00:00"
   },
-  "updated_at_utc": "2026-10-26T13:23:31.872420+00:00"
+  "updated_at_utc": "2026-10-26T13:26:24.169824+00:00"
 }
