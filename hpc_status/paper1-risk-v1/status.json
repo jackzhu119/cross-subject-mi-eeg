@@ -2,33 +2,25 @@
   "counts": {
     "completed": 14,
     "failed": 0,
-    "observed": 14,
+    "observed": 16,
     "planned": 75
   },
   "execution": {
     "active_children": [
       {
-        "epoch": 40,
-        "global_step": 5120,
-        "optimizer_updates": 5120,
-        "processed_evaluation_samples": 222215,
         "stage": "development",
-        "task_id": "dev-f00-tail-s20261033"
+        "task_id": "dev-f00-tail_consistency-s20261033"
       },
       {
-        "epoch": 40,
-        "global_step": 5120,
-        "optimizer_updates": 5120,
-        "processed_evaluation_samples": 222215,
         "stage": "development",
-        "task_id": "dev-f00-consistency-s20261033"
+        "task_id": "dev-f01-erm-s20261031"
       }
     ],
     "max_concurrent_fits": 2,
-    "pending_fits": 61,
+    "pending_fits": 59,
     "slurm_job_id": "774964",
     "stage": "development",
-    "updated_at_utc": "2026-10-26T11:28:07.177382+00:00"
+    "updated_at_utc": "2026-10-26T11:30:37.362161+00:00"
   },
   "observation_scope": "Saved task steps and summaries; not independent proof of current GPU activity",
   "preparation": {
@@ -377,6 +369,12 @@
       "stage": "complete",
       "task_id": "dev-f00-tail_consistency-s20261032",
       "updated_at_utc": "2026-10-26T11:08:29.839297+00:00"
+    },
+    {
+      "task_id": "dev-f00-tail_consistency-s20261033"
+    },
+    {
+      "task_id": "dev-f01-erm-s20261031"
     }
   ],
   "transport": {
@@ -385,5 +383,5 @@
     "total_objects": 504,
     "updated_at_utc": "2026-10-25T21:42:08.203659+00:00"
   },
-  "updated_at_utc": "2026-10-26T11:28:12.430651+00:00"
+  "updated_at_utc": "2026-10-26T11:31:00.837114+00:00"
 }
