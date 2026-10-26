@@ -2,16 +2,33 @@
   "counts": {
     "completed": 75,
     "failed": 0,
-    "observed": 75,
+    "observed": 77,
     "planned": 90
   },
   "execution": {
-    "active_children": [],
+    "active_children": [
+      {
+        "epoch": 6,
+        "global_step": 768,
+        "optimizer_updates": 768,
+        "processed_evaluation_samples": 0,
+        "stage": "final",
+        "task_id": "final-erm-s20261101"
+      },
+      {
+        "epoch": 6,
+        "global_step": 768,
+        "optimizer_updates": 768,
+        "processed_evaluation_samples": 0,
+        "stage": "final",
+        "task_id": "final-groupdro-s20261101"
+      }
+    ],
     "max_concurrent_fits": 2,
-    "pending_fits": 15,
+    "pending_fits": 13,
     "slurm_job_id": "774964",
     "stage": "final",
-    "updated_at_utc": "2026-10-26T15:46:17.820398+00:00"
+    "updated_at_utc": "2026-10-26T15:48:48.718188+00:00"
   },
   "observation_scope": "Saved task steps and summaries; not independent proof of current GPU activity",
   "preparation": {
@@ -1824,6 +1841,24 @@
       "stage": "complete",
       "task_id": "dev-f04-tail_consistency-s20261033",
       "updated_at_utc": "2026-10-26T15:46:05.112205+00:00"
+    },
+    {
+      "epoch": 11,
+      "global_step": 1408,
+      "optimizer_updates": 1408,
+      "processed_evaluation_samples": 0,
+      "stage": "epoch_completed",
+      "task_id": "final-erm-s20261101",
+      "updated_at_utc": "2026-10-26T15:49:15.711264+00:00"
+    },
+    {
+      "epoch": 11,
+      "global_step": 1408,
+      "optimizer_updates": 1408,
+      "processed_evaluation_samples": 0,
+      "stage": "epoch_completed",
+      "task_id": "final-groupdro-s20261101",
+      "updated_at_utc": "2026-10-26T15:49:15.714918+00:00"
     }
   ],
   "transport": {
@@ -1832,5 +1867,5 @@
     "total_objects": 504,
     "updated_at_utc": "2026-10-25T21:42:08.203659+00:00"
   },
-  "updated_at_utc": "2026-10-26T15:46:19.736385+00:00"
+  "updated_at_utc": "2026-10-26T15:49:18.764711+00:00"
 }
