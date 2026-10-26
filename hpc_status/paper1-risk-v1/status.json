@@ -8,18 +8,18 @@
   "execution": {
     "active_children": [
       {
-        "epoch": 17,
-        "global_step": 2240,
-        "optimizer_updates": 2240,
-        "processed_evaluation_samples": 91392,
+        "epoch": 18,
+        "global_step": 2391,
+        "optimizer_updates": 2391,
+        "processed_evaluation_samples": 96768,
         "stage": "development",
         "task_id": "dev-f00-consistency-s20261032"
       },
       {
-        "epoch": 17,
-        "global_step": 2240,
-        "optimizer_updates": 2240,
-        "processed_evaluation_samples": 91392,
+        "epoch": 18,
+        "global_step": 2391,
+        "optimizer_updates": 2391,
+        "processed_evaluation_samples": 96768,
         "stage": "development",
         "task_id": "dev-f00-tail_consistency-s20261032"
       }
@@ -28,7 +28,7 @@
     "pending_fits": 65,
     "slurm_job_id": "774964",
     "stage": "development",
-    "updated_at_utc": "2026-10-26T10:48:32.254668+00:00"
+    "updated_at_utc": "2026-10-26T10:51:02.522100+00:00"
   },
   "observation_scope": "Saved task steps and summaries; not independent proof of current GPU activity",
   "preparation": {
@@ -67,16 +67,16 @@
       "updated_at_utc": "2026-10-26T09:21:32.316566+00:00"
     },
     {
-      "epoch": 17,
-      "global_step": 2240,
-      "loss": 0.4391521215438843,
-      "optimizer_updates": 2240,
-      "processed_evaluation_samples": 91392,
+      "epoch": 18,
+      "global_step": 2391,
+      "loss": 0.3836522400379181,
+      "optimizer_updates": 2391,
+      "processed_evaluation_samples": 96768,
       "stage": "training",
-      "step_in_epoch": 64,
+      "step_in_epoch": 87,
       "task_id": "dev-f00-consistency-s20261032",
-      "training_samples": 286720,
-      "updated_at_utc": "2026-10-26T10:48:25.745921+00:00"
+      "training_samples": 306048,
+      "updated_at_utc": "2026-10-26T10:51:01.376402+00:00"
     },
     {
       "complete": true,
@@ -247,16 +247,16 @@
       "updated_at_utc": "2026-10-26T09:35:45.572674+00:00"
     },
     {
-      "epoch": 17,
-      "global_step": 2240,
-      "loss": 0.5690523386001587,
-      "optimizer_updates": 2240,
-      "processed_evaluation_samples": 91392,
+      "epoch": 18,
+      "global_step": 2391,
+      "loss": 0.533180832862854,
+      "optimizer_updates": 2391,
+      "processed_evaluation_samples": 96768,
       "stage": "training",
-      "step_in_epoch": 64,
+      "step_in_epoch": 87,
       "task_id": "dev-f00-tail_consistency-s20261032",
-      "training_samples": 286720,
-      "updated_at_utc": "2026-10-26T10:48:25.745997+00:00"
+      "training_samples": 306048,
+      "updated_at_utc": "2026-10-26T10:51:01.376498+00:00"
     }
   ],
   "transport": {
@@ -265,5 +265,5 @@
     "total_objects": 504,
     "updated_at_utc": "2026-10-25T21:42:08.203659+00:00"
   },
-  "updated_at_utc": "2026-10-26T10:48:36.704369+00:00"
+  "updated_at_utc": "2026-10-26T10:51:23.363121+00:00"
 }
