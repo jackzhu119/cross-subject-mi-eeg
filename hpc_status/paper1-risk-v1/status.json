@@ -1,6 +1,6 @@
 {
   "counts": {
-    "completed": 10,
+    "completed": 12,
     "failed": 0,
     "observed": 12,
     "planned": 75
@@ -8,27 +8,19 @@
   "execution": {
     "active_children": [
       {
-        "epoch": 26,
-        "global_step": 3328,
-        "optimizer_updates": 3328,
-        "processed_evaluation_samples": 139776,
         "stage": "development",
-        "task_id": "dev-f00-erm-s20261033"
+        "task_id": "dev-f00-tail-s20261033"
       },
       {
-        "epoch": 26,
-        "global_step": 3328,
-        "optimizer_updates": 3328,
-        "processed_evaluation_samples": 139776,
         "stage": "development",
-        "task_id": "dev-f00-groupdro-s20261033"
+        "task_id": "dev-f00-consistency-s20261033"
       }
     ],
     "max_concurrent_fits": 2,
-    "pending_fits": 63,
+    "pending_fits": 61,
     "slurm_job_id": "774964",
     "stage": "development",
-    "updated_at_utc": "2026-10-26T11:16:36.360997+00:00"
+    "updated_at_utc": "2026-10-26T11:19:06.583469+00:00"
   },
   "observation_scope": "Saved task steps and summaries; not independent proof of current GPU activity",
   "preparation": {
@@ -139,14 +131,28 @@
       "updated_at_utc": "2026-10-26T09:35:45.573336+00:00"
     },
     {
-      "best_epoch": 26,
-      "epoch": 27,
-      "global_step": 3456,
-      "optimizer_updates": 3456,
-      "processed_evaluation_samples": 145152,
-      "stage": "epoch_completed",
+      "complete": true,
+      "completed_statistics": {
+        "best_epoch": 39,
+        "completed_at_utc": "2026-10-26T11:18:18.224216+00:00",
+        "epochs_completed": 40,
+        "fold": 0,
+        "global_step": 5120,
+        "method": "erm",
+        "optimizer_updates": 5120,
+        "phase": "development",
+        "seed": 20261033,
+        "status": "complete",
+        "task_id": "dev-f00-erm-s20261033"
+      },
+      "completion_record_present": true,
+      "epoch": 40,
+      "global_step": 5120,
+      "optimizer_updates": 5120,
+      "processed_evaluation_samples": 222215,
+      "stage": "complete",
       "task_id": "dev-f00-erm-s20261033",
-      "updated_at_utc": "2026-10-26T11:16:40.925708+00:00"
+      "updated_at_utc": "2026-10-26T11:18:18.232172+00:00"
     },
     {
       "complete": true,
@@ -197,14 +203,28 @@
       "updated_at_utc": "2026-10-26T09:52:33.669702+00:00"
     },
     {
-      "best_epoch": 25,
-      "epoch": 27,
-      "global_step": 3456,
-      "optimizer_updates": 3456,
-      "processed_evaluation_samples": 145152,
-      "stage": "epoch_completed",
+      "complete": true,
+      "completed_statistics": {
+        "best_epoch": 40,
+        "completed_at_utc": "2026-10-26T11:18:18.221987+00:00",
+        "epochs_completed": 40,
+        "fold": 0,
+        "global_step": 5120,
+        "method": "groupdro",
+        "optimizer_updates": 5120,
+        "phase": "development",
+        "seed": 20261033,
+        "status": "complete",
+        "task_id": "dev-f00-groupdro-s20261033"
+      },
+      "completion_record_present": true,
+      "epoch": 40,
+      "global_step": 5120,
+      "optimizer_updates": 5120,
+      "processed_evaluation_samples": 222215,
+      "stage": "complete",
       "task_id": "dev-f00-groupdro-s20261033",
-      "updated_at_utc": "2026-10-26T11:16:41.823238+00:00"
+      "updated_at_utc": "2026-10-26T11:18:18.229261+00:00"
     },
     {
       "complete": true,
@@ -309,5 +329,5 @@
     "total_objects": 504,
     "updated_at_utc": "2026-10-25T21:42:08.203659+00:00"
   },
-  "updated_at_utc": "2026-10-26T11:16:48.994794+00:00"
+  "updated_at_utc": "2026-10-26T11:19:37.471007+00:00"
 }
