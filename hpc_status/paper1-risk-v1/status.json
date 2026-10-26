@@ -3,18 +3,24 @@
     "completed": 0,
     "failed": 0,
     "observed": 0,
-    "planned": null
+    "planned": 75
   },
   "execution": {
     "active_children": [
       {
-        "stage": "gpu_smoke_slot_1"
+        "stage": "development",
+        "task_id": "dev-f00-erm-s20261031"
+      },
+      {
+        "stage": "development",
+        "task_id": "dev-f00-groupdro-s20261031"
       }
     ],
     "max_concurrent_fits": 2,
+    "pending_fits": 73,
     "slurm_job_id": "774964",
-    "stage": "gpu_smoke_slot_1",
-    "updated_at_utc": "2026-10-26T05:07:27.100877+00:00"
+    "stage": "development",
+    "updated_at_utc": "2026-10-26T05:10:30.574230+00:00"
   },
   "observation_scope": "Saved task steps and summaries; not independent proof of current GPU activity",
   "preparation": {
@@ -34,5 +40,5 @@
     "total_objects": 504,
     "updated_at_utc": "2026-10-25T21:42:08.203659+00:00"
   },
-  "updated_at_utc": "2026-10-26T05:07:54.686508+00:00"
+  "updated_at_utc": "2026-10-26T05:10:41.349478+00:00"
 }
