@@ -3,8 +3,8 @@
 set -euo pipefail
 PROJECTS_ROOT="${PAPER1_PROJECTS_ROOT:-/public/home/zhuziyuan/projects}"
 PYTHON_BIN="${PAPER1_PYTHON:-/public/home/zhuziyuan/.venvs/paper3-hpc-cu121-offline/bin/python}"
-SOURCE_REV="f79e4efb42e64a0a0dbdbf0a68043eadbd2563a7"
-BUNDLE_SHA="a046529eae4f3069847488fc1a69628eb4ce5a434e4ece2194dc9dbbaf813d8e"
+SOURCE_REV="62e52f7fe173440cc777a4d940ec3598aae5fd4b"
+BUNDLE_SHA="bc99b33833124cc26a253b620d239d4fcaac56bbbc5f8fb6ecc3d00f8c29a774"
 mkdir -p "$PROJECTS_ROOT"
 PROJECTS_ROOT="$(cd "$PROJECTS_ROOT" && pwd)"
 CACHE="$PROJECTS_ROOT/.paper1-composition-downloads"

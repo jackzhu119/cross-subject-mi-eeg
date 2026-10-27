@@ -1,12 +1,12 @@
 {
-  "code_revision": "f79e4efb42e64a0a0dbdbf0a68043eadbd2563a7",
+  "code_revision": "62e52f7fe173440cc777a4d940ec3598aae5fd4b",
   "bootstrap": "LAUNCH_ON_SCHOOL.sh",
-  "bootstrap_sha256": "212f53d2686338022d06d6b110c448b2e343c786c1183b81621f54ef70e86698",
+  "bootstrap_sha256": "d0dde3caa30785b7af1c1bc57a4056296b2437af95c9f9fd692a02fabc16f688",
   "bundle": {
     "file": "paper1-composition-code.tar.gz",
-    "bytes": 107525,
-    "sha256": "a046529eae4f3069847488fc1a69628eb4ce5a434e4ece2194dc9dbbaf813d8e",
-    "payloads": 37,
+    "bytes": 111244,
+    "sha256": "bc99b33833124cc26a253b620d239d4fcaac56bbbc5f8fb6ecc3d00f8c29a774",
+    "payloads": 40,
     "raw_data_or_model_weights": false
   },
   "one_time_token_prompt": true,
@@ -27,5 +27,15 @@
     "bootstrap_extract_and_launch_help_exit_code": 0,
     "check_environment": "Local CPU environment, not school Slurm",
     "school_gpu_smoke_pending": true
+  },
+  "submission_lock_repair": {
+    "previous_bootstrap_revision": "38d2d9e4da4615021663fee645dbeba665ec4985",
+    "authorization_and_sync_outside_lock": true,
+    "same_lock_inode_required": true,
+    "old_process_stopped_automatically": false,
+    "science_or_checkpoint_contract_changed": false,
+    "execution_tests": 14,
+    "offline_bundle_import_tests": 1,
+    "test_failures": 0
   }
 }
