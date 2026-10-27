@@ -1,0 +1,31 @@
+{
+  "code_revision": "f79e4efb42e64a0a0dbdbf0a68043eadbd2563a7",
+  "bootstrap": "LAUNCH_ON_SCHOOL.sh",
+  "bootstrap_sha256": "212f53d2686338022d06d6b110c448b2e343c786c1183b81621f54ef70e86698",
+  "bundle": {
+    "file": "paper1-composition-code.tar.gz",
+    "bytes": 107525,
+    "sha256": "a046529eae4f3069847488fc1a69628eb4ce5a434e4ece2194dc9dbbaf813d8e",
+    "payloads": 37,
+    "raw_data_or_model_weights": false
+  },
+  "one_time_token_prompt": true,
+  "defaults": {
+    "base_project": "/public/home/zhuziyuan/projects/paper1-risk-v1",
+    "new_project": "/public/home/zhuziyuan/projects/paper1-composition-v2",
+    "partition": "hpc_gpu",
+    "nodes": 1,
+    "gpus": 2,
+    "total_cpus": 24,
+    "total_memory": "128G"
+  },
+  "resume": "Run the same bootstrap; cached private token and complete task records are reused.",
+  "gpu_training_started_here": false,
+  "delivery_checks": {
+    "github_api_bundle_readback_http": 200,
+    "full_byte_length_and_sha256_match": true,
+    "bootstrap_extract_and_launch_help_exit_code": 0,
+    "check_environment": "Local CPU environment, not school Slurm",
+    "school_gpu_smoke_pending": true
+  }
+}
