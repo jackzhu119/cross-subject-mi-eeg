@@ -8,6 +8,8 @@
 
 **推荐后台方式：** 如果旧的前台上传还占着终端，先在那个窗口按`Ctrl+C`，仅结束前台导出／上传，原结果与Slurm作业保持。然后在login1运行交付消息中的固定下载命令，并追加`--background --publish`。后台立即返回PID，可以关闭终端。已有同项目后台会复用；旧前台仍持有导出锁时，后台显示`waiting_existing_export`并等待，不强杀进程、不重复打包。
 
+如果旧前台窗口已找不到，且状态持续为`waiting_existing_export`，新版本支持在同一后台命令中追加`--handoff-foreground`。它读取内核锁记录，核对真实持有者的UID、精确项目、已发布上传脚本SHA、文件描述符和PID启动时间，再向那个旧前台发送一次SIGINT；现有后台自动接手。不删除锁、不终止后台worker或训练进程。进程／锁无法明确核实时保留现场并报出原因。接管回执保存在`state/results-upload-handoffs/`。
+
 在学校 **login1** 下载本目录的 `PUBLISH_RESULTS_ON_SCHOOL.py`，使用现有Python执行：
 
 ```bash

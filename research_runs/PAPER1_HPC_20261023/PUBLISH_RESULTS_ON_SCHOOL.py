@@ -692,6 +692,124 @@ def _prepare_private_token(project,reauthorize=False):
         os.replace(temporary,path)
 
 
+def _export_lock_holders(project,proc_root=Path('/proc')):
+    path=project/'exports/github-results/.export.lock'
+    info=path.stat()
+    identity=(os.major(info.st_dev),os.minor(info.st_dev),info.st_ino)
+    holders=set()
+    for line in (proc_root/'locks').read_text().splitlines():
+        fields=line.split()
+        if ('->' in fields or len(fields)<8 or fields[1] not in {'FLOCK','POSIX'}
+                or fields[2:4]!=['ADVISORY','WRITE'] or fields[6:8]!=['0','EOF']):
+            continue
+        try:
+            major,minor,inode=fields[5].split(':')
+            observed=(int(major,16),int(minor,16),int(inode,10))
+            pid=int(fields[4])
+        except ValueError:
+            continue
+        if observed==identity and pid>1:
+            holders.add(pid)
+    return holders,info
+
+
+def _foreground_export_identity(project,pid,lock_info,proc_root=Path('/proc')):
+    proc=proc_root/str(pid)
+    if pid==os.getpid() or proc.stat().st_uid!=os.getuid():
+        raise ValueError('Export lock owner is not an eligible process of this user; retained')
+    args=[x.decode() for x in (proc/'cmdline').read_bytes().split(b'\0') if x]
+    if (not args or not re.fullmatch(r'python(?:[0-9]+(?:\.[0-9]+)*)?',Path(args[0]).name)
+            or '-m' in args or '-c' in args or '--background-worker' in args or '--background' in args
+            or '--publish' not in args or args.count('--project')!=1):
+        raise ValueError('Export lock owner is not the known foreground publisher; retained')
+    position=args.index('--project')
+    if position+1>=len(args) or Path(args[position+1]).resolve()!=project:
+        raise ValueError('Export owner belongs to a different project; retained')
+    names={'paper1-publish-results.py','paper1-upload-bg.py','PUBLISH_RESULTS_ON_SCHOOL.py'}
+    scripts=[Path(x) for x in args[1:position] if Path(x).name in names]
+    if len(scripts)!=1 or not scripts[0].is_file():
+        raise ValueError('Foreground publisher script identity is not observed; retained')
+    script=scripts[0].resolve()
+    digest=_file_sha(script)
+    known={'98bf8fe313a111c0bf84cc04a06ea1e7e0ec451d217c84d92faa075fbe0d833d',
+           'ef1a6c67463c5c642c1c85e2c6bfd7378f8f9c39fc680e6c78bdd32d33ed5ef4',
+           _file_sha(Path(__file__).resolve())}
+    if digest not in known:
+        raise ValueError('Foreground publisher source is not a delivered version; retained')
+    has_descriptor=False
+    for descriptor in (proc/'fd').iterdir():
+        try:
+            observed=descriptor.stat()
+            if (observed.st_dev,observed.st_ino)==(lock_info.st_dev,lock_info.st_ino):
+                has_descriptor=True
+                break
+        except OSError:
+            continue
+    if not has_descriptor:
+        raise ValueError('Foreground publisher no longer has the exact export lock open; retained')
+    fields=(proc/'stat').read_text().rsplit(')',1)[1].split()
+    return {'pid':pid,'start_ticks':fields[19],'script':str(script),'script_sha256':digest}
+
+
+def _handoff_foreground(project,proc_root=Path('/proc'),timeout=12):
+    """Interrupt only a verified old publisher, never a training/Slurm process."""
+    lock_path=project/'exports/github-results/.export.lock'
+    if not lock_path.exists():
+        print(json.dumps({'status':'NO_OLD_EXPORT_LOCK_OBSERVED','new_model_fits':0}),flush=True)
+        return
+    holders,info=_export_lock_holders(project,proc_root)
+    background=_live_background(project)
+    if background and holders=={background['pid']}:
+        print(json.dumps({'status':'BACKGROUND_ALREADY_OWNS_EXPORT','pid':background['pid']}),flush=True)
+        return
+    if not holders:
+        # A remote NFS owner may not appear locally. Test availability, never
+        # infer a stale inode and never remove or replace the lock file.
+        with lock_path.open('a+') as probe:
+            try:
+                fcntl.flock(probe,fcntl.LOCK_EX|fcntl.LOCK_NB)
+            except BlockingIOError:
+                raise ValueError('Export lock is busy but its local owner is not observable; no process signalled') from None
+        print(json.dumps({'status':'OLD_EXPORT_LOCK_ALREADY_RELEASED','new_model_fits':0}),flush=True)
+        return
+    if len(holders)!=1:
+        raise ValueError('Export lock has ambiguous owners; all processes retained')
+    pid=next(iter(holders))
+    identity=_foreground_export_identity(project,pid,info,proc_root)
+    # Recheck owner, inode, process start and exact argv immediately before SIGINT.
+    current,current_info=_export_lock_holders(project,proc_root)
+    if (current!={pid} or (current_info.st_dev,current_info.st_ino)!=(info.st_dev,info.st_ino)
+            or _foreground_export_identity(project,pid,info,proc_root)!=identity):
+        raise ValueError('Foreground export identity changed before handoff; no process signalled')
+    record={'observed_at_utc':datetime.now(timezone.utc).isoformat(),**identity,
+            'signal':'SIGINT','source_results_retained':True,'lock_file_retained':True,
+            'new_model_fits':0}
+    receipt=project/'state/results-upload-handoffs'/('%d-%d.json'%(time.time_ns(),pid))
+    _status_file(receipt,record)
+    print(json.dumps({'status':'VERIFIED_OLD_FOREGROUND_EXPORT','pid':pid,'signal':'SIGINT'}),flush=True)
+    try:
+        os.kill(pid,signal.SIGINT)
+    except ProcessLookupError:
+        pass
+    deadline=time.monotonic()+timeout
+    while time.monotonic()<deadline:
+        owners,_=_export_lock_holders(project,proc_root)
+        if pid not in owners:
+            background=_live_background(project)
+            if owners and (not background or owners!={background['pid']}):
+                raise ValueError('Old publisher released the lock but a different owner appeared; retained')
+            record.update(status='OLD_FOREGROUND_EXPORT_RELEASED',
+                          released_at_utc=datetime.now(timezone.utc).isoformat())
+            _status_file(receipt,record)
+            print(json.dumps({'status':record['status'],'old_pid':pid,
+                              'background_pid':background['pid'] if background else None}),flush=True)
+            return
+        time.sleep(.2)
+    record.update(status='OLD_FOREGROUND_NOT_RELEASED_NO_ESCALATION')
+    _status_file(receipt,record)
+    raise ValueError('Verified foreground publisher has not released the lock; no forced kill or lock deletion performed')
+
+
 def _start_background(project,reauthorize=False):
     if os.environ.get('SLURM_JOB_ID'):
         raise ValueError('Start this network uploader on login1, outside a compute allocation')
@@ -740,11 +858,21 @@ def main(argv=None):
     parser.add_argument('--publish',action='store_true',help='Upload the completed evidence to its separate result branch')
     parser.add_argument('--reauthorize',action='store_true',help='Ask for a fresh token using hidden terminal input')
     parser.add_argument('--background',action='store_true',help='Detach a login-side upload with logs, heartbeat and retry')
+    parser.add_argument('--handoff-foreground',action='store_true',help='Release only the verified old foreground publisher and reuse the background worker')
     parser.add_argument('--background-worker',action='store_true',help=argparse.SUPPRESS)
     args=parser.parse_args(argv)
     project=args.project.expanduser().resolve()
     if not project.is_dir():
         raise ValueError('Existing result project directory is missing')
+    if args.handoff_foreground:
+        if os.environ.get('SLURM_JOB_ID'):
+            raise ValueError('Use the foreground upload handoff on login1')
+        state=project/'state';state.mkdir(parents=True,exist_ok=True)
+        with (state/'results_upload_start.lock').open('a+') as handoff_lock:
+            fcntl.flock(handoff_lock,fcntl.LOCK_EX)
+            _handoff_foreground(project)
+        if not args.background:
+            return 0
     if args.background:
         if not args.publish:
             parser.error('--background requires --publish')
