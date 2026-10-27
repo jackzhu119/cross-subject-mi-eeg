@@ -1,0 +1,138 @@
+{
+  "scope": "Synthetic CPU worker-to-analysis integration; no EEG or GPU",
+  "runtime": {
+    "python": "3.12.14",
+    "torch": "2.8.0+cpu",
+    "numpy": "2.3.5"
+  },
+  "source_trials_per_person_per_class": 2,
+  "batch_size": 128,
+  "reports": [
+    {
+      "family": "neural",
+      "exit": 0,
+      "optimizer_updates": 6,
+      "classical_fits_completed": 0,
+      "summary": {
+        "outer_fixed40": "evaluations/outer_fixed40/26be4d99f9c276adc02f/summary.json"
+      },
+      "rows": [
+        {
+          "person_id": "bnci__B3",
+          "dataset": "bnci",
+          "seed": 821,
+          "variant": "outer_fixed40",
+          "n": 4,
+          "n_left": 2,
+          "n_right": 2,
+          "correct_left": 0,
+          "correct_right": 2,
+          "sum_ce": 2.816550510742838,
+          "recall_left": 0.0,
+          "recall_right": 1.0,
+          "ba": 0.5,
+          "min_recall": 0.0,
+          "ce": 0.7041376276857095,
+          "family": "neural",
+          "cell_id": "s60-all",
+          "method": "erm",
+          "fold": 0,
+          "task_id": "synthetic"
+        }
+      ],
+      "aggregate_people": [
+        {
+          "cell_id": "s60-all",
+          "method": "erm",
+          "person_id": "bnci__B3",
+          "dataset": "bnci",
+          "fold": 0,
+          "n_seeds": 1,
+          "n_trials": 4,
+          "min_recall": 0.0,
+          "ba": 0.5,
+          "recall_left": 0.0,
+          "recall_right": 1.0,
+          "ce": 0.7041376276857095
+        }
+      ],
+      "evidence": [
+        {
+          "task_id": "synthetic",
+          "family": "neural",
+          "complete_sha256": "3efd1c26e0bbc73135de0552d093917366dc6c5e9e77f2ecb0886528b67cc509",
+          "evaluation_sha256": "51defff4e8ca2a28849a8f98f989ec09238772fccdd2aaf2035f815e1e34cfed"
+        }
+      ],
+      "npz_sessions": 2,
+      "complete_file_sha256": "6e1a040f1de43c9210324c451013e0b3fb2ed087df93a2717c089893393520d2"
+    },
+    {
+      "family": "classical",
+      "exit": 0,
+      "optimizer_updates": 0,
+      "classical_fits_completed": 1,
+      "summary": {
+        "outer_fixed40": "evaluations/outer_fixed40/6faf19f7d534e295393b/summary.json"
+      },
+      "rows": [
+        {
+          "ba": 0.25,
+          "ce": 4.052895321984088,
+          "correct_left": 1,
+          "correct_right": 0,
+          "dataset": "bnci",
+          "min_recall": 0.0,
+          "n": 4,
+          "n_left": 2,
+          "n_right": 2,
+          "person_id": "bnci__B3",
+          "recall_left": 0.5,
+          "recall_right": 0.0,
+          "seed": 0,
+          "sum_ce": 16.21158128793635,
+          "variant": "outer_fixed40",
+          "family": "classical",
+          "cell_id": "s60-all",
+          "method": "weighted_csp_rlda",
+          "fold": 0,
+          "task_id": "synthetic-classical"
+        }
+      ],
+      "aggregate_people": [
+        {
+          "cell_id": "s60-all",
+          "method": "weighted_csp_rlda",
+          "person_id": "bnci__B3",
+          "dataset": "bnci",
+          "fold": 0,
+          "n_seeds": 1,
+          "n_trials": 4,
+          "min_recall": 0.0,
+          "ba": 0.25,
+          "recall_left": 0.5,
+          "recall_right": 0.0,
+          "ce": 4.052895321984088
+        }
+      ],
+      "evidence": [
+        {
+          "task_id": "synthetic-classical",
+          "family": "classical",
+          "complete_sha256": "595a5bdc52aba0e9b62f2c0ea1fab3c642f8819c01770131a2d812c3d9fb3c47",
+          "evaluation_sha256": "83e02109f7d5f29bf40d4aafca9a00c2b60a1fbdc5cf2b616d54c57834d87958"
+        }
+      ],
+      "npz_sessions": 2,
+      "complete_file_sha256": "faab10f944402b3ded4b845dbf7b7e4bb181837b6afdca2ee1ab6776fd378dbb"
+    }
+  ],
+  "product_files_changed": false,
+  "status": "PASS",
+  "elapsed_seconds": 3.893,
+  "product_sha256": {
+    "compmi/worker.py": "fe2dab69896871fa80135b7859341c3d929632913db84f5a88aafaf9e61759b8",
+    "compmi/classical.py": "76609f700477b5359059f7d4557e5c2224d2bdfdd040d035fd135253f5a4de2e",
+    "compmi/analysis.py": "026f5a1f2f9cfb4981f8a10b1596edd3b86b770660693c5ab59c4e61cdd5c794"
+  }
+}

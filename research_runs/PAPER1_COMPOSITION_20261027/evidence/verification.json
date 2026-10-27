@@ -1,0 +1,60 @@
+{
+  "status": "PASSED_WITH_GPU_EXECUTION_PENDING",
+  "checked_at_utc": "2026-10-27T04:13:40.141949+00:00",
+  "checks": {
+    "new_targeted_unittests": 42,
+    "failures": 0,
+    "duration_seconds": 23.339,
+    "deterministic_code_bundle_and_offline_imports": true,
+    "bash_syntax_passed": true,
+    "synthetic_cpu_worker_to_analysis": {
+      "neural_optimizer_updates": 6,
+      "classical_models": 1,
+      "classical_optimizer_updates": 0,
+      "status": "passed"
+    },
+    "actual_new_gpu_fits": 0,
+    "school_slurm_submission_performed_here": false,
+    "school_gpu_smoke": "Performed once per cached runtime/device type inside the user allocation; not yet observed"
+  },
+  "local_cpu_test_runtime": {
+    "python": "3.12.14",
+    "torch": "2.8.0+cpu",
+    "numpy": "2.3.5"
+  },
+  "additional_source_metadata_classical_analysis_test_runtime": {
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "torch_import_required": false
+  },
+  "school_runtime_from_existing_user_records": {
+    "python": "3.12.3",
+    "torch": "2.5.1+cu121",
+    "numpy": "2.2.6",
+    "new_gpu_execution_verified": false
+  },
+  "old_results_audit": {
+    "prediction_shards": 9015,
+    "evaluations": 105,
+    "prediction_rows": 701745,
+    "arithmetic_checks": 833310,
+    "failures": 0,
+    "bootstrap_or_permutation_rerun": false
+  },
+  "scientific_review": {
+    "source_only_trial_whitelists": true,
+    "common_outer_test_roster": true,
+    "s9_alias_avoids_duplicate_fit": true,
+    "counts": {
+      "neural": 540,
+      "classical": 90,
+      "total": 630
+    },
+    "fixed_endpoint_updates_per_neural_fit": 5120,
+    "tail_scope": "batch top four of eight observed participant-class groups",
+    "sampling": "with replacement from frozen unique-trial support",
+    "external_role": "previously exposed exploratory",
+    "conditional_participant_inference_preserved": true
+  },
+  "log_sha256": "802871c539498ed399205be6314f09941b31959a6a164b06e312988322866202"
+}

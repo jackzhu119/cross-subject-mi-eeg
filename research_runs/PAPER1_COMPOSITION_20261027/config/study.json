@@ -1,0 +1,78 @@
+{
+  "science_version": "paper1-composition-objective-v2-20261027",
+  "methods": [
+    "erm",
+    "tail"
+  ],
+  "source_folds": 5,
+  "validation_seeds": [
+    20261111,
+    20261112,
+    20261113
+  ],
+  "final_seeds": [
+    20261121,
+    20261122,
+    20261123
+  ],
+  "subset_seeds": [
+    2026102701,
+    2026102702,
+    2026102703,
+    2026102704,
+    2026102705
+  ],
+  "trial_subset_seed": 2026102706,
+  "epochs": 40,
+  "updates_per_epoch": 128,
+  "subjects_per_batch": 4,
+  "trials_per_class": 16,
+  "batch_size": 128,
+  "input_shape": [
+    3,
+    18,
+    320
+  ],
+  "expected_source_counts": {
+    "bnci": 9,
+    "yang": 51
+  },
+  "expected_external_people": 85,
+  "learning_rate": 0.001,
+  "weight_decay": 0,
+  "amp": false,
+  "torch_threads": 4,
+  "num_workers": 0,
+  "checkpoint_seconds": 180,
+  "heartbeat_seconds": 30,
+  "eval_batch_size": 128,
+  "architecture": {
+    "F1": 8,
+    "D": 2,
+    "F2": 16,
+    "kernel_length": 64,
+    "dropout": 0.25
+  },
+  "objective": {
+    "tail_weight": 0.5,
+    "tail_fraction": 0.5
+  },
+  "classical": {
+    "method": "weighted_csp_rlda",
+    "components": 4,
+    "csp_shrinkage": 0.1,
+    "lda_shrinkage": 0.1
+  },
+  "analysis_seed": 2026102707,
+  "bootstrap_replicates": 10000,
+  "permutation_replicates": 100000,
+  "primary": "matched-source-composition-by-tail-W-interaction",
+  "evaluation": "fixed40_only_no_inner_selection",
+  "external_role": "previously_exposed_exploratory",
+  "resource_request": {
+    "partition": "hpc_gpu",
+    "gpus": 2,
+    "total_cpus": 24,
+    "total_memory": "128G"
+  }
+}

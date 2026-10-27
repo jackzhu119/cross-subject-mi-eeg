@@ -1,0 +1,49 @@
+test_complete_grid_fixed_families_and_subset_unit (test_analysis.AnalysisTests.test_complete_grid_fixed_families_and_subset_unit) ... ok
+test_completed_trialset_and_model_identity_are_bound (test_analysis.AnalysisTests.test_completed_trialset_and_model_identity_are_bound) ... ok
+test_corrupt_metric_or_task_identity_stops (test_analysis.AnalysisTests.test_corrupt_metric_or_task_identity_stops) ... ok
+test_equal_cohort_weight_and_holm (test_analysis.AnalysisTests.test_equal_cohort_weight_and_holm) ... ok
+test_inference_inputs_cannot_be_silently_replaced (test_analysis.AnalysisTests.test_inference_inputs_cannot_be_silently_replaced) ... ok
+test_pending_seed_never_becomes_complete_or_smaller_estimate (test_analysis.AnalysisTests.test_pending_seed_never_becomes_complete_or_smaller_estimate) ... ok
+test_equal_cohort_person_weights_and_covariance (test_classical.ClassicalTests.test_equal_cohort_person_weights_and_covariance) ... ok
+test_fingerprint_and_contract_changes_are_not_silent (test_classical.ClassicalTests.test_fingerprint_and_contract_changes_are_not_silent) ... ok
+test_import_does_not_load_torch_or_scipy (test_classical.ClassicalTests.test_import_does_not_load_torch_or_scipy) ... ok
+test_numeric_model_classifies_and_binds_identity (test_classical.ClassicalTests.test_numeric_model_classifies_and_binds_identity) ... ok
+test_source_stage_resumes_without_recomputing_completed_person (test_classical.ClassicalTests.test_source_stage_resumes_without_recomputing_completed_person) ... ok
+test_whitelist_excludes_unselected_trials_and_external (test_classical.ClassicalTests.test_whitelist_excludes_unselected_trials_and_external) ... ok
+test_worker_failed_evaluation_reuses_fit_and_session_shards (test_classical.ClassicalTests.test_worker_failed_evaluation_reuses_fit_and_session_shards) ... ok
+test_deterministic_bundle_payloads_and_real_offline_imports (test_delivery.DeliveryTests.test_deterministic_bundle_payloads_and_real_offline_imports) ... ok
+test_cancellation_overrides_preemption (test_execution.ExecutionTests.test_cancellation_overrides_preemption) ... ok
+test_child_cuda_assignment_and_thread_budget (test_execution.ExecutionTests.test_child_cuda_assignment_and_thread_budget) ... ok
+test_classical_complete_is_not_neural_update (test_execution.ExecutionTests.test_classical_complete_is_not_neural_update) ... ok
+test_complete_requires_endpoint_and_evaluation_identity (test_execution.ExecutionTests.test_complete_requires_endpoint_and_evaluation_identity) ... ok
+test_failed_task_does_not_cancel_final_or_other_family (test_execution.ExecutionTests.test_failed_task_does_not_cancel_final_or_other_family) ... {"updated_at_utc": "2026-10-27T04:12:51.343970+00:00", "stage": "fitting_and_evaluation", "slurm_job_id": "123", "completed_tasks": 2, "total_tasks": 630, "active_children": [], "failed_this_invocation": 1, "max_concurrent_neural_fits": 2, "max_concurrent_classical_fits": 1, "stop_requested_exit_code": null, "pending_neural": 0, "pending_classical": 0}
+{"updated_at_utc": "2026-10-27T04:12:51.344667+00:00", "stage": "fitting_and_evaluation", "slurm_job_id": "123", "completed_tasks": 2, "total_tasks": 630, "active_children": [], "failed_this_invocation": 1, "max_concurrent_neural_fits": 2, "max_concurrent_classical_fits": 1, "stop_requested_exit_code": null, "pending_neural": 0, "pending_classical": 0}
+ok
+test_preparation_preserves_venv_python_path_without_install (test_execution.ExecutionTests.test_preparation_preserves_venv_python_path_without_install) ... ok
+test_shell_requeue_is_only_preemption_and_exit75 (test_execution.ExecutionTests.test_shell_requeue_is_only_preemption_and_exit75) ... ok
+test_slots_use_slurm_identifiers (test_execution.ExecutionTests.test_slots_use_slurm_identifiers) ... ok
+test_submission_one_node_two_gpu_shape_and_dedup (test_execution.ExecutionTests.test_submission_one_node_two_gpu_shape_and_dedup) ... ok
+test_complete_task_grid_and_no_target_or_eeg_read (test_plan.CompositionPlanTests.test_complete_task_grid_and_no_target_or_eeg_read) ... ok
+test_invalid_common_folds_rejected (test_plan.CompositionPlanTests.test_invalid_common_folds_rejected) ... ok
+test_matched_budgets_and_shared_support_across_methods_and_seeds (test_plan.CompositionPlanTests.test_matched_budgets_and_shared_support_across_methods_and_seeds) ... ok
+test_restart_reuses_without_reloading_source_and_runtime_changes_are_allowed (test_plan.CompositionPlanTests.test_restart_reuses_without_reloading_source_and_runtime_changes_are_allowed) ... ok
+test_s29_subsets_are_frozen_four_per_common_fold (test_plan.CompositionPlanTests.test_s29_subsets_are_frozen_four_per_common_fold) ... ok
+test_science_and_task_tampering_stop_without_reset (test_plan.CompositionPlanTests.test_science_and_task_tampering_stop_without_reset) ... ok
+test_worker_whitelist_validation_and_corruption_rejection (test_plan.CompositionPlanTests.test_worker_whitelist_validation_and_corruption_rejection) ... ok
+test_archive_contains_all_predictions_and_contracts_but_no_parameters_or_token (test_sync.SyncTests.test_archive_contains_all_predictions_and_contracts_but_no_parameters_or_token) ... ok
+test_corrupt_github_readback_does_not_mark_result_published (test_sync.SyncTests.test_corrupt_github_readback_does_not_mark_result_published) ... ok
+test_daemon_exits_after_verified_result_publication (test_sync.SyncTests.test_daemon_exits_after_verified_result_publication) ... ok
+test_descriptive_means_wait_for_all_seeds_then_weight_people_and_cohorts (test_sync.SyncTests.test_descriptive_means_wait_for_all_seeds_then_weight_people_and_cohorts) ... ok
+test_failed_blob_upload_resumes_verified_parts_and_commits_without_force (test_sync.SyncTests.test_failed_blob_upload_resumes_verified_parts_and_commits_without_force) ... ok
+test_network_failure_is_retry_pending_and_never_blocks_training (test_sync.SyncTests.test_network_failure_is_retry_pending_and_never_blocks_training) ... ok
+test_partial_or_wrong_update_count_never_exports_as_complete (test_sync.SyncTests.test_partial_or_wrong_update_count_never_exports_as_complete) ... ok
+test_batch_is_distinct_eight_groups_and_uses_only_fixed_trialset (test_worker.WorkerTests.test_batch_is_distinct_eight_groups_and_uses_only_fixed_trialset) ... ok
+test_final_evaluation_failure_resumes_without_any_optimizer_step (test_worker.WorkerTests.test_final_evaluation_failure_resumes_without_any_optimizer_step) ... ok
+test_mid_epoch_resume_matches_and_completed_task_skips (test_worker.WorkerTests.test_mid_epoch_resume_matches_and_completed_task_skips) ... ok
+test_sigterm_dominates_requested_requeue_and_keeps_checkpoint (test_worker.WorkerTests.test_sigterm_dominates_requested_requeue_and_keeps_checkpoint) ... ok
+test_trialset_change_missing_checkpoint_and_target_training_do_not_reset (test_worker.WorkerTests.test_trialset_change_missing_checkpoint_and_target_training_do_not_reset) ... ok
+
+----------------------------------------------------------------------
+Ran 42 tests in 23.339s
+
+OK

@@ -6,7 +6,7 @@
 
 [ORCID: 0009-0005-1153-4926](https://orcid.org/0009-0005-1153-4926) · zzy2630816871@gmail.com
 
-本仓库分别保存已完成的论文研究和后续算法实验。阅读论文从下表的当前修订稿开始；学校运行使用专用HPC入口。**导航更新：2026-10-25。**
+本仓库分别保存已完成的论文研究和后续算法实验。阅读论文从下表的当前修订稿开始；学校运行使用专用HPC入口。**导航更新：2026-10-27。**
 
 ## 快速导航
 
@@ -16,6 +16,7 @@
 | 下载当前修订材料 | [2026-10-20材料包](research_runs/PAPER1_REVIEW_20261020/Paper1_Reviewed_20261020.zip) · [版本说明](research_runs/PAPER1_REVIEW_20261020/README.md) |
 | 查找配套图表、补充数据与投稿材料 | [2026-10-18完整材料目录](research_runs/PAPER1_PLOS_FINAL_20261018/README_zh.md) |
 | 核对已完成研究的数值与审计 | [eligible-v3结果与独立核验](research_runs/ELIGIBLE_V3_RESULTS_20261018/README_zh.md) |
+| 运行下一轮源构成×TAIL受控实验 | [新方案与单作业双卡入口](research_runs/PAPER1_COMPOSITION_20261027/README_zh.md)（代码已准备，非已完成结果） |
 | 在学校下载数据、训练或续跑 | [HPC使用说明](research_runs/PAPER1_HPC_20261023/README_zh.md) · [单作业运行流程](research_runs/PAPER1_HPC_20261023/SINGLE_JOB.md) |
 | 查看学校任务的已上传进度 | [运行分支](https://github.com/jackzhu119/cross-subject-mi-eeg/tree/hpc/paper1-risk-v1) · [状态JSON](https://github.com/jackzhu119/cross-subject-mi-eeg/blob/hpc/paper1-risk-v1/hpc_status/paper1-risk-v1/status.json) |
 | 上传已完成训练的完整结果证据 | [学校手动上传说明](research_runs/PAPER1_HPC_20261023/RESULTS_UPLOAD_zh.md)（独立结果分支，含完整指标与预测） |

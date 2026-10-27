@@ -1,0 +1,57 @@
+{
+  "scope": "independent saved predictions and point-estimate arithmetic only",
+  "started_at_utc": "2026-10-27T03:52:08.073929+00:00",
+  "archive_sha256": "b96a3fcaacf910175ced585a0b06e141cab48cfb14edd277ce8072cd0cbff329",
+  "runtime": {
+    "python": "3.12.14",
+    "numpy": "2.2.6"
+  },
+  "model_fits": 0,
+  "optimizer_updates": 0,
+  "model_inference": 0,
+  "raw_eeg_read": false,
+  "model_checkpoints_read": false,
+  "resampling_recomputed": false,
+  "p_values_and_cis_independently_recomputed": false,
+  "checks": 833310,
+  "max_numeric_difference": {
+    "person_sum_ce": 2.2737367544323206e-13,
+    "person_recall_left": 0,
+    "person_recall_right": 0,
+    "person_ba": 0,
+    "person_min_recall": 0,
+    "person_ce": 4.440892098500626e-16,
+    "seed_averaged_ba": 0,
+    "seed_averaged_min_recall": 0,
+    "seed_averaged_recall_left": 0,
+    "seed_averaged_recall_right": 0,
+    "domain_method_mean": 1.6653345369377348e-16,
+    "domain_method_mean_percent": 1.4210854715202004e-14,
+    "domain_effect": 1.3877787807814457e-17,
+    "domain_effect_pp": 8.881784197001252e-16
+  },
+  "boundaries": [
+    "No raw EEG or checkpoint forward-pass reproduction.",
+    "Inner validation predictions are not in the selected export; best-epoch checks use saved validation scores.",
+    "Bootstrap confidence intervals and permutation p values were not independently rerun.",
+    "Trial/session coverage is checked against saved task/summary inventories and cross-model trial identities, not original raw event files."
+  ],
+  "source_selected_epochs": {
+    "erm": 14,
+    "groupdro": 21,
+    "tail": 18,
+    "consistency": 11,
+    "tail_consistency": 18
+  },
+  "stage": "PASS",
+  "prediction_shards_read": 9015,
+  "selected_evaluations_rebuilt": 105,
+  "total_trial_prediction_rows": 701745,
+  "unique_physical_person_trial_pairs": 39983,
+  "unique_model_sha256": 105,
+  "completed_at_utc": "2026-10-27T03:52:16.904011+00:00",
+  "elapsed_seconds": 8.83,
+  "failure_count": 0,
+  "script_sha256": "20b88c69be66a7b81e356a8bccb01de64c5936a2f1a9a405a351dfd40b39d46e",
+  "failures": []
+}
