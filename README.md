@@ -18,6 +18,7 @@
 | 核对已完成研究的数值与审计 | [eligible-v3结果与独立核验](research_runs/ELIGIBLE_V3_RESULTS_20261018/README_zh.md) |
 | 在学校下载数据、训练或续跑 | [HPC使用说明](research_runs/PAPER1_HPC_20261023/README_zh.md) · [单作业运行流程](research_runs/PAPER1_HPC_20261023/SINGLE_JOB.md) |
 | 查看学校任务的已上传进度 | [运行分支](https://github.com/jackzhu119/cross-subject-mi-eeg/tree/hpc/paper1-risk-v1) · [状态JSON](https://github.com/jackzhu119/cross-subject-mi-eeg/blob/hpc/paper1-risk-v1/hpc_status/paper1-risk-v1/status.json) |
+| 上传已完成训练的完整结果证据 | [学校手动上传说明](research_runs/PAPER1_HPC_20261023/RESULTS_UPLOAD_zh.md)（独立结果分支，含完整指标与预测） |
 | 查找其它版本与历史实验 | [研究目录索引](research_runs/README.md) · [仓库文件指南](docs/REPOSITORY_GUIDE.md) |
 
 ## 论文与已完成结果
