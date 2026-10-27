@@ -93,13 +93,16 @@ class _LimitedWriter:
         return self.stream.flush()
 
 
-def build_bundle(project: Path, destination: Path) -> dict:
+def build_bundle(project: Path, destination: Path, progress=None) -> dict:
     """Export saved results only; never execute training, inference or statistics.
 
     The archive preserves byte identities, not a new independent numerical audit.
     Source files remain read-only. Failed output partials are retained.
     """
     project = Path(project).expanduser().resolve()
+    if progress:
+        progress('checking_saved_results', completed_tasks=0, total_tasks=90,
+                 selected_evaluation_summaries=0, prediction_shards=0)
     if not project.is_dir():
         raise ValueError('Result project directory is missing')
     destination = Path(destination).expanduser().absolute()
@@ -161,7 +164,7 @@ def build_bundle(project: Path, destination: Path) -> dict:
             raise ValueError('A saved statistical domain is incomplete or mismatched')
         selected.update((relative, 'outputs/analysis/' + domain + '_participants.json'))
     complete_records, evaluations, shard_count = {}, 0, 0
-    for task in tasks:
+    for task_index, task in enumerate(tasks, 1):
         task_id = task['id']
         run_relative = 'outputs/runs/' + task_id
         relative = run_relative + '/complete.json'
@@ -209,6 +212,12 @@ def build_bundle(project: Path, destination: Path) -> dict:
                         raise ValueError('Prediction archive contains unexpected arrays; no EEG/input upload')
                 selected.add(shard_relative)
                 shard_count += 1
+                if progress:
+                    progress('checking_saved_results', completed_tasks=task_index-1, total_tasks=90,
+                             selected_evaluation_summaries=evaluations, prediction_shards=shard_count)
+        if progress:
+            progress('checking_saved_results', completed_tasks=task_index, total_tasks=90,
+                     selected_evaluation_summaries=evaluations, prediction_shards=shard_count)
     if evaluations != 105:
         raise ValueError('The complete 105 selected evaluation summaries are required')
     records = selection.get('source_records')
@@ -222,7 +231,10 @@ def build_bundle(project: Path, destination: Path) -> dict:
         if record.get('best_epoch') != complete.get('best_epoch') or record.get('complete_sha256') != _canonical(complete):
             raise ValueError('Saved selection does not bind the actual completed source task')
     snapshots, files = {}, []
-    for relative in sorted(selected):
+    hashed_bytes = 0
+    if progress:
+        progress('hashing_result_files', completed_files=0, total_files=len(selected), processed_bytes=0)
+    for file_index, relative in enumerate(sorted(selected), 1):
         path = _inside(project, relative)
         before = _stat_id(path)
         if relative in validated_stats and before != validated_stats[relative]:
@@ -232,6 +244,10 @@ def build_bundle(project: Path, destination: Path) -> dict:
             raise ValueError('A saved result changed during hashing; retry only the export')
         snapshots[relative] = before
         files.append({'path':relative, 'bytes':path.stat().st_size, 'sha256':digest})
+        hashed_bytes += files[-1]['bytes']
+        if progress:
+            progress('hashing_result_files', completed_files=file_index, total_files=len(selected),
+                     processed_bytes=hashed_bytes)
     manifest = {'schema_version':1, 'project_id':project.name, 'plan_fingerprint':fingerprint,
         'scope':'saved statistics, selection, task completions and selected held-out predictions',
         'development_completed':75, 'final_completed':15, 'selected_evaluation_summaries':105,
@@ -243,10 +259,14 @@ def build_bundle(project: Path, destination: Path) -> dict:
     destination.mkdir(parents=True,exist_ok=True)
     descriptor, temporary_name = tempfile.mkstemp(prefix='paper1-results.',suffix='.tar.gz.partial',dir=destination)
     temporary = Path(temporary_name)
+    packed_bytes = 0
+    if progress:
+        progress('packing_result_files', completed_files=0, total_files=len(files),
+                 processed_bytes=0, total_bytes=hashed_bytes)
     with os.fdopen(descriptor,'wb') as raw:
         with gzip.GzipFile(fileobj=_LimitedWriter(raw,_MAX_BUNDLE), mode='wb', filename='', mtime=0) as compressed:
             with tarfile.open(fileobj=compressed, mode='w|') as archive:
-                for row in files:
+                for file_index, row in enumerate(files, 1):
                     relative = row['path']
                     path = _inside(project,relative)
                     if snapshots[relative] != _stat_id(path):
@@ -257,6 +277,10 @@ def build_bundle(project: Path, destination: Path) -> dict:
                     info = tarfile.TarInfo(relative)
                     info.size, info.mtime, info.mode = len(data), 0, 0o644
                     archive.addfile(info,io.BytesIO(data))
+                    packed_bytes += len(data)
+                    if progress:
+                        progress('packing_result_files', completed_files=file_index, total_files=len(files),
+                                 processed_bytes=packed_bytes, total_bytes=hashed_bytes)
                 info = tarfile.TarInfo('EXPORT_MANIFEST.json')
                 info.size, info.mtime, info.mode = len(manifest_bytes), 0, 0o644
                 archive.addfile(info,io.BytesIO(manifest_bytes))
@@ -274,6 +298,9 @@ def build_bundle(project: Path, destination: Path) -> dict:
         os.replace(temporary,archive_path)
     manifest_path = destination / (archive_path.name + '.manifest.json')
     _atomic_evidence(manifest_path,manifest_bytes)
+    if progress:
+        progress('result_evidence_exported', archive_bytes=archive_path.stat().st_size,
+                 sha256=digest, completed_files=len(files), total_files=len(files))
     return {'archive':archive_path, 'manifest':manifest, 'manifest_path':manifest_path,
             'sha256':digest, 'bytes':archive_path.stat().st_size}
 
@@ -282,6 +309,10 @@ import argparse
 import base64
 import fcntl
 import getpass
+import signal
+import sys
+import threading
+import time
 import re
 import stat
 import subprocess
@@ -295,9 +326,11 @@ RESULT_DIRECTORY = 'research_runs/PAPER1_HPC_RESULTS_20261027'
 
 
 class UploadError(RuntimeError):
-    def __init__(self, message, status=None):
+    def __init__(self, message, status=None, retryable=False, retry_after=None):
         super().__init__(message)
         self.status = status
+        self.retryable = retryable or status in {408, 409, 429, 500, 502, 503, 504}
+        self.retry_after = retry_after
 
 
 def _git_blob_sha(data):
@@ -318,10 +351,13 @@ class GitHubPublisher:
                   'header = "X-GitHub-Api-Version: 2022-11-28"',
                   'header = "Content-Type: application/json"']
         payload_path = None
+        header_fd,header_path=tempfile.mkstemp(prefix='paper1-results-http-',suffix='.headers')
+        os.close(header_fd)
         try:
             command = ['curl','-q','-4','--silent','--show-error','--config','-',
                        '--connect-timeout','8','--max-time','300','--request',method,
-                       '--max-filesize',str(expected_bytes+1 if raw_path else 3*1024*1024)]
+                       '--max-filesize',str(expected_bytes+1 if raw_path else 3*1024*1024),
+                       '--dump-header',header_path]
             if payload is not None:
                 fd,payload_path = tempfile.mkstemp(prefix='paper1-github-payload-',suffix='.json')
                 with os.fdopen(fd,'w') as stream:
@@ -333,16 +369,37 @@ class GitHubPublisher:
             try:
                 response = subprocess.run(command,input=('\n'.join(config)+'\n').encode(),
                     stdout=subprocess.PIPE,stderr=subprocess.PIPE,timeout=320)
-            except (OSError,subprocess.TimeoutExpired):
-                raise UploadError('GitHub connection failed; local evidence retained; rerun the same command') from None
+            except subprocess.TimeoutExpired:
+                raise UploadError('GitHub connection failed; local evidence retained', retryable=True) from None
+            except OSError:
+                raise UploadError('System curl could not start; local evidence retained') from None
             if response.returncode:
-                raise UploadError('GitHub transfer failed (curl exit %d); evidence retained; rerun the same command'%response.returncode)
+                raise UploadError('GitHub transfer failed (curl exit %d); evidence retained'%response.returncode,
+                                  retryable=response.returncode in {5, 6, 7, 18, 28, 35, 52, 55, 56, 92})
             body,separator,code = response.stdout.rpartition(b'\n')
             if not separator or not re.fullmatch(rb'[1-5][0-9]{2}',code):
                 raise UploadError('Invalid GitHub response status')
             status=int(code)
             if not 200 <= status < 300:
-                raise UploadError('GitHub HTTP %d; no training or source files changed'%status,status)
+                headers={}
+                with open(header_path,'rb') as stream:
+                    for line in stream.read(65536).decode('iso-8859-1').splitlines():
+                        if line.startswith('HTTP/'):
+                            headers={}
+                        elif ':' in line:
+                            key,value=line.split(':',1)
+                            if key.lower() in {'retry-after','x-ratelimit-remaining','x-ratelimit-reset'}:
+                                headers[key.lower()]=value.strip()
+                limited=status==429 or (status==403 and (headers.get('x-ratelimit-remaining')=='0' or 'retry-after' in headers))
+                wait=None
+                if limited:
+                    try:
+                        wait=min(900,max(1,float(headers['retry-after']) if 'retry-after' in headers
+                                         else float(headers['x-ratelimit-reset'])-time.time()))
+                    except (ValueError,KeyError):
+                        pass
+                raise UploadError('GitHub HTTP %d; no training or source files changed'%status,status,
+                                  retryable=limited,retry_after=wait)
             if raw_path is not None:
                 return None
             try:
@@ -352,6 +409,7 @@ class GitHubPublisher:
         finally:
             if payload_path is not None:
                 Path(payload_path).unlink(missing_ok=True)
+            Path(header_path).unlink(missing_ok=True)
 
     def optional(self, endpoint):
         try:
@@ -362,26 +420,35 @@ class GitHubPublisher:
             raise
 
 
-def _token(project, reauthorize=False):
+def _token_path(project):
     path=Path.home()/'.config/mi-eeg/paper1-hpc-20261023/token'
     sync=project/'config/sync.json'
     if sync.is_file():
         value=json.loads(sync.read_text())
         if value.get('token_file'):
             path=Path(value['token_file']).expanduser()
+    return path
+
+
+def _token(project, reauthorize=False, interactive=True):
+    path=_token_path(project)
     if not reauthorize and path.exists():
         info=path.lstat()
         if not stat.S_ISREG(info.st_mode) or stat.S_IMODE(info.st_mode)&0o077:
             raise ValueError('Existing token must be a regular private file (chmod 600); its contents were not displayed')
         token=path.read_text().strip()
     else:
+        if not interactive:
+            raise UploadError('Private token missing; restart with --reauthorize in an interactive terminal',status=401)
         token=getpass.getpass('GitHub Contents-write token (hidden): ').strip()
     if not token or any(c.isspace() for c in token):
         raise ValueError('A nonempty GitHub token is required in the hidden terminal prompt')
     return token
 
 
-def publish_bundle(project, bundle, token, repository=REPOSITORY):
+def publish_bundle(project, bundle, token, repository=REPOSITORY, progress=None):
+    if progress:
+        progress('verifying_local_result_bundle', archive_bytes=bundle['bytes'])
     archive=Path(bundle['archive'])
     data=archive.read_bytes()
     if hashlib.sha256(data).hexdigest()!=bundle['sha256']:
@@ -404,6 +471,8 @@ def publish_bundle(project, bundle, token, repository=REPOSITORY):
     base=api.prefix
     branch=RESULT_BRANCH
     branch_path=urllib.parse.quote(branch,safe='/')
+    if progress:
+        progress('preparing_result_branch', archive_bytes=len(data))
     reference=api.optional(base+'/git/ref/heads/'+branch_path)
     if reference is None:
         main=api.request('GET',base+'/git/ref/heads/main')
@@ -412,6 +481,8 @@ def publish_bundle(project, bundle, token, repository=REPOSITORY):
     parent=api.request('GET',base+'/git/commits/'+head)
     print(json.dumps({'stage':'uploading_result_bundle','archive_bytes':len(data),
                       'sha256':bundle['sha256'],'new_model_fits':0}),flush=True)
+    if progress:
+        progress('uploading_result_bundle', archive_bytes=len(data), sha256=bundle['sha256'])
     blob=api.request('POST',base+'/git/blobs',{'encoding':'base64','content':base64.b64encode(data).decode('ascii')})
     expected_blob=_git_blob_sha(data)
     if blob.get('sha')!=expected_blob:
@@ -438,6 +509,8 @@ def publish_bundle(project, bundle, token, repository=REPOSITORY):
     text_files.update(readable)
     for relative,content in sorted(text_files.items()):
         entries.append({'path':remote+'/'+relative,'mode':'100644','type':'blob','content':content})
+    if progress:
+        progress('committing_result_evidence', archive_bytes=len(data))
     tree=api.request('POST',base+'/git/trees',{'base_tree':parent['tree']['sha'],'tree':entries})
     commit=head
     if tree['sha']!=parent['tree']['sha']:
@@ -455,6 +528,8 @@ def publish_bundle(project, bundle, token, repository=REPOSITORY):
     if record.get('sha')!=expected_blob or record.get('size')!=len(data):
         raise UploadError('Published archive entry differs from local evidence')
     verify=archive.with_name(archive.name+'.github-readback.part')
+    if progress:
+        progress('reading_back_result_bundle', archive_bytes=len(data))
     api.request('GET',base+'/git/blobs/'+expected_blob,raw_path=verify,expected_bytes=len(data))
     if verify.stat().st_size!=len(data) or hashlib.sha256(verify.read_bytes()).hexdigest()!=bundle['sha256']:
         raise UploadError('GitHub full archive readback SHA256 differs; original bundle retained')
@@ -466,8 +541,197 @@ def publish_bundle(project, bundle, token, repository=REPOSITORY):
              'url':'https://github.com/'+repository+'/tree/'+branch+'/'+remote}
     local=archive.parent/'github-publication.json'
     local.write_text(json.dumps(receipt,indent=2)+'\n')
+    if progress:
+        progress('result_bundle_readback_verified', archive_bytes=len(data),
+                 sha256=bundle['sha256'], commit=commit)
     print(json.dumps(receipt,indent=2),flush=True)
     return receipt
+
+
+def _status_file(path, value):
+    path.parent.mkdir(parents=True,exist_ok=True)
+    fd,temporary=tempfile.mkstemp(prefix=path.name+'.',suffix='.tmp',dir=path.parent)
+    try:
+        with os.fdopen(fd,'w') as stream:
+            json.dump(value,stream,indent=2,allow_nan=False)
+            stream.write('\n');stream.flush();os.fsync(stream.fileno())
+        os.replace(temporary,path)
+    finally:
+        Path(temporary).unlink(missing_ok=True)
+
+
+class UploadProgress:
+    """A real phase/counter snapshot plus a periodic liveness message."""
+    def __init__(self,project,interval=30):
+        self.path=project/'state/results_upload_status.json'
+        self.interval=interval;self.lock=threading.Lock();self.stop=threading.Event()
+        self.started=time.monotonic();self.last=0
+        self.data={'status':'RUNNING','stage':'starting','pid':os.getpid(),'new_model_fits':0}
+        self.thread=threading.Thread(target=self._heartbeat,daemon=True)
+        self.thread.start()
+
+    def _write(self):
+        row={**self.data,'updated_at_utc':datetime.now(timezone.utc).isoformat(),
+             'elapsed_seconds':round(time.monotonic()-self.started,1)}
+        try:
+            _status_file(self.path,row)
+        except OSError as error:
+            row['monitor_write_error']=type(error).__name__
+        print(json.dumps(row,allow_nan=False),flush=True)
+        self.last=time.monotonic()
+
+    def __call__(self,stage,**details):
+        with self.lock:
+            changed=stage!=self.data['stage']
+            if changed:
+                self.data={k:v for k,v in self.data.items() if k in {'status','pid','new_model_fits'}}
+                if stage!='network_retry_wait':
+                    self.data['status']='RUNNING'
+            self.data.update(stage=stage,**details)
+            if changed or time.monotonic()-self.last>=self.interval:
+                self._write()
+
+    def finish(self,status,stage,**details):
+        with self.lock:
+            self.data={'status':status,'stage':stage,'pid':os.getpid(),'new_model_fits':0,**details}
+            self._write()
+
+    def _heartbeat(self):
+        while not self.stop.wait(self.interval):
+            with self.lock:
+                self._write()
+
+    def close(self):
+        self.stop.set();self.thread.join(timeout=1)
+
+
+class UploadCancelled(Exception):
+    pass
+
+
+def _run_upload(project,publish=True,background=False,retry_seconds=60):
+    destination=project/'exports/github-results'
+    destination.mkdir(parents=True,exist_ok=True)
+    progress=UploadProgress(project)
+    def cancel(number,frame):
+        raise UploadCancelled()
+    previous={number:signal.signal(number,cancel) for number in (signal.SIGTERM,signal.SIGINT)}
+    try:
+        with (destination/'.export.lock').open('a+') as lock:
+            while True:
+                try:
+                    fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
+                    break
+                except BlockingIOError:
+                    progress('waiting_existing_export',message='Existing foreground/background export retained; no duplicate packing')
+                    time.sleep(3)
+            bundle=build_bundle(project,destination,progress=progress)
+            if not publish:
+                progress.finish('EXPORTED','RESULT_EVIDENCE_EXPORTED',archive=str(bundle['archive']),sha256=bundle['sha256'])
+                return 0
+            attempts=0
+            while True:
+                attempts+=1
+                try:
+                    token=_token(project,interactive=not background)
+                    receipt=publish_bundle(project,bundle,token,progress=progress)
+                    progress.finish('COMPLETE','RESULT_BUNDLE_PUBLISHED_AND_READBACK_VERIFIED',
+                                    commit=receipt['commit'],url=receipt['url'],sha256=bundle['sha256'])
+                    return 0
+                except UploadError as error:
+                    if error.status in {401,403} and not error.retryable:
+                        progress.finish('AUTH_ACTION_REQUIRED','upload_stopped',http_status=error.status,
+                                        reason='Restart interactively with --background --publish --reauthorize')
+                        return 3
+                    if not error.retryable:
+                        raise
+                    delay=min(900,max(error.retry_after or 0,retry_seconds*2**min(attempts-1,4)))
+                    progress('network_retry_wait',status='RETRY_PENDING',attempt=attempts,
+                             retry_after_seconds=delay,http_status=error.status,
+                             archive_retained=True,repacking_required=False)
+                    time.sleep(delay)
+    except (UploadCancelled,KeyboardInterrupt):
+        progress.finish('CANCELLED','upload_cancelled',source_results_retained=True)
+        return 130
+    except Exception as error:
+        reason=str(error) if isinstance(error,(ValueError,UploadError)) else type(error).__name__
+        progress.finish('FAILED','export_or_upload_failed',error_class=type(error).__name__,
+                        reason=reason,source_results_retained=True)
+        return 1
+    finally:
+        progress.close()
+        for number,handler in previous.items():
+            signal.signal(number,handler)
+
+
+def _live_background(project):
+    try:
+        marker=json.loads((project/'state/results_upload_daemon.json').read_text())
+        pid=marker['pid'];proc=Path('/proc')/str(pid)
+        if type(pid) is not int or pid<2 or proc.stat().st_uid!=os.getuid():
+            return None
+        args=[x.decode() for x in (proc/'cmdline').read_bytes().split(b'\0') if x]
+        if ('--background-worker' not in args or '--project' not in args
+                or Path(args[args.index('--project')+1]).resolve()!=project
+                or str(Path(marker['script']).resolve()) not in args):
+            return None
+        return marker
+    except (OSError,ValueError,KeyError,IndexError,UnicodeError):
+        return None
+
+
+def _prepare_private_token(project,reauthorize=False):
+    token=_token(project,reauthorize)
+    path=_token_path(project)
+    if reauthorize or not path.exists():
+        path.parent.mkdir(parents=True,exist_ok=True,mode=0o700)
+        fd,temporary=tempfile.mkstemp(prefix='.token-',dir=path.parent)
+        with os.fdopen(fd,'w') as stream:
+            os.fchmod(stream.fileno(),0o600)
+            stream.write(token+'\n');stream.flush();os.fsync(stream.fileno())
+        os.replace(temporary,path)
+
+
+def _start_background(project,reauthorize=False):
+    if os.environ.get('SLURM_JOB_ID'):
+        raise ValueError('Start this network uploader on login1, outside a compute allocation')
+    state=project/'state';state.mkdir(parents=True,exist_ok=True)
+    with (state/'results_upload_start.lock').open('a+') as lock:
+        fcntl.flock(lock,fcntl.LOCK_EX)
+        existing=_live_background(project)
+        if existing:
+            print(json.dumps({'status':'EXISTING_BACKGROUND_UPLOAD_REUSED',**existing}),flush=True)
+            return 0
+        # Complete any interactive token input before disconnecting stdin.
+        _prepare_private_token(project,reauthorize)
+        log=project/'logs/results-upload.log';log.parent.mkdir(parents=True,exist_ok=True)
+        script=str(Path(__file__).resolve())
+        with log.open('ab',buffering=0) as output:
+            child=subprocess.Popen([sys.executable,'-B','-u',script,'--project',str(project),
+                                    '--publish','--background-worker'],stdin=subprocess.DEVNULL,
+                                   stdout=output,stderr=subprocess.STDOUT,start_new_session=True,
+                                   close_fds=True,env={**os.environ,'PYTHONUNBUFFERED':'1'})
+        marker={'pid':child.pid,'project':str(project),'script':script,'log':str(log),
+                'status_file':str(state/'results_upload_status.json')}
+        _status_file(state/'results_upload_daemon.json',marker)
+        # Observe the actual detached worker's first status, without waiting for packing.
+        for _ in range(20):
+            if child.poll() is not None:
+                break
+            try:
+                observed=json.loads((state/'results_upload_status.json').read_text())
+                if observed.get('pid')==child.pid:
+                    break
+            except (OSError,ValueError):
+                pass
+            time.sleep(.1)
+        code=child.poll()
+        if code not in (None,0):
+            print(json.dumps({'status':'BACKGROUND_UPLOAD_STOPPED','exit_code':code,**marker}),flush=True)
+            return code
+        print(json.dumps({'status':'BACKGROUND_UPLOAD_STARTED' if code is None else 'BACKGROUND_UPLOAD_FINISHED',
+                          'new_model_fits':0,**marker}),flush=True)
+        return 0
 
 
 def main(argv=None):
@@ -475,22 +739,19 @@ def main(argv=None):
     parser.add_argument('--project',type=Path,default=Path('/public/home/zhuziyuan/projects/paper1-risk-v1'))
     parser.add_argument('--publish',action='store_true',help='Upload the completed evidence to its separate result branch')
     parser.add_argument('--reauthorize',action='store_true',help='Ask for a fresh token using hidden terminal input')
+    parser.add_argument('--background',action='store_true',help='Detach a login-side upload with logs, heartbeat and retry')
+    parser.add_argument('--background-worker',action='store_true',help=argparse.SUPPRESS)
     args=parser.parse_args(argv)
     project=args.project.expanduser().resolve()
-    destination=project/'exports/github-results'
-    destination.mkdir(parents=True,exist_ok=True)
-    with (destination/'.export.lock').open('a+') as lock:
-        try:
-            fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
-        except BlockingIOError:
-            print('Another result export is active; no duplicate upload started.',flush=True)
-            return 0
-        bundle=build_bundle(project,destination)
-        print(json.dumps({'stage':'RESULT_EVIDENCE_EXPORTED','archive':str(bundle['archive']),
-                          'bytes':bundle['bytes'],'sha256':bundle['sha256'],'new_model_fits':0}),flush=True)
-        if args.publish:
-            publish_bundle(project,bundle,_token(project,args.reauthorize))
-    return 0
+    if not project.is_dir():
+        raise ValueError('Existing result project directory is missing')
+    if args.background:
+        if not args.publish:
+            parser.error('--background requires --publish')
+        return _start_background(project,args.reauthorize)
+    if args.publish and not args.background_worker:
+        _prepare_private_token(project,args.reauthorize)
+    return _run_upload(project,publish=args.publish,background=args.background_worker)
 
 
 if __name__=='__main__':

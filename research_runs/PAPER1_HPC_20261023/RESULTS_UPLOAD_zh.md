@@ -6,13 +6,25 @@
 
 ## 手动执行一次
 
+**推荐后台方式：** 如果旧的前台上传还占着终端，先在那个窗口按`Ctrl+C`，仅结束前台导出／上传，原结果与Slurm作业保持。然后在login1运行交付消息中的固定下载命令，并追加`--background --publish`。后台立即返回PID，可以关闭终端。已有同项目后台会复用；旧前台仍持有导出锁时，后台显示`waiting_existing_export`并等待，不强杀进程、不重复打包。
+
 在学校 **login1** 下载本目录的 `PUBLISH_RESULTS_ON_SCHOOL.py`，使用现有Python执行：
 
 ```bash
-/public/home/zhuziyuan/.venvs/paper3-hpc-cu121-offline/bin/python -B -u /tmp/paper1-publish-results.py --project /public/home/zhuziyuan/projects/paper1-risk-v1 --publish
+/public/home/zhuziyuan/.venvs/paper3-hpc-cu121-offline/bin/python -B -u /tmp/paper1-publish-results.py --project /public/home/zhuziyuan/projects/paper1-risk-v1 --background --publish
 ```
 
 交付消息提供固定commit的一行下载及执行命令。脚本只有Python标准库和系统curl依赖，不安装任何包，不需要GPU或新Slurm作业。它优先复用`config/sync.json`指向的私有token；没有现有token或追加`--reauthorize`时才隐藏询问，不把凭据写入代码或Git。
+
+凭据输入在后台启动前完成，后台不等待终端输入。校验、哈希、打包、上传和完整回读分别记录阶段；每30秒写一次心跳及实际计数。日志追加保留，状态保存在共享项目目录：
+
+```bash
+tail -n 30 /public/home/zhuziyuan/projects/paper1-risk-v1/logs/results-upload.log
+```
+
+```bash
+cat /public/home/zhuziyuan/projects/paper1-risk-v1/state/results_upload_status.json
+```
 
 脚本会：
 
@@ -24,7 +36,7 @@
 
 成功标志：**`RESULT_BUNDLE_PUBLISHED_AND_READBACK_VERIFIED`**，同时输出commit和可打开的结果目录URL。
 
-断网或GitHub失败时，本地结果与已生成压缩包保留；重新执行同一命令即可重用相同内容，已上传的Git对象按内容去重，分支更新不强推。此命令不会恢复、重跑或取消任何训练。
+临时断网、超时、服务端5xx或明确限流会自动退避重试，直接复用本次已生成的压缩包，不重新校验／打包全部文件。已上传的Git对象按内容去重，分支更新不强推。真正的401/403授权拒绝、SHA错误或本地数据问题会明确停止，不循环掩盖；授权问题可用同一后台命令加`--reauthorize`重新隐藏输入。此命令不会恢复、重跑或取消任何训练。
 
 ## 包含与保留范围
 
