@@ -1,0 +1,21 @@
+test_authentication_and_sync_hooks_do_not_hold_submit_lock (test_execution.ExecutionTests.test_authentication_and_sync_hooks_do_not_hold_submit_lock) ... ok
+test_busy_lock_reuses_actual_queued_job (test_execution.ExecutionTests.test_busy_lock_reuses_actual_queued_job) ... ok
+test_cancellation_overrides_preemption (test_execution.ExecutionTests.test_cancellation_overrides_preemption) ... ok
+test_child_cuda_assignment_and_thread_budget (test_execution.ExecutionTests.test_child_cuda_assignment_and_thread_budget) ... ok
+test_classical_complete_is_not_neural_update (test_execution.ExecutionTests.test_classical_complete_is_not_neural_update) ... ok
+test_complete_requires_endpoint_and_evaluation_identity (test_execution.ExecutionTests.test_complete_requires_endpoint_and_evaluation_identity) ... ok
+test_contention_in_final_submit_phase_never_duplicates_sbatch (test_execution.ExecutionTests.test_contention_in_final_submit_phase_never_duplicates_sbatch) ... ok
+test_failed_task_does_not_cancel_final_or_other_family (test_execution.ExecutionTests.test_failed_task_does_not_cancel_final_or_other_family) ... {"updated_at_utc": "2026-10-27T05:06:57.153556+00:00", "stage": "fitting_and_evaluation", "slurm_job_id": "123", "completed_tasks": 2, "total_tasks": 630, "active_children": [], "failed_this_invocation": 1, "max_concurrent_neural_fits": 2, "max_concurrent_classical_fits": 1, "stop_requested_exit_code": null, "pending_neural": 0, "pending_classical": 0}
+{"updated_at_utc": "2026-10-27T05:06:57.154338+00:00", "stage": "fitting_and_evaluation", "slurm_job_id": "123", "completed_tasks": 2, "total_tasks": 630, "active_children": [], "failed_this_invocation": 1, "max_concurrent_neural_fits": 2, "max_concurrent_classical_fits": 1, "stop_requested_exit_code": null, "pending_neural": 0, "pending_classical": 0}
+ok
+test_internal_blockingioerror_is_not_misclassified_as_lock_contention (test_execution.ExecutionTests.test_internal_blockingioerror_is_not_misclassified_as_lock_contention) ... ok
+test_preparation_preserves_venv_python_path_without_install (test_execution.ExecutionTests.test_preparation_preserves_venv_python_path_without_install) ... ok
+test_real_busy_lock_reports_without_submission_then_reuses_same_inode (test_execution.ExecutionTests.test_real_busy_lock_reports_without_submission_then_reuses_same_inode) ... ok
+test_shell_requeue_is_only_preemption_and_exit75 (test_execution.ExecutionTests.test_shell_requeue_is_only_preemption_and_exit75) ... ok
+test_slots_use_slurm_identifiers (test_execution.ExecutionTests.test_slots_use_slurm_identifiers) ... ok
+test_submission_one_node_two_gpu_shape_and_dedup (test_execution.ExecutionTests.test_submission_one_node_two_gpu_shape_and_dedup) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.291s
+
+OK

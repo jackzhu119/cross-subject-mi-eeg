@@ -5,11 +5,13 @@ login1. The existing prepared-data identity and original common folds are reused
 """
 from __future__ import annotations
 import argparse
+from contextlib import contextmanager
 import hashlib
 import json
 import os
 from pathlib import Path
 import re
+import socket
 import subprocess
 import sys
 import traceback
@@ -42,6 +44,90 @@ def queue(project, command=subprocess.run):
         if directory == str(project):
             observed.append({"job_id": job, "job_name": name, "scheduler_state": state})
     return observed
+
+
+
+def _lock_observation(project):
+    """Observe only this host's exact FLOCK inode; absence is explicitly unknown."""
+    lock_path = project / "state/submit.lock"
+    result = {"observation": "UNKNOWN", "host": socket.gethostname(), "pid": None, "comm": None}
+    try:
+        info = lock_path.stat()
+        wanted = (os.major(info.st_dev), os.minor(info.st_dev), info.st_ino)
+        for line in Path("/proc/locks").read_text().splitlines():
+            match = re.match(r"^\d+:\s+FLOCK\s+ADVISORY\s+WRITE\s+(\d+)\s+([0-9a-fA-F]+):([0-9a-fA-F]+):(\d+)\s", line)
+            if not match:
+                continue
+            pid, major, minor, inode = match.groups()
+            if (int(major, 16), int(minor, 16), int(inode)) != wanted or int(pid) <= 0:
+                continue
+            comm = None
+            try:
+                comm = Path("/proc", pid, "comm").read_text().strip().replace("\n", " ")[:80]
+            except OSError:
+                pass
+            result.update(observation="LOCAL_PROC_FLOCK_MATCH", pid=int(pid), comm=comm)
+            break
+    except OSError as error:
+        result["unavailable_reason"] = type(error).__name__
+    return result
+
+
+def _busy_submission(project, phase, command, sync_pid=None):
+    # A busy lock is not a failed fit. Read-only scheduler observation is safe;
+    # neither owner JSON age nor an absent local PID can release a shared lock.
+    result = {"status": "SUBMISSION_IN_PROGRESS", "reason": "submit_lock_busy",
+              "phase": phase, "lock_path": str(project / "state/submit.lock"),
+              "lock_observation": _lock_observation(project), "sync_pid": sync_pid,
+              "new_jobs_submitted": 0, "new_model_fits_on_login": 0,
+              "lock_removed_or_bypassed": False}
+    try:
+        jobs = queue(project, command)
+        result["scheduler_observation"] = "OBSERVED"
+        result["jobs"] = jobs
+        if jobs:
+            result["status"] = "EXISTING_ALLOCATION_REUSED"
+    except (OSError, subprocess.SubprocessError, RuntimeError, ValueError) as error:
+        result["scheduler_observation"] = "UNKNOWN"
+        result["scheduler_error_class"] = type(error).__name__
+    record = project / "state/submit_owner.json"
+    try:
+        owner = read_json(record)
+        if not isinstance(owner, dict):
+            return result
+        result["owner_record"] = {key: owner.get(key) for key in
+                                  ("pid", "hostname", "phase", "active", "observed_at_utc")}
+        result["owner_record_is_lock_authority"] = False
+    except (OSError, ValueError, TypeError):
+        pass
+    return result
+
+
+@contextmanager
+def _submission_phase(project, phase):
+    """Catch only lock acquisition contention, never errors inside the phase."""
+    manager = exclusive_lock(project / "state/submit.lock")
+    try:
+        manager.__enter__()
+    except BlockingIOError:
+        yield False
+        return
+    owner = {"pid": os.getpid(), "hostname": socket.gethostname(), "phase": phase,
+             "active": True, "observed_at_utc": utc_now()}
+    try:
+        try:
+            atomic_json(project / "state/submit_owner.json", owner)
+        except OSError:
+            pass  # The kernel lock remains authoritative if metadata cannot be written.
+        yield True
+    finally:
+        try:
+            atomic_json(project / "state/submit_owner.json", {**owner, "active": False,
+                        "released_at_utc": utc_now()})
+        except OSError:
+            pass
+        finally:
+            manager.__exit__(None, None, None)
 
 
 def _write_identical(path, value):
@@ -120,21 +206,27 @@ def submit(project=DEFAULT_PARENT / "paper1-composition-v2", *, base_project=DEF
         raise ValueError("Use a Slurm time limit such as 1-00:00:00; queue maximum is not assumed")
     project = Path(project).expanduser().resolve()
     (project / "state").mkdir(parents=True, exist_ok=True)
-    with exclusive_lock(project / "state/submit.lock"):
+    with _submission_phase(project, "prepare") as acquired:
+        if not acquired:
+            return _busy_submission(project, "prepare", command)
         paths, plan = prepare_project(project, base_project, python)
-        auth_path = project / "config/sync.json"
-        first_authorization = not auth_path.exists()
-        from hpcmi.github_sync import confirm_credentials
-        token_path = confirm_credentials(REPOSITORY, project.name, force=reauthorize or first_authorization,
-                                         require_verified=reauthorize or first_authorization)
-        atomic_json(auth_path, {"repository": REPOSITORY, "project_id": project.name,
-                    "token_file": str(token_path), "branch": "hpc/" + project.name})
-        # A reporting outage never cancels or prevents resuming an existing fit.
-        try:
-            sync_pid = sync_starter(project, paths["training_python"])
-        except OSError as error:
-            sync_pid = None
-            print(json.dumps({"sync_start_pending": True, "error_class": type(error).__name__}), flush=True)
+    # Human input and network authentication never hold the submission lock.
+    auth_path = project / "config/sync.json"
+    first_authorization = not auth_path.exists()
+    from hpcmi.github_sync import confirm_credentials
+    token_path = confirm_credentials(REPOSITORY, project.name, force=reauthorize or first_authorization,
+                                     require_verified=reauthorize or first_authorization)
+    atomic_json(auth_path, {"repository": REPOSITORY, "project_id": project.name,
+                "token_file": str(token_path), "branch": "hpc/" + project.name})
+    # Detached reporting must not inherit or prolong a submission critical section.
+    try:
+        sync_pid = sync_starter(project, paths["training_python"])
+    except OSError as error:
+        sync_pid = None
+        print(json.dumps({"sync_start_pending": True, "error_class": type(error).__name__}), flush=True)
+    with _submission_phase(project, "queue_and_submit") as acquired:
+        if not acquired:
+            return _busy_submission(project, "queue_and_submit", command, sync_pid)
         existing = queue(project, command)
         if existing:
             return {"status": "EXISTING_ALLOCATION_REUSED", "jobs": existing, "sync_pid": sync_pid,

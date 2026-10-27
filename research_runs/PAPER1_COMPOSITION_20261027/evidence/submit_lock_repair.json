@@ -1,0 +1,37 @@
+{
+  "repair": "short_submission_lock_v1",
+  "created_at_utc": "2026-10-27T05:07:14.929049+00:00",
+  "previous_fixed_commit": "38d2d9e4da4615021663fee645dbeba665ec4985",
+  "reported_error": {
+    "phase": "submit.lock acquisition",
+    "errno": 11,
+    "new_model_fits_from_failed_invocation": 0
+  },
+  "user_supplied_fuser_observation": {
+    "pid": 1477726,
+    "user": "zhuziyuan",
+    "command": "python",
+    "scope": "Process has the lock file open; argv, process state and exact lock ownership are not yet independently observed here."
+  },
+  "changes": [
+    "Same submit.lock inode retained",
+    "Prepare and final squeue/sbatch protected separately",
+    "Token input, network authorization and sync startup outside submit lock",
+    "Busy lock reports scheduler state and available local exact-inode /proc/locks observations",
+    "Owner metadata is diagnostic, never authority to bypass a lock"
+  ],
+  "tests": {
+    "execution": 14,
+    "offline_bundle_import": 1,
+    "failures": 0,
+    "shell_syntax": "passed"
+  },
+  "science_changed": false,
+  "existing_data_or_checkpoints_deleted": false,
+  "server_process_stopped_here": false,
+  "gpu_training_started_here": false,
+  "files": {
+    "compmi/launch.py": "17becd0ed47461780009470fbc1dde5b3d30ff540c3e1c3021f2489cdc59242e",
+    "tests/test_execution.py": "647251c536e57492b86feb0d2997c1b2b65e49907445ba5e59398a590e017c3d"
+  }
+}

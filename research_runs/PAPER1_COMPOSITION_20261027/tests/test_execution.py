@@ -159,6 +159,136 @@ class ExecutionTests(unittest.TestCase):
             credentials.assert_called_once_with(launch.REPOSITORY, self.project.name, force=False, require_verified=False)
         self.assertEqual([a[0] for a in calls], ["squeue"])
 
+
+    def _holder(self):
+        lock = self.project / "state/submit.lock"
+        lock.parent.mkdir(parents=True, exist_ok=True)
+        script = ("import fcntl,sys; f=open(sys.argv[1],'a+'); "
+                  "fcntl.flock(f,fcntl.LOCK_EX); print('LOCKED',flush=True); sys.stdin.readline()")
+        process = subprocess.Popen([sys.executable, "-u", "-c", script, str(lock)],
+                                   stdin=subprocess.PIPE, stdout=subprocess.PIPE,
+                                   stderr=subprocess.PIPE, text=True, close_fds=True)
+        self.assertEqual(process.stdout.readline().strip(), "LOCKED")
+        return process, lock
+
+    def _release_holder(self, process):
+        if process.poll() is None:
+            process.stdin.write("\n")
+            process.stdin.flush()
+        process.wait(timeout=5)
+        process.stdin.close()
+        process.stdout.close()
+        process.stderr.close()
+
+    def test_real_busy_lock_reports_without_submission_then_reuses_same_inode(self):
+        process, lock = self._holder()
+        inode = lock.stat().st_ino
+        calls = []
+        paths = {"training_python": sys.executable}
+        plan = {"fingerprint": "f" * 64, "task_counts": {"total": 630}}
+        def command(args, **kwargs):
+            calls.append(args)
+            return subprocess.CompletedProcess(args, 0, "456\n" if args[0] == "sbatch" else "", "")
+        try:
+            with patch.object(launch, "prepare_project", side_effect=AssertionError("Busy lock must not prepare")), patch(
+                    "hpcmi.github_sync.confirm_credentials", side_effect=AssertionError("Busy lock must not prompt")):
+                result = launch.submit(self.project, command=command,
+                                       sync_starter=lambda *a: self.fail("Busy unconfigured project must not start sync"))
+            self.assertEqual(result["status"], "SUBMISSION_IN_PROGRESS")
+            self.assertEqual(result["new_jobs_submitted"], 0)
+            self.assertFalse(result["lock_removed_or_bypassed"])
+            self.assertEqual([a[0] for a in calls], ["squeue"])
+            observed = result["lock_observation"]
+            self.assertIn(observed["observation"], ("UNKNOWN", "LOCAL_PROC_FLOCK_MATCH"))
+            if observed["observation"] == "LOCAL_PROC_FLOCK_MATCH":
+                self.assertEqual(observed["pid"], process.pid)
+            self.assertEqual(lock.stat().st_ino, inode)
+        finally:
+            self._release_holder(process)
+        (self.project / "logs/slurm").mkdir(parents=True, exist_ok=True)
+        calls.clear()
+        with patch.object(launch, "prepare_project", return_value=(paths, plan)), patch(
+                "hpcmi.github_sync.confirm_credentials", return_value=Path("/private/token")):
+            result = launch.submit(self.project, command=command, sync_starter=lambda *a: 789)
+        self.assertEqual(result["status"], "ONE_NODE_TWO_GPU_JOB_SUBMITTED")
+        self.assertEqual(lock.stat().st_ino, inode)
+        self.assertEqual(sum(a[0] == "sbatch" for a in calls), 1)
+        owner = json.loads((self.project / "state/submit_owner.json").read_text())
+        self.assertFalse(owner["active"])
+        self.assertEqual(owner["phase"], "queue_and_submit")
+
+    def test_busy_lock_reuses_actual_queued_job(self):
+        process, lock = self._holder()
+        inode = lock.stat().st_ino
+        calls = []
+        def command(args, **kwargs):
+            calls.append(args)
+            return subprocess.CompletedProcess(args, 0, "456|p1-comp|PENDING|" + str(self.project) + "\n", "")
+        try:
+            result = launch.submit(self.project, command=command,
+                                   sync_starter=lambda *a: self.fail("Busy unconfigured project must not start sync"))
+            self.assertEqual(result["status"], "EXISTING_ALLOCATION_REUSED")
+            self.assertEqual(result["jobs"][0]["job_id"], "456")
+            self.assertEqual([a[0] for a in calls], ["squeue"])
+            self.assertEqual(lock.stat().st_ino, inode)
+        finally:
+            self._release_holder(process)
+
+    def test_authentication_and_sync_hooks_do_not_hold_submit_lock(self):
+        paths = {"training_python": sys.executable}
+        plan = {"fingerprint": "f" * 64, "task_counts": {"total": 630}}
+        (self.project / "logs/slurm").mkdir(parents=True, exist_ok=True)
+        hooks = []
+        def observe_hook(name):
+            with launch.exclusive_lock(self.project / "state/submit.lock"):
+                hooks.append(name)
+        def authenticate(*args, **kwargs):
+            observe_hook("authentication")
+            return Path("/private/token")
+        def synchronize(*args):
+            observe_hook("sync")
+            return 789
+        def command(args, **kwargs):
+            return subprocess.CompletedProcess(args, 0, "456\n" if args[0] == "sbatch" else "", "")
+        with patch.object(launch, "prepare_project", return_value=(paths, plan)), patch(
+                "hpcmi.github_sync.confirm_credentials", side_effect=authenticate):
+            result = launch.submit(self.project, command=command, sync_starter=synchronize)
+        self.assertEqual(result["status"], "ONE_NODE_TWO_GPU_JOB_SUBMITTED")
+        self.assertEqual(hooks, ["authentication", "sync"])
+
+    def test_internal_blockingioerror_is_not_misclassified_as_lock_contention(self):
+        with patch.object(launch, "prepare_project", side_effect=BlockingIOError("inside scientific preparation")):
+            with self.assertRaisesRegex(BlockingIOError, "inside scientific"):
+                launch.submit(self.project, command=lambda *a, **kw: self.fail("Unexpected scheduler call"))
+        with launch.exclusive_lock(self.project / "state/submit.lock"):
+            pass
+
+    def test_contention_in_final_submit_phase_never_duplicates_sbatch(self):
+        paths = {"training_python": sys.executable}
+        plan = {"fingerprint": "f" * 64, "task_counts": {"total": 630}}
+        (self.project / "logs/slurm").mkdir(parents=True, exist_ok=True)
+        holder = []
+        calls = []
+        def synchronize(*args):
+            process, lock = self._holder()
+            holder.append(process)
+            return 789
+        def command(args, **kwargs):
+            calls.append(args)
+            return subprocess.CompletedProcess(args, 0, "", "")
+        try:
+            with patch.object(launch, "prepare_project", return_value=(paths, plan)), patch(
+                    "hpcmi.github_sync.confirm_credentials", return_value=Path("/private/token")):
+                result = launch.submit(self.project, command=command, sync_starter=synchronize)
+            self.assertEqual(result["status"], "SUBMISSION_IN_PROGRESS")
+            self.assertEqual(result["phase"], "queue_and_submit")
+            self.assertEqual(result["sync_pid"], 789)
+            self.assertEqual([a[0] for a in calls], ["squeue"])
+        finally:
+            for process in holder:
+                self._release_holder(process)
+
+
     def test_shell_requeue_is_only_preemption_and_exit75(self):
         shell = (ROOT / "slurm/single_job.sh").read_text()
         self.assertIn('if [ "$cancel_code" -ne 0 ]; then exit "$cancel_code"; fi', shell)
