@@ -203,7 +203,7 @@
     },
     "neural/development/s60-all": {
       "completed": 3,
-      "optimizer_updates": 19914,
+      "optimizer_updates": 20111,
       "planned": 30
     },
     "neural/development/s60-matched": {
@@ -305,18 +305,23 @@
   "controller": {
     "active_children": [
       {
-        "epoch": 35,
+        "epoch": 36,
         "family": "neural",
-        "global_step": 4554,
-        "optimizer_updates": 4554,
+        "global_step": 4650,
+        "optimizer_updates": 4650,
         "pid": 4803,
         "processed_evaluation_samples": 0,
         "stage": "training",
         "task_id": "dev-f00-s60-all-tail-s20261111"
       },
       {
+        "epoch": 0,
         "family": "neural",
+        "global_step": 17,
+        "optimizer_updates": 17,
         "pid": 17148,
+        "processed_evaluation_samples": 0,
+        "stage": "training",
         "task_id": "dev-f00-s60-all-tail-s20261112"
       }
     ],
@@ -324,7 +329,7 @@
     "failed_this_invocation": 0,
     "stage": "fitting_and_evaluation",
     "total_tasks": 630,
-    "updated_at_utc": "2026-10-28T17:51:03.082901+00:00"
+    "updated_at_utc": "2026-10-28T17:54:05.026708+00:00"
   },
   "counts": {
     "completed": 111,
@@ -1839,28 +1844,32 @@
     {
       "cell_id": "s60-all",
       "complete": false,
-      "epoch": 35,
+      "epoch": 36,
       "family": "neural",
       "fold": 0,
       "id": "dev-f00-s60-all-tail-s20261111",
       "method": "tail",
-      "optimizer_updates": 4554,
+      "optimizer_updates": 4688,
       "phase": "development",
       "processed_evaluation_samples": 0,
       "seed": 20261111,
       "stage": "training",
-      "updated_at_utc": "2026-10-28T17:50:56.408205+00:00"
+      "updated_at_utc": "2026-10-28T17:54:08.255997+00:00"
     },
     {
       "cell_id": "s60-all",
       "complete": false,
+      "epoch": 0,
       "family": "neural",
       "fold": 0,
       "id": "dev-f00-s60-all-tail-s20261112",
       "method": "tail",
-      "optimizer_updates": 0,
+      "optimizer_updates": 63,
       "phase": "development",
-      "seed": 20261112
+      "processed_evaluation_samples": 0,
+      "seed": 20261112,
+      "stage": "training",
+      "updated_at_utc": "2026-10-28T17:54:10.569670+00:00"
     },
     {
       "cell_id": "s60-all",
@@ -8769,5 +8778,5 @@
     }
   ],
   "training_blocked": false,
-  "updated_at_utc": "2026-10-28T17:51:24.221419+00:00"
+  "updated_at_utc": "2026-10-28T17:54:14.375175+00:00"
 }
