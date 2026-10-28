@@ -218,7 +218,7 @@
     },
     "neural/development/y51-all": {
       "completed": 0,
-      "optimizer_updates": 2439,
+      "optimizer_updates": 2704,
       "planned": 30
     },
     "neural/development/y51-matched": {
@@ -305,20 +305,20 @@
   "controller": {
     "active_children": [
       {
-        "epoch": 9,
+        "epoch": 10,
         "family": "neural",
-        "global_step": 1236,
-        "optimizer_updates": 1236,
+        "global_step": 1364,
+        "optimizer_updates": 1364,
         "pid": 4746,
         "processed_evaluation_samples": 0,
         "stage": "training",
         "task_id": "dev-f00-y51-all-erm-s20261111"
       },
       {
-        "epoch": 9,
+        "epoch": 10,
         "family": "neural",
-        "global_step": 1186,
-        "optimizer_updates": 1186,
+        "global_step": 1320,
+        "optimizer_updates": 1320,
         "pid": 8411,
         "processed_evaluation_samples": 0,
         "stage": "training",
@@ -329,7 +329,7 @@
     "failed_this_invocation": 0,
     "stage": "fitting_and_evaluation",
     "total_tasks": 630,
-    "updated_at_utc": "2026-10-28T16:13:55.229038+00:00"
+    "updated_at_utc": "2026-10-28T16:16:57.193601+00:00"
   },
   "counts": {
     "completed": 96,
@@ -1591,32 +1591,32 @@
     {
       "cell_id": "y51-all",
       "complete": false,
-      "epoch": 9,
+      "epoch": 10,
       "family": "neural",
       "fold": 0,
       "id": "dev-f00-y51-all-erm-s20261111",
       "method": "erm",
-      "optimizer_updates": 1236,
+      "optimizer_updates": 1364,
       "phase": "development",
       "processed_evaluation_samples": 0,
       "seed": 20261111,
       "stage": "training",
-      "updated_at_utc": "2026-10-28T16:13:40.701537+00:00"
+      "updated_at_utc": "2026-10-28T16:16:52.404480+00:00"
     },
     {
       "cell_id": "y51-all",
       "complete": false,
-      "epoch": 9,
+      "epoch": 10,
       "family": "neural",
       "fold": 0,
       "id": "dev-f00-y51-all-erm-s20261112",
       "method": "erm",
-      "optimizer_updates": 1203,
+      "optimizer_updates": 1340,
       "phase": "development",
       "processed_evaluation_samples": 0,
       "seed": 20261112,
       "stage": "training",
-      "updated_at_utc": "2026-10-28T16:14:04.604387+00:00"
+      "updated_at_utc": "2026-10-28T16:16:58.848103+00:00"
     },
     {
       "cell_id": "y51-all",
@@ -8718,5 +8718,5 @@
     }
   ],
   "training_blocked": false,
-  "updated_at_utc": "2026-10-28T16:14:17.545158+00:00"
+  "updated_at_utc": "2026-10-28T16:17:28.087191+00:00"
 }
