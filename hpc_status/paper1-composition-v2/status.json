@@ -223,7 +223,7 @@
     },
     "neural/development/y51-matched": {
       "completed": 0,
-      "optimizer_updates": 0,
+      "optimizer_updates": 4480,
       "planned": 30
     },
     "neural/final/s29r01-all": {
@@ -305,13 +305,23 @@
   "controller": {
     "active_children": [
       {
+        "epoch": 18,
         "family": "neural",
+        "global_step": 2304,
+        "optimizer_updates": 2304,
         "pid": 12820,
+        "processed_evaluation_samples": 0,
+        "stage": "epoch_completed",
         "task_id": "dev-f00-y51-matched-erm-s20261111"
       },
       {
+        "epoch": 15,
         "family": "neural",
+        "global_step": 1920,
+        "optimizer_updates": 1920,
         "pid": 12821,
+        "processed_evaluation_samples": 0,
+        "stage": "epoch_completed",
         "task_id": "dev-f00-y51-matched-erm-s20261112"
       }
     ],
@@ -319,7 +329,7 @@
     "failed_this_invocation": 0,
     "stage": "fitting_and_evaluation",
     "total_tasks": 630,
-    "updated_at_utc": "2026-10-28T16:46:37.264883+00:00"
+    "updated_at_utc": "2026-10-28T16:49:38.453708+00:00"
   },
   "counts": {
     "completed": 102,
@@ -1685,24 +1695,32 @@
     {
       "cell_id": "y51-matched",
       "complete": false,
+      "epoch": 19,
       "family": "neural",
       "fold": 0,
       "id": "dev-f00-y51-matched-erm-s20261111",
       "method": "erm",
-      "optimizer_updates": 0,
+      "optimizer_updates": 2432,
       "phase": "development",
-      "seed": 20261111
+      "processed_evaluation_samples": 0,
+      "seed": 20261111,
+      "stage": "epoch_completed",
+      "updated_at_utc": "2026-10-28T16:49:39.725446+00:00"
     },
     {
       "cell_id": "y51-matched",
       "complete": false,
+      "epoch": 16,
       "family": "neural",
       "fold": 0,
       "id": "dev-f00-y51-matched-erm-s20261112",
       "method": "erm",
-      "optimizer_updates": 0,
+      "optimizer_updates": 2048,
       "phase": "development",
-      "seed": 20261112
+      "processed_evaluation_samples": 0,
+      "seed": 20261112,
+      "stage": "epoch_completed",
+      "updated_at_utc": "2026-10-28T16:49:38.814550+00:00"
     },
     {
       "cell_id": "y51-matched",
@@ -8724,5 +8742,5 @@
     }
   ],
   "training_blocked": false,
-  "updated_at_utc": "2026-10-28T16:46:54.466847+00:00"
+  "updated_at_utc": "2026-10-28T16:50:02.315021+00:00"
 }
