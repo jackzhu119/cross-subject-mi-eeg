@@ -203,7 +203,7 @@
     },
     "neural/development/s60-all": {
       "completed": 2,
-      "optimizer_updates": 11605,
+      "optimizer_updates": 11977,
       "planned": 30
     },
     "neural/development/s60-matched": {
@@ -305,23 +305,23 @@
   "controller": {
     "active_children": [
       {
-        "epoch": 7,
+        "epoch": 9,
         "family": "neural",
-        "global_step": 981,
-        "optimizer_updates": 981,
+        "global_step": 1167,
+        "optimizer_updates": 1167,
         "pid": 55004,
         "processed_evaluation_samples": 0,
         "stage": "training",
         "task_id": "dev-f00-s60-all-erm-s20261113"
       },
       {
-        "epoch": 3,
+        "epoch": 4,
         "family": "neural",
-        "global_step": 384,
-        "optimizer_updates": 384,
+        "global_step": 570,
+        "optimizer_updates": 570,
         "pid": 4803,
         "processed_evaluation_samples": 0,
-        "stage": "epoch_completed",
+        "stage": "training",
         "task_id": "dev-f00-s60-all-tail-s20261111"
       }
     ],
@@ -329,7 +329,7 @@
     "failed_this_invocation": 0,
     "stage": "fitting_and_evaluation",
     "total_tasks": 630,
-    "updated_at_utc": "2026-10-28T17:42:29.360092+00:00"
+    "updated_at_utc": "2026-10-28T17:45:31.792119+00:00"
   },
   "counts": {
     "completed": 110,
@@ -1829,32 +1829,32 @@
     {
       "cell_id": "s60-all",
       "complete": false,
-      "epoch": 7,
+      "epoch": 9,
       "family": "neural",
       "fold": 0,
       "id": "dev-f00-s60-all-erm-s20261113",
       "method": "erm",
-      "optimizer_updates": 981,
+      "optimizer_updates": 1167,
       "phase": "development",
       "processed_evaluation_samples": 0,
       "seed": 20261113,
       "stage": "training",
-      "updated_at_utc": "2026-10-28T17:42:28.097916+00:00"
+      "updated_at_utc": "2026-10-28T17:45:29.343178+00:00"
     },
     {
       "cell_id": "s60-all",
       "complete": false,
-      "epoch": 3,
+      "epoch": 4,
       "family": "neural",
       "fold": 0,
       "id": "dev-f00-s60-all-tail-s20261111",
       "method": "tail",
-      "optimizer_updates": 384,
+      "optimizer_updates": 570,
       "phase": "development",
       "processed_evaluation_samples": 0,
       "seed": 20261111,
-      "stage": "epoch_completed",
-      "updated_at_utc": "2026-10-28T17:42:21.540248+00:00"
+      "stage": "training",
+      "updated_at_utc": "2026-10-28T17:45:12.216280+00:00"
     },
     {
       "cell_id": "s60-all",
@@ -8774,5 +8774,5 @@
     }
   ],
   "training_blocked": false,
-  "updated_at_utc": "2026-10-28T17:42:55.912777+00:00"
+  "updated_at_utc": "2026-10-28T17:45:44.742882+00:00"
 }
