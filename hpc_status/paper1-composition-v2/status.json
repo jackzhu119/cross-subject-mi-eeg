@@ -62,7 +62,7 @@
       "planned": 5
     },
     "classical/development/s9-all": {
-      "completed": 0,
+      "completed": 1,
       "optimizer_updates": 0,
       "planned": 5
     },
@@ -305,21 +305,31 @@
   "controller": {
     "active_children": [
       {
-        "family": "smoke",
-        "pid": 18723,
-        "task_id": null
+        "family": "neural",
+        "pid": 22410,
+        "task_id": "dev-f00-s9-all-erm-s20261111"
+      },
+      {
+        "family": "neural",
+        "pid": 22416,
+        "task_id": "dev-f00-s9-all-erm-s20261112"
+      },
+      {
+        "family": "classical",
+        "pid": 23306,
+        "task_id": "dev-f00-y51-all-weighted_csp_rlda-s0"
       }
     ],
-    "completed_tasks": 0,
+    "completed_tasks": 1,
     "failed_this_invocation": 0,
-    "stage": "cached_gpu_smoke_slot_1",
+    "stage": "fitting_and_evaluation",
     "total_tasks": 630,
-    "updated_at_utc": "2026-10-28T14:52:43.189821+00:00"
+    "updated_at_utc": "2026-10-28T14:55:44.874078+00:00"
   },
   "counts": {
-    "completed": 0,
+    "completed": 1,
     "planned": 630,
-    "remaining": 630
+    "remaining": 629
   },
   "descriptive_statistics": [
     {
@@ -432,7 +442,7 @@
     },
     {
       "cell_id": "s9-all",
-      "completed_tasks": 0,
+      "completed_tasks": 1,
       "family": "classical",
       "method": "weighted_csp_rlda",
       "phase": "development",
@@ -1207,14 +1217,17 @@
     },
     {
       "cell_id": "s9-all",
-      "complete": false,
+      "complete": true,
       "family": "classical",
       "fold": 0,
       "id": "dev-f00-s9-all-weighted_csp_rlda-s0",
       "method": "weighted_csp_rlda",
       "optimizer_updates": 0,
       "phase": "development",
-      "seed": 0
+      "processed_evaluation_samples": 7175,
+      "seed": 0,
+      "stage": "complete",
+      "updated_at_utc": "2026-10-28T14:55:09.455773+00:00"
     },
     {
       "cell_id": "y51-all",
@@ -8071,5 +8084,5 @@
     }
   ],
   "training_blocked": false,
-  "updated_at_utc": "2026-10-28T14:53:03.233031+00:00"
+  "updated_at_utc": "2026-10-28T14:55:52.508967+00:00"
 }
