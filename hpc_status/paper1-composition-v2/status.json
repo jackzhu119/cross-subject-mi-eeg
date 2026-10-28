@@ -158,12 +158,12 @@
     },
     "neural/development/s29r01-matched": {
       "completed": 5,
-      "optimizer_updates": 28379,
+      "optimizer_updates": 30336,
       "planned": 30
     },
     "neural/development/s29r02-all": {
       "completed": 0,
-      "optimizer_updates": 0,
+      "optimizer_updates": 128,
       "planned": 30
     },
     "neural/development/s29r02-matched": {
@@ -305,18 +305,23 @@
   "controller": {
     "active_children": [
       {
-        "epoch": 21,
+        "epoch": 39,
         "family": "neural",
-        "global_step": 2779,
-        "optimizer_updates": 2779,
+        "global_step": 4992,
+        "optimizer_updates": 4992,
         "pid": 16548,
         "processed_evaluation_samples": 0,
-        "stage": "training",
+        "stage": "epoch_completed",
         "task_id": "dev-f00-s29r01-matched-tail-s20261113"
       },
       {
+        "epoch": 2,
         "family": "neural",
+        "global_step": 256,
+        "optimizer_updates": 256,
         "pid": 20901,
+        "processed_evaluation_samples": 0,
+        "stage": "epoch_completed",
         "task_id": "dev-f00-s29r02-all-erm-s20261111"
       }
     ],
@@ -324,7 +329,7 @@
     "failed_this_invocation": 0,
     "stage": "fitting_and_evaluation",
     "total_tasks": 630,
-    "updated_at_utc": "2026-10-28T19:42:17.285518+00:00"
+    "updated_at_utc": "2026-10-28T19:45:49.408136+00:00"
   },
   "counts": {
     "completed": 131,
@@ -2181,17 +2186,17 @@
     {
       "cell_id": "s29r01-matched",
       "complete": false,
-      "epoch": 21,
+      "epoch": 37,
       "family": "neural",
       "fold": 0,
       "id": "dev-f00-s29r01-matched-tail-s20261113",
       "method": "tail",
-      "optimizer_updates": 2779,
+      "optimizer_updates": 4736,
       "phase": "development",
       "processed_evaluation_samples": 0,
       "seed": 20261113,
-      "stage": "training",
-      "updated_at_utc": "2026-10-28T19:42:07.296376+00:00"
+      "stage": "epoch_completed",
+      "updated_at_utc": "2026-10-28T19:45:40.115424+00:00"
     },
     {
       "cell_id": "s29r01-matched",
@@ -2210,13 +2215,17 @@
     {
       "cell_id": "s29r02-all",
       "complete": false,
+      "epoch": 1,
       "family": "neural",
       "fold": 0,
       "id": "dev-f00-s29r02-all-erm-s20261111",
       "method": "erm",
-      "optimizer_updates": 0,
+      "optimizer_updates": 128,
       "phase": "development",
-      "seed": 20261111
+      "processed_evaluation_samples": 0,
+      "seed": 20261111,
+      "stage": "epoch_completed",
+      "updated_at_utc": "2026-10-28T19:45:42.718624+00:00"
     },
     {
       "cell_id": "s29r02-all",
@@ -8849,5 +8858,5 @@
     }
   ],
   "training_blocked": false,
-  "updated_at_utc": "2026-10-28T19:42:50.540258+00:00"
+  "updated_at_utc": "2026-10-28T19:46:01.497609+00:00"
 }
