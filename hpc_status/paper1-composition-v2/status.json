@@ -153,7 +153,7 @@
     },
     "neural/development/s29r01-all": {
       "completed": 0,
-      "optimizer_updates": 1024,
+      "optimizer_updates": 7296,
       "planned": 30
     },
     "neural/development/s29r01-matched": {
@@ -305,18 +305,23 @@
   "controller": {
     "active_children": [
       {
-        "epoch": 7,
+        "epoch": 40,
         "family": "neural",
-        "global_step": 916,
-        "optimizer_updates": 916,
+        "global_step": 5120,
+        "optimizer_updates": 5120,
         "pid": 25356,
         "processed_evaluation_samples": 0,
-        "stage": "training",
+        "stage": "epoch_completed",
         "task_id": "dev-f00-s29r01-all-erm-s20261111"
       },
       {
+        "epoch": 21,
         "family": "neural",
+        "global_step": 2688,
+        "optimizer_updates": 2688,
         "pid": 32528,
+        "processed_evaluation_samples": 0,
+        "stage": "epoch_completed",
         "task_id": "dev-f00-s29r01-all-erm-s20261112"
       }
     ],
@@ -324,7 +329,7 @@
     "failed_this_invocation": 0,
     "stage": "fitting_and_evaluation",
     "total_tasks": 630,
-    "updated_at_utc": "2026-10-28T18:56:31.927610+00:00"
+    "updated_at_utc": "2026-10-28T19:00:03.244100+00:00"
   },
   "counts": {
     "completed": 120,
@@ -2002,28 +2007,32 @@
     {
       "cell_id": "s29r01-all",
       "complete": false,
-      "epoch": 8,
+      "epoch": 38,
       "family": "neural",
       "fold": 0,
       "id": "dev-f00-s29r01-all-erm-s20261111",
       "method": "erm",
-      "optimizer_updates": 1024,
+      "optimizer_updates": 4864,
       "phase": "development",
       "processed_evaluation_samples": 0,
       "seed": 20261111,
       "stage": "epoch_completed",
-      "updated_at_utc": "2026-10-28T18:56:36.044124+00:00"
+      "updated_at_utc": "2026-10-28T18:59:54.740186+00:00"
     },
     {
       "cell_id": "s29r01-all",
       "complete": false,
+      "epoch": 19,
       "family": "neural",
       "fold": 0,
       "id": "dev-f00-s29r01-all-erm-s20261112",
       "method": "erm",
-      "optimizer_updates": 0,
+      "optimizer_updates": 2432,
       "phase": "development",
-      "seed": 20261112
+      "processed_evaluation_samples": 0,
+      "seed": 20261112,
+      "stage": "epoch_completed",
+      "updated_at_utc": "2026-10-28T18:59:53.777518+00:00"
     },
     {
       "cell_id": "s29r01-all",
@@ -8805,5 +8814,5 @@
     }
   ],
   "training_blocked": false,
-  "updated_at_utc": "2026-10-28T18:57:03.510006+00:00"
+  "updated_at_utc": "2026-10-28T19:00:13.700094+00:00"
 }
