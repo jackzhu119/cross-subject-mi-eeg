@@ -27,27 +27,27 @@
       "planned": 5
     },
     "classical/development/s29r03-matched": {
-      "completed": 3,
+      "completed": 4,
       "optimizer_updates": 0,
       "planned": 5
     },
     "classical/development/s29r04-all": {
-      "completed": 3,
+      "completed": 4,
       "optimizer_updates": 0,
       "planned": 5
     },
     "classical/development/s29r04-matched": {
-      "completed": 3,
+      "completed": 4,
       "optimizer_updates": 0,
       "planned": 5
     },
     "classical/development/s29r05-all": {
-      "completed": 3,
+      "completed": 4,
       "optimizer_updates": 0,
       "planned": 5
     },
     "classical/development/s29r05-matched": {
-      "completed": 3,
+      "completed": 4,
       "optimizer_updates": 0,
       "planned": 5
     },
@@ -62,7 +62,7 @@
       "planned": 5
     },
     "classical/development/s9-all": {
-      "completed": 4,
+      "completed": 5,
       "optimizer_updates": 0,
       "planned": 5
     },
@@ -212,8 +212,8 @@
       "planned": 30
     },
     "neural/development/s9-all": {
-      "completed": 3,
-      "optimizer_updates": 20480,
+      "completed": 4,
+      "optimizer_updates": 20736,
       "planned": 30
     },
     "neural/development/y51-all": {
@@ -305,40 +305,40 @@
   "controller": {
     "active_children": [
       {
-        "epoch": 39,
+        "epoch": 2,
         "family": "neural",
-        "global_step": 4992,
-        "optimizer_updates": 4992,
-        "pid": 35669,
+        "global_step": 256,
+        "optimizer_updates": 256,
+        "pid": 46681,
         "processed_evaluation_samples": 0,
         "stage": "epoch_completed",
-        "task_id": "dev-f00-s9-all-tail-s20261111"
+        "task_id": "dev-f00-s9-all-tail-s20261112"
       },
       {
         "family": "neural",
-        "pid": 46681,
-        "task_id": "dev-f00-s9-all-tail-s20261112"
+        "pid": 48990,
+        "task_id": "dev-f00-s9-all-tail-s20261113"
       },
       {
         "family": "classical",
         "global_step": 0,
         "optimizer_updates": 0,
-        "pid": 47953,
+        "pid": 50698,
         "processed_evaluation_samples": 0,
         "stage": "classical_source_covariances",
-        "task_id": "dev-f03-s29r03-all-weighted_csp_rlda-s0"
+        "task_id": "dev-f04-y51-all-weighted_csp_rlda-s0"
       }
     ],
-    "completed_tasks": 57,
+    "completed_tasks": 65,
     "failed_this_invocation": 0,
     "stage": "fitting_and_evaluation",
     "total_tasks": 630,
-    "updated_at_utc": "2026-10-28T15:21:28.936865+00:00"
+    "updated_at_utc": "2026-10-28T15:24:30.037322+00:00"
   },
   "counts": {
-    "completed": 58,
+    "completed": 65,
     "planned": 630,
-    "remaining": 572
+    "remaining": 565
   },
   "descriptive_statistics": [
     {
@@ -388,7 +388,7 @@
     },
     {
       "cell_id": "s29r03-matched",
-      "completed_tasks": 3,
+      "completed_tasks": 4,
       "family": "classical",
       "method": "weighted_csp_rlda",
       "phase": "development",
@@ -397,7 +397,7 @@
     },
     {
       "cell_id": "s29r04-all",
-      "completed_tasks": 3,
+      "completed_tasks": 4,
       "family": "classical",
       "method": "weighted_csp_rlda",
       "phase": "development",
@@ -406,7 +406,7 @@
     },
     {
       "cell_id": "s29r04-matched",
-      "completed_tasks": 3,
+      "completed_tasks": 4,
       "family": "classical",
       "method": "weighted_csp_rlda",
       "phase": "development",
@@ -415,7 +415,7 @@
     },
     {
       "cell_id": "s29r05-all",
-      "completed_tasks": 3,
+      "completed_tasks": 4,
       "family": "classical",
       "method": "weighted_csp_rlda",
       "phase": "development",
@@ -424,7 +424,7 @@
     },
     {
       "cell_id": "s29r05-matched",
-      "completed_tasks": 3,
+      "completed_tasks": 4,
       "family": "classical",
       "method": "weighted_csp_rlda",
       "phase": "development",
@@ -450,13 +450,24 @@
       "status": "partial_pending_all_registered_folds_and_seeds"
     },
     {
+      "aggregation": "equal cohort then equal person",
       "cell_id": "s9-all",
-      "completed_tasks": 4,
+      "completed_tasks": 5,
       "family": "classical",
+      "inference": "none; frozen full analysis runs separately",
       "method": "weighted_csp_rlda",
+      "metrics": {
+        "ba": 0.6293826920723552,
+        "min_recall": 0.42721021070121634,
+        "recall_left": 0.7065508657047017,
+        "recall_right": 0.5522145184400086
+      },
+      "n_participants": 60,
+      "n_seeds": 1,
       "phase": "development",
       "planned_tasks": 5,
-      "status": "partial_pending_all_registered_folds_and_seeds"
+      "seed_aggregation": "within-person arithmetic mean before participant aggregation",
+      "status": "complete_descriptive"
     },
     {
       "cell_id": "y51-all",
@@ -838,7 +849,7 @@
     },
     {
       "cell_id": "s9-all",
-      "completed_tasks": 0,
+      "completed_tasks": 1,
       "family": "neural",
       "method": "tail",
       "phase": "development",
@@ -1205,7 +1216,7 @@
     },
     {
       "cell_id": "s9-all",
-      "complete": false,
+      "complete": true,
       "epoch": 40,
       "family": "neural",
       "fold": 0,
@@ -1213,21 +1224,25 @@
       "method": "tail",
       "optimizer_updates": 5120,
       "phase": "development",
-      "processed_evaluation_samples": 0,
+      "processed_evaluation_samples": 7175,
       "seed": 20261111,
-      "stage": "epoch_completed",
-      "updated_at_utc": "2026-10-28T15:21:34.221593+00:00"
+      "stage": "complete",
+      "updated_at_utc": "2026-10-28T15:21:57.051705+00:00"
     },
     {
       "cell_id": "s9-all",
       "complete": false,
+      "epoch": 2,
       "family": "neural",
       "fold": 0,
       "id": "dev-f00-s9-all-tail-s20261112",
       "method": "tail",
-      "optimizer_updates": 0,
+      "optimizer_updates": 256,
       "phase": "development",
-      "seed": 20261112
+      "processed_evaluation_samples": 0,
+      "seed": 20261112,
+      "stage": "epoch_completed",
+      "updated_at_utc": "2026-10-28T15:24:10.543814+00:00"
     },
     {
       "cell_id": "s9-all",
@@ -5642,17 +5657,17 @@
     },
     {
       "cell_id": "s29r03-matched",
-      "complete": false,
+      "complete": true,
       "family": "classical",
       "fold": 3,
       "id": "dev-f03-s29r03-matched-weighted_csp_rlda-s0",
       "method": "weighted_csp_rlda",
       "optimizer_updates": 0,
       "phase": "development",
-      "processed_evaluation_samples": 0,
+      "processed_evaluation_samples": 6576,
       "seed": 0,
-      "stage": "classical_model_saved",
-      "updated_at_utc": "2026-10-28T15:21:44.919626+00:00"
+      "stage": "complete",
+      "updated_at_utc": "2026-10-28T15:21:52.110388+00:00"
     },
     {
       "cell_id": "s29r04-all",
@@ -5722,14 +5737,17 @@
     },
     {
       "cell_id": "s29r04-all",
-      "complete": false,
+      "complete": true,
       "family": "classical",
       "fold": 3,
       "id": "dev-f03-s29r04-all-weighted_csp_rlda-s0",
       "method": "weighted_csp_rlda",
       "optimizer_updates": 0,
       "phase": "development",
-      "seed": 0
+      "processed_evaluation_samples": 6576,
+      "seed": 0,
+      "stage": "complete",
+      "updated_at_utc": "2026-10-28T15:22:29.433231+00:00"
     },
     {
       "cell_id": "s29r04-matched",
@@ -5799,14 +5817,17 @@
     },
     {
       "cell_id": "s29r04-matched",
-      "complete": false,
+      "complete": true,
       "family": "classical",
       "fold": 3,
       "id": "dev-f03-s29r04-matched-weighted_csp_rlda-s0",
       "method": "weighted_csp_rlda",
       "optimizer_updates": 0,
       "phase": "development",
-      "seed": 0
+      "processed_evaluation_samples": 6576,
+      "seed": 0,
+      "stage": "complete",
+      "updated_at_utc": "2026-10-28T15:22:56.115900+00:00"
     },
     {
       "cell_id": "s29r05-all",
@@ -5876,14 +5897,17 @@
     },
     {
       "cell_id": "s29r05-all",
-      "complete": false,
+      "complete": true,
       "family": "classical",
       "fold": 3,
       "id": "dev-f03-s29r05-all-weighted_csp_rlda-s0",
       "method": "weighted_csp_rlda",
       "optimizer_updates": 0,
       "phase": "development",
-      "seed": 0
+      "processed_evaluation_samples": 6576,
+      "seed": 0,
+      "stage": "complete",
+      "updated_at_utc": "2026-10-28T15:23:24.396787+00:00"
     },
     {
       "cell_id": "s29r05-matched",
@@ -5953,14 +5977,17 @@
     },
     {
       "cell_id": "s29r05-matched",
-      "complete": false,
+      "complete": true,
       "family": "classical",
       "fold": 3,
       "id": "dev-f03-s29r05-matched-weighted_csp_rlda-s0",
       "method": "weighted_csp_rlda",
       "optimizer_updates": 0,
       "phase": "development",
-      "seed": 0
+      "processed_evaluation_samples": 6576,
+      "seed": 0,
+      "stage": "complete",
+      "updated_at_utc": "2026-10-28T15:23:53.957250+00:00"
     },
     {
       "cell_id": "s9-all",
@@ -6030,14 +6057,17 @@
     },
     {
       "cell_id": "s9-all",
-      "complete": false,
+      "complete": true,
       "family": "classical",
       "fold": 4,
       "id": "dev-f04-s9-all-weighted_csp_rlda-s0",
       "method": "weighted_csp_rlda",
       "optimizer_updates": 0,
       "phase": "development",
-      "seed": 0
+      "processed_evaluation_samples": 6287,
+      "seed": 0,
+      "stage": "complete",
+      "updated_at_utc": "2026-10-28T15:24:04.757516+00:00"
     },
     {
       "cell_id": "y51-all",
@@ -6114,7 +6144,10 @@
       "method": "weighted_csp_rlda",
       "optimizer_updates": 0,
       "phase": "development",
-      "seed": 0
+      "processed_evaluation_samples": 0,
+      "seed": 0,
+      "stage": "classical_source_features",
+      "updated_at_utc": "2026-10-28T15:24:37.817790+00:00"
     },
     {
       "cell_id": "y51-matched",
@@ -8274,5 +8307,5 @@
     }
   ],
   "training_blocked": false,
-  "updated_at_utc": "2026-10-28T15:21:48.098735+00:00"
+  "updated_at_utc": "2026-10-28T15:24:50.219634+00:00"
 }
