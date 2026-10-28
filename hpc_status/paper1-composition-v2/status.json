@@ -218,7 +218,7 @@
     },
     "neural/development/y51-all": {
       "completed": 0,
-      "optimizer_updates": 1890,
+      "optimizer_updates": 1938,
       "planned": 30
     },
     "neural/development/y51-matched": {
@@ -307,8 +307,8 @@
       {
         "epoch": 7,
         "family": "neural",
-        "global_step": 969,
-        "optimizer_updates": 969,
+        "global_step": 987,
+        "optimizer_updates": 987,
         "pid": 4746,
         "processed_evaluation_samples": 0,
         "stage": "training",
@@ -317,8 +317,8 @@
       {
         "epoch": 7,
         "family": "neural",
-        "global_step": 915,
-        "optimizer_updates": 915,
+        "global_step": 938,
+        "optimizer_updates": 938,
         "pid": 8411,
         "processed_evaluation_samples": 0,
         "stage": "training",
@@ -329,7 +329,7 @@
     "failed_this_invocation": 0,
     "stage": "fitting_and_evaluation",
     "total_tasks": 630,
-    "updated_at_utc": "2026-10-28T15:59:49.379615+00:00"
+    "updated_at_utc": "2026-10-28T16:02:20.918820+00:00"
   },
   "counts": {
     "completed": 96,
@@ -1596,12 +1596,12 @@
       "fold": 0,
       "id": "dev-f00-y51-all-erm-s20261111",
       "method": "erm",
-      "optimizer_updates": 969,
+      "optimizer_updates": 993,
       "phase": "development",
       "processed_evaluation_samples": 0,
       "seed": 20261111,
       "stage": "training",
-      "updated_at_utc": "2026-10-28T15:59:35.293225+00:00"
+      "updated_at_utc": "2026-10-28T16:02:25.810920+00:00"
     },
     {
       "cell_id": "y51-all",
@@ -1611,12 +1611,12 @@
       "fold": 0,
       "id": "dev-f00-y51-all-erm-s20261112",
       "method": "erm",
-      "optimizer_updates": 921,
+      "optimizer_updates": 945,
       "phase": "development",
       "processed_evaluation_samples": 0,
       "seed": 20261112,
       "stage": "training",
-      "updated_at_utc": "2026-10-28T15:59:53.093998+00:00"
+      "updated_at_utc": "2026-10-28T16:02:38.401089+00:00"
     },
     {
       "cell_id": "y51-all",
@@ -8718,5 +8718,5 @@
     }
   ],
   "training_blocked": false,
-  "updated_at_utc": "2026-10-28T16:00:05.322890+00:00"
+  "updated_at_utc": "2026-10-28T16:02:54.339585+00:00"
 }
