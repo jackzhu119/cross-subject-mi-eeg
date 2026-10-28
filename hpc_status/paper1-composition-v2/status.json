@@ -218,7 +218,7 @@
     },
     "neural/development/y51-all": {
       "completed": 0,
-      "optimizer_updates": 1938,
+      "optimizer_updates": 1995,
       "planned": 30
     },
     "neural/development/y51-matched": {
@@ -307,8 +307,8 @@
       {
         "epoch": 7,
         "family": "neural",
-        "global_step": 987,
-        "optimizer_updates": 987,
+        "global_step": 1018,
+        "optimizer_updates": 1018,
         "pid": 4746,
         "processed_evaluation_samples": 0,
         "stage": "training",
@@ -317,8 +317,8 @@
       {
         "epoch": 7,
         "family": "neural",
-        "global_step": 938,
-        "optimizer_updates": 938,
+        "global_step": 964,
+        "optimizer_updates": 964,
         "pid": 8411,
         "processed_evaluation_samples": 0,
         "stage": "training",
@@ -329,7 +329,7 @@
     "failed_this_invocation": 0,
     "stage": "fitting_and_evaluation",
     "total_tasks": 630,
-    "updated_at_utc": "2026-10-28T16:02:20.918820+00:00"
+    "updated_at_utc": "2026-10-28T16:05:22.332392+00:00"
   },
   "counts": {
     "completed": 96,
@@ -1591,17 +1591,17 @@
     {
       "cell_id": "y51-all",
       "complete": false,
-      "epoch": 7,
+      "epoch": 8,
       "family": "neural",
       "fold": 0,
       "id": "dev-f00-y51-all-erm-s20261111",
       "method": "erm",
-      "optimizer_updates": 993,
+      "optimizer_updates": 1024,
       "phase": "development",
       "processed_evaluation_samples": 0,
       "seed": 20261111,
-      "stage": "training",
-      "updated_at_utc": "2026-10-28T16:02:25.810920+00:00"
+      "stage": "epoch_completed",
+      "updated_at_utc": "2026-10-28T16:05:35.098302+00:00"
     },
     {
       "cell_id": "y51-all",
@@ -1611,12 +1611,12 @@
       "fold": 0,
       "id": "dev-f00-y51-all-erm-s20261112",
       "method": "erm",
-      "optimizer_updates": 945,
+      "optimizer_updates": 971,
       "phase": "development",
       "processed_evaluation_samples": 0,
       "seed": 20261112,
       "stage": "training",
-      "updated_at_utc": "2026-10-28T16:02:38.401089+00:00"
+      "updated_at_utc": "2026-10-28T16:05:23.973851+00:00"
     },
     {
       "cell_id": "y51-all",
@@ -8718,5 +8718,5 @@
     }
   ],
   "training_blocked": false,
-  "updated_at_utc": "2026-10-28T16:02:54.339585+00:00"
+  "updated_at_utc": "2026-10-28T16:05:44.153810+00:00"
 }
