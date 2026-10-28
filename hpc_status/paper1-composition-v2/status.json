@@ -168,7 +168,7 @@
     },
     "neural/development/s29r02-matched": {
       "completed": 2,
-      "optimizer_updates": 13440,
+      "optimizer_updates": 16128,
       "planned": 30
     },
     "neural/development/s29r03-all": {
@@ -305,18 +305,23 @@
   "controller": {
     "active_children": [
       {
-        "epoch": 22,
+        "epoch": 40,
         "family": "neural",
-        "global_step": 2816,
-        "optimizer_updates": 2816,
+        "global_step": 5120,
+        "optimizer_updates": 5120,
         "pid": 54727,
         "processed_evaluation_samples": 0,
         "stage": "epoch_completed",
         "task_id": "dev-f00-s29r02-matched-erm-s20261113"
       },
       {
+        "epoch": 6,
         "family": "neural",
+        "global_step": 768,
+        "optimizer_updates": 768,
         "pid": 2074,
+        "processed_evaluation_samples": 0,
+        "stage": "epoch_completed",
         "task_id": "dev-f00-s29r02-matched-tail-s20261111"
       }
     ],
@@ -324,7 +329,7 @@
     "failed_this_invocation": 0,
     "stage": "fitting_and_evaluation",
     "total_tasks": 630,
-    "updated_at_utc": "2026-10-28T20:24:36.659676+00:00"
+    "updated_at_utc": "2026-10-28T20:27:37.662243+00:00"
   },
   "counts": {
     "completed": 140,
@@ -2344,28 +2349,32 @@
     {
       "cell_id": "s29r02-matched",
       "complete": false,
-      "epoch": 25,
+      "epoch": 40,
       "family": "neural",
       "fold": 0,
       "id": "dev-f00-s29r02-matched-erm-s20261113",
       "method": "erm",
-      "optimizer_updates": 3200,
+      "optimizer_updates": 5120,
       "phase": "development",
       "processed_evaluation_samples": 0,
       "seed": 20261113,
       "stage": "epoch_completed",
-      "updated_at_utc": "2026-10-28T20:24:45.883285+00:00"
+      "updated_at_utc": "2026-10-28T20:27:16.845214+00:00"
     },
     {
       "cell_id": "s29r02-matched",
       "complete": false,
+      "epoch": 6,
       "family": "neural",
       "fold": 0,
       "id": "dev-f00-s29r02-matched-tail-s20261111",
       "method": "tail",
-      "optimizer_updates": 0,
+      "optimizer_updates": 768,
       "phase": "development",
-      "seed": 20261111
+      "processed_evaluation_samples": 0,
+      "seed": 20261111,
+      "stage": "epoch_completed",
+      "updated_at_utc": "2026-10-28T20:27:20.772757+00:00"
     },
     {
       "cell_id": "s29r02-matched",
@@ -8885,5 +8894,5 @@
     }
   ],
   "training_blocked": false,
-  "updated_at_utc": "2026-10-28T20:24:48.443602+00:00"
+  "updated_at_utc": "2026-10-28T20:27:43.059353+00:00"
 }
