@@ -223,7 +223,7 @@
     },
     "neural/development/y51-matched": {
       "completed": 4,
-      "optimizer_updates": 21120,
+      "optimizer_updates": 21376,
       "planned": 30
     },
     "neural/final/s29r01-all": {
@@ -307,16 +307,21 @@
       {
         "epoch": 5,
         "family": "neural",
-        "global_step": 640,
-        "optimizer_updates": 640,
+        "global_step": 703,
+        "optimizer_updates": 703,
         "pid": 29951,
         "processed_evaluation_samples": 0,
-        "stage": "epoch_completed",
+        "stage": "training",
         "task_id": "dev-f00-y51-matched-tail-s20261112"
       },
       {
+        "epoch": 0,
         "family": "neural",
+        "global_step": 24,
+        "optimizer_updates": 24,
         "pid": 33912,
+        "processed_evaluation_samples": 0,
+        "stage": "training",
         "task_id": "dev-f00-y51-matched-tail-s20261113"
       }
     ],
@@ -324,7 +329,7 @@
     "failed_this_invocation": 0,
     "stage": "fitting_and_evaluation",
     "total_tasks": 630,
-    "updated_at_utc": "2026-10-28T17:08:16.394967+00:00"
+    "updated_at_utc": "2026-10-28T17:11:17.552027+00:00"
   },
   "counts": {
     "completed": 106,
@@ -1750,28 +1755,32 @@
     {
       "cell_id": "y51-matched",
       "complete": false,
-      "epoch": 5,
+      "epoch": 6,
       "family": "neural",
       "fold": 0,
       "id": "dev-f00-y51-matched-tail-s20261112",
       "method": "tail",
-      "optimizer_updates": 640,
+      "optimizer_updates": 768,
       "phase": "development",
       "processed_evaluation_samples": 0,
       "seed": 20261112,
       "stage": "epoch_completed",
-      "updated_at_utc": "2026-10-28T17:08:11.306011+00:00"
+      "updated_at_utc": "2026-10-28T17:11:31.030287+00:00"
     },
     {
       "cell_id": "y51-matched",
       "complete": false,
+      "epoch": 1,
       "family": "neural",
       "fold": 0,
       "id": "dev-f00-y51-matched-tail-s20261113",
       "method": "tail",
-      "optimizer_updates": 0,
+      "optimizer_updates": 128,
       "phase": "development",
-      "seed": 20261113
+      "processed_evaluation_samples": 0,
+      "seed": 20261113,
+      "stage": "epoch_completed",
+      "updated_at_utc": "2026-10-28T17:11:32.341092+00:00"
     },
     {
       "cell_id": "y51-matched",
@@ -8749,5 +8758,5 @@
     }
   ],
   "training_blocked": false,
-  "updated_at_utc": "2026-10-28T17:08:42.936034+00:00"
+  "updated_at_utc": "2026-10-28T17:11:48.858009+00:00"
 }
