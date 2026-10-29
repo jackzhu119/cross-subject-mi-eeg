@@ -1,0 +1,347 @@
+{
+  "all_comparison_directions_retained": true,
+  "analysis_settings": {
+    "analysis_seed": 20261024,
+    "bootstrap_replicates": 10000,
+    "permutation_replicates": 100000
+  },
+  "comparisons": [
+    {
+      "aggregation": "equal person",
+      "bootstrap": "paired participant percentile",
+      "bootstrap_replicates": 10000,
+      "ci95_high_pp": 2.88235294117647,
+      "ci95_low_pp": -0.3137254901960785,
+      "contrast": "tail_consistency-minus-erm-min_recall",
+      "declined": 37,
+      "effect": 0.012843137254901962,
+      "effect_pp": 1.2843137254901962,
+      "endpoint": "min_recall",
+      "family": "exploratory_registered",
+      "improved": 46,
+      "interval_scope": "pointwise, conditional on fitted models and averaged seeds",
+      "n_participants": 85,
+      "numerically_unchanged": 2,
+      "p_raw": 0.12371876281237187,
+      "permutation": "Monte Carlo paired sign-flip with plus-one correction",
+      "permutation_replicates": 100000,
+      "seed": 2799464845
+    },
+    {
+      "aggregation": "equal person",
+      "bootstrap": "paired participant percentile",
+      "bootstrap_replicates": 10000,
+      "ci95_high_pp": 10.941421568627447,
+      "ci95_low_pp": 6.558578431372548,
+      "contrast": "tail_consistency-minus-groupdro-min_recall",
+      "declined": 15,
+      "effect": 0.08754901960784311,
+      "effect_pp": 8.754901960784311,
+      "endpoint": "min_recall",
+      "family": "secondary",
+      "improved": 68,
+      "interval_scope": "pointwise, conditional on fitted models and averaged seeds",
+      "n_participants": 85,
+      "numerically_unchanged": 2,
+      "p_holm": 3.999960000399996e-05,
+      "p_raw": 9.99990000099999e-06,
+      "permutation": "Monte Carlo paired sign-flip with plus-one correction",
+      "permutation_replicates": 100000,
+      "seed": 3224107357
+    },
+    {
+      "aggregation": "equal person",
+      "bootstrap": "paired participant percentile",
+      "bootstrap_replicates": 10000,
+      "ci95_high_pp": 0.39215686274509914,
+      "ci95_low_pp": -0.6666666666666661,
+      "contrast": "tail_consistency-minus-tail-min_recall",
+      "declined": 35,
+      "effect": -0.0012745098039215663,
+      "effect_pp": -0.12745098039215663,
+      "endpoint": "min_recall",
+      "family": "secondary",
+      "improved": 37,
+      "interval_scope": "pointwise, conditional on fitted models and averaged seeds",
+      "n_participants": 85,
+      "numerically_unchanged": 13,
+      "p_holm": 0.6632133678663213,
+      "p_raw": 0.6632133678663213,
+      "permutation": "Monte Carlo paired sign-flip with plus-one correction",
+      "permutation_replicates": 100000,
+      "seed": 3890981369
+    },
+    {
+      "aggregation": "equal person",
+      "bootstrap": "paired participant percentile",
+      "bootstrap_replicates": 10000,
+      "ci95_high_pp": 2.8433823529411737,
+      "ci95_low_pp": -0.32352941176470545,
+      "contrast": "tail_consistency-minus-consistency-min_recall",
+      "declined": 42,
+      "effect": 0.01254901960784313,
+      "effect_pp": 1.254901960784313,
+      "endpoint": "min_recall",
+      "family": "secondary",
+      "improved": 42,
+      "interval_scope": "pointwise, conditional on fitted models and averaged seeds",
+      "n_participants": 85,
+      "numerically_unchanged": 1,
+      "p_holm": 0.25383746162538373,
+      "p_raw": 0.12691873081269187,
+      "permutation": "Monte Carlo paired sign-flip with plus-one correction",
+      "permutation_replicates": 100000,
+      "seed": 376182283
+    },
+    {
+      "aggregation": "equal person",
+      "bootstrap": "paired participant percentile",
+      "bootstrap_replicates": 10000,
+      "ci95_high_pp": -0.09803921568627401,
+      "ci95_low_pp": -1.4950980392156845,
+      "contrast": "tail_consistency-minus-erm-ba",
+      "declined": 47,
+      "effect": -0.00789215686274509,
+      "effect_pp": -0.789215686274509,
+      "endpoint": "ba",
+      "family": "secondary",
+      "improved": 32,
+      "interval_scope": "pointwise, conditional on fitted models and averaged seeds",
+      "n_participants": 85,
+      "numerically_unchanged": 6,
+      "p_holm": 0.09422905770942291,
+      "p_raw": 0.03140968590314097,
+      "permutation": "Monte Carlo paired sign-flip with plus-one correction",
+      "permutation_replicates": 100000,
+      "seed": 2337652561
+    }
+  ],
+  "completed_at_utc": "2026-10-26T18:27:13.179049+00:00",
+  "domain": "external_fixed40",
+  "independent_external_confirmation": false,
+  "inference_scope": "Conditional on fitted models; paired sign flips require exchangeable signs. Shared training sets and cohort dependence are not removed by participant resampling.",
+  "input_fingerprint": "4614b7231000b019e2e8ccba310f82c15bce040b4a4f437a0d8333e05fd1c663",
+  "method_means": [
+    {
+      "mean": 0.5030392156862745,
+      "mean_percent": 50.30392156862745,
+      "method": "erm",
+      "metric": "min_recall",
+      "n_participants": 85
+    },
+    {
+      "mean": 0.6397549019607843,
+      "mean_percent": 63.97549019607843,
+      "method": "erm",
+      "metric": "ba",
+      "n_participants": 85
+    },
+    {
+      "mean": 0.6882352941176471,
+      "mean_percent": 68.82352941176471,
+      "method": "erm",
+      "metric": "recall_left",
+      "n_participants": 85
+    },
+    {
+      "mean": 0.5912745098039215,
+      "mean_percent": 59.12745098039215,
+      "method": "erm",
+      "metric": "recall_right",
+      "n_participants": 85
+    },
+    {
+      "mean": 0.4283333333333333,
+      "mean_percent": 42.83333333333333,
+      "method": "groupdro",
+      "metric": "min_recall",
+      "n_participants": 85
+    },
+    {
+      "mean": 0.5709313725490196,
+      "mean_percent": 57.09313725490196,
+      "method": "groupdro",
+      "metric": "ba",
+      "n_participants": 85
+    },
+    {
+      "mean": 0.45656862745098054,
+      "mean_percent": 45.65686274509805,
+      "method": "groupdro",
+      "metric": "recall_left",
+      "n_participants": 85
+    },
+    {
+      "mean": 0.6852941176470588,
+      "mean_percent": 68.52941176470588,
+      "method": "groupdro",
+      "metric": "recall_right",
+      "n_participants": 85
+    },
+    {
+      "mean": 0.5171568627450981,
+      "mean_percent": 51.71568627450981,
+      "method": "tail",
+      "metric": "min_recall",
+      "n_participants": 85
+    },
+    {
+      "mean": 0.6337745098039216,
+      "mean_percent": 63.377450980392155,
+      "method": "tail",
+      "metric": "ba",
+      "n_participants": 85
+    },
+    {
+      "mean": 0.591078431372549,
+      "mean_percent": 59.1078431372549,
+      "method": "tail",
+      "metric": "recall_left",
+      "n_participants": 85
+    },
+    {
+      "mean": 0.6764705882352942,
+      "mean_percent": 67.64705882352942,
+      "method": "tail",
+      "metric": "recall_right",
+      "n_participants": 85
+    },
+    {
+      "mean": 0.5033333333333333,
+      "mean_percent": 50.33333333333333,
+      "method": "consistency",
+      "metric": "min_recall",
+      "n_participants": 85
+    },
+    {
+      "mean": 0.64,
+      "mean_percent": 64.0,
+      "method": "consistency",
+      "metric": "ba",
+      "n_participants": 85
+    },
+    {
+      "mean": 0.6863725490196079,
+      "mean_percent": 68.63725490196079,
+      "method": "consistency",
+      "metric": "recall_left",
+      "n_participants": 85
+    },
+    {
+      "mean": 0.5936274509803922,
+      "mean_percent": 59.36274509803921,
+      "method": "consistency",
+      "metric": "recall_right",
+      "n_participants": 85
+    },
+    {
+      "mean": 0.5158823529411765,
+      "mean_percent": 51.588235294117645,
+      "method": "tail_consistency",
+      "metric": "min_recall",
+      "n_participants": 85
+    },
+    {
+      "mean": 0.6318627450980393,
+      "mean_percent": 63.18627450980393,
+      "method": "tail_consistency",
+      "metric": "ba",
+      "n_participants": 85
+    },
+    {
+      "mean": 0.5863725490196079,
+      "mean_percent": 58.63725490196079,
+      "method": "tail_consistency",
+      "metric": "recall_left",
+      "n_participants": 85
+    },
+    {
+      "mean": 0.6773529411764707,
+      "mean_percent": 67.73529411764707,
+      "method": "tail_consistency",
+      "metric": "recall_right",
+      "n_participants": 85
+    }
+  ],
+  "n_participants": 85,
+  "n_seeds": 3,
+  "secondary_family_size": 4,
+  "source_evidence": [
+    {
+      "complete_sha256": "e710d961927e7a1b793373b46f6868bc3887e1a6f58c8f4837d2544fe102d968",
+      "evaluation_sha256": "b3ef13c44dc532f01c513dfa9c338701a1c200755783263d19144e2504ca0e48",
+      "task_id": "final-erm-s20261101"
+    },
+    {
+      "complete_sha256": "993c7b89f8fa4df43b27524fab82762db52d2de1f9de71762953c1af0ae38552",
+      "evaluation_sha256": "8a4c7b6860f5da14873a89400585fcd7690490e4e864222e99b722e44821e565",
+      "task_id": "final-groupdro-s20261101"
+    },
+    {
+      "complete_sha256": "85716a000d35d8324a8929617c78b305501a394a67726d7f064ba103e3bd8b0a",
+      "evaluation_sha256": "857ad7a22761b8f02110769a83216d755e8eb9f3de0005ab00000d26d6402e62",
+      "task_id": "final-tail-s20261101"
+    },
+    {
+      "complete_sha256": "b8b09ccfb71993328c4ea701500e338f417b0271c1a0435cae512476ddd83514",
+      "evaluation_sha256": "917c411026132cb2b6783da0dfd1c21151cd08194ecf4184e915209881731805",
+      "task_id": "final-consistency-s20261101"
+    },
+    {
+      "complete_sha256": "cf698006aae3fe139130b6b35995873cb3513c6765171b36f38fd76e98a71659",
+      "evaluation_sha256": "97c74a734a67b1c893446d6cfb3550b28a02dcb21329e29db4519ff42ecb083f",
+      "task_id": "final-tail_consistency-s20261101"
+    },
+    {
+      "complete_sha256": "2271cf03c5fae24458f5378b9891352582f19716398a62db6ad0aaeb0bd2fdd1",
+      "evaluation_sha256": "791d85bf2418b017dd1a345f6fbcab6973747f4db268cf588fd05b959519241e",
+      "task_id": "final-erm-s20261102"
+    },
+    {
+      "complete_sha256": "722d8ca7e0dc99a85c42bd9b08511f109a75cfb8e0360ea8102f0c319564dd8b",
+      "evaluation_sha256": "940338bff937db79f7fec1cbd514ba68c4fdef3e38b91e74a0a634c02ec84c75",
+      "task_id": "final-groupdro-s20261102"
+    },
+    {
+      "complete_sha256": "83526b5517c252f625b310517847c6a3d18aa730207a15ccf6c2be378c15f5d0",
+      "evaluation_sha256": "7f8ad34ce74920c5a981e7c7d9916e0d1e0e70cf1eea2812f8fbb8f10c93a606",
+      "task_id": "final-tail-s20261102"
+    },
+    {
+      "complete_sha256": "f0534e9372a5bb639e5bf129547869c208ca296c474808c15d07818151e2a35a",
+      "evaluation_sha256": "f8e4490675fa6a2849bf05b3a9cbb96ad304a3cde8da99549a5ac1db225c7fd1",
+      "task_id": "final-consistency-s20261102"
+    },
+    {
+      "complete_sha256": "ecf5c9fb9fe04c933a3f2b1b213976a55bc34fca540b22d7da300488ccc4b1eb",
+      "evaluation_sha256": "fa6486c8f74386a4af83fcecc597ca573467e5e961a1ad6e99880bd329de0f08",
+      "task_id": "final-tail_consistency-s20261102"
+    },
+    {
+      "complete_sha256": "f225fe312ce2576ce7e7eaa3c28cb2aef9cdc88b4a5d17f8abcdc560844a7560",
+      "evaluation_sha256": "0969d85402600e35aa9ccab01c557b33ab1ad8889b1bcd321472cd1d877bdd9e",
+      "task_id": "final-erm-s20261103"
+    },
+    {
+      "complete_sha256": "db0322a0b971dbb734da37ddd147416892d101c21dc05e707e3e8ace1c3fece3",
+      "evaluation_sha256": "a76f6ce390bac257b81c25b6f86ad353da8caa71d15e47ab78d1fc3d7af27ee0",
+      "task_id": "final-groupdro-s20261103"
+    },
+    {
+      "complete_sha256": "b37d057353d78733bdd0e694e92a5884280846bd6d47ce4558d833a0317a133a",
+      "evaluation_sha256": "14ef0b5e9faf694bfa8ff7086fbb97e45cfe6dcda5a804545ac4f1f678232573",
+      "task_id": "final-tail-s20261103"
+    },
+    {
+      "complete_sha256": "617dca9511cd4b1611087dfc907632736fad0aaf750349722c54724f35a2903c",
+      "evaluation_sha256": "8d4b75aa927a38c4cf829bf686cacf05c8b8801f74e0e589a9a6dcbe08ff41de",
+      "task_id": "final-consistency-s20261103"
+    },
+    {
+      "complete_sha256": "48f5685960645f25719c00670a9c688f9f295d33a68a1badd9516c29f6b5a773",
+      "evaluation_sha256": "4bce81649d95c22a622d4d00dc280066e9d6acf11990c10038956174026a0eac",
+      "task_id": "final-tail_consistency-s20261103"
+    }
+  ],
+  "status": "complete"
+}

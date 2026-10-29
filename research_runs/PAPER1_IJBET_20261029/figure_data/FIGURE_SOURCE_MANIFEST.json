@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "figure_1": {
+    "source_path": "/workspace/paper1-evidence-narrative-20261029/research_runs/PAPER1_PLOS_FINAL_20261018/evidence/additional_descriptives/primary_joint_participant_changes.csv",
+    "source_relative_repository_path": "research_runs/PAPER1_PLOS_FINAL_20261018/evidence/additional_descriptives/primary_joint_participant_changes.csv",
+    "commit_containing_unchanged_source": "c40a5daaf57228be8741486e20c0da1b3c4be822",
+    "source_sha256": "7249b7d8c6aed0308d7ba0da379609f2b127a5361a3d53fff9ed9c2478293fef",
+    "comparison": "eligible-v3 S60 minus S9, BROAD, source-only tail weaker-class checkpoint selection",
+    "aggregation": "three fitted seeds averaged within participant, 85 paired participants"
+  },
+  "figure_2": {
+    "archive_path": "/workspace/paper1-hpc-artifacts/uploaded-results-20261027/paper1-results-b96a3fcaacf91017.tar.gz",
+    "source_result_commit": "2afb6c3eddbe2c3c82664b683f01970f95d4db39",
+    "archive_sha256": "b96a3fcaacf910175ced585a0b06e141cab48cfb14edd277ce8072cd0cbff329",
+    "analysis_members": [
+      {
+        "archive_member": "outputs/analysis/nested_outer.json",
+        "bytes": 26969,
+        "sha256": "b0d87425734d8b10a894470fdad9980bceddef11a89a283cf758c74be33cf3d4",
+        "local_frozen_snapshot": "Study2_nested_outer_source.json"
+      },
+      {
+        "archive_member": "outputs/analysis/external_fixed40.json",
+        "bytes": 11976,
+        "sha256": "ee98379a254d82684519680bff6dfc1ea81754f3aa1001426942f756ec71f5cf",
+        "local_frozen_snapshot": "Study2_external_fixed40_source.json"
+      },
+      {
+        "archive_member": "outputs/analysis/external_source_selected.json",
+        "bytes": 11987,
+        "sha256": "048660374c879fd70d103f7c5f8f82a7176d402cc25a7db6ded4513dafed21c3",
+        "local_frozen_snapshot": "Study2_external_source_selected_source.json"
+      }
+    ]
+  },
+  "frozen_files": [
+    {
+      "path": "Fig1_primary_participant_changes.csv",
+      "bytes": 7574,
+      "sha256": "7249b7d8c6aed0308d7ba0da379609f2b127a5361a3d53fff9ed9c2478293fef"
+    },
+    {
+      "path": "Fig2_objective_profiles.csv",
+      "bytes": 3110,
+      "sha256": "c132302d9a993e6cd11cc3d985f40cc4ed408371106317bb03d63e4686da17db"
+    },
+    {
+      "path": "Study2_external_fixed40_source.json",
+      "bytes": 11976,
+      "sha256": "ee98379a254d82684519680bff6dfc1ea81754f3aa1001426942f756ec71f5cf"
+    },
+    {
+      "path": "Study2_external_source_selected_source.json",
+      "bytes": 11987,
+      "sha256": "048660374c879fd70d103f7c5f8f82a7176d402cc25a7db6ded4513dafed21c3"
+    },
+    {
+      "path": "Study2_nested_outer_source.json",
+      "bytes": 26969,
+      "sha256": "b0d87425734d8b10a894470fdad9980bceddef11a89a283cf758c74be33cf3d4"
+    }
+  ]
+}

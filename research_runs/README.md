@@ -15,7 +15,9 @@
 
 ## 当前论文候选与投稿配套
 
-当前主文是 **2026-10-20 的有限文字修订稿**：*Source-cohort expansion improves weaker-class coverage in cross-subject motor-imagery EEG decoding*。该目录记录关联稿号 PONE-D-26-52176；仓库文件不证明投稿系统中已上传或采用同一版本。
+最新为 [2026-10-29 IJBET投稿整理](PAPER1_IJBET_20261029/README_zh.md)：两个完成研究分别报告，4表2图，匿名稿与编辑材料分开交付；公开目录保存图表数据及核查说明，未代为投稿。作者顺序为Ziyuan Zhu、Haoyang Yu、Sihao Liu。
+
+以下是保留的 **2026-10-20 上一投稿版本**：*Source-cohort expansion improves weaker-class coverage in cross-subject motor-imagery EEG decoding*。该目录记录关联稿号 PONE-D-26-52176；不是新IJBET稿件或其投稿状态。下表中“当前”均指当时2026-10-20版本的配套关系。
 
 | 用途 | 入口 |
 |---|---|

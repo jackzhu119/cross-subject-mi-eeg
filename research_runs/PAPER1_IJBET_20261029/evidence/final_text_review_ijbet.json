@@ -1,0 +1,41 @@
+{
+  "review": "最终文字核查",
+  "reviewed_at_utc": "2026-10-29T02:29:07.520524+00:00",
+  "status": "PASS_WITHIN_REVIEWED_SCOPE",
+  "manuscript": "/workspace/paper1-evidence-narrative-20261029/research_runs/PAPER1_IJBET_20261029/IJBET_Manuscript_Blinded.md",
+  "snapshot_sha256": "89099d901ef90c7c46a9e0f57ad8fde731a6b4051fc3a4f4063a3ac0696480f1",
+  "snapshot_bytes": 48205,
+  "scope": "Final current Markdown only: material evidence/citation/anonymity failures; no new scientific calculations or experiments. Earlier numerical and source-code checks reused.",
+  "material_failures": [],
+  "scientific_checks": [
+    "Study1 exact weighted one-third tail, fractional boundary and rank/tie rules correspond to archived code",
+    "Study2 16groups/top8, JS coefficient0.1, qprior1/(4nd), inclusion4/nd and detached pre-update weighting correspond to archived code",
+    "Two completed studies retain separate methods/inputs/estimates and same85person external cohort; no pooling",
+    "Strong positive source-expansion and comparator-specific TC-GroupDRO results retain their original references, intervals and scope",
+    "TC-ERM registered primary uncertainty and selected-BA trade-off remain visible; no general superiority or biological mechanism claim introduced",
+    "Incomplete630task experiment not promoted into completed Results"
+  ],
+  "citation_and_format_checks": {
+    "abstract_words_whitespace": 132,
+    "keywords": 12,
+    "Harvard_intext_and_complete_author_reference_lists": "present and consistent within inspected cited sources",
+    "web_references_with_access_dates": 5,
+    "UK_copyedits_resolved": true,
+    "original_reference_titles_preserved": true,
+    "figures_at_end": true,
+    "anonymous_markdown_identifiers_detected": []
+  },
+  "previous_required_copyedits": [
+    {
+      "item": "Remaining eight American spellings",
+      "status": "resolved in narrative and end figure captions"
+    },
+    {
+      "item": "Five Available-at entries missing actual access dates",
+      "status": "resolved; 18October dates retained from original citation records and29October dates from current retrieval records"
+    }
+  ],
+  "unverified": "This final pass is for current Markdown. It does not claim a new render/PDF visual audit or independent institutional/authorship-document verification.",
+  "new_scientific_analysis": false,
+  "manuscript_modified_by_reviewer": false
+}

@@ -1,0 +1,157 @@
+{
+  "status": "numerical_artifact_and_visual_checks_passed",
+  "figure_1": {
+    "n_participants": 85,
+    "both_endpoints_improved": 66,
+    "weaker_class_improved": 72,
+    "ba_mean_difference_pp": 5.852941176470587,
+    "W_mean_difference_pp": 21.16666666666666,
+    "all_participant_points_displayed": true,
+    "inferential_statistics_recomputed": false
+  },
+  "figure_2": {
+    "saved_contrasts_displayed": 12,
+    "comparators": [
+      "erm",
+      "groupdro",
+      "tail",
+      "consistency"
+    ],
+    "domains": [
+      "nested_outer",
+      "external_fixed40",
+      "external_source_selected"
+    ],
+    "all_saved_pointwise_intervals_retained": true,
+    "inferential_statistics_recomputed": false,
+    "new_comparisons_or_tests": false,
+    "values": [
+      {
+        "domain": "nested_outer",
+        "comparator": "erm",
+        "effect_pp": 1.3505079171461676,
+        "ci95_low_pp": -0.46196241107437164,
+        "ci95_high_pp": 3.3857557911213054
+      },
+      {
+        "domain": "nested_outer",
+        "comparator": "groupdro",
+        "effect_pp": 2.3049584074068155,
+        "ci95_low_pp": -1.0875159422065956,
+        "ci95_high_pp": 5.807835748938738
+      },
+      {
+        "domain": "nested_outer",
+        "comparator": "tail",
+        "effect_pp": -0.08089255506845587,
+        "ci95_low_pp": -1.0634189104590845,
+        "ci95_high_pp": 1.0948486613430521
+      },
+      {
+        "domain": "nested_outer",
+        "comparator": "consistency",
+        "effect_pp": 1.5794977894572453,
+        "ci95_low_pp": -0.22444427229985708,
+        "ci95_high_pp": 3.6627451214872035
+      },
+      {
+        "domain": "external_fixed40",
+        "comparator": "erm",
+        "effect_pp": 1.2843137254901962,
+        "ci95_low_pp": -0.3137254901960785,
+        "ci95_high_pp": 2.88235294117647
+      },
+      {
+        "domain": "external_fixed40",
+        "comparator": "groupdro",
+        "effect_pp": 8.754901960784311,
+        "ci95_low_pp": 6.558578431372548,
+        "ci95_high_pp": 10.941421568627447
+      },
+      {
+        "domain": "external_fixed40",
+        "comparator": "tail",
+        "effect_pp": -0.12745098039215663,
+        "ci95_low_pp": -0.6666666666666661,
+        "ci95_high_pp": 0.39215686274509914
+      },
+      {
+        "domain": "external_fixed40",
+        "comparator": "consistency",
+        "effect_pp": 1.254901960784313,
+        "ci95_low_pp": -0.32352941176470545,
+        "ci95_high_pp": 2.8433823529411737
+      },
+      {
+        "domain": "external_source_selected",
+        "comparator": "erm",
+        "effect_pp": 0.07843137254901969,
+        "ci95_low_pp": -1.6078431372549014,
+        "ci95_high_pp": 1.7941176470588227
+      },
+      {
+        "domain": "external_source_selected",
+        "comparator": "groupdro",
+        "effect_pp": 7.068627450980395,
+        "ci95_low_pp": 4.4507352941176475,
+        "ci95_high_pp": 9.608088235294115
+      },
+      {
+        "domain": "external_source_selected",
+        "comparator": "tail",
+        "effect_pp": -0.12745098039215647,
+        "ci95_low_pp": -0.6176470588235282,
+        "ci95_high_pp": 0.35294117647058754
+      },
+      {
+        "domain": "external_source_selected",
+        "comparator": "consistency",
+        "effect_pp": 0.29411764705882326,
+        "ci95_low_pp": -1.715686274509804,
+        "ci95_high_pp": 2.2845588235294088
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "path": "figures/Fig1_primary_participant_changes.svg",
+      "bytes": 28731,
+      "sha256": "f0dac0657af9e470ba9a101e7c8d2040ccd73970c53d496d214a5c09c7afbf61"
+    },
+    {
+      "path": "figures/Fig1_primary_participant_changes.pdf",
+      "bytes": 24307,
+      "sha256": "add7402fdf9802a2e73707396921238020ddd873b9770955115d81f974f22aa7"
+    },
+    {
+      "path": "figures/Fig1_primary_participant_changes.png",
+      "bytes": 254877,
+      "sha256": "addc6ff4b22c305abab63e33bebb9a362ee8e01037ffc4824f4be78fe5ccaab8"
+    },
+    {
+      "path": "figures/Fig2_objective_profiles.svg",
+      "bytes": 28430,
+      "sha256": "a5183add5d8a0cfb43fd2ef6f7f335c43cee6a7bd2a3f16d3315f51c79eaf25b"
+    },
+    {
+      "path": "figures/Fig2_objective_profiles.pdf",
+      "bytes": 28975,
+      "sha256": "dc0a125329ae9b13ed2062bf13477e68314943925462d174769f85fd67139083"
+    },
+    {
+      "path": "figures/Fig2_objective_profiles.png",
+      "bytes": 207070,
+      "sha256": "48f7070bfa125b3156854ceb481728fb6591365bf97436baf47290f4bbc7066b"
+    }
+  ],
+  "build_script_sha256": "a30613fa94f1e37c274ac76a886b59cfdb1e02956acff4023de11484b77da0d5",
+  "matplotlib": "3.10.8",
+  "numpy": "2.3.5",
+  "no_raw_EEG_or_model_weights_read": true,
+  "no_training_or_inference": true,
+  "visual_review": {
+    "actual_review": true,
+    "method": "Original PNG view and rendered manuscript pages 14\u201315; final black-and-white version checked",
+    "new_statistical_analysis": false
+  }
+}

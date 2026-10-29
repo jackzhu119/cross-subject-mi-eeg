@@ -1,0 +1,81 @@
+{
+  "review_type": "Final submission visual re-review; read-only inspection of rendered PNGs, with QA record update only",
+  "method": "Each original final-submission PNG for pages 8–13 was individually opened using tools.view_image(detail=\"original\") and displayed using image(..., \"original\").",
+  "render_directory": "/workspace/paper1-hpc-artifacts/writing-20261029/ijbet/render_final_submission",
+  "source_pdf": "/workspace/paper1-hpc-artifacts/writing-20261029/ijbet/render_final_submission/IJBET_Manuscript_Blinded.pdf",
+  "source_pdf_sha256": "0668129a34f17619db8353182951cde79cdee7622ce5a481132fb87d7055e199",
+  "scope": "Final submission pages 8–13",
+  "overall_status": "PASS",
+  "typography": "The rendered body is consistently serif; section, subsection, and declaration headings are bold black serif. Table 4 uses a smaller but legible serif size consistent with the authorised 10.5 pt table typography. Exact DOCX font metadata is outside this visual-only review.",
+  "pages": [
+    {
+      "page": 8,
+      "path": "/workspace/paper1-hpc-artifacts/writing-20261029/ijbet/render_final_submission/page-8.png",
+      "status": "PASS",
+      "observations": [
+        "Sections 3.3 and 3.4 have consistent bold black serif headings and clean body line wrapping.",
+        "The corrected-width Table 4 has a narrower objective column and wider numerical columns; caption, all column headers, five body rows, borders, and all numerical entries are visible and readable, with no clipping, cell collisions, or overflow.",
+        "The paragraph below Table 4 is fully visible with normal bottom whitespace; footer page number 8 is unobstructed."
+      ],
+      "defects": []
+    },
+    {
+      "page": 9,
+      "path": "/workspace/paper1-hpc-artifacts/writing-20261029/ijbet/render_final_submission/page-9.png",
+      "status": "PASS",
+      "observations": [
+        "Discussion and subsections 4.1–4.4 have consistent bold black serif typography.",
+        "The long subsection 4.4 heading wraps cleanly to two lines and retains following body text on the same page.",
+        "The last paragraph continues naturally onto page 10; no cropped lines or abnormal whitespace, and footer 9 is unobstructed."
+      ],
+      "defects": []
+    },
+    {
+      "page": 10,
+      "path": "/workspace/paper1-hpc-artifacts/writing-20261029/ijbet/render_final_submission/page-10.png",
+      "status": "PASS",
+      "observations": [
+        "The continuation of subsection 4.4 and the headings and paragraphs of subsections 4.5–4.6 are cleanly set in consistent serif typography.",
+        "Mathematical dashes, cohort labels, and inline objective names display without missing glyphs or line collisions.",
+        "Text remains within margins with normal paragraph and bottom spacing; footer 10 is visible and unobstructed."
+      ],
+      "defects": []
+    },
+    {
+      "page": 11,
+      "path": "/workspace/paper1-hpc-artifacts/writing-20261029/ijbet/render_final_submission/page-11.png",
+      "status": "PASS",
+      "observations": [
+        "Conclusions, Declarations, and the five declaration subheadings use consistent bold black serif headings.",
+        "The ethics blinding placeholder is readable and stays within the text area; citations and hyphenated line wraps show no clipping or collisions.",
+        "All declaration paragraphs are visible with balanced spacing and an unobstructed footer 11."
+      ],
+      "defects": []
+    },
+    {
+      "page": 12,
+      "path": "/workspace/paper1-hpc-artifacts/writing-20261029/ijbet/render_final_submission/page-12.png",
+      "status": "PASS",
+      "observations": [
+        "References begin with a bold black serif heading and consistent hanging indents.",
+        "Long titles, URLs, and DOIs wrap within the text area; continuation lines are readable without clipped characters, overlap, or missing glyphs.",
+        "The final Sagawa entry is fully visible above the unobstructed footer 12; dense reference spacing remains readable."
+      ],
+      "defects": []
+    },
+    {
+      "page": 13,
+      "path": "/workspace/paper1-hpc-artifacts/writing-20261029/ijbet/render_final_submission/page-13.png",
+      "status": "PASS",
+      "observations": [
+        "The remaining references preserve the hanging indents and clean title, DOI, and author-list wrapping.",
+        "The Supporting information heading is bold black serif with its complete paragraph below it.",
+        "The larger lower-page white area occurs after the reference and supporting-information section ends and has no visible missing or cut-off content; footer 13 is correctly visible."
+      ],
+      "defects": []
+    }
+  ],
+  "limitations": "Visual review confirms rendered appearance, clipping, spacing, line wraps, and visible page numbers. It does not establish exact font metadata, numerical correctness, citation metadata correctness, or the content of unreviewed pages.",
+  "data_and_server_activity": "No new data, experiments, or school-server access; no manuscript edits.",
+  "supersedes": "Earlier render_shipping_main pages 8–13 review; this record now refers to render_final_submission after the final Table 2 header and column-width corrections."
+}

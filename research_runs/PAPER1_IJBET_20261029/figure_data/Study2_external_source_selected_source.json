@@ -1,0 +1,347 @@
+{
+  "all_comparison_directions_retained": true,
+  "analysis_settings": {
+    "analysis_seed": 20261024,
+    "bootstrap_replicates": 10000,
+    "permutation_replicates": 100000
+  },
+  "comparisons": [
+    {
+      "aggregation": "equal person",
+      "bootstrap": "paired participant percentile",
+      "bootstrap_replicates": 10000,
+      "ci95_high_pp": 1.7941176470588227,
+      "ci95_low_pp": -1.6078431372549014,
+      "contrast": "tail_consistency-minus-erm-min_recall",
+      "declined": 37,
+      "effect": 0.0007843137254901969,
+      "effect_pp": 0.07843137254901969,
+      "endpoint": "min_recall",
+      "family": "exploratory_registered",
+      "improved": 41,
+      "interval_scope": "pointwise, conditional on fitted models and averaged seeds",
+      "n_participants": 85,
+      "numerically_unchanged": 7,
+      "p_raw": 0.937410625893741,
+      "permutation": "Monte Carlo paired sign-flip with plus-one correction",
+      "permutation_replicates": 100000,
+      "seed": 803885485
+    },
+    {
+      "aggregation": "equal person",
+      "bootstrap": "paired participant percentile",
+      "bootstrap_replicates": 10000,
+      "ci95_high_pp": 9.608088235294115,
+      "ci95_low_pp": 4.4507352941176475,
+      "contrast": "tail_consistency-minus-groupdro-min_recall",
+      "declined": 21,
+      "effect": 0.07068627450980394,
+      "effect_pp": 7.068627450980395,
+      "endpoint": "min_recall",
+      "family": "secondary",
+      "improved": 62,
+      "interval_scope": "pointwise, conditional on fitted models and averaged seeds",
+      "n_participants": 85,
+      "numerically_unchanged": 2,
+      "p_holm": 3.999960000399996e-05,
+      "p_raw": 9.99990000099999e-06,
+      "permutation": "Monte Carlo paired sign-flip with plus-one correction",
+      "permutation_replicates": 100000,
+      "seed": 403550221
+    },
+    {
+      "aggregation": "equal person",
+      "bootstrap": "paired participant percentile",
+      "bootstrap_replicates": 10000,
+      "ci95_high_pp": 0.35294117647058754,
+      "ci95_low_pp": -0.6176470588235282,
+      "contrast": "tail_consistency-minus-tail-min_recall",
+      "declined": 35,
+      "effect": -0.0012745098039215646,
+      "effect_pp": -0.12745098039215647,
+      "endpoint": "min_recall",
+      "family": "secondary",
+      "improved": 35,
+      "interval_scope": "pointwise, conditional on fitted models and averaged seeds",
+      "n_participants": 85,
+      "numerically_unchanged": 15,
+      "p_holm": 1.0,
+      "p_raw": 0.6355836441635584,
+      "permutation": "Monte Carlo paired sign-flip with plus-one correction",
+      "permutation_replicates": 100000,
+      "seed": 1870242543
+    },
+    {
+      "aggregation": "equal person",
+      "bootstrap": "paired participant percentile",
+      "bootstrap_replicates": 10000,
+      "ci95_high_pp": 2.2845588235294088,
+      "ci95_low_pp": -1.715686274509804,
+      "contrast": "tail_consistency-minus-consistency-min_recall",
+      "declined": 38,
+      "effect": 0.0029411764705882327,
+      "effect_pp": 0.29411764705882326,
+      "endpoint": "min_recall",
+      "family": "secondary",
+      "improved": 42,
+      "interval_scope": "pointwise, conditional on fitted models and averaged seeds",
+      "n_participants": 85,
+      "numerically_unchanged": 5,
+      "p_holm": 1.0,
+      "p_raw": 0.7817821821781782,
+      "permutation": "Monte Carlo paired sign-flip with plus-one correction",
+      "permutation_replicates": 100000,
+      "seed": 4208835915
+    },
+    {
+      "aggregation": "equal person",
+      "bootstrap": "paired participant percentile",
+      "bootstrap_replicates": 10000,
+      "ci95_high_pp": -0.6323529411764708,
+      "ci95_low_pp": -2.0539215686274512,
+      "contrast": "tail_consistency-minus-erm-ba",
+      "declined": 56,
+      "effect": -0.013431372549019613,
+      "effect_pp": -1.3431372549019613,
+      "endpoint": "ba",
+      "family": "secondary",
+      "improved": 29,
+      "interval_scope": "pointwise, conditional on fitted models and averaged seeds",
+      "n_participants": 85,
+      "numerically_unchanged": 0,
+      "p_holm": 0.0014699853001469984,
+      "p_raw": 0.0004899951000489995,
+      "permutation": "Monte Carlo paired sign-flip with plus-one correction",
+      "permutation_replicates": 100000,
+      "seed": 3219606270
+    }
+  ],
+  "completed_at_utc": "2026-10-26T18:27:16.549998+00:00",
+  "domain": "external_source_selected",
+  "independent_external_confirmation": false,
+  "inference_scope": "Conditional on fitted models; paired sign flips require exchangeable signs. Shared training sets and cohort dependence are not removed by participant resampling.",
+  "input_fingerprint": "0ce38226f39d7ff6eac389f7c74f23d13556eb9cde3229e6c7d2b10cb32c22b4",
+  "method_means": [
+    {
+      "mean": 0.5131372549019608,
+      "mean_percent": 51.313725490196084,
+      "method": "erm",
+      "metric": "min_recall",
+      "n_participants": 85
+    },
+    {
+      "mean": 0.646813725490196,
+      "mean_percent": 64.6813725490196,
+      "method": "erm",
+      "metric": "ba",
+      "n_participants": 85
+    },
+    {
+      "mean": 0.6841176470588235,
+      "mean_percent": 68.41176470588235,
+      "method": "erm",
+      "metric": "recall_left",
+      "n_participants": 85
+    },
+    {
+      "mean": 0.6095098039215687,
+      "mean_percent": 60.95098039215687,
+      "method": "erm",
+      "metric": "recall_right",
+      "n_participants": 85
+    },
+    {
+      "mean": 0.4432352941176471,
+      "mean_percent": 44.32352941176471,
+      "method": "groupdro",
+      "metric": "min_recall",
+      "n_participants": 85
+    },
+    {
+      "mean": 0.5602941176470587,
+      "mean_percent": 56.02941176470587,
+      "method": "groupdro",
+      "metric": "ba",
+      "n_participants": 85
+    },
+    {
+      "mean": 0.5075490196078432,
+      "mean_percent": 50.754901960784316,
+      "method": "groupdro",
+      "metric": "recall_left",
+      "n_participants": 85
+    },
+    {
+      "mean": 0.6130392156862745,
+      "mean_percent": 61.30392156862745,
+      "method": "groupdro",
+      "metric": "recall_right",
+      "n_participants": 85
+    },
+    {
+      "mean": 0.5151960784313725,
+      "mean_percent": 51.51960784313725,
+      "method": "tail",
+      "metric": "min_recall",
+      "n_participants": 85
+    },
+    {
+      "mean": 0.6344607843137254,
+      "mean_percent": 63.44607843137254,
+      "method": "tail",
+      "metric": "ba",
+      "n_participants": 85
+    },
+    {
+      "mean": 0.5965686274509804,
+      "mean_percent": 59.65686274509804,
+      "method": "tail",
+      "metric": "recall_left",
+      "n_participants": 85
+    },
+    {
+      "mean": 0.6723529411764707,
+      "mean_percent": 67.23529411764707,
+      "method": "tail",
+      "metric": "recall_right",
+      "n_participants": 85
+    },
+    {
+      "mean": 0.5109803921568628,
+      "mean_percent": 51.09803921568628,
+      "method": "consistency",
+      "metric": "min_recall",
+      "n_participants": 85
+    },
+    {
+      "mean": 0.6449019607843137,
+      "mean_percent": 64.49019607843137,
+      "method": "consistency",
+      "metric": "ba",
+      "n_participants": 85
+    },
+    {
+      "mean": 0.6877450980392157,
+      "mean_percent": 68.77450980392157,
+      "method": "consistency",
+      "metric": "recall_left",
+      "n_participants": 85
+    },
+    {
+      "mean": 0.6020588235294118,
+      "mean_percent": 60.205882352941174,
+      "method": "consistency",
+      "metric": "recall_right",
+      "n_participants": 85
+    },
+    {
+      "mean": 0.5139215686274511,
+      "mean_percent": 51.39215686274511,
+      "method": "tail_consistency",
+      "metric": "min_recall",
+      "n_participants": 85
+    },
+    {
+      "mean": 0.6333823529411764,
+      "mean_percent": 63.33823529411764,
+      "method": "tail_consistency",
+      "metric": "ba",
+      "n_participants": 85
+    },
+    {
+      "mean": 0.5894117647058824,
+      "mean_percent": 58.94117647058824,
+      "method": "tail_consistency",
+      "metric": "recall_left",
+      "n_participants": 85
+    },
+    {
+      "mean": 0.6773529411764705,
+      "mean_percent": 67.73529411764704,
+      "method": "tail_consistency",
+      "metric": "recall_right",
+      "n_participants": 85
+    }
+  ],
+  "n_participants": 85,
+  "n_seeds": 3,
+  "secondary_family_size": 4,
+  "source_evidence": [
+    {
+      "complete_sha256": "e710d961927e7a1b793373b46f6868bc3887e1a6f58c8f4837d2544fe102d968",
+      "evaluation_sha256": "27c5f404ab1307c53c4d336b7ec29bd389a572c65d36b3e26fe581ade80e8fcf",
+      "task_id": "final-erm-s20261101"
+    },
+    {
+      "complete_sha256": "993c7b89f8fa4df43b27524fab82762db52d2de1f9de71762953c1af0ae38552",
+      "evaluation_sha256": "aa3bd14e13ce702b7be2aea98d0b062d1e952232978b754c563ee3ae07302814",
+      "task_id": "final-groupdro-s20261101"
+    },
+    {
+      "complete_sha256": "85716a000d35d8324a8929617c78b305501a394a67726d7f064ba103e3bd8b0a",
+      "evaluation_sha256": "ef523e46c0a08cd25ee9f1a574597407aab086d664387b70e99c38b0416f313d",
+      "task_id": "final-tail-s20261101"
+    },
+    {
+      "complete_sha256": "b8b09ccfb71993328c4ea701500e338f417b0271c1a0435cae512476ddd83514",
+      "evaluation_sha256": "8e40fbb0033627c6352aa26c12df53247be3077aea4d98e3b970a4d5474f5e10",
+      "task_id": "final-consistency-s20261101"
+    },
+    {
+      "complete_sha256": "cf698006aae3fe139130b6b35995873cb3513c6765171b36f38fd76e98a71659",
+      "evaluation_sha256": "ce293b44cdb8fc2790c5a6745b23255b15b3f8ced719701aad87f1e8aad57e62",
+      "task_id": "final-tail_consistency-s20261101"
+    },
+    {
+      "complete_sha256": "2271cf03c5fae24458f5378b9891352582f19716398a62db6ad0aaeb0bd2fdd1",
+      "evaluation_sha256": "abeb8f6ae02fc4b35b50a6f59ab746fe9fc6f0b0d4b61571acc0c8f8c4b4b1c4",
+      "task_id": "final-erm-s20261102"
+    },
+    {
+      "complete_sha256": "722d8ca7e0dc99a85c42bd9b08511f109a75cfb8e0360ea8102f0c319564dd8b",
+      "evaluation_sha256": "5b9f520644fb8514a677e89762ffec2a8d67fbe61d62bfc158fac85b5e19e1a3",
+      "task_id": "final-groupdro-s20261102"
+    },
+    {
+      "complete_sha256": "83526b5517c252f625b310517847c6a3d18aa730207a15ccf6c2be378c15f5d0",
+      "evaluation_sha256": "e685ef109da7211759814a21cd706275c1f194c1d3170119828e8565ed75abbe",
+      "task_id": "final-tail-s20261102"
+    },
+    {
+      "complete_sha256": "f0534e9372a5bb639e5bf129547869c208ca296c474808c15d07818151e2a35a",
+      "evaluation_sha256": "ec7241cd4e18b3f45ab2a845505274f4fa72706c3f45af9215db35cdc1623615",
+      "task_id": "final-consistency-s20261102"
+    },
+    {
+      "complete_sha256": "ecf5c9fb9fe04c933a3f2b1b213976a55bc34fca540b22d7da300488ccc4b1eb",
+      "evaluation_sha256": "0d121bd0fb1e8b8e53785d6ba55c7e0fd80baca32e2002b58a3f100fe7999ca3",
+      "task_id": "final-tail_consistency-s20261102"
+    },
+    {
+      "complete_sha256": "f225fe312ce2576ce7e7eaa3c28cb2aef9cdc88b4a5d17f8abcdc560844a7560",
+      "evaluation_sha256": "ce1729b72ac5dd0c9ea6388fb1e6bd648e81a7035acab805ec4e7b4dc7805981",
+      "task_id": "final-erm-s20261103"
+    },
+    {
+      "complete_sha256": "db0322a0b971dbb734da37ddd147416892d101c21dc05e707e3e8ace1c3fece3",
+      "evaluation_sha256": "e9eaa11bf7763f493bd84c0888519873b0956c684f1117e491bc5b5b4a53c85c",
+      "task_id": "final-groupdro-s20261103"
+    },
+    {
+      "complete_sha256": "b37d057353d78733bdd0e694e92a5884280846bd6d47ce4558d833a0317a133a",
+      "evaluation_sha256": "9ca8756569f9c661eb2b28baac1f97c4c6245af4ba6d7faebe2ed86ce0bbeca1",
+      "task_id": "final-tail-s20261103"
+    },
+    {
+      "complete_sha256": "617dca9511cd4b1611087dfc907632736fad0aaf750349722c54724f35a2903c",
+      "evaluation_sha256": "2784b11d735b0c0bf9a296dec3e02cc7d427ba569b926bc60272cc8939c546b9",
+      "task_id": "final-consistency-s20261103"
+    },
+    {
+      "complete_sha256": "48f5685960645f25719c00670a9c688f9f295d33a68a1badd9516c29f6b5a773",
+      "evaluation_sha256": "37598f029a5f301ccd368594dd62827b60514086daba9fc5d85f097062435723",
+      "task_id": "final-tail_consistency-s20261103"
+    }
+  ],
+  "status": "complete"
+}

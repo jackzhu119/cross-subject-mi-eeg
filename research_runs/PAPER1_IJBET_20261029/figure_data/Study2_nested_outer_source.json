@@ -1,0 +1,647 @@
+{
+  "all_comparison_directions_retained": true,
+  "analysis_settings": {
+    "analysis_seed": 20261024,
+    "bootstrap_replicates": 10000,
+    "permutation_replicates": 100000
+  },
+  "comparisons": [
+    {
+      "aggregation": "equal cohort then equal person",
+      "bootstrap": "stratified paired participant percentile",
+      "bootstrap_replicates": 10000,
+      "ci95_high_pp": 3.3857557911213054,
+      "ci95_low_pp": -0.46196241107437164,
+      "contrast": "tail_consistency-minus-erm-min_recall",
+      "declined": 24,
+      "effect": 0.013505079171461676,
+      "effect_pp": 1.3505079171461676,
+      "endpoint": "min_recall",
+      "family": "primary",
+      "improved": 36,
+      "interval_scope": "pointwise, conditional on fitted models and averaged seeds",
+      "n_participants": 60,
+      "numerically_unchanged": 0,
+      "p_raw": 0.1920780792192078,
+      "permutation": "Monte Carlo paired sign-flip with plus-one correction",
+      "permutation_replicates": 100000,
+      "seed": 794908027
+    },
+    {
+      "aggregation": "equal cohort then equal person",
+      "bootstrap": "stratified paired participant percentile",
+      "bootstrap_replicates": 10000,
+      "ci95_high_pp": 5.807835748938738,
+      "ci95_low_pp": -1.0875159422065956,
+      "contrast": "tail_consistency-minus-groupdro-min_recall",
+      "declined": 23,
+      "effect": 0.023049584074068156,
+      "effect_pp": 2.3049584074068155,
+      "endpoint": "min_recall",
+      "family": "secondary",
+      "improved": 37,
+      "interval_scope": "pointwise, conditional on fitted models and averaged seeds",
+      "n_participants": 60,
+      "numerically_unchanged": 0,
+      "p_holm": 0.7341226587734122,
+      "p_raw": 0.24470755292447074,
+      "permutation": "Monte Carlo paired sign-flip with plus-one correction",
+      "permutation_replicates": 100000,
+      "seed": 2644946403
+    },
+    {
+      "aggregation": "equal cohort then equal person",
+      "bootstrap": "stratified paired participant percentile",
+      "bootstrap_replicates": 10000,
+      "ci95_high_pp": 1.0948486613430521,
+      "ci95_low_pp": -1.0634189104590845,
+      "contrast": "tail_consistency-minus-tail-min_recall",
+      "declined": 32,
+      "effect": -0.0008089255506845588,
+      "effect_pp": -0.08089255506845587,
+      "endpoint": "min_recall",
+      "family": "secondary",
+      "improved": 27,
+      "interval_scope": "pointwise, conditional on fitted models and averaged seeds",
+      "n_participants": 60,
+      "numerically_unchanged": 1,
+      "p_holm": 1.0,
+      "p_raw": 0.9027109728902711,
+      "permutation": "Monte Carlo paired sign-flip with plus-one correction",
+      "permutation_replicates": 100000,
+      "seed": 1459458940
+    },
+    {
+      "aggregation": "equal cohort then equal person",
+      "bootstrap": "stratified paired participant percentile",
+      "bootstrap_replicates": 10000,
+      "ci95_high_pp": 3.6627451214872035,
+      "ci95_low_pp": -0.22444427229985708,
+      "contrast": "tail_consistency-minus-consistency-min_recall",
+      "declined": 21,
+      "effect": 0.015794977894572453,
+      "effect_pp": 1.5794977894572453,
+      "endpoint": "min_recall",
+      "family": "secondary",
+      "improved": 39,
+      "interval_scope": "pointwise, conditional on fitted models and averaged seeds",
+      "n_participants": 60,
+      "numerically_unchanged": 0,
+      "p_holm": 0.4969950300496995,
+      "p_raw": 0.12424875751242488,
+      "permutation": "Monte Carlo paired sign-flip with plus-one correction",
+      "permutation_replicates": 100000,
+      "seed": 319014407
+    },
+    {
+      "aggregation": "equal cohort then equal person",
+      "bootstrap": "stratified paired participant percentile",
+      "bootstrap_replicates": 10000,
+      "ci95_high_pp": 0.7231185254305298,
+      "ci95_low_pp": -0.6009016812100398,
+      "contrast": "tail_consistency-minus-erm-ba",
+      "declined": 21,
+      "effect": 0.0004719415257343633,
+      "effect_pp": 0.04719415257343633,
+      "endpoint": "ba",
+      "family": "secondary",
+      "improved": 38,
+      "interval_scope": "pointwise, conditional on fitted models and averaged seeds",
+      "n_participants": 60,
+      "numerically_unchanged": 1,
+      "p_holm": 1.0,
+      "p_raw": 0.9017809821901781,
+      "permutation": "Monte Carlo paired sign-flip with plus-one correction",
+      "permutation_replicates": 100000,
+      "seed": 4078082550
+    }
+  ],
+  "completed_at_utc": "2026-10-26T18:27:08.648217+00:00",
+  "domain": "nested_outer",
+  "independent_external_confirmation": false,
+  "inference_scope": "Conditional on fitted models; paired sign flips require exchangeable signs. Shared training sets and cohort dependence are not removed by participant resampling.",
+  "input_fingerprint": "7d730d5c720a2e66fc8e147e682bb612d07d26f8e1fd2dcbd7873d7ac9cff9a2",
+  "method_means": [
+    {
+      "mean": 0.5010561104309328,
+      "mean_percent": 50.105611043093276,
+      "method": "erm",
+      "metric": "min_recall",
+      "n_participants": 60
+    },
+    {
+      "mean": 0.6400197296347879,
+      "mean_percent": 64.00197296347879,
+      "method": "erm",
+      "metric": "ba",
+      "n_participants": 60
+    },
+    {
+      "mean": 0.6313762126896626,
+      "mean_percent": 63.13762126896626,
+      "method": "erm",
+      "metric": "recall_left",
+      "n_participants": 60
+    },
+    {
+      "mean": 0.6486632465799133,
+      "mean_percent": 64.86632465799133,
+      "method": "erm",
+      "metric": "recall_right",
+      "n_participants": 60
+    },
+    {
+      "mean": 0.49151160552832635,
+      "mean_percent": 49.151160552832636,
+      "method": "groupdro",
+      "metric": "min_recall",
+      "n_participants": 60
+    },
+    {
+      "mean": 0.6168515385627273,
+      "mean_percent": 61.685153856272734,
+      "method": "groupdro",
+      "metric": "ba",
+      "n_participants": 60
+    },
+    {
+      "mean": 0.5998361219349704,
+      "mean_percent": 59.98361219349704,
+      "method": "groupdro",
+      "metric": "recall_left",
+      "n_participants": 60
+    },
+    {
+      "mean": 0.6338669551904845,
+      "mean_percent": 63.38669551904845,
+      "method": "groupdro",
+      "metric": "recall_right",
+      "n_participants": 60
+    },
+    {
+      "mean": 0.5153701151530791,
+      "mean_percent": 51.53701151530791,
+      "method": "tail",
+      "metric": "min_recall",
+      "n_participants": 60
+    },
+    {
+      "mean": 0.6403365955034666,
+      "mean_percent": 64.03365955034666,
+      "method": "tail",
+      "metric": "ba",
+      "n_participants": 60
+    },
+    {
+      "mean": 0.6379479821379332,
+      "mean_percent": 63.79479821379333,
+      "method": "tail",
+      "metric": "recall_left",
+      "n_participants": 60
+    },
+    {
+      "mean": 0.6427252088689996,
+      "mean_percent": 64.27252088689997,
+      "method": "tail",
+      "metric": "recall_right",
+      "n_participants": 60
+    },
+    {
+      "mean": 0.498766211707822,
+      "mean_percent": 49.8766211707822,
+      "method": "consistency",
+      "metric": "min_recall",
+      "n_participants": 60
+    },
+    {
+      "mean": 0.6411840909079354,
+      "mean_percent": 64.11840909079353,
+      "method": "consistency",
+      "metric": "ba",
+      "n_participants": 60
+    },
+    {
+      "mean": 0.6299775150052693,
+      "mean_percent": 62.99775150052693,
+      "method": "consistency",
+      "metric": "recall_left",
+      "n_participants": 60
+    },
+    {
+      "mean": 0.6523906668106014,
+      "mean_percent": 65.23906668106014,
+      "method": "consistency",
+      "metric": "recall_right",
+      "n_participants": 60
+    },
+    {
+      "mean": 0.5145611896023945,
+      "mean_percent": 51.45611896023945,
+      "method": "tail_consistency",
+      "metric": "min_recall",
+      "n_participants": 60
+    },
+    {
+      "mean": 0.6404916711605223,
+      "mean_percent": 64.04916711605223,
+      "method": "tail_consistency",
+      "metric": "ba",
+      "n_participants": 60
+    },
+    {
+      "mean": 0.631288050624119,
+      "mean_percent": 63.1288050624119,
+      "method": "tail_consistency",
+      "metric": "recall_left",
+      "n_participants": 60
+    },
+    {
+      "mean": 0.6496952916969257,
+      "mean_percent": 64.96952916969258,
+      "method": "tail_consistency",
+      "metric": "recall_right",
+      "n_participants": 60
+    }
+  ],
+  "n_participants": 60,
+  "n_seeds": 3,
+  "secondary_family_size": 4,
+  "source_evidence": [
+    {
+      "complete_sha256": "cc141655d82f5516016a48510c404cb7764bfde58873e2266509805fb2f1c0a7",
+      "evaluation_sha256": "b408f6ea7f8e62b2f53c42b1139a0d7ef07d4979cd1b68630bdfeff1c79f15c2",
+      "task_id": "dev-f00-erm-s20261031"
+    },
+    {
+      "complete_sha256": "caaab3cb361c3aa63805385f30ca31319950bebdfca781c7623f7c18b6c05b60",
+      "evaluation_sha256": "166d080f31643f122e3e8fb330c5ee0cdc1809bf5badb2d7edf090c13250e824",
+      "task_id": "dev-f00-groupdro-s20261031"
+    },
+    {
+      "complete_sha256": "faedf3b2252a852824a01e11c679d1d66dfbf29f48fbfa24e53a9cc426669eaa",
+      "evaluation_sha256": "a82cfcbaff9c762bda98ec8bc117cfd002eefc54e15c74192c653f9a8d05ac66",
+      "task_id": "dev-f00-tail-s20261031"
+    },
+    {
+      "complete_sha256": "d7ff270cfccce36de0451d3df2281d75bc6b1f0c28f345f968371819c0939ead",
+      "evaluation_sha256": "aba86f72a5df7c13db3429fdd0c0e4eb50f8b2ddd917ca382335a5fe9084ab59",
+      "task_id": "dev-f00-consistency-s20261031"
+    },
+    {
+      "complete_sha256": "3cf8840fc30ef4b39a31066d03859b7bae254315a35f8079826460c3487ba415",
+      "evaluation_sha256": "8379c98a5a0c8a85257d3634f668c36a1ebfb6ae562be0f341f939073327849d",
+      "task_id": "dev-f00-tail_consistency-s20261031"
+    },
+    {
+      "complete_sha256": "accc0a76688306cd62f9b733c55051c5cb2fea9827b1b6c96299633197bb3f28",
+      "evaluation_sha256": "68181b0da7f6a79b59e8d07d122d9c7ef4603ffc077205848d3d4a62e1ec6273",
+      "task_id": "dev-f00-erm-s20261032"
+    },
+    {
+      "complete_sha256": "f978a6c27033bcf1996ed237627e26b732f84afbac45a74a24e31389573ca974",
+      "evaluation_sha256": "2d56aaa34d9f2dd366465f4c4b83d3c581c9b8f9992dc12ddff0e074df25650e",
+      "task_id": "dev-f00-groupdro-s20261032"
+    },
+    {
+      "complete_sha256": "49617342607d4cf58d31b9906a0c9b6781cd10d2dd4915574bcd27d0f575c9bf",
+      "evaluation_sha256": "4380c0ebf706433f651469d27ce7c37afbe337d0aba6e1d31d86b112bb5e86e9",
+      "task_id": "dev-f00-tail-s20261032"
+    },
+    {
+      "complete_sha256": "fdae5d1dd5df0e16c84cfe2824ace57ca447876f6780edf35509cd59f5bd4269",
+      "evaluation_sha256": "cf2a9c8a3004b013b4106009d756afb5390c40c0f8908709ae3c7027027f3d40",
+      "task_id": "dev-f00-consistency-s20261032"
+    },
+    {
+      "complete_sha256": "51845a10ecc6890d8a3530bc2c2325b450906d60d3eaa69ae14a8d067eb3417c",
+      "evaluation_sha256": "d9bc891754e10fccec75a24a6c908ce66f66b0c8095bf071d5e1e621f84eea23",
+      "task_id": "dev-f00-tail_consistency-s20261032"
+    },
+    {
+      "complete_sha256": "fe1a8fb11dc1d90b242667343f0e9c630584effaedbee1749b95898d9ef5da01",
+      "evaluation_sha256": "473070b848c6b80cc8daf848a7694585eb6323002eda946026c14b2ff74334cc",
+      "task_id": "dev-f00-erm-s20261033"
+    },
+    {
+      "complete_sha256": "fa414692ca33292950f5adc1be256912826e5930568d67f3e71922c01db6604b",
+      "evaluation_sha256": "2c8fa9b8fd2460dd13a829032319b531371dde6599c7360963dade7f0c25547f",
+      "task_id": "dev-f00-groupdro-s20261033"
+    },
+    {
+      "complete_sha256": "e5b36214adbd10c5fa683eee0c98d24f61cec082c77414949f9e2ba9bcba256b",
+      "evaluation_sha256": "0626e4bec1b96c0f7aba3f18973fde4af45d50e5b86455fddd90cb6f79162fd4",
+      "task_id": "dev-f00-tail-s20261033"
+    },
+    {
+      "complete_sha256": "1a43093fd1feeb00f50ddf99f4a7c62767235c6269f774be22d85d4e6ee49f0b",
+      "evaluation_sha256": "f3d9995121d852e4460b6fe7f8610ce5588ae52eade023a5cb33c65c1d849d7b",
+      "task_id": "dev-f00-consistency-s20261033"
+    },
+    {
+      "complete_sha256": "dfb946544f96d569146fdfbaac454f5399e44865243cd132273894b61281bd83",
+      "evaluation_sha256": "3dc346757e7a795c5e9b02ecc46f66369abeb1219401c830ce6b63f5cc226d20",
+      "task_id": "dev-f00-tail_consistency-s20261033"
+    },
+    {
+      "complete_sha256": "116e3f2a62d72e07675205707ef43566613b32f10b9a724279376f859ea8ff5e",
+      "evaluation_sha256": "afdd27c8e1ccd4fe832118d22402092f6faee9bc292f73ef1b4b7f9966bac069",
+      "task_id": "dev-f01-erm-s20261031"
+    },
+    {
+      "complete_sha256": "e26adce7e9e5155f4297e2dc55b235d4f0fcb4e5199368425aba191c9ece4730",
+      "evaluation_sha256": "36cc9f3e2225baf77e94c4e5087a840d91aea277a56f8f3dab025db71980eddf",
+      "task_id": "dev-f01-groupdro-s20261031"
+    },
+    {
+      "complete_sha256": "26b302cc50252b06454107fac61e13ae373956a710223ed485367709334f9ecb",
+      "evaluation_sha256": "743c9bbb76e205a177caa3b1bb6baf0435616fc5ed422ec6c2821d09c53d02fb",
+      "task_id": "dev-f01-tail-s20261031"
+    },
+    {
+      "complete_sha256": "5863f1db78bd4ab096ffe5d983dd8d3270489098df5497c2ef2d4c74c40b70a8",
+      "evaluation_sha256": "5c35a437ce59e5975ad51432add2ab7df1911f62eb3c0312447c59479fbdbbd4",
+      "task_id": "dev-f01-consistency-s20261031"
+    },
+    {
+      "complete_sha256": "721c68898e66866498241219dedf1e114e2c88b3659d49703270d83fee41c252",
+      "evaluation_sha256": "dd08b543a18a2981c4deebdb4dc73efbf15063f4b96cd163ab5257a395101845",
+      "task_id": "dev-f01-tail_consistency-s20261031"
+    },
+    {
+      "complete_sha256": "8d6b7792c73596123c8e595f315823e544c5076263d0842a47bcecb9d161d32d",
+      "evaluation_sha256": "cc39a8cbec3ab9a8895878561989661ed4457c73261e11fbf061dc7ee1508187",
+      "task_id": "dev-f01-erm-s20261032"
+    },
+    {
+      "complete_sha256": "4cc3357c7a7666a28745b82e0ac4fc3372fb9702f30d3cb85e1d4db9e2d303d6",
+      "evaluation_sha256": "d4ebeccfee6c7fa74bbe6d925155d009d539a6002efa0b185c8010b814f0cf99",
+      "task_id": "dev-f01-groupdro-s20261032"
+    },
+    {
+      "complete_sha256": "8e1290fe4b855a402ffbbc291114765421750d9618e00ddaf35d2644362f25ce",
+      "evaluation_sha256": "deb53ac6fbe37860ef8ab36fdbc03d52277c25318548448bcf0c90ed137891ca",
+      "task_id": "dev-f01-tail-s20261032"
+    },
+    {
+      "complete_sha256": "f7a1112f264cad353166202924bf518cb3f7ee1b7e3231c666b6f916c35e21c4",
+      "evaluation_sha256": "537582f622df77f8a7b36af02d3ada728b41eea3d5896aba2a2d2f0cc0dcf06d",
+      "task_id": "dev-f01-consistency-s20261032"
+    },
+    {
+      "complete_sha256": "c7a272f40bbda2aee7d61dac6e7f9fd1a2925dc136d5eafba4381faea5b0b61d",
+      "evaluation_sha256": "ba267984bbc44fb2b3b977c8fb7fe270ece41bc3287fcab8c4f6a96e137f5c11",
+      "task_id": "dev-f01-tail_consistency-s20261032"
+    },
+    {
+      "complete_sha256": "b9e7a4610843b8ca008fe9efc6b10004e532886a5903c9f349dbb27acf670535",
+      "evaluation_sha256": "64c97e842b02f4ac0883c7c5221936353ab41497758c670bf1229037d3d2ee31",
+      "task_id": "dev-f01-erm-s20261033"
+    },
+    {
+      "complete_sha256": "fb0c1eb1cd447b868994d505bb8ee0468223ac9a15b04cd87b8a471c51638d35",
+      "evaluation_sha256": "343931b696ba5b9d5cb4f5d82d1aefe6b0947071f50ea75e1f9fac7597bbd29a",
+      "task_id": "dev-f01-groupdro-s20261033"
+    },
+    {
+      "complete_sha256": "413f6351db697cfb8074e16c9525ffaad53c29cb5874a24f40f27e8d75683d6d",
+      "evaluation_sha256": "86c38f51354c1308fde349f2fc09b0fcca26cacf898cd2b2ab4798f49827f802",
+      "task_id": "dev-f01-tail-s20261033"
+    },
+    {
+      "complete_sha256": "d484092ebdae50eb37f51d9914ad0f88f9f1bd760d82cdfed2362870c7e83ac9",
+      "evaluation_sha256": "d6cbe7bee201288a948370bc7b1b3a0cde53fb60cf6f242e5a0d72c2bf8c6b23",
+      "task_id": "dev-f01-consistency-s20261033"
+    },
+    {
+      "complete_sha256": "aacb89acd7484cfad3b4355c5d3cb5a28e6b945c6df3b35a60075c9273c8d90d",
+      "evaluation_sha256": "c94902465c572e0b313ff35ecc973461ec6607867fb460ffcdb786f6ab52d568",
+      "task_id": "dev-f01-tail_consistency-s20261033"
+    },
+    {
+      "complete_sha256": "77fca56dad076439f77b8bc01b66551aa88029669a2367e07c6e0c2278226a93",
+      "evaluation_sha256": "21aabb44ebcb3fb7708bc88345a3ea2d4629769ff600bb05c0be8f516b774edc",
+      "task_id": "dev-f02-erm-s20261031"
+    },
+    {
+      "complete_sha256": "2f097b514e40497b02994bb074a6b9683a43eb908b2a83c14e7be006c43c3c2b",
+      "evaluation_sha256": "802e6f263e040e2c3c463df6e1f088c66e7c7064219a7d83dfdf1d88ed1171f0",
+      "task_id": "dev-f02-groupdro-s20261031"
+    },
+    {
+      "complete_sha256": "1cae657894c20fba862f678883bdf760846d975a76b9388db8af787d6d9295bc",
+      "evaluation_sha256": "3b8a39c37ea83d4af4566f429513853f6919866e1bd06c3d9f2d39aec89731e5",
+      "task_id": "dev-f02-tail-s20261031"
+    },
+    {
+      "complete_sha256": "286c4854188d9f1b5d36c05296e37c2908da24618b54cd044e1b48f3c28930fb",
+      "evaluation_sha256": "0d7be6b6b142ebd2c072ef58572b9cb87b37e8e4447206ab0b67e6c16649fc4f",
+      "task_id": "dev-f02-consistency-s20261031"
+    },
+    {
+      "complete_sha256": "d278f66838a7ee7c1833b8403ff76207c4d5766d70d69d27efbd1442a03be44a",
+      "evaluation_sha256": "bf1d0d956659f9bb5791fd713af275adceb798ff3ceed489cacb33bfd847699b",
+      "task_id": "dev-f02-tail_consistency-s20261031"
+    },
+    {
+      "complete_sha256": "bba5daf09640df5e3f98f522087e97edec8742b5ca8892a9b9e1b9903ad1f935",
+      "evaluation_sha256": "c3a52ed7224fd6864b2b4112f5f295f7a6518d1bd1316ee528d561d2430e315f",
+      "task_id": "dev-f02-erm-s20261032"
+    },
+    {
+      "complete_sha256": "97fdf4cec178e48bd732099f8dd2b1a12d1611c46662b048198188b5528a8260",
+      "evaluation_sha256": "bcc1d13028aed3a457d45eed6897a8d175fa5d0ef83c5f6f1ea3862f65230b3b",
+      "task_id": "dev-f02-groupdro-s20261032"
+    },
+    {
+      "complete_sha256": "57a7f5e7196d242d1bed1a5d0ba623a67967056055c4da4b5a2565603dd5b2f4",
+      "evaluation_sha256": "26add383653cb0305b7e6ad06c20eb57811359589999d0b82fa79d948e20fddb",
+      "task_id": "dev-f02-tail-s20261032"
+    },
+    {
+      "complete_sha256": "d70150659c0c6a05dc88751252ae6336387b1a5fc5951db4fa056ac0184cc6b1",
+      "evaluation_sha256": "b017917627a05f79425037c162c9f7c9d1b127d7e0fdcb1ab9e297ade4104774",
+      "task_id": "dev-f02-consistency-s20261032"
+    },
+    {
+      "complete_sha256": "c0e3b93c5e5fe0ff46b9ea32cc6d3b8343c345bf38046c694fbe6132a670c618",
+      "evaluation_sha256": "6b6c945b0fd5f01053882a08dd5347b24d1c9bf01b4b744a91998ff66bcf492f",
+      "task_id": "dev-f02-tail_consistency-s20261032"
+    },
+    {
+      "complete_sha256": "ba8818a660ebce62c54c0b19105f6d67debf157a25c43211901a2f980cb05479",
+      "evaluation_sha256": "ea69d2b58bd074c9ab57aa3e68ba775e36f840681020c1d4fbafe126d705614e",
+      "task_id": "dev-f02-erm-s20261033"
+    },
+    {
+      "complete_sha256": "534f62c04a6df45c93cdf4b12a8e81c736d1e513e896cfeda0d463e8457d942f",
+      "evaluation_sha256": "a3d2e4f9c92cf6ad6979d52a9bfc64346fddcc5fb8ba2d9c1523deb9b116ad0d",
+      "task_id": "dev-f02-groupdro-s20261033"
+    },
+    {
+      "complete_sha256": "4e2ce7431c96ee1a5c5a2da5ac2329d52d3a8f7a9766fff486814bee1b70a862",
+      "evaluation_sha256": "03700b78d9182f7e2a25db0cda81322e66d3aaf6bbbe3c1216b405e153b3a105",
+      "task_id": "dev-f02-tail-s20261033"
+    },
+    {
+      "complete_sha256": "83a88b3b47e576e74d1f009cf2b5984b94996e96f1d97683d4eebc456bb54812",
+      "evaluation_sha256": "a347a92e284f30b1ff094d327069bb20b60adae9f8f54218690fd3f8ece46996",
+      "task_id": "dev-f02-consistency-s20261033"
+    },
+    {
+      "complete_sha256": "34f9d96529675cfc04aae253793aa19671918f6be5c3e516e6d86b4546cfb10c",
+      "evaluation_sha256": "e4d60405eb2c6eb2802325784afb7116652a6925069618a69c45b8d6b6c15477",
+      "task_id": "dev-f02-tail_consistency-s20261033"
+    },
+    {
+      "complete_sha256": "9b43661a79f6b9485f959f234f5ab854cb991c17acd228744ccce5a4fe3f3127",
+      "evaluation_sha256": "4d8dd2b596d59ae8b98171b93858d111691725dbe3ea1ddcdc0380fef32e02f6",
+      "task_id": "dev-f03-erm-s20261031"
+    },
+    {
+      "complete_sha256": "85ef165fa88f95aa4f36019ef7b1c1e7bfbc31f8e8980d2ad581dda53c618b29",
+      "evaluation_sha256": "e4efb9e71fe412cb9feea203186ef672d0400a4321d344429ab695c7e6792653",
+      "task_id": "dev-f03-groupdro-s20261031"
+    },
+    {
+      "complete_sha256": "a3918f27a8510f612d635ba3523cf662709faecba4cf56d181e36b558b153548",
+      "evaluation_sha256": "18c8c4023a8cd2cf45d43a4b9a8c8e0627397db2ffb609866d050a0d27ceb5a7",
+      "task_id": "dev-f03-tail-s20261031"
+    },
+    {
+      "complete_sha256": "871ae274e45319d429e1d3d949439551af12ae7185567354eeb8ed3cebc15261",
+      "evaluation_sha256": "b3bc8e1c56cb579595201e2a01cb4608daa53895201d82a1d6868ead9a1d279b",
+      "task_id": "dev-f03-consistency-s20261031"
+    },
+    {
+      "complete_sha256": "175e75b403bd958afe483fd93d4c7bc54940d70d1ed4f287f03dfd89e2e9d0e6",
+      "evaluation_sha256": "43af6e70ecdbf2ffc19f97b538f649f78ff14eb66e23c867bce9248c198a7b79",
+      "task_id": "dev-f03-tail_consistency-s20261031"
+    },
+    {
+      "complete_sha256": "4bc72afafc75a36044d8fd1db8c7e347c839f1d885611c2e02cd75be6540d728",
+      "evaluation_sha256": "2764f34f561608a81ce80306e8a3310179d680259963c6a33667d8022938495a",
+      "task_id": "dev-f03-erm-s20261032"
+    },
+    {
+      "complete_sha256": "7bf35b80b9a82f19c03c6729f1bc7a9a7c3ee780b2bc02a8ceae035396387449",
+      "evaluation_sha256": "025b4dc97f5d8a3aeeefa519a410dbfe1ce9aafcf8291d6dcd6ffaebf3dceb43",
+      "task_id": "dev-f03-groupdro-s20261032"
+    },
+    {
+      "complete_sha256": "309df53e53945122d262a194611200d507b12588f722ea22595fbcf8e0e0f9f6",
+      "evaluation_sha256": "7d0dbf61961f782299c84bf5d773a7d3a9a786bd8ec39f7912181ad59b331330",
+      "task_id": "dev-f03-tail-s20261032"
+    },
+    {
+      "complete_sha256": "0730a5b2f072d44932c63e06708b8c8ae427da0d1583e6568e626dc1051e5292",
+      "evaluation_sha256": "97bac7afd37fdceb683cfdb548c1e6b309a4b51801e4f9392d181ce1c80941a0",
+      "task_id": "dev-f03-consistency-s20261032"
+    },
+    {
+      "complete_sha256": "f5aafd18d4d9b0360d5e5520f310ac2024d70bdd5a5668734e0bc10004348318",
+      "evaluation_sha256": "bdacbe3a8dac9aa8a1df6b970f96eb0702289e16a6e7ce494aa60649edf916e3",
+      "task_id": "dev-f03-tail_consistency-s20261032"
+    },
+    {
+      "complete_sha256": "25ef94ea1b4fe1a9888fbf81945ff5b4a9ce7a39b684cf23effa84e1497c9a47",
+      "evaluation_sha256": "fd90b23462567c4ebdc03bd3305bbb6fef023a0db7ba82840660fb70465af17c",
+      "task_id": "dev-f03-erm-s20261033"
+    },
+    {
+      "complete_sha256": "38836a29af87aa86bd2daf01795cceeb5779e25f490a4638015cb6e29b0eac0b",
+      "evaluation_sha256": "37cee37083c52c975765c777940565db278c091c0d7aadab1b8829721c4c7999",
+      "task_id": "dev-f03-groupdro-s20261033"
+    },
+    {
+      "complete_sha256": "d75cc01091c706cd2681e35c539992c80a12c04873fc51174e6a82c61c963fe4",
+      "evaluation_sha256": "fba1353d5d37ae234a2e20ad948c5ea54315f843ebb3e6dd64b7d59f1c58d3e2",
+      "task_id": "dev-f03-tail-s20261033"
+    },
+    {
+      "complete_sha256": "852c33a3f0fab40f62eec7f31f87e1346c3c016e7ecf6391b67f84bcc74cc751",
+      "evaluation_sha256": "9340abf24dbc1e53942b55ba739e37f38bb0d46f827205e6ae674d9027d0bb2f",
+      "task_id": "dev-f03-consistency-s20261033"
+    },
+    {
+      "complete_sha256": "863bdef81ff971c57aebfcf932a4d919aa69571f4fb89f56438f2371fff78f10",
+      "evaluation_sha256": "c99db762d2ba84edccac47d196ca603f5a359b8a5cfc8ae855990294968977ec",
+      "task_id": "dev-f03-tail_consistency-s20261033"
+    },
+    {
+      "complete_sha256": "a6b1ced6f2df9dc313b7cf7d783c1b51cb5bb853cc2c11a15f6a2c669da8b782",
+      "evaluation_sha256": "0e79c1ad8b7d15362251cde6478dee4df15ef2f5e4654db96aa7446d73125bc4",
+      "task_id": "dev-f04-erm-s20261031"
+    },
+    {
+      "complete_sha256": "e79a37778d373006dd3f590b6b9551948b778ff1817b26bf018214a82d8ec1d3",
+      "evaluation_sha256": "b2fc7f22626a69a21f58411995e58fc6c9cd9da948cd558c183464c08b7de4af",
+      "task_id": "dev-f04-groupdro-s20261031"
+    },
+    {
+      "complete_sha256": "894ee1b1d23307476aea836cd2852bcea241b4db045dd4948e6e68b238d4e377",
+      "evaluation_sha256": "7835ce8a3c867919265d8463765902c53f52f7346cc5b45d361c5c0d3c20e924",
+      "task_id": "dev-f04-tail-s20261031"
+    },
+    {
+      "complete_sha256": "cd281a20c575f7c8d138d8e0b9b4dc5a93f2dd2c93a041767842511e20755d02",
+      "evaluation_sha256": "c9dd8dca2f2f6c26dabf8557ebca557f2f16a734f199d334cbb98fda4af6b3af",
+      "task_id": "dev-f04-consistency-s20261031"
+    },
+    {
+      "complete_sha256": "69499d573e2f03f9346807fc53f412159f26f07fa87273bc23ff5c4ffc87cd8f",
+      "evaluation_sha256": "4a383be35958ceb6ab2770404976f2820f9dc9925494a6f0c78dcd4a81869c6b",
+      "task_id": "dev-f04-tail_consistency-s20261031"
+    },
+    {
+      "complete_sha256": "59ac3595916aa89d52da699776b08cf459d5702da16e0a18b69fa15de903c8df",
+      "evaluation_sha256": "5a950b81f1ce067b79ba3f197e90e7fe23856d7519f6dd054a2a1e7b5611d1ee",
+      "task_id": "dev-f04-erm-s20261032"
+    },
+    {
+      "complete_sha256": "e85923af6f962935220ac2e784ebc71aebdb5572f1043b5e641e9a4f4cf36da6",
+      "evaluation_sha256": "9751dec3aabaf4a89448b073599ef675197a7582931bf88071758925386705e4",
+      "task_id": "dev-f04-groupdro-s20261032"
+    },
+    {
+      "complete_sha256": "c58e0a3d0d4c8ff97289c88e76ffd70b4371ec422b1bcd55afe5ad06a5c59fec",
+      "evaluation_sha256": "16ec5693ef4a4bf78ad049512f9fa232304acf12e0bec5500bd07c1c952a8a29",
+      "task_id": "dev-f04-tail-s20261032"
+    },
+    {
+      "complete_sha256": "a8d0d5ab2eaa1275f22608c0a5aa5971e073fa3670050f4e44de851082472bb4",
+      "evaluation_sha256": "3042fccb3c16e9f5e17373a75db3ea85a4eb788c9bf1b95f47b6a476fca41324",
+      "task_id": "dev-f04-consistency-s20261032"
+    },
+    {
+      "complete_sha256": "c485be14fd517357aef1a71ba9d35e46a2befaf50c6ddcd7c97db2a40a50cdad",
+      "evaluation_sha256": "106b43e30f20467327edece45b5f3ef6bdd2d2aae7d86a0beae5fdfccab51024",
+      "task_id": "dev-f04-tail_consistency-s20261032"
+    },
+    {
+      "complete_sha256": "838cf5c502dcfbbd143a13524c145bece8613208fb846371ce544ae37716f559",
+      "evaluation_sha256": "4e8e80b54c33c63ec967f82212ed97404ad36e1cd09b194a38ac7f94b4a14acc",
+      "task_id": "dev-f04-erm-s20261033"
+    },
+    {
+      "complete_sha256": "6cbc2e6adfb7b19511e831cfabc4fcead528c97a61cc78c9e8ef3338e3f4c876",
+      "evaluation_sha256": "3479b9e4682e8ffcdde2d47589167bce4b2252bbd21619a47d3c65430c8f4107",
+      "task_id": "dev-f04-groupdro-s20261033"
+    },
+    {
+      "complete_sha256": "1fab2536d1d8b39b0565aef5793cb8eef0618e02f18b76b9ffb994301ad15209",
+      "evaluation_sha256": "ef6f2a28b716798516d9df7c38105e24ad22765acaa11f38c7d0e92e49014569",
+      "task_id": "dev-f04-tail-s20261033"
+    },
+    {
+      "complete_sha256": "201933567425cd6f1000989467db415ffba35523fbd23d800e066e47bddee7a6",
+      "evaluation_sha256": "11f0c04fb877359efbae2ba0b87d972fe76bb78632f378e8afec36a1a5f10298",
+      "task_id": "dev-f04-consistency-s20261033"
+    },
+    {
+      "complete_sha256": "2299f852d6f69e00a5537a2dee52e009fcc1dc7fb691b474921524e04d74cd79",
+      "evaluation_sha256": "20e7bbf38f61c625abcc9fa8047273e1ed5ff4d96c3acb7657978702c52c0ce3",
+      "task_id": "dev-f04-tail_consistency-s20261033"
+    }
+  ],
+  "status": "complete"
+}

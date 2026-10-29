@@ -1,0 +1,167 @@
+{
+  "journal": "IJBET",
+  "checked_at_utc": "2026-10-29T01:47:09.571428+00:00",
+  "scope": "Official public requirements only; no portal login or submission performed",
+  "sources": {
+    "journal": "https://www.inderscience.com/jhome.php?jcode=ijbet",
+    "faq": "https://www.inderscience.com/authorguidelines/",
+    "preparation": "https://www.inderscience.com/mobile/inauthors/index.php?pid=71",
+    "checklist": "https://www.inderscience.com/mobile/inauthors/index.php?pid=72",
+    "submission": "https://www.inderscience.com/mobile/inauthors/index.php?pid=73",
+    "templates": "https://www.inderscience.com/mobile/inauthors/index.php?pid=68",
+    "portal": "https://www.indersciencesubmissions.com/",
+    "ethics_pdf_2024": "https://www.inderscience.com/www/pdf/Inderscience-ethical-guidelines-for-authors.pdf"
+  },
+  "rules": [
+    {
+      "id": "journal_identity",
+      "level": "verified",
+      "value": "International Journal of Biomedical Engineering and Technology; IJBET; Inderscience; ISSN print 1752-6418, online 1752-6426",
+      "source": "journal"
+    },
+    {
+      "id": "article_type",
+      "level": "required",
+      "value": "Original paper appropriate; journal essentials exclude briefs/research notes",
+      "source": "journal"
+    },
+    {
+      "id": "route",
+      "level": "required",
+      "value": "Online submission through Inderscience Submissions and Peer-Review System; do not use obsolete email-submission workflow",
+      "source": "submission"
+    },
+    {
+      "id": "review",
+      "level": "required",
+      "value": "Double-blind. Main file excludes author names, affiliations, biographical notes and acknowledgements; remove authors from file properties. Retain title, abstract and keywords.",
+      "source": "checklist"
+    },
+    {
+      "id": "initial_file",
+      "level": "required_current_checklist",
+      "value": "Submission file PDF. Supply editable Word as preparation source/if portal requests additional files.",
+      "source": "checklist"
+    },
+    {
+      "id": "abstract",
+      "level": "required",
+      "value": "Factual and precise; fewer than 150 words; objective, methods and conclusions; avoid references/uncommon abbreviations",
+      "source": "preparation"
+    },
+    {
+      "id": "keywords",
+      "level": "guideline",
+      "value": "Approximately 10–15 words or phrases",
+      "source": "preparation"
+    },
+    {
+      "id": "word_count",
+      "level": "normal_range_not_hard_cap",
+      "value": "Normally 5000–7000 words, excluding figures, tables and references; high-quality articles above 7000 may be considered",
+      "source": "preparation"
+    },
+    {
+      "id": "language",
+      "level": "required",
+      "value": "English with UK spelling and terminology",
+      "source": "preparation"
+    },
+    {
+      "id": "font_spacing",
+      "level": "preference",
+      "value": "Times New Roman 12 preferred; either single or double spacing accepted",
+      "source": "preparation"
+    },
+    {
+      "id": "references",
+      "level": "required",
+      "value": "Harvard author–date in text; detailed alphabetical reference list; full authors, publication details, DOI where available; web references include actual access date and URL",
+      "source": "preparation"
+    },
+    {
+      "id": "author_details",
+      "level": "required_online_metadata",
+      "value": "Position, department, institution, full postal address and email per author; biographical note approximately100 words, maximum150. Details belong in online author fields, not anonymous main article.",
+      "source": "preparation"
+    },
+    {
+      "id": "figures",
+      "level": "required_location_and_preferred_colour",
+      "value": "Sequential figures at end of article. Black and white preferred; colour permitted online, print is black and white. High-quality readable artwork.",
+      "source": "preparation"
+    },
+    {
+      "id": "figure_dpi_format",
+      "level": "not_found_as_fixed_numeric_requirement",
+      "value": "No numeric dpi threshold or mandatory TIFF/EPS format on current preparation page. 300dpi PNG and vector PDF/SVG are preparation choices, not claimed journal requirements.",
+      "source": "preparation"
+    },
+    {
+      "id": "template",
+      "level": "optional",
+      "value": "Word/LaTeX templates optional; production typesetter formats accepted papers. Small single-column and A4 double-column options exist; journal allocation list did not render, so IJBET-specific template size not verified.",
+      "source": "templates"
+    },
+    {
+      "id": "coi",
+      "level": "required",
+      "value": "All articles include conflict-of-interest declaration",
+      "source": "preparation"
+    },
+    {
+      "id": "informed_consent",
+      "level": "required_when_human_data",
+      "value": "Research involving human participants requires informed-consent declaration, including anonymised data; specify original consent or organisation/reason for waiver. Do not infer waiver merely from ethics-review exemption.",
+      "source": "preparation"
+    },
+    {
+      "id": "ai",
+      "level": "required_if_used",
+      "value": "Current webpage requires AI technology and purpose disclosed in Declarations. Responsibility remains with human authors; AI cannot be an author.",
+      "source": "faq"
+    },
+    {
+      "id": "all_author_approval",
+      "level": "required",
+      "value": "Definitive author order, affiliations and corresponding author agreed; all authors read and agree to submitted content",
+      "source": "faq"
+    },
+    {
+      "id": "experts",
+      "level": "required_online_metadata",
+      "value": "Four subject experts with names, full addresses and expertise; none from any authors institution or on any Inderscience editorial board; at least two from a different country from the authors. Personal relationship status cannot be assumed.",
+      "source": "faq"
+    },
+    {
+      "id": "prior_rejection",
+      "level": "required_if_previously_submitted",
+      "value": "Formal written rejection/withdrawal evidence for prior same/substantially similar submissions; after submission, author emails evidence with new submissionID to submissions@inderscience.com. Preparation only; no message sent by agent.",
+      "source": "faq"
+    },
+    {
+      "id": "cover_letter",
+      "level": "not_verified_as_current_mandatory_file",
+      "value": "May prepare editorial letter and notes; current public checklist does not require a separate cover-letter file. Older email workflow differs and is not controlling.",
+      "source": "checklist"
+    },
+    {
+      "id": "charges",
+      "level": "verified_context_only",
+      "value": "No standard publication charge unless OA is requested; no payment action authorised/performed",
+      "source": "journal"
+    }
+  ],
+  "source_conflicts": [
+    {
+      "older": "2024 ethics PDF places AI note in Acknowledgements",
+      "current": "Current author guidelines and preparing articles place AI note in Declarations",
+      "resolution": "Use current webpages and remove identifying acknowledgements from blinded main file"
+    },
+    {
+      "older": "Old email-submission page prescribes3files and numerically cites some outdated formatting",
+      "current": "Current journal and submission pages require online route; current checklist PDF",
+      "resolution": "Online/PDF checklist controls initial upload"
+    }
+  ]
+}

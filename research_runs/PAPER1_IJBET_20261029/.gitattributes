@@ -1,0 +1,7 @@
+# Preserve the exact reviewed bytes, including original CSV CRLF endings.
+figure_data/** -text
+figure_data/*.csv whitespace=cr-at-eol
+supporting_data/*.csv -text whitespace=cr-at-eol
+supporting_data/Study1_checkpoint_selection_freeze.json -text
+figures/** -text
+figures/*.svg -whitespace
