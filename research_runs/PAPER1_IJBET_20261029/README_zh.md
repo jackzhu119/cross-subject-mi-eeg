@@ -2,6 +2,8 @@
 
 目标期刊：**International Journal of Biomedical Engineering and Technology**，Inderscience。
 
+当前交付为 **v2**：按作者校正AI披露，Codex辅助代码修改、GitHub推送和文件汇总整理，ChatGPT辅助语法修正和期刊格式查询。科研正文、表格与图件未改，旧版交付保留。修订与文件身份见 `evidence/AI_DISCLOSURE_REVISION_v2.json` 和 `RELEASE.json`。
+
 本次完成英文稿件重写、期刊格式转换、参考文献核查和两幅原创结果图。使用英文版 `anti-defensive-writing` 技能，将研究问题、实际贡献和主要阳性结果放在摘要与引言前部。正文保留决定结论的完整比较；没有新增训练、推理、统计检验或实验。
 
 ## 本稿使用哪些数据版本

@@ -1,0 +1,82 @@
+{
+  "review_type": "AI disclosure v2 visual review; read-only inspection of rendered PNGs, with new QA record only",
+  "method": "Each original render_ai_disclosure_v2 PNG for pages 8–13 was individually opened using tools.view_image(detail=\"original\") and displayed using image(..., \"original\").",
+  "render_directory": "/workspace/paper1-hpc-artifacts/writing-20261029/ijbet/render_ai_disclosure_v2",
+  "source_pdf": "/workspace/paper1-hpc-artifacts/writing-20261029/ijbet/render_ai_disclosure_v2/IJBET_Manuscript_Blinded.pdf",
+  "source_pdf_sha256": "262b8a6844e426e9fa98d604ec6cd410cf5024410e3c40fd2851599f639d354a",
+  "scope": "AI disclosure v2 pages 8–13, concentrating on the revised disclosure and following references; no repeat scientific review",
+  "overall_status": "PASS",
+  "pages": [
+    {
+      "page": 8,
+      "path": "/workspace/paper1-hpc-artifacts/writing-20261029/ijbet/render_ai_disclosure_v2/page-8.png",
+      "status": "PASS",
+      "observations": [
+        "Sections 3.3 and 3.4 remain in consistent serif type with bold black serif headings; all text is inside the margins.",
+        "Table 4 caption, column headers, all five rows, borders, and numerical entries remain readable, with no clipping or cell collisions.",
+        "Normal paragraph and bottom spacing; footer 8 is visible and unobstructed."
+      ],
+      "defects": []
+    },
+    {
+      "page": 9,
+      "path": "/workspace/paper1-hpc-artifacts/writing-20261029/ijbet/render_ai_disclosure_v2/page-9.png",
+      "status": "PASS",
+      "observations": [
+        "Discussion and subsections 4.1–4.4 have consistent bold black serif headings and readable body text.",
+        "The long subsection 4.4 heading wraps cleanly to two lines with following body text on the same page.",
+        "The paragraph continues naturally to page 10; no clipping or abnormal whitespace; footer 9 is unobstructed."
+      ],
+      "defects": []
+    },
+    {
+      "page": 10,
+      "path": "/workspace/paper1-hpc-artifacts/writing-20261029/ijbet/render_ai_disclosure_v2/page-10.png",
+      "status": "PASS",
+      "observations": [
+        "The continuation of subsection 4.4 and subsections 4.5–4.6 are cleanly set in consistent serif typography.",
+        "Inline symbols and objective labels are readable without missing glyphs or line collisions.",
+        "Text remains within margins with normal spacing; footer 10 is visible and unobstructed."
+      ],
+      "defects": []
+    },
+    {
+      "page": 11,
+      "path": "/workspace/paper1-hpc-artifacts/writing-20261029/ijbet/render_ai_disclosure_v2/page-11.png",
+      "status": "PASS",
+      "observations": [
+        "The AI assistance heading and revised paragraph are fully visible near the lower part of the page, in consistent black serif typography.",
+        "The paragraph visibly assigns code modifications, GitHub updates, and research-file collation/organisation to Codex, and grammar correction and journal-formatting lookups to ChatGPT; its four lines are readable and unclipped.",
+        "The References heading now follows the shorter disclosure on page 11 and has the complete two-line Borra entry below it; the heading is not orphaned.",
+        "The disclosure, reference heading, first entry, and footer 11 have clear separation without overlap or clipping."
+      ],
+      "defects": []
+    },
+    {
+      "page": 12,
+      "path": "/workspace/paper1-hpc-artifacts/writing-20261029/ijbet/render_ai_disclosure_v2/page-12.png",
+      "status": "PASS",
+      "observations": [
+        "References continue with consistent hanging indents and readable serif typography.",
+        "Long author lists, titles, URLs, and DOIs wrap within the margins without clipping, missing glyphs, or collisions.",
+        "The Schirrmeister entry begins with two lines at the foot of this page and continues with two lines at the top of page 13; the break is clean, and footer 12 is unobstructed."
+      ],
+      "defects": []
+    },
+    {
+      "page": 13,
+      "path": "/workspace/paper1-hpc-artifacts/writing-20261029/ijbet/render_ai_disclosure_v2/page-13.png",
+      "status": "PASS",
+      "observations": [
+        "The Schirrmeister continuation at the top of the page is readable and completes naturally before the Song entry.",
+        "The remaining reference entries preserve hanging indents and clean author-list, title, and DOI wrapping.",
+        "The Supporting information heading and its complete paragraph are fully visible; the larger lower-page whitespace follows the end of that section and has no visible missing or cut-off content.",
+        "Footer 13 is visible and unobstructed."
+      ],
+      "defects": []
+    }
+  ],
+  "pagination_note": "The shorter AI disclosure moves the References heading and Borra entry onto page 11 and splits the Schirrmeister entry cleanly across pages 12–13. Neither change causes clipping, overlap, or an orphaned reference heading.",
+  "limitations": "This is a visual layout review, not a new scientific, numerical, citation-metadata, or exact font-metadata check.",
+  "data_and_server_activity": "No new data, experiments, school-server access, or manuscript edits. Earlier QA records are preserved."
+}

@@ -1,0 +1,68 @@
+{
+  "review_type": "AI disclosure v2 visual regression review only",
+  "method": "Each exact v2 PNG for pages 2–6 was opened using tools.view_image(detail=\"original\") and displayed using image(); all five page images were actually inspected.",
+  "render_directory": "/workspace/paper1-hpc-artifacts/writing-20261029/ijbet/render_ai_disclosure_v2",
+  "source_pdf": "/workspace/paper1-hpc-artifacts/writing-20261029/ijbet/render_ai_disclosure_v2/IJBET_Manuscript_Blinded.pdf",
+  "source_pdf_sha256": "262b8a6844e426e9fa98d604ec6cd410cf5024410e3c40fd2851599f639d354a",
+  "scope": "Pages 2–6 visual checks only; no repeat scientific review and no assessment of the AI-disclosure text outside this range.",
+  "overall_status": "PASS",
+  "pages": [
+    {
+      "page": 2,
+      "path": "/workspace/paper1-hpc-artifacts/writing-20261029/ijbet/render_ai_disclosure_v2/page-2.png",
+      "status": "PASS",
+      "observations": [
+        "Serif headings and body remain visually consistent.",
+        "Table 1, its caption, and all wrapped cells are legible and fully contained within margins.",
+        "No clipped lines, collisions, or abnormal white space; footer 2 is normal."
+      ],
+      "defects": []
+    },
+    {
+      "page": 3,
+      "path": "/workspace/paper1-hpc-artifacts/writing-20261029/ijbet/render_ai_disclosure_v2/page-3.png",
+      "status": "PASS",
+      "observations": [
+        "Headings, paragraphs, inline formula, and Unicode symbols render cleanly.",
+        "Final paragraph continues normally to page 4 with no clipped text.",
+        "Footer 3 is normal and unobstructed."
+      ],
+      "defects": []
+    },
+    {
+      "page": 4,
+      "path": "/workspace/paper1-hpc-artifacts/writing-20261029/ijbet/render_ai_disclosure_v2/page-4.png",
+      "status": "PASS",
+      "observations": [
+        "Page 3 continuation and heading 2.4 remain cleanly laid out.",
+        "No clipping, stranded heading, irregular white space, or footer collision.",
+        "Footer 4 is normal and unobstructed."
+      ],
+      "defects": []
+    },
+    {
+      "page": 5,
+      "path": "/workspace/paper1-hpc-artifacts/writing-20261029/ijbet/render_ai_disclosure_v2/page-5.png",
+      "status": "PASS",
+      "observations": [
+        "Paragraphs and inline objective formulas are visible without missing glyphs, clipping, or collisions.",
+        "Bottom white space is reasonable.",
+        "Footer 5 is normal and unobstructed."
+      ],
+      "defects": []
+    },
+    {
+      "page": 6,
+      "path": "/workspace/paper1-hpc-artifacts/writing-20261029/ijbet/render_ai_disclosure_v2/page-6.png",
+      "status": "PASS",
+      "observations": [
+        "Headings, body, metric formulas, and Unicode symbols remain visually clean.",
+        "Results headings retain following body text and normal continuation to page 7.",
+        "No clipping or footer collision; footer 6 is normal."
+      ],
+      "defects": []
+    }
+  ],
+  "previous_review_preserved": "/workspace/paper1-hpc-artifacts/writing-20261029/ijbet/visual_review_pages2_6.json",
+  "activity": "New QA record only. No prior QA record overwritten; no manuscript edits, experiments, new data, or school-server access."
+}
