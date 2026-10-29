@@ -217,8 +217,8 @@
       "planned": 30
     },
     "neural/development/y51-all": {
-      "completed": 8,
-      "optimizer_updates": 48000,
+      "completed": 9,
+      "optimizer_updates": 50980,
       "planned": 30
     },
     "neural/development/y51-matched": {
@@ -305,23 +305,23 @@
   "controller": {
     "active_children": [
       {
-        "epoch": 26,
+        "epoch": 40,
         "family": "neural",
-        "global_step": 3328,
-        "optimizer_updates": 3328,
+        "global_step": 5120,
+        "optimizer_updates": 5120,
         "pid": 27297,
-        "processed_evaluation_samples": 0,
-        "stage": "epoch_completed",
+        "processed_evaluation_samples": 6570,
+        "stage": "complete",
         "task_id": "dev-f01-y51-all-erm-s20261113"
       },
       {
-        "epoch": 24,
+        "epoch": 38,
         "family": "neural",
-        "global_step": 3072,
-        "optimizer_updates": 3072,
+        "global_step": 4899,
+        "optimizer_updates": 4899,
         "pid": 35196,
         "processed_evaluation_samples": 0,
-        "stage": "epoch_completed",
+        "stage": "training",
         "task_id": "dev-f01-y51-all-tail-s20261111"
       }
     ],
@@ -329,12 +329,12 @@
     "failed_this_invocation": 0,
     "stage": "fitting_and_evaluation",
     "total_tasks": 630,
-    "updated_at_utc": "2026-10-29T00:04:45.425698+00:00"
+    "updated_at_utc": "2026-10-29T00:06:15.816317+00:00"
   },
   "counts": {
-    "completed": 188,
+    "completed": 189,
     "planned": 630,
-    "remaining": 442
+    "remaining": 441
   },
   "descriptive_statistics": [
     {
@@ -1173,7 +1173,7 @@
     },
     {
       "cell_id": "y51-all",
-      "completed_tasks": 5,
+      "completed_tasks": 6,
       "family": "neural",
       "method": "erm",
       "phase": "development",
@@ -3180,33 +3180,33 @@
     },
     {
       "cell_id": "y51-all",
-      "complete": false,
-      "epoch": 28,
+      "complete": true,
+      "epoch": 40,
       "family": "neural",
       "fold": 1,
       "id": "dev-f01-y51-all-erm-s20261113",
       "method": "erm",
-      "optimizer_updates": 3584,
+      "optimizer_updates": 5120,
       "phase": "development",
-      "processed_evaluation_samples": 0,
+      "processed_evaluation_samples": 6570,
       "seed": 20261113,
-      "stage": "epoch_completed",
-      "updated_at_utc": "2026-10-29T00:04:52.091315+00:00"
+      "stage": "complete",
+      "updated_at_utc": "2026-10-29T00:06:11.853338+00:00"
     },
     {
       "cell_id": "y51-all",
       "complete": false,
-      "epoch": 27,
+      "epoch": 38,
       "family": "neural",
       "fold": 1,
       "id": "dev-f01-y51-all-tail-s20261111",
       "method": "tail",
-      "optimizer_updates": 3456,
+      "optimizer_updates": 4900,
       "phase": "development",
       "processed_evaluation_samples": 0,
       "seed": 20261111,
-      "stage": "epoch_completed",
-      "updated_at_utc": "2026-10-29T00:04:55.168769+00:00"
+      "stage": "cancelled_checkpointed",
+      "updated_at_utc": "2026-10-29T00:06:23.315251+00:00"
     },
     {
       "cell_id": "y51-all",
@@ -9086,5 +9086,5 @@
     }
   ],
   "training_blocked": false,
-  "updated_at_utc": "2026-10-29T00:05:00.320164+00:00"
+  "updated_at_utc": "2026-10-29T00:07:49.327286+00:00"
 }
