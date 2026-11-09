@@ -1,0 +1,1547 @@
+{
+  "schema_version": 1,
+  "review_date": "2026-10-02",
+  "local_git_HEAD": "edf68d6edc524af3f48d1c154c3585e59ca4bf98",
+  "Q13_publication_adb2d406_is_ancestor": true,
+  "scope": "Executed Q12-Q14 only; frozen files read-only, no fitting/preprocessing/new model inference",
+  "authority": "Latest independent passing reports and complete result receipts outrank stale prepared/planned README text.",
+  "arithmetic_audit_runtime": {
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scipy": "1.17.0",
+    "role": "CSV arithmetic only, separate from historical training environments"
+  },
+  "Q12": {
+    "review_status": "read_only_summary_verified",
+    "dataset": "BNCI2014_001",
+    "n_subjects": 9,
+    "classes": 4,
+    "sessions_per_subject": 2,
+    "unique_trials": 5184,
+    "target_trials_per_subject": 576,
+    "analysis_status": "exploratory_post_Q8_target_exploration",
+    "inference_unit": "held_out_subject_after_paired_seed_mean",
+    "final_seeds": [
+      20260924,
+      20260925,
+      20260926
+    ],
+    "inner_fits": 216,
+    "final_fits": 162,
+    "new_deep_fits": 378,
+    "validation_status": "passed_scientific_checks",
+    "batch_status": "complete_validated",
+    "historical_raw_checkpoint_reconstructions": 162,
+    "current_review_artifact_hashes_checked": 2061,
+    "current_review_artifact_hash_failures": 0,
+    "code_manifest_hashes_all_match": true,
+    "baseline": {
+      "id": "Q8-E001",
+      "mean_BA_fraction": 0.4266975308641975,
+      "evidence": "/workspace/cross-subject-mi-eeg/research_runs/Q8-E001/results/subject_seed_metrics.csv"
+    },
+    "arms": [
+      {
+        "condition": "CHANNEL_AND_GAIN",
+        "mean_BA_fraction": 0.40920781893004116,
+        "n_subjects": 9,
+        "seed_rows": 27,
+        "evidence": "/workspace/cross-subject-mi-eeg/results/Q12-BATCH/subject_level_metrics.csv",
+        "mean_BA_percent": 40.92078189300412
+      },
+      {
+        "condition": "CHANNEL_DROPOUT",
+        "mean_BA_fraction": 0.4100437242798354,
+        "n_subjects": 9,
+        "seed_rows": 27,
+        "evidence": "/workspace/cross-subject-mi-eeg/results/Q12-BATCH/subject_level_metrics.csv",
+        "mean_BA_percent": 41.00437242798354
+      },
+      {
+        "condition": "GAIN_PERTURB",
+        "mean_BA_fraction": 0.4342206790123456,
+        "n_subjects": 9,
+        "seed_rows": 27,
+        "evidence": "/workspace/cross-subject-mi-eeg/results/Q12-BATCH/subject_level_metrics.csv",
+        "mean_BA_percent": 43.42206790123456
+      },
+      {
+        "condition": "SOURCE_BALANCED_ERM",
+        "mean_BA_fraction": 0.43184156378600824,
+        "n_subjects": 9,
+        "seed_rows": 27,
+        "evidence": "/workspace/cross-subject-mi-eeg/results/Q12-BATCH/subject_level_metrics.csv",
+        "mean_BA_percent": 43.184156378600825
+      },
+      {
+        "condition": "SOURCE_GROUP_DRO",
+        "mean_BA_fraction": 0.3673482510288066,
+        "n_subjects": 9,
+        "seed_rows": 27,
+        "evidence": "/workspace/cross-subject-mi-eeg/results/Q12-BATCH/subject_level_metrics.csv",
+        "mean_BA_percent": 36.734825102880656
+      },
+      {
+        "condition": "SOURCE_POOLED_WHITEN",
+        "mean_BA_fraction": 0.44335133744855965,
+        "n_subjects": 9,
+        "seed_rows": 27,
+        "evidence": "/workspace/cross-subject-mi-eeg/results/Q12-BATCH/subject_level_metrics.csv",
+        "mean_BA_percent": 44.335133744855966
+      }
+    ],
+    "contrasts": [
+      {
+        "id": "SOURCE_POOLED_WHITEN-Q8-E001",
+        "family": "source_only_domain_generalization",
+        "effect_fraction": 0.01665380658436216,
+        "CI_fraction": [
+          -0.003922325102880657,
+          0.03665123456790125
+        ],
+        "p_raw": 0.1796875,
+        "p_holm": 0.359375,
+        "analysis_status": "exploratory",
+        "wins": 6,
+        "losses": 3,
+        "per_subject_delta": {
+          "1": 0.01736111111111116,
+          "2": 0.023726851851851843,
+          "3": 0.04050925925925938,
+          "4": 0.023148148148148157,
+          "5": -0.0005787037037037016,
+          "6": -0.00752314814814814,
+          "7": 0.023726851851851877,
+          "8": -0.044560185185185196,
+          "9": 0.07407407407407406
+        },
+        "effect_pp": 1.6653806584362159,
+        "CI_pp": [
+          -0.3922325102880657,
+          3.665123456790125
+        ]
+      },
+      {
+        "id": "SOURCE_BALANCED_ERM-Q8-E001",
+        "family": "source_only_domain_generalization",
+        "effect_fraction": 0.0051440329218107195,
+        "CI_fraction": [
+          -0.007073045267489689,
+          0.017746913580246926
+        ],
+        "p_raw": 0.4765625,
+        "p_holm": 0.4765625,
+        "analysis_status": "exploratory",
+        "wins": 5,
+        "losses": 4,
+        "per_subject_delta": {
+          "1": -0.009259259259259245,
+          "2": 0.013310185185185194,
+          "3": 0.008101851851851935,
+          "4": 0.00520833333333337,
+          "5": -0.002314814814814816,
+          "6": -0.0028935185185185084,
+          "7": 0.020254629629629668,
+          "8": -0.028935185185185158,
+          "9": 0.042824074074074035
+        },
+        "effect_pp": 0.514403292181072,
+        "CI_pp": [
+          -0.7073045267489689,
+          1.7746913580246926
+        ]
+      },
+      {
+        "id": "SOURCE_GROUP_DRO-SOURCE_BALANCED_ERM",
+        "family": "source_only_domain_generalization",
+        "effect_fraction": -0.06449331275720165,
+        "CI_fraction": [
+          -0.11471193415637858,
+          -0.01787551440329219
+        ],
+        "p_raw": 0.046875,
+        "p_holm": 0.140625,
+        "analysis_status": "exploratory",
+        "wins": 3,
+        "losses": 6,
+        "per_subject_delta": {
+          "1": -0.10590277777777778,
+          "2": 0.0069444444444443825,
+          "3": -0.09375,
+          "4": -0.06250000000000001,
+          "5": 0.004050925925925912,
+          "6": 0.04224537037037037,
+          "7": -0.024305555555555563,
+          "8": -0.19791666666666666,
+          "9": -0.1493055555555555
+        },
+        "effect_pp": -6.449331275720165,
+        "CI_pp": [
+          -11.471193415637858,
+          -1.787551440329219
+        ]
+      },
+      {
+        "id": "CHANNEL_DROPOUT-Q8-E001",
+        "family": "source_only_augmentation",
+        "effect_fraction": -0.01665380658436212,
+        "CI_fraction": [
+          -0.04507619598765432,
+          0.006365740740740739
+        ],
+        "p_raw": 0.30078125,
+        "p_holm": 0.76171875,
+        "analysis_status": "exploratory",
+        "wins": 2,
+        "losses": 7,
+        "per_subject_delta": {
+          "1": -0.009259259259259264,
+          "2": 0.012152777777777735,
+          "3": -0.029513888888888767,
+          "4": -0.016203703703703665,
+          "5": -0.0023148148148147973,
+          "6": 0.04398148148148149,
+          "7": -0.02662037037037031,
+          "8": -0.11111111111111112,
+          "9": -0.010995370370370405
+        },
+        "effect_pp": -1.665380658436212,
+        "CI_pp": [
+          -4.507619598765432,
+          0.6365740740740738
+        ]
+      },
+      {
+        "id": "GAIN_PERTURB-Q8-E001",
+        "family": "source_only_augmentation",
+        "effect_fraction": 0.0075231481481481555,
+        "CI_fraction": [
+          -0.003407921810699573,
+          0.01858281893004116
+        ],
+        "p_raw": 0.25390625,
+        "p_holm": 0.76171875,
+        "analysis_status": "exploratory",
+        "wins": 6,
+        "losses": 3,
+        "per_subject_delta": {
+          "1": -0.004050925925925893,
+          "2": 0.019675925925925913,
+          "3": 0.019097222222222248,
+          "4": 0.0028935185185185084,
+          "5": -0.012731481481481483,
+          "6": 0.010995370370370405,
+          "7": 0.012731481481481491,
+          "8": -0.01909722222222221,
+          "9": 0.03819444444444442
+        },
+        "effect_pp": 0.7523148148148155,
+        "CI_pp": [
+          -0.3407921810699573,
+          1.858281893004116
+        ]
+      },
+      {
+        "id": "CHANNEL_AND_GAIN-Q8-E001",
+        "family": "source_only_augmentation",
+        "effect_fraction": -0.017489711934156355,
+        "CI_fraction": [
+          -0.05054012345679011,
+          0.009130658436214007
+        ],
+        "p_raw": 0.3515625,
+        "p_holm": 0.76171875,
+        "analysis_status": "exploratory",
+        "wins": 3,
+        "losses": 6,
+        "per_subject_delta": {
+          "1": -0.01157407407407407,
+          "2": 0.012152777777777771,
+          "3": -0.07060185185185175,
+          "4": -0.0023148148148147696,
+          "5": -0.00752314814814814,
+          "6": 0.04282407407407409,
+          "7": -0.009837962962962946,
+          "8": -0.12037037037037039,
+          "9": 0.009837962962963001
+        },
+        "effect_pp": -1.7489711934156356,
+        "CI_pp": [
+          -5.054012345679011,
+          0.9130658436214008
+        ]
+      }
+    ],
+    "runtime": {
+      "python": "3.12.3",
+      "torch": "2.8.0",
+      "torch_cuda_runtime": "12.8",
+      "cuda_device_name": "NVIDIA vGPU-32GB",
+      "braindecode": "1.5.1",
+      "mne": "1.13.2",
+      "moabb": "1.7.2",
+      "Q8_config_device": "cpu",
+      "matched_comparator": "SOURCE_GROUP_DRO vs SOURCE_BALANCED_ERM matches runtime/batch sampling/optimizer-step budget",
+      "caveat": "Q12 reuses frozen Q8 without same-runtime retrained ordinary ERM control; Q12-versus-Q8 pipeline effects cannot cleanly isolate method from execution environment."
+    },
+    "protocol": {
+      "channels": 22,
+      "sampling_rate_Hz": 250,
+      "samples": 750,
+      "band_Hz": [
+        4,
+        40
+      ],
+      "filter": "run-local fourth-order zero-phase Butterworth",
+      "trial_start_window_seconds": [
+        2.5,
+        5.5
+      ],
+      "all_artifact_flags_included": true,
+      "input_units": "microvolts",
+      "target_sessions_withheld": 2,
+      "inner_folds": 4,
+      "max_inner_epochs": 40,
+      "selection": "earliest minimum equal-inner-fold mean validation-CE rank",
+      "selection_seed": 20260923
+    },
+    "limitations": [
+      "Only nine people from an already explored dataset.",
+      "LOSO source training sets overlap.",
+      "Bootstrap resamples fixed subject scores without retraining.",
+      "Seed and trial counts do not expand inferential n.",
+      "No Holm-adjusted contrast p below .05.",
+      "Class collapse persists; whitening includes a fully single-class prediction seed row.",
+      "Raw replay was historically checked by existing scientific receipt, not rerun in current read-only review."
+    ],
+    "verification": "Direct paired CSV means, 20,000 subject-bootstrap intervals and 512 sign-flip enumerations exactly reproduce receipts; 2,061 per-fit hashes verify with no missing or altered artifacts.",
+    "statistics": {
+      "bootstrap_seed": 20260924,
+      "bootstrap_draws": 20000,
+      "test": "512 exhaustive sign-flip sensitivity patterns; Holm within declared families",
+      "CI": "unadjusted percentile interval on fixed subject scores without refitting"
+    },
+    "paper_role": "Main exploratory robustness table, with runtime/control limitation; per-subject and collapse details in supplement."
+  },
+  "Q13": {
+    "experiments_complete": [
+      "Q13-E001",
+      "Q13-E004",
+      "Q13-E005",
+      "Q13-E006"
+    ],
+    "superseded_unrun_branches": [
+      "Q13-E002",
+      "Q13-E003"
+    ],
+    "dataset": "BNCI2014_001",
+    "classes": 4,
+    "n_subjects": 9,
+    "sessions_per_subject": 2,
+    "unique_trials": 5184,
+    "target_trials_per_subject": 576,
+    "analysis_status": "exploratory on previously examined BNCI targets",
+    "inference_unit": "target person after source-subset and three-seed averaging",
+    "historical_validation_original": {
+      "status": "passed",
+      "checkpoint_replays": 837,
+      "new_deep_fits": 837,
+      "reused_q5_raw_ce_fits": 27,
+      "reused_q13_fixed20_k8_fits": 54,
+      "n_outer_subjects": 9,
+      "n_independently_checked_predictions": 482112,
+      "target_fit_or_selection": false,
+      "inference_unit": "held_out_subject; seeds and source subsets are repeated measurements",
+      "analysis_status": "exploratory_post_Q9_not_independent_confirmation",
+      "tables": [
+        "fit_level.csv",
+        "subject_source_count.csv",
+        "subject_source_session.csv",
+        "subject_selection.csv"
+      ]
+    },
+    "historical_validation_e006": {
+      "status": "passed",
+      "experiment_id": "Q13-E006",
+      "condition": "Q8_RAW_CE_MATCHED",
+      "new_final_fits": 27,
+      "checkpoint_replays": 27,
+      "n_held_out_subjects": 9,
+      "n_independently_checked_predictions": 15552,
+      "target_fit_or_selection": false,
+      "matched_runtime_comparator": "Q13-E001/Q8_FIXED20",
+      "selection": "historical_Q5_source_only_raw_CE_schedule_not_reselected_on_new_runtime",
+      "analysis_status": "exploratory_not_independent_confirmation",
+      "amendment_matrix_sha256": "972b6d25db4f0a4dd3420382b43672effe54640271bf0fc5008cc19829c6a411",
+      "run_config_sha256": "bb026b7ee5576f70361c4c515a360c2ff95d738d87e6f4e61ce1858707f50650"
+    },
+    "current_review_checks": {
+      "new_model_fits": 0,
+      "new_model_inference": 0,
+      "original_saved_prediction_rows_rescored": 482112,
+      "e006_saved_prediction_rows_rescored": 15552,
+      "original_per_fit_artifact_SHA256_checks": 5022,
+      "e006_per_fit_artifact_SHA256_checks": 162,
+      "receipt_hash_failures": 0,
+      "all_837_final_fit_BAs_verified_against_metric_and_saved_predictions": true,
+      "probability_argmax_and_576_unique_trial_ids_per_fit_verified": true,
+      "target_excluded_from_train_subjects_per_fit_verified": true,
+      "source_count_session_tables_reconstructed_from_fit_level": true,
+      "all11_effects_bootstrap_CI_exact_p_and_Holm_recomputed": true
+    },
+    "selection_means": [
+      {
+        "condition": "Q8_FIXED20",
+        "mean_BA_fraction": 0.4398791152263375,
+        "mean_BA_percent": 43.98791152263375,
+        "n_subjects": 9
+      },
+      {
+        "condition": "Q8_RAW_CE_REUSE_Q5",
+        "mean_BA_fraction": 0.3371913580246913,
+        "mean_BA_percent": 33.71913580246913,
+        "n_subjects": 9
+      },
+      {
+        "condition": "Q9_SHARED_FIXED20",
+        "mean_BA_fraction": 0.4397505144032922,
+        "mean_BA_percent": 43.975051440329224,
+        "n_subjects": 9
+      },
+      {
+        "condition": "Q9_SHARED_RAW_CE",
+        "mean_BA_fraction": 0.40065586419753085,
+        "mean_BA_percent": 40.06558641975309,
+        "n_subjects": 9
+      }
+    ],
+    "source_count_means": [
+      {
+        "method": "Q8_BROAD",
+        "source_count": 2,
+        "mean_BA_fraction": 0.3295717592592593,
+        "mean_BA_percent": 32.95717592592593,
+        "n_subjects": 9
+      },
+      {
+        "method": "Q8_BROAD",
+        "source_count": 4,
+        "mean_BA_fraction": 0.3889049639917695,
+        "mean_BA_percent": 38.890496399176946,
+        "n_subjects": 9
+      },
+      {
+        "method": "Q8_BROAD",
+        "source_count": 6,
+        "mean_BA_fraction": 0.4315522119341564,
+        "mean_BA_percent": 43.15522119341564,
+        "n_subjects": 9
+      },
+      {
+        "method": "Q8_BROAD",
+        "source_count": 8,
+        "mean_BA_fraction": 0.4398791152263375,
+        "mean_BA_percent": 43.98791152263375,
+        "n_subjects": 9
+      },
+      {
+        "method": "Q9_MU_BETA_SHARED",
+        "source_count": 2,
+        "mean_BA_fraction": 0.34743119855967075,
+        "mean_BA_percent": 34.74311985596707,
+        "n_subjects": 9
+      },
+      {
+        "method": "Q9_MU_BETA_SHARED",
+        "source_count": 4,
+        "mean_BA_fraction": 0.3888888888888889,
+        "mean_BA_percent": 38.88888888888889,
+        "n_subjects": 9
+      },
+      {
+        "method": "Q9_MU_BETA_SHARED",
+        "source_count": 6,
+        "mean_BA_fraction": 0.42484889403292175,
+        "mean_BA_percent": 42.48488940329217,
+        "n_subjects": 9
+      },
+      {
+        "method": "Q9_MU_BETA_SHARED",
+        "source_count": 8,
+        "mean_BA_fraction": 0.4397505144032922,
+        "mean_BA_percent": 43.975051440329224,
+        "n_subjects": 9
+      }
+    ],
+    "source_session_means": [
+      {
+        "method": "Q8_BROAD",
+        "source_session": "0train",
+        "mean_BA_fraction": 0.4224537037037037,
+        "mean_BA_percent": 42.245370370370374,
+        "n_subjects": 9
+      },
+      {
+        "method": "Q8_BROAD",
+        "source_session": "1test",
+        "mean_BA_fraction": 0.41403034979423864,
+        "mean_BA_percent": 41.403034979423865,
+        "n_subjects": 9
+      },
+      {
+        "method": "Q9_MU_BETA_SHARED",
+        "source_session": "0train",
+        "mean_BA_fraction": 0.41808127572016457,
+        "mean_BA_percent": 41.80812757201646,
+        "n_subjects": 9
+      },
+      {
+        "method": "Q9_MU_BETA_SHARED",
+        "source_session": "1test",
+        "mean_BA_fraction": 0.4189171810699588,
+        "mean_BA_percent": 41.89171810699588,
+        "n_subjects": 9
+      }
+    ],
+    "E006_mean_BA_fraction": 0.3392489711934157,
+    "E006_mean_BA_percent": 33.924897119341566,
+    "paired_contrasts": [
+      {
+        "family": "source_count",
+        "interpretation": "exploratory_predeclared_Q13",
+        "n_subjects": 9,
+        "mean_paired_ba_difference": -0.1103073559670781,
+        "median_paired_ba_difference": -0.0688657407407407,
+        "sd_paired_ba_difference": 0.1240276325902317,
+        "paired_dz": -0.8893772594331195,
+        "min_paired_ba_difference": -0.3025173611111111,
+        "max_paired_ba_difference": 0.046875,
+        "subject_bootstrap_95ci_low": -0.1879505047582304,
+        "subject_bootstrap_95ci_high": -0.0356043434927983,
+        "exact_sign_flip_p_exploratory": 0.03125,
+        "holm_within_family_p_exploratory": 0.1640625,
+        "id": "Q8_BROAD_k2_minus_k8",
+        "effect_fraction": -0.1103073559670781,
+        "effect_pp": -11.03073559670781,
+        "CI_fraction": [
+          -0.1879505047582304,
+          -0.0356043434927983
+        ],
+        "CI_pp": [
+          -18.795050475823043,
+          -3.56043434927983
+        ],
+        "p_raw": 0.03125,
+        "p_holm": 0.1640625
+      },
+      {
+        "family": "source_count",
+        "interpretation": "exploratory_predeclared_Q13",
+        "n_subjects": 9,
+        "mean_paired_ba_difference": -0.0509741512345679,
+        "median_paired_ba_difference": -0.015480324074074,
+        "sd_paired_ba_difference": 0.0821590177347136,
+        "paired_dz": -0.6204328221055447,
+        "min_paired_ba_difference": -0.1987847222222223,
+        "max_paired_ba_difference": 0.0282118055555555,
+        "subject_bootstrap_95ci_low": -0.1036040380658436,
+        "subject_bootstrap_95ci_high": -0.0038258744855967,
+        "exact_sign_flip_p_exploratory": 0.14453125,
+        "holm_within_family_p_exploratory": 0.43359375,
+        "id": "Q8_BROAD_k4_minus_k8",
+        "effect_fraction": -0.0509741512345679,
+        "effect_pp": -5.09741512345679,
+        "CI_fraction": [
+          -0.1036040380658436,
+          -0.0038258744855967
+        ],
+        "CI_pp": [
+          -10.36040380658436,
+          -0.38258744855967
+        ],
+        "p_raw": 0.14453125,
+        "p_holm": 0.43359375
+      },
+      {
+        "family": "source_count",
+        "interpretation": "exploratory_predeclared_Q13",
+        "n_subjects": 9,
+        "mean_paired_ba_difference": -0.008326903292181,
+        "median_paired_ba_difference": 0.0067997685185186,
+        "sd_paired_ba_difference": 0.0452953563961947,
+        "paired_dz": -0.1838356943114946,
+        "min_paired_ba_difference": -0.0734953703703702,
+        "max_paired_ba_difference": 0.0462962962962962,
+        "subject_bootstrap_95ci_low": -0.0367155349794238,
+        "subject_bootstrap_95ci_high": 0.0188894515174896,
+        "exact_sign_flip_p_exploratory": 0.56640625,
+        "holm_within_family_p_exploratory": 0.56640625,
+        "id": "Q8_BROAD_k6_minus_k8",
+        "effect_fraction": -0.008326903292181,
+        "effect_pp": -0.8326903292181,
+        "CI_fraction": [
+          -0.0367155349794238,
+          0.0188894515174896
+        ],
+        "CI_pp": [
+          -3.67155349794238,
+          1.8889451517489602
+        ],
+        "p_raw": 0.56640625,
+        "p_holm": 0.56640625
+      },
+      {
+        "family": "source_count",
+        "interpretation": "exploratory_predeclared_Q13",
+        "n_subjects": 9,
+        "mean_paired_ba_difference": -0.0923193158436214,
+        "median_paired_ba_difference": -0.0364583333333333,
+        "sd_paired_ba_difference": 0.0988175878448768,
+        "paired_dz": -0.934239722472721,
+        "min_paired_ba_difference": -0.2201967592592593,
+        "max_paired_ba_difference": 0.0290798611111111,
+        "subject_bootstrap_95ci_low": -0.1541445634002058,
+        "subject_bootstrap_95ci_high": -0.0314589763374485,
+        "exact_sign_flip_p_exploratory": 0.02734375,
+        "holm_within_family_p_exploratory": 0.1640625,
+        "id": "Q9_MU_BETA_SHARED_k2_minus_k8",
+        "effect_fraction": -0.0923193158436214,
+        "effect_pp": -9.231931584362139,
+        "CI_fraction": [
+          -0.1541445634002058,
+          -0.0314589763374485
+        ],
+        "CI_pp": [
+          -15.41445634002058,
+          -3.14589763374485
+        ],
+        "p_raw": 0.02734375,
+        "p_holm": 0.1640625
+      },
+      {
+        "family": "source_count",
+        "interpretation": "exploratory_predeclared_Q13",
+        "n_subjects": 9,
+        "mean_paired_ba_difference": -0.0508616255144033,
+        "median_paired_ba_difference": -0.0147569444444445,
+        "sd_paired_ba_difference": 0.0657931215596598,
+        "paired_dz": -0.7730538437560387,
+        "min_paired_ba_difference": -0.1779513888888889,
+        "max_paired_ba_difference": 0.0180844907407407,
+        "subject_bootstrap_95ci_low": -0.0928341210133745,
+        "subject_bootstrap_95ci_high": -0.013085133744856,
+        "exact_sign_flip_p_exploratory": 0.05859375,
+        "holm_within_family_p_exploratory": 0.234375,
+        "id": "Q9_MU_BETA_SHARED_k4_minus_k8",
+        "effect_fraction": -0.0508616255144033,
+        "effect_pp": -5.08616255144033,
+        "CI_fraction": [
+          -0.0928341210133745,
+          -0.013085133744856
+        ],
+        "CI_pp": [
+          -9.28341210133745,
+          -1.3085133744856001
+        ],
+        "p_raw": 0.05859375,
+        "p_holm": 0.234375
+      },
+      {
+        "family": "source_count",
+        "interpretation": "exploratory_predeclared_Q13",
+        "n_subjects": 9,
+        "mean_paired_ba_difference": -0.0149016203703704,
+        "median_paired_ba_difference": -0.0062210648148148,
+        "sd_paired_ba_difference": 0.0317101940669516,
+        "paired_dz": -0.4699315412232326,
+        "min_paired_ba_difference": -0.0543981481481481,
+        "max_paired_ba_difference": 0.0392071759259258,
+        "subject_bootstrap_95ci_low": -0.0341274434156378,
+        "subject_bootstrap_95ci_high": 0.0041634516460904,
+        "exact_sign_flip_p_exploratory": 0.16796875,
+        "holm_within_family_p_exploratory": 0.43359375,
+        "id": "Q9_MU_BETA_SHARED_k6_minus_k8",
+        "effect_fraction": -0.0149016203703704,
+        "effect_pp": -1.49016203703704,
+        "CI_fraction": [
+          -0.0341274434156378,
+          0.0041634516460904
+        ],
+        "CI_pp": [
+          -3.4127443415637804,
+          0.41634516460904003
+        ],
+        "p_raw": 0.16796875,
+        "p_holm": 0.43359375
+      },
+      {
+        "family": "source_session",
+        "interpretation": "exploratory_predeclared_Q13",
+        "n_subjects": 9,
+        "mean_paired_ba_difference": -0.008423353909465,
+        "median_paired_ba_difference": -0.0046296296296295,
+        "sd_paired_ba_difference": 0.0169217928359645,
+        "paired_dz": -0.4977814107003205,
+        "min_paired_ba_difference": -0.0335648148148148,
+        "max_paired_ba_difference": 0.0150462962962962,
+        "subject_bootstrap_95ci_low": -0.0189043209876543,
+        "subject_bootstrap_95ci_high": 0.001930619855967,
+        "exact_sign_flip_p_exploratory": 0.17578125,
+        "holm_within_family_p_exploratory": 0.3515625,
+        "id": "Q8_BROAD_1test_minus_0train",
+        "effect_fraction": -0.008423353909465,
+        "effect_pp": -0.8423353909465,
+        "CI_fraction": [
+          -0.0189043209876543,
+          0.001930619855967
+        ],
+        "CI_pp": [
+          -1.8904320987654302,
+          0.1930619855967
+        ],
+        "p_raw": 0.17578125,
+        "p_holm": 0.3515625
+      },
+      {
+        "family": "source_session",
+        "interpretation": "exploratory_predeclared_Q13",
+        "n_subjects": 9,
+        "mean_paired_ba_difference": 0.0008359053497942,
+        "median_paired_ba_difference": 0.0046296296296295,
+        "sd_paired_ba_difference": 0.0189522395170408,
+        "paired_dz": 0.0441058878051138,
+        "min_paired_ba_difference": -0.03125,
+        "max_paired_ba_difference": 0.0243055555555554,
+        "subject_bootstrap_95ci_low": -0.0113811728395061,
+        "subject_bootstrap_95ci_high": 0.0118328832304526,
+        "exact_sign_flip_p_exploratory": 0.8515625,
+        "holm_within_family_p_exploratory": 0.8515625,
+        "id": "Q9_MU_BETA_SHARED_1test_minus_0train",
+        "effect_fraction": 0.0008359053497942,
+        "effect_pp": 0.08359053497942,
+        "CI_fraction": [
+          -0.0113811728395061,
+          0.0118328832304526
+        ],
+        "CI_pp": [
+          -1.13811728395061,
+          1.18328832304526
+        ],
+        "p_raw": 0.8515625,
+        "p_holm": 0.8515625
+      },
+      {
+        "family": "selection",
+        "interpretation": "historical_cross_run_descriptive",
+        "n_subjects": 9,
+        "mean_paired_ba_difference": 0.1026877572016461,
+        "median_paired_ba_difference": 0.0081018518518518,
+        "sd_paired_ba_difference": 0.1682655310668566,
+        "paired_dz": 0.6102720893017916,
+        "min_paired_ba_difference": -0.0190972222222222,
+        "max_paired_ba_difference": 0.4236111111111111,
+        "subject_bootstrap_95ci_low": 0.0095807613168724,
+        "subject_bootstrap_95ci_high": 0.2162438914609053,
+        "exact_sign_flip_p_exploratory": 0.1015625,
+        "holm_within_family_p_exploratory": 0.15625,
+        "id": "Q8_FIXED20_minus_Q8_RAW_CE_REUSE_Q5",
+        "effect_fraction": 0.1026877572016461,
+        "effect_pp": 10.268775720164609,
+        "CI_fraction": [
+          0.0095807613168724,
+          0.2162438914609053
+        ],
+        "CI_pp": [
+          0.95807613168724,
+          21.624389146090532
+        ],
+        "p_raw": 0.1015625,
+        "p_holm": 0.15625
+      },
+      {
+        "family": "selection",
+        "interpretation": "exploratory_predeclared_Q13",
+        "n_subjects": 9,
+        "mean_paired_ba_difference": 0.0390946502057613,
+        "median_paired_ba_difference": 0.0364583333333333,
+        "sd_paired_ba_difference": 0.0592621351258507,
+        "paired_dz": 0.6596902072923775,
+        "min_paired_ba_difference": -0.0266203703703702,
+        "max_paired_ba_difference": 0.1481481481481481,
+        "subject_bootstrap_95ci_low": 0.0044367283950617,
+        "subject_bootstrap_95ci_high": 0.076197595164609,
+        "exact_sign_flip_p_exploratory": 0.078125,
+        "holm_within_family_p_exploratory": 0.15625,
+        "id": "Q9_SHARED_FIXED20_minus_Q9_SHARED_RAW_CE",
+        "effect_fraction": 0.0390946502057613,
+        "effect_pp": 3.9094650205761297,
+        "CI_fraction": [
+          0.0044367283950617,
+          0.076197595164609
+        ],
+        "CI_pp": [
+          0.44367283950617004,
+          7.6197595164609
+        ],
+        "p_raw": 0.078125,
+        "p_holm": 0.15625
+      },
+      {
+        "family": "E006_matched_runtime_amendment",
+        "interpretation": "exploratory_matched_runtime_schedule",
+        "n_subjects": 9,
+        "mean_paired_ba_difference": -0.1006301440329218,
+        "median_paired_ba_difference": 0.001736111111111,
+        "sd_paired_ba_difference": 0.1696965218609459,
+        "paired_dz": -0.5930006279997948,
+        "min_paired_ba_difference": -0.4236111111111111,
+        "max_paired_ba_difference": 0.0237268518518518,
+        "subject_bootstrap_95ci_low": -0.21528420781893,
+        "subject_bootstrap_95ci_high": -0.0067515432098765,
+        "exact_sign_flip_p_exploratory": 0.125,
+        "holm_within_family_p_exploratory": 0.125,
+        "id": "Q8_E006_RAW_CE_minus_Q8_FIXED20",
+        "effect_fraction": -0.1006301440329218,
+        "effect_pp": -10.063014403292179,
+        "CI_fraction": [
+          -0.21528420781893,
+          -0.0067515432098765
+        ],
+        "CI_pp": [
+          -21.528420781893,
+          -0.67515432098765
+        ],
+        "p_raw": 0.125,
+        "p_holm": 0.125
+      }
+    ],
+    "fit_budget_and_failure_modes": [
+      {
+        "condition": "Q8_FIXED20",
+        "fits": 27,
+        "n_train_min": 4608,
+        "n_train_max": 4608,
+        "optimizer_updates_min": 1440,
+        "optimizer_updates_max": 1440,
+        "fits_with_zero_recall_class": 6
+      },
+      {
+        "condition": "Q8_SOURCE_SESSION_E",
+        "fits": 27,
+        "n_train_min": 2304,
+        "n_train_max": 2304,
+        "optimizer_updates_min": 720,
+        "optimizer_updates_max": 720,
+        "fits_with_zero_recall_class": 6
+      },
+      {
+        "condition": "Q8_SOURCE_SESSION_T",
+        "fits": 27,
+        "n_train_min": 2304,
+        "n_train_max": 2304,
+        "optimizer_updates_min": 720,
+        "optimizer_updates_max": 720,
+        "fits_with_zero_recall_class": 3
+      },
+      {
+        "condition": "Q8_SRC2",
+        "fits": 108,
+        "n_train_min": 1152,
+        "n_train_max": 1152,
+        "optimizer_updates_min": 360,
+        "optimizer_updates_max": 360,
+        "fits_with_zero_recall_class": 51
+      },
+      {
+        "condition": "Q8_SRC4",
+        "fits": 108,
+        "n_train_min": 2304,
+        "n_train_max": 2304,
+        "optimizer_updates_min": 720,
+        "optimizer_updates_max": 720,
+        "fits_with_zero_recall_class": 19
+      },
+      {
+        "condition": "Q8_SRC6",
+        "fits": 108,
+        "n_train_min": 3456,
+        "n_train_max": 3456,
+        "optimizer_updates_min": 1080,
+        "optimizer_updates_max": 1080,
+        "fits_with_zero_recall_class": 17
+      },
+      {
+        "condition": "Q9_SHARED_FIXED20",
+        "fits": 27,
+        "n_train_min": 4608,
+        "n_train_max": 4608,
+        "optimizer_updates_min": 1440,
+        "optimizer_updates_max": 1440,
+        "fits_with_zero_recall_class": 4
+      },
+      {
+        "condition": "Q9_SHARED_RAW_CE",
+        "fits": 27,
+        "n_train_min": 4608,
+        "n_train_max": 4608,
+        "optimizer_updates_min": 72,
+        "optimizer_updates_max": 504,
+        "fits_with_zero_recall_class": 8
+      },
+      {
+        "condition": "Q9_SHARED_SOURCE_SESSION_E",
+        "fits": 27,
+        "n_train_min": 2304,
+        "n_train_max": 2304,
+        "optimizer_updates_min": 720,
+        "optimizer_updates_max": 720,
+        "fits_with_zero_recall_class": 3
+      },
+      {
+        "condition": "Q9_SHARED_SOURCE_SESSION_T",
+        "fits": 27,
+        "n_train_min": 2304,
+        "n_train_max": 2304,
+        "optimizer_updates_min": 720,
+        "optimizer_updates_max": 720,
+        "fits_with_zero_recall_class": 3
+      },
+      {
+        "condition": "Q9_SHARED_SRC2",
+        "fits": 108,
+        "n_train_min": 1152,
+        "n_train_max": 1152,
+        "optimizer_updates_min": 360,
+        "optimizer_updates_max": 360,
+        "fits_with_zero_recall_class": 56
+      },
+      {
+        "condition": "Q9_SHARED_SRC4",
+        "fits": 108,
+        "n_train_min": 2304,
+        "n_train_max": 2304,
+        "optimizer_updates_min": 720,
+        "optimizer_updates_max": 720,
+        "fits_with_zero_recall_class": 22
+      },
+      {
+        "condition": "Q9_SHARED_SRC6",
+        "fits": 108,
+        "n_train_min": 3456,
+        "n_train_max": 3456,
+        "optimizer_updates_min": 1080,
+        "optimizer_updates_max": 1080,
+        "fits_with_zero_recall_class": 14
+      }
+    ],
+    "statistics": {
+      "bootstrap_seed": 20260926,
+      "bootstrap_draws": 10000,
+      "test": "512 exhaustive sign flips, Holm within each predeclared family; E006 separate one-contrast amendment family",
+      "CI": "unadjusted subject percentile; no pipeline refitting"
+    },
+    "matched_runtime_E006": {
+      "all_selected_runtime_fields_identical": true,
+      "all18_raw_file_receipts_identical": true,
+      "fields": {
+        "python": "3.12.3 | packaged by Anaconda, Inc. | (main, May  6 2024, 19:46:43) [GCC 11.2.0]",
+        "platform": "Linux-5.15.0-83-generic-x86_64-with-glibc2.35",
+        "packages": {
+          "torch": "2.8.0",
+          "braindecode": "1.5.1",
+          "mne": "1.13.2",
+          "moabb": "1.7.2",
+          "numpy": "2.3.2",
+          "pandas": "3.0.6",
+          "scipy": "1.18.1",
+          "scikit-learn": "1.9.1"
+        },
+        "torch_cuda_runtime": "12.8",
+        "cuda_available": true,
+        "cuda_device_name": "NVIDIA vGPU-32GB"
+      },
+      "historical_source_only_epochs_by_target": {
+        "1": 27,
+        "2": 1,
+        "3": 2,
+        "4": 10,
+        "5": 13,
+        "6": 7,
+        "7": 6,
+        "8": 1,
+        "9": 7
+      },
+      "duration_only_change": "historical Q5 source-only raw CE schedule versus fixed20; inner selection not rerun on new runtime"
+    },
+    "paper_role": "Completed validated sensitivity analyses can enter main text; all subsets/seeds and class collapses retained in supplement.",
+    "limitations": [
+      "Previously examined nine-person dataset; overlapping LOSO source sets; all contrasts exploratory.",
+      "Natural optimizer updates increase with source k, so source count is confounded with data exposure and training budget.",
+      "Historical Q5-reuse contrast is cross-runtime descriptive; E006 is the preferred matched-runtime duration sensitivity.",
+      "E006 does not rerun inner selection under the new environment.",
+      "No within-family Holm p is below .05; bootstrap interval exclusion alone does not establish significance.",
+      "Seeds, subsets and sessions are repeated observations, not additional people."
+    ]
+  },
+  "Q14": {
+    "source_development": {
+      "id": "Q14-E001",
+      "dataset": "BNCI2014_001",
+      "classes": 2,
+      "n_subjects": 9,
+      "unique_trials": 2592,
+      "target_trials_per_subject": 288,
+      "mean_BA_fraction": {
+        "BROAD_EEGNET": 0.6820987654320987,
+        "CSP4_LDA": 0.6153549382716049,
+        "MU_BETA_SHARED": 0.6734825102880658
+      },
+      "mean_BA_percent": {
+        "BROAD_EEGNET": 68.20987654320987,
+        "CSP4_LDA": 61.535493827160494,
+        "MU_BETA_SHARED": 67.34825102880659
+      },
+      "historical_validation": {
+        "config_sha256": "21428bd8344f1fb8750e7f794f60a17588d63baa8c756db324c0df1c2c474ff2",
+        "counts": {
+          "deep_final": 54,
+          "deep_inner": 72,
+          "predictions": 63,
+          "shallow": 9
+        },
+        "experiment_id": "Q14-E001",
+        "interpretation": "BNCI matched-binary development only; external performance not inspected",
+        "passed": true,
+        "source_data_sha256": "eab11a3f27f049ee9ae1539974ed56b1399e54a71a83828f45bf8371c46e2f03",
+        "source_runner_sha256": "b70cf5e41474688b22c6a57a068c07edaa22a8bbf640bd2100b8bb616ea05375",
+        "source_subjects": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "stage": "e001",
+        "subject_seed_metrics_sha256": "b756700f8e22f7dcb760c8f9ee7a4e0fa7f42d9f93c237d29ab728a66d4a7de5",
+        "validator_sha256": "0820bec8264456d23021a79a59dd218e88e23c116b5e5363c8969aa2428aa83c"
+      },
+      "shared_minus_broad_audit_exploratory": {
+        "effect_fraction": -0.00861625514403292,
+        "effect_pp": -0.861625514403292,
+        "CI_fraction": [
+          -0.020704732510288062,
+          0.0029578189300411627
+        ],
+        "CI_pp": [
+          -2.070473251028806,
+          0.2957818930041163
+        ],
+        "p_raw_exact_sign_flip": 0.21875,
+        "bootstrap_seed": 20260926,
+        "bootstrap_draws": 10000,
+        "status": "Additional present-review descriptive statistic; not archived external primary endpoint"
+      },
+      "paper_role": "Matched-binary BNCI development; not independent confirmation."
+    },
+    "source_freeze": {
+      "id": "Q14-E002",
+      "deep_inner_fits": 8,
+      "deep_final_fits": 6,
+      "shallow_fits": 1,
+      "source_subjects": 9,
+      "selected_epochs": {
+        "BROAD_EEGNET": 18,
+        "MU_BETA_SHARED": 17
+      },
+      "status": "FROZEN_BEFORE_EXTERNAL_DATA_ACCESS",
+      "current_review7_frozen_model_hashes_verified": true,
+      "historical_validation": {
+        "config_sha256": "21428bd8344f1fb8750e7f794f60a17588d63baa8c756db324c0df1c2c474ff2",
+        "counts": {
+          "deep_final": 6,
+          "deep_inner": 8,
+          "predictions": 0,
+          "shallow": 1
+        },
+        "experiment_id": "Q14-E002",
+        "interpretation": "BNCI matched-binary development only; external performance not inspected",
+        "passed": true,
+        "source_data_sha256": "eab11a3f27f049ee9ae1539974ed56b1399e54a71a83828f45bf8371c46e2f03",
+        "source_runner_sha256": "b70cf5e41474688b22c6a57a068c07edaa22a8bbf640bd2100b8bb616ea05375",
+        "source_subjects": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "stage": "e002",
+        "validator_sha256": "0820bec8264456d23021a79a59dd218e88e23c116b5e5363c8969aa2428aa83c"
+      },
+      "validation_boundary": "Checks metadata/manifests/CE epoch selection/model hashes/saved development predictions; does not claim raw checkpoint inference replay."
+    },
+    "external": {
+      "result_id": "Q14-E002R2",
+      "final_validation_id": "Q14-E002R2V1",
+      "dataset": "PhysioNet EEGMMIDB v1.0.0",
+      "classes": 2,
+      "n_subjects": 109,
+      "runs": [
+        4,
+        8,
+        12
+      ],
+      "unique_trials": 4918,
+      "saved_model_seed_prediction_rows": 34426,
+      "historically_verified_official_EDFs": 327,
+      "target_fits": 0,
+      "mean_BA_fraction": {
+        "BROAD_EEGNET": 0.618145918716906,
+        "CSP4_LDA": 0.5446171979507948,
+        "MU_BETA_SHARED": 0.6238788807867798
+      },
+      "mean_BA_percent": {
+        "BROAD_EEGNET": 61.8145918716906,
+        "CSP4_LDA": 54.461719795079475,
+        "MU_BETA_SHARED": 62.387888078677975
+      },
+      "primary": {
+        "contrast": "MU_BETA_SHARED minus BROAD_EEGNET",
+        "status": "predeclared external primary with retained metadata-driven rate amendment",
+        "effect_fraction": 0.005732962069873878,
+        "effect_pp": 0.5732962069873878,
+        "CI_fraction": [
+          -0.0009668274012807726,
+          0.0124155510252241
+        ],
+        "CI_pp": [
+          -0.09668274012807726,
+          1.2415551025224099
+        ],
+        "bootstrap_draws": 20000,
+        "bootstrap_seed": 20260924,
+        "p_two_sided_sign_test_excluding_ties": 0.0644635919894938,
+        "positive": 63,
+        "negative": 43,
+        "ties": 3,
+        "unit": "person after averaging three fixed neural seeds",
+        "supported_conclusion": "Small uncertain observed shared-minus-broad difference; CI includes zero and p > .05."
+      },
+      "native_rate_sensitivity": {
+        "n_native_160_hz_subjects": 106,
+        "n_resampled_subjects": 3,
+        "native_160_hz_mean_difference": 0.005749773310273709,
+        "resampled_128_hz_subjects": [
+          88,
+          92,
+          100
+        ],
+        "resampled_mean_difference": 0.005138964909079853,
+        "role": "descriptive sensitivity only; no alternate primary endpoint or model selection"
+      },
+      "historical_validation_status": "portable_independent_external_validation_passed",
+      "validation_boundary": "Official EDF checksum/event/label identities; custody of frozen source models and saved probabilities; argmax, confusion, BA, bootstrap and sign-test reconstruction. No fresh checkpoint prediction generation in portable validation.",
+      "current_review_saved_metric_effect_CI_p_recomputed": true,
+      "final_tables_hashes_match_passed_report": true,
+      "historical_inference_runtime": {
+        "cuda_available": true,
+        "cuda_device_name": "NVIDIA GeForce RTX 4080 SUPER",
+        "packages": {
+          "braindecode": "1.5.1",
+          "mne": "1.13.2",
+          "moabb": "1.7.2",
+          "numpy": "2.3.2",
+          "scikit-learn": "1.9.1",
+          "scipy": "1.18.1",
+          "torch": "2.8.0+cu128",
+          "torchaudio": "2.8.0+cu128"
+        },
+        "platform": "Linux-5.4.0-153-generic-x86_64-with-glibc2.35",
+        "python": "3.12.3 | packaged by Anaconda, Inc. | (main, May  6 2024, 19:46:43) [GCC 11.2.0]",
+        "torch_cuda_runtime": "12.8"
+      },
+      "validation_runtime": {
+        "cuda_available": true,
+        "cuda_device_name": "NVIDIA vGPU-32GB",
+        "packages": {
+          "braindecode": "1.5.1",
+          "mne": "1.13.2",
+          "moabb": "1.7.2",
+          "numpy": "2.3.2",
+          "scikit-learn": "1.9.1",
+          "scipy": "1.18.1",
+          "torch": "2.8.0",
+          "torchaudio": "2.8.0"
+        },
+        "platform": "Linux-5.15.0-83-generic-x86_64-with-glibc2.35",
+        "python": "3.12.3 | packaged by Anaconda, Inc. | (main, May  6 2024, 19:46:43) [GCC 11.2.0]",
+        "torch_cuda_runtime": "12.8"
+      },
+      "deviations": [
+        "R1 stopped at first 128-Hz recording S088; failure history preserved.",
+        "R2 preserved 87 byte-identical subjects and inferred22; only S088/S092/S100 resampled128-to160Hz.",
+        "Validator precision erratum permits <=5e-16 in reserialized probability columns only, with labels/row identities unchanged.",
+        "Portable independent validation is on a different host/runtime and does not regenerate predictions."
+      ],
+      "limitations": [
+        "R2 was amended after a metadata-triggered R1 failure; it is not an unchanged original Q14-E002 execution.",
+        "Only three subjects needed 128-to-160-Hz resampling; their subgroup is descriptive, not separately powered.",
+        "BNCI and PhysioNet acquisition/reference differ, so the external contrast does not identify one mechanism.",
+        "Binary external BA cannot be directly compared numerically with four-class Q5-Q9 results.",
+        "This independent validation ran on a different host/runtime from the frozen inference; both runtimes are recorded and are not represented as identical."
+      ],
+      "paper_role": "Main independent external result; report uncertain primary, amendments and CSP contextual comparator."
+    },
+    "unrun_experiments_excluded": [
+      "Q14-E003"
+    ],
+    "new_model_fits_or_inference_in_review": 0
+  },
+  "paper_inclusion_policy": [
+    "Include all completed validated arms, negative and collapse results.",
+    "Keep four-class BNCI chance .25 separate from binary BNCI/PhysioNet chance .5.",
+    "Treat seeds/source subsets/sessions/trials as repeated observations within person.",
+    "Exclude superseded/unrun branches, failed incomplete continuations as standalone cohorts and all prospective/data-only external-cohort work.",
+    "Primary external contrast remains shared-minus-broad, CSP contextual; prior BNCI development exploratory."
+  ],
+  "key_evidence": [
+    {
+      "relative_path": "results/Q12-BATCH/scientific_validation.json",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/results/Q12-BATCH/scientific_validation.json",
+      "bytes": 1720,
+      "sha256": "739910ee03b008fb374c7b026bbade0dc6b6d8ef0016cda3fac19a071c53e7e6"
+    },
+    {
+      "relative_path": "results/Q12-BATCH/orchestration_validation.json",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/results/Q12-BATCH/orchestration_validation.json",
+      "bytes": 1937,
+      "sha256": "ef6053ea704facfccb14287ff1102c5e8796cf2bfe1673e283dbe2497aeec434"
+    },
+    {
+      "relative_path": "results/Q12-BATCH/batch_status.json",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/results/Q12-BATCH/batch_status.json",
+      "bytes": 354,
+      "sha256": "ee23bc87c5c9909c017890404dc67b2475045074cc9d4e91002e0eda3b0256e2"
+    },
+    {
+      "relative_path": "results/Q12-BATCH/batch_manifest.json",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/results/Q12-BATCH/batch_manifest.json",
+      "bytes": 11110,
+      "sha256": "909ca66989bee7b84221f241698e531545facfe74d42d360ffea05c330e4254d"
+    },
+    {
+      "relative_path": "results/Q12-BATCH/paired_subject_contrasts.json",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/results/Q12-BATCH/paired_subject_contrasts.json",
+      "bytes": 4616,
+      "sha256": "3f32f1321ff833bc2a74b93bde40312bd4a5c96eca4b89321d8080cfadd4d97d"
+    },
+    {
+      "relative_path": "results/Q12-BATCH/subject_level_metrics.csv",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/results/Q12-BATCH/subject_level_metrics.csv",
+      "bytes": 5055,
+      "sha256": "70dc8b6286bb0771880a56bd1f6ee673633d8701b9a4302eba43cb6cd2c47dda"
+    },
+    {
+      "relative_path": "results/Q12-BATCH/subject_seed_metrics.csv",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/results/Q12-BATCH/subject_seed_metrics.csv",
+      "bytes": 22985,
+      "sha256": "45b7f53a09f80a4d578003d3d29271743646897dc612c4334f5674161ed31557"
+    },
+    {
+      "relative_path": "research_runs/Q12-PREP-20260926/PROTOCOL.md",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/research_runs/Q12-PREP-20260926/PROTOCOL.md",
+      "bytes": 6972,
+      "sha256": "63e16f3ce90e44f676ee02f9d4a8071bcd0871979172e42dae2595a8eb13f130"
+    },
+    {
+      "relative_path": "research_runs/Q12-PREP-20260926/MATRIX.json",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/research_runs/Q12-PREP-20260926/MATRIX.json",
+      "bytes": 2416,
+      "sha256": "5f5a6d4fa01063fb7554bde4b33ed726f9f7c2ca9c751dbdce9cc25d81df39a6"
+    },
+    {
+      "relative_path": "research_runs/Q8-E001/results/subject_seed_metrics.csv",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/research_runs/Q8-E001/results/subject_seed_metrics.csv",
+      "bytes": 1853,
+      "sha256": "29746f2adfc71dab6355d7dbf5e945971216c0845e8c45f7565dbca27e22df3e"
+    },
+    {
+      "relative_path": "research_runs/Q8-E001/results/config.json",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/research_runs/Q8-E001/results/config.json",
+      "bytes": 3895,
+      "sha256": "daac05d5dffc36cd1d44dd30927d480c0a1087125828ce95ebb2b383d7d18342"
+    },
+    {
+      "relative_path": "results/Q12-E001/SOURCE_GROUP_DRO/environment.json",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/results/Q12-E001/SOURCE_GROUP_DRO/environment.json",
+      "bytes": 586,
+      "sha256": "7f0c579493c0a28e9407552b298068bc3be1e360bf2dd05919fbb754da96a488"
+    },
+    {
+      "relative_path": "research_runs/Q13-PREP-20260926/PROTOCOL.md",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/research_runs/Q13-PREP-20260926/PROTOCOL.md",
+      "bytes": 6662,
+      "sha256": "d7188883f6e5dcef7b6580616a78f6cd59167b1d9ef1dc579b1b55221ab50b04"
+    },
+    {
+      "relative_path": "research_runs/Q13-PREP-20260926/MATRIX.json",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/research_runs/Q13-PREP-20260926/MATRIX.json",
+      "bytes": 3954,
+      "sha256": "f1487579d8dae8a6f28dc75206b3a6a74b4c1e638401833c797ecc441ed7c5e2"
+    },
+    {
+      "relative_path": "research_runs/Q13-E006/AMENDMENT.md",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/research_runs/Q13-E006/AMENDMENT.md",
+      "bytes": 3109,
+      "sha256": "0b7da50ee7a52d62458ad6e45a3bf4b7ee69d848eddbf2199f0ffb8bd439fbbb"
+    },
+    {
+      "relative_path": "research_runs/Q13-E006/MATRIX.json",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/research_runs/Q13-E006/MATRIX.json",
+      "bytes": 799,
+      "sha256": "972b6d25db4f0a4dd3420382b43672effe54640271bf0fc5008cc19829c6a411"
+    },
+    {
+      "relative_path": "research_runs/Q13-E006/POSTRUN_STATS.md",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/research_runs/Q13-E006/POSTRUN_STATS.md",
+      "bytes": 3026,
+      "sha256": "be09a404eaa6b2eaa960f3f865007b5fc330ef835c08cc42157ec4521c6a3d0a"
+    },
+    {
+      "relative_path": "results/Q13-BATCH/batch_status.json",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/results/Q13-BATCH/batch_status.json",
+      "bytes": 1687,
+      "sha256": "be41a55aa671143f2edb7a097c2882ff784a05d4db4b19f63b693ec5c3fe0af5"
+    },
+    {
+      "relative_path": "results/Q13-BATCH/validation_report.json",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/results/Q13-BATCH/validation_report.json",
+      "bytes": 554,
+      "sha256": "3d21dbb98d775a19f8328dc4ad4a5d285c6c4ee18204b22543561c4ee14a0266"
+    },
+    {
+      "relative_path": "results/Q13-BATCH/publication_summary.json",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/results/Q13-BATCH/publication_summary.json",
+      "bytes": 177,
+      "sha256": "05eaab2ff9aeeffbb53ac91ba2e012bc1d84c0752acccc97a86120cccccc1c7d"
+    },
+    {
+      "relative_path": "results/Q13-BATCH/analysis/fit_level.csv",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/results/Q13-BATCH/analysis/fit_level.csv",
+      "bytes": 66471,
+      "sha256": "963b5c77838a5e2fcd910bdba6190ca3bd6e4dc679a20d790ac69b904b43e83a"
+    },
+    {
+      "relative_path": "results/Q13-BATCH/analysis/subject_selection.csv",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/results/Q13-BATCH/analysis/subject_selection.csv",
+      "bytes": 2127,
+      "sha256": "c5f8ec43e90678f66cae1d1f28e6fd0404cf0013f776080e4c222ba80454602b"
+    },
+    {
+      "relative_path": "results/Q13-BATCH/analysis/subject_source_count.csv",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/results/Q13-BATCH/analysis/subject_source_count.csv",
+      "bytes": 5488,
+      "sha256": "2d0d0a7579e20534c9f7e0e74ab2359cc193a983de203b96820e7d05c2b3fa4a"
+    },
+    {
+      "relative_path": "results/Q13-BATCH/analysis/subject_source_session.csv",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/results/Q13-BATCH/analysis/subject_source_session.csv",
+      "bytes": 2262,
+      "sha256": "8d39953429b3ec56c10acde6a73c8d7e7ae7664d350f668dfc76018fa2d310e4"
+    },
+    {
+      "relative_path": "results/Q13-E006/Q8_RAW_CE_MATCHED/status.json",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/results/Q13-E006/Q8_RAW_CE_MATCHED/status.json",
+      "bytes": 257,
+      "sha256": "72fd2ce52f13a0a43545a731b22c29f768935c81ad5b4fe457374e7eca39f8ee"
+    },
+    {
+      "relative_path": "results/Q13-E006/Q8_RAW_CE_MATCHED/environment.json",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/results/Q13-E006/Q8_RAW_CE_MATCHED/environment.json",
+      "bytes": 586,
+      "sha256": "9788678e9fbcf29202c05be788d0b5f2fcf90b03c0198d6822f73dbde6be4827"
+    },
+    {
+      "relative_path": "results/Q13-E006/Q8_RAW_CE_MATCHED/run_config.json",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/results/Q13-E006/Q8_RAW_CE_MATCHED/run_config.json",
+      "bytes": 2919,
+      "sha256": "bb026b7ee5576f70361c4c515a360c2ff95d738d87e6f4e61ce1858707f50650"
+    },
+    {
+      "relative_path": "results/Q13-E006/Q8_RAW_CE_MATCHED/per_subject_metrics.csv",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/results/Q13-E006/Q8_RAW_CE_MATCHED/per_subject_metrics.csv",
+      "bytes": 14335,
+      "sha256": "bada29064aedb0febc6683b91b8dd0875fc28f6cc59958983eacd45db5387cc4"
+    },
+    {
+      "relative_path": "results/Q13-E006/Q8_RAW_CE_MATCHED/predictions.csv",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/results/Q13-E006/Q8_RAW_CE_MATCHED/predictions.csv",
+      "bytes": 2545420,
+      "sha256": "b55a5be08eed454927cc2240881277fc1b57ebfc292f6c69bea866273612b51a"
+    },
+    {
+      "relative_path": "results/Q13-E006/validation_report.json",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/results/Q13-E006/validation_report.json",
+      "bytes": 653,
+      "sha256": "ef60b412b8724dd51d648c8bc51e8f74ad5ace470bca93c0f2327ac959dd1ddd"
+    },
+    {
+      "relative_path": "results/Q13-E006/postrun_statistics/paired_contrasts.csv",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/results/Q13-E006/postrun_statistics/paired_contrasts.csv",
+      "bytes": 3137,
+      "sha256": "81ef4b4236c08f1bf597cc3001bda9d0877d6cdbfcc5daf74698226bc20d0239"
+    },
+    {
+      "relative_path": "results/Q13-E006/postrun_statistics/analysis_receipt.json",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/results/Q13-E006/postrun_statistics/analysis_receipt.json",
+      "bytes": 2541,
+      "sha256": "3de267c14693dc4253773321bf4818640026717c739679904380150a62f3f8c6"
+    },
+    {
+      "relative_path": "results/Q13-RELEASE/publish_status.json",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/results/Q13-RELEASE/publish_status.json",
+      "bytes": 719,
+      "sha256": "41349221e560304876a050c2def6ac1f49f14523cdce9cf46a2b4472e279afe9"
+    },
+    {
+      "relative_path": "research_runs/Q14-E001/PROTOCOL.md",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/research_runs/Q14-E001/PROTOCOL.md",
+      "bytes": 5993,
+      "sha256": "3f38f209b3b3defa98adcf8a2a7012eb951f2b4ef9181244594ad8af8b998ecd"
+    },
+    {
+      "relative_path": "research_runs/Q14-E001/CONFIG.json",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/research_runs/Q14-E001/CONFIG.json",
+      "bytes": 2002,
+      "sha256": "21428bd8344f1fb8750e7f794f60a17588d63baa8c756db324c0df1c2c474ff2"
+    },
+    {
+      "relative_path": "research_runs/Q14-E002R2/PROTOCOL.md",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/research_runs/Q14-E002R2/PROTOCOL.md",
+      "bytes": 4052,
+      "sha256": "007c0f7d85bbf76cbc9876781be184ad4231f0ebdda50aaecaa97787c97e4152"
+    },
+    {
+      "relative_path": "research_runs/Q14-E002R2/VALIDATOR_ERRATUM_20260926.md",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/research_runs/Q14-E002R2/VALIDATOR_ERRATUM_20260926.md",
+      "bytes": 4692,
+      "sha256": "86bbfa22aaae2282ecae3934ca5488b114d6217c8be70ec1b5e2363e58220d46"
+    },
+    {
+      "relative_path": "research_runs/Q14-E002R2/VALIDATION_PORTABILITY_AMENDMENT_20260926.md",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/research_runs/Q14-E002R2/VALIDATION_PORTABILITY_AMENDMENT_20260926.md",
+      "bytes": 3501,
+      "sha256": "69ee6a73c069670f02ebb7b28ae050a3e897cb65a0801be44149f4b00b277e6c"
+    },
+    {
+      "relative_path": "results/Q14-E001/validation_report.json",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/validation_report.json",
+      "bytes": 824,
+      "sha256": "f96296e2dec3bb45f1eddca2deb0fa4b200f2ab3066f60e4e646232b6e414d53"
+    },
+    {
+      "relative_path": "results/Q14-E001/subject_seed_metrics.csv",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/results/Q14-E001/subject_seed_metrics.csv",
+      "bytes": 8343,
+      "sha256": "b756700f8e22f7dcb760c8f9ee7a4e0fa7f42d9f93c237d29ab728a66d4a7de5"
+    },
+    {
+      "relative_path": "results/Q14-E002/source/validation_report.json",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/results/Q14-E002/source/validation_report.json",
+      "bytes": 720,
+      "sha256": "428b45b5be19ffd69ba4e1aa2d746db20466bb8fcbd213e25ffd5764a781fd9d"
+    },
+    {
+      "relative_path": "results/Q14-E002/freeze_receipt.json",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/results/Q14-E002/freeze_receipt.json",
+      "bytes": 2465,
+      "sha256": "829eb1d100781c091c4fbfb36bbc230eb3b54f9d45b3140cf3b3ed32b5008b9e"
+    },
+    {
+      "relative_path": "results/Q14-E002R2/external/completion_receipt.json",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/results/Q14-E002R2/external/completion_receipt.json",
+      "bytes": 877,
+      "sha256": "b3199f751049b10a1a8b6751cbbab9d4722b4b91602e119c02ec2decdf4fd7b2"
+    },
+    {
+      "relative_path": "results/Q14-E002R2/external/predictions.csv",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/results/Q14-E002R2/external/predictions.csv",
+      "bytes": 3709776,
+      "sha256": "fde382e9e637445ba276449224d65dbdea40ea31c209b35ec8c3075035f52e6e"
+    },
+    {
+      "relative_path": "results/Q14-E002R2V1/validation_report.json",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/results/Q14-E002R2V1/validation_report.json",
+      "bytes": 6176,
+      "sha256": "1ed3959b303c06672257963ef177f8c7ef619bcac01e4a263cfd587e7d9b5320"
+    },
+    {
+      "relative_path": "results/Q14-E002R2V1/external/subject_metrics.csv",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/results/Q14-E002R2V1/external/subject_metrics.csv",
+      "bytes": 10856,
+      "sha256": "2199c89b591d7f0c87fbb02ed3fd8146e7f27c174ccd6c6bd2399db487ce5e54"
+    },
+    {
+      "relative_path": "results/Q14-E002R2V1/external/subject_seed_metrics.csv",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/results/Q14-E002R2V1/external/subject_seed_metrics.csv",
+      "bytes": 56589,
+      "sha256": "4bbd74158d8780dfa06f03fcfd60afa871e2da97244e31c60eab6ce7ee568b8b"
+    },
+    {
+      "relative_path": "results/Q14-E002R2V1/external/subject_primary_contrast.csv",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/results/Q14-E002R2V1/external/subject_primary_contrast.csv",
+      "bytes": 8922,
+      "sha256": "23c03eef128b79c2f5c853aadb1e743dc8846fe692aa6d3578980481f79cb4e0"
+    },
+    {
+      "relative_path": "results/Q14-R2PORT/completion_receipt.json",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/results/Q14-R2PORT/completion_receipt.json",
+      "bytes": 172,
+      "sha256": "84696c87baf1aed8b53759144ecb5d996a90f0ba62a8f0ab4478c89e13bb1be7"
+    },
+    {
+      "relative_path": "results/Q14-R2PORT/publish_status.json",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/results/Q14-R2PORT/publish_status.json",
+      "bytes": 610,
+      "sha256": "62740352705c51c0944797f4c8ba2767aee262f46ec965fa60169d77aab74a66"
+    },
+    {
+      "relative_path": "scripts/q14_validate.py",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/scripts/q14_validate.py",
+      "bytes": 30861,
+      "sha256": "0820bec8264456d23021a79a59dd218e88e23c116b5e5363c8969aa2428aa83c"
+    },
+    {
+      "relative_path": "scripts/q14_r2_validate.py",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/scripts/q14_r2_validate.py",
+      "bytes": 22348,
+      "sha256": "7c3deebc223fd1b248bf408ac829974637bad1d0671064cee612195d29c83d2e"
+    },
+    {
+      "relative_path": "scripts/validate_q13.py",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/scripts/validate_q13.py",
+      "bytes": 21609,
+      "sha256": "1fb32f3e77393f212c189c518f32388777632954e363eb5b99750184081a7a08"
+    },
+    {
+      "relative_path": "scripts/validate_q13_e006.py",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/scripts/validate_q13_e006.py",
+      "bytes": 5926,
+      "sha256": "f39f38ab87b45073333181f03dd3044b794c140625758ebc3d5cf852bc8fe951"
+    },
+    {
+      "relative_path": "scripts/q13_e006_postrun_stats.py",
+      "absolute_path": "/workspace/cross-subject-mi-eeg/scripts/q13_e006_postrun_stats.py",
+      "bytes": 25429,
+      "sha256": "4c3276921be3173e96c3c86ea8090ded00e32a5db14e67bb1e2d828b615d17f6"
+    }
+  ]
+}
