@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "kind": "q15_manual_stop_release_validation",
+  "checked_at_utc": "2026-10-05T05:34:58.696108+00:00",
+  "mode": "from-r2 --manual-stop",
+  "runpod_api_key_required": false,
+  "runpod_api_requests_in_manual_mode": false,
+  "automatic_shutdown_enabled": false,
+  "manual_stop_required": true,
+  "verification": {
+    "migration_tests_passed": 359,
+    "unchanged_full_job_tests_passed": 25,
+    "total_tests_passed": 384,
+    "launcher_tests_passed": 45,
+    "supervisor_tests_passed": 61,
+    "restoration_tests_passed": 59,
+    "continuation_tests_passed": 113,
+    "ruff_passed": true,
+    "bash_syntax_passed": true,
+    "test_inputs": "synthetic data, fake APIs/scientific functions and real Bash/PTY with isolated fake tools",
+    "missing_or_inherited_runpod_key_paths_tested": true,
+    "success_scientific_failure_and_backup_failure_zero_runpod_calls_tested": true,
+    "github_access_and_publication_readback_retained": true,
+    "raw_hashes_and_scientific_audit_freeze_gates_retained": true,
+    "manual_runtime_code_distribution_cuda_and_zero_architecture_probes_tested": true
+  },
+  "source_bindings": {
+    "scientific_revision": "271af288a2f3863430ab80e3145c2dee9bd5571d",
+    "immutable_baseline": "782d2d0070a50c37d13c8e9f1cab3b3b81bac4fc",
+    "scientific_runner_unchanged": true,
+    "original_source_fits_reused": 15,
+    "new_source_fits": 0,
+    "target_fits": 0
+  },
+  "manual_mode_capacity_policy": {
+    "disk_capacity_gb": null,
+    "workspace_purchased_quota_verified": false,
+    "method": "filesystem_available_bytes_purchased_quota_unverified",
+    "download_headroom_bytes": 26843545600,
+    "shared_filesystem_free_bytes_not_purchased_quota": true,
+    "remaining_download_bytes_used_for_resume": true
+  },
+  "scope_limits": {
+    "live_destination_api_or_credentials_checked_here": false,
+    "new_pod_started_or_restarted_here": false,
+    "real_r2_raw_download_performed_here": false,
+    "real_scientific_fits_started_here": 0,
+    "real_scientific_prediction_performed_here": false,
+    "pod_stop_requested_here": false,
+    "credentials_printed_or_committed": false
+  }
+}
